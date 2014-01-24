@@ -1,0 +1,1585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<serialized version="15.1" xml:space="preserve">
+	<map>
+		<entry>
+			<String>document.types</String>
+			<documentTypeDescriptor-array>
+				<documentTypeDescriptor>
+					<field name="name">
+						<String>EMST</String>
+					</field>
+					<field name="schemaDescriptor">
+						<docTypeSchema>
+							<field name="type">
+								<Integer>4</Integer>
+							</field>
+							<field name="uri">
+								<String>${framework}/schema/tei_all.rng</String>
+							</field>
+						</docTypeSchema>
+					</field>
+					<field name="classpath">
+						<String-array>
+							<String>${framework}/i18n/</String>
+							<String>file:/opt/oxygen/emst/out/production/emst/</String>
+							<String>${framework}/emst.jar</String>
+						</String-array>
+					</field>
+					<field name="parentClassLoaderID">
+						<null/>
+					</field>
+					<field name="authorExtensionDescriptor">
+						<authorExtension>
+							<field name="cssDescriptors">
+								<cssFile-array>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/emst.css</String>
+										</field>
+										<field name="title">
+											<String>EMST CSS for Oxygen</String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/tei_oxygen.css</String>
+										</field>
+										<field name="title">
+											<String>TEI CSS for Oxygen</String>
+										</field>
+										<field name="alternate">
+											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
+								</cssFile-array>
+							</field>
+							<field name="mergeCSSsFromDocument">
+								<Boolean>false</Boolean>
+							</field>
+							<field name="actionDescriptors">
+								<action-array>
+									<action>
+										<field name="id">
+											<String>bold</String>
+										</field>
+										<field name="name">
+											<String>${i18n(bold)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(bold_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Bold20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Bold16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String>B</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 B</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="bold"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>underline</String>
+										</field>
+										<field name="name">
+											<String>${i18n(underline)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(underline_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Underline20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Underline16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String>U</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 U</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="underline"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>italic</String>
+										</field>
+										<field name="name">
+											<String>${i18n(italic)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(italic_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Italic20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Italic16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String>I</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 I</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="italic"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>paragraph</String>
+										</field>
+										<field name="name">
+											<String>${i18n(paragraph)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(paragraph_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Paragraph20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Paragraph16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 P</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:p[namespace-uri() = "http://www.tei-c.org/ns/1.0"]</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;p xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>ancestor-or-self::*:p[namespace-uri() = "http://www.tei-c.org/ns/1.0"][1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;p xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>launch.media</String>
+										</field>
+										<field name="name">
+											<String>${i18n(launch.media)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(launch.media_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Image20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Image16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::graphic or self::media</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>resourcePath</String>
+																<String>concat(parent::*/@xml:base, @url)</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.OpenInSystemAppOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>long.s</String>
+										</field>
+										<field name="name">
+											<String>${i18n(long.s)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(long.s_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/long_s-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/long_s-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift S</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>text</String>
+																<String>ſ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>expansion</String>
+										</field>
+										<field name="name">
+											<String>${i18n(expansion)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(expansion_description)}	</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/expansion-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/expansion-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>e</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 E</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;expan xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>head</String>
+										</field>
+										<field name="name">
+											<String>${i18n(head)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(head_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Heading20.gif</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Heading16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('body', 'div', 'front', 'back')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;head xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>abbreviation</String>
+										</field>
+										<field name="name">
+											<String>${i18n(abbreviation)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(abbreviation_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/abbreviation-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/abbreviation-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 A</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;abbr xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>launch.media.by.ref</String>
+										</field>
+										<field name="name">
+											<String>${i18n(launch.media.by.ref)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(launch.media.by.ref_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>/images/Image20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>/images/Image16.gif</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>exists(self::*/@facs)</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>resourcePath</String>
+																<String>concat(id(substring-after(@facs, '#'))/parent::*/@xml:base, id(substring-after(@facs, '#'))/@url)</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.OpenInSystemAppOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>thorn</String>
+										</field>
+										<field name="name">
+											<String>${i18n(thorn)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(thorn_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/thorn-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/thorn-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 T</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>þ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>thorn.capital</String>
+										</field>
+										<field name="name">
+											<String>${i18n(thorn.capital)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(thorn.capital_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/thorn_capital-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/thorn_capital-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M3 M2 T</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>Þ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>forme.work</String>
+										</field>
+										<field name="name">
+											<String>${i18n(forme.work)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(forme.work_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/forme_work-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/forme_work-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('front', 'body', 'div', 'back')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('type', combobox, ('header':'header'; 'footer':'footer'; 'pageNum':'pageNum'; 'lineNum':'lineNum'; 'sig':'sig'; 'catch':'catch';), 'header')}" place="${ask('place?', combobox, ('top-right':'top-right'; 'top-left':'top-left'; 'bottom-right':'bottom-right'; 'bottom-left':'bottom-left'; 'margin-right':'margin-right'; 'margin-left':'margin-left';), 'top-right')}"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>addition</String>
+										</field>
+										<field name="name">
+											<String>${i18n(addition)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(addition_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/addition-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/addition-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 A</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;add xmlns="http://www.tei-c.org/ns/1.0" place="${ask('place', combobox, ('above':'above'; 'below':'below'; 'bottom':'bottom'; 'end':'end'; 'inline':'inline'; 'inspace':'inspace'; 'margin':'margin'; 'opposite':'opposite'; 'overleaf':'overleaf'; 'top':'top';), 'above')}"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>deletion</String>
+										</field>
+										<field name="name">
+											<String>${i18n(deletion)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(deletion_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/deletion-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/deletion-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 D</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;del xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>gap</String>
+										</field>
+										<field name="name">
+											<String>${i18n(gap)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(gap_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/gap-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/gap-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 G</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('reason?', combobox, ('rubbing':'rubbing'; 'hand':'hand'; 'overwriting':'overwriting'; 'damage':'damage';), 'damage')}"/></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>unclear</String>
+										</field>
+										<field name="name">
+											<String>${i18n(unclear)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(unclear_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/unclear-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/unclear-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 U</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('reason?', combobox, ('rubbing':'rubbing'; 'hand':'hand'; 'overwriting':'overwriting'; 'damage':'damage';), 'damage')}"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>punctuation</String>
+										</field>
+										<field name="name">
+											<String>${i18n(punctuation)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(punctuation_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/punctuation-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/punctuation-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 P</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;pc xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>foreign</String>
+										</field>
+										<field name="name">
+											<String>${i18n(foreign)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(foreign_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/foreign-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/foreign-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 F</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('language code?', generic, 'la')}"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>note</String>
+										</field>
+										<field name="name">
+											<String>${i18n(note)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(note_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/note-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/note-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M3 N</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" type="${ask('type?', combobox, ('author':'author'; 'other':'other';), 'author')}"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>edit.contextual.info</String>
+										</field>
+										<field name="name">
+											<String>${i18n(edit.contextual.info)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(edit.contextual.info_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/document-edit-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/document-edit-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>self::persName or self::handNote or self::placeName</String>
+													</field>
+													<field name="argValues">
+														<map/>
+													</field>
+													<field name="operationID">
+														<String>eu.emergingstandards.contextual_info.EMSTOpenContextualInfoOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>subscript</String>
+										</field>
+										<field name="name">
+											<String>${i18n(subscript)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(subscript_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/subscript-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/subscript-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>B</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="subscript"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>superscript</String>
+										</field>
+										<field name="name">
+											<String>${i18n(superscript)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(superscript_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/superscript-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/superscript-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>B</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String></String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="superscript"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>salute.inline</String>
+										</field>
+										<field name="name">
+											<String>${i18n(salute.inline)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(salute.inline_description)}.in</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/salute-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/salute-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>B</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:opener</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;salute xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;seg xmlns="http://www.tei-c.org/ns/1.0" function="salute"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+								</action-array>
+							</field>
+							<field name="menubarDescriptor">
+								<menu>
+									<field name="label">
+										<String>EMST</String>
+									</field>
+									<field name="accessKey">
+										<String>S</String>
+									</field>
+									<field name="iconPath">
+										<String></String>
+									</field>
+									<field name="menuEntriesDescriptorList">
+										<menuEntry-array>
+											<menuItem>
+												<field name="actionID">
+													<String>bold</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>italic</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>underline</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>superscript</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>subscript</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>abbreviation</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>expansion</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>punctuation</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>foreign</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>note</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>addition</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>deletion</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>gap</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>unclear</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>salute.inline</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>launch.media</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>edit.contextual.info</String>
+												</field>
+											</menuItem>
+										</menuEntry-array>
+									</field>
+								</menu>
+							</field>
+							<field name="popupMenuDescriptor">
+								<menu>
+									<field name="label">
+										<String>Contextual menu</String>
+									</field>
+									<field name="accessKey">
+										<null/>
+									</field>
+									<field name="iconPath">
+										<null/>
+									</field>
+									<field name="menuEntriesDescriptorList">
+										<menuEntry-array>
+											<menuItem>
+												<field name="actionID">
+													<String>launch.media.by.ref</String>
+												</field>
+											</menuItem>
+										</menuEntry-array>
+									</field>
+								</menu>
+							</field>
+							<field name="toolbarDescriptor">
+								<toolbar>
+									<field name="id">
+										<String>EMST</String>
+									</field>
+									<field name="type">
+										<Integer>2</Integer>
+									</field>
+									<field name="largeIconPath">
+										<null/>
+									</field>
+									<field name="smallIconPath">
+										<null/>
+									</field>
+									<field name="toolbarEntriesDescriptorList">
+										<toolbarEntry-array>
+											<toolbarItem>
+												<field name="actionID">
+													<String>bold</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>italic</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>underline</String>
+												</field>
+											</toolbarItem>
+											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>superscript</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>subscript</String>
+												</field>
+											</toolbarItem>
+											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>abbreviation</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>expansion</String>
+												</field>
+											</toolbarItem>
+											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>punctuation</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>foreign</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>note</String>
+												</field>
+											</toolbarItem>
+											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>addition</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>deletion</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>gap</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>unclear</String>
+												</field>
+											</toolbarItem>
+											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>paragraph</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>head</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>forme.work</String>
+												</field>
+											</toolbarItem>
+											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>salute.inline</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>launch.media</String>
+												</field>
+											</toolbarItem>
+											<toolbarItem>
+												<field name="actionID">
+													<String>edit.contextual.info</String>
+												</field>
+											</toolbarItem>
+										</toolbarEntry-array>
+									</field>
+								</toolbar>
+							</field>
+							<field name="additionalToolbarsDescriptors">
+								<toolbar-array>
+									<toolbar>
+										<field name="id">
+											<String>Characters</String>
+										</field>
+										<field name="type">
+											<Integer>2</Integer>
+										</field>
+										<field name="largeIconPath">
+											<null/>
+										</field>
+										<field name="smallIconPath">
+											<null/>
+										</field>
+										<field name="toolbarEntriesDescriptorList">
+											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>long.s</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>thorn</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>thorn.capital</String>
+													</field>
+												</toolbarItem>
+											</toolbarEntry-array>
+										</field>
+									</toolbar>
+								</toolbar-array>
+							</field>
+							<field name="contextualItems">
+								<contextProvider>
+									<field name="items">
+										<contextItem-array/>
+									</field>
+									<field name="removeItems">
+										<null/>
+									</field>
+								</contextProvider>
+							</field>
+							<field name="tableSupportClassName">
+								<null/>
+							</field>
+							<field name="tableColWidthSupportClassName">
+								<null/>
+							</field>
+							<field name="customReferencesResolver">
+								<null/>
+							</field>
+							<field name="authorExtensionStateListener">
+								<null/>
+							</field>
+							<field name="attributesRecognizer">
+								<null/>
+							</field>
+						</authorExtension>
+					</field>
+					<field name="templatesLocations">
+						<String-array>
+							<String>${frameworkDir}/templates</String>
+						</String-array>
+					</field>
+					<field name="xmlCatalogs">
+						<String-array>
+							<String>${framework}/catalog.xml</String>
+						</String-array>
+					</field>
+					<field name="description">
+						<String>Emerging Standards Project</String>
+					</field>
+					<field name="doctypeRules">
+						<documentTypeRule-array>
+							<documentTypeRule>
+								<field name="namespace">
+									<String>http://www.tei-c.org/ns/1.0</String>
+								</field>
+								<field name="rootElem">
+									<String>*</String>
+								</field>
+								<field name="fileName">
+									<String>*</String>
+								</field>
+								<field name="publicID">
+									<String>*</String>
+								</field>
+								<field name="javaRuleClass">
+									<String></String>
+								</field>
+								<field name="attributeLocalName">
+									<String>*</String>
+								</field>
+								<field name="attributeNamespace">
+									<String>*</String>
+								</field>
+								<field name="attributeValue">
+									<String>*</String>
+								</field>
+							</documentTypeRule>
+						</documentTypeRule-array>
+					</field>
+					<field name="scenarios">
+						<scenario-array/>
+					</field>
+					<field name="validationScenarios">
+						<validationScenario-array/>
+					</field>
+					<field name="defaultValidationScenarios">
+						<null/>
+					</field>
+					<field name="defaultTransformationScenarios">
+						<null/>
+					</field>
+					<field name="extensionsBundleClassName">
+						<null/>
+					</field>
+					<field name="useImposedInitialPage">
+						<Boolean>true</Boolean>
+					</field>
+					<field name="imposedInitialPage">
+						<String>Author</String>
+					</field>
+					<field name="elementLocatorExtension">
+						<null/>
+					</field>
+					<field name="schemaManagerFilterExtension">
+						<null/>
+					</field>
+					<field name="authorSWTDndExtension">
+						<null/>
+					</field>
+					<field name="textSWTDndExtension">
+						<null/>
+					</field>
+					<field name="authorSwingDndExtension">
+						<null/>
+					</field>
+					<field name="cssStylesFilterExtension">
+						<String>eu.emergingstandards.extensions.EMSTStylesFilter</String>
+					</field>
+					<field name="attributesValueEditor">
+						<null/>
+					</field>
+					<field name="priority">
+						<Integer>4</Integer>
+					</field>
+					<field name="xmlNodeCustomizerExtension">
+						<null/>
+					</field>
+					<field name="externalObjectInsertionHandler">
+						<null/>
+					</field>
+					<field name="customAttributeValueEditor">
+						<null/>
+					</field>
+				</documentTypeDescriptor>
+			</documentTypeDescriptor-array>
+		</entry>
+	</map>
+</serialized>

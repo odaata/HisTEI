@@ -1,0 +1,273 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="emst" default="all">
+  
+  
+  <property file="build.properties"/>
+  <!-- Uncomment the following property if no tests compilation is needed -->
+  <!-- 
+  <property name="skip.tests" value="true"/>
+   -->
+  
+  <!-- Compiler options -->
+  
+  <property name="compiler.debug" value="on"/>
+  <property name="compiler.generate.no.warnings" value="off"/>
+  <property name="compiler.args" value=""/>
+  <property name="compiler.max.memory" value="128m"/>
+  <patternset id="ignored.files">
+    <exclude name="**/CVS/**"/>
+    <exclude name="**/SCCS/**"/>
+    <exclude name="**/RCS/**"/>
+    <exclude name="**/rcs/**"/>
+    <exclude name="**/.DS_Store/**"/>
+    <exclude name="**/.svn/**"/>
+    <exclude name="**/.pyc/**"/>
+    <exclude name="**/.pyo/**"/>
+    <exclude name="**/*.pyc/**"/>
+    <exclude name="**/*.pyo/**"/>
+    <exclude name="**/.git/**"/>
+    <exclude name="**/*.hprof/**"/>
+    <exclude name="**/_svn/**"/>
+    <exclude name="**/.hg/**"/>
+    <exclude name="**/*.lib/**"/>
+    <exclude name="**/*~/**"/>
+    <exclude name="**/__pycache__/**"/>
+    <exclude name="**/.bundle/**"/>
+    <exclude name="**/*.rbc/**"/>
+  </patternset>
+  <patternset id="library.patterns">
+    <include name="*.zip"/>
+    <include name="*.apk"/>
+    <include name="*.war"/>
+    <include name="*.egg"/>
+    <include name="*.ear"/>
+    <include name="*.ane"/>
+    <include name="*.swc"/>
+    <include name="*.jar"/>
+  </patternset>
+  <patternset id="compiler.resources">
+    <exclude name="**/?*.java"/>
+    <exclude name="**/?*.form"/>
+    <exclude name="**/?*.class"/>
+    <exclude name="**/?*.groovy"/>
+    <exclude name="**/?*.scala"/>
+    <exclude name="**/?*.flex"/>
+    <exclude name="**/?*.kt"/>
+    <exclude name="**/?*.clj"/>
+  </patternset>
+  
+  <!-- JDK definitions -->
+  
+  <property name="jdk.bin.1.7_(1)" value="${jdk.home.1.7_(1)}/bin"/>
+  <path id="jdk.classpath.1.7_(1)">
+    <fileset dir="${jdk.home.1.7_(1)}">
+      <include name="jre/lib/deploy.jar"/>
+      <include name="jre/lib/jfr.jar"/>
+      <include name="jre/lib/charsets.jar"/>
+      <include name="jre/lib/rt.jar"/>
+      <include name="jre/lib/jsse.jar"/>
+      <include name="jre/lib/plugin.jar"/>
+      <include name="jre/lib/jce.jar"/>
+      <include name="jre/lib/management-agent.jar"/>
+      <include name="jre/lib/resources.jar"/>
+      <include name="jre/lib/javaws.jar"/>
+      <include name="jre/lib/jfxrt.jar"/>
+      <include name="jre/lib/ext/sunjce_provider.jar"/>
+      <include name="jre/lib/ext/dnsns.jar"/>
+      <include name="jre/lib/ext/zipfs.jar"/>
+      <include name="jre/lib/ext/sunec.jar"/>
+      <include name="jre/lib/ext/localedata.jar"/>
+      <include name="jre/lib/ext/sunpkcs11.jar"/>
+    </fileset>
+  </path>
+  
+  <property name="project.jdk.home" value="${jdk.home.1.7_(1)}"/>
+  <property name="project.jdk.bin" value="${jdk.bin.1.7_(1)}"/>
+  <property name="project.jdk.classpath" value="jdk.classpath.1.7_(1)"/>
+  
+  
+  <!-- Project Libraries -->
+  
+  <path id="library.annotations.classpath">
+    <pathelement location="${idea.home}/lib/annotations.jar"/>
+  </path>
+  
+  <path id="library.commons-lang3-3.1.classpath">
+    <pathelement location="${basedir}/lib/commons-lang3-3.1.jar"/>
+  </path>
+  
+  <path id="library.lib.classpath">
+    <fileset dir="${basedir}/../15.1/lib">
+      <patternset refid="library.patterns"/>
+    </fileset>
+  </path>
+  <!-- Register Custom Compiler Taskdefs -->
+  <property name="javac2.home" value="${idea.home}/lib"/>
+  <path id="javac2.classpath">
+    <pathelement location="${javac2.home}/javac2.jar"/>
+    <pathelement location="${javac2.home}/jdom.jar"/>
+    <pathelement location="${javac2.home}/asm4-all.jar"/>
+    <pathelement location="${javac2.home}/jgoodies-forms.jar"/>
+  </path>
+  <target name="register.custom.compilers">
+    <taskdef name="javac2" classname="com.intellij.ant.Javac2" classpathref="javac2.classpath"/>
+    <taskdef name="instrumentIdeaExtensions" classname="com.intellij.ant.InstrumentIdeaExtensions" classpathref="javac2.classpath"/>
+  </target>
+  
+  <!-- Modules -->
+  
+  
+  <!-- Module emst -->
+  
+  <dirname property="module.emst.basedir" file="${ant.file}"/>
+  
+  
+  <property name="module.jdk.home.emst" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.emst" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.emst" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.emst" value="${compiler.args}"/>
+  
+  <property name="emst.output.dir" value="${module.emst.basedir}/out/production/emst"/>
+  <property name="emst.testoutput.dir" value="${module.emst.basedir}/out/test/emst"/>
+  
+  <path id="emst.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="emst.module.production.classpath">
+    <path refid="${module.jdk.classpath.emst}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.annotations.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="emst.runtime.production.module.classpath">
+    <pathelement location="${emst.output.dir}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.annotations.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="emst.module.classpath">
+    <path refid="${module.jdk.classpath.emst}"/>
+    <pathelement location="${emst.output.dir}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.annotations.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  <path id="emst.runtime.module.classpath">
+    <pathelement location="${emst.testoutput.dir}"/>
+    <pathelement location="${emst.output.dir}"/>
+    <path refid="library.commons-lang3-3.1.classpath"/>
+    <path refid="library.annotations.classpath"/>
+    <path refid="library.lib.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.emst">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.emst">
+    <patternset refid="excluded.from.module.emst"/>
+  </patternset>
+  
+  <path id="emst.module.sourcepath">
+    <dirset dir="${module.emst.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.emst" depends="compile.module.emst.production,compile.module.emst.tests" description="Compile module emst"/>
+  
+  <target name="compile.module.emst.production" depends="register.custom.compilers" description="Compile module emst; production classes">
+    <mkdir dir="${emst.output.dir}"/>
+    <javac2 destdir="${emst.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.emst}/javac">
+      <compilerarg line="${compiler.args.emst}"/>
+      <bootclasspath refid="emst.module.bootclasspath"/>
+      <classpath refid="emst.module.production.classpath"/>
+      <src refid="emst.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.emst"/>
+    </javac2>
+    
+    <copy todir="${emst.output.dir}">
+      <fileset dir="${module.emst.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.emst.tests" depends="register.custom.compilers,compile.module.emst.production" description="compile module emst; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.emst" description="cleanup module">
+    <delete dir="${emst.output.dir}"/>
+    <delete dir="${emst.testoutput.dir}"/>
+  </target>
+  
+  <target name="init" description="Build initialization">
+    <!-- Perform any build initialization in this target -->
+  </target>
+  
+  <target name="clean" depends="clean.module.emst" description="cleanup all"/>
+  
+  <target name="build.modules" depends="init, clean, compile.module.emst" description="build all modules"/>
+  
+  <target name="init.artifacts">
+    <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
+    <property name="artifact.output.emst" value="${basedir}/frameworks/emst"/>
+    <property name="artifact.output.dist" value="${basedir}/dist"/>
+    <mkdir dir="${artifacts.temp.dir}"/>
+    <property name="temp.jar.path.emst.jar" value="${artifacts.temp.dir}/emst.jar"/>
+    <property name="temp.jar.path.emst-oxygen.zip" value="${artifacts.temp.dir}/emst-oxygen.zip"/>
+    <property name="temp.jar.path.amsterdam-oxygen.zip" value="${artifacts.temp.dir}/amsterdam-oxygen.zip"/>
+  </target>
+  
+  <target name="artifact.emst" depends="init.artifacts, compile.module.emst" description="Build &#39;emst&#39; artifact">
+    <property name="artifact.temp.output.emst" value="${artifacts.temp.dir}/emst"/>
+    <mkdir dir="${artifact.temp.output.emst}"/>
+    <jar destfile="${temp.jar.path.emst.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+      <zipfileset dir="${emst.output.dir}"/>
+      <zipfileset src="${basedir}/lib/commons-lang3-3.1.jar"/>
+    </jar>
+    <copy file="${temp.jar.path.emst.jar}" tofile="${artifact.temp.output.emst}/emst.jar"/>
+  </target>
+  
+  <target name="artifact.emst-oxygen" depends="init.artifacts, artifact.emst" description="Build emst-oxygen.zip">
+    <property name="artifact.temp.output.emst-oxygen" value="${artifacts.temp.dir}/emst_oxygen"/>
+    <mkdir dir="${artifact.temp.output.emst-oxygen}"/>
+    <zip destfile="${temp.jar.path.emst-oxygen.zip}" duplicate="preserve">
+      <zipfileset dir="${basedir}/frameworks/emst" prefix="emst"/>
+    </zip>
+    <copy file="${temp.jar.path.emst-oxygen.zip}" tofile="${artifact.temp.output.emst-oxygen}/emst-oxygen.zip"/>
+  </target>
+
+    <target name="artifact.amsterdam-oxygen" depends="init.artifacts, artifact.emst" description="Build amsterdam-oxygen.zip">
+        <property name="artifact.temp.output.amsterdam-oxygen" value="${artifacts.temp.dir}/amsterdam_oxygen"/>
+        <mkdir dir="${artifact.temp.output.amsterdam-oxygen}"/>
+        <zip destfile="${temp.jar.path.amsterdam-oxygen.zip}" duplicate="preserve">
+            <zipfileset dir="${basedir}/frameworks/amsterdam" prefix="amsterdam"/>
+        </zip>
+        <copy file="${temp.jar.path.amsterdam-oxygen.zip}" tofile="${artifact.temp.output.amsterdam-oxygen}/amsterdam-oxygen.zip"/>
+    </target>
+  
+  <target name="build.all.artifacts" depends="artifact.emst, artifact.emst-oxygen, artifact.amsterdam-oxygen" description="Build all artifacts">
+    <mkdir dir="${artifact.output.emst}"/>
+    <copy todir="${artifact.output.emst}">
+      <fileset dir="${artifact.temp.output.emst}"/>
+    </copy>
+    <mkdir dir="${artifact.output.dist}"/>
+    <copy todir="${artifact.output.dist}">
+      <fileset dir="${artifact.temp.output.emst-oxygen}"/>
+      <fileset dir="${artifact.temp.output.amsterdam-oxygen}"/>
+    </copy>
+
+    <!-- Delete temporary files -->
+    <delete dir="${artifacts.temp.dir}"/>
+  </target>
+  
+  <target name="all" depends="build.modules, build.all.artifacts" description="build all"/>
+</project>

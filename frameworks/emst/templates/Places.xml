@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-model href="http://cohd.info/amsterdam/schema/amsterdam_list_place.rng" type="application/xml" schematypens="http://relaxng.org/ns/structure/1.0"?>
+<?xml-model href="http://cohd.info/amsterdam/schema/amsterdam_list_place.rng" type="application/xml" schematypens="http://purl.oclc.org/dsdl/schematron"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>List of Places for the Golden Age Amsterdam project</title>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Mike Olson</authority>
+         </publicationStmt>
+         <sourceDesc>
+            <p>Born Digital.</p>
+         </sourceDesc>
+      </fileDesc>
+   </teiHeader>
+   <text>
+      <body>
+         <listPlace>
+            <listPlace type="country">
+               <place xml:id="place_90aadbdf-565f-4806-8bd4-fb94ab5fe1b5">
+                  <placeName>Ireland</placeName>
+               </place>
+            </listPlace>
+            <listPlace type="city">
+               <place xml:id="place_50b44122-e7ad-4469-8e71-ca7f5a030190">
+                  <placeName>Amsterdam</placeName>
+               </place>
+               <place xml:id="place_bfec3e0f-f3c8-4776-b74d-fe3c20ea22fd">
+                  <placeName>Antwerp</placeName>
+               </place>
+               <place xml:id="place_942985b7-8d96-44a1-930a-7dccb878f23c">
+                  <placeName>Atrecht</placeName>
+               </place>
+               <place xml:id="place_d1d4161b-41d1-4cfc-9030-6b3f8d2c5615">
+                  <placeName>Backershagen te Wassenaar</placeName>
+               </place>
+               <place xml:id="place_10529e3d-6bff-48c1-b780-99d4ef3c1da9">
+                  <placeName>Breda</placeName>
+               </place>
+               <place xml:id="place_108d5164-7cae-4332-a391-441483e42a44">
+                  <placeName>Breukelen</placeName>
+               </place>
+               <place xml:id="place_2c7d0ef3-0abc-4a83-a3a3-5106522080e6">
+                  <placeName>Cologne</placeName>
+               </place>
+               <place xml:id="place_4168302c-217d-484c-8ccb-b159a06a4bf4">
+                  <placeName>Delft</placeName>
+               </place>
+               <place xml:id="place_9ff15bfd-b58b-4c32-80de-b3f38312342a">
+                  <placeName>Den Haag</placeName>
+               </place>
+               <place xml:id="place_1064302f-843b-4452-90e5-3d620d63a792">
+                  <placeName>Dordrecht</placeName>
+               </place>
+               <place xml:id="place_39dd2050-8e9f-4a02-a3c5-23bf3671757a">
+                  <placeName>Emden</placeName>
+               </place>
+               <place xml:id="place_3d910abf-510c-4f11-9057-762b62590930">
+                  <placeName>Gouda</placeName>
+               </place>
+               <place xml:id="place_0f8fc4b3-7953-468c-9f0b-4f8e372a2ec5">
+                  <placeName>Leiden</placeName>
+               </place>
+               <place xml:id="place_9b9a400b-3bc7-41fe-9622-24dd528b1633">
+                  <placeName>Lier</placeName>
+               </place>
+               <place xml:id="place_b13704ea-00f8-4a2a-91b4-d7413672fa33">
+                  <placeName>Marseille</placeName>
+               </place>
+               <place xml:id="place_16128791-4ccb-4d4a-bda7-44ef3f7c1a14">
+                  <placeName>Middleburg</placeName>
+               </place>
+               <place xml:id="place_bf80827f-e722-483c-b10d-c363f7b5bee8">
+                  <placeName>Mijdrecht</placeName>
+               </place>
+               <place xml:id="place_621e280c-a46e-453e-bc99-226e4f29c3db">
+                  <placeName>Naples</placeName>
+               </place>
+               <place xml:id="place_ca28c636-92a8-4533-8aaa-772fafbab27c">
+                  <placeName>Nijmegen</placeName>
+               </place>
+               <place xml:id="place_80de10d7-a3a7-459a-bd8d-542aa8a9cb50">
+                  <placeName>Oirschot</placeName>
+               </place>
+               <place xml:id="place_0f035d5b-0e96-4d4b-a448-1160a97cd883">
+                  <placeName>Risór Sund</placeName>
+               </place>
+               <place xml:id="place_8c5013fb-349b-497f-a432-294058665c8e">
+                  <placeName>St. Omer</placeName>
+               </place>
+               <place xml:id="place_df48241a-947b-4c5b-8cf9-741d280f452c">
+                  <placeName>Utrecht</placeName>
+               </place>
+               <place xml:id="place_eb1b8abd-de72-411d-a625-d11aed0efe6d">
+                  <placeName>Voortwijck bij Breukelen</placeName>
+               </place>
+            </listPlace>
+         </listPlace>
+      </body>
+   </text>
+</TEI>

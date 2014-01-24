@@ -1,0 +1,717 @@
+/*-----------------------------------------------------------------------------------------------
+----- EMST framework customizations for Oxygen 
+-----   made to the TEI css available at 
+-----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
+-------------------------------------------------------------------------------------------------*/
+
+/*@import "tei.css";*/
+/*@import "links.css";*/
+
+TEI, TEI\.2 {
+    display:block;
+    padding:10px 20px 5px 5px;
+/*  Geneva - only (good-looking) font that supports OE chars (found so far)  */
+    font-family:Geneva;
+/*    font-family:helvetica, verdana, arial, sans-serif;*/
+}
+
+/* Global */
+
+/* Labels */
+*:before {
+    font-weight:bold;
+    padding-right:10px;
+}
+
+/* Fields */
+teiHeader *,
+opener *,
+person *,
+place *,
+org * {
+    display:block;
+    padding:1px;
+}
+
+/* Don't preserve whitespace */
+creation,
+opener,
+closer {
+    white-space:-oxy-trim-when-ws-only;
+}
+
+/* Sections */
+teiHeader:before,
+publicationStmt:before,
+notesStmt:before,
+sourceDesc:before,
+profileDesc:before,
+creation:before,
+textClass:before,
+textDesc:before,
+keywords:before,
+handNotes:before,
+person:before,
+person > persName:before,
+/*person > birth:before,
+person > death:before,*/
+place:before,
+org:before,
+div:before,
+opener:before,
+closer:before,
+postscript:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+}
+
+teiHeader,
+publicationStmt,
+notesStmt,
+sourceDesc,
+profileDesc,
+creation,
+textClass,
+textDesc,
+keywords,
+handNotes,
+person,
+place,
+org, 
+div,
+opener,
+closer,
+postscript {
+    display:block;
+    -oxy-foldable:true;
+/*    -oxy-folded:true;*/
+/*    -oxy-not-foldable-child: fileDesc;*/
+}
+
+/* TEI Header */
+teiHeader:before {
+    background-color:black;
+/*    color:white;*/
+    font-size:large;
+    content: "TEI Header";
+}
+
+teiHeader {
+/*    display:block;*/
+    border: solid black;
+    /*-oxy-foldable:true;
+    -oxy-folded:true;
+    -oxy-not-foldable-child: fileDesc;
+    -oxy-show-placeholder: always;*/
+}
+
+/* Collapsed Sections by Default */
+publicationStmt,
+notesStmt,
+/*sourceDesc,*/
+/*profileDesc,*/
+/*creation,*/
+textClass,
+textDesc,
+keywords,
+handNotes {
+    -oxy-folded:true;
+    -oxy-display-tags:none;
+}
+
+/* Section Label Contents */
+publicationStmt:before {
+    content: "Publication Statement";
+}
+
+notesStmt:before {
+    content: "Notes";
+}
+
+notesStmt > note {
+    border:none;
+}
+
+sourceDesc:before {
+    content: "Source Description";
+}
+
+profileDesc:before {
+    content: "Profile Description";
+}
+
+creation:before {
+    content: "Creation";
+}
+
+textClass:before {
+    content: "Text Classification";
+}
+
+textDesc:before {
+    content: "Text Description";
+}
+
+keywords:before {
+    content: "Keywords";
+}
+
+handNotes:before {
+    content: "Hand Notes";
+}
+
+/* Field Labels */
+title:before {
+    content: "Title:";
+}
+
+authority:before {
+    content: "Authority:";
+}
+
+publicationStmt idno:before {
+    content: "Internal ID:";
+}
+
+repository:before {
+    content: "Archive:";
+}
+
+collection:before {
+    content: "Collection:";
+}
+
+msIdentifier > idno:before {
+    content: "Archive ID:";
+}
+
+altIdentifier > idno:before {
+    content: "Alt. Identifier:";
+}
+
+teiHeader placeName:before {
+    content: "Place:  "
+        oxy_combobox(
+                edit, "@type"
+                values, "sender, addressee"
+                editable, true
+                fontInherit, true
+            );
+    ;
+}
+
+teiHeader date:before {
+    content: "Date:";
+}
+
+/* creation-related */
+
+creation > persName:before {
+    vertical-align:middle;
+    content: "Person:  " 
+        oxy_combobox(
+            edit, "@type"
+            values, "sender, addressee"
+            editable, true
+            fontInherit, true
+        );
+}
+
+creation > persName {
+    vertical-align:middle;
+    padding:5px 0px;
+}
+
+creation > date:before {
+    content: "Date:";
+}
+
+creation > date {
+    margin:2px 0px;
+    font-size:small;
+    border:1px solid grey;
+    visibility:-oxy-collapse-text;
+    content: "Type: "
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+            fontInherit, true
+            values, "sender, addressee"
+        )
+        "When: "
+        oxy_textfield(
+            edit, "@when"
+            columns, 9
+        )
+        " From: "
+        oxy_textfield(
+            edit, "@from"
+            columns, 9
+        )
+        " To: "
+        oxy_textfield(
+            edit, "@to"
+            columns, 9
+        )
+        "\A              Not Before: "
+        oxy_textfield(
+            edit, "@notBefore"
+            columns, 9
+        )
+        " Not After: "
+        oxy_textfield(
+            edit, "@notAfter"
+            columns, 9
+        )
+        " Certainty: "
+        oxy_combobox(
+            edit, "@cert"
+            editable, false
+            columns, 8
+        );
+}
+
+/* handNotes-related */
+
+teiHeader handNote:before {
+    content: "Hand:";
+}
+
+/* Layout */
+text {
+  display: block;
+}
+
+div,
+body > div {
+    margin-bottom:5px;
+}
+
+/*div > head {
+    padding-top:0.6em;
+    padding-bottom:0.2em;
+    padding-left:0.2em;
+    padding-right:0em;
+    background-color:inherit;
+    color:#004477;
+    border-bottom:1px solid #004477;
+}*/
+
+div:before {
+    display:block;
+    content: "Div  Type: "
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+            fontInherit, true
+        );
+}
+
+head {
+    display:block;
+    font-weight:bold;
+    padding-left:2px;
+    padding-bottom:5px;
+    margin-bottom:5px;
+    border-bottom:1px solid;
+}
+
+fw:before {
+    content: "FW:";
+}
+
+fw {
+    display:block;
+    padding:1px;
+    text-align:right;
+}
+
+opener:before{
+    content: "Opener";
+}
+
+opener {
+    margin-bottom:1em;
+}
+
+dateline:before {
+    content: "Dateline:";
+}
+
+dateline,
+dateline * {
+    display:inline;
+}
+
+closer:before {
+    content: "Closer";
+}
+
+closer {
+    margin-top:1em;
+}
+
+postscript:before {
+    content: "Postscript";
+}
+
+salute:before{
+    content: "Salute:";
+}
+
+signed:before {
+    content: "Signed:";
+}
+
+seg[function='salute']{
+    font-style:italic;
+}
+
+/* Inline elements for text */
+
+abbr {
+  display: inline;
+  font-weight:bold;
+}
+
+w {
+    background-color:transparent;
+    border-style:groove none;
+    border-width:1px 0px;
+    font-weight:bold;
+    font-size:small;
+    line-height:2;
+    content:
+        oxy_popup(
+            edit, "@ana"
+            fontInherit, true
+            values, oxy_xpath("string-join(for $id in //interpGrp[@type eq 'pos']/interp/@xml:id return concat('#', $id), ',')")
+            labels, oxy_xpath("string-join(//interpGrp[@type eq 'pos']/interp/text(), ',')")
+            selectionMode, single
+        );
+}
+
+quote {
+  display: block;
+  margin-left: 1em;
+}
+
+facsimile{
+    display: block;
+    -oxy-folded:true;
+    -oxy-foldable:true;
+    content: 
+        "Facsimiles: "
+        oxy_urlChooser(
+            edit, "@xml:base"
+            columns, oxy_xpath("max((min((round(string-length(@xml:base) * .9), 50)), 20))")
+            fontInherit, true
+        );
+}
+
+graphic,
+media{
+    display:list-item;
+    list-style-type:decimal;
+    white-space:nowrap;
+    margin-left:3em;
+}
+
+graphic{
+    content:
+        oxy_button(
+            actionID, "launch.media"
+            transparent, true
+            fontInherit, true
+        )
+        oxy_urlChooser(
+            edit, "@url"
+            columns, oxy_xpath("max((min((round(string-length(@url) * .9), 50)), 20))")
+            fontInherit, true
+        )
+    ;
+}
+
+
+media{
+    content:
+        oxy_button(
+            actionID, "launch.media"
+            transparent, true
+            fontInherit, true
+        )
+        oxy_urlChooser(
+            edit, "@url"
+            columns, oxy_xpath("max((min((round(string-length(@url) * .9), 40)), 20))")
+            fontInherit, true
+        )
+        "Type: "
+        oxy_popup(
+            edit, "@mimeType", 
+            fontInherit, true
+            values, "application/pdf, image/jpeg, application/xml"
+            labels, "pdf, jpeg, xml"
+            selectionMode, single
+        )
+    ;
+}
+
+hi[rend="bold"] {
+  font-weight:bold;
+}
+
+hi[rend="italic"] {
+  font-style:italic;
+}
+
+hi[rend="superscript"] {
+    font-size:small;
+    vertical-align:super;
+}
+
+hi[rend="subscript"] {
+    font-size:small;
+    vertical-align:sub;
+}
+
+hi[rend="underline"] {
+  text-decoration:underline;
+}
+
+/* Foldable elements */
+div, 
+p {
+    -oxy-foldable:true;
+    -oxy-not-foldable-child: head, opener;
+}
+
+text p{
+    white-space:nowrap;
+}
+
+p:before{
+    content: url('img/Paragraph16.gif');
+}
+
+p{
+    display:block;
+    padding:2px;
+    margin:2px;
+    margin-bottom: 10px;
+}
+
+p * {
+    display:inline;
+}
+
+/*text p lb{
+    font-family:courier, fixed, monospace;
+    font-size:x-small;
+    content:
+        oxy_xpath(
+            "if (((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) mod 5) eq 0) then concat('\A', substring(concat(count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1, '     '), 1,4)) else if ((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) eq 1) then '    ' else '\A     '"
+        )
+    ;
+}*/
+
+/* Page and Line Breaks */
+lb {
+    display:inline;
+    -oxy-display-tags:none;
+    content:"\A";
+}
+
+pb {
+    -oxy-display-tags:none;
+    display:block;
+    background-color:transparent;
+    border-style:groove none;
+    vertical-align:middle;
+    padding:5px;
+    margin:10px 0px;
+    border-width:1px 0px;
+    font-weight:bold;
+    font-size:small;
+    line-height:1.5;
+    counter-increment:pages;
+    content:
+        "Page " counter(pages) "       "
+        "Image(s): "
+        oxy_popup(
+            edit, "@facs"
+            fontInherit, true
+            values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
+            labels, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
+            selectionMode, multiple
+        )
+        oxy_button(
+            actionID, "launch.media.by.ref"
+            transparent, true
+        )
+        "     n: "
+        oxy_textfield(
+            edit, "@n"
+            columns, 5
+            fontInherit, true
+            tooltips, "Any page number provided by the source"
+        )
+    ;
+}
+
+add {
+  color: green;
+  background-color: inherit;
+  text-decoration: underline;
+  font-size:small;
+  vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
+}
+
+del {
+  color: red;
+  background-color: inherit;
+  text-decoration: line-through;
+}
+
+expan {
+    font-style:italic;
+}
+
+gap {
+    color:blue;
+    content: "[...]";
+    font-style: italic;
+}
+
+unclear {
+  color: maroon;
+  font-style: italic;
+}
+
+foreign {
+    font-style:italic;
+}
+
+note:before {
+    font-size:smaller;
+    padding-right:5px;
+    font-weight:bold;
+    content: "Note:";
+}
+
+note {
+    border: 1px solid maroon;
+    font-size: smaller;
+}
+
+/* Contextual Information Lists */
+
+listPlace *,
+listPerson *,
+listOrg * {
+    display:block;
+}
+
+person:before {
+    content: "Person "
+        "ID: "
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 15
+            fontInherit, true
+        );
+}
+
+person > persName:before {
+    content: "Name";
+}
+
+/*person > birth:before {
+    content: "Birth:";
+}
+
+person > death:before {
+    content: "Death:";
+}*/
+
+person > birth {
+    margin:2px 0px;
+    font-size:small;
+    border:1px solid grey;
+    visibility:-oxy-collapse-text;
+    content: "When: "
+        oxy_textfield(
+            edit, "@when"
+            columns, 9
+        )
+        " From: "
+        oxy_textfield(
+            edit, "@from"
+            columns, 9
+        )
+        " To: "
+        oxy_textfield(
+            edit, "@to"
+            columns, 9
+        )
+        "\A              Not Before: "
+        oxy_textfield(
+            edit, "@notBefore"
+            columns, 9
+        )
+        " Not After: "
+        oxy_textfield(
+            edit, "@notAfter"
+            columns, 9
+        )
+        " Certainty: "
+        oxy_combobox(
+            edit, "@cert"
+            editable, false
+            columns, 8
+        );
+}
+
+person > persName > roleName:before {
+    content: "Role:";
+}
+
+person > persName > foreName:before {
+    content: "First:";
+}
+
+person > persName > nameLink:before {
+    content: "Link:";
+}
+
+person > persName > surname:before {
+    content: "Last:";
+}
+
+person > sex:before {
+    content: "Sex:"
+        oxy_combobox(
+            edit, "@value"
+            editable, false
+            fontInherit, true
+            values, "1, 2, 0"
+            labels, "male, female, unknown"
+        );
+}
+
+place:before {
+    content: "Place "
+        "ID: "
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 15
+            fontInherit, true
+        );
+}
+
+place > placeName:before {
+    content: "Place Name:";
+}

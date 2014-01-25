@@ -295,6 +295,11 @@ public class EMSTContextualInfo {
     }
 
     @NotNull
+    public String getEditPropertyQualified(AuthorNode authorNode) {
+        return getRefAttributeName(authorNode);
+    }
+
+    @NotNull
     public String getOxygenValues() {
         String oxygenValues = "";
 

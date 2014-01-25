@@ -26,7 +26,9 @@ public class EMSTStylesFilter implements StylesFilter {
         if (contextualInfo != null) {
             Map<String, Object> comboboxArgs = new HashMap<>();
             comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
-            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT, contextualInfo.getEditProperty(authorNode));
+//            PROPERTY_EDIT is deprecated
+//            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT, contextualInfo.getEditProperty(authorNode));
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT_QUALIFIED, contextualInfo.getEditPropertyQualified(authorNode));
             comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_VALUES, contextualInfo.getOxygenValues());
             comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_LABELS, contextualInfo.getOxygenLabels());
             comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDITABLE, "false");

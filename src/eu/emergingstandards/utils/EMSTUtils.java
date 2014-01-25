@@ -13,7 +13,9 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by mike on 1/13/14.
@@ -21,6 +23,13 @@ import java.util.List;
 public class EMSTUtils {
 
     public static String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
+    public static String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
+    public static Map<String, String> NAMESPACES = new HashMap<>(2);
+
+    static {
+        NAMESPACES.put("tei", TEI_NAMESPACE);
+        NAMESPACES.put("xml", XML_NAMESPACE);
+    }
 
     @NotNull
     public static String escapeComma(String value) {

@@ -2,7 +2,10 @@ package eu.emergingstandards.utils;
 
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import ro.sync.ecss.dom.wrappers.AuthorElementDomWrapper;
 import ro.sync.ecss.extensions.api.AuthorAccess;
+import ro.sync.ecss.extensions.api.AuthorOperationException;
+import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.exml.workspace.api.PluginWorkspace;
 import ro.sync.exml.workspace.api.PluginWorkspaceProvider;
 import ro.sync.exml.workspace.api.editor.WSEditor;
@@ -72,6 +75,28 @@ public class EMSTUtils {
             access = page.getAuthorAccess();
         }
         return access;
+    }
+
+    @Nullable
+    public static Object[] evaluateXPath(String xpath, AuthorAccess authorAccess) {
+        Object[] results = null;
+        try {
+            results = authorAccess.getDocumentController().evaluateXPath(xpath, false, false, false, false);
+        } catch (AuthorOperationException e) {
+//            e.printStackTrace();
+        }
+        return results;
+    }
+
+    @Nullable
+    public static AuthorNode getCurrentAuthorNode(AuthorAccess authorAccess) {
+        AuthorNode currentNode = null;
+
+        Object[] xpathResults = evaluateXPath(".", authorAccess);
+        if (xpathResults.length > 0) {
+            currentNode = ((AuthorElementDomWrapper) xpathResults[0]).getWrappedAuthorNode();
+        }
+        return currentNode;
     }
 
     @Nullable

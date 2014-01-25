@@ -264,6 +264,11 @@ public class EMSTContextualInfo {
 
     @Nullable
     public URL getURL(AuthorNode authorNode) {
+        return getURL(authorNode, false);
+    }
+
+    @Nullable
+    public URL getURL(AuthorNode authorNode, boolean appendID) {
         if (authorNode == null) return null;
 
         URL url = null;
@@ -273,9 +278,11 @@ public class EMSTContextualInfo {
             try {
                 url = srcPath.toUri().toURL();
 
-                String id = getID(authorNode);
-                if (! id.isEmpty())
-                    url = new URL(srcPath.toUri().toURL(), "#" + id);
+                if (appendID) {
+                    String id = getID(authorNode);
+                    if (!id.isEmpty())
+                        url = new URL(srcPath.toUri().toURL(), "#" + id);
+                }
 
             } catch (MalformedURLException e) {
                 logger.error(e, e);
@@ -285,6 +292,7 @@ public class EMSTContextualInfo {
     }
 
     @NotNull
+    @Deprecated
     public String getEditProperty(AuthorNode authorNode) {
         String editProperty = "";
 

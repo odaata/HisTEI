@@ -10,7 +10,8 @@
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="library" name="commons-lang3-3.1" level="project" />
     <orderEntry type="library" name="annotations" level="project" />
-    <orderEntry type="library" name="lib" level="project" />
+    <orderEntry type="library" name="tika-core-1.4" level="project" />
+    <orderEntry type="library" name="oxygen" level="project" />
   </component>
 </module>
 

@@ -1,7 +1,6 @@
 package eu.emergingstandards.contextual_info;
 
-import org.apache.log4j.Logger;
-import ro.sync.ecss.dom.wrappers.AuthorElementDomWrapper;
+import eu.emergingstandards.utils.EMSTUtils;
 import ro.sync.ecss.extensions.api.*;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.exml.editor.EditorPageConstants;
@@ -14,17 +13,15 @@ import java.net.URL;
  */
 public class EMSTOpenContextualInfoOperation implements AuthorOperation {
 
-    private static Logger logger = Logger.getLogger(EMSTOpenContextualInfoOperation.class.getName());
+//    private static Logger logger = Logger.getLogger(EMSTOpenContextualInfoOperation.class.getName());
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        Object[] evaluateXPath = authorAccess.getDocumentController().evaluateXPath(".", false, false, false, false);
-
-        if(evaluateXPath.length > 0) {
-            AuthorNode currentNode = ((AuthorElementDomWrapper) evaluateXPath[0]).getWrappedAuthorNode();
+        AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
+        if (currentNode != null) {
             EMSTContextualInfo info = EMSTContextualInfo.get(currentNode);
             if (info != null && info.getSourcePath() != null) {
-                URL sourceURL = info.getURL(currentNode);
+                URL sourceURL = info.getURL(currentNode, true);
                 if (sourceURL != null)
                     PluginWorkspaceProvider.getPluginWorkspace().open(sourceURL, EditorPageConstants.PAGE_AUTHOR);
             }

@@ -1,9 +1,10 @@
 package eu.emergingstandards.facsimiles;
 
-import org.apache.commons.io.FilenameUtils;
 import ro.sync.ecss.extensions.api.*;
 
 import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
 
 /**
  * Created by mike on 1/25/14.
@@ -15,8 +16,11 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
         File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
         if (dir != null) {
             for (File file : dir.listFiles()) {
-                String ext = FilenameUtils.getExtension(file.getName());
-
+                try {
+                    String mediaType = Files.probeContentType(file.toPath());
+                } catch (IOException e) {
+                    continue;
+                }
             }
         }
     }

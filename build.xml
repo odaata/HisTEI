@@ -97,12 +97,16 @@
   </path>
   
   <path id="library.lib.classpath">
-    <fileset dir="${basedir}/../15.1/lib">
+      <fileset dir="${basedir}/lib/oxygen">
       <patternset refid="library.patterns"/>
     </fileset>
   </path>
-  <!-- Register Custom Compiler Taskdefs -->
-  <property name="javac2.home" value="${idea.home}/lib"/>
+
+    <path id="library.tika-core-1.4.classpath">
+        <pathelement location="${basedir}/lib/tika-core-1.4.jar"/>
+    </path>
+    <!-- Register Custom Compiler Taskdefs -->
+    <property name="javac2.home" value="${idea.home}/lib"/>
   <path id="javac2.classpath">
     <pathelement location="${javac2.home}/javac2.jar"/>
     <pathelement location="${javac2.home}/jdom.jar"/>
@@ -140,6 +144,7 @@
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.annotations.classpath"/>
     <path refid="library.lib.classpath"/>
+      <path refid="library.tika-core-1.4.classpath"/>
   </path>
   
   <path id="emst.runtime.production.module.classpath">
@@ -147,6 +152,7 @@
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.annotations.classpath"/>
     <path refid="library.lib.classpath"/>
+      <path refid="library.tika-core-1.4.classpath"/>
   </path>
   
   <path id="emst.module.classpath">
@@ -155,6 +161,7 @@
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.annotations.classpath"/>
     <path refid="library.lib.classpath"/>
+      <path refid="library.tika-core-1.4.classpath"/>
   </path>
   
   <path id="emst.runtime.module.classpath">
@@ -163,6 +170,7 @@
     <path refid="library.commons-lang3-3.1.classpath"/>
     <path refid="library.annotations.classpath"/>
     <path refid="library.lib.classpath"/>
+      <path refid="library.tika-core-1.4.classpath"/>
   </path>
   
   

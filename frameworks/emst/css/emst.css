@@ -24,6 +24,9 @@ TEI, TEI\.2 {
 /* Labels */
 *:before {
     font-weight:bold;
+    padding-left:1px;
+    padding-top:1px;
+    padding-bottom:1px;
     padding-right:10px;
 }
 
@@ -92,13 +95,9 @@ teiHeader:before {
     content: "TEI Header";
 }
 
-teiHeader {
-/*    display:block;*/
-    border: solid black;
-    /*-oxy-foldable:true;
-    -oxy-folded:true;
-    -oxy-not-foldable-child: fileDesc;
-    -oxy-show-placeholder: always;*/
+teiHeader,
+facsimile {
+    border:1px solid;
 }
 
 /* Collapsed Sections by Default */
@@ -209,7 +208,6 @@ creation > persName:before {
             edit, "@type"
             values, "sender, addressee"
             editable, true
-            fontInherit, true
         );
 }
 
@@ -392,59 +390,55 @@ quote {
   margin-left: 1em;
 }
 
-facsimile{
+facsimile:before {
+    content: "Facsimile:"
+}
+
+facsimile {
     display: block;
     -oxy-folded:true;
     -oxy-foldable:true;
     content: 
-        "Facsimiles: "
         oxy_urlChooser(
             edit, "@xml:base"
-            columns, oxy_xpath("max((min((round(string-length(@xml:base) * .9), 50)), 20))")
-            fontInherit, true
         );
 }
 
+graphic:before,
+media:before {
+    content:
+        oxy_button(
+            actionID, "launch.media"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
+        "ID: "
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 10
+        )
+}
+
 graphic,
-media{
+media {
     display:list-item;
     list-style-type:decimal;
     white-space:nowrap;
     margin-left:3em;
-}
-
-graphic{
+    vertical-align:top;
     content:
-        oxy_button(
-            actionID, "launch.media"
-            transparent, true
-            fontInherit, true
-        )
         oxy_urlChooser(
             edit, "@url"
-            columns, oxy_xpath("max((min((round(string-length(@url) * .9), 50)), 20))")
-            fontInherit, true
         )
     ;
 }
 
-
-media{
-    content:
-        oxy_button(
-            actionID, "launch.media"
-            transparent, true
-            fontInherit, true
-        )
-        oxy_urlChooser(
-            edit, "@url"
-            columns, oxy_xpath("max((min((round(string-length(@url) * .9), 40)), 20))")
-            fontInherit, true
-        )
+media {
+    -oxy-append-content:
         "Type: "
         oxy_popup(
             edit, "@mimeType", 
-            fontInherit, true
             values, "application/pdf, image/jpeg, application/xml"
             labels, "pdf, jpeg, xml"
             selectionMode, single
@@ -543,6 +537,8 @@ pb {
         oxy_button(
             actionID, "launch.media.by.ref"
             transparent, true
+            showText, true
+            showIcon, true
         )
         "     n: "
         oxy_textfield(

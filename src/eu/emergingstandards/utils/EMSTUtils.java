@@ -20,6 +20,8 @@ import java.util.List;
  */
 public class EMSTUtils {
 
+    public static String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
+
     @NotNull
     public static String escapeComma(String value) {
         return value.replace(",", "${comma}");
@@ -29,7 +31,7 @@ public class EMSTUtils {
     public static List<String> escapeCommas(List<String> values) {
         boolean hasValues = (values != null);
         List<String> escapedValues =
-                new ArrayList<>( hasValues ? values.size() : 0 );
+                new ArrayList<>(hasValues ? values.size() : 0);
 
         if (hasValues) {
             for (String value : values) {
@@ -40,7 +42,7 @@ public class EMSTUtils {
     }
 
     @Nullable
-    public static WSAuthorEditorPage getCurrentAuthorEditorPage(){
+    public static WSAuthorEditorPage getCurrentAuthorEditorPage() {
         WSAuthorEditorPage page = null;
         WSEditor wsEditor =
                 PluginWorkspaceProvider.getPluginWorkspace().getCurrentEditorAccess(PluginWorkspace.MAIN_EDITING_AREA);
@@ -64,7 +66,7 @@ public class EMSTUtils {
     }
 
     @Nullable
-    public static Path expandOxygenPath(String originalPath, AuthorAccess authorAccess){
+    public static Path expandOxygenPath(String originalPath, AuthorAccess authorAccess) {
         Path path = null;
 
         if (authorAccess != null) {

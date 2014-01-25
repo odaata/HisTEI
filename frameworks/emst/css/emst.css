@@ -7,6 +7,10 @@
 /*@import "tei.css";*/
 /*@import "links.css";*/
 
+@import "contextual_info.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
 TEI, TEI\.2 {
     display:block;
     padding:10px 20px 5px 5px;
@@ -25,10 +29,7 @@ TEI, TEI\.2 {
 
 /* Fields */
 teiHeader *,
-opener *,
-person *,
-place *,
-org * {
+opener * {
     display:block;
     padding:1px;
 }
@@ -51,12 +52,6 @@ textClass:before,
 textDesc:before,
 keywords:before,
 handNotes:before,
-person:before,
-person > persName:before,
-/*person > birth:before,
-person > death:before,*/
-place:before,
-org:before,
 div:before,
 opener:before,
 closer:before,
@@ -79,9 +74,6 @@ textClass,
 textDesc,
 keywords,
 handNotes,
-person,
-place,
-org, 
 div,
 opener,
 closer,
@@ -607,111 +599,3 @@ note {
     font-size: smaller;
 }
 
-/* Contextual Information Lists */
-
-listPlace *,
-listPerson *,
-listOrg * {
-    display:block;
-}
-
-person:before {
-    content: "Person "
-        "ID: "
-        oxy_textfield(
-            edit, "@xml:id"
-            columns, 15
-            fontInherit, true
-        );
-}
-
-person > persName:before {
-    content: "Name";
-}
-
-/*person > birth:before {
-    content: "Birth:";
-}
-
-person > death:before {
-    content: "Death:";
-}*/
-
-person > birth {
-    margin:2px 0px;
-    font-size:small;
-    border:1px solid grey;
-    visibility:-oxy-collapse-text;
-    content: "When: "
-        oxy_textfield(
-            edit, "@when"
-            columns, 9
-        )
-        " From: "
-        oxy_textfield(
-            edit, "@from"
-            columns, 9
-        )
-        " To: "
-        oxy_textfield(
-            edit, "@to"
-            columns, 9
-        )
-        "\A              Not Before: "
-        oxy_textfield(
-            edit, "@notBefore"
-            columns, 9
-        )
-        " Not After: "
-        oxy_textfield(
-            edit, "@notAfter"
-            columns, 9
-        )
-        " Certainty: "
-        oxy_combobox(
-            edit, "@cert"
-            editable, false
-            columns, 8
-        );
-}
-
-person > persName > roleName:before {
-    content: "Role:";
-}
-
-person > persName > foreName:before {
-    content: "First:";
-}
-
-person > persName > nameLink:before {
-    content: "Link:";
-}
-
-person > persName > surname:before {
-    content: "Last:";
-}
-
-person > sex:before {
-    content: "Sex:"
-        oxy_combobox(
-            edit, "@value"
-            editable, false
-            fontInherit, true
-            values, "1, 2, 0"
-            labels, "male, female, unknown"
-        );
-}
-
-place:before {
-    content: "Place "
-        "ID: "
-        oxy_textfield(
-            edit, "@xml:id"
-            columns, 15
-            fontInherit, true
-        );
-}
-
-place > placeName:before {
-    content: "Place Name:";
-}

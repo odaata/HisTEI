@@ -2,7 +2,7 @@
   <artifact type="jar" build-on-make="true" name="emst">
     <output-path>$PROJECT_DIR$/frameworks/emst</output-path>
     <properties id="ant-postprocessing">
-      <options enabled="true">
+      <options>
         <file>file://$PROJECT_DIR$/build.xml</file>
         <target>artifact.emst-oxygen</target>
       </options>

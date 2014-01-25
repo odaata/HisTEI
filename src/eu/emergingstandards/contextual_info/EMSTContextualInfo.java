@@ -84,6 +84,17 @@ public class EMSTContextualInfo {
         initMap.put("sourceParent", "place");
         ELEMENTS.put("placeName", new HashMap<>(initMap));
 
+//        place elements - they are always displayed with a combo box except in paragraphs
+        initMap = new HashMap<>();
+        initMap.put("type", "plc");
+        initMap.put("refAttributeName", "ref");
+        initMap.put("sourceParent", "p");
+        ELEMENTS.put("district", new HashMap<>(initMap));
+        ELEMENTS.put("settlement", new HashMap<>(initMap));
+        ELEMENTS.put("region", new HashMap<>(initMap));
+        ELEMENTS.put("country", new HashMap<>(initMap));
+        ELEMENTS.put("bloc", new HashMap<>(initMap));
+
 /*  No support for organizations yet!
 //        orgName element
         initMap = new HashMap<>();

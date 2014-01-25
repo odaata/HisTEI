@@ -1,0 +1,179 @@
+/* Contextual Information Lists */
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+listPlace *,
+listPerson *,
+listOrg * {
+    display:block;
+}
+
+/* Records */
+person,
+place,
+org {
+    display:block;
+    margin:10px;
+    padding:10px;
+    border:2px inset;
+    -oxy-foldable:true;
+}
+
+/* Fields */
+person *,
+place *,
+org * {
+    display:block;
+    padding:2px;
+}
+
+/* Sections */
+
+person:before,
+place:before,
+org:before {
+    border-bottom:1px inset;
+    padding-bottom:5px;
+    width:100%;
+    margin:5px;
+}
+
+person > persName:before,
+person > birth:before,
+person > death:before {
+    
+}
+
+person:before {
+    border-bottom:1px inset;
+    padding-bottom:5px;
+    content: "Person  "
+        "ID: "
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 20
+            fontInherit, true
+        );
+}
+
+person > persName * {
+    display:inline;
+}
+
+person > persName > roleName:before {
+    content: "Role:";
+}
+
+person > persName > roleName {
+    visibility:-oxy-collapse-text;
+    content:
+        oxy_combobox(
+            edit, "#text"
+            editable, true
+            fontInherit, true
+            /*values, "1, 2, 0"
+            labels, "male, female, unknown"*/
+        );
+}
+
+person > persName > forename:before {
+    content: "First:";
+}
+
+person > persName > nameLink:before {
+    content: "Link:";
+}
+
+person > persName > surname:before {
+    content: "Last:";
+}
+
+sex:before {
+    content: "Sex:"
+}
+
+sex {
+    content: 
+        oxy_combobox(
+            edit, "@value"
+            editable, false
+            fontInherit, true
+            values, "1, 2, 0"
+            labels, "male, female, unknown"
+        );
+}
+
+birth:before,
+death:before {
+    margin:2px 0px;
+/*    font-size:small;*/
+/*    border:1px solid grey;*/
+    visibility:-oxy-collapse-text;
+    content: 
+        "When: "
+        oxy_textfield(
+            edit, "@when"
+            columns, 9
+        )
+        " From: "
+        oxy_textfield(
+            edit, "@from"
+            columns, 9
+        )
+        " To: "
+        oxy_textfield(
+            edit, "@to"
+            columns, 9
+        )
+        "\A            Not Before: "
+        oxy_textfield(
+            edit, "@notBefore"
+            columns, 9
+        )
+        " Not After: "
+        oxy_textfield(
+            edit, "@notAfter"
+            columns, 9
+        )
+        " Certainty: "
+        oxy_combobox(
+            edit, "@cert"
+            editable, false
+            columns, 8
+        );
+}
+
+birth:before {
+    -oxy-prepend-content: "Birth   ";
+}
+
+death:before {
+    -oxy-prepend-content: "Death  ";
+}
+
+birth,
+death {
+    border:1px inset grey;
+}
+
+place:before {
+    content: "Place "
+        "ID: "
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 15
+            fontInherit, true
+        );
+}
+
+place > placeName:before {
+    content: "Place Name:";
+}
+
+person placeName:before {
+    content: "Place:";
+}
+
+country:before {
+    content: "Country:";
+}

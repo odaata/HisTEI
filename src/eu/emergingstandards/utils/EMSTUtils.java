@@ -81,9 +81,10 @@ public class EMSTUtils {
     public static Object[] evaluateXPath(String xpath, AuthorAccess authorAccess) {
         Object[] results = null;
         try {
-            results = authorAccess.getDocumentController().evaluateXPath(xpath, false, false, false, false);
+            if (authorAccess != null)
+                results = authorAccess.getDocumentController().evaluateXPath(xpath, false, false, false, false);
         } catch (AuthorOperationException e) {
-//            e.printStackTrace();
+
         }
         return results;
     }
@@ -93,7 +94,7 @@ public class EMSTUtils {
         AuthorNode currentNode = null;
 
         Object[] xpathResults = evaluateXPath(".", authorAccess);
-        if (xpathResults.length > 0) {
+        if (xpathResults != null && xpathResults.length > 0) {
             currentNode = ((AuthorElementDomWrapper) xpathResults[0]).getWrappedAuthorNode();
         }
         return currentNode;
@@ -107,7 +108,7 @@ public class EMSTUtils {
             path = Paths.get(authorAccess.getUtilAccess().expandEditorVariables(
                     originalPath, authorAccess.getEditorAccess().getEditorLocation()));
 
-            if (!Files.exists(path)) path = null;
+            if (path != null && !Files.exists(path)) path = null;
         }
         return path;
     }

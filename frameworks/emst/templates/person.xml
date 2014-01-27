@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>List of People for the Emerging Standards project</title>
+            </titleStmt>
+            <publicationStmt>
+                <authority>EMST</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listPerson>
+                <person>
+                    <persName>
+                        <roleName/>
+                        <forename/>
+                        <nameLink/>
+                        <surname/>
+                        <surname/>
+                    </persName>
+                    <sex/>
+                    <birth>
+                        <placeName/>
+                    </birth>
+                    <death>
+                        <placeName/>
+                    </death>
+                </person>
+            </listPerson>
+        </body>
+    </text>
+</TEI>

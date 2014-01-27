@@ -8,6 +8,33 @@
         <language description="Dutch" lang="nl_NL"/>
     </languageList>
 
+    <!--  Character Actions  -->
+
+    <key value="long.s">
+        <comment>long s action name.</comment>
+        <val lang="en_US">long s</val>
+    </key>
+    <key value="long.s_description">
+        <comment>long s action description.</comment>
+        <val lang="en_US">Insert a long s.</val>
+    </key>
+    <key value="thorn">
+        <comment>thorn action name.</comment>
+        <val lang="en_US">thorn</val>
+    </key>
+    <key value="thorn_description">
+        <comment>thorn action description.</comment>
+        <val lang="en_US">Insert a thorn.</val>
+    </key>
+    <key value="thorn.capital">
+        <comment>thorn capital action name.</comment>
+        <val lang="en_US">capital thorn</val>
+    </key>
+    <key value="thorn.capital_description">
+        <comment>thorn capital action description.</comment>
+        <val lang="en_US">Insert a capital thorn.</val>
+    </key>
+
     <!-- Text Decoration -->
 
     <key value="bold">
@@ -88,13 +115,14 @@
 
     <!-- Text Body -->
 
-    <key value="salute.inline">
-        <comment>Salute Inline action name.</comment>
-        <val lang="en_US">Salute (Inline)</val>
+    <key value="salute">
+        <comment>Salute action name.</comment>
+        <val lang="en_US">Salute</val>
     </key>
-    <key value="salute.inline_description">
-        <comment>Salute Inline action description.</comment>
-        <val lang="en_US">Mark selected text as being the salute. Surround text with the seg element and
+    <key value="salute_description">
+        <comment>Salute action description.</comment>
+        <val lang="en_US">Mark selected text as being the salute. Either insert the salute element or surround text with
+            the seg element and
             @function="salute".
         </val>
     </key>
@@ -145,11 +173,11 @@
     </key>
 
     <key value="deletion">
-        <comment>Del action name.</comment>
+        <comment>Deletion action name.</comment>
         <val lang="en_US">Deletion</val>
     </key>
     <key value="deletion_description">
-        <comment>Del action description.</comment>
+        <comment>Deletion action description.</comment>
         <val lang="en_US">Deletion in the original text. Insert the del element.</val>
     </key>
 
@@ -208,31 +236,51 @@
         <val lang="en_US">Insert a running header, page number, catchword, etc. using the forme work element.</val>
     </key>
 
-    <!--  Character Actions  -->
+    <!-- Contextual Information -->
 
-    <key value="long.s">
-        <comment>long s action name.</comment>
-        <val lang="en_US">long s</val>
+    <key value="date">
+        <comment>Date action name.</comment>
+        <val lang="en_US">date</val>
     </key>
-    <key value="long.s_description">
-        <comment>long s action description.</comment>
-        <val lang="en_US">Insert a long s.</val>
+    <key value="date_description">
+        <comment>Date description.</comment>
+        <val lang="en_US">Insert a a date with the date element.</val>
     </key>
-    <key value="thorn">
-        <comment>thorn action name.</comment>
-        <val lang="en_US">thorn</val>
+
+    <key value="edit.contextual.info">
+        <comment>Edit contextual info action name.</comment>
+        <val lang="en_US">Edit...</val>
     </key>
-    <key value="thorn_description">
-        <comment>thorn action description.</comment>
-        <val lang="en_US">Insert a thorn.</val>
+    <key value="edit.contextual.info_description">
+        <comment>Edit contextual info description.</comment>
+        <val lang="en_US">Load the referenced contextual information for editing.</val>
     </key>
-    <key value="thorn.capital">
-        <comment>thorn capital action name.</comment>
-        <val lang="en_US">capital thorn</val>
+
+    <key value="person">
+        <comment>Person action name.</comment>
+        <val lang="en_US">psn</val>
     </key>
-    <key value="thorn.capital_description">
-        <comment>thorn capital action description.</comment>
-        <val lang="en_US">Insert a capital thorn.</val>
+    <key value="person_description">
+        <comment>Person description.</comment>
+        <val lang="en_US">Insert a reference to a person with the persName element.</val>
+    </key>
+
+    <key value="place">
+        <comment>Place action name.</comment>
+        <val lang="en_US">plc</val>
+    </key>
+    <key value="place_description">
+        <comment>Place description.</comment>
+        <val lang="en_US">Insert a reference to a place with the placeName element.</val>
+    </key>
+
+    <key value="org">
+        <comment>Org action name.</comment>
+        <val lang="en_US">org</val>
+    </key>
+    <key value="org_description">
+        <comment>Org description.</comment>
+        <val lang="en_US">Insert a reference to an organization with the orgName element.</val>
     </key>
 
     <!--  Media Actions  -->
@@ -253,15 +301,6 @@
     <key value="launch.media.by.ref_description">
         <comment>Launch media by ref action description.</comment>
         <val lang="en_US">Load the media associated with the media ref based on the current place.</val>
-    </key>
-
-    <key value="edit.contextual.info">
-        <comment>Launch contextual info action name.</comment>
-        <val lang="en_US">Edit...</val>
-    </key>
-    <key value="edit.contextual.info_description">
-        <comment>Launch contextual info description.</comment>
-        <val lang="en_US">Load the referenced contextual information for editing.</val>
     </key>
 
 

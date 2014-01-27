@@ -4,9 +4,7 @@
 -----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
 -------------------------------------------------------------------------------------------------*/
 
-/*@import "tei.css";*/
-/*@import "links.css";*/
-
+@import "global_fields.css";
 @import "contextual_info.css";
 
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
@@ -17,27 +15,18 @@ TEI, TEI\.2 {
 /*  Geneva - only (good-looking) font that supports OE chars (found so far)  */
     font-family:Geneva;
 /*    font-family:helvetica, verdana, arial, sans-serif;*/
-}
-
-/* Global */
-
-/* Labels */
-*:before {
-    font-weight:bold;
-    padding-left:1px;
-    padding-top:1px;
-    padding-bottom:1px;
-    padding-right:10px;
+    font-size:12px;
 }
 
 /* Fields */
 teiHeader *,
-opener * {
+opener *,
+closer * {
     display:block;
     padding:1px;
+    white-space:nowrap;
 }
 
-/* Don't preserve whitespace */
 creation,
 opener,
 closer {
@@ -90,7 +79,6 @@ postscript {
 /* TEI Header */
 teiHeader:before {
     background-color:black;
-/*    color:white;*/
     font-size:large;
     content: "TEI Header";
 }
@@ -115,6 +103,23 @@ handNotes {
 }
 
 /* Section Label Contents */
+
+/* Labels that can be generated 
+    by capitalizing their element names */
+creation:before,
+keywords:before,
+title:before,
+authority:before,
+collection:before,
+dateline:before,
+opener:before,
+closer:before,
+postscript:before,
+salute:before,
+signed:before {
+    content: oxy_capitalize(oxy_name()) ": ";
+}
+
 publicationStmt:before {
     content: "Publication Statement";
 }
@@ -135,10 +140,6 @@ profileDesc:before {
     content: "Profile Description";
 }
 
-creation:before {
-    content: "Creation";
-}
-
 textClass:before {
     content: "Text Classification";
 }
@@ -147,22 +148,11 @@ textDesc:before {
     content: "Text Description";
 }
 
-keywords:before {
-    content: "Keywords";
-}
-
 handNotes:before {
     content: "Hand Notes";
 }
 
 /* Field Labels */
-title:before {
-    content: "Title:";
-}
-
-authority:before {
-    content: "Authority:";
-}
 
 publicationStmt idno:before {
     content: "Internal ID:";
@@ -170,10 +160,6 @@ publicationStmt idno:before {
 
 repository:before {
     content: "Archive:";
-}
-
-collection:before {
-    content: "Collection:";
 }
 
 msIdentifier > idno:before {
@@ -184,30 +170,22 @@ altIdentifier > idno:before {
     content: "Alt. Identifier:";
 }
 
-teiHeader placeName:before {
-    content: "Place:  "
-        oxy_combobox(
-                edit, "@type"
-                values, "sender, addressee"
-                editable, true
-                fontInherit, true
-            );
-    ;
+creation *,
+handNotes *,
+facsimile * {
+    visibility:-oxy-collapse-text;
 }
-
-teiHeader date:before {
-    content: "Date:";
-}
-
-/* creation-related */
 
 creation > persName:before {
-    vertical-align:middle;
-    content: "Person:  " 
+    content:
+        oxy_label(
+            text, "Person:"
+            styles, "@import 'labels.css';"
+        )
         oxy_combobox(
             edit, "@type"
-            values, "sender, addressee"
             editable, true
+            values, "sender, addressee"
         );
 }
 
@@ -217,55 +195,31 @@ creation > persName {
 }
 
 creation > date:before {
-    content: "Date:";
-}
-
-creation > date {
-    margin:2px 0px;
-    font-size:small;
-    border:1px solid grey;
-    visibility:-oxy-collapse-text;
-    content: "Type: "
+    content:
+        oxy_label(
+            text, "Date:"
+            styles, "@import 'labels.css';"
+        )
         oxy_combobox(
             edit, "@type"
             editable, true
-            fontInherit, true
             values, "sender, addressee"
-        )
-        "When: "
-        oxy_textfield(
-            edit, "@when"
-            columns, 9
-        )
-        " From: "
-        oxy_textfield(
-            edit, "@from"
-            columns, 9
-        )
-        " To: "
-        oxy_textfield(
-            edit, "@to"
-            columns, 9
-        )
-        "\A              Not Before: "
-        oxy_textfield(
-            edit, "@notBefore"
-            columns, 9
-        )
-        " Not After: "
-        oxy_textfield(
-            edit, "@notAfter"
-            columns, 9
-        )
-        " Certainty: "
-        oxy_combobox(
-            edit, "@cert"
-            editable, false
-            columns, 8
         );
 }
 
-/* handNotes-related */
+creation > placeName:before {
+    content:
+        oxy_label(
+            text, "Place:"
+            styles, "@import 'labels.css';"
+        )
+        oxy_combobox(
+                edit, "@type"
+                values, "sender, addressee"
+                editable, true
+            );
+    ;
+}
 
 teiHeader handNote:before {
     content: "Hand:";
@@ -276,29 +230,33 @@ text {
   display: block;
 }
 
-div,
-body > div {
-    margin-bottom:5px;
+text date,
+div persName,
+div placeName,
+div orgName {
+    display:inline;
+    color:olive;
 }
 
-/*div > head {
-    padding-top:0.6em;
-    padding-bottom:0.2em;
-    padding-left:0.2em;
-    padding-right:0em;
-    background-color:inherit;
-    color:#004477;
-    border-bottom:1px solid #004477;
-}*/
-
 div:before {
-    display:block;
-    content: "Div  Type: "
+    content: "Div    Type: "
         oxy_combobox(
             edit, "@type"
             editable, true
-            fontInherit, true
         );
+}
+
+div {
+    -oxy-foldable:true;
+    -oxy-not-foldable-child: head, opener;
+}
+
+div > * {
+    display:block;
+}
+
+div * {
+    white-space:nowrap;
 }
 
 head {
@@ -320,278 +278,34 @@ fw {
     text-align:right;
 }
 
-opener:before{
-    content: "Opener";
-}
-
-opener {
-    margin-bottom:1em;
-}
-
-dateline:before {
-    content: "Dateline:";
-}
-
-dateline,
-dateline * {
-    display:inline;
-}
-
-closer:before {
-    content: "Closer";
-}
-
-closer {
-    margin-top:1em;
-}
-
-postscript:before {
-    content: "Postscript";
-}
-
-salute:before{
-    content: "Salute:";
-}
-
-signed:before {
-    content: "Signed:";
-}
-
-seg[function='salute']{
-    font-style:italic;
-}
-
-/* Inline elements for text */
-
-abbr {
-  display: inline;
-  font-weight:bold;
-}
-
-w {
-    background-color:transparent;
-    border-style:groove none;
-    border-width:1px 0px;
-    font-weight:bold;
-    font-size:small;
-    line-height:2;
-    content:
-        oxy_popup(
-            edit, "@ana"
-            fontInherit, true
-            values, oxy_xpath("string-join(for $id in //interpGrp[@type eq 'pos']/interp/@xml:id return concat('#', $id), ',')")
-            labels, oxy_xpath("string-join(//interpGrp[@type eq 'pos']/interp/text(), ',')")
-            selectionMode, single
-        );
-}
-
-quote {
-  display: block;
-  margin-left: 1em;
-}
-
-facsimile:before {
-    content: "Facsimile:"
-}
-
-facsimile {
-    display: block;
-    -oxy-folded:true;
-    -oxy-foldable:true;
-    content: 
-        oxy_urlChooser(
-            edit, "@xml:base"
-        );
-}
-
-graphic:before,
-media:before {
-    content:
-        oxy_button(
-            actionID, "launch.media"
-            transparent, true
-            showText, true
-            showIcon, true
-        )
-        "ID: "
-        oxy_textfield(
-            edit, "@xml:id"
-            columns, 10
-        )
-}
-
-graphic,
-media {
-    display:list-item;
-    list-style-type:decimal;
-    white-space:nowrap;
-    margin-left:3em;
-    vertical-align:top;
-    content:
-        oxy_urlChooser(
-            edit, "@url"
-        )
-    ;
-}
-
-media {
-    -oxy-append-content:
-        "Type: "
-        oxy_popup(
-            edit, "@mimeType", 
-            values, "application/pdf, image/jpeg, application/xml"
-            labels, "pdf, jpeg, xml"
-            selectionMode, single
-        )
-    ;
-}
-
-hi[rend="bold"] {
-  font-weight:bold;
-}
-
-hi[rend="italic"] {
-  font-style:italic;
-}
-
-hi[rend="superscript"] {
-    font-size:small;
-    vertical-align:super;
-}
-
-hi[rend="subscript"] {
-    font-size:small;
-    vertical-align:sub;
-}
-
-hi[rend="underline"] {
-  text-decoration:underline;
-}
-
-/* Foldable elements */
-div, 
-p {
-    -oxy-foldable:true;
-    -oxy-not-foldable-child: head, opener;
-}
-
-text p{
-    white-space:nowrap;
-}
-
 p:before{
     content: url('img/Paragraph16.gif');
 }
 
-p{
-    display:block;
+p {
     padding:2px;
     margin:2px;
     margin-bottom: 10px;
+    -oxy-foldable:true;
 }
 
 p * {
     display:inline;
 }
 
-/*text p lb{
-    font-family:courier, fixed, monospace;
-    font-size:x-small;
-    content:
-        oxy_xpath(
-            "if (((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) mod 5) eq 0) then concat('\A', substring(concat(count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1, '     '), 1,4)) else if ((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) eq 1) then '    ' else '\A     '"
-        )
-    ;
-}*/
+opener {
+    margin-bottom:1em;
+}
 
-/* Page and Line Breaks */
-lb {
+dateline * {
     display:inline;
-    -oxy-display-tags:none;
-    content:"\A";
 }
 
-pb {
-    -oxy-display-tags:none;
-    display:block;
-    background-color:transparent;
-    border-style:groove none;
-    vertical-align:middle;
-    padding:5px;
-    margin:10px 0px;
-    border-width:1px 0px;
-    font-weight:bold;
-    font-size:small;
-    line-height:1.5;
-    counter-increment:pages;
-    content:
-        "Page " counter(pages) "       "
-        "Image(s): "
-        oxy_popup(
-            edit, "@facs"
-            fontInherit, true
-            values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
-            labels, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
-            selectionMode, multiple
-        )
-        oxy_button(
-            actionID, "launch.media.by.ref"
-            transparent, true
-            showText, true
-            showIcon, true
-        )
-        "     n: "
-        oxy_textfield(
-            edit, "@n"
-            columns, 5
-            fontInherit, true
-            tooltips, "Any page number provided by the source"
-        )
-    ;
+closer {
+    margin-top:1em;
 }
 
-add {
-  color: green;
-  background-color: inherit;
-  text-decoration: underline;
-  font-size:small;
-  vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
-}
-
-del {
-  color: red;
-  background-color: inherit;
-  text-decoration: line-through;
-}
-
-expan {
+seg[function='salute']{
     font-style:italic;
-}
-
-gap {
-    color:blue;
-    content: "[...]";
-    font-style: italic;
-}
-
-unclear {
-  color: maroon;
-  font-style: italic;
-}
-
-foreign {
-    font-style:italic;
-}
-
-note:before {
-    font-size:smaller;
-    padding-right:5px;
-    font-weight:bold;
-    content: "Note:";
-}
-
-note {
-    border: 1px solid maroon;
-    font-size: smaller;
 }
 

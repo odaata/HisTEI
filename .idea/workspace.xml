@@ -10,8 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Fixed Contextual Info to only appy to block elements&#10;Tons of tweaks to CSS&#10;Further dev on Facsimile">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/Oxygen_add-on_template.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Oxygen_add-on_template.xml" afterPath="$PROJECT_DIR$/Oxygen_add-on_template.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -609,7 +608,11 @@
       <created>1390845910108</created>
       <updated>1390845910108</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Fixed Contextual Info to only appy to block elements&#10;Tons of tweaks to CSS&#10;Further dev on Facsimile">
+      <created>1390849977105</created>
+      <updated>1390849977105</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -689,9 +692,9 @@
     <MESSAGE value="Changed contextual info to handle PROPERTY_EDIT_QUALIFIED in StylesFilter&#10;&#10;Started the facsimiles package" />
     <MESSAGE value="Created new toolbars&#10;Tweaked CSS further&#10;Groundwork for Facsimile" />
     <MESSAGE value="Added Tika and integrated with build&#10;Fixed pathing issues in build.xml" />
-    <MESSAGE value="Fixed Contextual Info to only appy to block elements&#10;Tons of tweaks to CSS&#10;Further dev on Facsimile" />
     <MESSAGE value="First stable version to be released if need be" />
-    <option name="LAST_COMMIT_MESSAGE" value="First stable version to be released if need be" />
+    <MESSAGE value="Fixed Contextual Info to only appy to block elements&#10;Tons of tweaks to CSS&#10;Further dev on Facsimile" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Contextual Info to only appy to block elements&#10;Tons of tweaks to CSS&#10;Further dev on Facsimile" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

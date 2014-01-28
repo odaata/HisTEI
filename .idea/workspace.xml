@@ -9,25 +9,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/id" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/id/EMSTUniqueAttributesRecognizer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/templates/org.xml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frameworks/emst/css/date_labels.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/labels_date.css" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/frameworks/emst/css/sub_labels.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/labels_sub.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/resources/contextual_info.xql" afterPath="$PROJECT_DIR$/frameworks/emst/resources/contextual_info.xql" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/emst.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/emst.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/templates/person.xml" afterPath="$PROJECT_DIR$/frameworks/emst/templates/person.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/templates/place.xml" afterPath="$PROJECT_DIR$/frameworks/emst/templates/place.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/resources/tei.xqm" afterPath="$PROJECT_DIR$/frameworks/emst/resources/tei.xqm" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Add UniqueAttributes recgnition and generation&#10;combined CSS back into one big file&#10;">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -203,7 +185,7 @@
       <file leaf-file-name="EMSTContextualInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="117" column="41" selection-start="4680" selection-end="4680" vertical-scroll-proportion="0.0" vertical-offset="648" max-vertical-offset="7308">
+            <state line="117" column="41" selection-start="4680" selection-end="4680" vertical-scroll-proportion="0.0" vertical-offset="1638" max-vertical-offset="7308">
               <folding />
             </state>
           </provider>
@@ -212,7 +194,7 @@
       <file leaf-file-name="EMSTUtils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="94" column="13" selection-start="3104" selection-end="3104" vertical-scroll-proportion="0.0" vertical-offset="1100" max-vertical-offset="1908">
+            <state line="94" column="13" selection-start="3104" selection-end="3104" vertical-scroll-proportion="0.0" vertical-offset="1368" max-vertical-offset="1908">
               <folding />
             </state>
           </provider>
@@ -221,7 +203,7 @@
       <file leaf-file-name="EMSTStylesFilter.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="60" column="0" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.86633664" vertical-offset="218" max-vertical-offset="1026">
+            <state line="60" column="0" selection-start="3008" selection-end="3008" vertical-scroll-proportion="1.3358779" vertical-offset="218" max-vertical-offset="1026">
               <folding />
             </state>
           </provider>
@@ -230,7 +212,7 @@
       <file leaf-file-name="EMSTExtensionsBundle.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="0" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="344" max-vertical-offset="1152">
+            <state line="37" column="0" selection-start="1209" selection-end="1209" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1152">
               <folding>
                 <element signature="e#1531#1532#0" expanded="true" />
                 <element signature="e#1580#1581#0" expanded="true" />
@@ -290,11 +272,11 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/id/EMSTDefaultUniqueAttributesRecognizer.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/id/EMSTUniqueAttributesRecognizer.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
       </list>
     </option>
   </component>
@@ -753,7 +735,11 @@
       <created>1390851145104</created>
       <updated>1390851145104</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="Add UniqueAttributes recgnition and generation&#10;combined CSS back into one big file&#10;">
+      <created>1390932157111</created>
+      <updated>1390932157111</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -778,10 +764,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="261" y="92" width="1622" height="988" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32908458" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.49936467" order="11" side_tool="false" content_ui="tabs" />
@@ -792,11 +778,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32560834" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32832617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2515883" sideWeight="0.6106605" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2515883" sideWeight="0.61139894" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2515883" sideWeight="0.3893395" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2515883" sideWeight="0.38860103" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33717278" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.49826187" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -836,7 +822,10 @@
     <MESSAGE value="First stable version to be released if need be" />
     <MESSAGE value="Fixed Contextual Info to only appy to block elements&#10;Tons of tweaks to CSS&#10;Further dev on Facsimile" />
     <MESSAGE value="Cleanup" />
-    <option name="LAST_COMMIT_MESSAGE" value="Cleanup" />
+    <MESSAGE value="Add UniqueAttributes recgnition and generation&#10;combined CSS back into one big file&#10;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add UniqueAttributes recgnition and generation&#10;combined CSS back into one big file&#10;" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1140,15 +1129,15 @@
         <state line="16" column="21" selection-start="588" selection-end="588" vertical-scroll-proportion="0.35643566" vertical-offset="0" max-vertical-offset="808">
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#818#819#0" expanded="true" />
-            <element signature="e#861#862#0" expanded="true" />
+            <element signature="e#833#834#0" expanded="true" />
+            <element signature="e#876#877#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="60" column="0" selection-start="3009" selection-end="3009" vertical-scroll-proportion="0.86633664" vertical-offset="218" max-vertical-offset="1026">
+        <state line="60" column="0" selection-start="3008" selection-end="3008" vertical-scroll-proportion="1.3358779" vertical-offset="218" max-vertical-offset="1026">
           <folding />
         </state>
       </provider>

@@ -50,7 +50,7 @@ public class EMSTContextualInfo {
     static {
         TYPES.put("psn", "person.xml");
         TYPES.put("plc", "place.xml");
-//        TYPES.put("org", "organization.xml");
+        TYPES.put("org", "org.xml");
 //        TYPES.put("bib", "bibliography.xml");
 //        TYPES.put("evt", "event.xml");
     }
@@ -95,7 +95,6 @@ public class EMSTContextualInfo {
         ELEMENTS.put("country", new HashMap<>(initMap));
         ELEMENTS.put("bloc", new HashMap<>(initMap));
 
-/*  No support for organizations yet!
 //        orgName element
         initMap = new HashMap<>();
         initMap.put("type", "org");
@@ -108,7 +107,7 @@ public class EMSTContextualInfo {
         initMap.put("type", "org");
         initMap.put("refAttributeName", "ref");
         initMap.put("sourceParent", "org");
-        ELEMENTS.put("repository", new HashMap<>(initMap));*/
+        ELEMENTS.put("repository", new HashMap<>(initMap));
     }
 
     private static Map<String, EMSTContextualInfo> contextualInfos = new HashMap<>();

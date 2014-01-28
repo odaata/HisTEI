@@ -21,6 +21,10 @@ declare function teix:place($place as element(tei:place)) as xs:string {
     $place/tei:placeName/text()
 };
 
+declare function teix:org($org as element(tei:org)) as xs:string {
+    $org/tei:orgName/text()
+};
+
 declare function teix:person($person as element(tei:person)) as xs:string {
     let $name := teix:name-info($person/tei:persName)
     let $birth := teix:year-info($person/tei:birth)

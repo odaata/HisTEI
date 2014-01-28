@@ -4,10 +4,140 @@
 -----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
 -------------------------------------------------------------------------------------------------*/
 
-@import "global_fields.css";
-@import "contextual_info.css";
+/*@import "contextual_info.css";*/
 
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Global fields & labels */
+
+/* Labels */
+*:before {
+    font-weight:bold;
+    padding-left:1px;
+    padding-top:1px;
+    padding-bottom:1px;
+    padding-right:10px;
+}
+
+/* Labels that can be generated 
+    by capitalizing their element names */
+creation:before,
+keywords:before,
+title:before,
+authority:before,
+collection:before,
+dateline:before,
+opener:before,
+closer:before,
+postscript:before,
+salute:before,
+signed:before,
+district:before,
+settlement:before,
+region:before,
+country:before,
+bloc:before {
+    content: oxy_capitalize(oxy_name()) ": ";
+}
+
+placeName:before {
+    content:
+        oxy_label(
+            text, "Place:"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+orgName:before {
+    content:
+        oxy_label(
+            text, "Org:"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+desc:before {
+    content:
+        oxy_label(
+            text, "Description:"
+            styles, "@import 'labels.css';"
+        )
+    ;     
+}
+
+date:before {
+    content:
+        oxy_label(
+            text, "Date:"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+teiHeader date,
+birth,
+death {
+    border:1px inset grey;
+    margin:2px 0px;
+    font-size:small;
+    font-weight:normal;
+    content:
+        oxy_label(
+            text, "When: "
+            styles, "@import 'labels_date.css';"
+        )
+        oxy_textfield(
+            edit, "@when"
+            columns, 9
+        )
+        oxy_label(
+            text, "From: "
+            styles, "@import 'labels_date.css';"
+        )
+        oxy_textfield(
+            edit, "@from"
+            columns, 9
+        )
+        oxy_label(
+            text, "To: "
+            styles, "@import 'labels_date.css';"
+        )
+        oxy_textfield(
+            edit, "@to"
+            columns, 9
+        )
+        "\A"
+        oxy_label(
+            text, "Not Before: "
+            width, 130px
+            styles, "@import 'labels_date.css';"
+        )
+        oxy_textfield(
+            edit, "@notBefore"
+            columns, 9
+        )
+        oxy_label(
+            text, "Not After: "
+            styles, "@import 'labels_date.css';"
+        )
+        oxy_textfield(
+            edit, "@notAfter"
+            columns, 9
+        )
+        oxy_label(
+            text, "Certainty: "
+            styles, "@import 'labels_date.css';"
+        )
+        oxy_combobox(
+            edit, "@cert"
+            editable, false
+            columns, 8
+        );
+}
+
+/* TEI */
 
 TEI, TEI\.2 {
     display:block;
@@ -104,22 +234,6 @@ handNotes {
 
 /* Section Label Contents */
 
-/* Labels that can be generated 
-    by capitalizing their element names */
-creation:before,
-keywords:before,
-title:before,
-authority:before,
-collection:before,
-dateline:before,
-opener:before,
-closer:before,
-postscript:before,
-salute:before,
-signed:before {
-    content: oxy_capitalize(oxy_name()) ": ";
-}
-
 publicationStmt:before {
     content: "Publication Statement";
 }
@@ -149,7 +263,7 @@ textDesc:before {
 }
 
 handNotes:before {
-    content: "Hand Notes";
+    content: "Hands";
 }
 
 /* Field Labels */
@@ -170,9 +284,12 @@ altIdentifier > idno:before {
     content: "Alt. Identifier:";
 }
 
-creation *,
-handNotes *,
-facsimile * {
+repository,
+creation > *,
+handNotes > *,
+facsimile > *,
+pb,
+lb {
     visibility:-oxy-collapse-text;
 }
 
@@ -186,7 +303,8 @@ creation > persName:before {
             edit, "@type"
             editable, true
             values, "sender, addressee"
-        );
+        )
+    ;
 }
 
 creation > persName {
@@ -195,11 +313,7 @@ creation > persName {
 }
 
 creation > date:before {
-    content:
-        oxy_label(
-            text, "Date:"
-            styles, "@import 'labels.css';"
-        )
+    -oxy-append-content:
         oxy_combobox(
             edit, "@type"
             editable, true
@@ -208,34 +322,109 @@ creation > date:before {
 }
 
 creation > placeName:before {
-    content:
-        oxy_label(
-            text, "Place:"
-            styles, "@import 'labels.css';"
-        )
+    -oxy-append-content:
         oxy_combobox(
                 edit, "@type"
                 values, "sender, addressee"
                 editable, true
             );
-    ;
+}
+
+creation > orgName:before {
+    -oxy-append-content:
+        oxy_combobox(
+                edit, "@type"
+                columns, 10
+                editable, true
+            );
 }
 
 teiHeader handNote:before {
-    content: "Hand:";
+    content:
+        oxy_label(
+            text, "Hand:"
+            styles, "@import 'labels.css';"            
+        )
+        oxy_label(
+            text, "ID: "
+            width, 15px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 10
+        )
+    ;
+}
+
+/* Facsimile & Media */
+
+facsimile:before {
+    content: "Facsimile:"
+}
+
+facsimile {
+    display: block;
+/*    -oxy-folded:true;*/
+    -oxy-foldable:true;
+    content: 
+        oxy_urlChooser(
+            edit, "@xml:base"
+        );
+}
+
+facsimile > graphic,
+facsimile > media {
+    font-weight:normal;
+    display:list-item;
+    list-style-type:decimal;
+    margin-left:35px;
+    content:
+        oxy_button(
+            actionID, "media.open"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
+        oxy_label(
+            text, "ID: "
+            width, 15px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 10
+        )
+        oxy_label(
+            text, "File: "
+            width, 35px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_urlChooser(
+            edit, "@url"
+        )
+        oxy_label(
+            text, "Type: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_popup(
+            edit, "@mimeType", 
+            values, "application/pdf, image/jpeg, application/xml"
+            labels, "pdf, jpeg, xml"
+            selectionMode, single
+        )
+    ;
 }
 
 /* Layout */
-text {
+
+text,
+div > * {
   display: block;
 }
 
-text date,
-div persName,
-div placeName,
-div orgName {
-    display:inline;
-    color:olive;
+div * {
+    white-space:nowrap;
 }
 
 div:before {
@@ -243,20 +432,13 @@ div:before {
         oxy_combobox(
             edit, "@type"
             editable, true
-        );
+        )
+    ;
 }
 
 div {
     -oxy-foldable:true;
     -oxy-not-foldable-child: head, opener;
-}
-
-div > * {
-    display:block;
-}
-
-div * {
-    white-space:nowrap;
 }
 
 head {
@@ -278,6 +460,11 @@ fw {
     text-align:right;
 }
 
+p *,
+dateline * {
+    display:inline;
+}
+
 p:before{
     content: url('img/Paragraph16.gif');
 }
@@ -289,23 +476,355 @@ p {
     -oxy-foldable:true;
 }
 
-p * {
-    display:inline;
-}
-
 opener {
     margin-bottom:1em;
-}
-
-dateline * {
-    display:inline;
 }
 
 closer {
     margin-top:1em;
 }
 
+/* Inline elements for text */
+
+div date,
+div persName,
+div placeName,
+div orgName,
+div district,
+div settlement,
+div region,
+div country,
+div bloc,
+desc date,
+desc persName,
+desc placeName,
+desc orgName,
+desc district,
+desc settlement,
+desc region,
+desc country,
+desc bloc {
+    display:inline;
+    color:olive;
+}
+
+div date:before,
+div placeName:before,
+div orgName:before,
+div district:before,
+div settlement:before,
+div region:before,
+div country:before,
+div bloc:before,
+desc date:before,
+desc placeName:before,
+desc orgName:before,
+desc district:before,
+desc settlement:before,
+desc region:before,
+desc country:before,
+desc bloc:before {
+    content: "";
+}
+
+hi[rend="bold"] {
+  font-weight:bold;
+}
+
+hi[rend="italic"] {
+  font-style:italic;
+}
+
+hi[rend="superscript"] {
+    font-size:small;
+    vertical-align:super;
+}
+
+hi[rend="subscript"] {
+    font-size:small;
+    vertical-align:sub;
+}
+
+hi[rend="underline"] {
+  text-decoration:underline;
+}
+
+abbr {
+  display: inline;
+  font-weight:bold;
+}
+
+expan {
+    font-style:italic;
+}
+
+add {
+  color: green;
+  background-color: inherit;
+  text-decoration: underline;
+  font-size:small;
+  vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
+}
+
+del {
+  color: red;
+  background-color: inherit;
+  text-decoration: line-through;
+}
+
+gap {
+    color:blue;
+    content: "[...]";
+    font-style: italic;
+}
+
+unclear {
+  color: maroon;
+  font-style: italic;
+}
+
+foreign {
+    font-style:italic;
+}
+
+note:before {
+    font-size:smaller;
+    padding-right:5px;
+    font-weight:bold;
+    content: "Note:";
+}
+
+note {
+    border: 1px solid maroon;
+    font-size: 11px;
+}
+
 seg[function='salute']{
     font-style:italic;
 }
 
+/* Page and Line Breaks */
+p > lb:first-child {
+    content:"";
+}
+
+lb {
+    -oxy-display-tags:none;
+    content:"\A";
+}
+
+pb {
+    -oxy-display-tags:none;
+    display:block;
+    background-color:transparent;
+    border-style:groove none;
+    vertical-align:middle;
+    padding:5px;
+    margin:10px 0px;
+    border-width:1px 0px;
+    font-weight:bold;
+    font-size:small;
+    line-height:1.5;
+    counter-increment:pages;
+    content:
+        "Page " counter(pages) "       "
+        oxy_label(
+            text, "Image(s):"
+            width, 75px
+            styles, "@import 'labels.css';"
+        )
+        oxy_popup(
+            edit, "@facs"
+            fontInherit, true
+            values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
+            labels, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
+            selectionMode, multiple
+        )
+        /*oxy_button(
+            actionID, "media.open.by.ref"
+            transparent, true
+            showText, true
+            showIcon, true
+        )*/
+        "     n: "
+        oxy_textfield(
+            edit, "@n"
+            columns, 5
+            fontInherit, true
+            tooltips, "Any page number provided by the source"
+        )
+    ;
+}
+
+/* An attempt at numbering linebreaks...
+text p lb{
+    font-family:courier, fixed, monospace;
+    font-size:x-small;
+    content:
+        oxy_xpath(
+            "if (((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) mod 5) eq 0) then concat('\A', substring(concat(count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1, '     '), 1,4)) else if ((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) eq 1) then '    ' else '\A     '"
+        )
+    ;
+}*/
+
+/*w {
+    background-color:transparent;
+    border-style:groove none;
+    border-width:1px 0px;
+    font-weight:bold;
+    font-size:small;
+    line-height:2;
+    content:
+        oxy_popup(
+            edit, "@ana"
+            fontInherit, true
+            values, oxy_xpath("string-join(for $id in //interpGrp[@type eq 'pos']/interp/@xml:id return concat('#', $id), ',')")
+            labels, oxy_xpath("string-join(//interpGrp[@type eq 'pos']/interp/text(), ',')")
+            selectionMode, single
+        );
+}*/
+
+
+/* Contextual Information Lists */
+
+/* Records */
+person,
+place,
+org {
+    display:block;
+    margin:10px;
+    padding:10px;
+    border:2px inset;
+    -oxy-foldable:true;
+}
+
+/* Fields */
+person *,
+place *,
+org * {
+    display:block;
+    padding:2px;
+}
+
+/* Sections */
+person:before,
+place:before,
+org:before {
+    border-bottom:1px inset;
+    padding-bottom:5px;
+    width:100%;
+    margin:5px;
+    content: 
+        oxy_label(
+            text, "ID: "
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_label(
+            text, attr(xml|id)
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+person:before {
+    -oxy-prepend-content:
+        oxy_label(
+            text, "Person"
+            styles, "@import 'labels.css';"
+        )
+}
+
+person > persName * {
+    display:inline;
+}
+
+person > persName:before {
+    content: "Name:"
+}
+
+person > persName > roleName:before {
+    content: "Role:";
+}
+
+person > persName > roleName {
+    visibility:-oxy-collapse-text;
+    content:
+        oxy_combobox(
+            edit, "#text"
+            editable, true
+            columns, 7
+            fontInherit, true
+        );
+}
+
+person > persName > forename:before {
+    content: "First:";
+}
+
+person > persName > nameLink:before {
+    content: "Link:";
+}
+
+person > persName > surname:before {
+    content: "Last:";
+}
+
+sex:before {
+    content: "Sex:"
+}
+
+sex {
+    display:inline;
+    visibility:-oxy-collapse-text;
+    -oxy-display-tags:none;
+    content: 
+        oxy_combobox(
+            edit, "@value"
+            editable, false
+            values, "1, 2, 0"
+            labels, "male, female, unknown"
+        );
+}
+
+birth:before {
+    content: 
+        oxy_label(
+            text, "Birth:"
+            styles, "@import 'labels.css';"
+        );
+}
+
+death:before {
+    content: 
+        oxy_label(
+            text, "Death:"
+            styles, "@import 'labels.css';"
+        );
+}
+
+place:before {
+    -oxy-prepend-content: 
+        oxy_label(
+            text, "Place"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+place > placeName:before {
+    content: "Place Name:";
+}
+
+org:before {
+    -oxy-prepend-content: 
+        oxy_label(
+            text, "Org"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+org > orgName:before {
+    content: "Org Name:";
+}

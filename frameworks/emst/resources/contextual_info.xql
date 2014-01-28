@@ -17,6 +17,8 @@ declare function local:list($list as element()) as element()* {
             return teix:person($item) 
         case element(tei:place)
             return teix:place($item)
+        case element(tei:org)
+            return teix:org($item)
         default
             return ""
     order by $label

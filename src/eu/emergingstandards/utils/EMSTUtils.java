@@ -92,10 +92,13 @@ public class EMSTUtils {
     @Nullable
     public static AuthorNode getCurrentAuthorNode(AuthorAccess authorAccess) {
         AuthorNode currentNode = null;
-
-        Object[] xpathResults = evaluateXPath(".", authorAccess);
-        if (xpathResults != null && xpathResults.length > 0) {
-            currentNode = ((AuthorElementDomWrapper) xpathResults[0]).getWrappedAuthorNode();
+        try {
+            Object[] xpathResults = evaluateXPath(".", authorAccess);
+            if (xpathResults != null && xpathResults.length > 0) {
+                currentNode = ((AuthorElementDomWrapper) xpathResults[0]).getWrappedAuthorNode();
+            }
+        } catch (Exception e) {
+//            e.printStackTrace();
         }
         return currentNode;
     }

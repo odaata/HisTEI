@@ -19,12 +19,14 @@ import java.util.Map;
  */
 public class EMSTStylesFilter implements StylesFilter {
 
+    private static final String CONTEXTUAL_INFO_ACTION_ID = "contextual.info.edit";
+
     @Override
     public Styles filter(Styles styles, AuthorNode authorNode) {
         EMSTContextualInfo contextualInfo = EMSTContextualInfo.get(authorNode);
 
         if (contextualInfo != null) {
-            if (styles.getDisplay().equals("block")) {
+            if (!styles.isInline()) {
                 Map<String, Object> comboboxArgs = new HashMap<>();
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
 //            PROPERTY_EDIT is deprecated
@@ -37,7 +39,7 @@ public class EMSTStylesFilter implements StylesFilter {
 
                 Map<String, Object> buttonArgs = new HashMap<>();
                 buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_BUTTON);
-                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_ACTION_ID, "edit.contextual.info");
+                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_ACTION_ID, CONTEXTUAL_INFO_ACTION_ID);
                 buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TRANSPARENT, "true");
                 buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
 //          Set showText and showIcon to true so the buttons render on same level as other components
@@ -46,8 +48,6 @@ public class EMSTStylesFilter implements StylesFilter {
 
                 StaticContent[] mixedContent = new StaticContent[]{new EditorContent(comboboxArgs), new EditorContent(buttonArgs)};
                 styles.setProperty(Styles.KEY_MIXED_CONTENT, mixedContent);
-//                  Collapse text so only combobox is used to edit field
-                styles.setProperty(Styles.KEY_VISIBITY, "-oxy-collapse-text");
             }
         }
         return styles;
@@ -55,6 +55,6 @@ public class EMSTStylesFilter implements StylesFilter {
 
     @Override
     public String getDescription() {
-        return "Emerging Standards Framework style filter.";
+        return "Emerging Standards Framework styles filter.";
     }
 }

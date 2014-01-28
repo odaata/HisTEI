@@ -247,11 +247,11 @@
         <val lang="en_US">Insert a a date with the date element.</val>
     </key>
 
-    <key value="edit.contextual.info">
+    <key value="contextual.info.edit">
         <comment>Edit contextual info action name.</comment>
         <val lang="en_US">Edit...</val>
     </key>
-    <key value="edit.contextual.info_description">
+    <key value="contextual.info.edit_description">
         <comment>Edit contextual info description.</comment>
         <val lang="en_US">Load the referenced contextual information for editing.</val>
     </key>
@@ -285,21 +285,21 @@
 
     <!--  Media Actions  -->
 
-    <key value="launch.media">
-        <comment>Launch media action name.</comment>
+    <key value="media.open">
+        <comment>Open media action name.</comment>
         <val lang="en_US">Open...</val>
     </key>
-    <key value="launch.media_description">
-        <comment>Launch media action description.</comment>
+    <key value="media.open_description">
+        <comment>Open media action description.</comment>
         <val lang="en_US">Load the media associated with the current place in the file (images, pdf, etc).</val>
     </key>
 
-    <key value="launch.media.by.ref">
-        <comment>Launch media by ref action name.</comment>
+    <key value="media.open.by.ref">
+        <comment>Open media by ref action name.</comment>
         <val lang="en_US">Open...</val>
     </key>
-    <key value="launch.media.by.ref_description">
-        <comment>Launch media by ref action description.</comment>
+    <key value="media.open.by.ref_description">
+        <comment>Open media by ref action description.</comment>
         <val lang="en_US">Load the media associated with the media ref based on the current place.</val>
     </key>
 

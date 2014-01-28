@@ -87,7 +87,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -130,7 +130,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -173,7 +173,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -216,7 +216,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name(.) = ("div")</String>
+														<String>local-name() = ("div")</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -243,13 +243,13 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>launch.media</String>
+											<String>media.open</String>
 										</field>
 										<field name="name">
-											<String>${i18n(launch.media)}</String>
+											<String>${i18n(media.open)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(launch.media_description)}</String>
+											<String>${i18n(media.open_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>/images/Image20.png</String>
@@ -267,7 +267,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>self::graphic or self::media</String>
+														<String>local-name() = ('graphic','media')</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -335,7 +335,7 @@
 											<String>${i18n(expansion)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(expansion_description)}	</String>
+											<String>${i18n(expansion_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/images/expansion-20.png</String>
@@ -353,7 +353,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -400,7 +400,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('body', 'div', 'front', 'back')</String>
+														<String>local-name() = ('body', 'div', 'front', 'back', 'listPerson', 'listPlace', 'listOrg')</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -443,7 +443,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -462,13 +462,13 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>launch.media.by.ref</String>
+											<String>media.open.by.ref</String>
 										</field>
 										<field name="name">
-											<String>${i18n(launch.media.by.ref)}</String>
+											<String>${i18n(media.open.by.ref)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(launch.media.by.ref_description)}</String>
+											<String>${i18n(media.open.by.ref_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>/images/Image20.png</String>
@@ -486,7 +486,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>exists(self::*/@facs)</String>
+														<String>exists(@facs)</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -666,7 +666,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -709,7 +709,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -752,7 +752,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -807,7 +807,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -850,7 +850,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -893,7 +893,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -936,7 +936,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -950,18 +950,34 @@
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('notesStmt')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
 											</actionMode-array>
 										</field>
 									</action>
 									<action>
 										<field name="id">
-											<String>edit.contextual.info</String>
+											<String>contextual.info.edit</String>
 										</field>
 										<field name="name">
-											<String>${i18n(edit.contextual.info)}</String>
+											<String>${i18n(contextual.info.edit)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(edit.contextual.info_description)}</String>
+											<String>${i18n(contextual.info.edit_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/images/document-edit-20.png</String>
@@ -979,7 +995,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>self::persName or self::handNote or self::placeName</String>
+														<String>local-name() = ('persName','handNote','placeName','orgName','repository')</String>
 													</field>
 													<field name="argValues">
 														<map/>
@@ -1017,7 +1033,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1060,7 +1076,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1103,7 +1119,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name(.) = ('opener', 'closer')</String>
+														<String>local-name() = ('opener', 'closer')</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1170,7 +1186,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1186,7 +1202,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name(.) = ('creation')</String>
+														<String>local-name() = ('creation')</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1202,13 +1218,48 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name(.) = ('handNotes')</String>
+														<String>local-name() = ('handNotes')</String>
 													</field>
 													<field name="argValues">
 														<map>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;handNote xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'listPerson'</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;person xmlns="http://www.tei-c.org/ns/1.0">
+    &lt;persName>
+        &lt;roleName/>
+        &lt;forename/>
+        &lt;nameLink/>
+        &lt;surname/>
+        &lt;surname/>
+    &lt;/persName>
+    &lt;sex/>
+    &lt;birth>
+        &lt;placeName/>
+    &lt;/birth>
+    &lt;death>
+        &lt;placeName/>
+    &lt;/death>
+&lt;/person></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
 															</entry>
 														</map>
 													</field>
@@ -1245,7 +1296,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1261,13 +1312,31 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name(.) = ('creation')</String>
+														<String>local-name() = ('creation')</String>
 													</field>
 													<field name="argValues">
 														<map>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'listPlace'</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0" type="settlement">
+    &lt;placeName/>
+&lt;/place></String>
 															</entry>
 														</map>
 													</field>
@@ -1304,7 +1373,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1316,6 +1385,41 @@
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('creation')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'listOrg'</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0">
+    &lt;orgName/>
+    &lt;desc/>
+&lt;/org></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1347,7 +1451,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1363,7 +1467,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name(.) = ('creation')</String>
+														<String>local-name() = ('creation')</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1494,7 +1598,7 @@
 										<menuEntry-array>
 											<menuItem>
 												<field name="actionID">
-													<String>launch.media.by.ref</String>
+													<String>media.open.by.ref</String>
 												</field>
 											</menuItem>
 										</menuEntry-array>
@@ -1698,6 +1802,22 @@
 														<String>org</String>
 													</field>
 												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>contextual.info.edit</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>media.open</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>media.open.by.ref</String>
+													</field>
+												</toolbarItem>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
@@ -1843,7 +1963,7 @@
 						<null/>
 					</field>
 					<field name="cssStylesFilterExtension">
-						<String>eu.emergingstandards.extensions.EMSTStylesFilter</String>
+						<null/>
 					</field>
 					<field name="attributesValueEditor">
 						<null/>

@@ -3,7 +3,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>List of Places for the Emerging Standards project</title>
+                <title>List of Organizations for the Emerging Standards project</title>
             </titleStmt>
             <publicationStmt>
                 <authority>EMST</authority>
@@ -15,11 +15,12 @@
     </teiHeader>
     <text>
         <body>
-            <listPlace>
-                <place xml:id="place_${id}">
-                    <placeName/>
-                </place>
-            </listPlace>
+            <listOrg>
+                <org xml:id="org_${id}">
+                    <orgName/>
+                    <desc/>
+                </org>
+            </listOrg>
         </body>
     </text>
 </TEI>

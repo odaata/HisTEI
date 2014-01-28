@@ -115,6 +115,24 @@
 
     <!-- Text Body -->
 
+    <key value="line.break">
+        <comment>Line break action name.</comment>
+        <val lang="en_US">lb</val>
+    </key>
+    <key value="line.break_description">
+        <comment>Line break action description.</comment>
+        <val lang="en_US">Insert a line break. Insert the lb element.</val>
+    </key>
+
+    <key value="page.break">
+        <comment>Page break action name.</comment>
+        <val lang="en_US">pb</val>
+    </key>
+    <key value="page.break_description">
+        <comment>Page break action description.</comment>
+        <val lang="en_US">Insert a page break. Insert the pb element.</val>
+    </key>
+
     <key value="salute">
         <comment>Salute action name.</comment>
         <val lang="en_US">Salute</val>
@@ -262,7 +280,7 @@
     </key>
     <key value="person_description">
         <comment>Person description.</comment>
-        <val lang="en_US">Insert a reference to a person with the persName element.</val>
+        <val lang="en_US">Insert a person.</val>
     </key>
 
     <key value="place">
@@ -271,7 +289,7 @@
     </key>
     <key value="place_description">
         <comment>Place description.</comment>
-        <val lang="en_US">Insert a reference to a place with the placeName element.</val>
+        <val lang="en_US">Insert a place.</val>
     </key>
 
     <key value="org">
@@ -280,10 +298,19 @@
     </key>
     <key value="org_description">
         <comment>Org description.</comment>
-        <val lang="en_US">Insert a reference to an organization with the orgName element.</val>
+        <val lang="en_US">Insert an organization.</val>
     </key>
 
     <!--  Media Actions  -->
+
+    <key value="facsimile.select.dir">
+        <comment>Select facsimile base directory action name.</comment>
+        <val lang="en_US">Choose...</val>
+    </key>
+    <key value="facsimile.select.dir_description">
+        <comment>Select facsimile base directory action description.</comment>
+        <val lang="en_US">Select the directory where the images and/or media for this text are located.</val>
+    </key>
 
     <key value="media.open">
         <comment>Open media action name.</comment>

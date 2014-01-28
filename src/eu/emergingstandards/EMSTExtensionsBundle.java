@@ -17,18 +17,11 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
 
     private EMSTUniqueAttributesRecognizer uniqueAttributesRecognizer;
 
-    /**
-     * The unique identifier of the Document Type.
-     * This identifier will be used to store custom SDF options.
-     */
     @Override
     public String getDocumentTypeID() {
         return "EMST.document.type";
     }
 
-    /**
-     * Bundle description.
-     */
     public String getDescription() {
         return "Custom extensions bundle for the Emerging Standards Project";
     }

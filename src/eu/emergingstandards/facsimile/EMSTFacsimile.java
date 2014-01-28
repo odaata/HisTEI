@@ -5,10 +5,13 @@ import org.apache.tika.Tika;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
+import ro.sync.ecss.extensions.api.node.AttrValue;
+import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,6 +24,7 @@ public class EMSTFacsimile {
     private static final String ELEMENT_NAME = "facsimile";
     private static final String URL_ATTRIB_NAME = "url";
 
+    private AuthorAccess authorAccess;
     private File directory;
     private Map<String, String> files = new HashMap<>();
 
@@ -37,8 +41,8 @@ public class EMSTFacsimile {
     public EMSTFacsimile(AuthorAccess authorAccess) {
         if (authorAccess != null) {
             AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
-            if (currentNode != null && currentNode.getName().equals(ELEMENT_NAME)) {
-//                ((AuthorElement) currentNode).getAttribute()
+            if (currentNode != null) {
+
             }
         }
     }
@@ -48,7 +52,6 @@ public class EMSTFacsimile {
         return directory;
     }
 
-    @NotNull
     public void setDirectory(File newDirectory, AuthorAccess authorAccess) {
         files = new HashMap<>();
         this.directory = newDirectory;
@@ -62,7 +65,6 @@ public class EMSTFacsimile {
 //                        String mediaType = Files.probeContentType(file.toPath());
                         files.put(file.getName(), mediaType);
                     } catch (IOException e) {
-                        continue;
                     }
                 }
             }
@@ -70,16 +72,36 @@ public class EMSTFacsimile {
 
     }
 
-    @NotNull
     public boolean chooseDirectory(AuthorAccess authorAccess) {
         boolean success = false;
-        File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
 
-        if (dir != null && !directory.equals(dir)) {
-            authorAccess.getWorkspaceAccess().showInformationMessage(
-                    "This directory has already been set. Would you like to update the graphic and media elements?");
+        AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
+        if (currentNode != null && "facsimile".equals(currentNode.getName())) {
+
+            File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
+            if (dir != null) {
+                AuthorElement facsimile = (AuthorElement) currentNode;
+                try {
+                    String relativePath = authorAccess.getUtilAccess().makeRelative(
+                            authorAccess.getEditorAccess().getEditorLocation(),
+                            dir.toURI().toURL()
+                    );
+                    authorAccess.getDocumentController().setAttribute("xml:base", new AttrValue(relativePath), facsimile);
+                } catch (MalformedURLException e) {
+//                    e.printStackTrace();
+                }
+
+                int choice = authorAccess.getWorkspaceAccess().showConfirmDialog("Update graphic/media elements",
+                        "Would you like to update the graphic and media elements from this directory?",
+                        new String[]{"Yes", "No"}, new int[]{0, 1}
+                );
+                switch (choice) {
+                    case 0:
+                        break;
+                    default:
+                }
+            }
         }
-
         return success;
     }
 

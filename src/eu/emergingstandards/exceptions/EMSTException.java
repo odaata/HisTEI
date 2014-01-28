@@ -67,7 +67,7 @@ public class EMSTException extends Exception {
         return (message == null ? "" : message);
     }
 
-    public final void notifyOxygenUser(AuthorAccess authorAccess) {
+    public void notifyOxygenUser(AuthorAccess authorAccess) {
         if (!userNotified) {
             String message = getMessage();
             if (message != null && !message.isEmpty()) {

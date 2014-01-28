@@ -10,6 +10,15 @@
 
 /* Global fields & labels */
 
+TEI {
+    display:block;
+    padding:10px 20px 5px 5px;
+/*  Geneva - only (good-looking) font that supports OE chars (found so far)  */
+    font-family:Geneva;
+/*    font-family:helvetica, verdana, arial, sans-serif;*/
+    font-size:12px;
+}
+
 /* Labels */
 *:before {
     font-weight:bold;
@@ -135,17 +144,6 @@ death {
             editable, false
             columns, 8
         );
-}
-
-/* TEI */
-
-TEI, TEI\.2 {
-    display:block;
-    padding:10px 20px 5px 5px;
-/*  Geneva - only (good-looking) font that supports OE chars (found so far)  */
-    font-family:Geneva;
-/*    font-family:helvetica, verdana, arial, sans-serif;*/
-    font-size:12px;
 }
 
 /* Fields */
@@ -287,9 +285,7 @@ altIdentifier > idno:before {
 repository,
 creation > *,
 handNotes > *,
-facsimile > *,
-pb,
-lb {
+facsimile > * {
     visibility:-oxy-collapse-text;
 }
 
@@ -363,14 +359,31 @@ facsimile:before {
     content: "Facsimile:"
 }
 
+facsimile[xml|base] {
+    -oxy-prepend-content:
+        oxy_label(
+            text, "Base Directory: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:base"
+            columns, 35
+        )
+    ;
+}
+
 facsimile {
     display: block;
 /*    -oxy-folded:true;*/
     -oxy-foldable:true;
     content: 
-        oxy_urlChooser(
-            edit, "@xml:base"
-        );
+        oxy_button(
+            actionID, "facsimile.select.dir"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
+    ;
 }
 
 facsimile > graphic,
@@ -419,7 +432,7 @@ facsimile > media {
 /* Layout */
 
 text,
-div > * {
+div * {
   display: block;
 }
 
@@ -455,7 +468,6 @@ fw:before {
 }
 
 fw {
-    display:block;
     padding:1px;
     text-align:right;
 }
@@ -506,6 +518,7 @@ desc country,
 desc bloc {
     display:inline;
     color:olive;
+    -oxy-display-tags:none;
 }
 
 div date:before,
@@ -525,6 +538,30 @@ desc region:before,
 desc country:before,
 desc bloc:before {
     content: "";
+}
+
+/* Milestones with no text and
+    Fields only edited by form controls */
+pb,
+lb,
+gap,
+sex {
+    visibility:-oxy-collapse-text;
+    -oxy-display-tags:none;
+}
+
+/* Hide tags for inline elements */
+hi,
+abbr,
+expan,
+add,
+del,
+unclear,
+foreign,
+note,
+seg,
+pc {
+    -oxy-display-tags:none;
 }
 
 hi[rend="bold"] {
@@ -609,12 +646,17 @@ p > lb:first-child {
 }
 
 lb {
-    -oxy-display-tags:none;
     content:"\A";
 }
 
+lb[break="yes"] {
+    color:purple;
+/*    font-weight:bold; → – */
+    font-size:16px;
+    content:"–\A";
+}
+
 pb {
-    -oxy-display-tags:none;
     display:block;
     background-color:transparent;
     border-style:groove none;
@@ -776,8 +818,6 @@ sex:before {
 
 sex {
     display:inline;
-    visibility:-oxy-collapse-text;
-    -oxy-display-tags:none;
     content: 
         oxy_combobox(
             edit, "@value"

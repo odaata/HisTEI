@@ -649,11 +649,11 @@ lb {
     content:"\A";
 }
 
-lb[break="yes"] {
+lb[break="no"] {
     color:purple;
 /*    font-weight:bold; → – */
-    font-size:16px;
-    content:"–\A";
+/*    font-size:16px;*/
+    content:"→\A";
 }
 
 pb {

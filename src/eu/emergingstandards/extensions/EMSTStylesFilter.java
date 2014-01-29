@@ -23,10 +23,9 @@ public class EMSTStylesFilter implements StylesFilter {
 
     @Override
     public Styles filter(Styles styles, AuthorNode authorNode) {
-        EMSTContextualInfo contextualInfo = EMSTContextualInfo.get(authorNode);
-
-        if (contextualInfo != null) {
-            if (!styles.isInline()) {
+        if (!styles.isInline()) {
+            EMSTContextualInfo contextualInfo = EMSTContextualInfo.get(authorNode);
+            if (contextualInfo != null) {
                 Map<String, Object> comboboxArgs = new HashMap<>();
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
 //            PROPERTY_EDIT is deprecated

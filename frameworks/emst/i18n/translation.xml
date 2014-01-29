@@ -305,11 +305,13 @@
 
     <key value="facsimile.select.dir">
         <comment>Select facsimile base directory action name.</comment>
-        <val lang="en_US">Choose...</val>
+        <val lang="en_US">Select Base Directory...</val>
     </key>
     <key value="facsimile.select.dir_description">
         <comment>Select facsimile base directory action description.</comment>
-        <val lang="en_US">Select the directory where the images and/or media for this text are located.</val>
+        <val lang="en_US">Select the base directory where the images and/or media for this text are located. This
+            modifies the xml:base attribute.
+        </val>
     </key>
 
     <key value="media.open">

@@ -331,17 +331,21 @@ public class EMSTContextualInfo {
     public void reload() {
         Path xqy = getXQueryPath();
         if (xqy != null) {
-            reset();
+//          Force synchronization so Oxygen gets the values on startup
+            synchronized (this) {
+                reset();
 
-            xQueryEvaluator = null;
-            try {
-                Processor proc = new Processor(true);
-                proc.setConfigurationProperty(FeatureKeys.XQUERY_VERSION, "3.0");
-                xQueryEvaluator = proc.newXQueryCompiler().compile(xqy.toFile()).load();
-                refresh();
-            } catch (SaxonApiException | IOException e) {
                 xQueryEvaluator = null;
-                logger.error(e, e);
+                try {
+                    Processor proc = new Processor(true);
+                    proc.setConfigurationProperty(FeatureKeys.XQUERY_VERSION, "3.0");
+                    xQueryEvaluator = proc.newXQueryCompiler().compile(xqy.toFile()).load();
+
+                    refresh();
+                } catch (SaxonApiException | IOException e) {
+                    xQueryEvaluator = null;
+                    logger.error(e, e);
+                }
             }
         }
     }
@@ -351,21 +355,24 @@ public class EMSTContextualInfo {
         if (src != null) {
             XQueryEvaluator xqe = getXQueryEvaluator();
             if (xqe != null) {
-                reset();
+//              Force synchronization so Oxygen gets the values on startup
+                synchronized (this) {
+                    reset();
 
-                try {
-                    xqe.setSource(new SAXSource(new InputSource(src.toUri().toString())));
-                    for (XdmItem item : xqe) {
-                        XdmNode node = (XdmNode) item;
-                        String value = node.getAttributeValue(VALUE_QNAME);
-                        values.add(getType() + ":" + value);
+                    try {
+                        xqe.setSource(new SAXSource(new InputSource(src.toUri().toString())));
+                        for (XdmItem item : xqe) {
+                            XdmNode node = (XdmNode) item;
+                            String value = node.getAttributeValue(VALUE_QNAME);
+                            values.add(getType() + ":" + value);
 
-                        String label = node.getAttributeValue(LABEL_QNAME);
-                        labels.add(label);
+                            String label = node.getAttributeValue(LABEL_QNAME);
+                            labels.add(label);
+                        }
+                        addWatchers();
+                    } catch (SaxonApiException e) {
+                        logger.error(e, e);
                     }
-                    addWatchers();
-                } catch (SaxonApiException e) {
-                    logger.error(e, e);
                 }
             }
         }

@@ -856,7 +856,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;pc xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;pc xmlns="http://www.tei-c.org/ns/1.0" force="${ask('force?', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'weak')}"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1186,7 +1186,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>(ancestor-or-self::*:div or ancestor-or-self::*:desc)</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1265,6 +1265,34 @@
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>(ancestor-or-self::*:div or ancestor-or-self::*:desc) and local-name() ne 'persName'</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>editAttribute</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>elementLocation</String>
+																<String>.</String>
+															</entry>
+															<entry>
+																<String>name</String>
+																<String>ref</String>
+															</entry>
+															<entry>
+																<String>namespace</String>
+																<String>http://www.tei-c.org/ns/1.0</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1516,7 +1544,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;lb xmlns="http://www.tei-c.org/ns/1.0" break="${ask('word break as well?', combobox, ('no':'no'; 'yes':'yes';), 'no')}"/></String>
+																<String>&lt;lb xmlns="http://www.tei-c.org/ns/1.0" break="${ask('Is this line break between words?', combobox, ('yes':'yes'; 'no':'no';), 'yes')}"/></String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>

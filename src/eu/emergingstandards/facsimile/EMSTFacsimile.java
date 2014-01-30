@@ -42,9 +42,7 @@ public class EMSTFacsimile {
     private AuthorAccess authorAccess;
     private AuthorElement currentElement;
     private AuthorElement facsimileElement;
-    private File directory;
     private Map<String, String> files = new HashMap<>();
-    private Map<String, URL> media = new HashMap<>();
     private List<String> references;
 
     private final Tika tika = new Tika();
@@ -79,22 +77,28 @@ public class EMSTFacsimile {
                 facsimileElement = EMSTUtils.getAuthorElement("//facsimile[1]", authorAccess);
             }
 
-            AttrValue base = currentElement.getAttribute("xml:base");
-            if (base != null) {
-                directory = new File(base.getValue());
-            }
+
         }
         return facsimileElement;
     }
 
-    @Nullable
-    public File getDirectory() {
+    @NotNull
+    public String getDirectory() {
+        String directory = "";
+
+        AuthorElement facsimile = getFacsimileElement();
+        if (facsimile != null) {
+            AttrValue base = facsimile.getAttribute("xml:base");
+            if (base != null) {
+                directory = base.getValue();
+            }
+        }
         return directory;
     }
 
     public void setDirectory(File newDirectory, AuthorAccess authorAccess) {
         files = new HashMap<>();
-        this.directory = newDirectory;
+//        this.directory = newDirectory;
 
         if (newDirectory != null) {
             File[] listFiles = newDirectory.listFiles();
@@ -168,7 +172,7 @@ public class EMSTFacsimile {
 
     @NotNull
     public Map<String, URL> getMedia() {
-        media = new HashMap<>();
+        Map<String, URL> media = new HashMap<>();
 
         List<AuthorElement> elements = getMediaElements();
         for (AuthorElement element : elements) {
@@ -185,8 +189,11 @@ public class EMSTFacsimile {
 
         AttrValue urlAttr = authorElement.getAttribute(URL_ATTRIB_NAME);
         if (urlAttr != null) {
+            String dir = getDirectory();
+            if (!dir.isEmpty() && !dir.endsWith("/")) dir += "/";
+
             try {
-                url = new URL(urlAttr.getValue());
+                url = new URL(dir + urlAttr.getValue());
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             }

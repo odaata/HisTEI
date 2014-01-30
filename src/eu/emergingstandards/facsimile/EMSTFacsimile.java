@@ -12,8 +12,10 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
 import java.io.File;
 import java.io.IOException;
 import java.net.MalformedURLException;
-import java.nio.file.Path;
+import java.net.URL;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -21,30 +23,68 @@ import java.util.Map;
  */
 public class EMSTFacsimile {
 
-    private static final String ELEMENT_NAME = "facsimile";
-    private static final String URL_ATTRIB_NAME = "url";
+    private enum elementType {
+        FACSIMILE, MEDIA, REFERENCES, NONE
+    }
 
+    private static final String FACSIMILE_ELEMENT_NAME = "facsimile";
+    private static final List<String> MEDIA_ELEMENT_NAMES = new ArrayList<>(2);
+
+    static {
+        MEDIA_ELEMENT_NAMES.add("media");
+        MEDIA_ELEMENT_NAMES.add("graphic");
+    }
+
+    private static final String URL_ATTRIB_NAME = "url";
+    private static final String FACS_ATTRIB_NAME = "facs";
+
+    private elementType currentType = elementType.NONE;
     private AuthorAccess authorAccess;
+    private AuthorElement currentElement;
+    private AuthorElement facsimileElement;
     private File directory;
     private Map<String, String> files = new HashMap<>();
+    private Map<String, URL> media = new HashMap<>();
+    private List<String> references;
 
     private final Tika tika = new Tika();
 
-    public EMSTFacsimile(File directory) {
-        this.directory = directory;
-    }
-
-    public EMSTFacsimile(Path directory) {
-        if (directory != null) this.directory = directory.toFile();
-    }
-
     public EMSTFacsimile(AuthorAccess authorAccess) {
-        if (authorAccess != null) {
-            AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
-            if (currentNode != null) {
+        this.authorAccess = authorAccess;
+        currentElement = EMSTUtils.getCurrentAuthorElement(authorAccess);
 
+        if (currentElement != null) {
+            String elementName = currentElement.getName();
+
+            if (FACSIMILE_ELEMENT_NAME.equals(elementName)) {
+                currentType = elementType.FACSIMILE;
+            } else if (MEDIA_ELEMENT_NAMES.contains(elementName)) {
+                currentType = elementType.MEDIA;
+            } else {
+                AttrValue facs = currentElement.getAttribute(FACS_ATTRIB_NAME);
+                // Reference to <graphic>/<media> beneath <facsimile> - get reference URL from there
+                if (facs != null) {
+                    currentType = elementType.REFERENCES;
+                    references = EMSTUtils.getAttribValues(facs.getValue());
+                }
             }
         }
+    }
+
+    public AuthorElement getFacsimileElement() {
+        if (facsimileElement == null) {
+            if (currentType == elementType.FACSIMILE) {
+                facsimileElement = currentElement;
+            } else {
+                facsimileElement = EMSTUtils.getAuthorElement("//facsimile[1]", authorAccess);
+            }
+
+            AttrValue base = currentElement.getAttribute("xml:base");
+            if (base != null) {
+                directory = new File(base.getValue());
+            }
+        }
+        return facsimileElement;
     }
 
     @Nullable
@@ -108,5 +148,64 @@ public class EMSTFacsimile {
     @NotNull
     public Map<String, String> getFiles() {
         return files;
+    }
+
+    @NotNull
+    public List<AuthorElement> getMediaElements() {
+        List<AuthorElement> elements = new ArrayList<>();
+
+        AuthorElement facsimile = getFacsimileElement();
+        if (facsimile != null) {
+            for (AuthorNode node : facsimile.getContentNodes()) {
+                AuthorElement element = EMSTUtils.castAuthorElement(node);
+                if (element != null) {
+                    elements.add(element);
+                }
+            }
+        }
+        return elements;
+    }
+
+    @NotNull
+    public Map<String, URL> getMedia() {
+        media = new HashMap<>();
+
+        List<AuthorElement> elements = getMediaElements();
+        for (AuthorElement element : elements) {
+            AttrValue idAttr = element.getAttribute(EMSTUtils.XML_ID_ATTR_NAME);
+            if (idAttr != null) {
+                media.put(idAttr.getValue(), getURL(element));
+            }
+        }
+        return media;
+    }
+
+    private URL getURL(AuthorElement authorElement) {
+        URL url = null;
+
+        AttrValue urlAttr = authorElement.getAttribute(URL_ATTRIB_NAME);
+        if (urlAttr != null) {
+            try {
+                url = new URL(urlAttr.getValue());
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
+            }
+        }
+        return url;
+    }
+
+    @Nullable
+    public URL getCurrentURL() {
+        URL url = null;
+
+        if (currentType == elementType.MEDIA && currentElement != null) {
+            url = getURL(currentElement);
+        }
+        return url;
+    }
+
+    @NotNull
+    public List<String> getReferences() {
+        return references;
     }
 }

@@ -682,12 +682,12 @@ pb {
             labels, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
             selectionMode, multiple
         )
-        /*oxy_button(
-            actionID, "media.open.by.ref"
+        oxy_button(
+            actionID, "media.open"
             transparent, true
             showText, true
             showIcon, true
-        )*/
+        )
         "     n: "
         oxy_textfield(
             edit, "@n"

@@ -323,14 +323,14 @@
         <val lang="en_US">Load the media associated with the current place in the file (images, pdf, etc).</val>
     </key>
 
-    <key value="media.open.by.ref">
+    <!--<key value="media.open.by.ref">
         <comment>Open media by ref action name.</comment>
         <val lang="en_US">Open...</val>
     </key>
     <key value="media.open.by.ref_description">
         <comment>Open media by ref action description.</comment>
         <val lang="en_US">Load the media associated with the media ref based on the current place.</val>
-    </key>
+    </key>-->
 
 
     <!-- Original key/values taken from TEI P5 framework   -->

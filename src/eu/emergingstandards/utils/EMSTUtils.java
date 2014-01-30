@@ -5,6 +5,7 @@ import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.dom.wrappers.AuthorElementDomWrapper;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.api.AuthorOperationException;
+import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.exml.workspace.api.PluginWorkspace;
 import ro.sync.exml.workspace.api.PluginWorkspaceProvider;
@@ -15,20 +16,17 @@ import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by mike on 1/13/14.
  */
 public class EMSTUtils {
 
+    public static String XML_ID_ATTR_NAME = "xml:id";
     public static String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
     public static String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
     public static Map<String, String> NAMESPACES = new HashMap<>(2);
-
     static {
         NAMESPACES.put("tei", TEI_NAMESPACE);
         NAMESPACES.put("xml", XML_NAMESPACE);
@@ -78,29 +76,58 @@ public class EMSTUtils {
     }
 
     @Nullable
-    public static Object[] evaluateXPath(String xpath, AuthorAccess authorAccess) {
+    public static List<AuthorNode> getAuthorNodes(String xpath, AuthorAccess authorAccess) {
+        List<AuthorNode> authorNodes = new ArrayList<>();
+
         Object[] results = null;
         try {
-            if (authorAccess != null)
+            if (authorAccess != null) {
                 results = authorAccess.getDocumentController().evaluateXPath(xpath, false, false, false, false);
+                if (results != null && results.length > 0) {
+                    for (Object node : results) {
+                        authorNodes.add(((AuthorElementDomWrapper) node).getWrappedAuthorNode());
+                    }
+                }
+            }
         } catch (AuthorOperationException e) {
-
         }
-        return results;
+        return authorNodes;
+    }
+
+    @Nullable
+    public static AuthorNode getAuthorNode(String xpath, AuthorAccess authorAccess) {
+        AuthorNode authorNode = null;
+
+        List<AuthorNode> nodes = getAuthorNodes(xpath, authorAccess);
+        if (nodes.size() > 0) {
+            authorNode = nodes.get(0);
+        }
+        return authorNode;
     }
 
     @Nullable
     public static AuthorNode getCurrentAuthorNode(AuthorAccess authorAccess) {
-        AuthorNode currentNode = null;
-        try {
-            Object[] xpathResults = evaluateXPath(".", authorAccess);
-            if (xpathResults != null && xpathResults.length > 0) {
-                currentNode = ((AuthorElementDomWrapper) xpathResults[0]).getWrappedAuthorNode();
-            }
-        } catch (Exception e) {
-//            e.printStackTrace();
+        return getAuthorNode(".", authorAccess);
+    }
+
+    @Nullable
+    public static AuthorElement castAuthorElement(AuthorNode authorNode) {
+        AuthorElement authorElement = null;
+
+        if (authorNode != null && authorNode.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
+            authorElement = (AuthorElement) authorNode;
         }
-        return currentNode;
+        return authorElement;
+    }
+
+    @Nullable
+    public static AuthorElement getAuthorElement(String xpath, AuthorAccess authorAccess) {
+        return castAuthorElement(getAuthorNode(xpath, authorAccess));
+    }
+
+    @Nullable
+    public static AuthorElement getCurrentAuthorElement(AuthorAccess authorAccess) {
+        return getAuthorElement(".", authorAccess);
     }
 
     @Nullable
@@ -114,5 +141,15 @@ public class EMSTUtils {
             if (path != null && !Files.exists(path)) path = null;
         }
         return path;
+    }
+
+    @NotNull
+    public static List<String> getAttribValues(String value) {
+        List<String> values = new ArrayList<>();
+
+        if (value != null) {
+            values = Arrays.asList(value.split("\\s+"));
+        }
+        return values;
     }
 }

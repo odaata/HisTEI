@@ -11,11 +11,7 @@ public class EMSTOpenMediaOperation implements AuthorOperation {
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
         AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
-        if (currentNode != null) {
-            if ("media".equals(currentNode.getName())) {
 
-            }
-        }
     }
 
     @Override

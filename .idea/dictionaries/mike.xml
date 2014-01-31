@@ -2,14 +2,17 @@
   <dictionary name="mike">
     <words>
       <w>attrib</w>
+      <w>bibl</w>
       <w>combobox</w>
       <w>emst</w>
       <w>facs</w>
       <w>infos</w>
       <w>mergewithoutmain</w>
+      <w>parsable</w>
       <w>pers</w>
       <w>proc</w>
       <w>qname</w>
+      <w>tika</w>
       <w>vals</w>
       <w>xquery</w>
     </words>

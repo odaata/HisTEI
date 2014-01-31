@@ -22,6 +22,7 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
         return "EMST.document.type";
     }
 
+    @Override
     public String getDescription() {
         return "Custom extensions bundle for the Emerging Standards Project";
     }

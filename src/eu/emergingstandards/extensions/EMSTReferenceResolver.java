@@ -31,7 +31,7 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
     /**
      * Logger for logging.
      */
-    private static Logger logger = Logger.getLogger(EMSTReferenceResolver.class.getName());
+    private static final Logger logger = Logger.getLogger(EMSTReferenceResolver.class.getName());
 
     /**
      * Verifies if the handler considers the node to have references.

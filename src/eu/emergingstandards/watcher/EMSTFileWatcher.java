@@ -1,6 +1,7 @@
 package eu.emergingstandards.watcher;
 
 import org.apache.log4j.Logger;
+import org.jetbrains.annotations.Nullable;
 
 import java.io.IOException;
 import java.nio.file.*;
@@ -15,7 +16,7 @@ import static java.nio.file.StandardWatchEventKinds.*;
  */
 public class EMSTFileWatcher {
 
-    private static Logger logger = Logger.getLogger(EMSTFileWatcher.class.getName());
+    private static final Logger logger = Logger.getLogger(EMSTFileWatcher.class.getName());
 
     @SuppressWarnings("unchecked")
     static <T> WatchEvent<T> cast(WatchEvent<?> event) {
@@ -43,8 +44,10 @@ public class EMSTFileWatcher {
         return executorService;
     }
 
-    private static Map<WatchKey, Path> watchKeys = new HashMap<>();
-    private static Map<Path, EMSTFileWatcher> watchers = new WeakHashMap<>();
+    private static final Map<WatchKey, Path> watchKeys = new HashMap<>();
+    private static final Map<Path, EMSTFileWatcher> watchers = new WeakHashMap<>();
+
+    @Nullable
     public static EMSTFileWatcher get(Path path) {
         EMSTFileWatcher watcher = null;
 
@@ -63,7 +66,7 @@ public class EMSTFileWatcher {
                         watchers.put(path, watcher);
                     }
                 } catch (IOException e) {
-                    e.printStackTrace();
+                    logger.error(e, e);
                 }
             }
         }
@@ -74,7 +77,8 @@ public class EMSTFileWatcher {
 
         /** the watchService that is passed in from above */
         private WatchService watchService;
-        public EMSTWatchQueueReader(WatchService watchService) {
+
+        private EMSTWatchQueueReader(WatchService watchService) {
             this.watchService = watchService;
         }
 
@@ -139,7 +143,7 @@ public class EMSTFileWatcher {
         }
     }
 
-    /*  Instance Memebers */
+    /*  Instance Members */
 
     private Path path;
 

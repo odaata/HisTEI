@@ -27,14 +27,15 @@ import java.util.*;
 /**
  * Created by mike on 1/13/14.
  */
-public class EMSTUtils {
+public final class EMSTUtils {
 
-    private static Logger logger = Logger.getLogger(EMSTUtils.class.getName());
+    private static final Logger logger = Logger.getLogger(EMSTUtils.class.getName());
 
-    public static String XML_ID_ATTR_NAME = "xml:id";
-    public static String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
-    public static String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
-    public static Map<String, String> NAMESPACES = new HashMap<>(2);
+    public static final String XML_ID_ATTR_NAME = "xml:id";
+    public static final String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
+    public static final String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
+    public static final Map<String, String> NAMESPACES = new HashMap<>(2);
+
     static {
         NAMESPACES.put("tei", TEI_NAMESPACE);
         NAMESPACES.put("xml", XML_NAMESPACE);
@@ -87,7 +88,7 @@ public class EMSTUtils {
     public static List<AuthorNode> getAuthorNodes(String xpath, AuthorAccess authorAccess) {
         List<AuthorNode> authorNodes = new ArrayList<>();
 
-        Object[] results = null;
+        Object[] results;
         try {
             if (authorAccess != null) {
                 results = authorAccess.getDocumentController().evaluateXPath(xpath, false, false, false, false);
@@ -98,6 +99,7 @@ public class EMSTUtils {
                 }
             }
         } catch (AuthorOperationException e) {
+            logger.error(e, e);
         }
         return authorNodes;
     }
@@ -107,7 +109,7 @@ public class EMSTUtils {
         AuthorNode authorNode = null;
 
         List<AuthorNode> nodes = getAuthorNodes(xpath, authorAccess);
-        if (nodes.size() > 0) {
+        if (nodes != null && nodes.size() > 0) {
             authorNode = nodes.get(0);
         }
         return authorNode;
@@ -211,7 +213,7 @@ public class EMSTUtils {
                 String urlPath = URLDecoder.decode(url.getPath(), "UTF-8");
                 path = Paths.get(urlPath);
             } catch (UnsupportedEncodingException e) {
-
+                logger.error(e, e);
             }
         }
         return path;
@@ -239,5 +241,8 @@ public class EMSTUtils {
             }
         }
         return decodedURL;
+    }
+
+    private EMSTUtils() {
     }
 }

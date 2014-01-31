@@ -12,7 +12,7 @@ import java.nio.file.Path;
  */
 public class EMSTFileMissingException extends EMSTException {
 
-    private static Logger logger = Logger.getLogger(EMSTFileMissingException.class.getName());
+    private static final Logger logger = Logger.getLogger(EMSTFileMissingException.class.getName());
 
     private String path = "";
 

@@ -8,7 +8,7 @@ import ro.sync.ecss.extensions.commons.id.GenerateIDElementsInfo;
  */
 public class EMSTUniqueAttributesRecognizer extends DefaultUniqueAttributesRecognizer {
 
-    public static GenerateIDElementsInfo GENERATE_ID_DEFAULTS = new GenerateIDElementsInfo(
+    public static final GenerateIDElementsInfo GENERATE_ID_DEFAULTS = new GenerateIDElementsInfo(
             true, GenerateIDElementsInfo.DEFAULT_ID_GENERATION_PATTERN,
             new String[]{
                     "TEI",

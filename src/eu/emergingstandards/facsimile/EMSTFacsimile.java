@@ -33,7 +33,7 @@ public class EMSTFacsimile {
         FACSIMILE, MEDIA, REFERENCES, NONE
     }
 
-    private static Logger logger = Logger.getLogger(EMSTFacsimile.class.getName());
+    private static final Logger logger = Logger.getLogger(EMSTFacsimile.class.getName());
 
     private static final String FACSIMILE_ELEMENT_NAME = "facsimile";
     private static final List<String> MEDIA_ELEMENT_NAMES = new ArrayList<>(2);
@@ -53,7 +53,7 @@ public class EMSTFacsimile {
         MEDIA_TYPES.put("image/jpeg", "graphic");
     }
 
-    /* Instance memebers */
+    /* Instance members */
 
     private elementType currentType = elementType.NONE;
     private AuthorAccess authorAccess;
@@ -62,14 +62,14 @@ public class EMSTFacsimile {
     private List<String> references;
 
     private final Tika tika = new Tika();
-    private final DirectoryStream.Filter<Path> tikaFilter =
+    /*private final DirectoryStream.Filter<Path> tikaFilter =
             new DirectoryStream.Filter<Path>() {
                 @Override
                 public boolean accept(Path entry) throws IOException {
                     String mediaType = tika.detect(entry.toFile());
                     return MEDIA_TYPES.keySet().contains(mediaType);
                 }
-            };
+            };*/
 
     public EMSTFacsimile(AuthorAccess authorAccess) {
         this.authorAccess = authorAccess;

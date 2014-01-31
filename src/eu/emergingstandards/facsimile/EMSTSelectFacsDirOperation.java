@@ -33,9 +33,7 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
                             new AttrValue(relativePath.equals(".") ? null : URLDecoder.decode(relativePath, "UTF-8")),
                             (AuthorElement) currentNode
                     );
-                } catch (MalformedURLException e) {
-                    e.printStackTrace();
-                } catch (UnsupportedEncodingException e) {
+                } catch (MalformedURLException | UnsupportedEncodingException e) {
                     e.printStackTrace();
                 }
             }

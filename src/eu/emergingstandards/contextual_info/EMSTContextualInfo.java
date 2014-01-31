@@ -34,8 +34,8 @@ public class EMSTContextualInfo {
 
     /* Global (Static) members */
 
-    private static Logger logger = Logger.getLogger(EMSTContextualInfo.class.getName());
-//  Base strings for Paths
+    private static final Logger logger = Logger.getLogger(EMSTContextualInfo.class.getName());
+    //  Base strings for Paths
     public static final String SOURCE_BASE_PATH = EditorVariables.PROJECT_DIRECTORY + "/contextual_info/";
     public static final String XQUERY_BASE_PATH = EditorVariables.FRAMEWORK_DIRECTORY + "/resources";
     public static final String XQUERY_PATH = XQUERY_BASE_PATH + "/contextual_info.xql";
@@ -117,7 +117,7 @@ public class EMSTContextualInfo {
         ELEMENTS.put("catRef", new HashMap<>(initMap));
     }
 
-    private static Map<String, EMSTContextualInfo> contextualInfos = new HashMap<>();
+    private static final Map<String, EMSTContextualInfo> contextualInfos = new HashMap<>();
 
     @Nullable
     public static EMSTContextualInfo get(AuthorNode authorNode) {
@@ -419,18 +419,16 @@ public class EMSTContextualInfo {
         xQueryWatcher = EMSTFileWatcher.get(getXQueryPath());
         sourceWatcher = EMSTFileWatcher.get(getSourcePath());
 
-        xQueryWatcher.addEventListener(xQueryWatcherListener);
-        sourceWatcher.addEventListener(sourceWatcherListener);
+        if (xQueryWatcher != null) xQueryWatcher.addEventListener(xQueryWatcherListener);
+        if (sourceWatcher != null) sourceWatcher.addEventListener(sourceWatcherListener);
     }
 
     private void removeWatchers() {
         if (xQueryWatcher != null) {
             xQueryWatcher.removeEventListener(xQueryWatcherListener);
-            xQueryWatcher = null;
         }
         if (sourceWatcher != null) {
             sourceWatcher.removeEventListener(sourceWatcherListener);
-            sourceWatcher = null;
         }
     }
 

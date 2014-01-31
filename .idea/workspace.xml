@@ -9,19 +9,20 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Couple of tweaks, before I sleep ;-)">
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="open media is working!">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/resources/genre.txt" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/templates/genre.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/resources/genre.xql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTReferenceResolver.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTReferenceResolver.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/resources/contextual_info.xql" afterPath="$PROJECT_DIR$/frameworks/emst/resources/contextual_info.xql" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/emst.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/emst.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/emst.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/emst.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/mike.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/mike.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/resources/tei.xqm" afterPath="$PROJECT_DIR$/frameworks/emst/resources/tei.xqm" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -93,7 +94,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" line="130" class="eu.emergingstandards.facsimile.EMSTFacsimile" package="eu.emergingstandards.facsimile">
+      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" line="129" class="eu.emergingstandards.facsimile.EMSTFacsimile" package="eu.emergingstandards.facsimile">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -109,6 +110,81 @@
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
       <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java" line="13" class="eu.emergingstandards.facsimile.EMSTOpenMediaOperation" package="eu.emergingstandards.facsimile">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" line="224" class="eu.emergingstandards.utils.EMSTUtils" package="eu.emergingstandards.utils">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" line="235" class="eu.emergingstandards.utils.EMSTUtils" package="eu.emergingstandards.utils">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" line="88" class="eu.emergingstandards.exceptions.EMSTFileMissingException" package="eu.emergingstandards.exceptions">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" line="93" class="eu.emergingstandards.exceptions.EMSTFileMissingException" package="eu.emergingstandards.exceptions">
+        <option name="ENABLED" value="true" />
+        <option name="LOG_ENABLED" value="false" />
+        <option name="LOG_EXPRESSION_ENABLED" value="false" />
+        <option name="REMOVE_AFTER_HIT" value="false" />
+        <option name="SUSPEND_POLICY" value="SuspendAll" />
+        <option name="SUSPEND" value="true" />
+        <option name="COUNT_FILTER_ENABLED" value="false" />
+        <option name="COUNT_FILTER" value="0" />
+        <option name="CONDITION_ENABLED" value="true" />
+        <option name="CLASS_FILTERS_ENABLED" value="false" />
+        <option name="INSTANCE_FILTERS_ENABLED" value="false" />
+        <option name="CONDITION" value="" />
+        <option name="LOG_MESSAGE" value="" />
+      </breakpoint>
+      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" line="100" class="eu.emergingstandards.exceptions.EMSTFileMissingException" package="eu.emergingstandards.exceptions">
         <option name="ENABLED" value="true" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -225,25 +301,34 @@
       <file leaf-file-name="EMSTOpenMediaOperation.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="13" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="630">
+            <state line="14" column="17" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="612">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EMSTFacsimile.java" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="EMSTException.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="67" column="27" selection-start="2220" selection-end="2220" vertical-scroll-proportion="0.0" vertical-offset="628" max-vertical-offset="1422">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EMSTFacsimile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="133" selection-start="8389" selection-end="8389" vertical-scroll-proportion="0.46796116" vertical-offset="3755" max-vertical-offset="4572">
+            <state line="231" column="42" selection-start="7627" selection-end="7627" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="4500">
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EMSTContextualInfo.java" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="EMSTContextualInfo.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="247" column="44" selection-start="8268" selection-end="8268" vertical-scroll-proportion="0.0" vertical-offset="4446" max-vertical-offset="7974">
+            <state line="115" column="37" selection-start="4602" selection-end="4602" vertical-scroll-proportion="3.145631" vertical-offset="0" max-vertical-offset="7524">
               <folding />
             </state>
           </provider>
@@ -270,7 +355,7 @@
       <file leaf-file-name="EMSTFileMissingException.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="12" selection-start="787" selection-end="787" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1152">
+            <state line="12" column="24" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2214">
               <folding />
             </state>
           </provider>
@@ -279,7 +364,7 @@
       <file leaf-file-name="EMSTUtils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="129" column="0" selection-start="4440" selection-end="4440" vertical-scroll-proportion="0.0" vertical-offset="2322" max-vertical-offset="3996">
+            <state line="173" column="30" selection-start="6004" selection-end="6004" vertical-scroll-proportion="0.0" vertical-offset="3292" max-vertical-offset="4086">
               <folding />
             </state>
           </provider>
@@ -335,13 +420,13 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
         <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/id/EMSTIDTypeRecognizer.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTReferenceResolver.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
       </list>
     </option>
   </component>
@@ -416,6 +501,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -506,6 +592,28 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emergingstandards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="exceptions" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -535,7 +643,6 @@
         </subPane>
       </pane>
       <pane id="Scope" />
-      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -653,19 +760,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -691,6 +785,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -878,7 +985,11 @@
       <created>1391047529104</created>
       <updated>1391047529104</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="open media is working!">
+      <created>1391136711109</created>
+      <updated>1391136711109</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -910,11 +1021,13 @@
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.49936467" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744405" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25540024" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3722026" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254565" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32832617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24967575" sideWeight="0.6105263" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -927,8 +1040,6 @@
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32744405" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3254565" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295711" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27712137" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -966,7 +1077,8 @@
     <MESSAGE value="Synchronized reload() and refresh() on contextualInfo so Oxygen gets the values at startup&#10;Fixed line break in Oxygen so @break works as defined&#10;Added @force dialog box to punctuation action in Oxygen&#10;" />
     <MESSAGE value="Lots of progress on Facsimile - will soon have operations implemented&#10;" />
     <MESSAGE value="Couple of tweaks, before I sleep ;-)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Couple of tweaks, before I sleep ;-)" />
+    <MESSAGE value="open media is working!" />
+    <option name="LAST_COMMIT_MESSAGE" value="open media is working!" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1207,11 +1319,6 @@
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-9.809175" vertical-offset="5346" max-vertical-offset="18054" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="26" column="12" selection-start="896" selection-end="896" vertical-scroll-proportion="0.12903225" vertical-offset="364" max-vertical-offset="1170" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="195" column="231" selection-start="7163" selection-end="7163" vertical-scroll-proportion="0.33271027" vertical-offset="3332" max-vertical-offset="5148">
@@ -1226,30 +1333,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="73" column="79" selection-start="2503" selection-end="2503" vertical-scroll-proportion="0.56485355" vertical-offset="1026" max-vertical-offset="1512">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="247" column="44" selection-start="8268" selection-end="8268" vertical-scroll-proportion="0.0" vertical-offset="3788" max-vertical-offset="7380">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTReferenceResolver.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="140" column="50" selection-start="4822" selection-end="4822" vertical-scroll-proportion="0.0" vertical-offset="2042" max-vertical-offset="3726">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="12" selection-start="787" selection-end="787" vertical-scroll-proportion="0.0" vertical-offset="268" max-vertical-offset="1116">
           <folding />
         </state>
       </provider>
@@ -1261,23 +1347,51 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java">
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="129" column="0" selection-start="4440" selection-end="4440" vertical-scroll-proportion="0.0" vertical-offset="1785" max-vertical-offset="3618">
+        <state line="26" column="12" selection-start="896" selection-end="896" vertical-scroll-proportion="0.3546735" vertical-offset="29" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="67" column="27" selection-start="2220" selection-end="2220" vertical-scroll-proportion="0.0" vertical-offset="628" max-vertical-offset="1422">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="0" selection-start="486" selection-end="486" vertical-scroll-proportion="0.0" vertical-offset="79" max-vertical-offset="630">
+        <state line="14" column="17" selection-start="545" selection-end="545" vertical-scroll-proportion="0.0" vertical-offset="67" max-vertical-offset="612">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="173" column="30" selection-start="6004" selection-end="6004" vertical-scroll-proportion="0.0" vertical-offset="2546" max-vertical-offset="4086">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="12" column="24" selection-start="260" selection-end="260" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2214">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="246" column="133" selection-start="8389" selection-end="8389" vertical-scroll-proportion="0.46796116" vertical-offset="3755" max-vertical-offset="4572">
+        <state line="231" column="42" selection-start="7627" selection-end="7627" vertical-scroll-proportion="0.0" vertical-offset="3706" max-vertical-offset="4500">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="37" selection-start="4602" selection-end="4602" vertical-scroll-proportion="3.145631" vertical-offset="0" max-vertical-offset="7524">
           <folding />
         </state>
       </provider>

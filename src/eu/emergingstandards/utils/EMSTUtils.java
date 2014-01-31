@@ -1,6 +1,7 @@
 package eu.emergingstandards.utils;
 
 import eu.emergingstandards.exceptions.EMSTFileMissingException;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.dom.wrappers.AuthorElementDomWrapper;
@@ -27,6 +28,8 @@ import java.util.*;
  * Created by mike on 1/13/14.
  */
 public class EMSTUtils {
+
+    private static Logger logger = Logger.getLogger(EMSTUtils.class.getName());
 
     public static String XML_ID_ATTR_NAME = "xml:id";
     public static String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
@@ -168,7 +171,7 @@ public class EMSTUtils {
             Path path = castURLtoPath(url);
             if (path != null) {
                 if (!Files.exists(path)) {
-                    throw new EMSTFileMissingException("The file could not be found!", url.toString());
+                    throw new EMSTFileMissingException("The file could not be found!", url);
                 } else {
                     authorAccess.getWorkspaceAccess().openInExternalApplication(url, true);
                 }
@@ -177,9 +180,10 @@ public class EMSTUtils {
     }
 
     @NotNull
-    public static List<String> getAttribValues(String value) {
+    public static List<String> getAttrValues(AttrValue attrValue) {
         List<String> values = new ArrayList<>();
 
+        String value = getAttrValue(attrValue);
         if (value != null) {
             values = Arrays.asList(value.split("\\s+"));
         }
@@ -210,7 +214,30 @@ public class EMSTUtils {
 
             }
         }
-
         return path;
+    }
+
+    @Nullable
+    public static String decodeURL(URL url) {
+        String decodedURL = null;
+
+        if (url != null) {
+            decodedURL = decodeURL(url.getPath());
+        }
+        return decodedURL;
+    }
+
+    @Nullable
+    public static String decodeURL(String url) {
+        String decodedURL = null;
+
+        if (url != null) {
+            try {
+                decodedURL = URLDecoder.decode(url, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                logger.error(e, e);
+            }
+        }
+        return decodedURL;
     }
 }

@@ -29,7 +29,7 @@ import java.util.Map;
  */
 public class EMSTFacsimile {
 
-    private enum elementType {
+    private static enum elementType {
         FACSIMILE, MEDIA, REFERENCES, NONE
     }
 
@@ -83,10 +83,9 @@ public class EMSTFacsimile {
             } else if (MEDIA_ELEMENT_NAMES.contains(elementName)) {
                 currentType = elementType.MEDIA;
             } else {
-                String value = EMSTUtils.getAttrValue(currentElement.getAttribute(FACS_ATTRIB_NAME));
-                if (value != null) {
+                references = EMSTUtils.getAttrValues(currentElement.getAttribute(FACS_ATTRIB_NAME));
+                if (!references.isEmpty()) {
                     currentType = elementType.REFERENCES;
-                    references = EMSTUtils.getAttribValues(value);
                 }
             }
         }
@@ -219,7 +218,7 @@ public class EMSTFacsimile {
     public URL getCurrentURL() {
         URL url = null;
 
-        if (currentType == elementType.MEDIA && currentElement != null) {
+        if (currentType == elementType.MEDIA) {
             url = getURL(currentElement);
         }
         return url;
@@ -257,11 +256,11 @@ public class EMSTFacsimile {
         URL url = null;
 
         AttrValue urlAttr = authorElement.getAttribute(URL_ATTRIB_NAME);
-        String urlAttrValue = EMSTUtils.getAttrValue(urlAttr);
-        if (urlAttrValue != null) {
+        String value = EMSTUtils.getAttrValue(urlAttr);
+        if (value != null) {
             url = authorElement.getXMLBaseURL();
             try {
-                url = new URL(url, urlAttrValue);
+                url = new URL(url, value);
             } catch (MalformedURLException e) {
                 logger.error(e, e);
             }

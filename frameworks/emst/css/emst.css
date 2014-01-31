@@ -45,7 +45,8 @@ district:before,
 settlement:before,
 region:before,
 country:before,
-bloc:before {
+bloc:before,
+category:before {
     content: oxy_capitalize(oxy_name()) ": ";
 }
 
@@ -67,6 +68,7 @@ orgName:before {
     ;
 }
 
+catDesc:before,
 desc:before {
     content:
         oxy_label(
@@ -152,10 +154,11 @@ opener *,
 closer * {
     display:block;
     padding:1px;
-    white-space:nowrap;
+    white-space:normal;
 }
 
 creation,
+taxonomy,
 opener,
 closer {
     white-space:-oxy-trim-when-ws-only;
@@ -166,6 +169,7 @@ teiHeader:before,
 publicationStmt:before,
 notesStmt:before,
 sourceDesc:before,
+taxonomy[xml|id]:before,
 profileDesc:before,
 creation:before,
 textClass:before,
@@ -188,6 +192,7 @@ teiHeader,
 publicationStmt,
 notesStmt,
 sourceDesc,
+taxonomy[xml|id],
 profileDesc,
 creation,
 textClass,
@@ -222,7 +227,7 @@ notesStmt,
 /*sourceDesc,*/
 /*profileDesc,*/
 /*creation,*/
-textClass,
+/*textClass,*/
 textDesc,
 keywords,
 handNotes {
@@ -652,14 +657,15 @@ p > lb:first-child {
 }
 
 lb {
-    content:"\A";
+    content:"\A       ";
 }
 
 lb[break="no"] {
     color:purple;
-/*    font-weight:bold; → – */
+    font-weight:bold;  
 /*    font-size:16px;*/
-    content:"→\A";
+    /* Possibilities: → – */
+    -oxy-prepend-content:"→";
 }
 
 pb {
@@ -874,3 +880,53 @@ org:before {
 org > orgName:before {
     content: "Org Name:";
 }
+
+/* Genres */
+
+taxonomy[xml|id]:before {
+    content: "Taxonomy"
+    oxy_label(
+            text, "ID: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 20
+        )
+    ;
+}
+
+category:before {
+    -oxy-append-content:
+    oxy_label(
+            text, "ID: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 25
+        )
+    ;
+}
+
+category {
+    border:1px inset grey;
+    margin:2px 0px;
+    padding:5px;
+}
+
+catDesc {
+    padding:5px 1px;
+    white-space:normal;
+}
+
+catRef:before {
+    content:
+        oxy_label(
+            text, "Genre:"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+

@@ -17,6 +17,10 @@ declare variable $teix:CERTAINTY := map {
     "high" := "^"
 };
 
+declare function teix:category($category as element(tei:category)) as xs:string {
+    replace($category/@xml:id, "_", " ")
+};
+
 declare function teix:place($place as element(tei:place)) as xs:string {
     $place/tei:placeName/text()
 };

@@ -50,6 +50,7 @@ public class EMSTContextualInfo {
         TYPES.put("psn", "person.xml");
         TYPES.put("plc", "place.xml");
         TYPES.put("org", "org.xml");
+        TYPES.put("gen", "genre.xml");
 //        TYPES.put("bib", "bibliography.xml");
 //        TYPES.put("evt", "event.xml");
     }
@@ -107,6 +108,13 @@ public class EMSTContextualInfo {
         initMap.put("refAttributeName", "ref");
         initMap.put("sourceParent", "org");
         ELEMENTS.put("repository", new HashMap<>(initMap));
+
+//        repository element
+        initMap = new HashMap<>();
+        initMap.put("type", "gen");
+        initMap.put("refAttributeName", "target");
+        initMap.put("sourceParent", "");
+        ELEMENTS.put("catRef", new HashMap<>(initMap));
     }
 
     private static Map<String, EMSTContextualInfo> contextualInfos = new HashMap<>();

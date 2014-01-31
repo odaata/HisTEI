@@ -6,7 +6,7 @@ declare namespace tei="http://www.tei-c.org/ns/1.0";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 
-declare variable $quote := "&#34;";
+(:declare variable $quote := "&#34;";:)
 
 declare function local:list($list as element()) as element()* {
     for $item in $list/element()
@@ -19,6 +19,8 @@ declare function local:list($list as element()) as element()* {
             return teix:place($item)
         case element(tei:org)
             return teix:org($item)
+        case element(tei:category)
+            return teix:category($item)
         default
             return ""
     order by $label
@@ -29,4 +31,9 @@ declare function local:list($list as element()) as element()* {
         }
 };
 
-local:list(//tei:body/element())
+let $taxonomy := //tei:classDecl/tei:taxonomy[1]
+return
+    if ($taxonomy/@xml:id != "") then
+        local:list($taxonomy)
+    else
+        local:list(//tei:body/element())

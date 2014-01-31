@@ -51,8 +51,6 @@ public class EMSTException extends Exception {
         return super.getMessage();
     }
 
-    private boolean userNotified = false;
-
     @NotNull
     protected String generateMessage() {
         String message = getMessage();
@@ -68,12 +66,9 @@ public class EMSTException extends Exception {
     }
 
     public void notifyOxygenUser(AuthorAccess authorAccess) {
-        if (!userNotified) {
-            String message = getMessage();
-            if (message != null && !message.isEmpty()) {
-                authorAccess.getWorkspaceAccess().showErrorMessage(message);
-            }
-            userNotified = true;
+        String message = getMessage();
+        if (message != null && !message.isEmpty()) {
+            authorAccess.getWorkspaceAccess().showErrorMessage(message);
         }
     }
 }

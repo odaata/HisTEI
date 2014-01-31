@@ -1,21 +1,52 @@
 package eu.emergingstandards.exceptions;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
+import eu.emergingstandards.utils.EMSTUtils;
+import org.apache.log4j.Logger;
+
+import java.io.IOException;
+import java.net.URL;
+import java.nio.file.Path;
 
 /**
  * Created by mike on 1/26/14.
  */
 public class EMSTFileMissingException extends EMSTException {
 
+    private static Logger logger = Logger.getLogger(EMSTFileMissingException.class.getName());
+
+    private String path = "";
+
     /**
      * Constructor.
      *
      * @param message The message.
+     * @param path The path to the missing file.
      */
     public EMSTFileMissingException(String message, String path) {
         super(message);
-        this.path = path;
+        initPath(path);
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param message The message.
+     * @param path The path to the missing file.
+     */
+    public EMSTFileMissingException(String message, Path path) {
+        super(message);
+        initPath(path);
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param message The message.
+     * @param path    The path to the missing file.
+     */
+    public EMSTFileMissingException(String message, URL path) {
+        super(message);
+        initPath(path);
     }
 
     /**
@@ -23,14 +54,51 @@ public class EMSTFileMissingException extends EMSTException {
      *
      * @param message The message.
      * @param cause   The cause of this exception.
+     * @param path The path to the missing file.
      */
     public EMSTFileMissingException(String message, Throwable cause, String path) {
         super(message, cause);
-        try {
-            this.path = URLDecoder.decode(path, "UTF-8");
-        } catch (UnsupportedEncodingException e) {
+        initPath(path);
+    }
 
+    /**
+     * Constructor.
+     *
+     * @param message The message.
+     * @param cause   The cause of this exception.
+     * @param path    The path to the missing file.
+     */
+    public EMSTFileMissingException(String message, Throwable cause, Path path) {
+        super(message, cause);
+        initPath(path);
+    }
+
+    /**
+     * Constructor.
+     *
+     * @param message The message.
+     * @param cause   The cause of this exception.
+     * @param path    The path to the missing file.
+     */
+    public EMSTFileMissingException(String message, Throwable cause, URL path) {
+        super(message, cause);
+        initPath(path);
+    }
+
+    private void initPath(String path) {
+        this.path = EMSTUtils.decodeURL(path);
+    }
+
+    private void initPath(Path path) {
+        try {
+            this.path = path.toRealPath().toString();
+        } catch (IOException e) {
+            logger.error(e, e);
         }
+    }
+
+    private void initPath(URL path) {
+        this.path = EMSTUtils.decodeURL(path);
     }
 
     /**
@@ -49,8 +117,6 @@ public class EMSTFileMissingException extends EMSTException {
             return message;
         }
     }
-
-    private String path = "";
 
     public String getPath() {
         return path;

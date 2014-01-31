@@ -963,7 +963,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('persName','handNote','placeName','orgName','repository')</String>
+														<String>local-name() = ('persName','handNote','placeName','orgName','repository','catRef')</String>
 													</field>
 													<field name="argValues">
 														<map/>

@@ -361,6 +361,12 @@ facsimile:before {
 
 facsimile[xml|base] {
     -oxy-prepend-content:
+        oxy_button(
+            actionID, "media.open"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
         oxy_label(
             text, "Base Directory: "
             styles, "@import 'labels_sub.css';"            

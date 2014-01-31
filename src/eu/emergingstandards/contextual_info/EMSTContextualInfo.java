@@ -13,7 +13,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import org.xml.sax.InputSource;
 import ro.sync.ecss.extensions.api.AuthorAccess;
-import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
@@ -244,16 +243,13 @@ public class EMSTContextualInfo {
         String refAttributeName = getRefAttributeName(authorNode);
 
         if (! refAttributeName.isEmpty()) {
-            if (authorNode.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
-                AuthorElement element = (AuthorElement) authorNode;
-                AttrValue refAttribute = element.getAttribute(refAttributeName);
-                if (refAttribute != null) {
-                    String value = refAttribute.getValue();
-                    if (value != null) {
-                        Matcher matcher = REF_PATTERN.matcher(value);
-                        if (matcher.matches()) {
-                            id = matcher.group(2);
-                        }
+            AuthorElement element = EMSTUtils.castAuthorElement(authorNode);
+            if (element != null) {
+                String value = EMSTUtils.getAttrValue(element.getAttribute(refAttributeName));
+                if (value != null) {
+                    Matcher matcher = REF_PATTERN.matcher(value);
+                    if (matcher.matches()) {
+                        id = matcher.group(2);
                     }
                 }
             }

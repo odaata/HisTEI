@@ -1,8 +1,7 @@
 package eu.emergingstandards.facsimile;
 
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.exceptions.EMSTFileMissingException;
 import ro.sync.ecss.extensions.api.*;
-import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 /**
  * Created by mike on 1/29/14.
@@ -10,8 +9,12 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
 public class EMSTOpenMediaOperation implements AuthorOperation {
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
-
+        EMSTFacsimile facsimile = new EMSTFacsimile(authorAccess);
+        try {
+            facsimile.openCurrentMedia();
+        } catch (EMSTFileMissingException e) {
+            e.notifyOxygenUser(authorAccess);
+        }
     }
 
     @Override

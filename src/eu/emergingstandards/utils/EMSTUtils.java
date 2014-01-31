@@ -1,10 +1,12 @@
 package eu.emergingstandards.utils;
 
+import eu.emergingstandards.exceptions.EMSTFileMissingException;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.dom.wrappers.AuthorElementDomWrapper;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.api.AuthorOperationException;
+import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.exml.workspace.api.PluginWorkspace;
@@ -13,6 +15,9 @@ import ro.sync.exml.workspace.api.editor.WSEditor;
 import ro.sync.exml.workspace.api.editor.page.WSEditorPage;
 import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 
+import java.io.UnsupportedEncodingException;
+import java.net.URL;
+import java.net.URLDecoder;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -130,6 +135,21 @@ public class EMSTUtils {
         return getAuthorElement(".", authorAccess);
     }
 
+    @NotNull
+    public static List<AuthorElement> getContentElements(AuthorElement authorElement) {
+        List<AuthorElement> elements = new ArrayList<>();
+
+        if (authorElement != null) {
+            for (AuthorNode node : authorElement.getContentNodes()) {
+                AuthorElement element = EMSTUtils.castAuthorElement(node);
+                if (element != null) {
+                    elements.add(element);
+                }
+            }
+        }
+        return elements;
+    }
+
     @Nullable
     public static Path expandOxygenPath(String originalPath, AuthorAccess authorAccess) {
         Path path = null;
@@ -143,6 +163,19 @@ public class EMSTUtils {
         return path;
     }
 
+    public static void openURL(AuthorAccess authorAccess, URL url) throws EMSTFileMissingException {
+        if (url != null) {
+            Path path = castURLtoPath(url);
+            if (path != null) {
+                if (!Files.exists(path)) {
+                    throw new EMSTFileMissingException("The file could not be found!", url.toString());
+                } else {
+                    authorAccess.getWorkspaceAccess().openInExternalApplication(url, true);
+                }
+            }
+        }
+    }
+
     @NotNull
     public static List<String> getAttribValues(String value) {
         List<String> values = new ArrayList<>();
@@ -151,5 +184,33 @@ public class EMSTUtils {
             values = Arrays.asList(value.split("\\s+"));
         }
         return values;
+    }
+
+    @Nullable
+    public static String getAttrValue(AttrValue attrValue) {
+        String value = null;
+
+        if (attrValue != null) {
+            value = attrValue.getValue().trim();
+
+            if (value.isEmpty()) value = null;
+        }
+        return value;
+    }
+
+    @Nullable
+    public static Path castURLtoPath(URL url) {
+        Path path = null;
+
+        if (url != null) {
+            try {
+                String urlPath = URLDecoder.decode(url.getPath(), "UTF-8");
+                path = Paths.get(urlPath);
+            } catch (UnsupportedEncodingException e) {
+
+            }
+        }
+
+        return path;
     }
 }

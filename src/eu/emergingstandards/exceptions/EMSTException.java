@@ -71,7 +71,6 @@ public class EMSTException extends Exception {
         if (!userNotified) {
             String message = getMessage();
             if (message != null && !message.isEmpty()) {
-                authorAccess.getWorkspaceAccess().showStatusMessage(message);
                 authorAccess.getWorkspaceAccess().showErrorMessage(message);
             }
             userNotified = true;

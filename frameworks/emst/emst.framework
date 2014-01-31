@@ -267,18 +267,13 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('graphic','media')</String>
+														<String>local-name() = ('graphic','media','facsimile') or exists(@facs)</String>
 													</field>
 													<field name="argValues">
-														<map>
-															<entry>
-																<String>resourcePath</String>
-																<String>@url</String>
-															</entry>
-														</map>
+														<map/>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.OpenInSystemAppOperation</String>
+														<String>eu.emergingstandards.facsimile.EMSTOpenMediaOperation</String>
 													</field>
 												</actionMode>
 												<actionMode>

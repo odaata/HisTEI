@@ -1,5 +1,6 @@
 package eu.emergingstandards.extensions;
 
+import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.xml.sax.EntityResolver;
@@ -7,7 +8,6 @@ import org.xml.sax.InputSource;
 import org.xml.sax.XMLReader;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.api.AuthorReferenceResolver;
-import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.util.editorvars.EditorVariables;
@@ -196,22 +196,19 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
     private HashMap<String, String> getReference(AuthorNode node) {
         HashMap<String, String> refMap = null;
 
-        if (node.getType() == AuthorNode.NODE_TYPE_ELEMENT) {
-            AuthorElement element = (AuthorElement) node;
-            AttrValue refAttr = element.getAttribute(REF_ATTRIB);
-            if (refAttr != null) {
-                String ref = refAttr.getValue();
-                if (ref != null) {
-                    Matcher matcher = REF_PATTERN.matcher(ref);
-                    boolean found = matcher.matches();
+        AuthorElement element = EMSTUtils.castAuthorElement(node);
+        if (element != null) {
+            String ref = EMSTUtils.getAttrValue(element.getAttribute(REF_ATTRIB));
+            if (ref != null) {
+                Matcher matcher = REF_PATTERN.matcher(ref);
+                boolean found = matcher.matches();
 
-                    if (found) {
-                        refMap = new HashMap<>();
-                        refMap.put("type", matcher.group(1));
-                        refMap.put("id", matcher.group(2));
+                if (found) {
+                    refMap = new HashMap<>();
+                    refMap.put("type", matcher.group(1));
+                    refMap.put("id", matcher.group(2));
 
-                        logger.debug("getReference: " + refMap.toString());
-                    }
+                    logger.debug("getReference: " + refMap.toString());
                 }
             }
         }

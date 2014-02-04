@@ -34,19 +34,23 @@ public class EMSTContextualInfo {
     public static final String SOURCE_BASE_PATH = EditorVariables.PROJECT_DIRECTORY + "/contextual_info/";
     public static final String XQUERY_BASE_PATH = EditorVariables.FRAMEWORK_DIRECTORY + "/resources";
     public static final String XQUERY_PATH = XQUERY_BASE_PATH + "/contextual_info.xql";
-//  For querying the xml returned from the xquery
+    //  For querying the xml returned from the xquery
     private static final QName VALUE_QNAME = new QName("value");
     private static final QName LABEL_QNAME = new QName("label");
 
     private static final Map<EMSTContextualType, EMSTContextualInfo> infos = new EnumMap<>(EMSTContextualType.class);
 
-    @NotNull
+    @Nullable
     public static EMSTContextualInfo get(EMSTContextualType type) {
-        EMSTContextualInfo info = infos.get(type);
+        EMSTContextualInfo info = null;
 
-        if (info == null) {
-            info = new EMSTContextualInfo(type);
-            infos.put(type, info);
+        if (type != null) {
+            info = infos.get(type);
+
+            if (info == null) {
+                info = new EMSTContextualInfo(type);
+                infos.put(type, info);
+            }
         }
         return info;
     }

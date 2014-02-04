@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="frameworks" default="all">
+
+    <target name="init.artifacts">
+        <property name="artifacts.temp.dir" value="${basedir}/../__artifacts_temp"/>
+        <property name="artifact.output.dist" value="${basedir}/../dist"/>
+        <mkdir dir="${artifacts.temp.dir}"/>
+        <property name="temp.jar.path.emst-oxygen.zip" value="${artifacts.temp.dir}/emst-oxygen.zip"/>
+        <property name="temp.jar.path.amsterdam-oxygen.zip" value="${artifacts.temp.dir}/amsterdam-oxygen.zip"/>
+    </target>
+
+    <target name="artifact.emst-oxygen" depends="init.artifacts" description="Build emst-oxygen.zip">
+        <property name="artifact.temp.output.emst-oxygen" value="${artifacts.temp.dir}/emst_oxygen"/>
+        <mkdir dir="${artifact.temp.output.emst-oxygen}"/>
+        <zip destfile="${temp.jar.path.emst-oxygen.zip}" duplicate="preserve">
+            <zipfileset dir="${basedir}/emst" prefix="emst"/>
+        </zip>
+        <copy file="${temp.jar.path.emst-oxygen.zip}" tofile="${artifact.temp.output.emst-oxygen}/emst-oxygen.zip"/>
+    </target>
+
+    <target name="artifact.amsterdam-oxygen" depends="init.artifacts"
+            description="Build amsterdam-oxygen.zip">
+        <property name="artifact.temp.output.amsterdam-oxygen" value="${artifacts.temp.dir}/amsterdam_oxygen"/>
+        <mkdir dir="${artifact.temp.output.amsterdam-oxygen}"/>
+        <zip destfile="${temp.jar.path.amsterdam-oxygen.zip}" duplicate="preserve">
+            <zipfileset dir="${basedir}/amsterdam" prefix="amsterdam"/>
+        </zip>
+        <copy file="${temp.jar.path.amsterdam-oxygen.zip}"
+              tofile="${artifact.temp.output.amsterdam-oxygen}/amsterdam-oxygen.zip"/>
+    </target>
+
+    <target name="build.all.artifacts" depends="artifact.emst-oxygen, artifact.amsterdam-oxygen"
+            description="Build all artifacts">
+        <mkdir dir="${artifact.output.dist}"/>
+        <copy todir="${artifact.output.dist}">
+            <fileset dir="${artifact.temp.output.emst-oxygen}"/>
+            <fileset dir="${artifact.temp.output.amsterdam-oxygen}"/>
+        </copy>
+
+        <!-- Delete temporary files -->
+        <delete dir="${artifacts.temp.dir}"/>
+    </target>
+
+    <target name="all" depends="build.all.artifacts" description="build all"/>
+</project>

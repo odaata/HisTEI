@@ -10,7 +10,6 @@ import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
-import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 import java.io.File;
 import java.io.IOException;
@@ -29,7 +28,7 @@ import java.util.Map;
  */
 public class EMSTFacsimile {
 
-    private static enum elementType {
+    private static enum ElementType {
         FACSIMILE, MEDIA, REFERENCES, NONE
     }
 
@@ -44,6 +43,7 @@ public class EMSTFacsimile {
     }
 
     private static final String URL_ATTRIB_NAME = "url";
+    private static final String MEDIA_TYPE_ATTRIB_NAME = "mediaType";
     private static final String FACS_ATTRIB_NAME = "facs";
 
     private static final Map<String, String> MEDIA_TYPES = new HashMap<>();
@@ -55,11 +55,11 @@ public class EMSTFacsimile {
 
     /* Instance members */
 
-    private elementType currentType = elementType.NONE;
+    private ElementType currentType = ElementType.NONE;
     private AuthorAccess authorAccess;
     private AuthorElement currentElement;
     private AuthorElement facsimileElement;
-    private List<String> references;
+    private List<String> references = new ArrayList<>();
 
     private final Tika tika = new Tika();
     /*private final DirectoryStream.Filter<Path> tikaFilter =
@@ -79,18 +79,19 @@ public class EMSTFacsimile {
             String elementName = currentElement.getName();
 
             if (FACSIMILE_ELEMENT_NAME.equals(elementName)) {
-                currentType = elementType.FACSIMILE;
+                currentType = ElementType.FACSIMILE;
             } else if (MEDIA_ELEMENT_NAMES.contains(elementName)) {
-                currentType = elementType.MEDIA;
+                currentType = ElementType.MEDIA;
             } else {
                 references = EMSTUtils.getAttrValues(currentElement.getAttribute(FACS_ATTRIB_NAME));
                 if (!references.isEmpty()) {
-                    currentType = elementType.REFERENCES;
+                    currentType = ElementType.REFERENCES;
                 }
             }
         }
     }
 
+    @Nullable
     public AuthorElement getFacsimileElement() {
         if (facsimileElement == null) {
             switch (currentType) {
@@ -114,7 +115,7 @@ public class EMSTFacsimile {
 
         URL url = getBaseDirectoryURL();
         if (url != null) {
-            directory = EMSTUtils.castURLtoPath(url);
+            directory = EMSTUtils.castURLToPath(url);
         }
         return directory;
     }
@@ -126,27 +127,45 @@ public class EMSTFacsimile {
         AuthorElement facsimile = getFacsimileElement();
         if (facsimile != null) {
             directory = facsimile.getXMLBaseURL();
-            try {
-                Path path = EMSTUtils.castURLtoPath(directory);
-                if (path != null && !Files.isDirectory(path)) {
-                    directory = path.getParent().toUri().toURL();
-                }
-            } catch (MalformedURLException e) {
-                logger.error(e, e);
+            Path path = EMSTUtils.castURLToPath(directory);
+            if (path != null && !Files.isDirectory(path)) {
+                directory = EMSTUtils.castPathToURL(path.getParent());
             }
         }
         return directory;
     }
 
-    public void setDirectory(File newDirectory, AuthorAccess authorAccess) {
+    public void setBaseDirectoryURL(URL directory) {
+        String relativePath = authorAccess.getUtilAccess().makeRelative(
+                authorAccess.getEditorAccess().getEditorLocation(), directory);
 
+        if (relativePath == null || relativePath.isEmpty() || relativePath.equals(".")) {
+            relativePath = null;
+        } else {
+            relativePath = EMSTUtils.decodeURL(relativePath);
+        }
 
+        authorAccess.getDocumentController().beginCompoundEdit();
+
+//      Update the xml:base attribute
+        authorAccess.getDocumentController().setAttribute(
+                EMSTUtils.XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), currentElement);
+        updateMediaElements();
+
+        authorAccess.getDocumentController().endCompoundEdit();
     }
 
-    public boolean chooseDirectory(AuthorAccess authorAccess) {
-        boolean success = false;
+    public void setBaseDirectory(File directory) {
+        setBaseDirectoryURL(EMSTUtils.castFileToURL(directory));
+    }
 
-        AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
+    public void chooseBaseDirectory() {
+        File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
+        if (dir != null) {
+            setBaseDirectory(dir);
+        }
+
+        /*AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
         if (currentNode != null && "facsimile".equals(currentNode.getName())) {
 
             File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
@@ -172,16 +191,20 @@ public class EMSTFacsimile {
                     default:
                 }
             }
-        }
-        return success;
+        }*/
+    }
+
+    private void updateMediaElements() {
+        Map<String, String> files = getMediaFiles();
+        List<AuthorElement> elements = getMediaElements();
+
     }
 
     @NotNull
-    public Map<String, String> getFiles() {
+    public Map<String, String> getMediaFiles() {
         Map<String, String> files = new HashMap<>();
 
-        try (DirectoryStream<Path> dirStream =
-                     Files.newDirectoryStream(getBaseDirectory())) {
+        try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(getBaseDirectory())) {
             for (Path filePath : dirStream) {
                 File file = filePath.toFile();
                 String mediaType = tika.detect(file);
@@ -201,7 +224,27 @@ public class EMSTFacsimile {
     }
 
     @NotNull
-    public Map<String, URL> getMedia() {
+    public List<List<String>> getMediaInfo() {
+        List<List<String>> media = new ArrayList<>();
+
+        List<AuthorElement> elements = getMediaElements();
+        for (AuthorElement element : elements) {
+            String id = EMSTUtils.getAttrValue(element.getAttribute(EMSTUtils.XML_ID_ATTR_NAME));
+            String url = EMSTUtils.getAttrValue(element.getAttribute(URL_ATTRIB_NAME));
+            String mediaType = EMSTUtils.getAttrValue(element.getAttribute(MEDIA_TYPE_ATTRIB_NAME));
+
+            if (id != null || url != null || mediaType != null) {
+                final List<String> entry = new ArrayList<>();
+                entry.add(id);
+                entry.add(url);
+                entry.add(mediaType);
+            }
+        }
+        return media;
+    }
+
+    @NotNull
+    public Map<String, URL> getMediaURLs() {
         Map<String, URL> media = new HashMap<>();
 
         List<AuthorElement> elements = getMediaElements();
@@ -215,11 +258,28 @@ public class EMSTFacsimile {
     }
 
     @Nullable
-    public URL getCurrentURL() {
+    public URL getCurrentMediaURL() {
         URL url = null;
 
-        if (currentType == elementType.MEDIA) {
+        if (currentType == ElementType.MEDIA) {
             url = getURL(currentElement);
+        }
+        return url;
+    }
+
+    @Nullable
+    private URL getURL(AuthorElement authorElement) {
+        URL url = null;
+
+        AttrValue urlAttr = authorElement.getAttribute(URL_ATTRIB_NAME);
+        String value = EMSTUtils.getAttrValue(urlAttr);
+        if (value != null && authorElement != null) {
+            url = authorElement.getXMLBaseURL();
+            try {
+                url = new URL(url, value);
+            } catch (MalformedURLException e) {
+                logger.error(e, e);
+            }
         }
         return url;
     }
@@ -235,11 +295,11 @@ public class EMSTFacsimile {
                 EMSTUtils.openURL(authorAccess, getBaseDirectoryURL());
                 break;
             case MEDIA:
-                EMSTUtils.openURL(authorAccess, getCurrentURL());
+                EMSTUtils.openURL(authorAccess, getCurrentMediaURL());
                 break;
             case REFERENCES:
                 if (!references.isEmpty()) {
-                    Map<String, URL> media = getMedia();
+                    Map<String, URL> media = getMediaURLs();
                     for (String reference : references) {
                         String id = StringUtils.substringAfter(reference, "#");
                         EMSTUtils.openURL(authorAccess, media.get(id.isEmpty() ? reference : id));
@@ -248,24 +308,4 @@ public class EMSTFacsimile {
                 break;
         }
     }
-
-    /*  Private Methods */
-
-    @Nullable
-    private URL getURL(AuthorElement authorElement) {
-        URL url = null;
-
-        AttrValue urlAttr = authorElement.getAttribute(URL_ATTRIB_NAME);
-        String value = EMSTUtils.getAttrValue(urlAttr);
-        if (value != null) {
-            url = authorElement.getXMLBaseURL();
-            try {
-                url = new URL(url, value);
-            } catch (MalformedURLException e) {
-                logger.error(e, e);
-            }
-        }
-        return url;
-    }
-
 }

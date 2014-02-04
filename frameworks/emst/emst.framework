@@ -23,6 +23,9 @@
 							<String>${framework}/i18n/</String>
 							<String>${framework}/../../out/production/emst/</String>
 							<String>${framework}/emst.jar</String>
+							<String>${framework}/lib/commons-lang3-3.1.jar</String>
+							<String>${framework}/lib/commons-vfs2-2.0.jar</String>
+							<String>${framework}/lib/tika-core-1.4.jar</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">

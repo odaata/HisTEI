@@ -47,10 +47,12 @@ public class EMSTContextualElement {
                     if (parent == null || !elementProperties.getSourceParent().equals(parent.getName())) {
                         EMSTContextualInfo info = EMSTContextualInfo.get(elementProperties.getType());
 
-                        contextualElement = new EMSTContextualElement(info, authorNode, elementProperties);
+                        if (info != null) {
+                            contextualElement = new EMSTContextualElement(info, authorNode, elementProperties);
 
 //                        authorNodes.put(authorNode, new WeakReference<>(contextualElement));
-                        authorNodes.put(authorNode, contextualElement);
+                            authorNodes.put(authorNode, contextualElement);
+                        }
                     }
                 }
             }

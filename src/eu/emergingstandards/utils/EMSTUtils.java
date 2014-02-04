@@ -16,7 +16,9 @@ import ro.sync.exml.workspace.api.editor.WSEditor;
 import ro.sync.exml.workspace.api.editor.page.WSEditorPage;
 import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 
+import java.io.File;
 import java.io.UnsupportedEncodingException;
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.file.Files;
@@ -32,6 +34,7 @@ public final class EMSTUtils {
     private static final Logger logger = Logger.getLogger(EMSTUtils.class.getName());
 
     public static final String XML_ID_ATTR_NAME = "xml:id";
+    public static final String XML_BASE_ATTRIB_NAME = "xml:base";
     public static final String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
     public static final String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
     public static final Map<String, String> NAMESPACES = new HashMap<>(2);
@@ -170,7 +173,7 @@ public final class EMSTUtils {
 
     public static void openURL(AuthorAccess authorAccess, URL url) throws EMSTFileMissingException {
         if (url != null) {
-            Path path = castURLtoPath(url);
+            Path path = castURLToPath(url);
             if (path != null) {
                 if (!Files.exists(path)) {
                     throw new EMSTFileMissingException("The file could not be found!", url);
@@ -205,7 +208,7 @@ public final class EMSTUtils {
     }
 
     @Nullable
-    public static Path castURLtoPath(URL url) {
+    public static Path castURLToPath(URL url) {
         Path path = null;
 
         if (url != null) {
@@ -217,6 +220,30 @@ public final class EMSTUtils {
             }
         }
         return path;
+    }
+
+    @Nullable
+    public static URL castPathToURL(Path path) {
+        URL url = null;
+
+        try {
+            url = path.toUri().toURL();
+        } catch (MalformedURLException e) {
+            logger.error(e, e);
+        }
+        return url;
+    }
+
+    @Nullable
+    public static URL castFileToURL(File file) {
+        URL url = null;
+
+        try {
+            url = file.toURI().toURL();
+        } catch (MalformedURLException e) {
+            logger.error(e, e);
+        }
+        return url;
     }
 
     @Nullable

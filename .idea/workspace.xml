@@ -12,31 +12,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="totally refactored ContextualInfo!!!!&#10;Added Apache commons VFS2 to monitor files for changes (Java Watch framework wouldn't work on Windows)">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/commons-vfs2-2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/monitor" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualElement.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualElementProperties.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualSettings.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/monitor/EMSTFileListenerAdaptor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/monitor/EMSTFileMonitor.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/commons_vfs2_2_0.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/profiles_settings.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTOpenContextualInfoOperation.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTOpenContextualInfoOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/id/EMSTUniqueAttributesRecognizer.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/id/EMSTUniqueAttributesRecognizer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/emst.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/emst.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emst.iml" afterPath="$PROJECT_DIR$/emst.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/artifacts/emst.xml" afterPath="$PROJECT_DIR$/.idea/artifacts/emst.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/resources/genre.txt" afterPath="$PROJECT_DIR$/frameworks/emst/resources/genre.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/oxygen.xml" afterPath="$PROJECT_DIR$/.idea/libraries/oxygen.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <list id="3a32a346-f804-4f43-aa68-0259ab765193" name="Failed commit: Default" comment="totally refactored ContextualInfo!!!!&#10;Added Apache commons VFS2 to monitor files for changes (Java Watch framework wouldn't work on Windows)">
@@ -975,7 +950,11 @@
       <created>1391210548104</created>
       <updated>1391210548104</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="totally refactored ContextualInfo!!!!&#10;Added Apache commons VFS2 to monitor files for changes (Java Watch framework wouldn't work on Windows)">
+      <created>1391524593105</created>
+      <updated>1391524593105</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">

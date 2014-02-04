@@ -1,6 +1,6 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.contextual_info.EMSTContextualInfo;
+import eu.emergingstandards.contextual_info.EMSTContextualElement;
 import ro.sync.ecss.css.EditorContent;
 import ro.sync.ecss.css.StaticContent;
 import ro.sync.ecss.css.Styles;
@@ -24,7 +24,31 @@ public class EMSTStylesFilter implements StylesFilter {
     @Override
     public Styles filter(Styles styles, AuthorNode authorNode) {
         if (!styles.isInline()) {
-            EMSTContextualInfo contextualInfo = EMSTContextualInfo.get(authorNode);
+            EMSTContextualElement contextualElement = EMSTContextualElement.get(authorNode);
+            if (contextualElement != null) {
+                Map<String, Object> comboboxArgs = new HashMap<>();
+                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
+//            PROPERTY_EDIT is deprecated
+//            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT, contextualInfo.getEditProperty(authorNode));
+                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT_QUALIFIED, contextualElement.getEditPropertyQualified());
+                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_VALUES, contextualElement.getOxygenValues());
+                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_LABELS, contextualElement.getOxygenLabels());
+                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDITABLE, "false");
+                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
+
+                Map<String, Object> buttonArgs = new HashMap<>();
+                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_BUTTON);
+                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_ACTION_ID, CONTEXTUAL_INFO_ACTION_ID);
+                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TRANSPARENT, "true");
+                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
+//          Set showText and showIcon to true so the buttons render on same level as other components
+                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_SHOW_TEXT, "true");
+                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_SHOW_ICON, "true");
+
+                StaticContent[] mixedContent = new StaticContent[]{new EditorContent(comboboxArgs), new EditorContent(buttonArgs)};
+                styles.setProperty(Styles.KEY_MIXED_CONTENT, mixedContent);
+            }
+            /*EMSTContextualInfo contextualInfo = EMSTContextualInfo.get(authorNode);
             if (contextualInfo != null) {
                 Map<String, Object> comboboxArgs = new HashMap<>();
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
@@ -47,7 +71,7 @@ public class EMSTStylesFilter implements StylesFilter {
 
                 StaticContent[] mixedContent = new StaticContent[]{new EditorContent(comboboxArgs), new EditorContent(buttonArgs)};
                 styles.setProperty(Styles.KEY_MIXED_CONTENT, mixedContent);
-            }
+            }*/
         }
         return styles;
     }

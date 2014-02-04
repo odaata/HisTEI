@@ -21,7 +21,7 @@
 					<field name="classpath">
 						<String-array>
 							<String>${framework}/i18n/</String>
-							<String>file:/opt/oxygen/emst/out/production/emst/</String>
+							<String>${framework}/../../out/production/emst/</String>
 							<String>${framework}/emst.jar</String>
 						</String-array>
 					</field>

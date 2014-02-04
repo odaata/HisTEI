@@ -1,8 +1,6 @@
 package eu.emergingstandards.contextual_info;
 
-import eu.emergingstandards.utils.EMSTUtils;
 import ro.sync.ecss.extensions.api.*;
-import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.exml.editor.EditorPageConstants;
 import ro.sync.exml.workspace.api.PluginWorkspaceProvider;
 
@@ -17,14 +15,11 @@ public class EMSTOpenContextualInfoOperation implements AuthorOperation {
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
-        if (currentNode != null) {
-            EMSTContextualInfo info = EMSTContextualInfo.get(currentNode);
-            if (info != null && info.getSourcePath() != null) {
-                URL sourceURL = info.getURL(currentNode, true);
-                if (sourceURL != null)
-                    PluginWorkspaceProvider.getPluginWorkspace().open(sourceURL, EditorPageConstants.PAGE_AUTHOR);
-            }
+        EMSTContextualElement element = EMSTContextualElement.get(authorAccess);
+        if (element != null) {
+            URL sourceURL = element.getURL(true);
+            if (sourceURL != null)
+                PluginWorkspaceProvider.getPluginWorkspace().open(sourceURL, EditorPageConstants.PAGE_AUTHOR);
         }
     }
 

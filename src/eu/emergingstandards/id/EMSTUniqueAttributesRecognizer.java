@@ -15,7 +15,7 @@ public class EMSTUniqueAttributesRecognizer extends DefaultUniqueAttributesRecog
                     "person",
                     "place",
                     "org"
-//                "bibl",
+//                    "bibl",
 //                    "evt"
             }
     );

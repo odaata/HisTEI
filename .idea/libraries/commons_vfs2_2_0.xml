@@ -1,0 +1,13 @@
+<component name="libraryTable">
+  <library name="commons-vfs2-2.0">
+    <CLASSES>
+      <root url="jar://$PROJECT_DIR$/lib/commons-vfs2-2.0.jar!/" />
+    </CLASSES>
+    <JAVADOC>
+      <root url="https://commons.apache.org/proper/commons-vfs/apidocs/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../apache_commons/commons-vfs-2.0/commons-vfs2-2.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>

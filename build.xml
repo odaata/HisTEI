@@ -96,15 +96,20 @@
         <pathelement location="${basedir}/lib/commons-lang3-3.1.jar"/>
     </path>
 
+    <path id="library.commons-vfs2-2.0.classpath">
+        <pathelement location="${basedir}/lib/commons-vfs2-2.0.jar"/>
+    </path>
+
+    <path id="library.tika-core-1.4.classpath">
+        <pathelement location="${basedir}/lib/tika-core-1.4.jar"/>
+    </path>
+
     <path id="library.lib.classpath">
         <fileset dir="${basedir}/lib/oxygen">
             <patternset refid="library.patterns"/>
         </fileset>
     </path>
 
-    <path id="library.tika-core-1.4.classpath">
-        <pathelement location="${basedir}/lib/tika-core-1.4.jar"/>
-    </path>
     <!-- Register Custom Compiler Taskdefs -->
     <property name="javac2.home" value="${idea.home}/lib"/>
     <path id="javac2.classpath">
@@ -143,6 +148,7 @@
     <path id="emst.module.production.classpath">
         <path refid="${module.jdk.classpath.emst}"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.lib.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
@@ -151,6 +157,7 @@
     <path id="emst.runtime.production.module.classpath">
         <pathelement location="${emst.output.dir}"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.lib.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
@@ -160,6 +167,7 @@
         <path refid="${module.jdk.classpath.emst}"/>
         <pathelement location="${emst.output.dir}"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.lib.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
@@ -169,6 +177,7 @@
         <pathelement location="${emst.testoutput.dir}"/>
         <pathelement location="${emst.output.dir}"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.lib.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
@@ -247,6 +256,8 @@
         <jar destfile="${temp.jar.path.emst.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
             <zipfileset dir="${emst.output.dir}"/>
             <zipfileset src="${basedir}/lib/commons-lang3-3.1.jar"/>
+            <zipfileset src="${basedir}/lib/commons-vfs2-2.0.jar"/>
+            <zipfileset src="${basedir}/lib/tika-core-1.4.jar"/>
         </jar>
         <copy file="${temp.jar.path.emst.jar}" tofile="${artifact.temp.output.emst}/emst.jar"/>
     </target>

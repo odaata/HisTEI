@@ -1,12 +1,12 @@
 <component name="libraryTable">
   <library name="oxygen">
     <CLASSES>
-      <root url="file://$PROJECT_DIR$/lib/oxygen" />
+      <root url="file://$PROJECT_DIR$/../15.2/lib" />
     </CLASSES>
     <JAVADOC>
       <root url="http://www.oxygenxml.com/InstData/Editor/SDK/javadoc/" />
     </JAVADOC>
     <SOURCES />
-    <jarDirectory url="file://$PROJECT_DIR$/lib/oxygen" recursive="false" />
+    <jarDirectory url="file://$PROJECT_DIR$/../15.2/lib" recursive="false" />
   </library>
 </component>

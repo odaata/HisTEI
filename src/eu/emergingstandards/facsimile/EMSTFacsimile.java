@@ -1,13 +1,16 @@
 package eu.emergingstandards.facsimile;
 
 import eu.emergingstandards.exceptions.EMSTFileMissingException;
+import eu.emergingstandards.utils.EMSTNamespaceType;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.tika.Tika;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
+import ro.sync.ecss.extensions.api.AuthorConstants;
 import ro.sync.ecss.extensions.api.AuthorDocumentController;
+import ro.sync.ecss.extensions.api.AuthorOperationException;
 import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 
@@ -34,6 +37,8 @@ public class EMSTFacsimile {
     private static final Logger logger = Logger.getLogger(EMSTFacsimile.class.getName());
 
     private static final String FACSIMILE_ELEMENT_NAME = "facsimile";
+    private static final String FACSIMILE_DEFAULT_ELEMENT =
+            "<" + FACSIMILE_ELEMENT_NAME + " xmlns='" + EMSTNamespaceType.TEI.getURLID() + "'/>";
     private static final List<String> MEDIA_ELEMENT_NAMES = new ArrayList<>(2);
 
     static {
@@ -134,34 +139,38 @@ public class EMSTFacsimile {
         return directory;
     }
 
-    public void setBaseDirectoryURL(URL directory) {
-        AuthorElement facsimile = getFacsimileElement();
-        if (facsimile != null) {
-            String relativePath = makeRelative(authorAccess, directory);
+    public void setBaseDirectoryURL(URL newDirectory) {
+        URL currentDirectory = getBaseDirectoryURL();
+        String relativePath = makeRelative(authorAccess, newDirectory);
 
-            if (relativePath == null || relativePath.equals(".")) {
-                relativePath = null;
-            } else {
-                relativePath = decodeURL(relativePath);
-            }
-
-            AuthorDocumentController controller = authorAccess.getDocumentController();
-            controller.beginCompoundEdit();
-
-//            Create facsimile
-
-
-//      Update the xml:base attribute
-            controller.setAttribute(XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), facsimile);
-
-            updateMediaElements();
-
-            controller.endCompoundEdit();
+        if (relativePath == null || relativePath.equals(".")) {
+            relativePath = null;
+        } else {
+            relativePath = decodeURL(relativePath);
         }
+
+        AuthorElement facsimile = getFacsimileElement();
+        AuthorDocumentController controller = authorAccess.getDocumentController();
+        controller.beginCompoundEdit();
+
+//          Create facsimile
+        if (facsimile == null) {
+            try {
+                controller.insertXMLFragment(FACSIMILE_DEFAULT_ELEMENT, "//teiHeader[1]", AuthorConstants.POSITION_AFTER);
+            } catch (AuthorOperationException e) {
+                logger.error(e, e);
+            }
+        }
+//          Update the xml:base attribute
+        controller.setAttribute(XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), facsimile);
+
+        updateMediaElements();
+
+        controller.endCompoundEdit();
     }
 
-    public void setBaseDirectory(File directory) {
-        setBaseDirectoryURL(castFileToURL(directory));
+    public void setBaseDirectory(File newDirectory) {
+        setBaseDirectoryURL(castFileToURL(newDirectory));
     }
 
     public void chooseBaseDirectory() {
@@ -179,7 +188,7 @@ public class EMSTFacsimile {
                 try {
                     String relativePath = authorAccess.getUtilAccess().makeRelative(
                             authorAccess.getEditorAccess().getEditorLocation(),
-                            dir.toURI().toURL()
+                            EMSTUtils.castFileToURL(dir)
                     );
                     authorAccess.getDocumentController().setAttribute("xml:base", new AttrValue(relativePath), facsimile);
                 } catch (MalformedURLException e) {

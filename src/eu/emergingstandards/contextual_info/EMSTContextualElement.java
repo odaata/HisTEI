@@ -1,5 +1,6 @@
 package eu.emergingstandards.contextual_info;
 
+import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -200,12 +201,12 @@ public class EMSTContextualElement {
         Path srcPath = contextualInfo.getSourcePath();
         if (srcPath != null) {
             try {
-                url = srcPath.toUri().toURL();
+                url = EMSTUtils.castPathToURL(srcPath);
 
                 if (appendID) {
                     String id = getRefID();
                     if (!id.isEmpty())
-                        url = new URL(srcPath.toUri().toURL(), "#" + id);
+                        url = new URL(url, "#" + id);
                 }
             } catch (MalformedURLException e) {
                 logger.error(e, e);

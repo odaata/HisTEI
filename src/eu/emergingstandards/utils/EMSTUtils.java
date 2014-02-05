@@ -23,12 +23,8 @@ public class EMSTUtils {
         Path path = null;
 
         if (url != null) {
-            try {
-                String urlPath = URLDecoder.decode(url.getPath(), "UTF-8");
-                path = Paths.get(urlPath);
-            } catch (UnsupportedEncodingException e) {
-                logger.error(e, e);
-            }
+            String urlPath = decodeURL(url);
+            path = Paths.get(urlPath);
         }
         return path;
     }

@@ -190,10 +190,11 @@ public final class EMSTOxygenUtils {
         String relativePath = null;
 
         if (authorAccess != null) {
-            relativePath = emptyToNull(
-                    authorAccess.getUtilAccess().makeRelative(
+            relativePath =
+                    emptyToNull(
+                            authorAccess.getUtilAccess().makeRelative(
                             authorAccess.getEditorAccess().getEditorLocation(), url)
-            );
+                    );
         }
         return relativePath;
     }

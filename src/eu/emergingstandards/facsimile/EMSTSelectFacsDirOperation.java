@@ -1,15 +1,16 @@
 package eu.emergingstandards.facsimile;
 
-import eu.emergingstandards.utils.EMSTOxygenUtils;
 import ro.sync.ecss.extensions.api.*;
 import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 import java.io.File;
-import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URLDecoder;
+
+import static eu.emergingstandards.utils.EMSTOxygenUtils.XML_BASE_ATTRIB_NAME;
+import static eu.emergingstandards.utils.EMSTOxygenUtils.getCurrentAuthorNode;
+import static eu.emergingstandards.utils.EMSTUtils.castFileToURL;
+import static eu.emergingstandards.utils.EMSTUtils.decodeURL;
 
 /**
  * Created by mike on 1/25/14.
@@ -18,24 +19,20 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        AuthorNode currentNode = EMSTOxygenUtils.getCurrentAuthorNode(authorAccess);
+        AuthorNode currentNode = getCurrentAuthorNode(authorAccess);
         if (currentNode != null && "facsimile".equals(currentNode.getName())) {
             File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
             if (dir != null) {
-                try {
-                    String relativePath = authorAccess.getUtilAccess().makeRelative(
-                            authorAccess.getEditorAccess().getEditorLocation(),
-                            dir.toURI().toURL()
-                    );
+                String relativePath = authorAccess.getUtilAccess().makeRelative(
+                        authorAccess.getEditorAccess().getEditorLocation(),
+                        castFileToURL(dir)
+                );
 //                  Update the xml:base attribute
-                    authorAccess.getDocumentController().setAttribute(
-                            "xml:base",
-                            new AttrValue(relativePath.equals(".") ? null : URLDecoder.decode(relativePath, "UTF-8")),
-                            (AuthorElement) currentNode
-                    );
-                } catch (MalformedURLException | UnsupportedEncodingException e) {
-                    e.printStackTrace();
-                }
+                authorAccess.getDocumentController().setAttribute(
+                        XML_BASE_ATTRIB_NAME,
+                        new AttrValue(relativePath.equals(".") ? null : decodeURL(relativePath)),
+                        (AuthorElement) currentNode
+                );
             }
         }
     }

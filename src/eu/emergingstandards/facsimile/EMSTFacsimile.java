@@ -1,13 +1,14 @@
 package eu.emergingstandards.facsimile;
 
 import eu.emergingstandards.exceptions.EMSTFileMissingException;
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.tika.Tika;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
+import ro.sync.ecss.extensions.api.AuthorDocumentController;
 import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 
@@ -69,7 +70,7 @@ public class EMSTFacsimile {
 
     public EMSTFacsimile(AuthorAccess authorAccess) {
         this.authorAccess = authorAccess;
-        currentElement = EMSTUtils.getCurrentAuthorElement(authorAccess);
+        currentElement = EMSTOxygenUtils.getCurrentAuthorElement(authorAccess);
 
         if (currentElement != null) {
             String elementName = currentElement.getName();
@@ -79,7 +80,7 @@ public class EMSTFacsimile {
             } else if (MEDIA_ELEMENT_NAMES.contains(elementName)) {
                 currentType = ElementType.MEDIA;
             } else {
-                references = EMSTUtils.getAttrValues(currentElement.getAttribute(FACS_ATTRIB_NAME));
+                references = EMSTOxygenUtils.getAttrValues(currentElement.getAttribute(FACS_ATTRIB_NAME));
                 if (!references.isEmpty()) {
                     currentType = ElementType.REFERENCES;
                 }
@@ -98,7 +99,7 @@ public class EMSTFacsimile {
                     facsimileElement = (AuthorElement) currentElement.getParentElement();
                     break;
                 case REFERENCES:
-                    facsimileElement = EMSTUtils.getAuthorElement("//facsimile[1]", authorAccess);
+                    facsimileElement = EMSTOxygenUtils.getAuthorElement("//facsimile[1]", authorAccess);
                     break;
             }
         }
@@ -111,7 +112,7 @@ public class EMSTFacsimile {
 
         URL url = getBaseDirectoryURL();
         if (url != null) {
-            directory = EMSTUtils.castURLToPath(url);
+            directory = EMSTOxygenUtils.castURLToPath(url);
         }
         return directory;
     }
@@ -123,36 +124,42 @@ public class EMSTFacsimile {
         AuthorElement facsimile = getFacsimileElement();
         if (facsimile != null) {
             directory = facsimile.getXMLBaseURL();
-            Path path = EMSTUtils.castURLToPath(directory);
+            Path path = EMSTOxygenUtils.castURLToPath(directory);
             if (path != null && !Files.isDirectory(path)) {
-                directory = EMSTUtils.castPathToURL(path.getParent());
+                directory = EMSTOxygenUtils.castPathToURL(path.getParent());
             }
         }
         return directory;
     }
 
     public void setBaseDirectoryURL(URL directory) {
-        String relativePath = authorAccess.getUtilAccess().makeRelative(
-                authorAccess.getEditorAccess().getEditorLocation(), directory);
+        AuthorElement facsimile = getFacsimileElement();
+        if (facsimile != null) {
+            String relativePath = EMSTOxygenUtils.makeRelative(authorAccess, directory);
 
-        if (relativePath == null || relativePath.isEmpty() || relativePath.equals(".")) {
-            relativePath = null;
-        } else {
-            relativePath = EMSTUtils.decodeURL(relativePath);
-        }
+            if (relativePath == null || relativePath.isEmpty() || relativePath.equals(".")) {
+                relativePath = null;
+            } else {
+                relativePath = EMSTOxygenUtils.decodeURL(relativePath);
+            }
 
-        authorAccess.getDocumentController().beginCompoundEdit();
+            AuthorDocumentController controller = authorAccess.getDocumentController();
+            controller.beginCompoundEdit();
+
+//            Create facsimile
+
 
 //      Update the xml:base attribute
-        authorAccess.getDocumentController().setAttribute(
-                EMSTUtils.XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), currentElement);
-        updateMediaElements();
+            controller.setAttribute(EMSTOxygenUtils.XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), facsimile);
 
-        authorAccess.getDocumentController().endCompoundEdit();
+            updateMediaElements();
+
+            controller.endCompoundEdit();
+        }
     }
 
     public void setBaseDirectory(File directory) {
-        setBaseDirectoryURL(EMSTUtils.castFileToURL(directory));
+        setBaseDirectoryURL(EMSTOxygenUtils.castFileToURL(directory));
     }
 
     public void chooseBaseDirectory() {
@@ -161,7 +168,7 @@ public class EMSTFacsimile {
             setBaseDirectory(dir);
         }
 
-        /*AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
+        /*AuthorNode currentNode = EMSTOxygenUtils.getCurrentAuthorNode(authorAccess);
         if (currentNode != null && "facsimile".equals(currentNode.getName())) {
 
             File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
@@ -220,7 +227,7 @@ public class EMSTFacsimile {
     public List<EMSTMediaElement> getMediaElements() {
         List<EMSTMediaElement> mediaElements = new ArrayList<>();
 
-        List<AuthorElement> contentElements = EMSTUtils.getContentElements(getFacsimileElement());
+        List<AuthorElement> contentElements = EMSTOxygenUtils.getContentElements(getFacsimileElement());
         for (AuthorElement element : contentElements) {
             EMSTMediaElement mediaElement = EMSTMediaElement.get(element);
             if (mediaElement != null) {
@@ -280,17 +287,17 @@ public class EMSTFacsimile {
     public void openCurrentMedia() throws EMSTFileMissingException {
         switch (currentType) {
             case FACSIMILE:
-                EMSTUtils.openURL(authorAccess, getBaseDirectoryURL());
+                EMSTOxygenUtils.openURL(authorAccess, getBaseDirectoryURL());
                 break;
             case MEDIA:
-                EMSTUtils.openURL(authorAccess, getCurrentMediaURL());
+                EMSTOxygenUtils.openURL(authorAccess, getCurrentMediaURL());
                 break;
             case REFERENCES:
                 if (!references.isEmpty()) {
                     Map<String, URL> mediaURLs = getMediaURLs();
                     for (String reference : references) {
                         String id = StringUtils.substringAfter(reference, "#");
-                        EMSTUtils.openURL(authorAccess, mediaURLs.get(id.isEmpty() ? reference : id));
+                        EMSTOxygenUtils.openURL(authorAccess, mediaURLs.get(id.isEmpty() ? reference : id));
                     }
                 }
                 break;

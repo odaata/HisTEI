@@ -1,6 +1,6 @@
 package eu.emergingstandards.exceptions;
 
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -20,7 +20,7 @@ public class EMSTFileMissingException extends EMSTException {
      * Constructor.
      *
      * @param message The message.
-     * @param path The path to the missing file.
+     * @param path    The path to the missing file.
      */
     public EMSTFileMissingException(String message, String path) {
         super(message);
@@ -31,7 +31,7 @@ public class EMSTFileMissingException extends EMSTException {
      * Constructor.
      *
      * @param message The message.
-     * @param path The path to the missing file.
+     * @param path    The path to the missing file.
      */
     public EMSTFileMissingException(String message, Path path) {
         super(message);
@@ -54,7 +54,7 @@ public class EMSTFileMissingException extends EMSTException {
      *
      * @param message The message.
      * @param cause   The cause of this exception.
-     * @param path The path to the missing file.
+     * @param path    The path to the missing file.
      */
     public EMSTFileMissingException(String message, Throwable cause, String path) {
         super(message, cause);
@@ -86,7 +86,7 @@ public class EMSTFileMissingException extends EMSTException {
     }
 
     private void initPath(String path) {
-        this.path = EMSTUtils.decodeURL(path);
+        this.path = EMSTOxygenUtils.decodeURL(path);
     }
 
     private void initPath(Path path) {
@@ -98,7 +98,7 @@ public class EMSTFileMissingException extends EMSTException {
     }
 
     private void initPath(URL path) {
-        this.path = EMSTUtils.decodeURL(path);
+        this.path = EMSTOxygenUtils.decodeURL(path);
     }
 
     /**

@@ -1,7 +1,7 @@
 package eu.emergingstandards.contextual_info;
 
 import eu.emergingstandards.monitor.EMSTFileMonitor;
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.s9api.*;
 import org.apache.commons.vfs2.FileChangeEvent;
@@ -81,7 +81,7 @@ public class EMSTContextualInfo {
     @Nullable
     public WSAuthorEditorPage getAuthorPage() {
         if (authorPage == null) {
-            authorPage = EMSTUtils.getCurrentAuthorEditorPage();
+            authorPage = EMSTOxygenUtils.getCurrentAuthorEditorPage();
         }
         return authorPage;
     }
@@ -100,7 +100,7 @@ public class EMSTContextualInfo {
     @Nullable
     public Path getXQueryPath() {
         if (xQueryPath == null) {
-            xQueryPath = EMSTUtils.expandOxygenPath(XQUERY_PATH, getAuthorAccess());
+            xQueryPath = EMSTOxygenUtils.expandOxygenPath(XQUERY_PATH, getAuthorAccess());
 
             if (xQueryPath != null && xQueryMonitor == null)
                 xQueryMonitor = EMSTFileMonitor.add(xQueryPath);
@@ -112,7 +112,7 @@ public class EMSTContextualInfo {
     public Path getSourcePath() {
         if (sourcePath == null) {
             sourcePath =
-                    EMSTUtils.expandOxygenPath(
+                    EMSTOxygenUtils.expandOxygenPath(
                             SOURCE_BASE_PATH + EMSTContextualSettings.get(getType()).getFileName(),
                             getAuthorAccess()
                     );

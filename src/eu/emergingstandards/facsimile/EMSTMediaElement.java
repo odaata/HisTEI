@@ -1,6 +1,6 @@
 package eu.emergingstandards.facsimile;
 
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -45,12 +45,12 @@ public class EMSTMediaElement {
 
     @Nullable
     public static EMSTMediaElement get(AuthorNode authorNode) {
-        return get(EMSTUtils.castAuthorElement(authorNode));
+        return get(EMSTOxygenUtils.castAuthorElement(authorNode));
     }
 
     @Nullable
     public static EMSTMediaElement get(AuthorAccess authorAccess) {
-        return get(EMSTUtils.getCurrentAuthorElement(authorAccess));
+        return get(EMSTOxygenUtils.getCurrentAuthorElement(authorAccess));
     }
 
     AuthorElement authorElement;
@@ -66,19 +66,19 @@ public class EMSTMediaElement {
 
     @Nullable
     public String getID() {
-        return EMSTUtils.getAttrValue(authorElement.getAttribute(EMSTUtils.XML_ID_ATTR_NAME));
+        return EMSTOxygenUtils.getAttrValue(authorElement.getAttribute(EMSTOxygenUtils.XML_ID_ATTRIB_NAME));
     }
 
     @Nullable
     public Path getPath() {
-        return EMSTUtils.castURLToPath(getURL());
+        return EMSTOxygenUtils.castURLToPath(getURL());
     }
 
     @Nullable
     public URL getURL() {
         URL url = null;
 
-        String value = EMSTUtils.getAttrValue(authorElement.getAttribute(URL_ATTRIB_NAME));
+        String value = EMSTOxygenUtils.getAttrValue(authorElement.getAttribute(URL_ATTRIB_NAME));
         if (value != null) {
             url = authorElement.getXMLBaseURL();
             try {
@@ -92,6 +92,6 @@ public class EMSTMediaElement {
 
     @Nullable
     public String getMimeType() {
-        return EMSTUtils.getAttrValue(authorElement.getAttribute(MIME_TYPE_ATTRIB_NAME));
+        return EMSTOxygenUtils.getAttrValue(authorElement.getAttribute(MIME_TYPE_ATTRIB_NAME));
     }
 }

@@ -1,6 +1,6 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.xml.sax.EntityResolver;
@@ -23,7 +23,7 @@ import java.util.regex.Pattern;
 
 /**
  * Created by mike on 12/26/13.
- *
+ * <p/>
  * Resolves references to contextual information using the EMST Private URI Scheme.
  */
 public class EMSTReferenceResolver implements AuthorReferenceResolver {
@@ -49,7 +49,7 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
      * Verifies if the references of the given node must be refreshed
      * when the attribute with the specified name has changed.
      *
-     * @param node The node with the references.
+     * @param node          The node with the references.
      * @param attributeName The name of the changed attribute.
      * @return <code>true</code> if the references must be refreshed.
      */
@@ -60,21 +60,20 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
 
     /**
      * Resolve the references of the node.
-     *
+     * <p/>
      * The returning SAXSource will be used for creating the referred content
      * using the parser and source inside it.
      *
-     * @param node The clone of the node.
-     * @param systemID The system ID of the node with references.
-     * @param authorAccess The author access implementation.
+     * @param node           The clone of the node.
+     * @param systemID       The system ID of the node with references.
+     * @param authorAccess   The author access implementation.
      * @param entityResolver The entity resolver that can be used to resolve:
-     *
-     * <ul>
-     * <li>Resources that are already opened in editor.
-     * For this case the InputSource will contains the editor content.</li>
-     * <li>Resources resolved through XML catalog.</li>
-     * </ul>
-     *
+     *                       <p/>
+     *                       <ul>
+     *                       <li>Resources that are already opened in editor.
+     *                       For this case the InputSource will contains the editor content.</li>
+     *                       <li>Resources resolved through XML catalog.</li>
+     *                       </ul>
      * @return The SAX source including the parser and the parser's input source.
      */
     @Override
@@ -93,12 +92,12 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
                     inputSource = new InputSource(path);
                 }*/
 
-                InputSource inputSource = new InputSource(new StringReader("<place>Test</place>"));
-                XMLReader xmlReader = authorAccess.getXMLUtilAccess().newNonValidatingXMLReader();
-                xmlReader.setEntityResolver(entityResolver);
-                saxSource = new SAXSource(xmlReader, inputSource);
+            InputSource inputSource = new InputSource(new StringReader("<place>Test</place>"));
+            XMLReader xmlReader = authorAccess.getXMLUtilAccess().newNonValidatingXMLReader();
+            xmlReader.setEntityResolver(entityResolver);
+            saxSource = new SAXSource(xmlReader, inputSource);
 
-                logger.debug("resolveReference: " + path);
+            logger.debug("resolveReference: " + path);
          /*   } catch (SAXException | IOException e) {
                 logger.error(e, e);
             }*/
@@ -149,9 +148,8 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
     /**
      * Return the systemID of the referred content.
      *
-     * @param node The reference node.
+     * @param node         The reference node.
      * @param authorAccess The author access.
-     *
      * @return The systemID of the referred content.
      */
     @Override
@@ -176,7 +174,7 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
     }
 
     private static final String REF_ATTRIB = "ref";
-    private static final String BASE_PATH =  "file://" +
+    private static final String BASE_PATH = "file://" +
             EditorVariables.PROJECT_DIRECTORY + "/contextual_info/";
 
     private static final Map<String, String> TYPES = new HashMap<>();
@@ -196,9 +194,9 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
     private HashMap<String, String> getReference(AuthorNode node) {
         HashMap<String, String> refMap = null;
 
-        AuthorElement element = EMSTUtils.castAuthorElement(node);
+        AuthorElement element = EMSTOxygenUtils.castAuthorElement(node);
         if (element != null) {
-            String ref = EMSTUtils.getAttrValue(element.getAttribute(REF_ATTRIB));
+            String ref = EMSTOxygenUtils.getAttrValue(element.getAttribute(REF_ATTRIB));
             if (ref != null) {
                 Matcher matcher = REF_PATTERN.matcher(ref);
                 boolean found = matcher.matches();

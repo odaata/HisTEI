@@ -1,6 +1,6 @@
 package eu.emergingstandards.contextual_info;
 
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -62,7 +62,7 @@ public class EMSTContextualElement {
 
     @Nullable
     public static EMSTContextualElement get(AuthorAccess authorAccess) {
-        AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
+        AuthorNode currentNode = EMSTOxygenUtils.getCurrentAuthorNode(authorAccess);
 
         if (currentNode != null) {
             return get(currentNode);
@@ -144,7 +144,7 @@ public class EMSTContextualElement {
 
         this.contextualInfo = contextualInfo;
         this.type = properties.getType();
-        this.authorElement = EMSTUtils.castAuthorElement(authorNode);
+        this.authorElement = EMSTOxygenUtils.castAuthorElement(authorNode);
         this.elementProperties = properties;
     }
 
@@ -177,7 +177,7 @@ public class EMSTContextualElement {
     public String getRefID() {
         String id = "";
 
-        String value = EMSTUtils.getAttrValue(authorElement.getAttribute(getRefAttributeName()));
+        String value = EMSTOxygenUtils.getAttrValue(authorElement.getAttribute(getRefAttributeName()));
         if (value != null) {
             Matcher matcher = REF_PATTERN.matcher(value);
             if (matcher.matches()) {
@@ -236,7 +236,7 @@ public class EMSTContextualElement {
 
     @NotNull
     public String getOxygenLabels() {
-        return StringUtils.join(EMSTUtils.escapeCommas(contextualInfo.getLabels()), ",");
+        return StringUtils.join(EMSTOxygenUtils.escapeCommas(contextualInfo.getLabels()), ",");
     }
 
     @NotNull

@@ -1,6 +1,6 @@
 package eu.emergingstandards.facsimile;
 
-import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import ro.sync.ecss.extensions.api.*;
 import ro.sync.ecss.extensions.api.node.AttrValue;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
@@ -18,7 +18,7 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        AuthorNode currentNode = EMSTUtils.getCurrentAuthorNode(authorAccess);
+        AuthorNode currentNode = EMSTOxygenUtils.getCurrentAuthorNode(authorAccess);
         if (currentNode != null && "facsimile".equals(currentNode.getName())) {
             File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
             if (dir != null) {

@@ -29,12 +29,13 @@ import java.util.*;
 /**
  * Created by mike on 1/13/14.
  */
-public final class EMSTUtils {
+public final class EMSTOxygenUtils {
 
-    private static final Logger logger = Logger.getLogger(EMSTUtils.class.getName());
+    private static final Logger logger = Logger.getLogger(EMSTOxygenUtils.class.getName());
 
-    public static final String XML_ID_ATTR_NAME = "xml:id";
+    public static final String XML_ID_ATTRIB_NAME = "xml:id";
     public static final String XML_BASE_ATTRIB_NAME = "xml:base";
+
     public static final String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
     public static final String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
     public static final Map<String, String> NAMESPACES = new HashMap<>(2);
@@ -149,7 +150,7 @@ public final class EMSTUtils {
 
         if (authorElement != null) {
             for (AuthorNode node : authorElement.getContentNodes()) {
-                AuthorElement element = EMSTUtils.castAuthorElement(node);
+                AuthorElement element = EMSTOxygenUtils.castAuthorElement(node);
                 if (element != null) {
                     elements.add(element);
                 }
@@ -270,6 +271,17 @@ public final class EMSTUtils {
         return decodedURL;
     }
 
-    private EMSTUtils() {
+    @Nullable
+    public static String makeRelative(AuthorAccess authorAccess, URL url) {
+        String relativePath = null;
+
+        if (authorAccess != null) {
+            relativePath = authorAccess.getUtilAccess().makeRelative(
+                    authorAccess.getEditorAccess().getEditorLocation(), url);
+        }
+        return relativePath;
+    }
+
+    private EMSTOxygenUtils() {
     }
 }

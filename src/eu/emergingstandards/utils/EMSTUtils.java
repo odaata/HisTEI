@@ -80,4 +80,8 @@ public class EMSTUtils {
         }
         return decodedURL;
     }
+
+    private EMSTUtils() {
+
+    }
 }

@@ -11,22 +11,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Restructuring EMSTUtils&#10;Added private constructor to new EMSTUtils class">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTNamespaceType.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/guava_16_0_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualElement.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTMediaElement.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTMediaElement.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/commons_lang3_3_1.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/commons_vfs2_2_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/commons_vfs2_2_0.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emst.iml" afterPath="$PROJECT_DIR$/emst.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/tika_core_1_4.xml" afterPath="$PROJECT_DIR$/.idea/libraries/tika_core_1_4.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Added Guava library - haven't used it yet&#10;Added emptyToNull() function &#10;Added static imports to Utils Modules for shorter code">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/lib/guava-16.0.1.jar" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/lib/guava-16.0.1.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -335,7 +322,7 @@
       <file leaf-file-name="EMSTFacsimile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="130" column="28" selection-start="4358" selection-end="4358" vertical-scroll-proportion="0.0" vertical-offset="1808" max-vertical-offset="5256">
+            <state line="130" column="28" selection-start="4358" selection-end="4358" vertical-scroll-proportion="0.0" vertical-offset="1980" max-vertical-offset="5256">
               <folding />
             </state>
           </provider>
@@ -344,7 +331,7 @@
       <file leaf-file-name="EMSTMediaElement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTMediaElement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="15" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
+            <state line="75" column="15" selection-start="2193" selection-end="2193" vertical-scroll-proportion="0.0" vertical-offset="1062" max-vertical-offset="1602">
               <folding />
             </state>
           </provider>
@@ -353,7 +340,7 @@
       <file leaf-file-name="EMSTOxygenUtils.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="75" column="32" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.67346936" vertical-offset="606" max-vertical-offset="3672">
+            <state line="77" column="32" selection-start="2752" selection-end="2752" vertical-scroll-proportion="0.42912874" vertical-offset="606" max-vertical-offset="3672">
               <folding />
             </state>
           </provider>
@@ -371,7 +358,7 @@
       <file leaf-file-name="EMSTUtils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="70" column="28" selection-start="1639" selection-end="1639" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1710">
+            <state line="70" column="28" selection-start="1639" selection-end="1639" vertical-scroll-proportion="0.0" vertical-offset="1098" max-vertical-offset="1710">
               <folding />
             </state>
           </provider>
@@ -380,7 +367,7 @@
       <file leaf-file-name="EMSTContextualInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="91" column="39" selection-start="2906" selection-end="2921" vertical-scroll-proportion="0.0" vertical-offset="950" max-vertical-offset="4590">
+            <state line="91" column="39" selection-start="2906" selection-end="2921" vertical-scroll-proportion="0.0" vertical-offset="1206" max-vertical-offset="4590">
               <folding />
             </state>
           </provider>
@@ -407,7 +394,7 @@
       <file leaf-file-name="EMSTContextualElement.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualElement.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="65" column="33" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.0" vertical-offset="2651" max-vertical-offset="4068">
+            <state line="65" column="33" selection-start="2699" selection-end="2699" vertical-scroll-proportion="0.0" vertical-offset="864" max-vertical-offset="4068">
               <folding />
             </state>
           </provider>
@@ -416,7 +403,7 @@
       <file leaf-file-name="EMSTFileMissingException.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="89" column="20" selection-start="2238" selection-end="2238" vertical-scroll-proportion="0.0" vertical-offset="1322" max-vertical-offset="2214">
+            <state line="89" column="20" selection-start="2238" selection-end="2238" vertical-scroll-proportion="0.0" vertical-offset="1494" max-vertical-offset="2214">
               <folding />
             </state>
           </provider>
@@ -434,7 +421,7 @@
       <file leaf-file-name="EMSTException.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="81" column="38" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0" vertical-offset="837" max-vertical-offset="1656">
+            <state line="81" column="38" selection-start="2705" selection-end="2705" vertical-scroll-proportion="0.0" vertical-offset="1458" max-vertical-offset="1656">
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -498,11 +485,11 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTUtils.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTNamespaceType.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTMediaElement.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualElement.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" />
       </list>
     </option>
   </component>
@@ -1091,7 +1078,11 @@
       <created>1391607394104</created>
       <updated>1391607394104</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="Added Guava library - haven't used it yet&#10;Added emptyToNull() function &#10;Added static imports to Utils Modules for shorter code">
+      <created>1391623500104</created>
+      <updated>1391623500104</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1116,10 +1107,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="221" y="77" width="1676" height="974" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3286219" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3286219" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.49936467" order="11" side_tool="false" content_ui="tabs" />
@@ -1131,11 +1122,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32832617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21928747" sideWeight="0.61403507" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21928747" sideWeight="0.61366314" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21928747" sideWeight="0.3859649" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21928747" sideWeight="0.38633686" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33717278" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22911549" sideWeight="0.49823323" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1160,7 +1151,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="version 0.1 - Initial Upload tag" />
     <MESSAGE value="Initial amsterdam tag" />
     <MESSAGE value="Initial emst-oxygen tag" />
     <MESSAGE value="Adjusted CSS for contextual info &#10;Added all places to contextual info Java class" />
@@ -1185,7 +1175,8 @@
     <MESSAGE value="Restructuring EMSTUtils - first stage&#10;Changed EMSTUtils to EMSTOxygenUtils" />
     <MESSAGE value="Restructuring EMSTUtils - second stage&#10;Created new EMSTUtils to hold generic helper functions&#10;Migrated generic functions to new class" />
     <MESSAGE value="Restructuring EMSTUtils&#10;Added private constructor to new EMSTUtils class" />
-    <option name="LAST_COMMIT_MESSAGE" value="Restructuring EMSTUtils&#10;Added private constructor to new EMSTUtils class" />
+    <MESSAGE value="Added Guava library - haven't used it yet&#10;Added emptyToNull() function &#10;Added static imports to Utils Modules for shorter code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Guava library - haven't used it yet&#10;Added emptyToNull() function &#10;Added static imports to Utils Modules for shorter code" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1544,7 +1535,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="75" column="32" selection-start="2696" selection-end="2696" vertical-scroll-proportion="0.67346936" vertical-offset="606" max-vertical-offset="3672">
+        <state line="77" column="32" selection-start="2752" selection-end="2752" vertical-scroll-proportion="0.42912874" vertical-offset="606" max-vertical-offset="3672">
           <folding />
         </state>
       </provider>

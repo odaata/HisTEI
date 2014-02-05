@@ -1,11 +1,12 @@
 package eu.emergingstandards.exceptions;
 
-import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.Path;
+
+import static eu.emergingstandards.utils.EMSTUtils.decodeURL;
 
 /**
  * Created by mike on 1/26/14.
@@ -86,7 +87,7 @@ public class EMSTFileMissingException extends EMSTException {
     }
 
     private void initPath(String path) {
-        this.path = EMSTUtils.decodeURL(path);
+        this.path = decodeURL(path);
     }
 
     private void initPath(Path path) {
@@ -98,7 +99,7 @@ public class EMSTFileMissingException extends EMSTException {
     }
 
     private void initPath(URL path) {
-        this.path = EMSTUtils.decodeURL(path);
+        this.path = decodeURL(path);
     }
 
     /**

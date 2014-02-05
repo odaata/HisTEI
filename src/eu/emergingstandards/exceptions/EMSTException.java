@@ -1,5 +1,6 @@
 package eu.emergingstandards.exceptions;
 
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import org.jetbrains.annotations.NotNull;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 
@@ -9,6 +10,14 @@ import ro.sync.ecss.extensions.api.AuthorAccess;
  * Generic exception thrown by an EMST object
  */
 public class EMSTException extends Exception {
+
+    /**
+     * Whether the user has been notified of this error. Can be reset by
+     * the caller with this public field
+     *
+     * @param userNotified whether the user has been notified.
+     */
+    public boolean userNotified;
 
     /**
      * Constructs a new exception with the specified detail message.  The
@@ -55,20 +64,23 @@ public class EMSTException extends Exception {
     protected String generateMessage() {
         String message = getMessage();
         if (message == null || message.isEmpty()) {
-            Throwable cause = getCause();
-            if (cause != null) {
-                message = cause.getMessage();
-            } else {
-                message = "An EMST error has occurred!";
+            message = "An EMST error has occurred!";
+        }
+
+        Throwable cause = getCause();
+        if (cause != null) {
+            String causeMessage = cause.getMessage();
+            if (causeMessage != null && !causeMessage.isEmpty()) {
+                message = message + "\nCause: " + cause.getMessage();
             }
         }
-        return (message == null ? "" : message);
+        return message;
     }
 
     public void notifyOxygenUser(AuthorAccess authorAccess) {
-        String message = getMessage();
-        if (message != null && !message.isEmpty()) {
-            authorAccess.getWorkspaceAccess().showErrorMessage(message);
+        if (!userNotified) {
+            EMSTOxygenUtils.showErrorMessage(authorAccess, generateMessage());
+            userNotified = true;
         }
     }
 }

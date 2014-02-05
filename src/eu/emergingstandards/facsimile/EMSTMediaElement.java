@@ -1,7 +1,6 @@
 package eu.emergingstandards.facsimile;
 
 import eu.emergingstandards.utils.EMSTOxygenUtils;
-import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -14,6 +13,8 @@ import java.net.URL;
 import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
+
+import static eu.emergingstandards.utils.EMSTUtils.castURLToPath;
 
 /**
  * Created by mike on 2/4/14.
@@ -72,7 +73,7 @@ public class EMSTMediaElement {
 
     @Nullable
     public Path getPath() {
-        return EMSTUtils.castURLToPath(getURL());
+        return castURLToPath(getURL());
     }
 
     @Nullable

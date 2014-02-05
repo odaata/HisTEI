@@ -81,6 +81,17 @@ public class EMSTUtils {
         return decodedURL;
     }
 
+    @Nullable
+    public static String emptyToNull(String input) {
+        String str = null;
+
+        if (input != null) {
+            str = input.trim();
+            if (str.isEmpty()) str = null;
+        }
+        return str;
+    }
+
     private EMSTUtils() {
 
     }

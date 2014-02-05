@@ -20,7 +20,12 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+import static eu.emergingstandards.utils.EMSTUtils.castURLToPath;
+import static eu.emergingstandards.utils.EMSTUtils.emptyToNull;
 
 /**
  * Created by mike on 1/13/14.
@@ -31,15 +36,6 @@ public final class EMSTOxygenUtils {
 
     public static final String XML_ID_ATTRIB_NAME = "xml:id";
     public static final String XML_BASE_ATTRIB_NAME = "xml:base";
-
-    public static final String TEI_NAMESPACE = "http://www.tei-c.org/ns/1.0";
-    public static final String XML_NAMESPACE = "http://www.w3.org/XML/1998/namespace";
-    public static final Map<String, String> NAMESPACES = new HashMap<>(2);
-
-    static {
-        NAMESPACES.put("tei", TEI_NAMESPACE);
-        NAMESPACES.put("xml", XML_NAMESPACE);
-    }
 
     @NotNull
     public static String escapeComma(String value) {
@@ -146,39 +142,13 @@ public final class EMSTOxygenUtils {
 
         if (authorElement != null) {
             for (AuthorNode node : authorElement.getContentNodes()) {
-                AuthorElement element = EMSTOxygenUtils.castAuthorElement(node);
+                AuthorElement element = castAuthorElement(node);
                 if (element != null) {
                     elements.add(element);
                 }
             }
         }
         return elements;
-    }
-
-    @Nullable
-    public static Path expandOxygenPath(String originalPath, AuthorAccess authorAccess) {
-        Path path = null;
-
-        if (authorAccess != null) {
-            path = Paths.get(authorAccess.getUtilAccess().expandEditorVariables(
-                    originalPath, authorAccess.getEditorAccess().getEditorLocation()));
-
-//            if (path != null && !Files.exists(path)) path = null;
-        }
-        return path;
-    }
-
-    public static void openURL(AuthorAccess authorAccess, URL url) throws EMSTFileMissingException {
-        if (url != null) {
-            Path path = EMSTUtils.castURLToPath(url);
-            if (path != null) {
-                if (!Files.exists(path)) {
-                    throw new EMSTFileMissingException("The file could not be found!", url);
-                } else {
-                    authorAccess.getWorkspaceAccess().openInExternalApplication(url, true);
-                }
-            }
-        }
     }
 
     @NotNull
@@ -197,11 +167,22 @@ public final class EMSTOxygenUtils {
         String value = null;
 
         if (attrValue != null) {
-            value = attrValue.getValue().trim();
-
-            if (value.isEmpty()) value = null;
+            value = emptyToNull(attrValue.getValue());
         }
         return value;
+    }
+
+    @Nullable
+    public static Path expandOxygenPath(String originalPath, AuthorAccess authorAccess) {
+        Path path = null;
+
+        if (authorAccess != null) {
+            path = Paths.get(authorAccess.getUtilAccess().expandEditorVariables(
+                    originalPath, authorAccess.getEditorAccess().getEditorLocation()));
+
+//            if (path != null && !Files.exists(path)) path = null;
+        }
+        return path;
     }
 
     @Nullable
@@ -209,12 +190,34 @@ public final class EMSTOxygenUtils {
         String relativePath = null;
 
         if (authorAccess != null) {
-            relativePath = authorAccess.getUtilAccess().makeRelative(
-                    authorAccess.getEditorAccess().getEditorLocation(), url);
+            relativePath = emptyToNull(
+                    authorAccess.getUtilAccess().makeRelative(
+                            authorAccess.getEditorAccess().getEditorLocation(), url)
+            );
         }
         return relativePath;
     }
 
+    public static void openURL(AuthorAccess authorAccess, URL url) throws EMSTFileMissingException {
+        if (url != null) {
+            Path path = castURLToPath(url);
+            if (path != null) {
+                if (!Files.exists(path)) {
+                    throw new EMSTFileMissingException("The file could not be found!", url);
+                } else {
+                    authorAccess.getWorkspaceAccess().openInExternalApplication(url, true);
+                }
+            }
+        }
+    }
+
+    public static void showErrorMessage(AuthorAccess authorAccess, String message) {
+        if (authorAccess != null) {
+            authorAccess.getWorkspaceAccess().showErrorMessage(message);
+        }
+    }
+
     private EMSTOxygenUtils() {
     }
+
 }

@@ -1,6 +1,6 @@
 package eu.emergingstandards.exceptions;
 
-import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.log4j.Logger;
 
 import java.io.IOException;
@@ -86,7 +86,7 @@ public class EMSTFileMissingException extends EMSTException {
     }
 
     private void initPath(String path) {
-        this.path = EMSTOxygenUtils.decodeURL(path);
+        this.path = EMSTUtils.decodeURL(path);
     }
 
     private void initPath(Path path) {
@@ -98,7 +98,7 @@ public class EMSTFileMissingException extends EMSTException {
     }
 
     private void initPath(URL path) {
-        this.path = EMSTOxygenUtils.decodeURL(path);
+        this.path = EMSTUtils.decodeURL(path);
     }
 
     /**

@@ -2,6 +2,7 @@ package eu.emergingstandards.facsimile;
 
 import eu.emergingstandards.exceptions.EMSTFileMissingException;
 import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.tika.Tika;
@@ -112,7 +113,7 @@ public class EMSTFacsimile {
 
         URL url = getBaseDirectoryURL();
         if (url != null) {
-            directory = EMSTOxygenUtils.castURLToPath(url);
+            directory = EMSTUtils.castURLToPath(url);
         }
         return directory;
     }
@@ -124,9 +125,9 @@ public class EMSTFacsimile {
         AuthorElement facsimile = getFacsimileElement();
         if (facsimile != null) {
             directory = facsimile.getXMLBaseURL();
-            Path path = EMSTOxygenUtils.castURLToPath(directory);
+            Path path = EMSTUtils.castURLToPath(directory);
             if (path != null && !Files.isDirectory(path)) {
-                directory = EMSTOxygenUtils.castPathToURL(path.getParent());
+                directory = EMSTUtils.castPathToURL(path.getParent());
             }
         }
         return directory;
@@ -140,7 +141,7 @@ public class EMSTFacsimile {
             if (relativePath == null || relativePath.isEmpty() || relativePath.equals(".")) {
                 relativePath = null;
             } else {
-                relativePath = EMSTOxygenUtils.decodeURL(relativePath);
+                relativePath = EMSTUtils.decodeURL(relativePath);
             }
 
             AuthorDocumentController controller = authorAccess.getDocumentController();
@@ -159,7 +160,7 @@ public class EMSTFacsimile {
     }
 
     public void setBaseDirectory(File directory) {
-        setBaseDirectoryURL(EMSTOxygenUtils.castFileToURL(directory));
+        setBaseDirectoryURL(EMSTUtils.castFileToURL(directory));
     }
 
     public void chooseBaseDirectory() {

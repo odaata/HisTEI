@@ -13,15 +13,11 @@ import ro.sync.ecss.extensions.api.node.AuthorElement;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.DirectoryStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Created by mike on 1/25/14.
@@ -43,7 +39,7 @@ public class EMSTFacsimile {
     }
 
     private static final String URL_ATTRIB_NAME = "url";
-    private static final String MEDIA_TYPE_ATTRIB_NAME = "mediaType";
+    private static final String MEDIA_TYPE_ATTRIB_NAME = "mimeType";
     private static final String FACS_ATTRIB_NAME = "facs";
 
     private static final Map<String, String> MEDIA_TYPES = new HashMap<>();
@@ -66,8 +62,8 @@ public class EMSTFacsimile {
             new DirectoryStream.Filter<Path>() {
                 @Override
                 public boolean accept(Path entry) throws IOException {
-                    String mediaType = tika.detect(entry.toFile());
-                    return MEDIA_TYPES.keySet().contains(mediaType);
+                    String mimeType = tika.detect(entry.toFile());
+                    return MEDIA_TYPES.keySet().contains(mimeType);
                 }
             };*/
 
@@ -195,21 +191,23 @@ public class EMSTFacsimile {
     }
 
     private void updateMediaElements() {
-        Map<String, String> files = getMediaFiles();
-        List<AuthorElement> elements = getMediaElements();
+        SortedMap<Path, String> files = getFiles();
+        SortedMap<Path, EMSTMediaElement> mediaPaths = getMediaPaths();
 
     }
 
     @NotNull
-    public Map<String, String> getMediaFiles() {
-        Map<String, String> files = new HashMap<>();
+    public SortedMap<Path, String> getFiles() {
+        SortedMap<Path, String> files = new TreeMap<>();
 
-        try (DirectoryStream<Path> dirStream = Files.newDirectoryStream(getBaseDirectory())) {
+        try (DirectoryStream<Path> dirStream =
+                     Files.newDirectoryStream(getBaseDirectory())) {
+
             for (Path filePath : dirStream) {
                 File file = filePath.toFile();
-                String mediaType = tika.detect(file);
-                if (MEDIA_TYPES.keySet().contains(mediaType)) {
-                    files.put(file.getName(), mediaType);
+                String mimeType = tika.detect(file);
+                if (MEDIA_TYPES.keySet().contains(mimeType)) {
+                    files.put(filePath, mimeType);
                 }
             }
         } catch (IOException e) {
@@ -219,42 +217,46 @@ public class EMSTFacsimile {
     }
 
     @NotNull
-    public List<AuthorElement> getMediaElements() {
-        return EMSTUtils.getContentElements(getFacsimileElement());
+    public List<EMSTMediaElement> getMediaElements() {
+        List<EMSTMediaElement> mediaElements = new ArrayList<>();
+
+        List<AuthorElement> contentElements = EMSTUtils.getContentElements(getFacsimileElement());
+        for (AuthorElement element : contentElements) {
+            EMSTMediaElement mediaElement = EMSTMediaElement.get(element);
+            if (mediaElement != null) {
+                mediaElements.add(mediaElement);
+            }
+        }
+        return mediaElements;
     }
 
     @NotNull
-    public List<List<String>> getMediaInfo() {
-        List<List<String>> media = new ArrayList<>();
+    public SortedMap<Path, EMSTMediaElement> getMediaPaths() {
+        SortedMap<Path, EMSTMediaElement> mediaPaths = new TreeMap<>();
 
-        List<AuthorElement> elements = getMediaElements();
-        for (AuthorElement element : elements) {
-            String id = EMSTUtils.getAttrValue(element.getAttribute(EMSTUtils.XML_ID_ATTR_NAME));
-            String url = EMSTUtils.getAttrValue(element.getAttribute(URL_ATTRIB_NAME));
-            String mediaType = EMSTUtils.getAttrValue(element.getAttribute(MEDIA_TYPE_ATTRIB_NAME));
-
-            if (id != null || url != null || mediaType != null) {
-                final List<String> entry = new ArrayList<>();
-                entry.add(id);
-                entry.add(url);
-                entry.add(mediaType);
+        List<EMSTMediaElement> mediaElements = getMediaElements();
+        for (EMSTMediaElement mediaElement : mediaElements) {
+            Path path = mediaElement.getPath();
+            if (path != null) {
+                mediaPaths.put(path, mediaElement);
             }
         }
-        return media;
+        return mediaPaths;
     }
 
     @NotNull
     public Map<String, URL> getMediaURLs() {
-        Map<String, URL> media = new HashMap<>();
+        Map<String, URL> mediaURLs = new HashMap<>();
 
-        List<AuthorElement> elements = getMediaElements();
-        for (AuthorElement element : elements) {
-            String value = EMSTUtils.getAttrValue(element.getAttribute(EMSTUtils.XML_ID_ATTR_NAME));
-            if (value != null) {
-                media.put(value, getURL(element));
+        List<EMSTMediaElement> mediaElements = getMediaElements();
+        for (EMSTMediaElement mediaElement : mediaElements) {
+            String id = mediaElement.getID();
+            URL url = mediaElement.getURL();
+            if (id != null && url != null) {
+                mediaURLs.put(id, url);
             }
         }
-        return media;
+        return mediaURLs;
     }
 
     @Nullable
@@ -262,23 +264,9 @@ public class EMSTFacsimile {
         URL url = null;
 
         if (currentType == ElementType.MEDIA) {
-            url = getURL(currentElement);
-        }
-        return url;
-    }
-
-    @Nullable
-    private URL getURL(AuthorElement authorElement) {
-        URL url = null;
-
-        AttrValue urlAttr = authorElement.getAttribute(URL_ATTRIB_NAME);
-        String value = EMSTUtils.getAttrValue(urlAttr);
-        if (value != null && authorElement != null) {
-            url = authorElement.getXMLBaseURL();
-            try {
-                url = new URL(url, value);
-            } catch (MalformedURLException e) {
-                logger.error(e, e);
+            EMSTMediaElement mediaElement = EMSTMediaElement.get(currentElement);
+            if (mediaElement != null) {
+                url = mediaElement.getURL();
             }
         }
         return url;
@@ -299,10 +287,10 @@ public class EMSTFacsimile {
                 break;
             case REFERENCES:
                 if (!references.isEmpty()) {
-                    Map<String, URL> media = getMediaURLs();
+                    Map<String, URL> mediaURLs = getMediaURLs();
                     for (String reference : references) {
                         String id = StringUtils.substringAfter(reference, "#");
-                        EMSTUtils.openURL(authorAccess, media.get(id.isEmpty() ? reference : id));
+                        EMSTUtils.openURL(authorAccess, mediaURLs.get(id.isEmpty() ? reference : id));
                     }
                 }
                 break;

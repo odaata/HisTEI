@@ -174,7 +174,7 @@ public class EMSTContextualElement {
     }
 
     @NotNull
-    public String getID() {
+    public String getRefID() {
         String id = "";
 
         String value = EMSTUtils.getAttrValue(authorElement.getAttribute(getRefAttributeName()));
@@ -202,7 +202,7 @@ public class EMSTContextualElement {
                 url = srcPath.toUri().toURL();
 
                 if (appendID) {
-                    String id = getID();
+                    String id = getRefID();
                     if (!id.isEmpty())
                         url = new URL(srcPath.toUri().toURL(), "#" + id);
                 }

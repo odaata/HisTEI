@@ -153,20 +153,30 @@ public class EMSTFacsimile {
         AuthorDocumentController controller = authorAccess.getDocumentController();
         controller.beginCompoundEdit();
 
-//          Create facsimile
+//      Create facsimile element if it doesn't exist
         if (facsimile == null) {
             try {
                 controller.insertXMLFragment(FACSIMILE_DEFAULT_ELEMENT, "//teiHeader[1]", AuthorConstants.POSITION_AFTER);
+                facsimile = getFacsimileElement();
             } catch (AuthorOperationException e) {
                 logger.error(e, e);
+                controller.cancelCompoundEdit();
+                showErrorMessage(authorAccess, "Unable to create <facsimile> element!");
+                return;
             }
         }
+
+        if (facsimile != null) {
 //          Update the xml:base attribute
-        controller.setAttribute(XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), facsimile);
+            controller.setAttribute(XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), facsimile);
 
-        updateMediaElements();
+            updateMediaElements();
 
-        controller.endCompoundEdit();
+            controller.endCompoundEdit();
+        } else {
+            showErrorMessage(authorAccess, "The <facsimile> element could not be located for editing!");
+            controller.cancelCompoundEdit();
+        }
     }
 
     public void setBaseDirectory(File newDirectory) {
@@ -208,15 +218,34 @@ public class EMSTFacsimile {
         }*/
     }
 
-    private void updateMediaElements() {
-        SortedMap<Path, String> files = getFiles();
-        SortedMap<Path, EMSTMediaElement> mediaPaths = getMediaPaths();
+    public void updateMediaElements() {
+        TreeMap<Path, String> files = getFiles();
+        AuthorDocumentController controller = authorAccess.getDocumentController();
 
+        controller.beginCompoundEdit();
+//      Remove all existing elements first
+        for (EMSTMediaElement mediaElement : getMediaElements()) {
+            controller.deleteNode(mediaElement.getAuthorElement());
+        }
+//      Create new media elements using existing files
+        for (Path path : files.keySet()) {
+
+        }
+
+        controller.endCompoundEdit();
+    }
+
+    private void removeAllMediaElements() {
+        AuthorDocumentController controller = authorAccess.getDocumentController();
+
+        for (EMSTMediaElement mediaElement : getMediaElements()) {
+            controller.deleteNode(mediaElement.getAuthorElement());
+        }
     }
 
     @NotNull
-    public SortedMap<Path, String> getFiles() {
-        SortedMap<Path, String> files = new TreeMap<>();
+    public TreeMap<Path, String> getFiles() {
+        TreeMap<Path, String> files = new TreeMap<>();
 
         try (DirectoryStream<Path> dirStream =
                      Files.newDirectoryStream(getBaseDirectory())) {
@@ -249,14 +278,14 @@ public class EMSTFacsimile {
     }
 
     @NotNull
-    public SortedMap<Path, EMSTMediaElement> getMediaPaths() {
-        SortedMap<Path, EMSTMediaElement> mediaPaths = new TreeMap<>();
+    public List<Path> getMediaPaths() {
+        List<Path> mediaPaths = new ArrayList<>();
 
         List<EMSTMediaElement> mediaElements = getMediaElements();
         for (EMSTMediaElement mediaElement : mediaElements) {
             Path path = mediaElement.getPath();
             if (path != null) {
-                mediaPaths.put(path, mediaElement);
+                mediaPaths.add(path);
             }
         }
         return mediaPaths;

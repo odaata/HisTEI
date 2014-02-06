@@ -6,6 +6,7 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
 import java.nio.file.Path;
@@ -23,8 +24,11 @@ public class EMSTUtils {
         Path path = null;
 
         if (url != null) {
-            String urlPath = decodeURL(url);
-            path = Paths.get(urlPath);
+            try {
+                path = Paths.get(url.toURI());
+            } catch (URISyntaxException e) {
+                logger.error(e, e);
+            }
         }
         return path;
     }
@@ -58,7 +62,7 @@ public class EMSTUtils {
         String decodedURL = null;
 
         if (url != null) {
-            decodedURL = decodeURL(url.getPath());
+            decodedURL = decodeURL(url.toString());
         }
         return decodedURL;
     }

@@ -6,9 +6,9 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
-import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
+import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -21,16 +21,7 @@ public class EMSTUtils {
 
     @Nullable
     public static Path castURLToPath(URL url) {
-        Path path = null;
-
-        if (url != null) {
-            try {
-                path = Paths.get(url.toURI());
-            } catch (URISyntaxException e) {
-                logger.error(e, e);
-            }
-        }
-        return path;
+        return Paths.get(decodeURL(url));
     }
 
     @Nullable
@@ -39,6 +30,7 @@ public class EMSTUtils {
 
         try {
             url = path.toUri().toURL();
+//            path.toUri().toURL();
         } catch (MalformedURLException e) {
             logger.error(e, e);
         }
@@ -59,12 +51,7 @@ public class EMSTUtils {
 
     @Nullable
     public static String decodeURL(URL url) {
-        String decodedURL = null;
-
-        if (url != null) {
-            decodedURL = decodeURL(url.toString());
-        }
-        return decodedURL;
+        return decodeURL(url.toString());
     }
 
     @Nullable
@@ -80,6 +67,34 @@ public class EMSTUtils {
         }
         return decodedURL;
     }
+
+    @Nullable
+    public static String encodeURL(URL url) {
+        return encodeURL(url.toString());
+    }
+
+    @Nullable
+    public static String encodeURL(String url) {
+        String encodedURL = null;
+
+        if (url != null) {
+            try {
+                encodedURL = URLEncoder.encode(url, "UTF-8");
+            } catch (UnsupportedEncodingException e) {
+                logger.error(e, e);
+            }
+        }
+        return encodedURL;
+    }
+
+    /*@Nullable
+    public static String addSlash(String directory) {
+        if (directory != null && !directory.endsWith("/")) {
+            return directory.substring(0, directory.lastIndexOf("/") + 1);
+        } else {
+            return directory;
+        }
+    }*/
 
     @Nullable
     public static String emptyToNull(String input) {

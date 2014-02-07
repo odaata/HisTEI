@@ -29,7 +29,11 @@ public enum EMSTContextualType {
 
     @Nullable
     public static EMSTContextualType get(String key) {
-        return lookup.get(key);
+        if (key != null) {
+            return lookup.get(key);
+        } else {
+            return null;
+        }
     }
 
     @NotNull

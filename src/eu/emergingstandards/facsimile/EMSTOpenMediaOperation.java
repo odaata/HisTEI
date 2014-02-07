@@ -9,11 +9,14 @@ import ro.sync.ecss.extensions.api.*;
 public class EMSTOpenMediaOperation implements AuthorOperation {
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        EMSTFacsimile facsimile = new EMSTFacsimile(authorAccess);
-        try {
-            facsimile.openCurrentMedia();
-        } catch (EMSTFileMissingException e) {
-            e.notifyOxygenUser(authorAccess);
+        EMSTFacsimile facsimile = EMSTFacsimile.get(authorAccess);
+
+        if (facsimile != null) {
+            try {
+                facsimile.openCurrentMedia();
+            } catch (EMSTFileMissingException e) {
+                e.notifyOxygenUser(authorAccess);
+            }
         }
     }
 

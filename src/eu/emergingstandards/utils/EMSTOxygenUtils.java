@@ -24,8 +24,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static eu.emergingstandards.utils.EMSTUtils.castURLToPath;
-import static eu.emergingstandards.utils.EMSTUtils.emptyToNull;
+import static eu.emergingstandards.utils.EMSTUtils.*;
 
 /**
  * Created by mike on 1/13/14.
@@ -33,9 +32,6 @@ import static eu.emergingstandards.utils.EMSTUtils.emptyToNull;
 public final class EMSTOxygenUtils {
 
     private static final Logger logger = Logger.getLogger(EMSTOxygenUtils.class.getName());
-
-    public static final String XML_ID_ATTRIB_NAME = "xml:id";
-    public static final String XML_BASE_ATTRIB_NAME = "xml:base";
 
     @NotNull
     public static String escapeComma(String value) {
@@ -186,15 +182,26 @@ public final class EMSTOxygenUtils {
     }
 
     @Nullable
-    public static String makeRelative(AuthorAccess authorAccess, URL url) {
+    public static String makeRelative(AuthorAccess authorAccess, URL baseURL, URL childURL) {
         String relativePath = null;
 
         if (authorAccess != null) {
-            relativePath =
-                    emptyToNull(
-                            authorAccess.getUtilAccess().makeRelative(
-                            authorAccess.getEditorAccess().getEditorLocation(), url)
-                    );
+            relativePath = emptyToNull(authorAccess.getUtilAccess().makeRelative(baseURL, childURL));
+            if (relativePath == null || relativePath.equals(".")) {
+                relativePath = null;
+            } else {
+                relativePath = decodeURL(relativePath);
+            }
+        }
+        return relativePath;
+    }
+
+    @Nullable
+    public static String makeRelativeToCurrentEditor(AuthorAccess authorAccess, URL url) {
+        String relativePath = null;
+
+        if (authorAccess != null) {
+            relativePath = makeRelative(authorAccess, authorAccess.getEditorAccess().getEditorLocation(), url);
         }
         return relativePath;
     }

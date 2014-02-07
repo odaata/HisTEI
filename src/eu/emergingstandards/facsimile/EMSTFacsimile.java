@@ -1,12 +1,14 @@
 package eu.emergingstandards.facsimile;
 
+import eu.emergingstandards.exceptions.EMSTException;
 import eu.emergingstandards.exceptions.EMSTFileMissingException;
-import eu.emergingstandards.utils.EMSTNamespaceType;
+import eu.emergingstandards.utils.EMSTXMLUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.apache.tika.Tika;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+import org.w3c.dom.Element;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.api.AuthorConstants;
 import ro.sync.ecss.extensions.api.AuthorDocumentController;
@@ -16,10 +18,10 @@ import ro.sync.ecss.extensions.api.node.AuthorElement;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
 import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.util.*;
 
 import static eu.emergingstandards.utils.EMSTOxygenUtils.*;
@@ -31,51 +33,78 @@ import static eu.emergingstandards.utils.EMSTUtils.*;
 public class EMSTFacsimile {
 
     private static enum ElementType {
-        FACSIMILE, MEDIA, REFERENCES, NONE
+        FACSIMILE, MEDIA, REFERENCES
     }
 
     private static final Logger logger = Logger.getLogger(EMSTFacsimile.class.getName());
 
     private static final String FACSIMILE_ELEMENT_NAME = "facsimile";
-    private static final String FACSIMILE_DEFAULT_ELEMENT =
-            "<" + FACSIMILE_ELEMENT_NAME + " xmlns='" + EMSTNamespaceType.TEI.getURLID() + "'/>";
-    private static final List<String> MEDIA_ELEMENT_NAMES = new ArrayList<>(2);
-
-    static {
-        MEDIA_ELEMENT_NAMES.add("media");
-        MEDIA_ELEMENT_NAMES.add("graphic");
-    }
-
-    private static final String URL_ATTRIB_NAME = "url";
-    private static final String MEDIA_TYPE_ATTRIB_NAME = "mimeType";
     private static final String FACS_ATTRIB_NAME = "facs";
 
-    private static final Map<String, String> MEDIA_TYPES = new HashMap<>();
+    @Nullable
+    public static EMSTFacsimile get(AuthorAccess authorAccess) {
+        EMSTFacsimile facsimile = null;
 
-    static {
-        MEDIA_TYPES.put("application/pdf", "media");
-        MEDIA_TYPES.put("image/jpeg", "graphic");
+        AuthorElement currentElement = getCurrentAuthorElement(authorAccess);
+
+        if (currentElement != null) {
+            String elementName = currentElement.getName();
+            ElementType currentType = null;
+            List<String> references = new ArrayList<>();
+
+            if (FACSIMILE_ELEMENT_NAME.equals(elementName)) {
+                currentType = ElementType.FACSIMILE;
+            } else if (EMSTMediaElement.MEDIA_ELEMENT_NAMES.contains(elementName)) {
+                currentType = ElementType.MEDIA;
+            } else {
+                references = getAttrValues(currentElement.getAttribute(FACS_ATTRIB_NAME));
+                if (!references.isEmpty()) {
+                    currentType = ElementType.REFERENCES;
+                }
+            }
+            if (currentType != null) {
+                facsimile = new EMSTFacsimile(
+                        authorAccess, currentElement, currentType, references);
+            }
+        }
+        return facsimile;
+    }
+
+    @Nullable
+    public static Element create() {
+        return EMSTXMLUtils.createElement(FACSIMILE_ELEMENT_NAME);
+    }
+
+    @Nullable
+    public static Element create(String xmlBase) {
+        Element element = create();
+
+        if (element != null) {
+            element.setAttribute(EMSTXMLUtils.XML_BASE_ATTRIB_NAME, xmlBase);
+        }
+        return element;
     }
 
     /* Instance members */
 
-    private ElementType currentType = ElementType.NONE;
+    private ElementType currentType;
     private AuthorAccess authorAccess;
     private AuthorElement currentElement;
     private AuthorElement facsimileElement;
     private List<String> references = new ArrayList<>();
+    private File baseDirectory;
 
     private final Tika tika = new Tika();
-    /*private final DirectoryStream.Filter<Path> tikaFilter =
-            new DirectoryStream.Filter<Path>() {
-                @Override
-                public boolean accept(Path entry) throws IOException {
-                    String mimeType = tika.detect(entry.toFile());
-                    return MEDIA_TYPES.keySet().contains(mimeType);
-                }
-            };*/
 
-    public EMSTFacsimile(AuthorAccess authorAccess) {
+    protected EMSTFacsimile(AuthorAccess authorAccess, AuthorElement currentElement,
+                            ElementType currentType, List<String> references) {
+        this.authorAccess = authorAccess;
+        this.currentElement = currentElement;
+        this.currentType = currentType;
+        if (references != null) this.references = references;
+    }
+
+    /*public EMSTFacsimile(AuthorAccess authorAccess) {
         this.authorAccess = authorAccess;
         currentElement = getCurrentAuthorElement(authorAccess);
 
@@ -84,7 +113,7 @@ public class EMSTFacsimile {
 
             if (FACSIMILE_ELEMENT_NAME.equals(elementName)) {
                 currentType = ElementType.FACSIMILE;
-            } else if (MEDIA_ELEMENT_NAMES.contains(elementName)) {
+            } else if (EMSTMediaElement.MEDIA_ELEMENT_NAMES.contains(elementName)) {
                 currentType = ElementType.MEDIA;
             } else {
                 references = getAttrValues(currentElement.getAttribute(FACS_ATTRIB_NAME));
@@ -93,7 +122,7 @@ public class EMSTFacsimile {
                 }
             }
         }
-    }
+    }*/
 
     @Nullable
     public AuthorElement getFacsimileElement() {
@@ -114,12 +143,55 @@ public class EMSTFacsimile {
     }
 
     @Nullable
+    public AuthorElement createFacsimileElement() throws EMSTException {
+        AuthorElement facsimile = getFacsimileElement();
+
+        if (facsimile == null) {
+            Element newElement = create();
+            if (newElement != null) {
+                try {
+                    authorAccess.getDocumentController().insertXMLFragment(
+                            newElement.toString(), "//teiHeader[1]", AuthorConstants.POSITION_AFTER);
+
+                    facsimileElement = getFacsimileElement();
+                } catch (AuthorOperationException e) {
+                    logger.error(e, e);
+                    throw new EMSTException("The <facsimile> element could not be created!", e);
+                }
+            }
+        }
+        return facsimileElement;
+    }
+
+    @Nullable
+    public String getXMLBase() {
+        String xmlBase = null;
+
+        AuthorElement facsimile = getFacsimileElement();
+        if (facsimile != null) {
+            xmlBase = getAttrValue(facsimile.getAttribute(EMSTXMLUtils.XML_BASE_ATTRIB_NAME));
+        }
+        return xmlBase;
+    }
+
+    @Nullable
+    public File getBaseDirectoryFile() {
+        return baseDirectory;
+    }
+
+    @Nullable
     public Path getBaseDirectory() {
         Path directory = null;
 
         URL url = getBaseDirectoryURL();
         if (url != null) {
             directory = castURLToPath(url);
+            if (directory != null) {
+                String dir = directory.toString();
+                if (dir != null && !dir.endsWith("/")) {
+                    directory = Paths.get(dir + "/");
+                }
+            }
         }
         return directory;
     }
@@ -131,108 +203,109 @@ public class EMSTFacsimile {
         AuthorElement facsimile = getFacsimileElement();
         if (facsimile != null) {
             directory = facsimile.getXMLBaseURL();
-            Path path = castURLToPath(directory);
+            String dir = directory.toString();
+
+            if (!dir.endsWith("/")) {
+                try {
+                    directory = new URL(dir.substring(0, dir.lastIndexOf("/") + 1));
+                } catch (MalformedURLException e) {
+                    logger.error(e, e);
+                }
+            }
+            /*Path path = castURLToPath(directory);
             if (path != null && !Files.isDirectory(path)) {
                 directory = castPathToURL(path.getParent());
-            }
+            }*/
         }
         return directory;
     }
 
-    public void setBaseDirectoryURL(URL newDirectory) {
-        URL currentDirectory = getBaseDirectoryURL();
-        String relativePath = makeRelative(authorAccess, newDirectory);
+    public void setBaseDirectory(File newDirectory) throws EMSTException {
+        baseDirectory = newDirectory;
+        setBaseDirectoryURL(castFileToURL(newDirectory));
+    }
 
-        if (relativePath == null || relativePath.equals(".")) {
-            relativePath = null;
-        } else {
-            relativePath = decodeURL(relativePath);
-        }
-
-        AuthorElement facsimile = getFacsimileElement();
+    public void setBaseDirectoryURL(URL newDirectory) throws EMSTException {
         AuthorDocumentController controller = authorAccess.getDocumentController();
         controller.beginCompoundEdit();
 
 //      Create facsimile element if it doesn't exist
-        if (facsimile == null) {
-            try {
-                controller.insertXMLFragment(FACSIMILE_DEFAULT_ELEMENT, "//teiHeader[1]", AuthorConstants.POSITION_AFTER);
-                facsimile = getFacsimileElement();
-            } catch (AuthorOperationException e) {
-                logger.error(e, e);
-                controller.cancelCompoundEdit();
-                showErrorMessage(authorAccess, "Unable to create <facsimile> element!");
-                return;
-            }
+        AuthorElement facsimile;
+        try {
+            facsimile = createFacsimileElement();
+        } catch (EMSTException e) {
+            controller.cancelCompoundEdit();
+            logger.error(e, e);
+            throw new EMSTException(e);
         }
 
         if (facsimile != null) {
+            URL currentDirectory = getBaseDirectoryURL();
+//          Do the uglies
+            if (currentDirectory != null && currentDirectory.equals(newDirectory)) {
+                controller.cancelCompoundEdit();
+                throw new EMSTException("The chosen directory is already selected.");
+            }
+//          It's all relative after all...
+            String relativePath = makeRelative(authorAccess, facsimile.getParent().getXMLBaseURL(), newDirectory);
 //          Update the xml:base attribute
-            controller.setAttribute(XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), facsimile);
-
-            updateMediaElements();
-
+            controller.setAttribute(EMSTXMLUtils.XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), facsimile);
+//          Put a stop to all them changes!
             controller.endCompoundEdit();
         } else {
-            showErrorMessage(authorAccess, "The <facsimile> element could not be located for editing!");
             controller.cancelCompoundEdit();
+            throw new EMSTException("The <facsimile> element could not be located!");
         }
     }
 
-    public void setBaseDirectory(File newDirectory) {
-        setBaseDirectoryURL(castFileToURL(newDirectory));
-    }
+    public void updateMediaElements() throws EMSTException {
+        AuthorElement facsimile = getFacsimileElement();
+        if (facsimile == null) throw new EMSTException("The <facsimile> element could not be located!");
+//      Talk to the hand!
+        TreeMap<Path, String> files = getFiles();
+        if (files.isEmpty()) throw new EMSTException("There are no files to be added!");
 
-    public void chooseBaseDirectory() {
-        File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
-        if (dir != null) {
-            setBaseDirectory(dir);
-        }
-
-        /*AuthorNode currentNode = EMSTOxygenUtils.getCurrentAuthorNode(authorAccess);
-        if (currentNode != null && "facsimile".equals(currentNode.getName())) {
-
-            File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
-            if (dir != null) {
-                AuthorElement facsimile = (AuthorElement) currentNode;
-                try {
-                    String relativePath = authorAccess.getUtilAccess().makeRelative(
-                            authorAccess.getEditorAccess().getEditorLocation(),
-                            EMSTUtils.castFileToURL(dir)
-                    );
-                    authorAccess.getDocumentController().setAttribute("xml:base", new AttrValue(relativePath), facsimile);
-                } catch (MalformedURLException e) {
-                    logger.error(e, e);
-                }
-
-                int choice = authorAccess.getWorkspaceAccess().showConfirmDialog("Update graphic/media elements",
-                        "Would you like to update the graphic and media elements from this directory?",
-                        new String[]{"Yes", "No"}, new int[]{0, 1}
-                );
-                switch (choice) {
-                    case 0:
-                        break;
-                    default:
+//      Create new media elements using existing files
+        List<String> newElements = new ArrayList<>(files.size());
+        int counter = 1;
+//      Jack through the file paths and spit up some gamey Elements
+        for (Path path : files.keySet()) {
+//          Get together everything we'll need
+            String relativePath = makeRelative(authorAccess, facsimile.getXMLBaseURL(), castPathToURL(path));
+            String fileName = path.getFileName().toString();
+            String mimeType = files.get(path);
+            EMSTMediaType mediaType = EMSTMediaType.get(mimeType);
+//          Make sure we've got everything
+            if (relativePath != null && mimeType != null && mediaType != null) {
+                String id = mediaType.getIdAbbr() + "_" + String.format("%03d", counter);
+//              Now, we create a pretty little element over there, yeah, that's nice
+                Element newElement = EMSTMediaElement.create(mimeType, id, fileName);
+                if (newElement != null) {
+                    newElements.add(newElement.toString());
+                    counter++;
                 }
             }
-        }*/
-    }
-
-    public void updateMediaElements() {
-        TreeMap<Path, String> files = getFiles();
-        AuthorDocumentController controller = authorAccess.getDocumentController();
-
-        controller.beginCompoundEdit();
-//      Remove all existing elements first
-        for (EMSTMediaElement mediaElement : getMediaElements()) {
-            controller.deleteNode(mediaElement.getAuthorElement());
         }
-//      Create new media elements using existing files
-        for (Path path : files.keySet()) {
+        if (!newElements.isEmpty()) {
+            AuthorDocumentController controller = authorAccess.getDocumentController();
+            controller.beginCompoundEdit();
+//          Remove all existing elements first
+            removeAllMediaElements();
+//          Now bundle all that shiznit up into a big ol' string and get ready to insert it
+            String mediaFragment = StringUtils.join(newElements, "\n");
 
+            try {  // Cuz, baby ya got to keep on trying...
+                controller.insertXMLFragment(mediaFragment, facsimile, AuthorConstants.POSITION_INSIDE_FIRST);
+            } catch (AuthorOperationException e) {
+//              Yo! Shit blew up, yo! This should never, ever happen
+                controller.cancelCompoundEdit();
+                logger.error(e, e);  // Yes, tell the officer what the mean controller did to you
+                throw new EMSTException("An error occurred while inserting references to the new files!", e);
+            }
+            controller.endCompoundEdit();
+        } else {
+            throw new EMSTException("There are no files to be added!");
         }
-
-        controller.endCompoundEdit();
     }
 
     private void removeAllMediaElements() {
@@ -245,22 +318,40 @@ public class EMSTFacsimile {
 
     @NotNull
     public TreeMap<Path, String> getFiles() {
-        TreeMap<Path, String> files = new TreeMap<>();
+        TreeMap<Path, String> filesMap = new TreeMap<>();
 
-        try (DirectoryStream<Path> dirStream =
+        File directory = getBaseDirectoryFile();
+        if (directory != null) {
+            File[] files = directory.listFiles();
+            if (files != null) {
+                for (File file : files) {
+                    try {
+                        String mimeType = tika.detect(file);
+                        if (EMSTMediaType.isAllowed(mimeType)) {
+                            filesMap.put(file.toPath(), mimeType);
+                        }
+                    } catch (IOException e) {
+                        logger.error(e, e);
+                    }
+                }
+            }
+        }
+
+        /*try (DirectoryStream<Path> dirStream =
                      Files.newDirectoryStream(getBaseDirectory())) {
 
             for (Path filePath : dirStream) {
                 File file = filePath.toFile();
                 String mimeType = tika.detect(file);
-                if (MEDIA_TYPES.keySet().contains(mimeType)) {
-                    files.put(filePath, mimeType);
+
+                if (EMSTMediaType.isAllowed(mimeType)) {
+                    filesMap.put(filePath, mimeType);
                 }
             }
         } catch (IOException e) {
             logger.error(e, e);
-        }
-        return files;
+        }*/
+        return filesMap;
     }
 
     @NotNull
@@ -275,20 +366,6 @@ public class EMSTFacsimile {
             }
         }
         return mediaElements;
-    }
-
-    @NotNull
-    public List<Path> getMediaPaths() {
-        List<Path> mediaPaths = new ArrayList<>();
-
-        List<EMSTMediaElement> mediaElements = getMediaElements();
-        for (EMSTMediaElement mediaElement : mediaElements) {
-            Path path = mediaElement.getPath();
-            if (path != null) {
-                mediaPaths.add(path);
-            }
-        }
-        return mediaPaths;
     }
 
     @NotNull

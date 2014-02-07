@@ -1,16 +1,9 @@
 package eu.emergingstandards.facsimile;
 
+import eu.emergingstandards.exceptions.EMSTException;
 import ro.sync.ecss.extensions.api.*;
-import ro.sync.ecss.extensions.api.node.AttrValue;
-import ro.sync.ecss.extensions.api.node.AuthorElement;
-import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 import java.io.File;
-
-import static eu.emergingstandards.utils.EMSTOxygenUtils.XML_BASE_ATTRIB_NAME;
-import static eu.emergingstandards.utils.EMSTOxygenUtils.getCurrentAuthorNode;
-import static eu.emergingstandards.utils.EMSTUtils.castFileToURL;
-import static eu.emergingstandards.utils.EMSTUtils.decodeURL;
 
 /**
  * Created by mike on 1/25/14.
@@ -19,7 +12,31 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        AuthorNode currentNode = getCurrentAuthorNode(authorAccess);
+        EMSTFacsimile facsimile = EMSTFacsimile.get(authorAccess);
+
+        if (facsimile != null) {
+            File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
+            if (dir != null) {
+                try {
+                    facsimile.setBaseDirectory(dir);
+
+                    if (facsimile.getXMLBase() != null) {
+                        int choice = authorAccess.getWorkspaceAccess().showConfirmDialog("Update graphic/media elements",
+                                "Would you like to update the graphic and media references with the contents of the new directory?\n" +
+                                        "This will delete all the existing references in the document!",
+                                new String[]{"Yes", "No"}, new int[]{0, 1}
+                        );
+                        if (choice == 0) {
+                            facsimile.updateMediaElements();
+                        }
+                    }
+                } catch (EMSTException e) {
+                    e.notifyOxygenUser(authorAccess);
+                }
+            }
+        }
+
+        /*AuthorNode currentNode = getCurrentAuthorNode(authorAccess);
         if (currentNode != null && "facsimile".equals(currentNode.getName())) {
             File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
             if (dir != null) {
@@ -29,12 +46,13 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
                 );
 //                  Update the xml:base attribute
                 authorAccess.getDocumentController().setAttribute(
-                        XML_BASE_ATTRIB_NAME,
+                        EMSTXMLUtils.XML_BASE_ATTRIB_NAME,
                         new AttrValue(relativePath.equals(".") ? null : decodeURL(relativePath)),
                         (AuthorElement) currentNode
                 );
             }
-        }
+        }*/
+
     }
 
     @Override

@@ -64,13 +64,7 @@ public class EMSTContextualElement {
 
     @Nullable
     public static EMSTContextualElement get(AuthorAccess authorAccess) {
-        AuthorNode currentNode = getCurrentAuthorNode(authorAccess);
-
-        if (currentNode != null) {
-            return get(currentNode);
-        } else {
-            return null;
-        }
+        return get(getCurrentAuthorNode(authorAccess));
     }
 
     @Nullable

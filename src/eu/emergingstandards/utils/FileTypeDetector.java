@@ -7,15 +7,15 @@ import java.nio.file.Path;
 
 /**
  * Created by mike on 1/25/14.
- *
+ * <p/>
  * Adds the MIME Type resolution powers of Apache Tika
- *      under the hood to Files.probeContentType()
- *      Code borrowed from this blog post:
- *      http://odoepner.wordpress.com/2013/07/29/transparently-improve-java-7-mime-type-recognition-with-apache-tika/
+ * under the hood to Files.probeContentType()
+ * Code borrowed from this blog post:
+ * http://odoepner.wordpress.com/2013/07/29/transparently-improve-java-7-mime-type-recognition-with-apache-tika/
  */
 public class FileTypeDetector extends java.nio.file.spi.FileTypeDetector {
 
-    private final Tika tika = new Tika();
+    private static final Tika tika = new Tika();
 
     /**
      * Probes the given file to guess its content type.

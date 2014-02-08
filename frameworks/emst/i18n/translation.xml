@@ -267,7 +267,8 @@
 
     <key value="contextual.info.edit">
         <comment>Edit contextual info action name.</comment>
-        <val lang="en_US">Edit...</val>
+        <!--        <val lang="en_US">Edit...</val>-->
+        <val lang="en_US">&#xfeff;</val>
     </key>
     <key value="contextual.info.edit_description">
         <comment>Edit contextual info description.</comment>
@@ -305,7 +306,8 @@
 
     <key value="facsimile.select.dir">
         <comment>Select facsimile base directory action name.</comment>
-        <val lang="en_US">Select Base Directory...</val>
+        <!--        <val lang="en_US">Select Base Directory...</val>-->
+        <val lang="en_US">&#xfeff;</val>
     </key>
     <key value="facsimile.select.dir_description">
         <comment>Select facsimile base directory action description.</comment>
@@ -316,21 +318,13 @@
 
     <key value="media.open">
         <comment>Open media action name.</comment>
-        <val lang="en_US">Open...</val>
+        <!--        <val lang="en_US">Open...</val>-->
+        <val lang="en_US">&#xfeff;</val>
     </key>
     <key value="media.open_description">
         <comment>Open media action description.</comment>
         <val lang="en_US">Load the media associated with the current place in the file (images, pdf, etc).</val>
     </key>
-
-    <!--<key value="media.open.by.ref">
-        <comment>Open media by ref action name.</comment>
-        <val lang="en_US">Open...</val>
-    </key>
-    <key value="media.open.by.ref_description">
-        <comment>Open media by ref action description.</comment>
-        <val lang="en_US">Load the media associated with the media ref based on the current place.</val>
-    </key>-->
 
 
     <!-- Original key/values taken from TEI P5 framework   -->

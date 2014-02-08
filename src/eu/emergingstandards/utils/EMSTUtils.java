@@ -6,9 +6,9 @@ import org.jetbrains.annotations.Nullable;
 import java.io.File;
 import java.io.UnsupportedEncodingException;
 import java.net.MalformedURLException;
+import java.net.URISyntaxException;
 import java.net.URL;
 import java.net.URLDecoder;
-import java.net.URLEncoder;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -21,7 +21,27 @@ public class EMSTUtils {
 
     @Nullable
     public static Path castURLToPath(URL url) {
-        return Paths.get(decodeURL(url));
+        return Paths.get(castURLToFileString(url));
+    }
+
+    @Nullable
+    public static File castURLToFile(URL url) {
+        File file = null;
+
+        try {
+            file = new File(url.toURI());
+        } catch (URISyntaxException e) {
+            String fileString = castURLToFileString(url);
+            if (fileString != null) {
+                file = new File(fileString);
+            }
+        }
+        return file;
+    }
+
+    @Nullable
+    public static String castURLToFileString(URL url) {
+        return decodeURL(url.getPath());
     }
 
     @Nullable
@@ -30,7 +50,6 @@ public class EMSTUtils {
 
         try {
             url = path.toUri().toURL();
-//            path.toUri().toURL();
         } catch (MalformedURLException e) {
             logger.error(e, e);
         }
@@ -50,11 +69,6 @@ public class EMSTUtils {
     }
 
     @Nullable
-    public static String decodeURL(URL url) {
-        return decodeURL(url.toString());
-    }
-
-    @Nullable
     public static String decodeURL(String url) {
         String decodedURL = null;
 
@@ -68,12 +82,7 @@ public class EMSTUtils {
         return decodedURL;
     }
 
-    @Nullable
-    public static String encodeURL(URL url) {
-        return encodeURL(url.toString());
-    }
-
-    @Nullable
+    /*@Nullable
     public static String encodeURL(String url) {
         String encodedURL = null;
 
@@ -85,15 +94,6 @@ public class EMSTUtils {
             }
         }
         return encodedURL;
-    }
-
-    /*@Nullable
-    public static String addSlash(String directory) {
-        if (directory != null && !directory.endsWith("/")) {
-            return directory.substring(0, directory.lastIndexOf("/") + 1);
-        } else {
-            return directory;
-        }
     }*/
 
     @Nullable

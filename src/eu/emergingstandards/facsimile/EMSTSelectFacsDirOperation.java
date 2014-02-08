@@ -12,47 +12,46 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
+        int choice;
         EMSTFacsimile facsimile = EMSTFacsimile.get(authorAccess);
 
-        if (facsimile != null) {
-            File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
-            if (dir != null) {
-                try {
-                    facsimile.setBaseDirectory(dir);
+        if (facsimile == null) {
+            choice = authorAccess.getWorkspaceAccess().showConfirmDialog(
+                    "Add <facsimile> element?",
+                    "There is no <facsimile> element in this document. Would you like to create one?",
+                    new String[]{"Yes", "No"}, new int[]{0, 1}
+            );
 
-                    if (facsimile.getXMLBase() != null) {
-                        int choice = authorAccess.getWorkspaceAccess().showConfirmDialog("Update graphic/media elements",
-                                "Would you like to update the graphic and media references with the contents of the new directory?\n" +
-                                        "This will delete all the existing references in the document!",
-                                new String[]{"Yes", "No"}, new int[]{0, 1}
-                        );
-                        if (choice == 0) {
-                            facsimile.updateMediaElements();
-                        }
-                    }
+            if (choice == 0) {
+                try {
+                    facsimile = EMSTFacsimile.createFacsimileElement(authorAccess);
                 } catch (EMSTException e) {
                     e.notifyOxygenUser(authorAccess);
                 }
             }
         }
 
-        /*AuthorNode currentNode = getCurrentAuthorNode(authorAccess);
-        if (currentNode != null && "facsimile".equals(currentNode.getName())) {
+        if (facsimile != null) {
             File dir = authorAccess.getWorkspaceAccess().chooseDirectory();
-            if (dir != null) {
-                String relativePath = authorAccess.getUtilAccess().makeRelative(
-                        authorAccess.getEditorAccess().getEditorLocation(),
-                        castFileToURL(dir)
-                );
-//                  Update the xml:base attribute
-                authorAccess.getDocumentController().setAttribute(
-                        EMSTXMLUtils.XML_BASE_ATTRIB_NAME,
-                        new AttrValue(relativePath.equals(".") ? null : decodeURL(relativePath)),
-                        (AuthorElement) currentNode
-                );
-            }
-        }*/
 
+            if (dir != null) {
+                try {
+                    facsimile.setBaseDirectory(dir);
+
+                    choice = authorAccess.getWorkspaceAccess().showConfirmDialog(
+                            "Update <graphic>/<media> elements?",
+                            "Would you like to update the <graphic> and <media> references with the contents of the new directory?\n\n" +
+                                    "WARNING: This will delete all existing references in this document and break existing links to page breaks and other references!",
+                            new String[]{"Yes", "No"}, new int[]{0, 1}
+                    );
+                    if (choice == 0) {
+                        facsimile.updateMediaElements();
+                    }
+                } catch (EMSTException e) {
+                    e.notifyOxygenUser(authorAccess);
+                }
+            }
+        }
     }
 
     @Override

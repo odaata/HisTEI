@@ -2,11 +2,9 @@ package eu.emergingstandards.exceptions;
 
 import org.apache.log4j.Logger;
 
-import java.io.IOException;
 import java.net.URL;
-import java.nio.file.Path;
 
-import static eu.emergingstandards.utils.EMSTUtils.decodeURL;
+import static eu.emergingstandards.utils.EMSTUtils.castURLToFileString;
 
 /**
  * Created by mike on 1/26/14.
@@ -23,83 +21,9 @@ public class EMSTFileMissingException extends EMSTException {
      * @param message The message.
      * @param path    The path to the missing file.
      */
-    public EMSTFileMissingException(String message, String path) {
-        super(message);
-        initPath(path);
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param message The message.
-     * @param path    The path to the missing file.
-     */
-    public EMSTFileMissingException(String message, Path path) {
-        super(message);
-        initPath(path);
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param message The message.
-     * @param path    The path to the missing file.
-     */
     public EMSTFileMissingException(String message, URL path) {
         super(message);
-        initPath(path);
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param message The message.
-     * @param cause   The cause of this exception.
-     * @param path    The path to the missing file.
-     */
-    public EMSTFileMissingException(String message, Throwable cause, String path) {
-        super(message, cause);
-        initPath(path);
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param message The message.
-     * @param cause   The cause of this exception.
-     * @param path    The path to the missing file.
-     */
-    public EMSTFileMissingException(String message, Throwable cause, Path path) {
-        super(message, cause);
-        initPath(path);
-    }
-
-    /**
-     * Constructor.
-     *
-     * @param message The message.
-     * @param cause   The cause of this exception.
-     * @param path    The path to the missing file.
-     */
-    public EMSTFileMissingException(String message, Throwable cause, URL path) {
-        super(message, cause);
-        initPath(path);
-    }
-
-    private void initPath(String path) {
-        this.path = decodeURL(path);
-    }
-
-    private void initPath(Path path) {
-        try {
-            this.path = path.toRealPath().toString();
-        } catch (IOException e) {
-            logger.error(e, e);
-        }
-    }
-
-    private void initPath(URL path) {
-        this.path = decodeURL(path);
+        this.path = castURLToFileString(path);
     }
 
     /**

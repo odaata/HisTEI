@@ -1,72 +1,66 @@
 package eu.emergingstandards.utils;
 
-import org.apache.log4j.Logger;
-import org.jetbrains.annotations.Nullable;
-import org.w3c.dom.Document;
-import org.w3c.dom.Element;
+import org.apache.commons.lang3.StringEscapeUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.jetbrains.annotations.NotNull;
 
-import javax.xml.parsers.DocumentBuilder;
-import javax.xml.parsers.DocumentBuilderFactory;
-import javax.xml.parsers.ParserConfigurationException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+import static eu.emergingstandards.utils.EMSTUtils.emptyToNull;
 
 /**
  * Created by mike on 2/6/14.
  */
 public class EMSTXMLUtils {
 
-    private static final Logger logger = Logger.getLogger(EMSTXMLUtils.class.getName());
+//    private static final Logger logger = Logger.getLogger(EMSTXMLUtils.class.getName());
 
     public static final String XML_ID_ATTRIB_NAME = "xml:id";
     public static final String XML_BASE_ATTRIB_NAME = "xml:base";
+    public static final String XML_NS_ATTRIB_NAME = "xmlns";
 
-    private static DocumentBuilder documentBuilder;
-    private static Document defaultDocument;
-
-    @Nullable
-    public static DocumentBuilder getDocumentBuilder() {
-        if (documentBuilder == null) {
-            DocumentBuilderFactory dbf = DocumentBuilderFactory.newInstance();
-//          Default Settings for EMST Project - the most "content-focused" settings
-            dbf.setNamespaceAware(true);
-            dbf.setCoalescing(true);
-            dbf.setExpandEntityReferences(true);
-            dbf.setIgnoringComments(true);
-            dbf.setIgnoringElementContentWhitespace(true);
-
-            try {
-                documentBuilder = dbf.newDocumentBuilder();
-            } catch (ParserConfigurationException e) {
-                logger.error(e, e);
-            }
-        }
-        return documentBuilder;
+    @NotNull
+    public static String createElement(String elementName) {
+        return createElement(EMSTNamespaceType.TEI.getURLID(), elementName, null);
     }
 
-    @Nullable
-    public static Document newDocument() {
-        if (defaultDocument == null) {
-            DocumentBuilder builder = getDocumentBuilder();
-            if (builder != null) {
-                defaultDocument = builder.newDocument();
-            }
-        }
-        return defaultDocument;
+    @NotNull
+    public static String createElement(String elementName, Map<String, String> attributes) {
+        return createElement(EMSTNamespaceType.TEI.getURLID(), elementName, attributes);
     }
 
-    @Nullable
-    public static Element createElement(String namespace, String elementName) {
-        Element element = null;
-        Document doc = newDocument();
+    @NotNull
+    public static String createElement(String namespace, String elementName, Map<String, String> attributes) {
+        String element = "";
+        namespace = emptyToNull(namespace);
+        elementName = emptyToNull(elementName);
+        List<String> createdAttributes;
 
-        if (doc != null) {
-            element = doc.createElementNS(namespace, elementName);
+        if (namespace != null && elementName != null) {
+            if (attributes != null) {
+                createdAttributes = new ArrayList<>(attributes.size() + 1);
+                for (String name : attributes.keySet()) {
+                    String value = emptyToNull(attributes.get(name));
+                    if (value != null) {
+                        String attr = createAttribute(name, value);
+                        createdAttributes.add(attr);
+                    }
+                }
+            } else {
+                createdAttributes = new ArrayList<>(1);
+            }
+            createdAttributes.add(0, createAttribute(XML_NS_ATTRIB_NAME, namespace));
+            String allAttributes = StringUtils.join(createdAttributes, " ");
+            element = "<" + elementName + " " + allAttributes + "/>";
         }
         return element;
     }
 
-    @Nullable
-    public static Element createElement(String elementName) {
-        return createElement(EMSTNamespaceType.TEI.getURLID(), elementName);
+    @NotNull
+    private static String createAttribute(String name, String value) {
+        return name + "=\"" + StringEscapeUtils.escapeXml(value) + "\"";
     }
 
     private EMSTXMLUtils() {

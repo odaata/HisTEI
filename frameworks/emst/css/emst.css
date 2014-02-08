@@ -360,31 +360,29 @@ teiHeader handNote:before {
 /* Facsimile & Media */
 
 facsimile:before {
-    content: "Facsimile:"
+    content: "Facsimile     "
 }
 
 facsimile[xml|base] {
     -oxy-prepend-content:
+        oxy_label(
+            text, oxy_concat("Base Directory: ", attr(xml|base))
+            styles, "@import 'labels_sub.css';"            
+        )
+    ;
+    -oxy-append-content:
         oxy_button(
             actionID, "media.open"
             transparent, true
             showText, true
             showIcon, true
         )
-        oxy_label(
-            text, "Base Directory: "
-            styles, "@import 'labels_sub.css';"            
-        )
-        oxy_textfield(
-            edit, "@xml:base"
-            columns, 35
-        )
     ;
 }
 
 facsimile {
     display: block;
-/*    -oxy-folded:true;*/
+    -oxy-folded:true;
     -oxy-foldable:true;
     content: 
         oxy_button(
@@ -398,43 +396,30 @@ facsimile {
 
 facsimile > graphic,
 facsimile > media {
-    font-weight:normal;
+    font-weight:bold;
     display:list-item;
     list-style-type:decimal;
     margin-left:35px;
     content:
+        oxy_label(
+            text, oxy_concat(attr(xml|id), " :   ")
+            color, maroon
+            styles, "@import 'labels.css';"
+        )
+        oxy_label(
+            text, attr(url)
+            styles, "@import 'labels.css';"
+        )
+        
+        oxy_label(
+            text, oxy_xpath("if (exists(@mimeType) and @mimeType ne '') then concat('  |  ', @mimeType) else ''")
+            styles, "@import 'labels.css';"
+        )
         oxy_button(
             actionID, "media.open"
             transparent, true
             showText, true
             showIcon, true
-        )
-        oxy_label(
-            text, "ID: "
-            width, 15px
-            styles, "@import 'labels_sub.css';"            
-        )
-        oxy_textfield(
-            edit, "@xml:id"
-            columns, 10
-        )
-        oxy_label(
-            text, "File: "
-            width, 35px
-            styles, "@import 'labels_sub.css';"            
-        )
-        oxy_urlChooser(
-            edit, "@url"
-        )
-        oxy_label(
-            text, "Type: "
-            styles, "@import 'labels_sub.css';"            
-        )
-        oxy_popup(
-            edit, "@mimeType", 
-            values, "application/pdf, image/jpeg, application/xml"
-            labels, "pdf, jpeg, xml"
-            selectionMode, single
         )
     ;
 }
@@ -651,12 +636,9 @@ seg[function='salute']{
 }
 
 /* Page and Line Breaks */
-p > lb:first-child {
-    content:"";
-}
 
 lb {
-    content:"\A       ";
+    content:"\A";
 }
 
 lb[break="no"] {
@@ -667,7 +649,7 @@ lb[break="no"] {
     -oxy-prepend-content:"→";
 }
 
-pb {
+pb:before {
     display:block;
     background-color:transparent;
     border-style:groove none;
@@ -680,17 +662,27 @@ pb {
     line-height:1.5;
     counter-increment:pages;
     content:
-        "Page " counter(pages) "       "
+        "Page " counter(pages) "       n: "
+        oxy_textfield(
+            edit, "@n"
+            columns, 4
+            fontInherit, true
+            tooltips, "Any page number provided by the source"
+        )
+    ;
+}
+
+pb:before {
+    -oxy-append-content:
         oxy_label(
-            text, "Image(s):"
-            width, 75px
+            text, "     Image(s): "
             styles, "@import 'labels.css';"
         )
         oxy_popup(
             edit, "@facs"
             fontInherit, true
             values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
-            labels, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
+            labels, oxy_xpath("string-join(for $element in (//graphic | //media) return concat($element/@xml:id, ': ', $element/@url), ',')")
             selectionMode, multiple
         )
         oxy_button(
@@ -699,15 +691,18 @@ pb {
             showText, true
             showIcon, true
         )
-        "     n: "
-        oxy_textfield(
-            edit, "@n"
-            columns, 5
-            fontInherit, true
-            tooltips, "Any page number provided by the source"
-        )
     ;
 }
+
+/*[facs]:before {
+    -oxy-append-content: 
+        oxy_button(
+            actionID, "media.open"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
+}*/
 
 /* An attempt at numbering linebreaks...
 text p lb{

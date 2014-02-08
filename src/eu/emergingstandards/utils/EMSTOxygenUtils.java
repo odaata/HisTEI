@@ -175,8 +175,6 @@ public final class EMSTOxygenUtils {
         if (authorAccess != null) {
             path = Paths.get(authorAccess.getUtilAccess().expandEditorVariables(
                     originalPath, authorAccess.getEditorAccess().getEditorLocation()));
-
-//            if (path != null && !Files.exists(path)) path = null;
         }
         return path;
     }

@@ -1494,10 +1494,10 @@
 											<String>${i18n(line.break_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/images/line_break-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/images/line_break-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String>a</String>
@@ -1549,10 +1549,10 @@
 											<String>${i18n(page.break_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String></String>
+											<String>${framework}/images/page_break-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String></String>
+											<String>${framework}/images/page_break-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String>a</String>
@@ -1788,33 +1788,6 @@
 													<String>subscript</String>
 												</field>
 											</toolbarItem>
-											<toolbarSeparator/>
-											<toolbarItem>
-												<field name="actionID">
-													<String>punctuation</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>foreign</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>note</String>
-												</field>
-											</toolbarItem>
-											<toolbarSeparator/>
-											<toolbarItem>
-												<field name="actionID">
-													<String>line.break</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
-													<String>page.break</String>
-												</field>
-											</toolbarItem>
 										</toolbarEntry-array>
 									</field>
 								</toolbar>
@@ -1870,12 +1843,17 @@
 												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
-														<String>note</String>
+														<String>punctuation</String>
 													</field>
 												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
 														<String>foreign</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>note</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>
@@ -1896,6 +1874,17 @@
 										</field>
 										<field name="toolbarEntriesDescriptorList">
 											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>line.break</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>page.break</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
 														<String>paragraph</String>

@@ -360,24 +360,7 @@ teiHeader handNote:before {
 /* Facsimile & Media */
 
 facsimile:before {
-    content: "Facsimile     "
-}
-
-facsimile[xml|base] {
-    -oxy-prepend-content:
-        oxy_label(
-            text, oxy_concat("Base Directory: ", attr(xml|base))
-            styles, "@import 'labels_sub.css';"            
-        )
-    ;
-    -oxy-append-content:
-        oxy_button(
-            actionID, "media.open"
-            transparent, true
-            showText, true
-            showIcon, true
-        )
-    ;
+    content: "Facsimile"
 }
 
 facsimile {
@@ -385,22 +368,32 @@ facsimile {
     -oxy-folded:true;
     -oxy-foldable:true;
     content: 
-        oxy_button(
+    oxy_button(
             actionID, "facsimile.select.dir"
             transparent, true
             showText, true
             showIcon, true
         )
+        oxy_label(
+            text, oxy_concat("Base Directory: ", attr(xml|base))
+            styles, "@import 'labels_sub.css';"            
+        )
     ;
 }
 
-facsimile > graphic,
-facsimile > media {
+graphic,
+media {
     font-weight:bold;
     display:list-item;
     list-style-type:decimal;
-    margin-left:35px;
+    margin-left:25px;
     content:
+        oxy_button(
+            actionID, "media.open"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
         oxy_label(
             text, oxy_concat(attr(xml|id), " :   ")
             color, maroon
@@ -414,12 +407,6 @@ facsimile > media {
         oxy_label(
             text, oxy_xpath("if (exists(@mimeType) and @mimeType ne '') then concat('  |  ', @mimeType) else ''")
             styles, "@import 'labels.css';"
-        )
-        oxy_button(
-            actionID, "media.open"
-            transparent, true
-            showText, true
-            showIcon, true
         )
     ;
 }
@@ -672,17 +659,19 @@ pb:before {
     ;
 }
 
+div:before,
 pb:before {
     -oxy-append-content:
         oxy_label(
-            text, "     Image(s): "
+            text, "     Facsimile(s): "
             styles, "@import 'labels.css';"
         )
         oxy_popup(
             edit, "@facs"
             fontInherit, true
             values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
-            labels, oxy_xpath("string-join(for $element in (//graphic | //media) return concat($element/@xml:id, ': ', $element/@url), ',')")
+            labels, oxy_xpath("string-join((//graphic/@xml:id | //media/@xml:id), ',')")
+/*            labels, oxy_xpath("string-join(for $element in (//graphic | //media) return concat($element/@xml:id, ': ', $element/@url), ',')")*/
             selectionMode, multiple
         )
         oxy_button(

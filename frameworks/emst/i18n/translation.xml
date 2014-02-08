@@ -307,7 +307,7 @@
     <key value="facsimile.select.dir">
         <comment>Select facsimile base directory action name.</comment>
         <!--        <val lang="en_US">Select Base Directory...</val>-->
-        <val lang="en_US">&#xfeff;</val>
+        <val lang="en_US">...</val>
     </key>
     <key value="facsimile.select.dir_description">
         <comment>Select facsimile base directory action description.</comment>

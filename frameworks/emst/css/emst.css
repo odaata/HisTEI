@@ -204,8 +204,6 @@ closer,
 postscript {
     display:block;
     -oxy-foldable:true;
-/*    -oxy-folded:true;*/
-/*    -oxy-not-foldable-child: fileDesc;*/
 }
 
 /* TEI Header */
@@ -220,11 +218,15 @@ facsimile {
     border:1px solid;
 }
 
+teiHeader {
+    -oxy-not-foldable-child: fileDesc;   
+}
+
 /* Collapsed Sections by Default */
 publicationStmt,
 notesStmt,
-/*sourceDesc,*/
-/*profileDesc,*/
+sourceDesc,
+profileDesc,
 /*creation,*/
 /*textClass,*/
 textDesc,
@@ -539,11 +541,13 @@ expan,
 add,
 del,
 unclear,
+supplied,
 foreign,
 note,
 seg,
 pc {
     -oxy-display-tags:none;
+    white-space:-oxy-trim-when-ws-only;
 }
 
 hi[rend="bold"] {
@@ -592,7 +596,7 @@ del {
 }
 
 gap {
-    color:blue;
+    color:orange;
     content: "[...]";
     font-style: italic;
 }
@@ -600,6 +604,21 @@ gap {
 unclear {
   color: maroon;
   font-style: italic;
+}
+
+supplied:before {
+    font-weight:normal;
+    padding:0px;
+    content: "[";    
+}
+
+supplied {
+    color: blue;
+    font-style:italic;
+}
+
+supplied:after {
+    content: "]";
 }
 
 foreign {
@@ -618,7 +637,9 @@ note {
     font-size: 11px;
 }
 
+salute,
 seg[function='salute']{
+    background-color:silver;
     font-style:italic;
 }
 
@@ -648,12 +669,20 @@ pb:before {
     font-size:small;
     line-height:1.5;
     counter-increment:pages;
-    content:
-        "Page " counter(pages) "       n: "
+    content: "Page " counter(pages)
+        /*oxy_label(
+            text, oxy_concat("Page ", counter(pages))
+            styles, "@import 'labels.css';"
+        )*/
+        oxy_label(
+            text, "n: "
+            width, 50px
+            text-align, right
+            styles, "@import 'labels.css';"
+        )
         oxy_textfield(
             edit, "@n"
             columns, 4
-            fontInherit, true
             tooltips, "Any page number provided by the source"
         )
     ;
@@ -662,23 +691,22 @@ pb:before {
 div:before,
 pb:before {
     -oxy-append-content:
-        oxy_label(
-            text, "     Facsimile(s): "
-            styles, "@import 'labels.css';"
-        )
-        oxy_popup(
-            edit, "@facs"
-            fontInherit, true
-            values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
-            labels, oxy_xpath("string-join((//graphic/@xml:id | //media/@xml:id), ',')")
-/*            labels, oxy_xpath("string-join(for $element in (//graphic | //media) return concat($element/@xml:id, ': ', $element/@url), ',')")*/
-            selectionMode, multiple
-        )
         oxy_button(
             actionID, "media.open"
             transparent, true
             showText, true
             showIcon, true
+        )
+        oxy_label(
+            text, "Facsimile(s): "
+            styles, "@import 'labels.css';"
+        )
+        oxy_popup(
+            edit, "@facs"
+            values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
+            labels, oxy_xpath("string-join((//graphic/@xml:id | //media/@xml:id), ',')")
+/*            labels, oxy_xpath("string-join(for $element in (//graphic | //media) return concat($element/@xml:id, ': ', $element/@url), ',')")*/
+            selectionMode, multiple
         )
     ;
 }

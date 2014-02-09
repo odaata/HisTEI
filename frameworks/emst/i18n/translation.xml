@@ -47,7 +47,7 @@
     </key>
     <key type="action" value="bold_description">
         <comment>Bold action description.</comment>
-        <val lang="en_US">Highlight text. Insert the hi[rend="bold"] element.</val>
+        <val lang="en_US">Bold. Insert the hi[rend="bold"] element.</val>
         <val lang="de_DE">Ausgewählten Text fett machen</val>
         <val lang="fr_FR">Graisser le texte de documentation sélectionné</val>
         <val lang="ja_JP">選択された文書のテキストをボールドに</val>
@@ -63,7 +63,7 @@
     </key>
     <key type="action" value="italic_description">
         <comment>Italic action description.</comment>
-        <val lang="en_US">Highlight text. Insert the hi[rend="italic"] element.</val>
+        <val lang="en_US">Italic. Insert the hi[rend="italic"] element.</val>
         <val lang="de_DE">Ausgewählten Text kursiv machen</val>
         <val lang="fr_FR">Mettre en italique le texte de documentation sélectionné</val>
         <val lang="ja_JP">選択された文書のテキストをイタリックに</val>
@@ -79,7 +79,7 @@
     </key>
     <key type="action" value="underline_description">
         <comment>Underline action description.</comment>
-        <val lang="en_US">Highlight text. Insert the hi[rend="underline"] element.</val>
+        <val lang="en_US">Underline. Insert the hi[rend="underline"] element.</val>
         <val lang="de_DE">Fügt das 'u' Element ein</val>
         <val lang="fr_FR">Insérer l'élément 'u'</val>
         <val lang="ja_JP">'u' 要素の挿入</val>
@@ -92,7 +92,7 @@
     </key>
     <key value="superscript_description">
         <comment>Superscript action description.</comment>
-        <val lang="en_US">Superscript</val>
+        <val lang="en_US">Superscript. Insert the hi[rend="superscript"] element.</val>
     </key>
 
     <key value="subscript">
@@ -101,7 +101,7 @@
     </key>
     <key value="subscript_description">
         <comment>Subscript action description.</comment>
-        <val lang="en_US">Subscript</val>
+        <val lang="en_US">Subscript. Insert the hi[rend="subscript"] element.</val>
     </key>
 
     <key value="punctuation">
@@ -111,6 +111,17 @@
     <key value="punctuation_description">
         <comment>Punctuation action description.</comment>
         <val lang="en_US">Insert punctuation. Insert the pc element.</val>
+    </key>
+
+    <key value="punctuation.supplied">
+        <comment>Supplied Punctuation action name.</comment>
+        <val lang="en_US">Supplied Punctuation</val>
+    </key>
+    <key value="punctuation.supplied_description">
+        <comment>Supplied Punctuation action description.</comment>
+        <val lang="en_US">Insert punctuation supplied by the editor (e.g. for easier readability or automatically
+            splitting sentences). Insert the pc element wrapped in the supplied element.
+        </val>
     </key>
 
     <!-- Text Body -->
@@ -140,8 +151,7 @@
     <key value="salute_description">
         <comment>Salute action description.</comment>
         <val lang="en_US">Mark selected text as being the salute. Either insert the salute element or surround text with
-            the seg element and
-            @function="salute".
+            seg[function="salute"].
         </val>
     </key>
 
@@ -217,7 +227,43 @@
         <val lang="en_US">An unclear part of the original text. Insert the unclear element.</val>
     </key>
 
+    <key value="supplied">
+        <comment>Supplied action name.</comment>
+        <val lang="en_US">Supplied</val>
+    </key>
+    <key value="supplied_description">
+        <comment>Supplied action description.</comment>
+        <val lang="en_US">Text supplied by the transcriber. Insert the supplied element.</val>
+    </key>
+
     <!-- Structure/Layout -->
+
+    <key value="div">
+        <comment>Div action name.</comment>
+        <val lang="en_US">Division</val>
+    </key>
+    <key value="div_description">
+        <comment>Div action description.</comment>
+        <val lang="en_US">Insert a division, or section, in the text using the div element.</val>
+    </key>
+
+    <key value="div.entry">
+        <comment>Entry Div action name.</comment>
+        <val lang="en_US">Entry</val>
+    </key>
+    <key value="div.entry_description">
+        <comment>Entry Div action description.</comment>
+        <val lang="en_US">Insert an entry (e.g. in a journal or travelogue) with div[type="entry"].</val>
+    </key>
+
+    <key value="div.address">
+        <comment>Address Div action name.</comment>
+        <val lang="en_US">Entry</val>
+    </key>
+    <key value="div.address_description">
+        <comment>Address Div action description.</comment>
+        <val lang="en_US">Insert an address section (e.g. as part of a letter) with div[type="address"].</val>
+    </key>
 
     <key type="action" value="paragraph">
         <comment>Insert Paragraph action name.</comment>

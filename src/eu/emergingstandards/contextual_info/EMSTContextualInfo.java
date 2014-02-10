@@ -34,8 +34,8 @@ public class EMSTContextualInfo {
     private static final Logger logger = Logger.getLogger(EMSTContextualInfo.class.getName());
     //  Base strings for Paths
     public static final String SOURCE_BASE_PATH = EditorVariables.PROJECT_DIRECTORY + "/contextual_info/";
-    public static final String XQUERY_BASE_PATH = EditorVariables.FRAMEWORK_DIRECTORY + "/resources";
-    public static final String XQUERY_PATH = XQUERY_BASE_PATH + "/contextual_info.xql";
+    public static final String XQUERY_BASE_PATH = EditorVariables.FRAMEWORK_DIRECTORY + "/resources/";
+    public static final String XQUERY_PATH = XQUERY_BASE_PATH + "contextual_info.xql";
     //  For querying the xml returned from the xquery
     private static final QName VALUE_QNAME = new QName("value");
     private static final QName LABEL_QNAME = new QName("label");

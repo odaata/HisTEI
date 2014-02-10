@@ -31,7 +31,6 @@ TEI {
 /* Labels that can be generated 
     by capitalizing their element names */
 creation:before,
-keywords:before,
 title:before,
 authority:before,
 collection:before,
@@ -172,8 +171,6 @@ taxonomy[xml|id]:before,
 profileDesc:before,
 creation:before,
 textClass:before,
-textDesc:before,
-keywords:before,
 handNotes:before,
 div:before,
 opener:before,
@@ -195,8 +192,6 @@ taxonomy[xml|id],
 profileDesc,
 creation,
 textClass,
-textDesc,
-keywords,
 handNotes,
 div,
 opener,
@@ -226,12 +221,10 @@ teiHeader {
 publicationStmt,
 notesStmt,
 sourceDesc,
-profileDesc,
+profileDesc {
 /*creation,*/
 /*textClass,*/
-textDesc,
-keywords,
-handNotes {
+/*handNotes {*/
     -oxy-folded:true;
     -oxy-display-tags:none;
 }
@@ -243,7 +236,7 @@ publicationStmt:before {
 }
 
 notesStmt:before {
-    content: "Notes";
+    content: "Notes Statement";
 }
 
 notesStmt > note {
@@ -260,10 +253,6 @@ profileDesc:before {
 
 textClass:before {
     content: "Text Classification";
-}
-
-textDesc:before {
-    content: "Text Description";
 }
 
 handNotes:before {
@@ -462,7 +451,7 @@ dateline * {
 }
 
 p:before{
-    content: url('img/Paragraph16.gif');
+    content: url('../images/paragraph-16.png');
 }
 
 p {

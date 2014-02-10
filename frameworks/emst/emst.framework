@@ -204,10 +204,10 @@
 											<String>${i18n(paragraph_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>/images/Paragraph20.png</String>
+											<String>${framework}/images/paragraph-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>/images/Paragraph16.gif</String>
+											<String>${framework}/images/paragraph-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -255,10 +255,10 @@
 											<String>${i18n(media.open_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/media_open-20.png</String>
+											<String>${framework}/images/image_link-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/media_open-16.png</String>
+											<String>${framework}/images/image_link-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -399,10 +399,10 @@
 											<String>${i18n(head_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>/images/Heading20.gif</String>
+											<String>${framework}/images/head-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>/images/Heading16.gif</String>
+											<String>${framework}/images/head-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -827,7 +827,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;pc xmlns="http://www.tei-c.org/ns/1.0" force="${ask('force?', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'strong')}">${ask('Which punctuation character?', generic, '-')}&lt;/pc>${caret}</String>
+																<String>&lt;pc xmlns="http://www.tei-c.org/ns/1.0" force="${ask('force: strong - punctuation breaks a word; weak - does not break a word; inter - unspecified', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'weak')}">${ask('Which punctuation character(s)?', generic, '-')}&lt;/pc>${caret}</String>
 															</entry>
 														</map>
 													</field>
@@ -951,10 +951,10 @@
 											<String>${i18n(contextual.info.edit_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/document-edit-20.png</String>
+											<String>${framework}/images/document_edit-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/document-edit-16.png</String>
+											<String>${framework}/images/document_edit-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -1706,7 +1706,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0">&lt;pc force="${ask('force?', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'strong')}">${ask('Which punctuation character?', generic, '.')}&lt;/pc>&lt;/supplied> ${caret}</String>
+																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0">&lt;pc force="${ask('force: strong - punctuation breaks a word; weak - does not break a word; inter - unspecified', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'strong')}">${ask('Which punctuation character(s)?', generic, '.')}&lt;/pc>&lt;/supplied> ${caret}</String>
 															</entry>
 														</map>
 													</field>
@@ -1728,10 +1728,10 @@
 											<String>${i18n(div_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>/images/Section20.png</String>
+											<String>${framework}/images/div-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>/images/Section16.gif</String>
+											<String>${framework}/images/div-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>

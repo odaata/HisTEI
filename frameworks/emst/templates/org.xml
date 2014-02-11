@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -16,10 +16,18 @@
     <text>
         <body>
             <listOrg>
-                <org xml:id="org_${id}">
-                    <orgName/>
-                    <desc/>
-                </org>
+                <listOrg type="repository">
+                    <org xml:id="org_${id}">
+                        <orgName/>
+                        <desc/>
+                    </org>
+                </listOrg>
+                <listOrg>
+                    <org xml:id="org_${id}">
+                        <orgName/>
+                        <desc/>
+                    </org>
+                </listOrg>
             </listOrg>
         </body>
     </text>

@@ -13,6 +13,8 @@ import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
 import java.util.regex.Matcher;
@@ -47,12 +49,11 @@ public class EMSTContextualElement {
                 if (elementProperties != null) {
                     AuthorNode parent = authorNode.getParent();
                     if (parent == null || !elementProperties.getSourceParent().equals(parent.getName())) {
-                        EMSTContextualInfo info = EMSTContextualInfo.get(elementProperties.getType());
+                        EMSTContextualInfo info = EMSTContextualInfo.get(elementProperties.getContextualType());
 
                         if (info != null) {
                             contextualElement = new EMSTContextualElement(info, authorNode, elementProperties);
 
-//                        authorNodes.put(authorNode, new WeakReference<>(contextualElement));
                             authorNodes.put(authorNode, contextualElement);
                         }
                     }
@@ -73,14 +74,6 @@ public class EMSTContextualElement {
 
         if (authorNode != null) {
             contextualElement = authorNodes.get(authorNode);
-            /*WeakReference<EMSTContextualElement> ref;
-            synchronized (authorNodes) {
-                ref = authorNodes.get(authorNode);
-            }
-
-            if (ref != null) {
-                contextualElement = ref.get();
-            }*/
         }
         return contextualElement;
     }
@@ -91,7 +84,6 @@ public class EMSTContextualElement {
 
         synchronized (authorNodes) {
             for (AuthorNode authorNode : authorNodes.keySet()) {
-//                nodes.put(authorNode, authorNodes.get(authorNode).get());
                 nodes.put(authorNode, authorNodes.get(authorNode));
             }
         }
@@ -99,17 +91,17 @@ public class EMSTContextualElement {
     }
 
     @NotNull
-    public static Map<AuthorNode, EMSTContextualElement> getAuthorNodes(EMSTContextualType type) {
+    public static Map<AuthorNode, EMSTContextualElement> getAuthorNodes(EMSTContextualType contextualType) {
         Map<AuthorNode, EMSTContextualElement> nodes = getAuthorNodes();
 
-        if (type != null) {
+        if (contextualType != null) {
             Map<AuthorNode, EMSTContextualElement> filteredNodes = new WeakHashMap<>();
             EMSTContextualElement element;
 
             synchronized (authorNodes) {
                 for (AuthorNode authorNode : authorNodes.keySet()) {
                     element = nodes.get(authorNode);
-                    if (element != null && element.getType() == type) {
+                    if (element != null && element.getContextualType() == contextualType) {
                         filteredNodes.put(authorNode, element);
                     }
                 }
@@ -119,9 +111,9 @@ public class EMSTContextualElement {
         return nodes;
     }
 
-    public static void refreshAuthorNodes(WSAuthorEditorPage page, EMSTContextualType type) {
+    public static void refreshAuthorNodes(WSAuthorEditorPage page, EMSTContextualType contextualType) {
         if (page != null) {
-            for (AuthorNode authorNode : getAuthorNodes(type).keySet()) {
+            for (AuthorNode authorNode : getAuthorNodes(contextualType).keySet()) {
                 page.refresh(authorNode);
             }
         }
@@ -129,24 +121,24 @@ public class EMSTContextualElement {
 
     /* Instance Members */
 
-    private EMSTContextualType type;
-    private EMSTContextualInfo contextualInfo;
-    private AuthorElement authorElement;
-    private EMSTContextualElementProperties elementProperties;
+    private final EMSTContextualType contextualType;
+    private final EMSTContextualInfo contextualInfo;
+    private final AuthorElement authorElement;
+    private final EMSTContextualElementProperties elementProperties;
 
     protected EMSTContextualElement(EMSTContextualInfo contextualInfo,
                                     AuthorNode authorNode,
                                     EMSTContextualElementProperties properties) {
 
         this.contextualInfo = contextualInfo;
-        this.type = properties.getType();
+        this.contextualType = properties.getContextualType();
         this.authorElement = castAuthorElement(authorNode);
         this.elementProperties = properties;
     }
 
     @NotNull
-    public EMSTContextualType getType() {
-        return type;
+    public EMSTContextualType getContextualType() {
+        return contextualType;
     }
 
     @NotNull
@@ -162,6 +154,11 @@ public class EMSTContextualElement {
     @NotNull
     public EMSTContextualElementProperties getElementProperties() {
         return elementProperties;
+    }
+
+    @NotNull
+    public Pattern getRefPattern() {
+        return REF_PATTERN;
     }
 
     @NotNull
@@ -226,17 +223,38 @@ public class EMSTContextualElement {
     }
 
     @NotNull
+    public List<EMSTContextualItem> getItems() {
+        return contextualInfo.getItems(elementProperties.getTypeFilter());
+    }
+
+    @NotNull
     public String getOxygenValues() {
-        return StringUtils.join(contextualInfo.getValues(), ",");
+        List<String> values = new ArrayList<>();
+
+        for (EMSTContextualItem item : getItems()) {
+            values.add(item.getValue());
+        }
+        return StringUtils.join(values, ",");
     }
 
     @NotNull
     public String getOxygenLabels() {
-        return StringUtils.join(escapeCommas(contextualInfo.getLabels()), ",");
+        List<String> labels = new ArrayList<>();
+
+        for (EMSTContextualItem item : getItems()) {
+            labels.add(item.getLabel());
+        }
+        return StringUtils.join(labels, ",");
     }
 
     @NotNull
-    public Pattern getRefPattern() {
-        return REF_PATTERN;
+    public String getOxygenTooltips() {
+        List<String> tooltips = new ArrayList<>();
+
+        for (EMSTContextualItem item : getItems()) {
+            tooltips.add(item.getTooltip());
+        }
+        return StringUtils.join(tooltips, ",");
     }
+
 }

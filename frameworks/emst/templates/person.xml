@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -16,22 +16,24 @@
     <text>
         <body>
             <listPerson>
-                <person xml:id="person_${id}">
-                    <persName>
-                        <roleName/>
-                        <forename/>
-                        <nameLink/>
-                        <surname/>
-                        <surname/>
-                    </persName>
-                    <sex/>
-                    <birth>
-                        <placeName/>
-                    </birth>
-                    <death>
-                        <placeName/>
-                    </death>
-                </person>
+                <listPerson>
+                    <person xml:id="person_${id}">
+                        <persName>
+                            <roleName/>
+                            <forename/>
+                            <nameLink/>
+                            <surname/>
+                            <surname/>
+                        </persName>
+                        <sex/>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                    </person>
+                </listPerson>
             </listPerson>
         </body>
     </text>

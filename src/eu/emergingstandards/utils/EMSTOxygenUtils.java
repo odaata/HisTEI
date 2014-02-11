@@ -35,18 +35,24 @@ public final class EMSTOxygenUtils {
 
     @NotNull
     public static String escapeComma(String value) {
-        return value.replace(",", "${comma}");
+        String escaped = emptyToNull(value);
+
+        if (escaped != null) {
+            return escaped.replace(",", "${comma}");
+        } else {
+            return "";
+        }
     }
 
     @NotNull
     public static List<String> escapeCommas(List<String> values) {
-        boolean hasValues = (values != null);
-        List<String> escapedValues =
-                new ArrayList<>(hasValues ? values.size() : 0);
+        List<String> escapedValues = new ArrayList<>();
 
-        if (hasValues) {
+        if (values != null) {
             for (String value : values) {
-                escapedValues.add(escapeComma(value));
+                if (value != null) {
+                    escapedValues.add(escapeComma(value));
+                }
             }
         }
         return escapedValues;

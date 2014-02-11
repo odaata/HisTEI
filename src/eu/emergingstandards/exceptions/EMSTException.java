@@ -14,8 +14,6 @@ public class EMSTException extends Exception {
     /**
      * Whether the user has been notified of this error. Can be reset by
      * the caller with this public field
-     *
-     * @param userNotified whether the user has been notified.
      */
     public boolean userNotified;
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0" xml:lang="en">
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
             <titleStmt>
@@ -16,9 +16,41 @@
     <text>
         <body>
             <listPlace>
-                <place xml:id="place_${id}">
-                    <placeName/>
-                </place>
+                <listPlace type="district">
+                    <place xml:id="place_${id}">
+                        <placeName/>
+                        <settlement/>
+                    </place>
+                </listPlace>
+                <listPlace type="settlement">
+                    <place xml:id="place_${id}">
+                        <placeName/>
+                        <region/>
+                        <country/>
+                    </place>
+                </listPlace>
+                <listPlace type="region">
+                    <place xml:id="place_${id}">
+                        <placeName/>
+                        <country/>
+                    </place>
+                </listPlace>
+                <listPlace type="country">
+                    <place xml:id="place_${id}">
+                        <placeName/>
+                        <bloc/>
+                    </place>
+                </listPlace>
+                <listPlace type="bloc">
+                    <place xml:id="place_${id}">
+                        <placeName/>
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <place xml:id="place_${id}">
+                        <placeName/>
+                    </place>
+                </listPlace>
             </listPlace>
         </body>
     </text>

@@ -23,8 +23,8 @@ public enum EMSTContextualType {
     private static final Map<String, EMSTContextualType> lookup = new HashMap<>();
 
     static {
-        for (EMSTContextualType type : EMSTContextualType.values())
-            lookup.put(type.getKey(), type);
+        for (EMSTContextualType contextualType : EMSTContextualType.values())
+            lookup.put(contextualType.getKey(), contextualType);
     }
 
     @Nullable
@@ -40,8 +40,8 @@ public enum EMSTContextualType {
     public static Set<String> getKeys() {
         Set<String> keys = new HashSet<>();
 
-        for (EMSTContextualType type : EMSTContextualType.values()) {
-            keys.add(type.getKey());
+        for (EMSTContextualType contextualType : EMSTContextualType.values()) {
+            keys.add(contextualType.getKey());
         }
         return keys;
     }

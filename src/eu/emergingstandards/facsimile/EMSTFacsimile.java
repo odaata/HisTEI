@@ -140,9 +140,7 @@ public class EMSTFacsimile extends EMSTMediaElementBase {
 
     @Nullable
     public URL getBaseDirectoryURL() {
-        URL directory = null;
-
-        directory = authorElement.getXMLBaseURL();
+        URL directory = authorElement.getXMLBaseURL();
         String dir = directory.toString();
 
         if (!dir.endsWith("/")) {

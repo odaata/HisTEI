@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.oxygenxml.com/ns/ccfilter/simple"
+        xsi:noNamespaceSchemaLocation="configurationCC.xsd">
+    <!--<match elementName="prodname">
+        <items>
+            <item value="Car"/>
+            <item value="Bus"/>
+        </items>
+    </match>
+    
+    <match elementName="writing" elementNS="http://www.tei-c.org/ns/1.0" attrName="who">
+        <xslt href="../xsl/get_values_from_db.xsl" useCache="false"  action="replace"/>
+    </match>-->
+
+    <match elementName="catRef" elementNS="http://www.tei-c.org/ns/1.0" attrName="target">
+        <xslt href="../genre.xsl" useCache="true" action="replace"/>
+    </match>
+</config>

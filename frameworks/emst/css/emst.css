@@ -175,7 +175,10 @@ handNotes:before,
 div:before,
 opener:before,
 closer:before,
-postscript:before {
+postscript:before,
+listPerson:before,
+listPlace:before,
+listOrg:before {
     display:block;
     color:white;
     background-color:gray;
@@ -196,7 +199,10 @@ handNotes,
 div,
 opener,
 closer,
-postscript {
+postscript,
+listPerson,
+listPlace,
+listOrg {
     display:block;
     -oxy-foldable:true;
 }
@@ -221,10 +227,13 @@ teiHeader {
 publicationStmt,
 notesStmt,
 sourceDesc,
-profileDesc {
+/*profileDesc*/
 /*creation,*/
 /*textClass,*/
 /*handNotes {*/
+listPerson > listPerson,
+listPlace > listPlace,
+listOrg > listOrg {
     -oxy-folded:true;
     -oxy-display-tags:none;
 }
@@ -312,7 +321,12 @@ creation > date:before {
         );
 }
 
-creation > placeName:before {
+creation > placeName:before,
+creation > district:before,
+creation > settlement:before,
+creation > region:before,
+creation > country:before,
+creation > bloc:before {
     -oxy-append-content:
         oxy_combobox(
                 edit, "@type"
@@ -326,6 +340,7 @@ creation > orgName:before {
         oxy_combobox(
                 edit, "@type"
                 columns, 10
+                values, "sender, addressee"
                 editable, true
             );
 }
@@ -641,7 +656,6 @@ lb {
 lb[break="no"] {
     color:purple;
     font-weight:bold;  
-/*    font-size:16px;*/
     /* Possibilities: → – */
     -oxy-prepend-content:"→";
 }
@@ -659,10 +673,6 @@ pb:before {
     line-height:1.5;
     counter-increment:pages;
     content: "Page " counter(pages)
-        /*oxy_label(
-            text, oxy_concat("Page ", counter(pages))
-            styles, "@import 'labels.css';"
-        )*/
         oxy_label(
             text, "n: "
             width, 50px
@@ -783,6 +793,16 @@ category:before {
     ;
 }
 
+/* Person */
+
+listPerson:before {
+    content: "Uncategorized";
+}
+
+listPerson:before! > listPerson {
+    content: "People";
+}
+
 person:before {
     -oxy-prepend-content:
         oxy_label(
@@ -838,7 +858,8 @@ sex {
             editable, false
             values, "1, 2, 0"
             labels, "male, female, unknown"
-        );
+        )
+    ;
 }
 
 birth:before {
@@ -857,6 +878,36 @@ death:before {
         );
 }
 
+/* Places */
+
+listPlace:before {
+    content: "Uncategorized";
+}
+
+listPlace:before! > listPlace {
+    content: "Places";
+}
+
+listPlace[type="district"]:before {
+    content: "Districts (subdivisions of settlements, e.g. parishes or wards)";
+}
+
+listPlace[type="settlement"]:before {
+    content: "Settlements (aka Cities or Towns)";
+}
+
+listPlace[type="region"]:before {
+    content: "Regions (larger than settlements, but smaller than countries)";
+}
+
+listPlace[type="country"]:before {
+    content: "Countries";
+}
+
+listPlace[type="bloc"]:before {
+    content: "Blocs (two or more nation states or countries)";
+}
+
 place:before {
     -oxy-prepend-content: 
         oxy_label(
@@ -868,6 +919,20 @@ place:before {
 
 place > placeName:before {
     content: "Place Name:";
+}
+
+/* Org */
+
+listOrg:before {
+    content: "Uncategorized";
+}
+
+listOrg:before! > listOrg {
+    content: "Organizations";
+}
+
+listOrg[type="repository"]:before {
+    content: "Repositories (i.e. Archives where old texts are kept)";
 }
 
 org:before {
@@ -901,6 +966,10 @@ category:before {
             styles, "@import 'labels.css';"
         )
     ;
+}
+
+category:before! > category {
+    content: attr(xml|id);
 }
 
 category {

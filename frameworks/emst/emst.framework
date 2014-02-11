@@ -1214,17 +1214,17 @@
 																<String>&lt;person xmlns="http://www.tei-c.org/ns/1.0">
     &lt;persName>
         &lt;roleName/>
-        &lt;forename/>
+        &lt;forename>${caret}&lt;/forename>
         &lt;nameLink/>
         &lt;surname/>
         &lt;surname/>
     &lt;/persName>
     &lt;sex/>
     &lt;birth>
-        &lt;placeName/>
+        &lt;settlement/>
     &lt;/birth>
     &lt;death>
-        &lt;placeName/>
+        &lt;settlement/>
     &lt;/death>
 &lt;/person></String>
 															</entry>
@@ -1236,34 +1236,6 @@
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>(ancestor-or-self::*:div or ancestor-or-self::*:desc) and local-name() ne 'persName'</String>
-													</field>
-													<field name="argValues">
-														<map>
-															<entry>
-																<String>editAttribute</String>
-																<String>true</String>
-															</entry>
-															<entry>
-																<String>elementLocation</String>
-																<String>.</String>
-															</entry>
-															<entry>
-																<String>name</String>
-																<String>ref</String>
-															</entry>
-															<entry>
-																<String>namespace</String>
-																<String>http://www.tei-c.org/ns/1.0</String>
-															</entry>
-														</map>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ChangeAttributeOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1301,7 +1273,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;${ask('What kind of place would you like to insert?', combobox, ('district':'district'; 'settlement':'settlement'; 'region':'region'; 'country':'country'; 'bloc':'bloc'; 'placeName':'uncategorized';), 'settlement')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1317,7 +1289,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;placeName xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;${ask('What kind of place would you like to insert?', combobox, ('district':'district'; 'settlement':'settlement'; 'region':'region'; 'country':'country'; 'bloc':'bloc'; 'placeName':'uncategorized';), 'settlement')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1333,8 +1305,9 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0" type="settlement">
-    &lt;placeName/>
+																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;placeName>${caret}&lt;/placeName>
+  &lt;country/>
 &lt;/place></String>
 															</entry>
 														</map>
@@ -1378,7 +1351,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1394,7 +1367,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1411,7 +1384,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0">
-    &lt;orgName/>
+    &lt;orgName>${caret}&lt;/orgName>
     &lt;desc/>
 &lt;/org></String>
 															</entry>
@@ -2223,6 +2196,7 @@
 														<String>facsimile.select.dir</String>
 													</field>
 												</toolbarItem>
+												<toolbarSeparator/>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>

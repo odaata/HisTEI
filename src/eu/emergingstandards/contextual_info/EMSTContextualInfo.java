@@ -1,6 +1,7 @@
 package eu.emergingstandards.contextual_info;
 
 import eu.emergingstandards.monitor.EMSTFileMonitor;
+import eu.emergingstandards.utils.EMSTUtils;
 import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.s9api.*;
 import org.apache.commons.vfs2.FileChangeEvent;
@@ -16,10 +17,7 @@ import ro.sync.util.editorvars.EditorVariables;
 import javax.xml.transform.sax.SAXSource;
 import java.io.IOException;
 import java.nio.file.Path;
-import java.util.ArrayList;
-import java.util.EnumMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 import static eu.emergingstandards.utils.EMSTOxygenUtils.expandOxygenPath;
 import static eu.emergingstandards.utils.EMSTOxygenUtils.getCurrentAuthorEditorPage;
@@ -36,22 +34,19 @@ public class EMSTContextualInfo {
     public static final String SOURCE_BASE_PATH = EditorVariables.PROJECT_DIRECTORY + "/contextual_info/";
     public static final String XQUERY_BASE_PATH = EditorVariables.FRAMEWORK_DIRECTORY + "/resources/";
     public static final String XQUERY_PATH = XQUERY_BASE_PATH + "contextual_info.xql";
-    //  For querying the xml returned from the xquery
-    private static final QName VALUE_QNAME = new QName("value");
-    private static final QName LABEL_QNAME = new QName("label");
 
     private static final Map<EMSTContextualType, EMSTContextualInfo> infos = new EnumMap<>(EMSTContextualType.class);
 
     @Nullable
-    public static EMSTContextualInfo get(EMSTContextualType type) {
+    public static EMSTContextualInfo get(EMSTContextualType contextualType) {
         EMSTContextualInfo info = null;
 
-        if (type != null) {
-            info = infos.get(type);
+        if (contextualType != null) {
+            info = infos.get(contextualType);
 
             if (info == null) {
-                info = new EMSTContextualInfo(type);
-                infos.put(type, info);
+                info = new EMSTContextualInfo(contextualType);
+                infos.put(contextualType, info);
             }
         }
         return info;
@@ -59,7 +54,8 @@ public class EMSTContextualInfo {
 
     /* Instance members */
 
-    private EMSTContextualType type;
+    private EMSTContextualType contextualType;
+    private boolean initialized;
 
     private WSAuthorEditorPage authorPage;
     private AuthorAccess authorAccess;
@@ -68,16 +64,15 @@ public class EMSTContextualInfo {
     private Path sourcePath;
     private XQueryEvaluator xQueryEvaluator;
 
-    private List<String> values = new ArrayList<>();
-    private List<String> labels = new ArrayList<>();
+    private Map<String, List<EMSTContextualItem>> items = new HashMap<>();
 
-    protected EMSTContextualInfo(EMSTContextualType type) {
-        this.type = type;
+    protected EMSTContextualInfo(EMSTContextualType contextualType) {
+        this.contextualType = contextualType;
     }
 
     @NotNull
-    public EMSTContextualType getType() {
-        return type;
+    public EMSTContextualType getContextualType() {
+        return contextualType;
     }
 
     @Nullable
@@ -104,7 +99,7 @@ public class EMSTContextualInfo {
         if (xQueryPath == null) {
             xQueryPath = expandOxygenPath(XQUERY_PATH, getAuthorAccess());
 
-            if (xQueryPath != null && xQueryMonitor == null)
+            if (xQueryMonitor == null && xQueryPath != null)
                 xQueryMonitor = EMSTFileMonitor.add(xQueryPath);
         }
         return xQueryPath;
@@ -115,11 +110,11 @@ public class EMSTContextualInfo {
         if (sourcePath == null) {
             sourcePath =
                     expandOxygenPath(
-                            SOURCE_BASE_PATH + EMSTContextualSettings.get(getType()).getFileName(),
+                            SOURCE_BASE_PATH + EMSTContextualSettings.get(getContextualType()).getFileName(),
                             getAuthorAccess()
                     );
 
-            if (sourcePath != null && sourceMonitor == null)
+            if (sourceMonitor == null && sourcePath != null)
                 sourceMonitor = EMSTFileMonitor.add(sourcePath);
         }
         return sourcePath;
@@ -134,19 +129,14 @@ public class EMSTContextualInfo {
     }
 
     @NotNull
-    public List<String> getValues() {
-        if (values.isEmpty()) {
-            refresh();
-        }
-        return values;
-    }
+    public List<EMSTContextualItem> getItems(String type) {
+        String typeCleaned = EMSTUtils.nullToEmpty(type);
 
-    @NotNull
-    public List<String> getLabels() {
-        if (labels.isEmpty()) {
+        if (!initialized) {
             refresh();
         }
-        return labels;
+
+        return items.containsKey(typeCleaned) ? items.get(typeCleaned) : new ArrayList<EMSTContextualItem>();
     }
 
     public void reload() {
@@ -175,18 +165,24 @@ public class EMSTContextualInfo {
 //              Force synchronization so Oxygen gets the values on startup
                 synchronized (this) {
                     reset();
-
                     try {
                         xqe.setSource(new SAXSource(new InputSource(src.toUri().toString())));
                         for (XdmItem item : xqe) {
                             XdmNode node = (XdmNode) item;
-                            String value = node.getAttributeValue(VALUE_QNAME);
-                            values.add(getType().getKey() + ":" + value);
+                            EMSTContextualItem contextualItem = EMSTContextualItem.get(getContextualType(), node);
+                            if (contextualItem != null) {
+                                String type = contextualItem.getType();
+                                List<EMSTContextualItem> typedItems = items.get(type);
 
-                            String label = node.getAttributeValue(LABEL_QNAME);
-                            labels.add(label);
+                                if (typedItems == null) typedItems = new ArrayList<>();
+
+                                typedItems.add(contextualItem);
+
+                                items.put(type, typedItems);
+                            }
                         }
                         addMonitors();
+                        initialized = true;
                     } catch (SaxonApiException e) {
                         logger.error(e, e);
                     }
@@ -196,9 +192,9 @@ public class EMSTContextualInfo {
     }
 
     private synchronized void reset() {
+        initialized = false;
         removeMonitors();
-        values.clear();
-        labels.clear();
+        items.clear();
     }
 
     /* Monitor-related */
@@ -216,7 +212,7 @@ public class EMSTContextualInfo {
     private void refreshAuthorNodes() {
         WSAuthorEditorPage page = getAuthorPage();
         if (page != null) {
-            EMSTContextualElement.refreshAuthorNodes(page, getType());
+            EMSTContextualElement.refreshAuthorNodes(page, getContextualType());
         }
     }
 

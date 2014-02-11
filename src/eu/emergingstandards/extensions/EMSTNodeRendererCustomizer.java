@@ -94,13 +94,22 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("hi", new EMSTIconNode("hi", null, "rend", initMap));
 //      Contextual Information
         iconNodes.put("date", new EMSTIconNode("date"));
+//      Person
         iconNodes.put("person", new EMSTIconNode("person"));
         iconNodes.put("persName", new EMSTIconNode("persName", "person"));
         iconNodes.put("handNote", new EMSTIconNode("handNote", "hand"));
+//      Place
         iconNodes.put("place", new EMSTIconNode("place"));
         iconNodes.put("placeName", new EMSTIconNode("placeName", "place"));
+        iconNodes.put("district", new EMSTIconNode("district", "place"));
+        iconNodes.put("settlement", new EMSTIconNode("settlement", "place"));
+        iconNodes.put("region", new EMSTIconNode("region", "place"));
+        iconNodes.put("country", new EMSTIconNode("country", "place"));
+        iconNodes.put("bloc", new EMSTIconNode("bloc", "place"));
+//      Org
         iconNodes.put("org", new EMSTIconNode("org"));
         iconNodes.put("orgName", new EMSTIconNode("orgName", "org"));
+//      Genre
         iconNodes.put("category", new EMSTIconNode("category"));
         iconNodes.put("catRef", new EMSTIconNode("catRef", "category"));
     }

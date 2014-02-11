@@ -1,6 +1,5 @@
 package eu.emergingstandards.contextual_info;
 
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -13,13 +12,8 @@ import java.util.Map;
  */
 public class EMSTContextualSettings {
 
-    private static final Logger logger = Logger.getLogger(EMSTContextualInfo.class.getName());
-    //  Base strings for Paths
-    /*private static final String SOURCE_BASE_PATH = EditorVariables.PROJECT_DIRECTORY + "/contextual_info/";
-    private static final String XQUERY_BASE_PATH = EditorVariables.FRAMEWORK_DIRECTORY + "/resources";
-    private static final String XQUERY_PATH = XQUERY_BASE_PATH + "/contextual_info.xql";*/
+//    private static final Logger logger = Logger.getLogger(EMSTContextualInfo.class.getName());
 
-    //  Main settings
     private static final Map<EMSTContextualType, EMSTContextualSettings> TYPES = new EnumMap<>(EMSTContextualType.class);
 
     static {
@@ -33,28 +27,28 @@ public class EMSTContextualSettings {
 //        settings.add(new EMSTContextualSettings(EMSTContextualType.EVENT, "event.xml"));
 
         for (EMSTContextualSettings s : settings) {
-            TYPES.put(s.type, s);
+            TYPES.put(s.contextualType, s);
         }
     }
 
     @NotNull
-    public static EMSTContextualSettings get(EMSTContextualType type) {
-        return TYPES.get(type);
+    public static EMSTContextualSettings get(EMSTContextualType contextualType) {
+        return TYPES.get(contextualType);
     }
 
     /* Instance Members */
 
-    private EMSTContextualType type;
+    private EMSTContextualType contextualType;
     private String fileName;
 
-    protected EMSTContextualSettings(EMSTContextualType type, String fileName) {
-        this.type = type;
+    protected EMSTContextualSettings(EMSTContextualType contextualType, String fileName) {
+        this.contextualType = contextualType;
         this.fileName = fileName;
     }
 
     @NotNull
-    public EMSTContextualType getType() {
-        return type;
+    public EMSTContextualType getContextualType() {
+        return contextualType;
     }
 
     @NotNull
@@ -64,6 +58,6 @@ public class EMSTContextualSettings {
 
     @NotNull
     public Map<String, EMSTContextualElementProperties> getElements() {
-        return EMSTContextualElementProperties.filter(type);
+        return EMSTContextualElementProperties.filter(contextualType);
     }
 }

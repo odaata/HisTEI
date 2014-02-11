@@ -33,6 +33,8 @@ public class EMSTStylesFilter implements StylesFilter {
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT_QUALIFIED, contextualElement.getEditPropertyQualified());
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_VALUES, contextualElement.getOxygenValues());
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_LABELS, contextualElement.getOxygenLabels());
+                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TOOLTIPS, contextualElement.getOxygenTooltips());
+
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDITABLE, "false");
                 comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
 

@@ -109,6 +109,7 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
 //      Org
         iconNodes.put("org", new EMSTIconNode("org"));
         iconNodes.put("orgName", new EMSTIconNode("orgName", "org"));
+        iconNodes.put("repository", new EMSTIconNode("repository"));
 //      Genre
         iconNodes.put("category", new EMSTIconNode("category"));
         iconNodes.put("catRef", new EMSTIconNode("catRef", "category"));

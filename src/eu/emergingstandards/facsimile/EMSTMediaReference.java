@@ -16,7 +16,7 @@ import static eu.emergingstandards.utils.EMSTOxygenUtils.openURL;
 /**
  * Created by mike on 2/7/14.
  */
-public class EMSTMediaReference extends EMSTMediaElementBase {
+public class EMSTMediaReference extends EMSTAbstractMediaElement {
 
     private static final String FACS_ATTRIB_NAME = "facs";
 

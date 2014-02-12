@@ -1,6 +1,6 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.utils.EMSTIcon;
+import eu.emergingstandards.commons.EMSTIcon;
 import ro.sync.exml.workspace.api.node.customizer.BasicRenderingInformation;
 import ro.sync.exml.workspace.api.node.customizer.NodeRendererCustomizerContext;
 import ro.sync.exml.workspace.api.node.customizer.XMLNodeRendererCustomizer;

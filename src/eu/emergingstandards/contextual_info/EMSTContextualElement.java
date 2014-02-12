@@ -1,5 +1,7 @@
 package eu.emergingstandards.contextual_info;
 
+import eu.emergingstandards.events.EMSTRefreshEventListener;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
@@ -25,7 +27,7 @@ import static eu.emergingstandards.utils.EMSTOxygenUtils.*;
 /**
  * Created by mike on 2/3/14.
  */
-public class EMSTContextualElement {
+public class EMSTContextualElement implements EMSTRefreshEventListener {
 
     private static final Logger logger = Logger.getLogger(EMSTContextualElement.class.getName());
 
@@ -34,34 +36,8 @@ public class EMSTContextualElement {
     private static final String ID_REGEX = "(\\S+)";
     public static final Pattern REF_PATTERN = Pattern.compile(TYPE_REGEX + ":" + ID_REGEX);
 
-    //    private static final Map<AuthorNode, WeakReference<EMSTContextualElement>> authorNodes = new WeakHashMap<>();
     private static final Map<AuthorNode, EMSTContextualElement> authorNodes = new WeakHashMap<>();
 
-    @Nullable
-    public static synchronized EMSTContextualElement get(AuthorNode authorNode) {
-        EMSTContextualElement contextualElement;
-
-        synchronized (authorNodes) {
-            contextualElement = getElement(authorNode);
-
-            if (contextualElement == null) {
-                EMSTContextualElementProperties elementProperties = EMSTContextualElementProperties.get(authorNode);
-                if (elementProperties != null) {
-                    AuthorNode parent = authorNode.getParent();
-                    if (parent == null || !elementProperties.getSourceParent().equals(parent.getName())) {
-                        EMSTContextualInfo info = EMSTContextualInfo.get(elementProperties.getContextualType());
-
-                        if (info != null) {
-                            contextualElement = new EMSTContextualElement(info, authorNode, elementProperties);
-
-                            authorNodes.put(authorNode, contextualElement);
-                        }
-                    }
-                }
-            }
-        }
-        return contextualElement;
-    }
 
     @Nullable
     public static EMSTContextualElement get(AuthorAccess authorAccess) {
@@ -69,46 +45,53 @@ public class EMSTContextualElement {
     }
 
     @Nullable
-    public static EMSTContextualElement getElement(AuthorNode authorNode) {
-        EMSTContextualElement contextualElement = null;
+    public static EMSTContextualElement get(AuthorNode authorNode) {
+        EMSTContextualElement contextualElement;
 
-        if (authorNode != null) {
+        synchronized (authorNodes) {
             contextualElement = authorNodes.get(authorNode);
+        }
+
+        if (contextualElement == null) {
+            WSAuthorEditorPage page = EMSTOxygenUtils.getCurrentAuthorEditorPage();
+            if (page != null) {
+                EMSTContextualElementProperties elementProperties = EMSTContextualElementProperties.get(authorNode);
+                if (elementProperties != null) {
+                    AuthorNode parent = authorNode.getParent();
+                    if (parent == null || !elementProperties.getSourceParent().equals(parent.getName())) {
+                        EMSTContextualInfo info = EMSTContextualInfo.get(elementProperties.getContextualType());
+
+                        contextualElement = new EMSTContextualElement(page, authorNode, info, elementProperties);
+
+                        synchronized (authorNodes) {
+                            authorNodes.put(authorNode, contextualElement);
+                        }
+                    }
+                }
+            }
+
         }
         return contextualElement;
     }
 
-    @NotNull
+    /*@NotNull
     public static Map<AuthorNode, EMSTContextualElement> getAuthorNodes() {
-        Map<AuthorNode, EMSTContextualElement> nodes = new WeakHashMap<>();
-
         synchronized (authorNodes) {
-            for (AuthorNode authorNode : authorNodes.keySet()) {
-                nodes.put(authorNode, authorNodes.get(authorNode));
-            }
+            return new HashMap<>(authorNodes);
         }
-        return nodes;
     }
 
     @NotNull
     public static Map<AuthorNode, EMSTContextualElement> getAuthorNodes(EMSTContextualType contextualType) {
-        Map<AuthorNode, EMSTContextualElement> nodes = getAuthorNodes();
+        Map<AuthorNode, EMSTContextualElement> filteredNodes = getAuthorNodes();
 
-        if (contextualType != null) {
-            Map<AuthorNode, EMSTContextualElement> filteredNodes = new WeakHashMap<>();
-            EMSTContextualElement element;
-
-            synchronized (authorNodes) {
-                for (AuthorNode authorNode : authorNodes.keySet()) {
-                    element = nodes.get(authorNode);
-                    if (element != null && element.getContextualType() == contextualType) {
-                        filteredNodes.put(authorNode, element);
-                    }
-                }
+        for (AuthorNode authorNode : filteredNodes.keySet()) {
+            EMSTContextualElement element = filteredNodes.get(authorNode);
+            if (element == null || element.getContextualType() != contextualType) {
+                filteredNodes.remove(authorNode);
             }
-            nodes = filteredNodes;
         }
-        return nodes;
+        return filteredNodes;
     }
 
     public static void refreshAuthorNodes(WSAuthorEditorPage page, EMSTContextualType contextualType) {
@@ -117,23 +100,37 @@ public class EMSTContextualElement {
                 page.refresh(authorNode);
             }
         }
-    }
+    }*/
 
     /* Instance Members */
 
+    private final WSAuthorEditorPage authorPage;
+    private final AuthorElement authorElement;
+
     private final EMSTContextualType contextualType;
     private final EMSTContextualInfo contextualInfo;
-    private final AuthorElement authorElement;
     private final EMSTContextualElementProperties elementProperties;
 
-    protected EMSTContextualElement(EMSTContextualInfo contextualInfo,
-                                    AuthorNode authorNode,
+    protected EMSTContextualElement(WSAuthorEditorPage authorPage, AuthorNode authorNode, EMSTContextualInfo contextualInfo,
                                     EMSTContextualElementProperties properties) {
-
-        this.contextualInfo = contextualInfo;
-        this.contextualType = properties.getContextualType();
+        this.authorPage = authorPage;
         this.authorElement = castAuthorElement(authorNode);
+
+        this.contextualType = properties.getContextualType();
+        this.contextualInfo = contextualInfo;
         this.elementProperties = properties;
+
+        contextualInfo.addListener(this);
+    }
+
+    @NotNull
+    public WSAuthorEditorPage getAuthorPage() {
+        return authorPage;
+    }
+
+    @NotNull
+    public AuthorElement getAuthorElement() {
+        return authorElement;
     }
 
     @NotNull
@@ -144,11 +141,6 @@ public class EMSTContextualElement {
     @NotNull
     public EMSTContextualInfo getContextualInfo() {
         return contextualInfo;
-    }
-
-    @NotNull
-    public AuthorElement getAuthorElement() {
-        return authorElement;
     }
 
     @NotNull
@@ -244,7 +236,7 @@ public class EMSTContextualElement {
         for (EMSTContextualItem item : getItems()) {
             labels.add(item.getLabel());
         }
-        return StringUtils.join(labels, ",");
+        return StringUtils.join(escapeCommas(labels), ",");
     }
 
     @NotNull
@@ -254,7 +246,13 @@ public class EMSTContextualElement {
         for (EMSTContextualItem item : getItems()) {
             tooltips.add(item.getTooltip());
         }
-        return StringUtils.join(tooltips, ",");
+        return StringUtils.join(escapeCommas(tooltips), ",");
     }
 
+    @Override
+    public void refresh() {
+        if (authorPage != null && authorElement != null) {
+            authorPage.refresh(authorElement);
+        }
+    }
 }

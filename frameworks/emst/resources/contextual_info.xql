@@ -13,6 +13,7 @@ declare function local:list($list as element()) as element(item)* {
     let $id := data($node/@xml:id)
     let $type := data($list/@type)
     return
+(:    Fix this bit down here... :)
         typeswitch ($node) 
         case element(tei:person)
             return local:item($id, $type, teix:person($node), ()) 

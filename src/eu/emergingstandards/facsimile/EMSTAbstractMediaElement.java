@@ -9,15 +9,15 @@ import ro.sync.ecss.extensions.api.node.AuthorElement;
 /**
  * Created by mike on 2/7/14.
  */
-public class EMSTMediaElementBase implements EMSTMediaElement {
+public abstract class EMSTAbstractMediaElement implements EMSTMediaElement {
 
     protected AuthorAccess authorAccess;
     protected AuthorElement authorElement;
     protected EMSTMediaType type;
     protected EMSTFacsimile facsimile;
 
-    protected EMSTMediaElementBase(AuthorAccess authorAccess, AuthorElement authorElement,
-                                   EMSTMediaType type) {
+    protected EMSTAbstractMediaElement(AuthorAccess authorAccess, AuthorElement authorElement,
+                                       EMSTMediaType type) {
         this.authorAccess = authorAccess;
         this.authorElement = authorElement;
         this.type = type;
@@ -48,7 +48,5 @@ public class EMSTMediaElementBase implements EMSTMediaElement {
     }
 
     @Override
-    public void open() throws EMSTFileMissingException {
-
-    }
+    public abstract void open() throws EMSTFileMissingException;
 }

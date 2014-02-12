@@ -6,7 +6,9 @@
     <JAVADOC>
       <root url="http://www.oxygenxml.com/InstData/Editor/SDK/javadoc/" />
     </JAVADOC>
-    <SOURCES />
+    <SOURCES>
+      <root url="file://$PROJECT_DIR$/../oxygenAuthorSDK/15.2/samples/Oxygen Default Frameworks/src" />
+    </SOURCES>
     <jarDirectory url="file://$PROJECT_DIR$/../15.2/lib" recursive="false" />
   </library>
 </component>

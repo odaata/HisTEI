@@ -22,7 +22,7 @@ import static eu.emergingstandards.utils.EMSTXMLUtils.XML_ID_ATTRIB_NAME;
 /**
  * Created by mike on 2/4/14.
  */
-public class EMSTMedia extends EMSTMediaElementBase {
+public class EMSTMedia extends EMSTAbstractMediaElement {
 
     private static final Logger logger = Logger.getLogger(EMSTMedia.class.getName());
 

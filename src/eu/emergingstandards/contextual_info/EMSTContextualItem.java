@@ -5,7 +5,6 @@ import net.sf.saxon.s9api.XdmNode;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
-import static eu.emergingstandards.utils.EMSTOxygenUtils.escapeComma;
 import static eu.emergingstandards.utils.EMSTSaxonUtils.getChildText;
 import static eu.emergingstandards.utils.EMSTUtils.emptyToNull;
 import static eu.emergingstandards.utils.EMSTUtils.nullToEmpty;
@@ -67,11 +66,11 @@ public class EMSTContextualItem {
 
     @NotNull
     public String getLabel() {
-        return escapeComma(label);
+        return label;
     }
 
     @NotNull
     public String getTooltip() {
-        return escapeComma(tooltip);
+        return tooltip;
     }
 }

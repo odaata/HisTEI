@@ -1,6 +1,5 @@
-package eu.emergingstandards.utils;
+package eu.emergingstandards.commons;
 
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.util.editorvars.EditorVariables;
@@ -21,7 +20,7 @@ import static eu.emergingstandards.utils.EMSTOxygenUtils.getCurrentAuthorAccess;
  */
 public class EMSTIcon {
 
-    private static final Logger logger = Logger.getLogger(EMSTIcon.class.getName());
+//    private static final Logger logger = Logger.getLogger(EMSTIcon.class.getName());
 
     public static final List<Integer> SIZES = Arrays.asList(16, 20);
     public static final Integer DEFAULT_SIZE = 16;

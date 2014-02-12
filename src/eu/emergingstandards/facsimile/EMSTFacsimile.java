@@ -30,7 +30,7 @@ import static eu.emergingstandards.utils.EMSTUtils.castURLToFile;
 /**
  * Created by mike on 1/25/14.
  */
-public class EMSTFacsimile extends EMSTMediaElementBase {
+public class EMSTFacsimile extends EMSTAbstractMediaElement {
 
     private static final Logger logger = Logger.getLogger(EMSTFacsimile.class.getName());
 

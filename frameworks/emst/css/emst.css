@@ -401,17 +401,27 @@ media {
             showIcon, true
         )
         oxy_label(
+            text, "ID: "
+            width, 5px
+            text-align, right
+            styles, "@import 'labels.css';"
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 10
+            tooltips, "Be aware that changing the ID will break any current links to this image/media."
+        )
+        /*oxy_label(
             text, oxy_concat(attr(xml|id), " :   ")
             color, maroon
             styles, "@import 'labels.css';"
-        )
+        )*/
         oxy_label(
             text, attr(url)
             styles, "@import 'labels.css';"
         )
-        
         oxy_label(
-            text, oxy_xpath("if (exists(@mimeType) and @mimeType ne '') then concat('  |  ', @mimeType) else ''")
+            text, oxy_xpath("if (@mimeType ne '') then concat('  |  ', @mimeType) else ''")
             styles, "@import 'labels.css';"
         )
     ;
@@ -704,21 +714,11 @@ pb:before {
             edit, "@facs"
             values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
             labels, oxy_xpath("string-join((//graphic/@xml:id | //media/@xml:id), ',')")
-/*            labels, oxy_xpath("string-join(for $element in (//graphic | //media) return concat($element/@xml:id, ': ', $element/@url), ',')")*/
+            tooltips, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
             selectionMode, multiple
         )
     ;
 }
-
-/*[facs]:before {
-    -oxy-append-content: 
-        oxy_button(
-            actionID, "media.open"
-            transparent, true
-            showText, true
-            showIcon, true
-        )
-}*/
 
 /* An attempt at numbering linebreaks...
 text p lb{

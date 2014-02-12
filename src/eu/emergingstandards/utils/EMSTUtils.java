@@ -22,7 +22,12 @@ public class EMSTUtils {
 
     @Nullable
     public static Path castURLToPath(URL url) {
-        return Paths.get(castURLToFileString(url));
+        try {
+            return Paths.get(url.toURI());
+        } catch (URISyntaxException e) {
+            logger.error(e, e);
+            return null;
+        }
     }
 
     @Nullable
@@ -42,7 +47,12 @@ public class EMSTUtils {
 
     @Nullable
     public static String castURLToFileString(URL url) {
-        return decodeURL(url.getPath());
+        try {
+            return Paths.get(url.toURI()).toString();
+        } catch (URISyntaxException e) {
+            logger.error(e, e);
+            return null;
+        }
     }
 
     @Nullable

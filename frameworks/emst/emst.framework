@@ -279,22 +279,6 @@
 														<String>eu.emergingstandards.facsimile.EMSTOpenMediaOperation</String>
 													</field>
 												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>exists(@facs)</String>
-													</field>
-													<field name="argValues">
-														<map>
-															<entry>
-																<String>resourcePath</String>
-																<String>//*[@xml:id = substring-after(@facs, '#')]/@url</String>
-															</entry>
-														</map>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.OpenInSystemAppOperation</String>
-													</field>
-												</actionMode>
 											</actionMode-array>
 										</field>
 									</action>
@@ -966,7 +950,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('persName','handNote','placeName','orgName','repository','catRef')</String>
+														<String>local-name() = ('persName','placeName','orgName','handNote','district','settlement','region','country','bloc','repository','catRef')</String>
 													</field>
 													<field name="argValues">
 														<map/>
@@ -1867,86 +1851,252 @@
 									</field>
 									<field name="menuEntriesDescriptorList">
 										<menuEntry-array>
-											<menuItem>
-												<field name="actionID">
-													<String>bold</String>
+											<menu>
+												<field name="label">
+													<String>Formats</String>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>italic</String>
+												<field name="accessKey">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>underline</String>
+												<field name="iconPath">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>superscript</String>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>bold</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>italic</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>underline</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>superscript</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>subscript</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>subscript</String>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Characters</String>
 												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>abbreviation</String>
+												<field name="accessKey">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>expansion</String>
+												<field name="iconPath">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>punctuation</String>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>long.s</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>thorn</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>thorn.capital</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>foreign</String>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Edits</String>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>note</String>
+												<field name="accessKey">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>addition</String>
+												<field name="iconPath">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>deletion</String>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>abbreviation</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>expansion</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>addition</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>deletion</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>gap</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>unclear</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>supplied</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>foreign</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>note</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>punctuation</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>punctuation.supplied</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>gap</String>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Sections</String>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>unclear</String>
+												<field name="accessKey">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>salute</String>
+												<field name="iconPath">
+													<String></String>
 												</field>
-											</menuItem>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>line.break</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>page.break</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>paragraph</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>head</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>forme.work</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>salute</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>div</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>div.entry</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>div.address</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Contextual Info</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>date</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>person</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>place</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>org</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>facsimile.select.dir</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
 										</menuEntry-array>
 									</field>
 								</menu>
@@ -1970,7 +2120,7 @@
 							<field name="toolbarDescriptor">
 								<toolbar>
 									<field name="id">
-										<String>EMST Format</String>
+										<String>EMST Formats</String>
 									</field>
 									<field name="type">
 										<Integer>2</Integer>
@@ -2196,7 +2346,6 @@
 														<String>facsimile.select.dir</String>
 													</field>
 												</toolbarItem>
-												<toolbarSeparator/>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>

@@ -18,15 +18,18 @@ declare variable $teix:CERTAINTY := map {
 };
 
 declare function teix:category($category as element(tei:category)) as xs:string+ {
-    (replace($category/@xml:id, "_", " "), normalize-space($category/tei:catDesc/text()))
+    (
+       string(replace($category/@xml:id, "_", " ")), 
+       string(normalize-space($category/tei:catDesc/text()))
+    )
 };
 
 declare function teix:place($place as element(tei:place)) as xs:string {
-    $place/tei:placeName/text()
+    string(normalize-space($place/tei:placeName/text()))
 };
 
 declare function teix:org($org as element(tei:org)) as xs:string {
-    $org/tei:orgName/text()
+    string(normalize-space($org/tei:orgName/text()))
 };
 
 declare function teix:person($person as element(tei:person)) as xs:string {
@@ -141,3 +144,4 @@ declare function teix:year($date as xs:string?) as xs:integer? {
 declare function teix:node($node-name as xs:string, $content as item()*) as element() {
     element { fn:QName($teix:NS, $node-name) } { $content }
 };
+

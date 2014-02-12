@@ -13,7 +13,6 @@ declare function local:list($list as element()) as element(item)* {
     let $id := data($node/@xml:id)
     let $type := data($list/@type)
     return
-(:    Fix this bit down here... :)
         typeswitch ($node) 
         case element(tei:person)
             return local:item($id, $type, teix:person($node), ()) 
@@ -52,9 +51,9 @@ declare function local:taxonomy($taxonomy as element()) as element(item)* {
             if (exists($node/tei:category)) then
                 local:taxonomy($node)
             else
-                let $labels-tooltips := teix:category($node)
+                let $label-tooltip := teix:category($node)
                 return
-                    local:item($id, $type, $labels-tooltips[1], $labels-tooltips[2])
+                    local:item($id, $type, $label-tooltip[1], $label-tooltip[2])
         default
             return ()    
 };

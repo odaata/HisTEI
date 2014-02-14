@@ -15,7 +15,13 @@
         <entry key="$PROJECT_DIR$">
           <value>
             <SvnBranchConfiguration>
-              <option name="trunkUrl" value="" />
+              <option name="branchUrls">
+                <list>
+                  <option value="file://$PROJECT_DIR$/../../svn/emst/branches" />
+                  <option value="file://$PROJECT_DIR$/../../svn/emst/tags" />
+                </list>
+              </option>
+              <option name="trunkUrl" value="file://$PROJECT_DIR$/../../svn/emst/trunk" />
             </SvnBranchConfiguration>
           </value>
         </entry>

@@ -24,7 +24,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import static eu.emergingstandards.utils.EMSTUtils.*;
+import static eu.emergingstandards.utils.EMSTUtils.castURLToPath;
+import static eu.emergingstandards.utils.EMSTUtils.emptyToNull;
 
 /**
  * Created by mike on 1/13/14.
@@ -193,8 +194,6 @@ public final class EMSTOxygenUtils {
             relativePath = emptyToNull(authorAccess.getUtilAccess().makeRelative(baseURL, childURL));
             if (relativePath == null || relativePath.equals(".")) {
                 relativePath = null;
-            } else {
-                relativePath = decodeURL(relativePath);
             }
         }
         return relativePath;

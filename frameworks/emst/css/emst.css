@@ -367,23 +367,29 @@ teiHeader handNote:before {
 
 facsimile:before {
     content: "Facsimile"
-}
-
-facsimile {
-    display: block;
-    -oxy-folded:true;
-    -oxy-foldable:true;
-    content: 
-    oxy_button(
+        oxy_button(
             actionID, "facsimile.select.dir"
             transparent, true
             showText, true
             showIcon, true
         )
         oxy_label(
-            text, oxy_concat("Base Directory: ", attr(xml|base))
-            styles, "@import 'labels_sub.css';"            
+            text, "Base Directory: "
+            styles, "@import 'labels.css';"            
         )
+    ;
+}
+
+facsimile {
+    display: block;
+    -oxy-folded:true;
+    -oxy-foldable:true;
+    /*-oxy-prepend-content: 
+        
+        oxy_label(
+            text, attr(xml|base)
+            styles, "@import 'labels_sub.css';"            
+        )*/
     ;
 }
 

@@ -34,7 +34,7 @@ public class EMSTFacsimile extends EMSTAbstractMediaElement {
 
     private static final Logger logger = Logger.getLogger(EMSTFacsimile.class.getName());
 
-    private static final String FACSIMILE_ELEMENT_NAME = "facsimile";
+    public static final String FACSIMILE_ELEMENT_NAME = "facsimile";
     private static final String FACSIMILE_ELEMENT = EMSTXMLUtils.createElement(FACSIMILE_ELEMENT_NAME);
 
     @Nullable

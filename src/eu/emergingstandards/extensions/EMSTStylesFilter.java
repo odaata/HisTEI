@@ -1,11 +1,17 @@
 package eu.emergingstandards.extensions;
 
 import eu.emergingstandards.contextual_info.EMSTContextualElement;
+import eu.emergingstandards.facsimile.EMSTFacsimile;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.utils.EMSTUtils;
+import eu.emergingstandards.utils.EMSTXMLUtils;
 import ro.sync.ecss.css.EditorContent;
+import ro.sync.ecss.css.LabelContent;
 import ro.sync.ecss.css.StaticContent;
 import ro.sync.ecss.css.Styles;
 import ro.sync.ecss.extensions.api.StylesFilter;
 import ro.sync.ecss.extensions.api.editor.InplaceEditorArgumentKeys;
+import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 import java.util.HashMap;
@@ -24,34 +30,67 @@ public class EMSTStylesFilter implements StylesFilter {
     @Override
     public Styles filter(Styles styles, AuthorNode authorNode) {
         if (!styles.isInline()) {
-            EMSTContextualElement contextualElement = EMSTContextualElement.get(authorNode);
-            if (contextualElement != null) {
-                Map<String, Object> comboboxArgs = new HashMap<>();
-                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
-//            PROPERTY_EDIT is deprecated
-//            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT, contextualInfo.getEditProperty(authorNode));
-                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT_QUALIFIED, contextualElement.getEditPropertyQualified());
-                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_VALUES, contextualElement.getOxygenValues());
-                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_LABELS, contextualElement.getOxygenLabels());
-                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TOOLTIPS, contextualElement.getOxygenTooltips());
+            addContextualElement(styles, authorNode);
 
-                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDITABLE, "false");
-                comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
-
-                Map<String, Object> buttonArgs = new HashMap<>();
-                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_BUTTON);
-                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_ACTION_ID, CONTEXTUAL_INFO_ACTION_ID);
-                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TRANSPARENT, "true");
-                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
-//          Set showText and showIcon to true so the buttons render on same level as other components
-                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_SHOW_TEXT, "true");
-                buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_SHOW_ICON, "true");
-
-                StaticContent[] mixedContent = new StaticContent[]{new EditorContent(comboboxArgs), new EditorContent(buttonArgs)};
-                styles.setProperty(Styles.KEY_MIXED_CONTENT, mixedContent);
-            }
+            addFacsimileElement(styles, authorNode);
         }
         return styles;
+    }
+
+    /*
+    * Add the contextual element if the current Authornode represents a contextual reference
+    * */
+    private void addContextualElement(Styles styles, AuthorNode authorNode) {
+        EMSTContextualElement contextualElement = EMSTContextualElement.get(authorNode);
+        if (contextualElement != null) {
+            Map<String, Object> comboboxArgs = new HashMap<>();
+
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
+//            PROPERTY_EDIT is deprecated
+//            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT, contextualInfo.getEditProperty(authorNode));
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT_QUALIFIED, contextualElement.getEditPropertyQualified());
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_VALUES, contextualElement.getOxygenValues());
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_LABELS, contextualElement.getOxygenLabels());
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TOOLTIPS, contextualElement.getOxygenTooltips());
+
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDITABLE, "false");
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
+
+            Map<String, Object> buttonArgs = new HashMap<>();
+            buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_BUTTON);
+            buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_ACTION_ID, CONTEXTUAL_INFO_ACTION_ID);
+            buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_TRANSPARENT, "true");
+            buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");
+//          Set showText and showIcon to true so the buttons render on same level as other components
+            buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_SHOW_TEXT, "true");
+            buttonArgs.put(InplaceEditorArgumentKeys.PROPERTY_SHOW_ICON, "true");
+
+            StaticContent[] mixedContent = new StaticContent[]{new EditorContent(comboboxArgs), new EditorContent(buttonArgs)};
+            styles.setProperty(Styles.KEY_MIXED_CONTENT, mixedContent);
+        }
+    }
+
+    /*
+    *   Adds a label for the xml:base attribute - only way to decode the URL for human consumption is via Java
+    *       so this function just adds a label with the url decoded
+    * */
+    private void addFacsimileElement(Styles styles, AuthorNode authorNode) {
+        if (EMSTFacsimile.FACSIMILE_ELEMENT_NAME.equals(authorNode.getName())) {
+            AuthorElement authorElement = EMSTOxygenUtils.castAuthorElement(authorNode);
+
+            if (authorElement != null) {
+                String xmlBase = EMSTOxygenUtils.getAttrValue(authorElement.getAttribute(EMSTXMLUtils.XML_BASE_ATTRIB_NAME));
+                if (xmlBase != null) {
+                    Map<String, Object> labelProps = new HashMap<>();
+
+                    labelProps.put("text", EMSTUtils.decodeURL(xmlBase));
+                    labelProps.put("styles", "* { font-weight:normal; }");
+                    StaticContent[] mixedContent = new StaticContent[]{new LabelContent(labelProps)};
+
+                    styles.setProperty(Styles.KEY_MIXED_CONTENT, mixedContent);
+                }
+            }
+        }
     }
 
     @Override

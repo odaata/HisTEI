@@ -11,15 +11,16 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Build">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTMedia.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTMedia.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/emst.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/emst.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Fixed Bug where space in file names wouldn't allow media to be opened">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/templates/contextual_info" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/templates/contextual_info/genre.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/templates/contextual_info/org.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/templates/contextual_info/person.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/templates/contextual_info/place.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/emst/templates/genre.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/emst/templates/org.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/emst/templates/person.xml" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/emst/templates/place.xml" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -177,7 +178,7 @@
       <file leaf-file-name="EMSTMedia.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTMedia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="152" column="0" selection-start="4767" selection-end="4767" vertical-scroll-proportion="0.0" vertical-offset="2234" max-vertical-offset="3024">
+            <state line="152" column="0" selection-start="4767" selection-end="4767" vertical-scroll-proportion="0.0" vertical-offset="2412" max-vertical-offset="3024">
               <folding />
             </state>
           </provider>
@@ -186,7 +187,7 @@
       <file leaf-file-name="EMSTStylesFilter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="40" column="92" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1638">
+            <state line="40" column="92" selection-start="1429" selection-end="1429" vertical-scroll-proportion="0.0" vertical-offset="450" max-vertical-offset="1638">
               <folding />
             </state>
           </provider>
@@ -222,7 +223,7 @@
       <file leaf-file-name="EMSTOxygenUtils.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="195" column="13" selection-start="6410" selection-end="6410" vertical-scroll-proportion="3.8962026" vertical-offset="0" max-vertical-offset="3870">
+            <state line="196" column="13" selection-start="6486" selection-end="6486" vertical-scroll-proportion="2.005319" vertical-offset="2324" max-vertical-offset="3870">
               <folding />
             </state>
           </provider>
@@ -240,7 +241,7 @@
       <file leaf-file-name="EMSTFacsimile.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTFacsimile.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="37" column="11" selection-start="1391" selection-end="1398" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="3870">
+            <state line="37" column="11" selection-start="1391" selection-end="1398" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="3870">
               <folding />
             </state>
           </provider>
@@ -975,7 +976,11 @@
       <created>1392247424112</created>
       <updated>1392247424112</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Fixed Bug where space in file names wouldn't allow media to be opened">
+      <created>1392336406116</created>
+      <updated>1392336406116</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1000,10 +1005,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="172" y="86" width="1676" height="970" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48994082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48994082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.49936467" order="11" side_tool="false" content_ui="tabs" />
@@ -1014,11 +1019,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32908458" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32832617" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.6177515" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.6171694" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.38224852" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.38051045" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33686692" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22911549" sideWeight="0.49822485" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1044,7 +1049,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="added genre to contextual info" />
     <MESSAGE value="cleanup - with NPE on Windows platform for a FileWatcher" />
     <MESSAGE value="totally refactored ContextualInfo!!!!&#10;Added Apache commons VFS2 to monitor files for changes (Java Watch framework wouldn't work on Windows)" />
     <MESSAGE value="Removed watcher package" />
@@ -1069,7 +1073,8 @@
     <MESSAGE value="Fixed bug in casting URLs to Paths - caused issues on windows&#10;Restructured EMST Menus to match toolbars&#10;Added letter template" />
     <MESSAGE value="Build" />
     <MESSAGE value="Release for first test workshop on using the EMST framework on 2/13/2014 with the EMST crew. Saving this so problems reported can be tested with this codebase..." />
-    <option name="LAST_COMMIT_MESSAGE" value="Release for first test workshop on using the EMST framework on 2/13/2014 with the EMST crew. Saving this so problems reported can be tested with this codebase..." />
+    <MESSAGE value="Fixed Bug where space in file names wouldn't allow media to be opened" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed Bug where space in file names wouldn't allow media to be opened" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1405,7 +1410,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="195" column="13" selection-start="6410" selection-end="6410" vertical-scroll-proportion="3.8962026" vertical-offset="0" max-vertical-offset="3870">
+        <state line="196" column="13" selection-start="6486" selection-end="6486" vertical-scroll-proportion="2.005319" vertical-offset="2324" max-vertical-offset="3870">
           <folding />
         </state>
       </provider>

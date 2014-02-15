@@ -30,14 +30,10 @@ TEI {
 
 /* Labels that can be generated 
     by capitalizing their element names */
-creation:before,
 title:before,
 authority:before,
 collection:before,
 dateline:before,
-opener:before,
-closer:before,
-postscript:before,
 salute:before,
 signed:before,
 district:before,
@@ -185,6 +181,15 @@ listOrg:before {
     font-weight:bold;
     width:100%;
     margin:5px;
+}
+
+/* Section Headings that can be generated 
+    by capitalizing their element names */
+creation:before,
+opener:before,
+closer:before,
+postscript:before {
+    content: oxy_capitalize(oxy_name());
 }
 
 teiHeader,
@@ -384,13 +389,6 @@ facsimile {
     display: block;
     -oxy-folded:true;
     -oxy-foldable:true;
-    /*-oxy-prepend-content: 
-        
-        oxy_label(
-            text, attr(xml|base)
-            styles, "@import 'labels_sub.css';"            
-        )*/
-    ;
 }
 
 graphic,

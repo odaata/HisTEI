@@ -44,6 +44,10 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
         return get(getCurrentAuthorNode(authorAccess));
     }
 
+
+    //  Author page is required, but can only be set when available (later in startup sequence)
+//      Even if the page isn't available, ContextualElement serves the function of locating nodes that will need controls
+//      And Oxygen needs this info as early as possible, so have to return an object even if page is not yet available
     @Nullable
     public static EMSTContextualElement get(AuthorNode authorNode) {
         EMSTContextualElement contextualElement;
@@ -53,69 +57,40 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
         }
 
         if (contextualElement == null) {
-            WSAuthorEditorPage page = EMSTOxygenUtils.getCurrentAuthorEditorPage();
-            if (page != null) {
-                EMSTContextualElementProperties elementProperties = EMSTContextualElementProperties.get(authorNode);
-                if (elementProperties != null) {
-                    AuthorNode parent = authorNode.getParent();
-                    if (parent == null || !elementProperties.getSourceParent().equals(parent.getName())) {
-                        EMSTContextualInfo info = EMSTContextualInfo.get(elementProperties.getContextualType());
+            EMSTContextualElementProperties elementProperties = EMSTContextualElementProperties.get(authorNode);
+            if (elementProperties != null) {
+                AuthorNode parent = authorNode.getParent();
+                if (parent == null || !elementProperties.getSourceParent().equals(parent.getName())) {
+                    EMSTContextualInfo info = EMSTContextualInfo.get(elementProperties.getContextualType());
 
-                        contextualElement = new EMSTContextualElement(page, authorNode, info, elementProperties);
+                    contextualElement = new EMSTContextualElement(authorNode, info, elementProperties);
 
-                        synchronized (authorNodes) {
-                            authorNodes.put(authorNode, contextualElement);
-                        }
+                    synchronized (authorNodes) {
+                        authorNodes.put(authorNode, contextualElement);
                     }
                 }
             }
+        }
 
+        if (contextualElement != null && contextualElement.authorPage == null) {
+            contextualElement.authorPage = EMSTOxygenUtils.getCurrentAuthorEditorPage();
         }
         return contextualElement;
     }
 
-    /*@NotNull
-    public static Map<AuthorNode, EMSTContextualElement> getAuthorNodes() {
-        synchronized (authorNodes) {
-            return new HashMap<>(authorNodes);
-        }
-    }
-
-    @NotNull
-    public static Map<AuthorNode, EMSTContextualElement> getAuthorNodes(EMSTContextualType contextualType) {
-        Map<AuthorNode, EMSTContextualElement> filteredNodes = getAuthorNodes();
-
-        for (AuthorNode authorNode : filteredNodes.keySet()) {
-            EMSTContextualElement element = filteredNodes.get(authorNode);
-            if (element == null || element.getContextualType() != contextualType) {
-                filteredNodes.remove(authorNode);
-            }
-        }
-        return filteredNodes;
-    }
-
-    public static void refreshAuthorNodes(WSAuthorEditorPage page, EMSTContextualType contextualType) {
-        if (page != null) {
-            for (AuthorNode authorNode : getAuthorNodes(contextualType).keySet()) {
-                page.refresh(authorNode);
-            }
-        }
-    }*/
-
     /* Instance Members */
 
-    private final WSAuthorEditorPage authorPage;
+    private WSAuthorEditorPage authorPage;
     private final AuthorElement authorElement;
 
     private final EMSTContextualType contextualType;
     private final EMSTContextualInfo contextualInfo;
     private final EMSTContextualElementProperties elementProperties;
 
-    protected EMSTContextualElement(WSAuthorEditorPage authorPage, AuthorNode authorNode, EMSTContextualInfo contextualInfo,
+    protected EMSTContextualElement(AuthorNode authorNode, EMSTContextualInfo contextualInfo,
                                     EMSTContextualElementProperties properties) {
-        this.authorPage = authorPage;
-        this.authorElement = castAuthorElement(authorNode);
 
+        this.authorElement = castAuthorElement(authorNode);
         this.contextualType = properties.getContextualType();
         this.contextualInfo = contextualInfo;
         this.elementProperties = properties;
@@ -126,6 +101,10 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
     @NotNull
     public WSAuthorEditorPage getAuthorPage() {
         return authorPage;
+    }
+
+    public void setAuthorPage(WSAuthorEditorPage newPage) {
+        this.authorPage = newPage;
     }
 
     @NotNull

@@ -3,7 +3,7 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>List of Organizations for the Emerging Standards project</title>
+                <title>List of Bibliographic References for the Emerging Standards project</title>
             </titleStmt>
             <publicationStmt>
                 <authority>EMST</authority>
@@ -16,12 +16,6 @@
     <text>
         <body>
             <listOrg>
-                <listOrg type="repository">
-                    <org xml:id="org_${id}">
-                        <orgName/>
-                        <desc/>
-                    </org>
-                </listOrg>
                 <listOrg>
                     <org xml:id="org_${id}">
                         <orgName/>

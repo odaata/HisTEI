@@ -161,14 +161,13 @@ public class EMSTFacsimile extends EMSTAbstractMediaElement {
     public void setBaseDirectoryURL(URL newDirectory) throws EMSTException {
         URL currentDirectory = getBaseDirectoryURL();
 //          Do the uglies
-        if (currentDirectory != null && currentDirectory.equals(newDirectory)) {
-            throw new EMSTException("The new directory is the same as the current one.");
-        }
+        if (currentDirectory != null && !currentDirectory.equals(newDirectory)) {
 //          It's all relative after all...
-        String relativePath = makeRelative(authorAccess, authorElement.getParent().getXMLBaseURL(), newDirectory);
+            String relativePath = makeRelative(authorAccess, authorElement.getParent().getXMLBaseURL(), newDirectory);
 //          Update the xml:base attribute
-        authorAccess.getDocumentController().setAttribute(
-                EMSTXMLUtils.XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), authorElement);
+            authorAccess.getDocumentController().setAttribute(
+                    EMSTXMLUtils.XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), authorElement);
+        }
     }
 
     public void updateMediaElements() throws EMSTException {

@@ -44,6 +44,15 @@ bloc:before {
     content: oxy_capitalize(oxy_name()) ": ";
 }
 
+/*ptr,
+ref {
+    content:
+        oxy_combobox(        
+            edit, "@target"
+        )
+    ;
+}*/
+
 placeName:before {
     content:
         oxy_label(
@@ -293,7 +302,7 @@ altIdentifier > idno:before {
 
 repository,
 creation > *,
-handNotes > *,
+/*handNotes > *,*/
 facsimile > * {
     visibility:-oxy-collapse-text;
 }
@@ -456,6 +465,10 @@ div {
     -oxy-not-foldable-child: head, opener;
 }
 
+head:before {
+    content: url('../images/head-16.png');
+}
+
 head {
     display:block;
     font-weight:bold;
@@ -466,7 +479,7 @@ head {
 }
 
 fw:before {
-    content: "FW:";
+    content: url('../images/forme_work-16.png');
 }
 
 fw {
@@ -545,6 +558,7 @@ desc bloc:before {
 /* Milestones with no text and
     Fields only edited by form controls */
 pb,
+handShift,
 lb,
 gap,
 sex {
@@ -686,7 +700,8 @@ pb:before {
     font-size:small;
     line-height:1.5;
     counter-increment:pages;
-    content: "Page " counter(pages)
+    content: url('../images/page_break-16.png')
+        " Page " counter(pages)
         oxy_label(
             text, "n: "
             width, 50px
@@ -722,6 +737,27 @@ pb:before {
             selectionMode, multiple
         )
     ;
+}
+
+handShift {
+    border-style:dashed;
+    border-width:1px;
+    padding:0px 3px;
+    content:
+        oxy_combobox(
+            edit, "@new"
+        )
+    ;
+}
+
+handShift[new]:after {
+    link: attr(new);
+    content: url('../images/hand_shift-16.png');
+}
+
+[hand]:after {
+    link: attr(hand);
+    content: url('../images/hand-16.png');
 }
 
 /* An attempt at numbering linebreaks...
@@ -995,5 +1031,4 @@ catRef:before {
         )
     ;
 }
-
 

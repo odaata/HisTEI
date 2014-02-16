@@ -12,7 +12,11 @@
         <xslt href="../xsl/get_values_from_db.xsl" useCache="false"  action="replace"/>
     </match>-->
 
-    <match elementName="catRef" elementNS="http://www.tei-c.org/ns/1.0" attrName="target">
-        <xslt href="../genre.xsl" useCache="true" action="replace"/>
+    <match attrName="hand">
+        <xslt href="../hand.xsl" useCache="false" action="replace"/>
+    </match>
+
+    <match elementName="handShift" elementNS="http://www.tei-c.org/ns/1.0" attrName="new">
+        <xslt href="../hand.xsl" useCache="false" action="replace"/>
     </match>
 </config>

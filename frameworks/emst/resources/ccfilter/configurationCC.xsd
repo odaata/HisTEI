@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified"
+<xs:schema elementFormDefault="qualified"
            targetNamespace="http://www.oxygenxml.com/ns/ccfilter/simple"
-           xmlns="http://www.oxygenxml.com/ns/ccfilter/simple">
+           xmlns="http://www.oxygenxml.com/ns/ccfilter/simple" xmlns:xs="http://www.w3.org/2001/XMLSchema">
     <xs:element name="config">
         <xs:complexType>
             <xs:sequence>
@@ -11,8 +11,8 @@
     </xs:element>
     <xs:element name="match">
         <xs:annotation>
-            <xs:documentation>Contains information that will match on an XML element. It will offer proposals for that
-                element.
+            <xs:documentation>Contains information that will match on an XML element. It will offer
+                proposals for that element.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
@@ -22,29 +22,31 @@
             </xs:choice>
             <xs:attribute name="elementName" type="xs:NCName">
                 <xs:annotation>
-                    <xs:documentation>Local name of the element for which we offer proposals. If the attrName is missing
-                        then we are offering proposals for the element value. If attrName is present the elementName is
-                        used just as a scope restriction.
+                    <xs:documentation>Local name of the element for which we offer proposals. If the
+                        attrName is missing then we are offering proposals for the element value. If
+                        attrName is present the elementName is used just as a scope restriction.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="elementNS" type="xs:anyURI">
                 <xs:annotation>
-                    <xs:documentation>Namespace of the element for which we offer proposals. If missing will be
-                        considered any namespace.
+                    <xs:documentation>Namespace of the element for which we offer proposals. If
+                        missing will be considered any namespace.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="attrName" type="xs:NCName">
                 <xs:annotation>
-                    <xs:documentation>The local name of the attribute for which we offer proposals. If elementName is
-                        also present then the attribute must be present on that element.
+                    <xs:documentation>The local name of the attribute for which we offer proposals.
+                        If elementName is also present then the attribute must be present on that
+                        element.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
             <xs:attribute name="attributeNS" type="xs:anyURI">
                 <xs:annotation>
-                    <xs:documentation>The namespace of the attribute. If missing it will be considered any namespace.
+                    <xs:documentation>The namespace of the attribute. If missing it will be
+                        considered any namespace.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
@@ -66,7 +68,7 @@
             <xs:documentation>A content completion proposal item.</xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:attribute name="value" use="required" type="xs:NCName">
+            <xs:attribute name="value" type="xs:NCName" use="required">
                 <xs:annotation>
                     <xs:documentation>The value to be inserted in the document.</xs:documentation>
                 </xs:annotation>
@@ -80,16 +82,17 @@
     </xs:element>
     <xs:element name="xslt">
         <xs:annotation>
-            <xs:documentation>The proposals are obtain by executing an XSLT. This XSLT output must be an "items"
-                element.
+            <xs:documentation>The proposals are obtain by executing an XSLT. This XSLT output must
+                be an "items" element.
             </xs:documentation>
         </xs:annotation>
         <xs:complexType>
-            <xs:attribute name="href" use="required" type="xs:anyURI"/>
-            <xs:attribute name="useCache" use="required" type="xs:boolean">
+            <xs:attribute name="href" type="xs:anyURI" use="required"/>
+            <xs:attribute name="useCache" type="xs:boolean" use="required">
                 <xs:annotation>
-                    <xs:documentation>true if the XSLT will only be executed once and the results reused weach time they
-                        are needed. false to execute the XSLT every time the proposals are requested.
+                    <xs:documentation>true if the XSLT will only be executed once and the results
+                        reused weach time they are needed. false to execute the XSLT every time the
+                        proposals are requested.
                     </xs:documentation>
                 </xs:annotation>
             </xs:attribute>
@@ -97,10 +100,10 @@
         </xs:complexType>
     </xs:element>
     <xs:attributeGroup name="actionGr">
-        <xs:attribute name="action" default="append">
+        <xs:attribute default="append" name="action">
             <xs:annotation>
-                <xs:documentation>The action to take with the provided item. They can either replace the default
-                    proposals or just contribute to them.
+                <xs:documentation>The action to take with the provided item. They can either replace
+                    the default proposals or just contribute to them.
                 </xs:documentation>
             </xs:annotation>
             <xs:simpleType>

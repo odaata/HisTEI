@@ -14,8 +14,10 @@ public class EMSTUniqueAttributesRecognizer extends DefaultUniqueAttributesRecog
                     "TEI",
                     "person",
                     "place",
-                    "org"
-//                    "bibl",
+                    "org",
+                    "bibl",
+                    "biblStruct",
+                    "biblFull"
 //                    "evt"
             }
     );

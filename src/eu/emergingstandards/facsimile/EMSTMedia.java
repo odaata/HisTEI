@@ -6,7 +6,6 @@ import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
-import ro.sync.ecss.extensions.api.AuthorOperationException;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 
 import java.io.File;
@@ -149,20 +148,6 @@ public class EMSTMedia extends EMSTAbstractMediaElement {
 
         String value = getAttrValue(authorElement.getAttribute(URL_ATTRIB_NAME));
         if (value != null) {
-
-            Object[] results = new Object[0];
-            try {
-                results = authorAccess.getDocumentController().evaluateXPath("base-uri(.)", false, false, false, false);
-            } catch (AuthorOperationException e) {
-                e.printStackTrace();
-            }
-            if (results != null && results.length > 0) {
-                for (Object node : results) {
-                    System.out.println(node.getClass());
-                }
-            }
-
-
             url = authorElement.getXMLBaseURL();
             try {
                 url = new URL(url, value);

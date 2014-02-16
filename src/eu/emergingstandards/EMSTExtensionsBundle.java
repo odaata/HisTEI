@@ -55,7 +55,26 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
         return new EMSTNodeRendererCustomizer();
     }
 
-   /*@Override
+    /* Thought the customHref method would reolve the link Hrefs as specified in the CSS
+    *   Alas, it only resolves things passed into the url() css function which is what I use to render the link image :-( */
+
+    /*@Override
+    public URL resolveCustomHref(URL currentEditorURL, AuthorNode authorNode,
+                                 String linkHref, AuthorAccess authorAccess) throws CustomResolverException, IOException {
+
+        if (authorNode.getType() == AuthorNode.NODE_TYPE_PSEUDO_ELEMENT) {
+            authorNode = authorNode.getParent();
+        }
+
+        EMSTContextualElement contextualElement = EMSTContextualElement.get(authorNode);
+        if (contextualElement != null) {
+            return contextualElement.getURL();
+        } else {
+            return null;
+        }
+    }*/
+
+    /*@Override
     public AuthorReferenceResolver createAuthorReferenceResolver() {
         return new EMSTReferenceResolver();
     }*/

@@ -16,6 +16,7 @@ import ro.sync.util.editorvars.EditorVariables;
 
 import javax.xml.transform.sax.SAXSource;
 import java.io.IOException;
+import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.*;
@@ -67,7 +68,7 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     private static final Map<EMSTContextualType, EMSTContextualInfo> infos = new EnumMap<>(EMSTContextualType.class);
 
     @NotNull
-    public static EMSTContextualInfo get(EMSTContextualType contextualType) {
+    static EMSTContextualInfo get(EMSTContextualType contextualType) {
         EMSTContextualInfo info = infos.get(contextualType);
 
         if (info == null) {
@@ -192,8 +193,13 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     }
 
     @Nullable
-    public Path getSourcePath() {
+    public Path getPath() {
         return getSourcePath(getContextualType());
+    }
+
+    @Nullable
+    public URL getURL() {
+        return EMSTUtils.castPathToURL(getPath());
     }
 
     @NotNull
@@ -211,7 +217,7 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
 
     @Override
     public void refresh() {
-        Path src = getSourcePath();
+        Path src = getPath();
         if (src != null && Files.exists(src)) {
             XQueryExecutable xqx = getXQueryExecutable();
             if (xqx != null) {

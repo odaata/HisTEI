@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xsl:stylesheet exclude-result-prefixes="xs math xd tei" version="3.0"
-                xmlns:tei="http://www.tei-c.org/ns/1.0"
-                xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
+<xsl:stylesheet exclude-result-prefixes="xs xd tei" version="3.0"
+                xmlns:tei="http://www.tei-c.org/ns/1.0" xmlns:xd="http://www.oxygenxml.com/ns/doc/xsl"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xd:doc scope="stylesheet">
         <xd:desc>

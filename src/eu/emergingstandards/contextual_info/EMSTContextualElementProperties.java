@@ -79,10 +79,11 @@ public class EMSTContextualElementProperties {
 
     @Nullable
     public static EMSTContextualElementProperties get(AuthorNode authorNode) {
-        if (authorNode != null)
+        if (authorNode != null) {
             return ELEMENTS.get(authorNode.getName());
-        else
+        } else {
             return null;
+        }
     }
 
     @NotNull

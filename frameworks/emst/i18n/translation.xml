@@ -144,6 +144,24 @@
         <val lang="en_US">Insert a page break. Insert the pb element.</val>
     </key>
 
+    <key value="hand.shift">
+        <comment>Hand Shift action name.</comment>
+        <val lang="en_US">Hand Shift</val>
+    </key>
+    <key value="hand.shift_description">
+        <comment>Hand Shift action description.</comment>
+        <val lang="en_US">Insert a hand shift. Insert the handShift element.</val>
+    </key>
+
+    <key value="hand">
+        <comment>Hand action name.</comment>
+        <val lang="en_US">Hand</val>
+    </key>
+    <key value="hand_description">
+        <comment>Hand action description.</comment>
+        <val lang="en_US">Insert a generic hand, i.e. NOT linked to a Person. Insert the handNote element.</val>
+    </key>
+
     <key value="salute">
         <comment>Salute action name.</comment>
         <val lang="en_US">Salute</val>

@@ -2,7 +2,6 @@ package eu.emergingstandards.contextual_info;
 
 import eu.emergingstandards.events.EMSTRefreshEventListener;
 import eu.emergingstandards.utils.EMSTOxygenUtils;
-import eu.emergingstandards.utils.EMSTUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -14,7 +13,6 @@ import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.nio.file.Path;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -34,7 +32,7 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
     //  Regexp info for retrieving IDs
     private static final String TYPE_REGEX = "(" + StringUtils.join(EMSTContextualType.getKeys(), "|") + ")";
     private static final String ID_REGEX = "(\\S+)";
-    public static final Pattern REF_PATTERN = Pattern.compile(TYPE_REGEX + ":" + ID_REGEX);
+    private static final Pattern REF_PATTERN = Pattern.compile(TYPE_REGEX + ":" + ID_REGEX);
 
     private static final Map<AuthorNode, EMSTContextualElement> authorNodes = new WeakHashMap<>();
 
@@ -103,10 +101,6 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
         return authorPage;
     }
 
-    public void setAuthorPage(WSAuthorEditorPage newPage) {
-        this.authorPage = newPage;
-    }
-
     @NotNull
     public AuthorElement getAuthorElement() {
         return authorElement;
@@ -125,11 +119,6 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
     @NotNull
     public EMSTContextualElementProperties getElementProperties() {
         return elementProperties;
-    }
-
-    @NotNull
-    public Pattern getRefPattern() {
-        return REF_PATTERN;
     }
 
     @NotNull
@@ -153,23 +142,12 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
 
     @Nullable
     public URL getURL() {
-        return getURL(false);
-    }
+        URL url = contextualInfo.getURL();
 
-    @Nullable
-    public URL getURL(boolean appendID) {
-        URL url = null;
-
-        Path srcPath = contextualInfo.getSourcePath();
-        if (srcPath != null) {
+        if (url != null) {
             try {
-                url = EMSTUtils.castPathToURL(srcPath);
-
-                if (appendID) {
-                    String id = getRefID();
-                    if (!id.isEmpty())
-                        url = new URL(url, "#" + id);
-                }
+                String id = getRefID();
+                if (!id.isEmpty()) url = new URL(url, "#" + id);
             } catch (MalformedURLException e) {
                 logger.error(e, e);
             }

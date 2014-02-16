@@ -22,24 +22,30 @@ public class EMSTUtils {
 
     @Nullable
     public static Path castURLToPath(URL url) {
-        try {
-            return Paths.get(url.toURI());
-        } catch (URISyntaxException e) {
-            logger.error(e, e);
-            return null;
+        Path path = null;
+
+        if (url != null) {
+            try {
+                path = Paths.get(url.toURI());
+            } catch (URISyntaxException e) {
+                logger.error(e, e);
+            }
         }
+        return path;
     }
 
     @Nullable
     public static File castURLToFile(URL url) {
         File file = null;
 
-        try {
-            file = new File(url.toURI());
-        } catch (URISyntaxException e) {
-            String fileString = castURLToFileString(url);
-            if (fileString != null) {
-                file = new File(fileString);
+        if (url != null) {
+            try {
+                file = new File(url.toURI());
+            } catch (URISyntaxException e) {
+                String fileString = castURLToFileString(url);
+                if (fileString != null) {
+                    file = new File(fileString);
+                }
             }
         }
         return file;
@@ -47,22 +53,28 @@ public class EMSTUtils {
 
     @Nullable
     public static String castURLToFileString(URL url) {
-        try {
-            return Paths.get(url.toURI()).toString();
-        } catch (URISyntaxException e) {
-            logger.error(e, e);
-            return null;
+        String fileString = null;
+
+        if (url != null) {
+            try {
+                fileString = Paths.get(url.toURI()).toString();
+            } catch (URISyntaxException e) {
+                logger.error(e, e);
+            }
         }
+        return fileString;
     }
 
     @Nullable
     public static URL castPathToURL(Path path) {
         URL url = null;
 
-        try {
-            url = path.toUri().toURL();
-        } catch (MalformedURLException e) {
-            logger.error(e, e);
+        if (path != null) {
+            try {
+                url = path.toUri().toURL();
+            } catch (MalformedURLException e) {
+                logger.error(e, e);
+            }
         }
         return url;
     }
@@ -71,10 +83,12 @@ public class EMSTUtils {
     public static URL castFileToURL(File file) {
         URL url = null;
 
-        try {
-            url = file.toURI().toURL();
-        } catch (MalformedURLException e) {
-            logger.error(e, e);
+        if (file != null) {
+            try {
+                url = file.toURI().toURL();
+            } catch (MalformedURLException e) {
+                logger.error(e, e);
+            }
         }
         return url;
     }

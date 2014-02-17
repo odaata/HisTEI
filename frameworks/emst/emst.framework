@@ -48,17 +48,6 @@
 											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/tei_oxygen.css</String>
-										</field>
-										<field name="title">
-											<String>TEI CSS for Oxygen</String>
-										</field>
-										<field name="alternate">
-											<Boolean>true</Boolean>
-										</field>
-									</cssFile>
 								</cssFile-array>
 							</field>
 							<field name="mergeCSSsFromDocument">

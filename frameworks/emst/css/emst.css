@@ -356,25 +356,8 @@ creation > orgName:before {
                 columns, 10
                 values, "sender, addressee"
                 editable, true
-            );
-}
-
-teiHeader handNote:before {
-    content:
-        oxy_label(
-            text, "Hand:"
-            styles, "@import 'labels.css';"            
-        )
-        oxy_label(
-            text, "ID: "
-            width, 15px
-            styles, "@import 'labels_sub.css';"            
-        )
-        oxy_textfield(
-            edit, "@xml:id"
-            columns, 10
-        )
-    ;
+            )
+        ;
 }
 
 /* Facsimile & Media */
@@ -735,6 +718,34 @@ pb:before {
             labels, oxy_xpath("string-join((//graphic/@xml:id | //media/@xml:id), ',')")
             tooltips, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
             selectionMode, multiple
+        )
+    ;
+}
+
+/* Hands */
+
+handNote:before {
+    content:
+        oxy_label(
+            text, "Hand:"
+            styles, "@import 'labels.css';"            
+        )
+        oxy_label(
+            text, "ID: "
+            width, 15px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 10
+        )
+        oxy_label(
+            text, "Scope: "
+            width, 45px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+                edit, "@scope"
         )
     ;
 }

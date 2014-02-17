@@ -12,10 +12,10 @@ import java.util.Set;
  * Created by mike on 2/3/14.
  */
 public enum EMSTContextualType {
-    PERSON("Person", "psn"),
-    PLACE("Place", "plc"),
-    ORGANIZATION("Organization", "org"),
-    GENRE("Genre", "gen");
+    PERSON("Person", "psn", "person.xml"),
+    PLACE("Place", "plc", "place.xml"),
+    ORGANIZATION("Organization", "org", "org.xml"),
+    GENRE("Genre", "gen", "genre.xml");
 //  BIBLIOGRAPHY("Bibliography", "bib"),
 //  EVENT("Event", "evt");
 
@@ -50,17 +50,27 @@ public enum EMSTContextualType {
 
     private String name;
     private String key;
+    private String fileName;
 
-    private EMSTContextualType(String name, String key) {
+    private EMSTContextualType(String name, String key, String fileName) {
         this.name = name;
         this.key = key;
+        this.fileName = fileName;
     }
 
+    @NotNull
     public String getName() {
         return name;
     }
 
+    @NotNull
     public String getKey() {
         return key;
     }
+
+    @NotNull
+    public String getFileName() {
+        return fileName;
+    }
+
 }

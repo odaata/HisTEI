@@ -93,7 +93,7 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
         if (sourcePath == null) {
             sourcePath =
                     expandOxygenPath(
-                            SOURCE_BASE_PATH + EMSTContextualSettings.get(contextualType).getFileName(),
+                            SOURCE_BASE_PATH + contextualType.getFileName(),
                             getCurrentAuthorAccess()
                     );
 
@@ -137,41 +137,6 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
             info.refresh();
         }
     }
-
-    /*@Nullable
-    public static Path getXQueryDirectory() {
-        if (xQueryPath == null) {
-            xQueryPath = expandOxygenPath(XQUERY_PATH, getAuthorAccess());
-
-            if (xQueryMonitor == null && xQueryPath != null)
-                xQueryMonitor = EMSTFileMonitor.add(xQueryPath);
-        }
-        return xQueryPath;
-    }
-
-    @Nullable
-    public static Path getSourceDirectory() {
-        if (sourcePath == null) {
-            sourcePath =
-                    expandOxygenPath(
-                            SOURCE_BASE_PATH + EMSTContextualSettings.get(getContextualType()).getFileName(),
-                            getAuthorAccess()
-                    );
-
-            if (sourceMonitor == null && sourcePath != null)
-                sourceMonitor = EMSTFileMonitor.add(sourcePath);
-        }
-        return sourcePath;
-    }*/
-
-    /*public static boolean directoryExists(AuthorAccess authorAccess) {
-        if (authorAccess != null) {
-            Path path = Paths.get(SOURCE_BASE_PATH);
-            if (!Files.exists(path)) {
-
-            }
-        }
-    }*/
 
     /* Instance members */
 
@@ -223,7 +188,7 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
             if (xqx != null) {
                 XQueryEvaluator xqe = xqx.load();
                 if (xqe != null) {
-                    //              Force synchronization so Oxygen gets the values on startup
+                    // Force synchronization so Oxygen gets the values on startup
                     synchronized (items) {
                         reset();
                         try {

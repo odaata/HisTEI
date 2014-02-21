@@ -22,9 +22,8 @@ declare function local:list($list as element()) as element(item)* {
             return local:item($id, $type, teix:org($node), ()) 
         case element(tei:category)
             return teix:category($node)
-        default
-            return
-            if (starts-with(local-name($node), "list")) then
+        default return
+            if (local-name($node) = ("listPerson", "listPlace", "listOrg")) then
                 local:list($node)
             else
                 ()

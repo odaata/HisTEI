@@ -41,7 +41,7 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
                     choice = authorAccess.getWorkspaceAccess().showConfirmDialog(
                             "Update <graphic>/<media> elements?",
                             "Would you like to update the <graphic> and <media> references with the contents of the new directory?\n\n" +
-                                    "WARNING: This will delete all existing references in this document and break existing links to page breaks and other references!",
+                                    "WARNING: This will delete all existing references in this document and break existing links to page breaks and any other references!",
                             new String[]{"Yes", "No"}, new int[]{0, 1}
                     );
                     if (choice == 0) {

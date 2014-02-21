@@ -173,6 +173,17 @@
         </val>
     </key>
 
+    <key value="formulaic">
+        <comment>Formulaic Language action name.</comment>
+        <val lang="en_US">Formulaic</val>
+    </key>
+    <key value="formulaic_description">
+        <comment>Formulaic Language action description.</comment>
+        <val lang="en_US">Mark selected text as containing formulaic language. Surround text with
+            seg[function="formulaic"].
+        </val>
+    </key>
+
     <key value="abbreviation">
         <comment>Abbreviation action name.</comment>
         <val lang="en_US">Abbreviation</val>

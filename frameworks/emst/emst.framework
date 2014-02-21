@@ -575,7 +575,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('type', combobox, ('header':'header'; 'footer':'footer'; 'pageNum':'pageNum'; 'lineNum':'lineNum'; 'sig':'sig'; 'catch':'catch';), 'header')}" place="${ask('place?', combobox, ('top-right':'top-right'; 'top-left':'top-left'; 'bottom-right':'bottom-right'; 'bottom-left':'bottom-left'; 'margin-right':'margin-right'; 'margin-left':'margin-left';), 'top-right')}"/></String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('type?', combobox, ('header':'header'; 'footer':'footer'; 'pageNum':'pageNum'; 'lineNum':'lineNum'; 'sig':'sig'; 'catch':'catch';), 'header')}" place="${ask('place?', combobox, ('below':'below'; 'bottom':'bottom'; 'margin':'margin'; 'top':'top'; 'opposite':'opposite'; 'overleaf':'overleaf'; 'above':'above'; 'end':'end'; 'inline':'inline'; 'inspace':'inspace';), 'top')}"/></String>
 															</entry>
 														</map>
 													</field>
@@ -618,7 +618,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;add xmlns="http://www.tei-c.org/ns/1.0" place="${ask('place', combobox, ('above':'above'; 'below':'below'; 'bottom':'bottom'; 'end':'end'; 'inline':'inline'; 'inspace':'inspace'; 'margin':'margin'; 'opposite':'opposite'; 'overleaf':'overleaf'; 'top':'top';), 'above')}"/></String>
+																<String>&lt;add xmlns="http://www.tei-c.org/ns/1.0" place="above"/></String>
 															</entry>
 														</map>
 													</field>
@@ -845,7 +845,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('language code?', generic, 'la')}"/></String>
+																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Which language?', combobox, ('nl':'Dutch'; 'en':'English'; 'fr':'French'; 'de':'German'; 'la':'Latin';), 'la')}"/></String>
 															</entry>
 														</map>
 													</field>
@@ -882,29 +882,29 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
-													</field>
-													<field name="argValues">
-														<map>
-															<entry>
-																<String>element</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" type="${ask('type?', combobox, ('author':'author'; 'other':'other';), 'author')}"/></String>
-															</entry>
-														</map>
-													</field>
-													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
-													</field>
-												</actionMode>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>local-name() = ('notesStmt')</String>
+														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" anchored="false" place="margin">${caret}&lt;/note></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:desc or local-name() = ('notesStmt','person', 'place', 'org')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" anchored="false">${caret}&lt;/note></String>
 															</entry>
 														</map>
 													</field>
@@ -1047,7 +1047,7 @@
 											<String>${i18n(salute)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(salute_description)}.in</String>
+											<String>${i18n(salute_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/images/salute-20.png</String>
@@ -1170,21 +1170,31 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;person xmlns="http://www.tei-c.org/ns/1.0">
-    &lt;persName>
-        &lt;roleName/>
-        &lt;forename>${caret}&lt;/forename>
-        &lt;nameLink/>
-        &lt;surname/>
-        &lt;surname/>
-    &lt;/persName>
-    &lt;sex/>
-    &lt;birth>
-        &lt;settlement/>
-    &lt;/birth>
-    &lt;death>
-        &lt;settlement/>
-    &lt;/death>
+																<String>&lt;person  xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;persName>
+      &lt;roleName/>
+      &lt;forename>${caret}&lt;/forename>
+      &lt;nameLink/>
+      &lt;surname/>
+      &lt;surname/>
+  &lt;/persName>
+  &lt;sex/>
+  &lt;education/>
+  &lt;occupation/>
+  &lt;faith/>
+  &lt;socecStatus/>
+  &lt;birth>
+      &lt;settlement/>
+  &lt;/birth>
+  &lt;death>
+      &lt;settlement/>
+  &lt;/death>
+  &lt;residence>
+      &lt;settlement/>
+  &lt;/residence>
+  &lt;affiliation>
+      &lt;orgName/>
+  &lt;/affiliation>
 &lt;/person></String>
 															</entry>
 															<entry>
@@ -1388,7 +1398,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0" when="${ask('when?', generic)}"/></String>
+																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1917,6 +1927,92 @@
 											</actionMode-array>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>formulaic</String>
+										</field>
+										<field name="name">
+											<String>${i18n(formulaic)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(formulaic_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/formulaic-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/formulaic-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>B</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;seg xmlns="http://www.tei-c.org/ns/1.0" function="formulaic"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>link</String>
+										</field>
+										<field name="name">
+											<String>${i18n(link)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(link_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/link-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/link-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>B</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;ref xmlns="http://www.tei-c.org/ns/1.0" target="${ask('What is the URL this link refers to?', generic)}"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -2123,6 +2219,11 @@
 																<String>salute</String>
 															</field>
 														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>formulaic</String>
+															</field>
+														</menuItem>
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
@@ -2161,11 +2262,6 @@
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>hand</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
 																<String>person</String>
 															</field>
 														</menuItem>
@@ -2177,6 +2273,16 @@
 														<menuItem>
 															<field name="actionID">
 																<String>org</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>hand</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>link</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -2256,6 +2362,39 @@
 							</field>
 							<field name="additionalToolbarsDescriptors">
 								<toolbar-array>
+									<toolbar>
+										<field name="id">
+											<String>EMST Characters</String>
+										</field>
+										<field name="type">
+											<Integer>2</Integer>
+										</field>
+										<field name="largeIconPath">
+											<null/>
+										</field>
+										<field name="smallIconPath">
+											<null/>
+										</field>
+										<field name="toolbarEntriesDescriptorList">
+											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>long.s</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>thorn</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>thorn.capital</String>
+													</field>
+												</toolbarItem>
+											</toolbarEntry-array>
+										</field>
+									</toolbar>
 									<toolbar>
 										<field name="id">
 											<String>EMST Edits</String>
@@ -2382,6 +2521,11 @@
 														<String>salute</String>
 													</field>
 												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>formulaic</String>
+													</field>
+												</toolbarItem>
 												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
@@ -2423,11 +2567,6 @@
 												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
-														<String>hand</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
 														<String>person</String>
 													</field>
 												</toolbarItem>
@@ -2441,43 +2580,20 @@
 														<String>org</String>
 													</field>
 												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>hand</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>link</String>
+													</field>
+												</toolbarItem>
 												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
 														<String>facsimile.select.dir</String>
-													</field>
-												</toolbarItem>
-											</toolbarEntry-array>
-										</field>
-									</toolbar>
-									<toolbar>
-										<field name="id">
-											<String>EMST Characters</String>
-										</field>
-										<field name="type">
-											<Integer>2</Integer>
-										</field>
-										<field name="largeIconPath">
-											<null/>
-										</field>
-										<field name="smallIconPath">
-											<null/>
-										</field>
-										<field name="toolbarEntriesDescriptorList">
-											<toolbarEntry-array>
-												<toolbarItem>
-													<field name="actionID">
-														<String>long.s</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>thorn</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>thorn.capital</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>

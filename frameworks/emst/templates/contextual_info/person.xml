@@ -26,14 +26,34 @@
                             <surname/>
                         </persName>
                         <sex/>
+                        <education/>
+                        <occupation/>
+                        <faith/>
+                        <socecStatus/>
                         <birth>
                             <settlement/>
                         </birth>
                         <death>
                             <settlement/>
                         </death>
+                        <residence>
+                            <settlement/>
+                        </residence>
+                        <affiliation>
+                            <orgName/>
+                        </affiliation>
+                        <event type="marriage">
+                            <label>Marriage</label>
+                            <desc>
+                                <persName/>
+                            </desc>
+                        </event>
                     </person>
                 </listPerson>
+                <listRelation>
+                    <relation type="personal" name="parent"/>
+                    <relation type="personal" name="spouse"/>
+                </listRelation>
             </listPerson>
         </body>
     </text>

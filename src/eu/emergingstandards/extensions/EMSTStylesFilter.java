@@ -41,6 +41,7 @@ public class EMSTStylesFilter implements StylesFilter {
     * Add the contextual element if the current Authornode represents a contextual reference
     * */
     private void addContextualElement(Styles styles, AuthorNode authorNode) {
+//        System.out.println("AuthorNode: name: " + authorNode.getName() + "; type: " + authorNode.getType());
         EMSTContextualElement contextualElement = EMSTContextualElement.get(authorNode);
         if (contextualElement != null) {
             Map<String, Object> comboboxArgs = new HashMap<>();

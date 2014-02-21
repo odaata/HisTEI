@@ -13,8 +13,6 @@ import java.util.Map;
  */
 public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
 
-//    private static final Logger logger = Logger.getLogger(EMSTNodeRendererCustomizer.class.getName());
-
     public static final Map<String, EMSTIconNode> iconNodes = new HashMap<>(50);
 
     private static class EMSTIconNode {
@@ -69,15 +67,31 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("salute", new EMSTIconNode("salute"));
         iconNodes.put("signed", new EMSTIconNode("signed"));
         iconNodes.put("postscript", new EMSTIconNode("postscript"));
+//      seg@function
+        initMap = new HashMap<>();
+        initMap.put("salute", "salute");
+        initMap.put("formulaic", "formulaic");
+        iconNodes.put("seg", new EMSTIconNode("seg", null, "function", initMap));
 //      Breaks
         iconNodes.put("lb", new EMSTIconNode("lb", "line_break"));
         iconNodes.put("pb", new EMSTIconNode("pb", "page_break"));
+//      Hands
+        iconNodes.put("handNote", new EMSTIconNode("handNote", "hand"));
+        iconNodes.put("handShift", new EMSTIconNode("handShift", "hand_shift"));
+//      Links
+        iconNodes.put("ptr", new EMSTIconNode("ptr", "link"));
+        iconNodes.put("ref", new EMSTIconNode("ref", "link"));
 //      Editorial Stuff
         iconNodes.put("abbr", new EMSTIconNode("abbr", "abbreviation"));
         iconNodes.put("expan", new EMSTIconNode("expan", "expansion"));
         iconNodes.put("foreign", new EMSTIconNode("foreign"));
-        iconNodes.put("note", new EMSTIconNode("note"));
         iconNodes.put("pc", new EMSTIconNode("pc", "punctuation"));
+//      note@type for storing Archive info in Org - otherwise normal note icon
+        initMap = new HashMap<>();
+        initMap.put("archive", "repository");
+        initMap.put("collection", "collection");
+        initMap.put("inventory", "inventory");
+        iconNodes.put("note", new EMSTIconNode("note", "note", "type", initMap));
 //      Primary Sources stuff
         iconNodes.put("add", new EMSTIconNode("add", "addition"));
         iconNodes.put("del", new EMSTIconNode("del", "deletion"));
@@ -97,7 +111,6 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
 //      Person
         iconNodes.put("person", new EMSTIconNode("person"));
         iconNodes.put("persName", new EMSTIconNode("persName", "person"));
-        iconNodes.put("handNote", new EMSTIconNode("handNote", "hand"));
 //      Place
         iconNodes.put("place", new EMSTIconNode("place"));
         iconNodes.put("placeName", new EMSTIconNode("placeName", "place"));
@@ -110,6 +123,12 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("org", new EMSTIconNode("org"));
         iconNodes.put("orgName", new EMSTIconNode("orgName", "org"));
         iconNodes.put("repository", new EMSTIconNode("repository"));
+
+        initMap = new HashMap<>();
+        initMap.put("archive", "repository");
+        initMap.put("collection", "collection");
+        initMap.put("inventory", "inventory");
+        iconNodes.put("note", new EMSTIconNode("seg", null, "function", initMap));
 //      Genre
         iconNodes.put("category", new EMSTIconNode("category"));
         iconNodes.put("catRef", new EMSTIconNode("catRef", "category"));

@@ -1,0 +1,155 @@
+/*-----------------------------------------------------------------------------------------------
+----- EMST framework customizations for Oxygen 
+-----   TEI Header for a Document
+-------------------------------------------------------------------------------------------------*/
+
+/* Bibliographic References used in sourceDesc when transcribing published work */
+@import "bibl.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Foldable Sections */
+publicationStmt,
+notesStmt,
+sourceDesc,
+msDesc,
+profileDesc,
+creation,
+textClass,
+handNotes {
+    display:block;
+    -oxy-foldable:true;
+}
+
+/* Collapsed Sections by Default */
+publicationStmt,
+notesStmt,
+sourceDesc,
+profileDesc,
+creation,
+textClass,
+handNotes {
+    -oxy-folded:true;
+}
+
+/* Section labels */
+
+publicationStmt:before,
+notesStmt:before,
+sourceDesc:before,
+msDesc:before,
+profileDesc:before,
+creation:before,
+textClass:before,
+handNotes:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+    content: oxy_concat("${i18n(", oxy_name(), ".label)}");
+}
+
+msDesc:before {
+    background-color:rgba(53, 25, 0, 0.6);    
+}
+
+/* Field labels */
+title:before,
+authority:before,
+note:before,
+repository:before,
+collection:before,
+catRef:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Collapse text for all reference elements 
+    (so that only the combobox will edit the field) */
+repository,
+creation > *,
+catRef {
+    vertical-align:middle;
+    padding:5px 0px;
+    visibility:-oxy-collapse-text;
+}
+
+/* Field Labels not automatically retrievable */
+publicationStmt > idno:before {
+    content: 
+        oxy_label(
+            text, "${i18n(idno.label.internal)}: "
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+msIdentifier > idno:before {
+    content: 
+        oxy_label(
+            text, "${i18n(idno.label.archive)}: "
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+altIdentifier > idno:before {
+    content: 
+        oxy_label(
+            text, "${i18n(idno.label.alternative)}:"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* creation */
+creation > * {
+    padding:5px 0px;
+}
+
+creation > *:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+        )
+    ;
+}
+
+/* Hand */
+handNote {
+    border:1px inset;
+}
+
+handNote:before {
+    -oxy-append-content:
+        url('../images/hand-16.png')
+        oxy_label(
+            text, "${i18n(id.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 10
+        )
+        oxy_label(
+            text, "${i18n(scope.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+                edit, "@scope"
+        )
+    ;
+}
+
+

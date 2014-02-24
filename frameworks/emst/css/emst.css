@@ -268,7 +268,8 @@ affiliation {
 TEI:before {
     background-color:navy;
     font-size:x-large;
-    content: "TEI Document";
+    content: "${i18n(TEI.label.document)}";
+/*    content: "TEI Document";*/
 }
 
 /* Main Sections */
@@ -280,7 +281,9 @@ text:before {
 
 /* TEI Header */
 teiHeader:before {
-    content: "TEI Header";
+    content: oxy_concat("${i18n(", oxy_name(), ".label)}");
+/*    content: "${i18n(" oxy_name() ".label)}";*/
+/*    content: "TEI Header";*/
 }
 
 teiHeader,
@@ -304,6 +307,12 @@ facsimile,
 listPerson > listPerson,
 listPlace > listPlace,
 listOrg > listOrg,
+listRelation > listRelation,
+person,
+place,
+org,
+birth,
+death,
 residence,
 affiliation {
     -oxy-folded:true;
@@ -623,6 +632,10 @@ hi[rend="italic"] {
   font-style:italic;
 }
 
+hi[rend="underline"] {
+  text-decoration:underline;
+}
+
 hi[rend="superscript"] {
     font-size:small;
     vertical-align:super;
@@ -631,10 +644,6 @@ hi[rend="superscript"] {
 hi[rend="subscript"] {
     font-size:small;
     vertical-align:sub;
-}
-
-hi[rend="underline"] {
-  text-decoration:underline;
 }
 
 abbr {

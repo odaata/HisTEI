@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="http://emergingstandards.eu/css/contextual_info.css"?>
 <TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
@@ -44,16 +45,18 @@
                         </affiliation>
                         <event type="marriage">
                             <label>Marriage</label>
-                            <desc>
+                            <note type="marriage_partner">
                                 <persName/>
-                            </desc>
+                            </note>
                         </event>
                     </person>
                 </listPerson>
-                <listRelation>
-                    <relation type="personal" name="parent"/>
-                    <relation type="personal" name="spouse"/>
+
+                <listRelation type="personal">
+                    <relation name="parent"/>
+                    <relation name="spouse"/>
                 </listRelation>
+
             </listPerson>
         </body>
     </text>

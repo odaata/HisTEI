@@ -60,6 +60,7 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("p", new EMSTIconNode("p", "paragraph"));
         iconNodes.put("fw", new EMSTIconNode("fw", "forme_work"));
         iconNodes.put("head", new EMSTIconNode("head"));
+        iconNodes.put("label", new EMSTIconNode("label"));
 //      Div subsections
         iconNodes.put("opener", new EMSTIconNode("opener"));
         iconNodes.put("closer", new EMSTIconNode("closer"));

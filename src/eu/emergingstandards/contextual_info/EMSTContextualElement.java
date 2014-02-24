@@ -11,6 +11,7 @@ import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 
+import java.lang.ref.WeakReference;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -70,16 +71,16 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
             }
         }
 
-        if (contextualElement != null && contextualElement.authorPage == null) {
-            contextualElement.authorPage = EMSTOxygenUtils.getCurrentAuthorEditorPage();
+        if (contextualElement != null && contextualElement.getAuthorPage() == null) {
+            contextualElement.setAuthorPage(EMSTOxygenUtils.getCurrentAuthorEditorPage());
         }
         return contextualElement;
     }
 
     /* Instance Members */
 
-    private WSAuthorEditorPage authorPage;
-    private final AuthorElement authorElement;
+    private WeakReference<WSAuthorEditorPage> authorPage;
+    private final WeakReference<AuthorElement> authorElement;
 
     private final EMSTContextualType contextualType;
     private final EMSTContextualInfo contextualInfo;
@@ -88,7 +89,7 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
     protected EMSTContextualElement(AuthorNode authorNode, EMSTContextualInfo contextualInfo,
                                     EMSTContextualElementProperties properties) {
 
-        this.authorElement = castAuthorElement(authorNode);
+        this.authorElement = new WeakReference<>(castAuthorElement(authorNode));
         this.contextualType = properties.getContextualType();
         this.contextualInfo = contextualInfo;
         this.elementProperties = properties;
@@ -96,14 +97,24 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
         contextualInfo.addListener(this);
     }
 
-    @NotNull
+    @Nullable
     public WSAuthorEditorPage getAuthorPage() {
-        return authorPage;
+        if (authorPage != null) {
+            return authorPage.get();
+        } else {
+            return null;
+        }
     }
 
-    @NotNull
+    public void setAuthorPage(WSAuthorEditorPage newAuthorPage) {
+        if (newAuthorPage != null) {
+            this.authorPage = new WeakReference<>(newAuthorPage);
+        }
+    }
+
+    @Nullable
     public AuthorElement getAuthorElement() {
-        return authorElement;
+        return authorElement.get();
     }
 
     @NotNull
@@ -129,12 +140,15 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
     @NotNull
     public String getRefID() {
         String id = "";
+        AuthorElement element = getAuthorElement();
 
-        String value = getAttrValue(authorElement.getAttribute(getRefAttributeName()));
-        if (value != null) {
-            Matcher matcher = REF_PATTERN.matcher(value);
-            if (matcher.matches()) {
-                id = matcher.group(2);
+        if (element != null) {
+            String value = getAttrValue(element.getAttribute(getRefAttributeName()));
+            if (value != null) {
+                Matcher matcher = REF_PATTERN.matcher(value);
+                if (matcher.matches()) {
+                    id = matcher.group(2);
+                }
             }
         }
         return id;
@@ -208,8 +222,11 @@ public class EMSTContextualElement implements EMSTRefreshEventListener {
 
     @Override
     public void refresh() {
-        if (authorPage != null && authorElement != null) {
-            authorPage.refresh(authorElement);
+        WSAuthorEditorPage page = getAuthorPage();
+        AuthorElement element = getAuthorElement();
+
+        if (page != null && element != null) {
+            page.refresh(element);
         }
     }
 }

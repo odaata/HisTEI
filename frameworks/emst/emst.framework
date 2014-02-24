@@ -39,10 +39,21 @@
 								<cssFile-array>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/emst.css</String>
+											<String>${framework}/css/document.css</String>
 										</field>
 										<field name="title">
-											<String>EMST CSS for Oxygen</String>
+											<String>EMST TEI Document</String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/contextual_info.css</String>
+										</field>
+										<field name="title">
+											<String>EMST Contextual Info List</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -51,7 +62,7 @@
 								</cssFile-array>
 							</field>
 							<field name="mergeCSSsFromDocument">
-								<Boolean>true</Boolean>
+								<Boolean>false</Boolean>
 							</field>
 							<field name="actionDescriptors">
 								<action-array>
@@ -2066,6 +2077,12 @@
 																<String>subscript</String>
 															</field>
 														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>link</String>
+															</field>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -2262,6 +2279,11 @@
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
+																<String>hand</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
 																<String>person</String>
 															</field>
 														</menuItem>
@@ -2273,16 +2295,6 @@
 														<menuItem>
 															<field name="actionID">
 																<String>org</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>hand</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>link</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -2354,6 +2366,12 @@
 											<toolbarItem>
 												<field name="actionID">
 													<String>subscript</String>
+												</field>
+											</toolbarItem>
+											<toolbarSeparator/>
+											<toolbarItem>
+												<field name="actionID">
+													<String>link</String>
 												</field>
 											</toolbarItem>
 										</toolbarEntry-array>
@@ -2567,6 +2585,11 @@
 												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
+														<String>hand</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
 														<String>person</String>
 													</field>
 												</toolbarItem>
@@ -2578,16 +2601,6 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>org</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>hand</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>link</String>
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>

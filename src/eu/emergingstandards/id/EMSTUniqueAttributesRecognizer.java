@@ -17,8 +17,9 @@ public class EMSTUniqueAttributesRecognizer extends DefaultUniqueAttributesRecog
                     "org",
                     "bibl",
                     "biblStruct",
-                    "biblFull"
-//                    "evt"
+                    "biblFull",
+                    "relation",
+                    "event"
             }
     );
 

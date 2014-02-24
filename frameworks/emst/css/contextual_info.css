@@ -1,0 +1,334 @@
+/*-----------------------------------------------------------------------------------------------
+----- EMST framework customizations for Oxygen 
+-----   made to the TEI css available at 
+-----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
+-------------------------------------------------------------------------------------------------*/
+
+/* Global fields & labels */
+@import "globals.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Foldable Sections */
+listPerson,
+listPlace,
+listOrg,
+listRelation,
+listEvent,
+taxonomy:not(:empty),
+person,
+place,
+org,
+event,
+birth,
+death,
+residence,
+affiliation,
+category {
+    display:block;
+    -oxy-foldable:true;
+/*    -oxy-display-tags:none;*/
+}
+
+/* Collapsed Sections by Default */
+listPerson > listPerson,
+listPlace > listPlace,
+listOrg > listOrg,
+listRelation,
+listEvent,
+person,
+place,
+org,
+category,
+event,
+/*birth,
+death,*/
+residence,
+affiliation {
+    -oxy-folded:true;
+}
+
+/* Main Sections */
+listPerson:before,
+listPlace:before,
+listOrg:before,
+listRelation:before,
+listEvent:before,
+taxonomy:not(:empty):before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+}
+
+listRelation:before {
+    background-color: rgba(64, 64, 255, 0.7);
+}
+
+listEvent:before {
+    background-color: rgba(0, 49, 200, 0.7);
+}
+
+/* Section labels */
+listPerson:before! > listPerson,
+listPlace:before! > listPlace,
+listOrg:before! > listOrg,
+listRelation:before,
+listEvent:before,
+taxonomy:not(:empty):before,
+person:before,
+place:before,
+org:before,
+category:before,
+event:before,
+birth:before,
+death:before,
+residence:before,
+affiliation:before {
+    display:block;
+    content: oxy_concat("${i18n(", oxy_name(), ".label)}");
+}
+
+person:before,
+place:before,
+org:before,
+category:before {
+    font-style:italic;
+}
+
+/* Special labels for lists without a specified type */
+listPerson > listPerson:before,
+listPlace > listPlace:before,
+listOrg > listOrg:before {
+    background-color:rgba(53, 25, 0, 0.6);
+    content:"${i18n(list.label.untyped)}";
+}
+
+/* Special labels for lists with a specified type */
+listPerson > listPerson[type]:before,
+listPlace > listPlace[type]:before,
+listOrg > listOrg[type]:before {
+    background-color:rgba(53, 25, 0, 0.6);
+    content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type) , ")}");
+}
+
+taxonomy:not(:empty):before {
+    -oxy-append-content: 
+        oxy_label(
+            text, "ID: "
+            width, 75px
+            color, "white"
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_label(
+            text, attr(xml|id)
+            color, "white"
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+/* Field labels */
+note:before,
+title:before,
+authority:before,
+sourceDesc:before,
+relation:before,
+catDesc:before,
+desc:before,
+roleName:before,
+forename:before,
+nameLink:not(:empty):before,
+surname:not(:empty):before,
+sex:before,
+education:before,
+occupation:before,
+socecStatus:before,
+faith:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Special labels for the actual names under the records
+    as opposed to the reference label when used elsewhere */
+person > persName:before,
+place > placeName:before,
+org > orgName:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label.name)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Inline elements for text */
+person > persName,
+place > placeName,
+org > orgName,
+desc,
+catDesc {
+    padding:5px 1px;
+    white-space:normal;
+}
+
+person > persName *,
+place > placeName *,
+org > orgName *,
+desc *,
+catDesc * {
+    display:inline;    
+    -oxy-display-tags:none;
+    visibility:visible;
+}
+
+desc date,
+desc persName,
+desc placeName,
+desc orgName,
+desc district,
+desc settlement,
+desc region,
+desc country,
+desc bloc {
+    color:olive;
+}
+
+desc date:before,
+desc placeName:before,
+desc orgName:before,
+desc district:before,
+desc settlement:before,
+desc region:before,
+desc country:before,
+desc bloc:before {
+    content: "";
+}
+
+/* Records */
+person,
+place,
+org {
+    display:block;
+    margin:10px;
+    padding:10px;
+    border:2px inset;
+    -oxy-foldable:true;
+}
+
+/* Fields */
+person *,
+place *,
+org * {
+    display:block;
+    padding:2px;
+}
+
+/* Sections */
+person:before,
+place:before,
+org:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", oxy_xpath('normalize-space(./persName | ./placeName | ./orgName)'))
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+person:before,
+place:before,
+org:before,
+category:before {
+    border-bottom:1px inset;
+    padding-bottom:5px;
+    width:100%;
+    margin:5px;
+    -oxy-append-content: 
+        oxy_label(
+            text, "ID: "
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_label(
+            text, attr(xml|id)
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+/* Person */
+person > persName > roleName {
+    visibility:-oxy-collapse-text;
+    content:
+        oxy_combobox(
+            edit, "#text"
+            editable, true
+            columns, 7
+            fontInherit, true
+        );
+}
+
+/* Narrow labels for names b/c they're inline */
+roleName:before,
+forename:before,
+nameLink:before,
+surname:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}:")
+            width, 25px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Special labels for typed names */
+forename[type="middle"]:before,
+surname[type="married"]:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", attr(type), ".label)}:")
+            width, 25px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* 
+  Can't set these values using ccfilter 
+    since it's schema only allows NCNames as attribute values :-( 
+*/
+sex {
+    display:inline;
+    visibility:-oxy-collapse-text;
+    -oxy-display-tags:none;
+    content: 
+        oxy_combobox(
+            edit, "@value"
+            editable, false
+            values, "1, 2, 0"
+            labels, "male, female, unknown"
+        )
+    ;
+}
+
+/* Genre */
+
+category:before! > category {
+    content: attr(xml|id);
+}
+
+category {
+    border:1px inset grey;
+    margin:2px 0px;
+    padding:5px;
+}
+
+

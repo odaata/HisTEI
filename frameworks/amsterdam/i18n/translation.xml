@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <translation>
-<languageList>
+    <languageList>
         <language description="English" lang="en_US"/>
         <language description="German" lang="de_DE"/>
         <language description="French" lang="fr_FR"/>
@@ -8,83 +8,253 @@
         <language description="Dutch" lang="nl_NL"/>
     </languageList>
 
+    <!--  Character Actions  -->
+
+    <key value="long.s">
+        <val lang="en_US">long s</val>
+    </key>
+    <key value="long.s_description">
+        <val lang="en_US">Insert a long s.</val>
+    </key>
+    <key value="thorn">
+        <val lang="en_US">thorn</val>
+    </key>
+    <key value="thorn_description">
+        <val lang="en_US">Insert a thorn.</val>
+    </key>
+    <key value="thorn.capital">
+        <val lang="en_US">capital thorn</val>
+    </key>
+    <key value="thorn.capital_description">
+        <val lang="en_US">Insert a capital thorn.</val>
+    </key>
+
+    <!-- Text Decoration -->
+
     <key value="bold">
-        <comment>Bold action name.</comment>
         <val lang="en_US">Bold</val>
         <val lang="de_DE">Fett</val>
         <val lang="fr_FR">Gras</val>
         <val lang="ja_JP">ボールド</val>
         <val lang="nl_NL">Vet</val>
     </key>
-    <key type="action" value="bold_description">
-        <comment>Bold action description.</comment>
-        <val lang="en_US">Highlight text. Insert the hi[rend="bold"] element.</val>
+    <key value="bold_description">
+        <val lang="en_US">Bold. Insert the hi[rend="bold"] element.</val>
         <val lang="de_DE">Ausgewählten Text fett machen</val>
         <val lang="fr_FR">Graisser le texte de documentation sélectionné</val>
         <val lang="ja_JP">選択された文書のテキストをボールドに</val>
         <val lang="nl_NL">Voeg het element 'b' in</val>
     </key>
     <key value="italic">
-        <comment>Italic action name.</comment>
         <val lang="en_US">Italic</val>
         <val lang="de_DE">Kursiv</val>
         <val lang="fr_FR">Italique</val>
         <val lang="ja_JP">イタリック</val>
         <val lang="nl_NL">Cursief</val>
     </key>
-    <key type="action" value="italic_description">
-        <comment>Italic action description.</comment>
-        <val lang="en_US">Highlight text. Insert the hi[rend="italic"] element.</val>
+    <key value="italic_description">
+        <val lang="en_US">Italic. Insert the hi[rend="italic"] element.</val>
         <val lang="de_DE">Ausgewählten Text kursiv machen</val>
         <val lang="fr_FR">Mettre en italique le texte de documentation sélectionné</val>
         <val lang="ja_JP">選択された文書のテキストをイタリックに</val>
         <val lang="nl_NL">Voeg het element 'i' in</val>
     </key>
-    <key type="action" value="underline">
-        <comment>Underline action name.</comment>
+    <key value="underline">
         <val lang="en_US">Underline</val>
         <val lang="de_DE">Unterstreichen</val>
         <val lang="fr_FR">Soulignage</val>
         <val lang="ja_JP">アンダーライン</val>
         <val lang="nl_NL">Onderstreep</val>
     </key>
-    <key type="action" value="underline_description">
-        <comment>Underline action description.</comment>
-        <val lang="en_US">Highlight text. Insert the hi[rend="underline"] element.</val>
+    <key value="underline_description">
+        <val lang="en_US">Underline. Insert the hi[rend="underline"] element.</val>
         <val lang="de_DE">Fügt das 'u' Element ein</val>
         <val lang="fr_FR">Insérer l'élément 'u'</val>
         <val lang="ja_JP">'u' 要素の挿入</val>
         <val lang="nl_NL">Voegt het element 'u' in</val>
     </key>
 
+    <key value="superscript">
+        <val lang="en_US">Superscript</val>
+    </key>
+    <key value="superscript_description">
+        <val lang="en_US">Superscript. Insert the hi[rend="superscript"] element.</val>
+    </key>
+    <key value="subscript">
+        <val lang="en_US">Subscript</val>
+    </key>
+    <key value="subscript_description">
+        <val lang="en_US">Subscript. Insert the hi[rend="subscript"] element.</val>
+    </key>
+
+    <key value="link">
+        <val lang="en_US">Link</val>
+    </key>
+    <key value="link_description">
+        <val lang="en_US">Insert a generic link to any URL with optional text. Insert the ref element.</val>
+    </key>
+
+    <key value="punctuation">
+        <val lang="en_US">Punctuation</val>
+    </key>
+    <key value="punctuation_description">
+        <val lang="en_US">Insert punctuation. Insert the pc element.</val>
+    </key>
+    <key value="punctuation.supplied">
+        <val lang="en_US">Supplied Punctuation</val>
+    </key>
+    <key value="punctuation.supplied_description">
+        <val lang="en_US">Insert punctuation supplied by the editor (e.g. for easier readability or
+            automatically splitting sentences). Insert the pc element wrapped in the supplied
+            element.
+        </val>
+    </key>
+
+    <!-- Text Body -->
+
+    <key value="line.break">
+        <val lang="en_US">lb</val>
+    </key>
+    <key value="line.break_description">
+        <val lang="en_US">Insert a line break. Insert the lb element.</val>
+    </key>
+    <key value="page.break">
+        <val lang="en_US">pb</val>
+    </key>
+    <key value="page.break_description">
+        <val lang="en_US">Insert a page break. Insert the pb element.</val>
+    </key>
+    <key value="hand.shift">
+        <val lang="en_US">Hand Shift</val>
+    </key>
+    <key value="hand.shift_description">
+
+        <val lang="en_US">Insert a hand shift. Insert the handShift element.</val>
+    </key>
+    <key value="hand">
+        <val lang="en_US">Hand</val>
+    </key>
+    <key value="hand_description">
+        <val lang="en_US">Insert a generic hand, i.e. NOT linked to a Person. Insert the handNote
+            element.
+        </val>
+    </key>
+
+    <key value="salute">
+        <val lang="en_US">Salute</val>
+    </key>
+    <key value="salute_description">
+        <val lang="en_US">Mark selected text as being the salute. Either insert the salute element
+            or surround text with seg[function="salute"].
+        </val>
+    </key>
+    <key value="formulaic">
+        <val lang="en_US">Formulaic</val>
+    </key>
+    <key value="formulaic_description">
+        <val lang="en_US">Mark selected text as containing formulaic language. Surround text with
+            seg[function="formulaic"].
+        </val>
+    </key>
+
     <key value="abbreviation">
-        <comment>Abbreviation action name.</comment>
         <val lang="en_US">Abbreviation</val>
     </key>
     <key value="abbreviation_description">
-        <comment>Abbreviation action description.</comment>
+
         <val lang="en_US">Mark a word as an abbreviation. Insert the abbr element.</val>
     </key>
-
     <key value="expansion">
-        <comment>Expansion action name.</comment>
         <val lang="en_US">Expansion</val>
     </key>
     <key value="expansion_description">
-        <comment>Expansion action description.</comment>
         <val lang="en_US">Expand an abbreviation or brevigraph. Insert the expan element.</val>
     </key>
 
-    <key type="action" value="paragraph">
-        <comment>Insert Paragraph action name.</comment>
+    <key value="foreign">
+        <val lang="en_US">Foreign</val>
+    </key>
+    <key value="foreign_description">
+        <val lang="en_US">A part of the original text written in a foreign language. Insert the
+            foreign element.
+        </val>
+    </key>
+    <key value="note">
+        <val lang="en_US">Note</val>
+    </key>
+    <key value="note_description">
+
+        <val lang="en_US">Insert a note found in the original text. Insert the note element.</val>
+    </key>
+
+    <key value="addition">
+        <val lang="en_US">Addition</val>
+    </key>
+    <key value="addition_description">
+        <val lang="en_US">Addition to the original text. Insert the add element.</val>
+    </key>
+
+    <key value="deletion">
+        <val lang="en_US">Deletion</val>
+    </key>
+    <key value="deletion_description">
+        <val lang="en_US">Deletion in the original text. Insert the del element.</val>
+    </key>
+
+    <key value="gap">
+        <val lang="en_US">Gap</val>
+    </key>
+    <key value="gap_description">
+        <val lang="en_US">Gap in the original text. Insert the gap element.</val>
+    </key>
+
+    <key value="unclear">
+        <val lang="en_US">Unclear</val>
+    </key>
+    <key value="unclear_description">
+        <val lang="en_US">An unclear part of the original text. Insert the unclear element.</val>
+    </key>
+
+    <key value="supplied">
+        <val lang="en_US">Supplied</val>
+    </key>
+    <key value="supplied_description">
+        <val lang="en_US">Text supplied by the transcriber. Insert the supplied element.</val>
+    </key>
+
+    <!-- Structure/Layout -->
+
+    <key value="div">
+        <val lang="en_US">Division</val>
+    </key>
+    <key value="div_description">
+        <val lang="en_US">Insert a division, or section, in the text using the div element.</val>
+    </key>
+    <key value="div.entry">
+        <val lang="en_US">Entry</val>
+    </key>
+    <key value="div.entry_description">
+        <val lang="en_US">Insert an entry (e.g. in a journal or travelogue) with
+            div[type="entry"].
+        </val>
+    </key>
+    <key value="div.address">
+        <val lang="en_US">Entry</val>
+    </key>
+    <key value="div.address_description">
+        <val lang="en_US">Insert an address section (e.g. as part of a letter) with
+            div[type="address"].
+        </val>
+    </key>
+
+    <key value="paragraph">
         <val lang="en_US">Insert Paragraph</val>
         <val lang="de_DE">Paragraph einfügen</val>
         <val lang="fr_FR">Insérer Paragraphe</val>
         <val lang="ja_JP">段落の挿入</val>
         <val lang="nl_NL">Voeg paragraaf in</val>
     </key>
-    <key type="action" value="paragraph_description">
-        <comment>Insert Paragraph action description.</comment>
+    <key value="paragraph_description">
         <val lang="en_US">Insert a new paragraph</val>
         <val lang="de_DE">Einen neuen Dokumentaionsparagraph einfügen</val>
         <val lang="fr_FR">Insérer un nouveau paragraphe de documentation</val>
@@ -93,661 +263,783 @@
     </key>
 
     <key value="head">
-        <comment>Head action name.</comment>
         <val lang="en_US">Heading</val>
     </key>
     <key value="head_description">
-        <comment>Head action description.</comment>
         <val lang="en_US">Insert a heading using the head element.</val>
     </key>
-    
-    <key value="launch.media">
-        <comment>Launch media action name.</comment>
-        <val lang="en_US">Launch Media</val>
+    <key value="forme.work">
+        <val lang="en_US">Forme Work</val>
     </key>
-    <key value="launch.media_description">
-        <comment>Launch media action description.</comment>
-        <val lang="en_US">Load the media associated with the current place in the file (images, pdf, etc).</val>
+    <key value="forme.work_description">
+        <val lang="en_US">Insert a running header, page number, catchword, etc. using the forme work
+            element.
+        </val>
     </key>
-    
-    <key value="launch.media.by.ref">
-        <comment>Launch media by ref action name.</comment>
-        <val lang="en_US">Launch Media</val>
+
+    <!-- Contextual Information -->
+
+    <key value="date">
+        <val lang="en_US">date</val>
     </key>
-    <key value="launch.media.by.ref_description">
-        <comment>Launch media by ref action description.</comment>
-        <val lang="en_US">Load the media associated with the media ref based on the current place.</val>
+    <key value="date_description">
+        <val lang="en_US">Insert a a date with the date element.</val>
     </key>
-    
-    
-<!-- Original key/values taken from TEI P5 framework   -->
-    
-    
-    <key value="table.join.split">
-        <comment>Table Join/Split action group title.</comment>
-        <val lang="en_US">Table Join/Split</val>
-        <val lang="de_DE">Verbinden/Teilen Tabelle</val>
-        <val lang="fr_FR">Joindre/Ceindre Table</val>
-        <val lang="ja_JP">テーブルの結合/分割</val>
-        <val lang="nl_NL">Tabel samenvoegen/splitsen</val>
+
+    <key value="contextual.info.edit">
+        <!--<val lang="en_US">Edit...</val>-->
+        <val lang="en_US">&#xfeff;</val>
     </key>
-<key value="figure.wizard">
-        <comment>Content completion action name.</comment>
-        <val lang="en_US">figure wizard</val>
-        <val lang="de_DE">Zahlen-Assistent</val>
-        <val lang="fr_FR">assistant figure</val>
-        <val lang="ja_JP">図表ウィザード</val>
-        <val lang="nl_NL">getallenwizard</val>
+    <key value="contextual.info.edit_description">
+        <val lang="en_US">Load the referenced contextual information for editing.</val>
     </key>
-<key value="row.wizard">
-        <comment>Content completion action name.</comment>
-        <val lang="en_US">row wizard</val>
-        <val lang="de_DE">Spalten-Assistent</val>
-        <val lang="fr_FR">assistant row</val>
-        <val lang="ja_JP">行ウィザード</val>
-        <val lang="nl_NL">rijenwizard</val>
+
+    <key value="person">
+        <val lang="en_US">psn</val>
     </key>
-<key value="table.wizard">
-        <comment>Content completion action name.</comment>
-        <val lang="en_US">table wizard</val>
-        <val lang="de_DE">Tabellen-Assistent</val>
-        <val lang="fr_FR">assistant table</val>
-        <val lang="ja_JP">テーブル ウィザード</val>
-        <val lang="nl_NL">tabelwizard</val>
+    <key value="person_description">
+        <val lang="en_US">Insert a person.</val>
     </key>
-<key value="handle.paste.column.warning">
-        <comment>Message shown when there are cells that span over the inserted column.</comment>
-        <val lang="en_US">For some rows the new column cannot add a cell 
-            (there are cells that span over it or there are rows with missing cells). What do you want to do?</val>
-        <val lang="de_DE">Die neue Spalte kann für manche Zeilen keine Zellen einfügen
-            (es existieren Zellen, die diese umfasen oder Spalten mit fehlenden Zellen). Was möchten Sie tun?</val>
-        <val lang="fr_FR">Pour certaines lignes la nouvelle colonne ne peut pas recevoir une nouvelle cellule (il y a des cellules qui s'étendent sur elle ou il y a des lignes avec des cellules manquantes). Que voulez-vous faire ?</val>
-        <val lang="ja_JP">いくつかの行では、セルに新しい列を追加できません (複数のセルにまたがっているか
-      セルがない行があります)。 どうしますか?</val>
-        <val lang="nl_NL">Voor sommige rijen kan de nieuwe kolom geen cel toevoegen (er zijn cellen die de rij overspannen of er zijn rijen met onbrekende cellen). Wat wilt u doen?</val>
+
+    <key value="place">
+        <val lang="en_US">plc</val>
     </key>
-<key type="action" value="list">
-        <comment>List menu item name.</comment>
-        <val lang="en_US">List</val>
-        <val lang="de_DE">Liste</val>
-        <val lang="fr_FR">Liste</val>
-        <val lang="ja_JP">リスト</val>
-        <val lang="nl_NL">Lijst</val>
+    <key value="place_description">
+        <val lang="en_US">Insert a place.</val>
+    </key>
+
+    <key value="org">
+        <val lang="en_US">org</val>
+    </key>
+    <key value="org_description">
+        <val lang="en_US">Insert an organization.</val>
+    </key>
+
+    <!--  Media Actions  -->
+
+    <key value="facsimile.select.dir">
+        <!--<val lang="en_US">Select Base Directory...</val>-->
+        <val lang="en_US">Choose...</val>
+    </key>
+    <key value="facsimile.select.dir_description">
+        <val lang="en_US">Select the base directory where the images and/or media for this text are
+            located. This modifies the xml:base attribute.
+        </val>
+    </key>
+
+    <key value="media.open">
+        <!--<val lang="en_US">Open...</val>-->
+        <val lang="en_US">&#xfeff;</val>
+    </key>
+    <key value="media.open_description">
+        <val lang="en_US">Load the media associated with the current place in the file (images, pdf,
+            etc).
+        </val>
+    </key>
+
+    <!--  Labels for use in CSS Styles  -->
+
+    <!--  Global Fields  -->
+
+    <!--  Global Attributes  -->
+
+    <key value="id.label">
+        <comment>xml:id attribute</comment>
+        <val lang="en_US">ID</val>
+    </key>
+
+    <key value="lang.label">
+        <comment>xml:lang attribute</comment>
+        <val lang="en_US">Lang</val>
+    </key>
+
+    <key value="url.label">
+        <comment>url attribute</comment>
+        <val lang="en_US">URL</val>
+    </key>
+
+    <key value="type.label">
+        <comment>type attribute</comment>
+        <val lang="en_US">Type</val>
+    </key>
+
+    <key value="reason.label">
+        <comment>reason attribute</comment>
+        <val lang="en_US">Reason</val>
+    </key>
+
+    <key value="place.label.textual">
+        <comment>place attribute</comment>
+        <val lang="en_US">Place</val>
+    </key>
+
+    <key value="n.label">
+        <comment>n attribute</comment>
+        <val lang="en_US">n</val>
+    </key>
+    <key value="n.tooltip">
+        <comment>n attribute tooltip</comment>
+        <val lang="en_US">Any page number provided by the source</val>
+    </key>
+
+    <key value="facs.label">
+        <comment>facs attribute</comment>
+        <val lang="en_US">Facsimile(s)</val>
+    </key>
+
+    <key value="hand.label">
+        <comment>hand attribute</comment>
+        <val lang="en_US">Hand</val>
+    </key>
+
+    <!--  Date  -->
+
+    <key value="date.label">
+        <val lang="en_US">Date</val>
+    </key>
+    <key value="date.label.added">
+        <val lang="en_US">Date Added</val>
+    </key>
+    <key value="date.label.accessed">
+        <val lang="en_US">Accessed</val>
+    </key>
+    <key value="date.label.when">
+        <val lang="en_US">When</val>
+    </key>
+    <key value="date.label.from">
+        <val lang="en_US">From</val>
+    </key>
+    <key value="date.label.to">
+        <val lang="en_US">To</val>
+    </key>
+    <key value="date.label.not.before">
+        <val lang="en_US">Not Before</val>
+    </key>
+    <key value="date.label.not.after">
+        <val lang="en_US">Not After</val>
+    </key>
+    <key value="date.label.cert">
+        <val lang="en_US">Certainty</val>
+    </key>
+
+    <!--  Note  -->
+
+    <key value="note.label">
+        <val lang="en_US">Note</val>
+    </key>
+
+    <key value="note.label.user">
+        <val lang="en_US">User Note</val>
+    </key>
+
+    <!--  Links  -->
+
+    <key value="ptr.label">
+        <val lang="en_US">Pointer</val>
+    </key>
+
+    <key value="ref.label">
+        <val lang="en_US">Reference</val>
+    </key>
+
+    <!--  Headings  -->
+
+    <key value="head.label">
+        <val lang="en_US">Heading</val>
+    </key>
+
+    <key value="label.label">
+        <val lang="en_US">Label</val>
+    </key>
+
+    <key value="desc.label">
+        <val lang="en_US">Description</val>
+    </key>
+
+    <key value="p.label">
+        <val lang="en_US">Paragraph</val>
+    </key>
+
+    <key value="lb.label">
+        <val lang="en_US">Line Break</val>
+    </key>
+
+    <!--  Contextual Info References  -->
+
+    <key value="persName.label">
+        <val lang="en_US">Person</val>
+    </key>
+    <key value="persName.label.name">
+        <val lang="en_US">Name</val>
+    </key>
+
+    <key value="orgName.label">
+        <val lang="en_US">Org</val>
+    </key>
+    <key value="orgName.label.name">
+        <val lang="en_US">Org Name</val>
+    </key>
+
+    <!--  Place References  -->
+
+    <key value="placeName.label">
+        <val lang="en_US">Place</val>
+    </key>
+    <key value="placeName.label.name">
+        <val lang="en_US">Place Name</val>
+    </key>
+
+    <key value="district.label">
+        <val lang="en_US">District</val>
+    </key>
+
+    <key value="settlement.label">
+        <val lang="en_US">Settlement</val>
+    </key>
+
+    <key value="region.label">
+        <val lang="en_US">Region</val>
+    </key>
+
+    <key value="country.label">
+        <val lang="en_US">Country</val>
+    </key>
+
+    <key value="bloc.label">
+        <val lang="en_US">Bloc</val>
+    </key>
+
+    <!--  Global Text Layout  -->
+
+    <key value="TEI.label">
+        <val lang="en_US">TEI</val>
+    </key>
+    <key value="TEI.label.document">
+        <val lang="en_US">TEI Document</val>
+    </key>
+    <key value="TEI.label.contextual.info">
+        <val lang="en_US">TEI Contextual Information</val>
+    </key>
+
+    <key value="text.label">
+        <val lang="en_US">Text</val>
+    </key>
+
+    <key value="front.label">
+        <val lang="en_US">Front</val>
+    </key>
+
+    <key value="body.label">
+        <val lang="en_US">Body</val>
+    </key>
+
+    <key value="back.label">
+        <val lang="en_US">Back</val>
+    </key>
+
+    <!--  Global Textual Styles  -->
+
+    <key value="hi.label.bold">
+        <val lang="en_US">Bold</val>
+    </key>
+    <key value="hi.label.italic">
+        <val lang="en_US">Italic</val>
+    </key>
+    <key value="hi.label.underline">
+        <val lang="en_US">Underline</val>
+    </key>
+    <key value="hi.label.superscript">
+        <val lang="en_US">Superscript</val>
+    </key>
+    <key value="hi.label.subscript">
+        <val lang="en_US">Subscript</val>
+    </key>
+
+    <!--  TEI Header  -->
+
+    <key value="teiHeader.label">
+        <val lang="en_US">TEI Header</val>
+    </key>
+
+    <!--  Header Main Sections  -->
+
+    <key value="fileDesc.label">
+        <val lang="en_US">File Description</val>
+    </key>
+
+    <key value="titleStmt.label">
+        <val lang="en_US">Title Statement</val>
+    </key>
+
+    <key value="publicationStmt.label">
+        <val lang="en_US">Publication Statement</val>
+    </key>
+
+    <key value="notesStmt.label">
+        <val lang="en_US">Notes Statement</val>
+    </key>
+
+    <key value="sourceDesc.label">
+        <val lang="en_US">Source Description</val>
+    </key>
+
+    <key value="msDesc.label">
+        <val lang="en_US">Manuscript Description</val>
+    </key>
+
+    <key value="profileDesc.label">
+        <val lang="en_US">Profile Description</val>
+    </key>
+
+    <key value="creation.label">
+        <val lang="en_US">Creation</val>
+    </key>
+
+    <key value="textClass.label">
+        <val lang="en_US">Text Classification</val>
+    </key>
+
+    <key value="handNotes.label">
+        <val lang="en_US">Hands</val>
+    </key>
+
+    <!--  Header Fields  -->
+
+    <key value="title.label">
+        <val lang="en_US">Title</val>
+    </key>
+
+    <!--  PublicationStmt  -->
+    <key value="authority.label">
+        <val lang="en_US">Authority</val>
+    </key>
+
+    <key value="idno.label">
+        <val lang="en_US">ID</val>
+    </key>
+    <key value="idno.label.internal">
+        <val lang="en_US">Internal ID</val>
+    </key>
+    <key value="idno.label.archive">
+        <val lang="en_US">Archive ID</val>
+    </key>
+    <key value="idno.label.alternative">
+        <val lang="en_US">Alternative ID</val>
+    </key>
+    <key value="idno.label.DOI">
+        <val lang="en_US">DOI</val>
+    </key>
+    <key value="idno.label.ISBN">
+        <val lang="en_US">ISBN</val>
+    </key>
+    <key value="idno.label.ISSN">
+        <val lang="en_US">ISSN</val>
+    </key>
+
+    <!--  SourceDesc  -->
+
+    <key value="repository.label">
+        <val lang="en_US">Archive</val>
+    </key>
+
+    <key value="collection.label">
+        <val lang="en_US">Collection</val>
+    </key>
+
+    <key value="catRef.label">
+        <val lang="en_US">Genre</val>
+    </key>
+
+    <key value="handNote.label">
+        <val lang="en_US">Hand</val>
+    </key>
+
+    <key value="scope.label">
+        <val lang="en_US">Scope</val>
+    </key>
+
+    <!--  Facsimile -->
+
+    <key value="facsimile.label">
+        <val lang="en_US">Facsimile</val>
+    </key>
+    <key value="facsimile.label.base.directory">
+        <val lang="en_US">Base Directory</val>
+    </key>
+
+    <!-- Front Matter -->
+
+    <key value="titlePage.label">
+        <val lang="en_US">Title Page</val>
+    </key>
+
+    <key value="docTitle.label">
+        <val lang="en_US">Doc Title</val>
+    </key>
+
+    <key value="titlePart.label">
+        <val lang="en_US">Title Part</val>
+    </key>
+
+    <!-- Structure/Layout -->
+
+    <key value="div.label">
+        <val lang="en_US">Div</val>
+    </key>
+
+    <key value="p.label">
+        <val lang="en_US">Paragraph</val>
+    </key>
+
+    <!--  Page Elements, Headings & Subsections -->
+
+    <key value="fw.label">
+        <val lang="en_US">Forme Work</val>
+    </key>
+
+    <key value="div.label">
+        <val lang="en_US">Div</val>
+    </key>
+
+    <key value="opener.label">
+        <val lang="en_US">Opener</val>
+    </key>
+
+    <key value="closer.label">
+        <val lang="en_US">Closer</val>
+    </key>
+
+    <key value="postscript.label">
+        <val lang="en_US">Postscript</val>
+    </key>
+
+    <key value="dateline.label">
+        <val lang="en_US">Dateline</val>
+    </key>
+
+    <key value="salute.label">
+        <val lang="en_US">Salute</val>
+    </key>
+
+    <key value="signed.label">
+        <val lang="en_US">Signed</val>
+    </key>
+
+    <!--  Biblographic References  -->
+
+    <key value="bibl.label">
+        <val lang="en_US">Bibl</val>
+    </key>
+
+    <key value="biblStruct.label">
+        <val lang="en_US">Bibl (Structured)</val>
+    </key>
+
+    <key value="biblFull.label">
+        <val lang="en_US">Bibl (Full)</val>
+    </key>
+
+    <key value="analytic.label">
+        <val lang="en_US">Article/Chapter Information</val>
+    </key>
+
+    <key value="monogr.label">
+        <val lang="en_US">Publication Information</val>
+    </key>
+
+    <key value="series.label">
+        <val lang="en_US">Series Information</val>
+    </key>
+
+    <key value="author.label">
+        <val lang="en_US">Author</val>
+    </key>
+
+    <key value="editor.label">
+        <val lang="en_US">Editor</val>
+    </key>
+
+    <key value="edition.label">
+        <val lang="en_US">Edition</val>
+    </key>
+
+    <key value="publisher.label">
+        <val lang="en_US">Publisher</val>
+    </key>
+
+    <key value="pubPlace.label">
+        <val lang="en_US">Place</val>
+    </key>
+
+    <key value="biblScope.label">
+        <val lang="en_US">Scope</val>
+    </key>
+    <key value="biblScope.label.vol">
+        <val lang="en_US">Volume</val>
+    </key>
+    <key value="biblScope.label.volume">
+        <val lang="en_US">Volume</val>
+    </key>
+    <key value="biblScope.label.issue">
+        <val lang="en_US">Issue</val>
+    </key>
+    <key value="biblScope.label.pp">
+        <val lang="en_US">Pages</val>
+    </key>
+    <key value="biblScope.label.page">
+        <val lang="en_US">Pages</val>
+    </key>
+    <key value="biblScope.label.ll">
+        <val lang="en_US">Lines</val>
+    </key>
+    <key value="biblScope.label.line">
+        <val lang="en_US">Lines</val>
+    </key>
+    <key value="biblScope.label.chap">
+        <val lang="en_US">Chapter</val>
+    </key>
+    <key value="biblScope.label.chapter">
+        <val lang="en_US">Chapter</val>
+    </key>
+    <key value="biblScope.label.part">
+        <val lang="en_US">Part</val>
+    </key>
+    <key value="biblScope.label.column">
+        <val lang="en_US">Column</val>
+    </key>
+    <key value="biblScope.label.from">
+        <val lang="en_US">From</val>
+    </key>
+    <key value="biblScope.label.to">
+        <val lang="en_US">To</val>
+    </key>
+
+    <!--  Contextual Info  -->
+
+    <!--  Lists  -->
+    <key value="list.label.untyped">
+        <val lang="en_US">Uncategorized</val>
+    </key>
+
+    <key value="listPerson.label">
+        <val lang="en_US">People</val>
+    </key>
+
+    <key value="listPlace.label">
+        <val lang="en_US">Places</val>
+    </key>
+    <key value="listPlace.label.district">
+        <val lang="en_US">Districts (subdivisions of settlements, e.g. parishes or wards)</val>
+    </key>
+    <key value="listPlace.label.settlement">
+        <val lang="en_US">Settlements (aka Cities or Towns)</val>
+    </key>
+    <key value="listPlace.label.region">
+        <val lang="en_US">Regions (larger than settlements, but smaller than countries)</val>
+    </key>
+    <key value="listPlace.label.country">
+        <val lang="en_US">Countries</val>
+    </key>
+    <key value="listPlace.label.bloc">
+        <val lang="en_US">Blocs (two or more nation states or countries)</val>
+    </key>
+
+    <key value="listOrg.label">
+        <val lang="en_US">Organizations</val>
+    </key>
+    <key value="listOrg.label.repository">
+        <val lang="en_US">Repositories (i.e. Archives where old texts are kept)</val>
+    </key>
+
+    <key value="listEvent.label">
+        <val lang="en_US">Events</val>
+    </key>
+
+    <key value="listRelation.label">
+        <val lang="en_US">Relationships</val>
+    </key>
+
+    <!--  Records  -->
+    <key value="person.label">
+        <val lang="en_US">Person</val>
+    </key>
+
+    <key value="place.label">
+        <val lang="en_US">Place</val>
+    </key>
+
+    <key value="org.label">
+        <val lang="en_US">Org</val>
+    </key>
+
+    <key value="event.label">
+        <val lang="en_US">Event</val>
+    </key>
+
+    <key value="relation.label">
+        <val lang="en_US">Relation</val>
+    </key>
+
+    <!--  Person  -->
+    <key value="roleName.label">
+        <val lang="en_US">Role</val>
+    </key>
+
+    <key value="forename.label">
+        <val lang="en_US">First</val>
+    </key>
+    <key value="forename.label.middle">
+        <val lang="en_US">Middle</val>
+    </key>
+
+    <key value="nameLink.label">
+        <val lang="en_US">Link</val>
+    </key>
+    <key value="nameLink.label.married">
+        <val lang="en_US">Married Link</val>
+    </key>
+
+    <key value="surname.label">
+        <val lang="en_US">Last</val>
+    </key>
+    <key value="surname.label.married">
+        <val lang="en_US">Married</val>
+    </key>
+
+    <key value="addName.label.alt">
+        <val lang="en_US">Alt Name</val>
+    </key>
+    <key value="addName.label.nick">
+        <val lang="en_US">Nickname</val>
+    </key>
+
+    <key value="birth.label">
+        <val lang="en_US">Birth</val>
+    </key>
+
+    <key value="death.label">
+        <val lang="en_US">Death</val>
+    </key>
+
+    <key value="sex.label">
+        <val lang="en_US">Sex</val>
+    </key>
+
+    <key value="residence.label">
+        <val lang="en_US">Residence</val>
+    </key>
+
+    <key value="affiliation.label">
+        <val lang="en_US">Affiliation</val>
+    </key>
+
+    <key value="socecStatus.label">
+        <val lang="en_US">S-E Status</val>
+    </key>
+
+    <key value="education.label">
+        <val lang="en_US">Education</val>
+    </key>
+
+    <key value="occupation.label">
+        <val lang="en_US">Occupation</val>
+    </key>
+
+    <key value="faith.label">
+        <val lang="en_US">Religion</val>
+    </key>
+
+    <key value="note.label.family">
+        <val lang="en_US">Family</val>
+    </key>
+    <key value="note.label.inCorpus">
+        <val lang="en_US">In Corpus?</val>
+    </key>
+    <key value="note.label.generation">
+        <val lang="en_US">Generation</val>
+    </key>
+    <key value="note.label.marriage-partner">
+        <val lang="en_US">Partner</val>
+    </key>
+
+    <!--  Place  -->
+    <key value="location.label">
+        <val lang="en_US">Location</val>
+    </key>
+
+    <key value="address.label">
+        <val lang="en_US">Address</val>
+    </key>
+
+    <key value="addrLine.label">
+        <val lang="en_US">Line</val>
+    </key>
+
+    <!--  Org  -->
+    <key value="note.label.collections">
+        <val lang="en_US">Collections</val>
+    </key>
+
+    <key value="note.label.collection">
+        <val lang="en_US">Collection</val>
+    </key>
+
+    <key value="note.label.inventories">
+        <val lang="en_US">Inventories</val>
+    </key>
+
+    <key value="note.label.inventory">
+        <val lang="en_US">Inventory</val>
+    </key>
+
+    <key value="note.label.searched">
+        <val lang="en_US">Searched?</val>
+    </key>
+
+    <key value="note.label.hours">
+        <val lang="en_US">Hours Open</val>
+    </key>
+
+    <key value="note.label.website">
+        <val lang="en_US">Website</val>
+    </key>
+
+    <key value="idno.label.crpa">
+        <val lang="en_US">CRPA No</val>
+    </key>
+
+    <key value="idno.label.lindeman">
+        <val lang="en_US">Lindeman ID</val>
+    </key>
+
+    <key value="name.label.short">
+        <val lang="en_US">Short Name</val>
+    </key>
+
+    <key value="name.label.full">
+        <val lang="en_US">Full Name</val>
+    </key>
+
+    <key value="idno.label.collection">
+        <val lang="en_US">Coll No</val>
+    </key>
+
+    <key value="idno.label.inventory">
+        <val lang="en_US">Inv No</val>
+    </key>
+
+    <!--  Genre  -->
+    <key value="taxonomy.label">
+        <val lang="en_US">Taxonomy</val>
+    </key>
+
+    <key value="category.label">
+        <val lang="en_US">Category</val>
+    </key>
+
+    <key value="catDesc.label">
+        <val lang="en_US">Description</val>
     </key>
 
 
-<key type="action" value="insert.table">
-        <comment>Insert Table action name.</comment>
-        <val lang="en_US">Insert Table</val>
-        <val lang="de_DE">Tabelle einfügen</val>
-        <val lang="fr_FR">Insérer Table</val>
-        <val lang="ja_JP">テーブルの挿入</val>
-        <val lang="nl_NL">Voeg tabel in</val>
-    </key>
-<key type="action" value="insert.table_description">
-        <comment>Insert Table action description.</comment>
-        <val lang="en_US">Customize and insert table</val>
-        <val lang="de_DE">Tabelle anpassen und einfügen</val>
-        <val lang="fr_FR">Personnalisez et insérer une table</val>
-        <val lang="ja_JP">カスタマイズしてテーブルを挿入</val>
-        <val lang="nl_NL">Pas aan en voeg tabel in</val>
-    </key>
-<key type="action" value="insert.table.row_description">
-        <comment>Insert Row action description.</comment>
-        <val lang="en_US">Insert a table row with cells</val>
-        <val lang="de_DE">Eine Tabellenzeile mit Zellen einfügen</val>
-        <val lang="fr_FR">Insérer une rangée de table avec cellules</val>
-        <val lang="ja_JP">テーブル行とセルの挿入</val>
-        <val lang="nl_NL">Voeg toabelrij met cellen in</val>
-    </key>
-<key type="action" value="table.join.row.cells">
-        <comment>Join Row Cells action name.</comment>
-        <val lang="en_US">Join Row Cells</val>
-        <val lang="de_DE">Zeilenzellen verbinden</val>
-        <val lang="fr_FR">Joindre Cellules de Rangée</val>
-        <val lang="ja_JP">行セルの結合</val>
-        <val lang="nl_NL">Voeg rijcellen samen</val>
-    </key>
-<key type="action" value="table.join.row.cells_description">
-        <comment>Join Row Cells action description.</comment>
-        <val lang="en_US">Join the content of the selected cells. The operation is available only if
-            the selected cells are from the same row and they have the same column span.</val>
-        <val lang="de_DE">Zelleninhalt der ausgewählten Zellen verbinden.
-            Der Vorgang ist nur möglich, wenn die ausgewählten Zellen in derselben Zeile sind und denselben Spaltenumfang haben.</val>
-        <val lang="fr_FR">Joindre le contenu des cellules sélectionnées. L'opération n'est disponible que si les cellules sélectionnées sont de la même ligne et ont la même portée de colonne.</val>
-        <val lang="ja_JP">選択されたセルの内容を結合。 この操作は、選択されたセルが同じ行からで
-      それらが同じ列幅を持っている場合のみ利用可能です。</val>
-        <val lang="nl_NL">Voeg de inhoud van de geselecteerde cellen samen. Deze bewerking is alleen beschikbaar als de geselecteerde cellen van dezelfde rij zijn en evenveel kolommen overspannen.</val>
-    </key>
-<key type="action" value="table.split.left">
-        <comment>Split Cell To The Left action name.</comment>
-        <val lang="en_US">Split Cell To The Left</val>
-        <val lang="de_DE">Zelle nach links aufteilen</val>
-        <val lang="fr_FR">Scinder Cellule Vers la Gauche</val>
-        <val lang="ja_JP">左にセルの分割</val>
-        <val lang="nl_NL">Splits cel aan linkerkant</val>
-    </key>
-<key type="action" value="table.split.left_description">
-        <comment>Split Cell To The Left action description.</comment>
-        <val lang="en_US">Split the content of a table cell that spans over multiple columns</val>
-        <val lang="de_DE">Zelleninhalt teilen, wenn er mehrere Spalten umfasst</val>
-        <val lang="fr_FR">Ceindre le contenu d'une cellule qui s'étend sur plusieurs colonnes</val>
-        <val lang="ja_JP">複数の列にわたってまたがるテーブルセルの内容を分割</val>
-        <val lang="nl_NL">Splits de inhoud van een tabelcel die meerdere kolommen overspant</val>
-    </key>
-<key type="action" value="table.split.right">
-        <comment>Split Cell To The Right action name.</comment>
-        <val lang="en_US">Split Cell To The Right</val>
-        <val lang="de_DE">Zelle nach rechts aufteilen</val>
-        <val lang="fr_FR">Scinder Cellule Vers la Droite</val>
-        <val lang="ja_JP">右にセルを分割</val>
-        <val lang="nl_NL">Splits cel aan rechterkant</val>
-    </key>
-<key type="action" value="table.split.right_description">
-        <comment>Split Cell To The Right action description.</comment>
-        <val lang="en_US">Split the content of a table cell that spans over multiple columns</val>
-        <val lang="de_DE">Zelleninhalt teilen, wenn er mehrere Spalten umfasst</val>
-        <val lang="fr_FR">Ceindre le contenu d'une cellule qui s'étend sur plusieurs colonnes</val>
-        <val lang="ja_JP">複数の列にわたってまたがるテーブルセルの内容を分割</val>
-        <val lang="nl_NL">Splits de inhoud van een tabelcel die meerdere kolommen overspant</val>
-    </key>
-<key type="action" value="table.join.cell.above">
-        <comment>Join Cell Above action name.</comment>
-        <val lang="en_US">Join Cell Above</val>
-        <val lang="de_DE">Mit Zelle darüber verbinden</val>
-        <val lang="fr_FR">Joindre Cellule de Dessus</val>
-        <val lang="ja_JP">上のセルと結合</val>
-        <val lang="nl_NL">Voeg samen met bovenliggende cel</val>
-    </key>
-<key type="action" value="table.join.cell.above_description">
-        <comment>Join Cell Above action description.</comment>
-        <val lang="en_US">Join the content of the selected cell with the content of the cell above.
-            The operation is available only if there is an above cell and both cells have the same
-            column span.</val>
-        <val lang="de_DE">Zelleninhalt der ausgewählten Zelle mit dem der Zelle darüber verbinden.
-            Der Vorgang ist nur möglich, wenn es eine Zelle darüber gibt und diese denselben Spaltenumfang hat.</val>
-        <val lang="fr_FR">Joindre le contenu de la cellule sélectionnée avec le contenu de la cellule au-dessus. L'opération est disponible seulement si il y a une cellule au-dessus et que les deux cellules ont la même portée de colonne.</val>
-        <val lang="ja_JP">選択されたセルの内容と上のセルの内容を結合。 この操作は、両方のセルが同じ列幅
-      を持っている場合のみ利用可能です。</val>
-        <val lang="nl_NL">Voeg de inhoud van de geselecteerde cel samen met de inhoud van de cel erboven. De bewerking is alleen beschikbaar als er een cel boven bestaat en beide cellen dezelfde kolommen overspannen.</val>
-    </key>
-<key type="action" value="table.join.cell.below">
-        <comment>Join Cell Below action name.</comment>
-        <val lang="en_US">Join Cell Below</val>
-        <val lang="de_DE">Mit Zelle darunter verbinden</val>
-        <val lang="fr_FR">Joindre Cellule en Dessous</val>
-        <val lang="ja_JP">下とセルを結合</val>
-        <val lang="nl_NL">Voeg samen met onderliggende cel</val>
-    </key>
-<key type="action" value="table.join.cell.below_description">
-        <comment>Join Cell Below action description.</comment>
-        <val lang="en_US">Join the content of the selected cell with the content of the cell below.
-            The operation is available only if there is a below cell and both cells have the same
-            column span.</val>
-        <val lang="de_DE">Zelleninhalt der ausgewählten Zelle mit dem der Zelle darunter verbinden.
-            Der Vorgang ist nur möglich, wenn es eine Zelle darunter gibt und diese denselben Spaltenumfang hat.</val>
-        <val lang="fr_FR">Joindre le contenu de la cellule sélectionnée avec le contenu de la cellule en-dessous. L'opération est disponible seulement si il y a une cellule en-dessous et que les deux cellules ont la même portée de colonne.</val>
-        <val lang="ja_JP">選択されたセルの内容と下のセルの内容を結合。 この操作は、両方のセルが同じ列幅
-      を持っている場合のみ利用可能です。</val>
-        <val lang="nl_NL">Voeg de inhoud van de geselecteerde cel samen met de inhoud van de cel eronder. De bewerking is alleen beschikbaar als er een cel onder bestaat en beide cellen dezelfde kolommen overspannen.</val>
-    </key>
-<key type="action" value="table.split.below">
-        <comment>Split Cell Below action name.</comment>
-        <val lang="en_US">Split Cell Below</val>
-        <val lang="de_DE">Zelle unten teilen</val>
-        <val lang="fr_FR">Ceindre Cellule en Dessous</val>
-        <val lang="ja_JP">下にセルの分割</val>
-        <val lang="nl_NL">Splits cel aan onderkant</val>
-    </key>
-<key type="action" value="table.split.below_description">
-        <comment>Split Cell Below action description.</comment>
-        <val lang="en_US">Split the content of a table cell that spans over multiple rows</val>
-        <val lang="de_DE">Zelleninhalt teilen, wenn er mehrere Zeilen umfasst</val>
-        <val lang="fr_FR">Ceindre le contenu d'une cellule qui s'étend sur plusieurs colonnes</val>
-        <val lang="ja_JP">複数の列にわたってまたがるテーブルセルの内容を分割</val>
-        <val lang="nl_NL">Splits de inhoud van een tabelcel die meerdere rijen overspant</val>
-    </key>
-<key type="action" value="table.split.above">
-        <comment>Split Cell Above action name.</comment>
-        <val lang="en_US">Split Cell Above</val>
-        <val lang="de_DE">Zelle oben teilen</val>
-        <val lang="fr_FR">Ceindre Cellule au Dessus</val>
-        <val lang="ja_JP">上にセルを分割</val>
-        <val lang="nl_NL">Splits cel aan bovenkant</val>
-    </key>
-<key type="action" value="table.split.above_description">
-        <comment>Split Cell Above action description.</comment>
-        <val lang="en_US">Split the content of a table cell that spans over multiple rows</val>
-        <val lang="de_DE">Zelleninhalt teilen, wenn er mehrere Zeilen umfasst</val>
-        <val lang="fr_FR">Ceindre le contenu d'une cellule qui s'étend sur plusieurs colonnes</val>
-        <val lang="ja_JP">複数の行にわたってまたがるテーブルセルの内容を分割</val>
-        <val lang="nl_NL">Splits de inhoud van een tabelcel die meerdere rijen overspant</val>
-    </key>
-<key type="action" value="insert.table.column">
-        <comment>Insert Column action name.</comment>
-        <val lang="en_US">Insert Column</val>
-        <val lang="de_DE">Spalte einfügen</val>
-        <val lang="fr_FR">Insérer Colonne</val>
-        <val lang="ja_JP">列の挿入</val>
-        <val lang="nl_NL">Voeg kolom in</val>
-    </key>
-<key type="action" value="insert.table.column_description">
-        <comment>Insert Column action description.</comment>
-        <val lang="en_US">Insert a table column</val>
-        <val lang="de_DE">Eine Tabellenspalte einfügen</val>
-        <val lang="fr_FR">Insérer Colonne de Table</val>
-        <val lang="ja_JP">テーブル列の挿入</val>
-        <val lang="nl_NL">Voeg een tabelkolom in</val>
-    </key>
-<key type="action" value="delete.table.column">
-        <comment>Delete Column action name.</comment>
-        <val lang="en_US">Delete Column</val>
-        <val lang="de_DE">Spalte löschen</val>
-        <val lang="fr_FR">Effacer Colonne</val>
-        <val lang="ja_JP">列の削除</val>
-        <val lang="nl_NL">Verwijder kolom</val>
-    </key>
-<key type="action" value="delete.table.column_description">
-        <comment>Delete Column action description.</comment>
-        <val lang="en_US">Delete a table column</val>
-        <val lang="de_DE">Eine Tabellenspalte löschen</val>
-        <val lang="fr_FR">Effacer Colonne de Table</val>
-        <val lang="ja_JP">テーブル列の削除</val>
-        <val lang="nl_NL">Verwijder een tabelkolom</val>
-    </key>
-<key type="action" value="delete.table.row">
-        <comment>Delete Row action name.</comment>
-        <val lang="en_US">Delete Row</val>
-        <val lang="de_DE">Zeile löschen</val>
-        <val lang="fr_FR">Effacer Rangée</val>
-        <val lang="ja_JP">行の削除 Row</val>
-        <val lang="nl_NL">Verwijder rij</val>
-    </key>
-<key type="action" value="delete.table.row_description">
-        <comment>Delete Row action description.</comment>
-        <val lang="en_US">Delete a table row</val>
-        <val lang="de_DE">Eine Tabellenzeile löschen</val>
-        <val lang="fr_FR">Effacer Rangée de Table</val>
-        <val lang="ja_JP">テーブル行の削除</val>
-        <val lang="nl_NL">Verwijder een tabelrij</val>
-    </key>
-
-<key type="action" value="item">
-        <comment>Insert List Item action name.</comment>
-        <val lang="en_US">Insert List Item</val>
-        <val lang="de_DE">Listeneintrag einfügen</val>
-        <val lang="fr_FR">Insérer un Êlément de Liste</val>
-        <val lang="ja_JP">リスト項目の挿入</val>
-        <val lang="nl_NL">Voeg lijstwaarde in</val>
-    </key>
-<key type="action" value="item_description">
-        <comment>Insert List Item action description.</comment>
-        <val lang="en_US">Insert a list item</val>
-        <val lang="de_DE">Einen Listeneintrag einfügen</val>
-        <val lang="fr_FR">Insérer un Êlément de Liste</val>
-        <val lang="ja_JP">リスト項目の挿入</val>
-        <val lang="nl_NL">Voeg een lijstwaarde in</val>
-    </key>
-<key type="action" value="ordered list">
-        <comment>Insert Ordered List action name.</comment>
-        <val lang="en_US">Insert Ordered List</val>
-        <val lang="de_DE">Geordnete Liste einfügen</val>
-        <val lang="fr_FR">Insérer une Liste Triée</val>
-        <val lang="ja_JP">順序付けリストの挿入</val>
-        <val lang="nl_NL">Voeg geordende lijst in</val>
-    </key>
-<key type="action" value="ordered list_description">
-        <comment>Insert Ordered List action description.</comment>
-        <val lang="en_US">Insert an ordered list at the caret position</val>
-        <val lang="de_DE">Eine geordnete Liste an der Eingabeposition einfügen</val>
-        <val lang="fr_FR">Insérer une Liste Triée à la position du curseur</val>
-        <val lang="ja_JP">キャレット位置に順序付けリストの挿入</val>
-        <val lang="nl_NL">Voeg een geordende lijst in op de cursorpositie</val>
-    </key>
-<key type="action" value="itemizedlist">
-        <comment>Insert Itemized List action name.</comment>
-        <val lang="en_US">Insert Itemized List</val>
-        <val lang="de_DE">Spezifizierte Liste einfügen</val>
-        <val lang="fr_FR">Insérez Liste Détaillée</val>
-        <val lang="ja_JP">箇条書きリストの挿入</val>
-        <val lang="nl_NL">Voeg een niet-geordende lijst in</val>
-    </key>
-<key type="action" value="itemizedlist_description">
-        <comment>Insert Itemized List action description.</comment>
-        <val lang="en_US">Insert an itemized list at the caret position</val>
-        <val lang="de_DE">Eine spezifizierte Liste an der Eingabeposition einfügen</val>
-        <val lang="fr_FR">Insérez Liste Détaillée à la position du curseur</val>
-        <val lang="ja_JP">キャレット位置に箇条書きリストの挿入</val>
-        <val lang="nl_NL">Voeg een niet-geordende lijst in op de cursorpositie</val>
-    </key>
-<key type="action" value="insert.table.cell">
-        <comment>Insert Cell action name.</comment>
-        <val lang="en_US">Insert Cell</val>
-        <val lang="de_DE">Zelle einfügen</val>
-        <val lang="fr_FR">Insérez Cellule</val>
-        <val lang="ja_JP">セルの挿入</val>
-        <val lang="nl_NL">Voeg cel in</val>
-    </key>
-<key type="action" value="insert.table.cell_description">
-        <comment>Insert Cell action description.</comment>
-        <val lang="en_US">Insert a table cell</val>
-        <val lang="de_DE">Tabellenzelle einfügen</val>
-        <val lang="fr_FR">Insérez une cellule</val>
-        <val lang="ja_JP">テーブルセルの挿入</val>
-        <val lang="nl_NL">Voeg een tabelcel in</val>
-    </key>
-<key type="action" value="section">
-        <comment>Insert Section action name.</comment>
-        <val lang="en_US">Insert Section</val>
-        <val lang="de_DE">Abschnitt einfügen</val>
-        <val lang="fr_FR">Insérez Section</val>
-        <val lang="ja_JP">セクションの挿入</val>
-        <val lang="nl_NL">Voeg sectie in</val>
-    </key>
-<key type="action" value="section_description">
-        <comment>Insert Section action description.</comment>
-        <val lang="en_US">Insert a new section/subsection in the document</val>
-        <val lang="de_DE">Einen neuen Abschnitt/Unterabschnitt im Dokument einfügen</val>
-        <val lang="fr_FR">Insérer une nouvelle section / sous-section dans le document</val>
-        <val lang="ja_JP">文書に新しいセクション/サブセクションの挿入</val>
-        <val lang="nl_NL">Voeg een nieuwe sectie/subsectie in, in het document</val>
-    </key>
-<key type="action" value="insert image">
-        <comment>Insert Image action name.</comment>
-        <val lang="en_US">Insert Image</val>
-        <val lang="de_DE">Grafik einfügen</val>
-        <val lang="fr_FR">Insérer Image</val>
-        <val lang="ja_JP">画像の挿入</val>
-        <val lang="nl_NL">Voeg afbeelding toe</val>
-    </key>
-<key type="action" value="insert image_description">
-        <comment>Insert Image action description.</comment>
-        <val lang="en_US">Insert Image Reference</val>
-        <val lang="de_DE">Grafikreferenz einfügen</val>
-        <val lang="fr_FR">Insérer Référence Image</val>
-        <val lang="ja_JP">画像参照の挿入</val>
-        <val lang="nl_NL">Voeg afbeeldingreferentie toe</val>
-    </key>
-<key value="id.options">
-        <comment>ID Options... action name.</comment>
-        <val lang="en_US">ID Options...</val>
-        <val lang="de_DE">ID-Optionen...</val>
-        <val lang="fr_FR">Options pour ID...</val>
-        <val lang="ja_JP">ID Options...</val>
-        <val lang="nl_NL">ID-opties...</val>
-    </key>
-<key value="id.options_description">
-        <comment>ID Options... action description.</comment>
-        <val lang="en_US">Options for IDs handling</val>
-        <val lang="de_DE">Optionen für ID-Handhabung</val>
-        <val lang="fr_FR">Options pour la manipulation des ID</val>
-        <val lang="ja_JP">IDs 操作のためのオプション</val>
-        <val lang="nl_NL">Opties voor verwerking van ID's</val>
-    </key>
-<key type="action" value="generate.ids">
-        <comment>Generate IDs action name.</comment>
-        <val lang="en_US">Generate IDs</val>
-        <val lang="de_DE">Erzeuge IDs</val>
-        <val lang="fr_FR">Générer les IDs</val>
-        <val lang="ja_JP">IDs の生成</val>
-        <val lang="nl_NL">Genereer ID's</val>
-    </key>
-<key type="action" value="generate.ids_description">
-        <comment>Generate IDs action description.</comment>
-        <val lang="en_US">Generate IDs for the current selection</val>
-        <val lang="de_DE">Erzeuge IDs für die aktuelle Auswahl</val>
-        <val lang="fr_FR">Générer les IDs pour la sélection courante</val>
-        <val lang="ja_JP">現在の選択に IDsの生成</val>
-        <val lang="nl_NL">Genereer ID's voor de huidige selectie</val>
-    </key>
-<key type="action" value="show.TEIp5.documentation">
-        <comment>Browse reference manual... action name.</comment>
-        <val lang="en_US">Browse reference manual...</val>
-        <val lang="de_DE">Durchsuche Referenzhandbuch...</val>
-        <val lang="fr_FR">Parcourir manuel de référence...</val>
-        <val lang="ja_JP">リファレンスマニュアルの参照...</val>
-        <val lang="nl_NL">Blader door referentiehandleiding...</val>
-    </key>
-<key type="action" value="show.TEIp5.documentation_description">
-        <comment>Browse reference manual... action description.</comment>
-        <val lang="en_US">Shows the current element documentation in TEI P5 reference manual</val>
-        <val lang="de_DE">Zeigt die aktuelle Elementdokumentation im TEI5-Referenzhandbuch</val>
-        <val lang="fr_FR">Affiche la documentation de l'élément courant dans le manuel de référence TEI P5</val>
-        <val lang="ja_JP">TEI P5 リファレンスマニュアルで現在の要素のドキュメントを表示</val>
-        <val lang="nl_NL">Toont de documentatie voor het huidige element in de TEI P5-referentiehandleiding</val>
-    </key>
-<key type="action" value="insert image_description2">
-        <comment>Insert Image action description.</comment>
-        <val lang="en_US">Insert TEI Image</val>
-        <val lang="de_DE">TEI Grafik einfügen</val>
-        <val lang="fr_FR">Insert TEI Image</val>
-        <val lang="ja_JP">TEI 画像の挿入</val>
-        <val lang="nl_NL">Voeg TEI-afbeelding in</val>
-    </key>
-<key type="action" value="show.TEIp4.documentation">
-        <comment>Browse reference manual... action name.</comment>
-        <val lang="en_US">Browse reference manual...</val>
-        <val lang="de_DE">Durchsuche Referenzhandbuch...</val>
-        <val lang="fr_FR">Parcourir manuel de référence...</val>
-        <val lang="ja_JP">リファレンスマニュアルの参照...</val>
-        <val lang="nl_NL">Blader door referentiehandleiding...</val>
-    </key>
-<key type="action" value="show.TEIp4.documentation_description">
-        <comment>Browse reference manual... action description.</comment>
-        <val lang="en_US">Shows the current element documentation in TEI P4 reference manual</val>
-        <val lang="de_DE">Zeigt die aktuelle Elementdokumentation im TEI P4-Referenzhandbuch</val>
-        <val lang="fr_FR">Affiche la documentation de l'élément courant dans le manuel de référence TEI P$</val>
-        <val lang="ja_JP">TEI P4 リファレンスマニュアルで現在の要素のドキュメントの表示</val>
-        <val lang="nl_NL">Toont de documentatie voor het huidige element in de TEI 45-referentiehandleiding</val>
-    </key>
-<key value="Caption">
-        <comment>Caption checkbox in the XHTML table customizer dialog.</comment>
-        <val lang="en_US">Caption</val>
-        <val lang="de_DE">Legende</val>
-        <val lang="fr_FR">Légende</val>
-        <val lang="ja_JP">キャプション</val>
-        <val lang="nl_NL">Bijschrift</val>
-    </key>
-<key value="Title_table">
-        <comment>The title table tooltip for title checkbox in TEI table customizer
-            dialog.</comment>
-        <val lang="en_US">The title for the table</val>
-        <val lang="de_DE">Die Tabellenüberschrift</val>
-        <val lang="fr_FR">Le titre de la table</val>
-        <val lang="ja_JP">テーブルのためのタイトル</val>
-        <val lang="nl_NL">De tabeltitel</val>
-    </key>
-<key value="Head">
-        <comment>Head checkbox in the TEI table customizer dialog.</comment>
-        <val lang="en_US">Head</val>
-        <val lang="de_DE">Kopf</val>
-        <val lang="fr_FR">En-Tête</val>
-        <val lang="ja_JP">ヘッド</val>
-        <val lang="nl_NL">Kop</val>
-    </key>
-<key type="action" value="Choose_image">
-        <comment>Image file chooser title.</comment>
-        <val lang="en_US">Choose image</val>
-        <val lang="de_DE">Grafik auswählen</val>
-        <val lang="fr_FR">Choisir image</val>
-        <val lang="ja_JP">画像の選択</val>
-        <val lang="nl_NL">Kies afbeelding</val>
-    </key>
-<key value="Image_files">
-        <comment>Image file chooser file description.</comment>
-        <val lang="en_US">Image files</val>
-        <val lang="de_DE">Grafikdateien</val>
-        <val lang="fr_FR">Fichiers image</val>
-        <val lang="ja_JP">画像ファイル</val>
-        <val lang="nl_NL">Afbeeldingsbestanden</val>
-    </key>
-<key value="ID_options">
-        <comment>Title for ID elements customizer dialog.</comment>
-        <val lang="en_US">ID Options</val>
-        <val lang="de_DE">ID Optionen</val>
-        <val lang="fr_FR">Options d'ID</val>
-        <val lang="ja_JP">ID オプション</val>
-        <val lang="nl_NL">ID-opties</val>
-    </key>
-<key type="action" value="Autogenerate_ids_for_elements">
-        <comment>Auto generate ID's for elements button text.</comment>
-        <val lang="en_US">Auto generate ID's for elements</val>
-        <val lang="de_DE">Automatische ID-Erzeugung für Elemente </val>
-        <val lang="fr_FR">Génération automatique d'ID pour les éléments</val>
-        <val lang="ja_JP">要素のための IDを自動で生成</val>
-        <val lang="nl_NL">Auto-genereer ID's voor elementen</val>
-    </key>
-<key value="ID_pattern">
-        <comment>ID pattern label text.</comment>
-        <val lang="en_US">ID Pattern:</val>
-        <val lang="de_DE">ID-Muster:</val>
-        <val lang="fr_FR">Format ID :</val>
-        <val lang="ja_JP">ID パターン:</val>
-        <val lang="nl_NL">ID-patroon:</val>
-    </key>
-<key type="action" value="Remove_ids_on_copy_in_same_doc">
-        <comment>'Remove ID's when copying content in the same document' button text.</comment>
-        <val lang="en_US">Remove ID's when copying content in the same document</val>
-        <val lang="de_DE">Beim Kopieren von Inhalt im selben Dokument, IDs entfernen</val>
-        <val lang="fr_FR">Retirer les ID lors d'une copie de contenu dans le même document</val>
-        <val lang="ja_JP">同じ文書中に内容をコピーするときにIDを削除</val>
-        <val lang="nl_NL">Verwijder ID's bij kopiëren van inhoud binnen hetzelfde document</val>
-    </key>
-<key type="action" value="Insert_table">
-        <comment>Insert table dialog title.</comment>
-        <val lang="en_US">Insert Table</val>
-        <val lang="de_DE">Tabelle einfügen</val>
-        <val lang="fr_FR">Insérer Table</val>
-        <val lang="ja_JP">テーブルの挿入</val>
-        <val lang="nl_NL">Verwijder tabel</val>
-    </key>
-<key value="Simple">
-        <comment>'Simple' button text</comment>
-        <val lang="en_US">Simple</val>
-        <val lang="de_DE">Einfach</val>
-        <val lang="fr_FR">Simple</val>
-        <val lang="ja_JP">シンプル</val>
-        <val lang="nl_NL">Eenvoudig</val>
-    </key>
-<key value="Table_size">
-        <comment>Table size.</comment>
-        <val lang="en_US">Table Size</val>
-        <val lang="de_DE">Tabellengröße</val>
-        <val lang="fr_FR">Taille Table</val>
-        <val lang="ja_JP">テーブルサイズ</val>
-        <val lang="nl_NL">Tabelgrootte</val>
-    </key>
-<key value="Rows">
-        <comment>Rows</comment>
-        <val lang="en_US">Rows</val>
-        <val lang="de_DE">Zeilen</val>
-        <val lang="fr_FR">Rangées</val>
-        <val lang="ja_JP">行</val>
-        <val lang="nl_NL">Rijen</val>
-    </key>
-<key value="Columns">
-        <comment>Columns</comment>
-        <val lang="en_US">Columns</val>
-        <val lang="de_DE">Spalten</val>
-        <val lang="fr_FR">Colonnes</val>
-        <val lang="ja_JP">列</val>
-        <val lang="nl_NL">Kolommen</val>
-    </key>
-<key type="action" value="Generate_table_header">
-        <comment>'Generate table header' checkbox text.</comment>
-        <val lang="en_US">Generate table header</val>
-        <val lang="de_DE">Tabellenkopfzeile erzeugen</val>
-        <val lang="fr_FR">Générer l'en-tête de la table</val>
-        <val lang="ja_JP">テーブル ヘッダーの作成</val>
-        <val lang="nl_NL">Genereer tabelkoptekst</val>
-    </key>
-<key type="action" value="Generate_table_footer">
-        <comment>'Generate table footer' checkbox text.</comment>
-        <val lang="en_US">Generate table footer</val>
-        <val lang="de_DE">Tabellenfußzeile erzeugen</val>
-        <val lang="fr_FR">Générer le bas-de-page de la table</val>
-        <val lang="ja_JP">テーブル フッターの作成</val>
-        <val lang="nl_NL">Genereer tabelvoettekst</val>
-    </key>
-<key value="Column_widths">
-        <comment>Column widths.</comment>
-        <val lang="en_US">Column widths </val>
-        <val lang="de_DE">Spaltenbreite </val>
-        <val lang="fr_FR">Largeur des colonnes </val>
-        <val lang="ja_JP">列幅 </val>
-        <val lang="nl_NL">Kolombreedte </val>
-    </key>
-<key value="Frame">
-        <comment>'Frame' label text.</comment>
-        <val lang="en_US">Frame</val>
-        <val lang="de_DE">Rahmen</val>
-        <val lang="fr_FR">Cadre</val>
-        <val lang="ja_JP">フレーム</val>
-        <val lang="nl_NL">Rand</val>
-    </key>
-
-<key type="action" value="Add">
-        <comment>Add button text</comment>
-        <val lang="en_US">Add</val>
-        <val lang="de_DE">Hinzufügen</val>
-        <val lang="fr_FR">Ajouter</val>
-        <val lang="ja_JP">追加</val>
-        <val lang="nl_NL">Voeg toe</val>
-    </key>
-<key type="action" value="Edit">
-        <comment>Edit button text</comment>
-        <val lang="en_US">Edit</val>
-        <val lang="de_DE">Bearbeiten</val>
-        <val lang="fr_FR">Édition</val>
-        <val lang="ja_JP">編集</val>
-        <val lang="nl_NL">Wijzig</val>
-    </key>
-<key type="action" value="Remove">
-        <comment>Remove button text</comment>
-        <val lang="en_US">Remove</val>
-        <val lang="de_DE">Entfernen</val>
-        <val lang="fr_FR">Enlever</val>
-        <val lang="ja_JP">削除</val>
-        <val lang="nl_NL">Verwijder</val>
-    </key>
-<key value="Model">
-        <comment>Name for a model chooser group.</comment>
-        <val lang="en_US">Model</val>
-        <val lang="de_DE">Modell</val>
-        <val lang="fr_FR">Modèle</val>
-        <val lang="ja_JP">モデル</val>
-        <val lang="nl_NL">Model</val>
-    </key>
-<key type="action" value="insert.table.row">
-        <comment>Insert Row action name.</comment>
-        <val lang="en_US">Insert Row</val>
-        <val lang="de_DE">Zeile einfügen</val>
-        <val lang="fr_FR">Insérer la rangée</val>
-        <val lang="ja_JP">行の挿入</val>
-        <val lang="nl_NL">Voeg rij in</val>
-    </key>
-<key value="table">
-        <comment>Table menu item name.</comment>
-        <val lang="en_US">Table</val>
-        <val lang="de_DE">Tabelle</val>
-        <val lang="fr_FR">Tableau</val>
-        <val lang="ja_JP">テーブル</val>
-        <val lang="nl_NL">Tabel</val>
-    </key>
-<key type="action" value="continue">
-        <comment>Continue message.</comment>
-        <val lang="en_US">Continue</val>
-        <val lang="de_DE">Weiter</val>
-        <val lang="fr_FR">Continuer</val>
-        <val lang="ja_JP">続ける</val>
-        <val lang="nl_NL">Ga door</val>
-    </key>
-<key type="action" value="cancel">
-        <comment>Cancel message.</comment>
-        <val lang="en_US">Cancel</val>
-        <val lang="de_DE">Abbrechen</val>
-        <val lang="fr_FR">Annuler</val>
-        <val lang="ja_JP">キャンセル</val>
-        <val lang="nl_NL">Annuleer</val>
-    </key>
 </translation>

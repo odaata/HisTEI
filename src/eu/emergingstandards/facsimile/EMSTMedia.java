@@ -2,6 +2,7 @@ package eu.emergingstandards.facsimile;
 
 import eu.emergingstandards.exceptions.EMSTFileMissingException;
 import eu.emergingstandards.utils.EMSTXMLUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -16,6 +17,7 @@ import java.nio.file.Files;
 import java.util.*;
 
 import static eu.emergingstandards.utils.EMSTOxygenUtils.*;
+import static eu.emergingstandards.utils.EMSTUtils.castFileToURL;
 import static eu.emergingstandards.utils.EMSTUtils.castURLToFile;
 import static eu.emergingstandards.utils.EMSTXMLUtils.XML_ID_ATTRIB_NAME;
 
@@ -35,8 +37,8 @@ public class EMSTMedia extends EMSTAbstractMediaElement {
         MEDIA_ELEMENT_NAMES.add(GRAPHIC_ELEMENT_NAME);
     }
 
-    static final String URL_ATTRIB_NAME = "url";
-    static final String MIME_TYPE_ATTRIB_NAME = "mimeType";
+    public static final String URL_ATTRIB_NAME = "url";
+    public static final String MIME_TYPE_ATTRIB_NAME = "mimeType";
 
     @Nullable
     public static EMSTMedia get(AuthorAccess authorAccess, AuthorElement authorElement) {
@@ -92,7 +94,15 @@ public class EMSTMedia extends EMSTAbstractMediaElement {
             if (counter < 1) counter = 1;
             String id = type.getIdAbbr() + "_" + String.format("%03d", counter);
 
-            return create(mimeType, id, file.getName());
+            String fileName = null;
+            URL fileURL = castFileToURL(file);
+            if (fileURL != null) {
+                fileName = StringUtils.substringAfterLast(fileURL.toExternalForm(), "/");
+            }
+
+            if (fileName != null) {
+                return create(mimeType, id, fileName);
+            }
         }
         return null;
     }

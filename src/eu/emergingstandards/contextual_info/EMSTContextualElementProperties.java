@@ -51,7 +51,6 @@ public class EMSTContextualElementProperties {
         properties.add(new EMSTContextualElementProperties("country", props));
         properties.add(new EMSTContextualElementProperties("bloc", props));
 
-
 //        Org-related references
 
 //        repository element - same syntactic sugar as places (though I don't think the TEI necessarily condones this)

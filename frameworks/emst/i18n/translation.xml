@@ -365,7 +365,7 @@
 
     <key value="reason.label">
         <comment>reason attribute</comment>
-        <val lang="en_US">Type</val>
+        <val lang="en_US">Reason</val>
     </key>
 
     <key value="place.label.textual">
@@ -426,6 +426,10 @@
 
     <key value="note.label">
         <val lang="en_US">Note</val>
+    </key>
+
+    <key value="note.label.user">
+        <val lang="en_US">User Note</val>
     </key>
 
     <!--  Links  -->
@@ -663,6 +667,22 @@
         <val lang="en_US">Base Directory</val>
     </key>
 
+    <!-- Front Matter -->
+
+    <key value="titlePage.label">
+        <val lang="en_US">Title Page</val>
+    </key>
+
+    <key value="docTitle.label">
+        <val lang="en_US">Doc Title</val>
+    </key>
+
+    <key value="titlePart.label">
+        <val lang="en_US">Title Part</val>
+    </key>
+
+    <!-- Structure/Layout -->
+
     <key value="div.label">
         <val lang="en_US">Div</val>
     </key>
@@ -824,7 +844,6 @@
         <val lang="en_US">Blocs (two or more nation states or countries)</val>
     </key>
 
-
     <key value="listOrg.label">
         <val lang="en_US">Organizations</val>
     </key>
@@ -869,21 +888,29 @@
     <key value="forename.label">
         <val lang="en_US">First</val>
     </key>
+    <key value="forename.label.middle">
+        <val lang="en_US">Middle</val>
+    </key>
 
     <key value="nameLink.label">
         <val lang="en_US">Link</val>
+    </key>
+    <key value="nameLink.label.married">
+        <val lang="en_US">Married Link</val>
     </key>
 
     <key value="surname.label">
         <val lang="en_US">Last</val>
     </key>
-
-    <key value="middle.label">
-        <val lang="en_US">Middle</val>
+    <key value="surname.label.married">
+        <val lang="en_US">Married</val>
     </key>
 
-    <key value="married.label">
-        <val lang="en_US">Married</val>
+    <key value="addName.label.alt">
+        <val lang="en_US">Alt Name</val>
+    </key>
+    <key value="addName.label.nick">
+        <val lang="en_US">Nickname</val>
     </key>
 
     <key value="birth.label">
@@ -920,6 +947,85 @@
 
     <key value="faith.label">
         <val lang="en_US">Religion</val>
+    </key>
+
+    <key value="note.label.family">
+        <val lang="en_US">Family</val>
+    </key>
+    <key value="note.label.inCorpus">
+        <val lang="en_US">In Corpus?</val>
+    </key>
+    <key value="note.label.generation">
+        <val lang="en_US">Generation</val>
+    </key>
+    <key value="note.label.marriage-partner">
+        <val lang="en_US">Partner</val>
+    </key>
+
+    <!--  Place  -->
+    <key value="location.label">
+        <val lang="en_US">Location</val>
+    </key>
+
+    <key value="address.label">
+        <val lang="en_US">Address</val>
+    </key>
+
+    <key value="addrLine.label">
+        <val lang="en_US">Line</val>
+    </key>
+
+    <!--  Org  -->
+    <key value="note.label.collections">
+        <val lang="en_US">Collections</val>
+    </key>
+
+    <key value="note.label.collection">
+        <val lang="en_US">Collection</val>
+    </key>
+
+    <key value="note.label.inventories">
+        <val lang="en_US">Inventories</val>
+    </key>
+
+    <key value="note.label.inventory">
+        <val lang="en_US">Inventory</val>
+    </key>
+
+    <key value="note.label.searched">
+        <val lang="en_US">Searched?</val>
+    </key>
+
+    <key value="note.label.hours">
+        <val lang="en_US">Hours Open</val>
+    </key>
+
+    <key value="note.label.website">
+        <val lang="en_US">Website</val>
+    </key>
+
+    <key value="idno.label.crpa">
+        <val lang="en_US">CRPA No</val>
+    </key>
+
+    <key value="idno.label.lindeman">
+        <val lang="en_US">Lindeman ID</val>
+    </key>
+
+    <key value="name.label.short">
+        <val lang="en_US">Short Name</val>
+    </key>
+
+    <key value="name.label.full">
+        <val lang="en_US">Full Name</val>
+    </key>
+
+    <key value="idno.label.collection">
+        <val lang="en_US">Coll No</val>
+    </key>
+
+    <key value="idno.label.inventory">
+        <val lang="en_US">Inv No</val>
     </key>
 
     <!--  Genre  -->

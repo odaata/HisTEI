@@ -6,10 +6,7 @@ import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
 import java.io.UnsupportedEncodingException;
-import java.net.MalformedURLException;
-import java.net.URISyntaxException;
-import java.net.URL;
-import java.net.URLDecoder;
+import java.net.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 
@@ -107,7 +104,7 @@ public class EMSTUtils {
         return decodedURL;
     }
 
-    /*@Nullable
+    @Nullable
     public static String encodeURL(String url) {
         String encodedURL = null;
 
@@ -119,7 +116,7 @@ public class EMSTUtils {
             }
         }
         return encodedURL;
-    }*/
+    }
 
     @Nullable
     public static String emptyToNull(String input) {

@@ -92,7 +92,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -135,7 +135,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -178,7 +178,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -310,7 +310,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>true()</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -353,7 +353,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -405,13 +405,13 @@
 													<field name="argValues">
 														<map>
 															<entry>
-																<String>fragment</String>
+																<String>element</String>
 																<String>&lt;head xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -443,7 +443,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -585,13 +585,13 @@
 													<field name="argValues">
 														<map>
 															<entry>
-																<String>fragment</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="${ask('type?', combobox, ('header':'header'; 'footer':'footer'; 'pageNum':'pageNum'; 'lineNum':'lineNum'; 'sig':'sig'; 'catch':'catch';), 'header')}" place="${ask('place?', combobox, ('below':'below'; 'bottom':'bottom'; 'margin':'margin'; 'top':'top'; 'opposite':'opposite'; 'overleaf':'overleaf'; 'above':'above'; 'end':'end'; 'inline':'inline'; 'inspace':'inspace';), 'top')}"/></String>
+																<String>element</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0"</String>
 															</entry>
 														</map>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -623,7 +623,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -666,7 +666,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -709,13 +709,13 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('reason?', combobox, ('rubbing':'rubbing'; 'hand':'hand'; 'overwriting':'overwriting'; 'damage':'damage';), 'hand')}"/>${caret}</String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/> ${caret}</String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>
@@ -764,13 +764,13 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('reason?', combobox, ('rubbing':'rubbing'; 'hand':'hand'; 'overwriting':'overwriting'; 'damage':'damage';), 'hand')}"/></String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -807,7 +807,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -850,18 +850,18 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
 															<entry>
-																<String>fragment</String>
-																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0" xml:lang="${ask('Which language?', combobox, ('nl':'Dutch'; 'en':'English'; 'fr':'French'; 'de':'German'; 'la':'Latin';), 'la')}"/></String>
+																<String>element</String>
+																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -990,7 +990,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1033,7 +1033,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1143,7 +1143,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>(ancestor-or-self::*:div or ancestor-or-self::*:desc)</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1247,7 +1247,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1325,7 +1325,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1403,7 +1403,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1462,7 +1462,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1523,7 +1523,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0" n="${ask('n?', generic)}"/>${caret}</String>
+																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>
@@ -1610,13 +1610,13 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0" reason="${ask('reason?', combobox, ('rubbing':'rubbing'; 'hand':'hand'; 'overwriting':'overwriting'; 'damage':'damage';), 'damage')}"/></String>
+																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1653,7 +1653,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1858,7 +1858,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:p or ancestor-or-self::*:opener or ancestor-or-self::*:closer</String>
+														<String>ancestor-or-self::*:p or ancestor-or-self::*:opener or ancestor-or-self::*:closer or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1964,7 +1964,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::p</String>
+														<String>ancestor-or-self::div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2013,7 +2013,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;ref xmlns="http://www.tei-c.org/ns/1.0" target="${ask('What is the URL this link refers to?', generic)}"/></String>
+																<String>&lt;ref xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>

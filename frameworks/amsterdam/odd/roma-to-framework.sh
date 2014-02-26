@@ -7,8 +7,9 @@
 # Typical usage for roma2 program
 # roma2 ~/Downloads/amsterdam_list_place.xml
 
-ODD=${1:-~/Documents/Dissertation/Corpus/oxygen/frameworks/amsterdam/odd/amsterdam_list_place.odd}
-SCHEMAS=${2:-~/Documents/Dissertation/Corpus/oxygen/frameworks/amsterdam/schema/}
+#ODD=${1:-/opt/oxygen/frameworks/emst/odd/emst.odd}
+ODD=${1:-~/Downloads/emst.xml}
+SCHEMAS=${2:-/opt/oxygen/frameworks/emst/schema/}
 
 roma2 "$ODD"
 cp ~/RomaResults/*.rng "$SCHEMAS"

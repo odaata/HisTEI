@@ -1,6 +1,11 @@
 <?xml version="1.0"?>
-<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN" "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
+<!DOCTYPE catalog PUBLIC "-//OASIS//DTD Entity Resolution XML Catalog V1.0//EN"
+        "http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd">
 <catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog">
-  <!-- Map web references to local TEI modules -->
-  <rewriteSystem systemIdStartString="http://cohd.info/amsterdam/schema/" rewritePrefix="schema/"/>
+    <!-- Map web references to local TEI modules -->
+    <rewriteSystem systemIdStartString="http://emergingstandards.eu/schema/" rewritePrefix="schema/"/>
+
+    <uri name="http://emergingstandards.eu/css/document.css" uri="css/document.css"/>
+    <uri name="http://emergingstandards.eu/css/contextual_info.css" uri="css/contextual_info.css"/>
+
 </catalog>

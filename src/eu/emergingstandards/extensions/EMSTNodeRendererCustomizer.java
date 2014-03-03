@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
 
-    public static final Map<String, EMSTIconNode> iconNodes = new HashMap<>(50);
+    public static final Map<String, EMSTIconNode> iconNodes = new HashMap<>(70);
 
     private static class EMSTIconNode {
 
@@ -107,12 +107,15 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         initMap.put("superscript", "superscript");
         initMap.put("underline", "underline");
         iconNodes.put("hi", new EMSTIconNode("hi", null, "rend", initMap));
+
 //      Contextual Information
         iconNodes.put("date", new EMSTIconNode("date"));
 //      Person
+        iconNodes.put("listPerson", new EMSTIconNode("listPerson"));
         iconNodes.put("person", new EMSTIconNode("person"));
         iconNodes.put("persName", new EMSTIconNode("persName", "person"));
 //      Place
+        iconNodes.put("listPlace", new EMSTIconNode("listPlace"));
         iconNodes.put("place", new EMSTIconNode("place"));
         iconNodes.put("placeName", new EMSTIconNode("placeName", "place"));
         iconNodes.put("district", new EMSTIconNode("district", "place"));
@@ -121,6 +124,7 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("country", new EMSTIconNode("country", "place"));
         iconNodes.put("bloc", new EMSTIconNode("bloc", "place"));
 //      Org
+        iconNodes.put("listOrg", new EMSTIconNode("listOrg"));
         iconNodes.put("org", new EMSTIconNode("org"));
         iconNodes.put("orgName", new EMSTIconNode("orgName", "org"));
         iconNodes.put("repository", new EMSTIconNode("repository"));
@@ -131,8 +135,23 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         initMap.put("inventory", "inventory");
         iconNodes.put("note", new EMSTIconNode("seg", null, "function", initMap));
 //      Genre
+        iconNodes.put("taxonomy", new EMSTIconNode("taxonomy"));
         iconNodes.put("category", new EMSTIconNode("category"));
         iconNodes.put("catRef", new EMSTIconNode("catRef", "category"));
+//      Relations
+        iconNodes.put("listRelation", new EMSTIconNode("listRelation"));
+        initMap = new HashMap<>();
+        initMap.put("spouse", "relation_spouse");
+        initMap.put("parent", "relation_parent");
+        iconNodes.put("relation", new EMSTIconNode("relation", "relation", "name", initMap));
+//      Events
+        initMap = new HashMap<>();
+        initMap.put("marriage", "event_marriage");
+        iconNodes.put("event", new EMSTIconNode("event", "event", "type", initMap));
+//      Bibl
+        iconNodes.put("bibl", new EMSTIconNode("bibl"));
+        iconNodes.put("biblStruct", new EMSTIconNode("biblStruct", "bibl"));
+        iconNodes.put("biblFull", new EMSTIconNode("biblFull", "bibl"));
     }
 
     @Override

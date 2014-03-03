@@ -90,9 +90,13 @@ div {
     -oxy-not-foldable-child: head, opener;
 }
 
-titlePage > *,
-docTitle > *,
-div > * {
+titlePage,
+docTitle,
+div,
+opener,
+closer,
+dateline,
+salute {
     display:block;
     padding:1px;
 }
@@ -103,12 +107,6 @@ opener {
 
 closer {
     margin-top:1em;
-}
-
-opener > *,
-closer > * {
-    display:block;
-    padding:1px;
 }
 
 fw {
@@ -143,25 +141,29 @@ signed {
     padding:2px;
     margin:2px;
     margin-bottom: 10px;
-    white-space:nowrap;
     -oxy-display-tags:none;
 }
 
-titlePart > lb:first-child,
+/* Elements with hidden Oxygen tags */
+abbr,
+expan,
+add, 
+del,
+gap,
+unclear,
+supplied,
+foreign,
+seg,
+handShift {
+    -oxy-display-tags:none;
+}
+
+/*titlePart > lb:first-child,
 dateline > lb:first-child,
 salute > lb:first-child,
 signed > lb:first-child {
     content:"";
-}
-
-titlePart *,
-dateline *,
-salute *,
-signed * {
-    display:inline;
-    -oxy-display-tags:none;
-    white-space:nowrap;
-}
+}*/
 
 div date,
 div persName,
@@ -173,7 +175,6 @@ div region,
 div country,
 div bloc {
     color:olive;
-/*    visibility:visible !important;*/
 }
 
 /* Milestones or elements with no text */
@@ -185,7 +186,8 @@ gap {
 }
 
 abbr {
-  font-weight:bold;
+    -oxy-display-tags:none;
+    font-weight:bold;
 }
 
 expan {
@@ -193,15 +195,15 @@ expan {
 }
 
 add {
-  color: green;
-  text-decoration: underline;
-  font-size:small;
-  vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
+    color: green;
+    text-decoration: underline;
+    font-size:small;
+    vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
 }
 
 del {
-  color: red;
-  text-decoration: line-through;
+    color: red;
+    text-decoration: line-through;
 }
 
 gap {
@@ -211,8 +213,8 @@ gap {
 }
 
 unclear {
-  color: maroon;
-  font-style: italic;
+    color: maroon;
+    font-style: italic;
 }
 
 supplied:before {
@@ -251,7 +253,7 @@ foreign:hover:after {
 }
 
 salute,
-seg[function='salute']{
+seg[function='salute'] {
     background-color:silver;
     font-style:italic;
 }
@@ -342,16 +344,20 @@ pb:before {
 }
 
 /* Media References to Facsimiles */
-titlePage:before,
-div:before,
-pb:before {
+[facs]:before {
     -oxy-append-content:
         oxy_button(
             actionID, "media.open"
             transparent, true
             showText, true
             showIcon, true
-        )
+        )    
+}
+
+titlePage:before,
+div:before,
+pb:before {
+    -oxy-append-content:
         oxy_label(
             text, "${i18n(facs.label)}: "
             styles, "@import 'labels_sub.css';"

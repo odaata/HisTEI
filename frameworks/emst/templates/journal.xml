@@ -29,7 +29,7 @@
         <profileDesc>
             <creation>
                 <date type="written"/>
-                <persName type="writer"/>
+                <persName type="author"/>
                 <settlement type="written"/>
             </creation>
             <textClass>
@@ -52,7 +52,7 @@
             <div type="entry">
                 <opener>
                     <dateline>
-                        <date></date>
+                        <date/>
                     </dateline>
                 </opener>
                 <p>

@@ -17,6 +17,7 @@ front,
 body,
 back {
     display:block;
+    padding:1px;
     -oxy-foldable:true;
 }
 
@@ -60,17 +61,7 @@ TEI:before {
     font-size:x-large;
 }
 
-TEI > *,
-teiHeader *,
-text > *,
-front > *,
-body > *,
-back > * {
-    display:block;
-    padding:1px;
-}
-
-text * {
+text {
     white-space:nowrap;
 }
 

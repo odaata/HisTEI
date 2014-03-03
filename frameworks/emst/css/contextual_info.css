@@ -9,6 +9,13 @@
 
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
+/* white-space will be inherited by all fields below the lists */
+listPerson,
+listOrg,
+listPlace {
+    white-space:normal;
+}
+
 /* Foldable Sections */
 listPerson,
 listPlace,
@@ -30,10 +37,9 @@ address,
 note[type="collections"],
 note[type="collection"],
 note[type="inventories"],
-note[type="inventory"]  {
+note[type="inventory"] {
     display:block;
     -oxy-foldable:true;
-/*    -oxy-display-tags:none;*/
 }
 
 /* Collapsed Sections by Default */
@@ -153,7 +159,7 @@ note[type="inventory"]:before {
 
 /* Field labels */
 
-/* Global fields with icons so appended to*/
+/* Global fields with icons so appended to */
 date:before,
 persName:before,
 orgName:before,
@@ -172,6 +178,41 @@ bloc:before {
 }
 
 /* Fields specific to contextual info */
+persName,
+orgName,
+placeName,
+district,
+settlement,
+region,
+country,
+bloc,
+title,
+authority,
+sourceDesc,
+relation,
+catDesc,
+desc,
+sex,
+education,
+occupation,
+socecStatus,
+faith,
+addrLine,
+date[type="added"],
+note[type="inCorpus"],
+note[type="family"],
+note[type="generation"],
+note[type="marriage-partner"],
+note[type="hours"],
+note[type="searched"],
+note[type="user"],
+note[type="website"],
+name[type="short"],
+name[type="full"] {
+    display:block;
+    padding:1px;
+}
+
 title:before,
 authority:before,
 sourceDesc:before,
@@ -230,6 +271,7 @@ name[type="full"]:before {
 }
 
 event {
+    display:block;
     -oxy-prepend-content: 
         oxy_label(
             text, oxy_concat("${i18n(placeName.label)}:")
@@ -238,9 +280,20 @@ event {
     ;
 }
 
+note[type="added"] {
+    display:block;
+    visibility:-oxy-collapse-text;
+    white-space:-oxy-trim-when-ws-only;
+}
+
 date[type="added"] {
+    display:block;
     border:none;
     content: attr(when);
+}
+
+date[type="added"]:after {
+    content: "";
 }
 
 /* Special labels for custom fields from the Amsterdam project */
@@ -281,17 +334,6 @@ catDesc {
     white-space:normal;
 }
 
-person > persName *,
-place > placeName *,
-org > orgName *,
-desc *,
-catDesc * {
-    display:inline;    
-    -oxy-display-tags:none;
-    visibility:visible;
-    white-space:normal;
-}
-
 desc date,
 desc persName,
 desc placeName,
@@ -324,14 +366,6 @@ org {
     padding:10px;
     border:2px inset;
     -oxy-foldable:true;
-}
-
-/* Fields */
-person *,
-place *,
-org * {
-    display:block;
-    padding:2px;
 }
 
 /* Sections */
@@ -425,7 +459,6 @@ addName[type]:before {
     since it's schema only allows NCNames as attribute values :-( 
 */
 sex {
-    display:inline;
     visibility:-oxy-collapse-text;
     -oxy-display-tags:none;
     content: 
@@ -459,7 +492,7 @@ event:before {
 /* !!!Hack - can't figure out why oxygen styles just these fields differently wrt whitespace - 
     It displays whitespace in address. This removes it, but makes it a bit weird to navigate */
 
-address {
+location {
     visibility:-oxy-collapse-text;
 }
 
@@ -489,6 +522,7 @@ category:before! > category {
 }
 
 category {
+    display:block;
     border:1px inset grey;
     margin:2px 0px;
     padding:5px;

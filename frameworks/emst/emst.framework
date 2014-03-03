@@ -59,6 +59,17 @@
 											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/document-all.css</String>
+										</field>
+										<field name="title">
+											<String>EMST TEI Document-All (combined in one file)</String>
+										</field>
+										<field name="alternate">
+											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
 								</cssFile-array>
 							</field>
 							<field name="mergeCSSsFromDocument">
@@ -286,13 +297,13 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>long.s</String>
+											<String>char.long.s</String>
 										</field>
 										<field name="name">
-											<String>${i18n(long.s)}</String>
+											<String>${i18n(char.long.s)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(long.s_description)}</String>
+											<String>${i18n(char.long.s_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/images/long_s-20.png</String>
@@ -353,7 +364,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart or ancestor-or-self::*:fw</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -462,13 +473,13 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>thorn</String>
+											<String>char.thorn</String>
 										</field>
 										<field name="name">
-											<String>${i18n(thorn)}</String>
+											<String>${i18n(char.thorn)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(thorn_description)}</String>
+											<String>${i18n(char.thorn_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/images/thorn-20.png</String>
@@ -486,7 +497,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>true()</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -509,13 +520,13 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>thorn.capital</String>
+											<String>char.thorn.capital</String>
 										</field>
 										<field name="name">
-											<String>${i18n(thorn.capital)}</String>
+											<String>${i18n(char.thorn.capital)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(thorn.capital_description)}</String>
+											<String>${i18n(char.thorn.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String>${framework}/images/thorn_capital-20.png</String>
@@ -533,7 +544,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>true()</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -586,7 +597,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0"</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="header" place="top"/></String>
 															</entry>
 														</map>
 													</field>
@@ -2024,6 +2035,382 @@
 											</actionMode-array>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>char.wynn</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.wynn)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.wynn_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/wynn-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/wynn-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 W</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>ƿ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.wynn.capital</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.wynn.capital)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.wynn.capital_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/wynn_capital-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/wynn_capital-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>Ƿ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.yogh</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.yogh)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.yogh_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/yogh-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/yogh-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>ȝ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.yogh.capital</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.yogh.capital)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.yogh.capital_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/yogh_capital-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/yogh_capital-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>Ȝ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.ash</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.ash)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.ash_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/ash-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/ash-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>æ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.ash.capital</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.ash.capital)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.ash.capital_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/ash_capital-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/ash_capital-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>Æ</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.eth</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.eth)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.eth_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/eth-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/eth-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>ð</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.eth.capital</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.eth.capital)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.eth.capital_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/eth_capital-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/eth_capital-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>Ð</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -2100,17 +2487,57 @@
 													<menuEntry-array>
 														<menuItem>
 															<field name="actionID">
-																<String>long.s</String>
+																<String>char.ash</String>
 															</field>
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>thorn</String>
+																<String>char.ash.capital</String>
 															</field>
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>thorn.capital</String>
+																<String>char.eth</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.eth.capital</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.long.s</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.thorn</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.thorn.capital</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.wynn</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.wynn.capital</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.yogh</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.yogh.capital</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -2397,17 +2824,57 @@
 											<toolbarEntry-array>
 												<toolbarItem>
 													<field name="actionID">
-														<String>long.s</String>
+														<String>char.ash</String>
 													</field>
 												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
-														<String>thorn</String>
+														<String>char.ash.capital</String>
 													</field>
 												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
-														<String>thorn.capital</String>
+														<String>char.eth</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.eth.capital</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.long.s</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.thorn</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.thorn.capital</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.wynn</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.wynn.capital</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.yogh</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.yogh.capital</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>

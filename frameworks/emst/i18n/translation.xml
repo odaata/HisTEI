@@ -10,23 +10,76 @@
 
     <!--  Character Actions  -->
 
-    <key value="long.s">
+    <key value="char.ash">
+        <val lang="en_US">ash</val>
+    </key>
+    <key value="char.ash_description">
+        <val lang="en_US">Insert an ash.</val>
+    </key>
+    <key value="char.ash.capital">
+        <val lang="en_US">capital ash</val>
+    </key>
+    <key value="char.ash.capital_description">
+        <val lang="en_US">Insert a capital ash.</val>
+    </key>
+
+    <key value="char.eth">
+        <val lang="en_US">eth</val>
+    </key>
+    <key value="char.eth_description">
+        <val lang="en_US">Insert an eth.</val>
+    </key>
+    <key value="char.eth.capital">
+        <val lang="en_US">capital eth</val>
+    </key>
+    <key value="char.eth.capital_description">
+        <val lang="en_US">Insert a capital eth.</val>
+    </key>
+
+    <key value="char.long.s">
         <val lang="en_US">long s</val>
     </key>
-    <key value="long.s_description">
+    <key value="char.long.s_description">
         <val lang="en_US">Insert a long s.</val>
     </key>
-    <key value="thorn">
+
+    <key value="char.thorn">
         <val lang="en_US">thorn</val>
     </key>
-    <key value="thorn_description">
+    <key value="char.thorn_description">
         <val lang="en_US">Insert a thorn.</val>
     </key>
-    <key value="thorn.capital">
+    <key value="char.thorn.capital">
         <val lang="en_US">capital thorn</val>
     </key>
-    <key value="thorn.capital_description">
+    <key value="char.thorn.capital_description">
         <val lang="en_US">Insert a capital thorn.</val>
+    </key>
+
+    <key value="char.wynn">
+        <val lang="en_US">wynn</val>
+    </key>
+    <key value="char.wynn_description">
+        <val lang="en_US">Insert a wynn.</val>
+    </key>
+    <key value="char.wynn.capital">
+        <val lang="en_US">capital wynn</val>
+    </key>
+    <key value="char.wynn.capital_description">
+        <val lang="en_US">Insert a capital wynn.</val>
+    </key>
+
+    <key value="char.yogh">
+        <val lang="en_US">yogh</val>
+    </key>
+    <key value="char.yogh_description">
+        <val lang="en_US">Insert a yogh.</val>
+    </key>
+    <key value="char.yogh.capital">
+        <val lang="en_US">capital yogh</val>
+    </key>
+    <key value="char.yogh.capital_description">
+        <val lang="en_US">Insert a capital yogh.</val>
     </key>
 
     <!-- Text Decoration -->

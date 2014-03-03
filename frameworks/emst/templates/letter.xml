@@ -39,7 +39,11 @@
                 <catRef target="gen:CORRESPONDENCE"/>
             </textClass>
             <handNotes>
-                <handNote xml:id="hand_001"/>
+                <handNote xml:id="hand_001">
+                    <p>
+                        <lb/>
+                    </p>
+                </handNote>
             </handNotes>
         </profileDesc>
     </teiHeader>

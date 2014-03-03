@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xml:id="TEI_${id}" xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+<TEI xml:id="TEI_${id}" xml:lang="nl" xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
             <titleStmt>
                 <title/>
             </titleStmt>
             <publicationStmt>
-                <authority>EMST</authority>
+                <authority>Mike Olson</authority>
                 <idno/>
             </publicationStmt>
             <notesStmt>
@@ -29,7 +29,7 @@
         <profileDesc>
             <creation>
                 <date type="written"/>
-                <persName type="writer"/>
+                <persName type="author"/>
                 <settlement type="written"/>
             </creation>
             <textClass>
@@ -52,7 +52,7 @@
             <div type="entry">
                 <opener>
                     <dateline>
-                        <date></date>
+                        <date/>
                     </dateline>
                 </opener>
                 <p>

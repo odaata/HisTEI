@@ -35,4 +35,8 @@ public class EMSTComboBox extends ComboBoxEditor implements InplaceRenderer {
     public RendererLayoutInfo getRenderingInfo(AuthorInplaceContext authorInplaceContext) {
         return null;
     }
+
+    private void prepareComponents(AuthorInplaceContext context, boolean forEditing) {
+
+    }
 }

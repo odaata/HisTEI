@@ -448,7 +448,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0"</String>
+																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -1052,22 +1052,14 @@
       &lt;surname/>
   &lt;/persName>
   &lt;sex/>
-  &lt;education/>
   &lt;occupation/>
   &lt;faith/>
-  &lt;socecStatus/>
   &lt;birth>
       &lt;settlement/>
   &lt;/birth>
   &lt;death>
       &lt;settlement/>
   &lt;/death>
-  &lt;residence>
-      &lt;settlement/>
-  &lt;/residence>
-  &lt;affiliation>
-      &lt;orgName/>
-  &lt;/affiliation>
 &lt;/person></String>
 															</entry>
 															<entry>
@@ -2526,7 +2518,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>4</Integer>
+						<Integer>2</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

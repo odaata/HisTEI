@@ -33,6 +33,24 @@ bloc:before {
     -oxy-prepend-content: url('../images/place-16.png');
 }
 
+/* Elements with hidden Oxygen tags */
+date,
+persName,
+orgNae,
+placeName,
+district,
+settlement,
+region,
+country,
+bloc,
+prt,
+ref,
+note,
+lb,
+hi {
+    -oxy-display-tags:none;
+}
+
 /* Date */
 
 date:empty:after,
@@ -217,14 +235,7 @@ p {
     margin:2px;
     margin-bottom: 10px;
     white-space:nowrap;
-    -oxy-display-tags:none;
     -oxy-foldable:true;
-}
-
-p * {
-    display:inline;
-    -oxy-display-tags:none;
-    white-space:nowrap;
 }
 
 lb {

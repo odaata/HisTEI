@@ -34,15 +34,12 @@ facsimile:before {
     ;
 }
 
-facsimile > * {
-    display:block;
-    visibility:-oxy-collapse-text;
-}
-
 /* Graph and Media Elements */
 
 graphic,
 media {
+    display:block;
+    visibility:-oxy-collapse-text;
     font-weight:bold;
     display:list-item;
     list-style-type:disc;

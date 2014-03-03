@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="http://emergingstandards.eu/css/contextual_info.css"?>
-<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="en">
         <fileDesc>
             <titleStmt>
                 <title>List of People for the Emerging Standards project</title>
@@ -14,7 +14,7 @@
             </sourceDesc>
         </fileDesc>
     </teiHeader>
-    <text>
+    <text xml:lang="nl">
         <body>
             <listPerson>
                 <listPerson>
@@ -27,22 +27,14 @@
                             <surname/>
                         </persName>
                         <sex/>
-                        <education/>
                         <occupation/>
                         <faith/>
-                        <socecStatus/>
                         <birth>
                             <settlement/>
                         </birth>
                         <death>
                             <settlement/>
                         </death>
-                        <residence>
-                            <settlement/>
-                        </residence>
-                        <affiliation>
-                            <orgName/>
-                        </affiliation>
                         <event type="marriage">
                             <label>Marriage</label>
                             <note type="marriage_partner">

@@ -1773,7 +1773,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;handNote xmlns="http://www.tei-c.org/ns/1.0" xml:id="hand_">&lt;p>${caret}&lt;/p>&lt;/handNote></String>
+																<String>&lt;handNote xmlns="http://www.tei-c.org/ns/1.0" xml:id="hand_">${caret}&lt;/handNote></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>

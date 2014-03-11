@@ -36,11 +36,7 @@
                 <catRef/>
             </textClass>
             <handNotes>
-                <handNote xml:id="hand_001">
-                    <p>
-                        <lb/>
-                    </p>
-                </handNote>
+                <handNote xml:id="hand_001"/>
             </handNotes>
         </profileDesc>
     </teiHeader>

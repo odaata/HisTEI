@@ -1,7 +1,6 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.contextual_info.EMSTContextualElement;
-import eu.emergingstandards.facsimile.EMSTFacsimile;
+import eu.emergingstandards.contextual_info.EMSTContextualStyledList;
 import eu.emergingstandards.utils.EMSTOxygenUtils;
 import eu.emergingstandards.utils.EMSTUtils;
 import eu.emergingstandards.utils.EMSTXMLUtils;
@@ -16,6 +15,8 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import static eu.emergingstandards.commons.EMSTTEINamespace.FACSIMILE_ELEMENT_NAME;
 
 /**
  * Created by mike on 1/6/14.
@@ -42,7 +43,7 @@ public class EMSTStylesFilter implements StylesFilter {
     * */
     private void addContextualElement(Styles styles, AuthorNode authorNode) {
 //        System.out.println("AuthorNode: name: " + authorNode.getName() + "; type: " + authorNode.getType());
-        EMSTContextualElement contextualElement = EMSTContextualElement.get(authorNode);
+        EMSTContextualStyledList contextualElement = EMSTContextualStyledList.get(authorNode);
         if (contextualElement != null) {
             Map<String, Object> comboboxArgs = new HashMap<>();
 
@@ -76,7 +77,7 @@ public class EMSTStylesFilter implements StylesFilter {
     *       so this function just adds a label with the url decoded
     * */
     private void addFacsimileElement(Styles styles, AuthorNode authorNode) {
-        if (EMSTFacsimile.FACSIMILE_ELEMENT_NAME.equals(authorNode.getName())) {
+        if (FACSIMILE_ELEMENT_NAME.equals(authorNode.getName())) {
             AuthorElement authorElement = EMSTOxygenUtils.castAuthorElement(authorNode);
 
             if (authorElement != null) {

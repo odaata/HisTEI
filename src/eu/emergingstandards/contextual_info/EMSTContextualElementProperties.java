@@ -125,14 +125,6 @@ public class EMSTContextualElementProperties {
                 props.getSourceParent(), elementName);
     }
 
-    /*private EMSTContextualElementProperties(Map<String, String> props) {
-        this.elementName = props.get("elementName");
-        this.contextualType = EMSTContextualType.get(props.get("contextualType"));
-        this.refAttributeName = props.get("refAttributeName");
-        this.sourceParent = props.get("sourceParent");
-        this.typeFilter = props.get("typeFilter");
-    }*/
-
     @NotNull
     public String getElementName() {
         return elementName;

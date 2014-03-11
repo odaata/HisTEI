@@ -10,6 +10,7 @@ import java.util.*;
 public abstract class EMSTAbstractEventDispatcher<L extends EventListener> implements EMSTEventDispatcher<L> {
 
     private Map<L, Integer> listeners = Collections.synchronizedMap(new WeakHashMap<L, Integer>());
+    private Integer counter = 0;
 
     @NotNull
     public synchronized List<L> getListeners() {
@@ -23,7 +24,7 @@ public abstract class EMSTAbstractEventDispatcher<L extends EventListener> imple
 
     @Override
     public synchronized void addListener(L listener) {
-        listeners.put(listener, listeners.size() + 1);
+        listeners.put(listener, ++counter);
     }
 
     @Override

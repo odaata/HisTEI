@@ -247,6 +247,10 @@ lb {
     content:"\A";
 }
 
+/*lb:first-child {
+    content:"";
+}*/
+
 lb[break="no"] {
     color:purple;
     font-weight:bold;  

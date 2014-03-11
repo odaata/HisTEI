@@ -21,7 +21,7 @@ public class EMSTSaxonUtils {
         if (parentNode != null && childName != null) {
             QName childQName = new QName(nullToEmpty(namespace), childName);
             XdmSequenceIterator axisIterator = parentNode.axisIterator(Axis.CHILD, childQName);
-            if (axisIterator.hasNext()) {
+            while (axisIterator.hasNext()) {
                 XdmItem childItem = axisIterator.next();
                 if (!childItem.isAtomicValue()) {
                     childNodes.add((XdmNode) childItem);

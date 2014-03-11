@@ -7,9 +7,9 @@
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
 /* Global mouseover border for inline editing in text */
-*:hover:after {
+/**:hover:after {
     border:1px dashed black;
-}
+}*/
 
 /* Sections, fields & labels */
 
@@ -49,9 +49,9 @@ postscript {
 }
 
 /* Folded Sections */
-div {
+/*div {
     -oxy-folded:true;
-}
+}*/
 
 /* Field Labels */
 dateline::before,
@@ -118,7 +118,7 @@ fw:before {
     content: url('../images/forme_work-16.png');
 }
 
-fw:focus:before {
+fw:focus:after {
     -oxy-prepend-content:
         oxy_label(
             text, "${i18n(type.label)}: "
@@ -141,10 +141,13 @@ signed {
     padding:2px;
     margin:2px;
     margin-bottom: 10px;
-    -oxy-display-tags:none;
 }
 
 /* Elements with hidden Oxygen tags */
+titlePart,
+dateline,
+salute,
+signed,
 abbr,
 expan,
 add, 
@@ -154,16 +157,12 @@ unclear,
 supplied,
 foreign,
 seg,
-handShift {
+handShift,
+pb,
+pc,
+w {
     -oxy-display-tags:none;
 }
-
-/*titlePart > lb:first-child,
-dateline > lb:first-child,
-salute > lb:first-child,
-signed > lb:first-child {
-    content:"";
-}*/
 
 div date,
 div persName,
@@ -182,11 +181,9 @@ pb,
 handShift,
 gap {
     visibility:-oxy-collapse-text;
-    -oxy-display-tags:none;
 }
 
 abbr {
-    -oxy-display-tags:none;
     font-weight:bold;
 }
 
@@ -302,8 +299,8 @@ unclear:hover:after {
 
 /* @place */
 
-fw:focus:before,
-div note:focus,
+fw:focus:after,
+div note:focus:after,
 add:hover:after {
     -oxy-prepend-content:
         oxy_label(
@@ -364,8 +361,8 @@ pb:before {
         )
         oxy_popup(
             edit, "@facs"
-            values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
-            tooltips, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
+            /*values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
+            tooltips, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")*/
             selectionMode, multiple
         )
     ;
@@ -378,7 +375,18 @@ handShift {
     content: url('../images/hand_shift-16.png');
 }
 
-handShift:hover:after,
+handShift:hover:after{
+    -oxy-append-content: 
+        oxy_label(
+            text, "${i18n(hand.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@new"
+/*            values, oxy_xpath("string-join(for $id in //handNote/@xml:id return concat('#', $id), ',')")*/
+        )    
+}
+
 add:hover:after,
 del:hover:after,
 unclear:hover:after,
@@ -389,14 +397,18 @@ gap:hover:after {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, oxy_concat("@", oxy_xpath("if (local-name() eq 'handShift') then 'new' else 'hand'"))
-            values, oxy_xpath("string-join(for $id in //handNote/@xml:id return concat('#', $id), ',')")
+            edit, "@hand"
+/*            values, oxy_xpath("string-join(for $id in //handNote/@xml:id return concat('#', $id), ',')")*/
         )
 }
 
-handShift[new]:hover:after,
+handShift[new]:hover:after {
+    link: attr(new);
+    -oxy-append-content: url('../images/hand_open-16.png');
+}
+
 [hand]:hover:after {
-    link: oxy_xpath("if (local-name() eq 'handShift') then data(@new) else data(@hand)");
+    link: attr(hand);
     -oxy-append-content: url('../images/hand_open-16.png');
 }
 

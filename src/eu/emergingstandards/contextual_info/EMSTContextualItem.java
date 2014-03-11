@@ -1,5 +1,6 @@
 package eu.emergingstandards.contextual_info;
 
+import eu.emergingstandards.lists.EMSTListItemAdapter;
 import net.sf.saxon.s9api.QName;
 import net.sf.saxon.s9api.XdmNode;
 import org.jetbrains.annotations.NotNull;
@@ -12,41 +13,41 @@ import static eu.emergingstandards.utils.EMSTUtils.nullToEmpty;
 /**
  * Created by mike on 2/10/14.
  */
-public class EMSTContextualItem {
+public class EMSTContextualItem extends EMSTListItemAdapter {
 
-    private static final String VALUE_ATTRIB_NAME = "value";
-    private static final String TYPE_ATTRIB_NAME = "type";
-    private static final String LABEL_ELEMENT_NAME = "label";
-    private static final String TOOLTIP_ELEMENT_NAME = "tooltip";
+    protected static final String TYPE_ATTRIB_NAME = "type";
 
     @Nullable
     public static EMSTContextualItem get(EMSTContextualType contextualType, XdmNode item) {
+        EMSTContextualItem contextualItem = null;
+
         String value = emptyToNull(item.getAttributeValue(new QName(VALUE_ATTRIB_NAME)));
 
         if (value != null && contextualType != null) {
-            return new EMSTContextualItem(value, contextualType, item);
-        } else {
-            return null;
+            value = contextualType.getKey() + ":" + value;
+
+            String label = nullToEmpty(getChildText(item, LABEL_ELEMENT_NAME));
+            if (label.isEmpty()) label = value;
+
+            String tooltip = nullToEmpty(getChildText(item, TOOLTIP_ELEMENT_NAME));
+
+            String type = nullToEmpty(item.getAttributeValue(new QName(TYPE_ATTRIB_NAME)));
+
+            contextualItem = new EMSTContextualItem(value, label, tooltip, contextualType, type);
         }
+        return contextualItem;
     }
 
     /* Instance Members*/
 
-    private EMSTContextualType contextualType;
-    private String value;
-    private String type;
-    private String label;
-    private String tooltip;
+    protected EMSTContextualType contextualType;
+    protected String type;
 
-    protected EMSTContextualItem(String value, EMSTContextualType contextualType, XdmNode item) {
+    protected EMSTContextualItem(String value, String label, String tooltip,
+                                 EMSTContextualType contextualType, String type) {
+        super(value, label, tooltip);
         this.contextualType = contextualType;
-        this.value = value;
-        this.type = nullToEmpty(item.getAttributeValue(new QName(TYPE_ATTRIB_NAME)));
-
-        this.label = nullToEmpty(getChildText(item, LABEL_ELEMENT_NAME));
-        if (this.label.isEmpty()) this.label = value;
-
-        this.tooltip = nullToEmpty(getChildText(item, TOOLTIP_ELEMENT_NAME));
+        this.type = type;
     }
 
     @NotNull
@@ -55,22 +56,7 @@ public class EMSTContextualItem {
     }
 
     @NotNull
-    public String getValue() {
-        return getContextualType().getKey() + ":" + value;
-    }
-
-    @NotNull
     public String getType() {
         return type;
-    }
-
-    @NotNull
-    public String getLabel() {
-        return label;
-    }
-
-    @NotNull
-    public String getTooltip() {
-        return tooltip;
     }
 }

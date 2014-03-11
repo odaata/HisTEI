@@ -10,6 +10,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.Map;
 
+import static eu.emergingstandards.commons.EMSTTEINamespace.FACS_ATTRIB_NAME;
 import static eu.emergingstandards.utils.EMSTOxygenUtils.getAttrValues;
 import static eu.emergingstandards.utils.EMSTOxygenUtils.openURL;
 
@@ -17,8 +18,6 @@ import static eu.emergingstandards.utils.EMSTOxygenUtils.openURL;
  * Created by mike on 2/7/14.
  */
 public class EMSTMediaReference extends EMSTAbstractMediaElement {
-
-    private static final String FACS_ATTRIB_NAME = "facs";
 
     @Nullable
     public static EMSTMediaReference get(AuthorAccess authorAccess, AuthorElement authorElement) {

@@ -1,8 +1,10 @@
 package eu.emergingstandards;
 
+import eu.emergingstandards.extensions.EMSTAuthorExtensionStateListener;
 import eu.emergingstandards.extensions.EMSTNodeRendererCustomizer;
+import eu.emergingstandards.extensions.EMSTSchemaManagerFilter;
 import eu.emergingstandards.extensions.EMSTStylesFilter;
-import eu.emergingstandards.id.EMSTUniqueAttributesRecognizer;
+import ro.sync.contentcompletion.xml.SchemaManagerFilter;
 import ro.sync.ecss.extensions.api.AuthorExtensionStateListener;
 import ro.sync.ecss.extensions.api.ExtensionsBundle;
 import ro.sync.ecss.extensions.api.StylesFilter;
@@ -17,7 +19,8 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
 
 //    private static Logger logger = Logger.getLogger(EMSTExtensionsBundle.class.getName());
 
-    private EMSTUniqueAttributesRecognizer uniqueAttributesRecognizer;
+    private EMSTAuthorExtensionStateListener authorExtensionStateListener;
+    private EMSTSchemaManagerFilter schemaManagerFilter;
 
     @Override
     public String getDocumentTypeID() {
@@ -31,8 +34,9 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
 
     @Override
     public AuthorExtensionStateListener createAuthorExtensionStateListener() {
-        uniqueAttributesRecognizer = new EMSTUniqueAttributesRecognizer();
-        return uniqueAttributesRecognizer;
+        authorExtensionStateListener = new EMSTAuthorExtensionStateListener();
+
+        return authorExtensionStateListener;
     }
 
     @Override
@@ -41,18 +45,23 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
     }
 
     @Override
-    public UniqueAttributesRecognizer getUniqueAttributesIdentifier() {
-        return uniqueAttributesRecognizer;
-    }
-
-    @Override
-    public ClipboardFragmentProcessor getClipboardFragmentProcessor() {
-        return uniqueAttributesRecognizer;
+    public SchemaManagerFilter createSchemaManagerFilter() {
+        return new EMSTSchemaManagerFilter();
     }
 
     @Override
     public XMLNodeRendererCustomizer createXMLNodeCustomizer() {
         return new EMSTNodeRendererCustomizer();
+    }
+
+    @Override
+    public UniqueAttributesRecognizer getUniqueAttributesIdentifier() {
+        return authorExtensionStateListener;
+    }
+
+    @Override
+    public ClipboardFragmentProcessor getClipboardFragmentProcessor() {
+        return authorExtensionStateListener;
     }
 
     /* Thought the customHref method would reolve the link Hrefs as specified in the CSS
@@ -66,7 +75,7 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
             authorNode = authorNode.getParent();
         }
 
-        EMSTContextualElement contextualElement = EMSTContextualElement.get(authorNode);
+        EMSTContextualStyledList contextualElement = EMSTContextualStyledList.get(authorNode);
         if (contextualElement != null) {
             return contextualElement.getURL();
         } else {

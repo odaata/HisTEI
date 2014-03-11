@@ -59,17 +59,6 @@
 											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
-									<cssFile>
-										<field name="href">
-											<String>${framework}/css/document-all.css</String>
-										</field>
-										<field name="title">
-											<String>EMST TEI Document-All (combined in one file)</String>
-										</field>
-										<field name="alternate">
-											<Boolean>true</Boolean>
-										</field>
-									</cssFile>
 								</cssFile-array>
 							</field>
 							<field name="mergeCSSsFromDocument">
@@ -1473,7 +1462,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1658,7 +1647,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 P</String>
+											<String>M1 M3 SEMICOLON</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1930,7 +1919,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;handNote xmlns="http://www.tei-c.org/ns/1.0" xml:id="hand_">&lt;p>${caret}&lt;/p>&lt;/handNote></String>
+																<String>&lt;handNote xmlns="http://www.tei-c.org/ns/1.0" xml:id="hand_">${caret}&lt;/handNote></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -3176,7 +3165,7 @@
 						<null/>
 					</field>
 					<field name="schemaManagerFilterExtension">
-						<String>ro.sync.ecss.extensions.commons.ccfilter.ConfigurationSchemaManagerFilter</String>
+						<null/>
 					</field>
 					<field name="authorSWTDndExtension">
 						<null/>

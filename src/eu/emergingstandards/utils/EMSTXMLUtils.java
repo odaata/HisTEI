@@ -1,5 +1,6 @@
 package eu.emergingstandards.utils;
 
+import eu.emergingstandards.commons.EMSTNamespaceType;
 import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
@@ -19,6 +20,7 @@ public class EMSTXMLUtils {
 
     public static final String XML_ID_ATTRIB_NAME = "xml:id";
     public static final String XML_BASE_ATTRIB_NAME = "xml:base";
+    public static final String XML_LANG_ATTRIB_NAME = "xml:lang";
     public static final String XML_NS_ATTRIB_NAME = "xmlns";
 
     @NotNull

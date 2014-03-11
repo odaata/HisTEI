@@ -16,6 +16,7 @@ import java.net.URL;
 import java.nio.file.Files;
 import java.util.*;
 
+import static eu.emergingstandards.commons.EMSTTEINamespace.*;
 import static eu.emergingstandards.utils.EMSTOxygenUtils.*;
 import static eu.emergingstandards.utils.EMSTUtils.castFileToURL;
 import static eu.emergingstandards.utils.EMSTUtils.castURLToFile;
@@ -28,17 +29,12 @@ public class EMSTMedia extends EMSTAbstractMediaElement {
 
     private static final Logger logger = Logger.getLogger(EMSTMedia.class.getName());
 
-    public static final String GRAPHIC_ELEMENT_NAME = "graphic";
-    public static final String MEDIA_ELEMENT_NAME = "media";
     public static final List<String> MEDIA_ELEMENT_NAMES = new ArrayList<>(2);
 
     static {
         MEDIA_ELEMENT_NAMES.add(MEDIA_ELEMENT_NAME);
         MEDIA_ELEMENT_NAMES.add(GRAPHIC_ELEMENT_NAME);
     }
-
-    public static final String URL_ATTRIB_NAME = "url";
-    public static final String MIME_TYPE_ATTRIB_NAME = "mimeType";
 
     @Nullable
     public static EMSTMedia get(AuthorAccess authorAccess, AuthorElement authorElement) {
@@ -153,10 +149,15 @@ public class EMSTMedia extends EMSTAbstractMediaElement {
     }
 
     @Nullable
+    public String getURLValue() {
+        return getAttrValue(authorElement.getAttribute(URL_ATTRIB_NAME));
+    }
+
+    @Nullable
     public URL getURL() {
         URL url = null;
 
-        String value = getAttrValue(authorElement.getAttribute(URL_ATTRIB_NAME));
+        String value = getURLValue();
         if (value != null) {
             url = authorElement.getXMLBaseURL();
             try {

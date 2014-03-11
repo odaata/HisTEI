@@ -55,6 +55,23 @@ msDesc:before {
     background-color:rgba(53, 25, 0, 0.6);    
 }
 
+/* Fields */
+fileDesc,
+titleStmt,
+title,
+authority,
+note,
+msDesc,
+msIdentifier,
+repository,
+collection,
+idno,
+altIdentifier,
+catRef {
+    display:block;
+}
+
+
 /* Field labels */
 title:before,
 authority:before,
@@ -83,6 +100,7 @@ creation > settlement,
 creation > region,
 creation > country,
 creation > bloc {
+    display:block;
     vertical-align:middle;
     padding:5px 0px;
     visibility:-oxy-collapse-text;
@@ -140,7 +158,11 @@ creation > bloc:before {
 
 /* Hand */
 handNote {
+    display:block;
+    padding:2px;
     border:1px inset;
+    visibility:-oxy-collapse-text;
+    white-space:normal;
 }
 
 handNote:before {
@@ -160,6 +182,23 @@ handNote:before {
         )
         oxy_combobox(
                 edit, "@scope"
+        )
+    ;
+}
+
+handNote:after {
+    display:block;
+    content:
+        oxy_label(
+            text, "${i18n(desc.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textArea(
+            edit, "#text"
+            contentType, "text/plain"
+            columns, 50
+            rows, 3
+            indentOnTab, false
         )
     ;
 }

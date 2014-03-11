@@ -1,4 +1,4 @@
-package eu.emergingstandards.utils;
+package eu.emergingstandards.commons;
 
 /**
  * Created by mike on 2/5/14.

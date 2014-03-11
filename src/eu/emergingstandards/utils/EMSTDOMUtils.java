@@ -1,5 +1,6 @@
 package eu.emergingstandards.utils;
 
+import eu.emergingstandards.commons.EMSTNamespaceType;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
 import org.w3c.dom.Document;

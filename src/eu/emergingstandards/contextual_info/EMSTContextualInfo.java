@@ -3,7 +3,6 @@ package eu.emergingstandards.contextual_info;
 import eu.emergingstandards.events.EMSTAbstractEventDispatcher;
 import eu.emergingstandards.events.EMSTRefreshEventListener;
 import eu.emergingstandards.monitor.EMSTFileMonitor;
-import eu.emergingstandards.utils.EMSTUtils;
 import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.s9api.*;
 import org.apache.commons.vfs2.FileChangeEvent;
@@ -23,6 +22,8 @@ import java.util.*;
 
 import static eu.emergingstandards.utils.EMSTOxygenUtils.expandOxygenPath;
 import static eu.emergingstandards.utils.EMSTOxygenUtils.getCurrentAuthorAccess;
+import static eu.emergingstandards.utils.EMSTUtils.castPathToURL;
+import static eu.emergingstandards.utils.EMSTUtils.nullToEmpty;
 
 /**
  * Created by mike on 1/10/14.
@@ -164,12 +165,12 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
 
     @Nullable
     public URL getURL() {
-        return EMSTUtils.castPathToURL(getPath());
+        return castPathToURL(getPath());
     }
 
     @NotNull
     public List<EMSTContextualItem> getItems(String type) {
-        String typeCleaned = EMSTUtils.nullToEmpty(type);
+        String typeCleaned = nullToEmpty(type);
 
         if (!initialized) {
             refresh();

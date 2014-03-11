@@ -23,9 +23,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static eu.emergingstandards.commons.EMSTTEINamespace.FACSIMILE_ELEMENT_NAME;
 import static eu.emergingstandards.utils.EMSTOxygenUtils.*;
 import static eu.emergingstandards.utils.EMSTUtils.castFileToURL;
 import static eu.emergingstandards.utils.EMSTUtils.castURLToFile;
+import static eu.emergingstandards.utils.EMSTXMLUtils.XML_BASE_ATTRIB_NAME;
 
 /**
  * Created by mike on 1/25/14.
@@ -34,7 +36,6 @@ public class EMSTFacsimile extends EMSTAbstractMediaElement {
 
     private static final Logger logger = Logger.getLogger(EMSTFacsimile.class.getName());
 
-    public static final String FACSIMILE_ELEMENT_NAME = "facsimile";
     private static final String FACSIMILE_ELEMENT = EMSTXMLUtils.createElement(FACSIMILE_ELEMENT_NAME);
 
     @Nullable
@@ -127,7 +128,7 @@ public class EMSTFacsimile extends EMSTAbstractMediaElement {
 
     @Nullable
     public String getXMLBase() {
-        return getAttrValue(authorElement.getAttribute(EMSTXMLUtils.XML_BASE_ATTRIB_NAME));
+        return getAttrValue(authorElement.getAttribute(XML_BASE_ATTRIB_NAME));
     }
 
     @Nullable
@@ -166,7 +167,7 @@ public class EMSTFacsimile extends EMSTAbstractMediaElement {
             String relativePath = makeRelative(authorAccess, authorElement.getParent().getXMLBaseURL(), newDirectory);
 //          Update the xml:base attribute
             authorAccess.getDocumentController().setAttribute(
-                    EMSTXMLUtils.XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), authorElement);
+                    XML_BASE_ATTRIB_NAME, new AttrValue(relativePath), authorElement);
         }
     }
 

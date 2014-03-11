@@ -16,7 +16,7 @@ public class EMSTOpenContextualInfoOperation implements AuthorOperation {
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        EMSTContextualElement element = EMSTContextualElement.get(authorAccess);
+        EMSTContextualStyledList element = EMSTContextualStyledList.get(authorAccess);
         if (element != null) {
             URL sourceURL = element.getURL();
             if (sourceURL != null) {

@@ -181,9 +181,19 @@ public final class EMSTOxygenUtils {
 
         if (authorAccess != null) {
             path = Paths.get(authorAccess.getUtilAccess().expandEditorVariables(
-                    originalPath, authorAccess.getEditorAccess().getEditorLocation()));
+                    originalPath, getCurrentEditorLocation()));
         }
         return path;
+    }
+
+    @Nullable
+    public static URL getEditorLocation(AuthorAccess authorAccess) {
+        return authorAccess.getEditorAccess().getEditorLocation();
+    }
+
+    @Nullable
+    public static URL getCurrentEditorLocation() {
+        return PluginWorkspaceProvider.getPluginWorkspace().getCurrentEditorAccess(PluginWorkspace.MAIN_EDITING_AREA).getEditorLocation();
     }
 
     @Nullable

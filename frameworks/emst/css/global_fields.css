@@ -144,14 +144,19 @@ ref {
 }
 
 /* ptr can't contain text, so disallow editing text() node */
-ptr {
+ptr,
+ref,
+note[type="url"] {
     visibility:-oxy-collapse-text;
 }
 
 ref:hover,
 note[type="url"]:hover {
-    visibility:-oxy-collapse-text;
     content: 
+        oxy_label(
+            text, "${i18n(label.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
         oxy_textfield(
             edit, "#text"
         )
@@ -202,9 +207,7 @@ note[type="url"]:hover:after {
 head {
     display:block;
     font-weight:bold;
-    padding-left:2px;
-    padding-bottom:5px;
-    margin-bottom:5px;
+    padding:5px;
     border-bottom:1px solid;
 }
 

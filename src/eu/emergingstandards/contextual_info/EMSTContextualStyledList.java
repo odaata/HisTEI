@@ -1,7 +1,6 @@
 package eu.emergingstandards.contextual_info;
 
 import eu.emergingstandards.lists.styled.EMSTAbstractStyledList;
-import eu.emergingstandards.utils.EMSTOxygenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
@@ -39,13 +38,13 @@ public class EMSTContextualStyledList extends EMSTAbstractStyledList<EMSTContext
 //      And Oxygen needs this info as early as possible, so have to return an object even if page is not yet available
     @Nullable
     public static EMSTContextualStyledList get(AuthorNode authorNode) {
-        EMSTContextualStyledList contextualElement;
+        EMSTContextualStyledList contextualStyledList;
 
         synchronized (authorNodes) {
-            contextualElement = authorNodes.get(authorNode);
+            contextualStyledList = authorNodes.get(authorNode);
         }
 
-        if (contextualElement == null) {
+        if (contextualStyledList == null) {
             EMSTContextualElementProperties elementProperties = EMSTContextualElementProperties.get(authorNode);
             if (elementProperties != null) {
                 AuthorNode parent = authorNode.getParent();
@@ -53,20 +52,20 @@ public class EMSTContextualStyledList extends EMSTAbstractStyledList<EMSTContext
                     EMSTContextualType contextualType = elementProperties.getContextualType();
                     EMSTContextualInfo info = EMSTContextualInfo.get(contextualType);
 
-                    contextualElement =
+                    contextualStyledList =
                             new EMSTContextualStyledList(castAuthorElement(authorNode), info, elementProperties);
 
                     synchronized (authorNodes) {
-                        authorNodes.put(authorNode, contextualElement);
+                        authorNodes.put(authorNode, contextualStyledList);
                     }
                 }
             }
         }
 
-        if (contextualElement != null && contextualElement.getAuthorPage() == null) {
-            contextualElement.setAuthorPage(EMSTOxygenUtils.getCurrentAuthorEditorPage());
+        if (contextualStyledList != null && contextualStyledList.getAuthorPage() == null) {
+            contextualStyledList.setAuthorPage(getCurrentAuthorEditorPage());
         }
-        return contextualElement;
+        return contextualStyledList;
     }
 
     @Nullable
@@ -85,7 +84,7 @@ public class EMSTContextualStyledList extends EMSTAbstractStyledList<EMSTContext
         this.contextualInfo = contextualInfo;
         this.elementProperties = properties;
 
-        contextualInfo.addListener(this);
+        this.contextualInfo.addListener(this);
     }
 
     @NotNull

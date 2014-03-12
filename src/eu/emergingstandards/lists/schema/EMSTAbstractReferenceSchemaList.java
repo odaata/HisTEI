@@ -1,6 +1,7 @@
 package eu.emergingstandards.lists.schema;
 
 import eu.emergingstandards.lists.EMSTListItem;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import ro.sync.ecss.extensions.api.*;
 import ro.sync.ecss.extensions.api.node.AuthorDocument;
@@ -11,6 +12,8 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
  */
 public abstract class EMSTAbstractReferenceSchemaList<I extends EMSTListItem> extends EMSTAbstractSchemaList<I>
         implements EMSTReferenceSchemaList<I>, AuthorListener {
+
+    private static final Logger logger = Logger.getLogger(EMSTAbstractReferenceSchemaList.class.getName());
 
     protected final AuthorAccess authorAccess;
 //    private final Map<URL, List<I>> items = new HashMap<>();
@@ -30,26 +33,22 @@ public abstract class EMSTAbstractReferenceSchemaList<I extends EMSTListItem> ex
 
     @Override
     public final void addListener() {
-        authorAccess.getDocumentController().addAuthorListener(this);
+        getAuthorAccess().getDocumentController().addAuthorListener(this);
     }
 
     @Override
     public final void removeListener() {
-        authorAccess.getDocumentController().removeAuthorListener(this);
+        getAuthorAccess().getDocumentController().removeAuthorListener(this);
     }
 
     protected void handleAuthorEvent(AuthorNode editedNode) {
         if (editedNode != null) {
             if (isEdited(editedNode)) {
-                removeListener();
-
                 synchronized (this) {
                     reset();
 
                     refresh();
                 }
-
-                addListener();
             }
         }
     }

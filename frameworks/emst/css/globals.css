@@ -53,7 +53,7 @@ TEI {
 /*  Geneva - only (good-looking) font that supports OE chars (found so far)  */
     font-family:Geneva;
 /*    font-family:helvetica, verdana, arial, sans-serif;*/
-    font-size:12px;
+/*    font-size:12px;*/
 }
 
 TEI:before {
@@ -90,6 +90,7 @@ text:before {
         )
         oxy_combobox(
             edit, "@xml:lang"
+            columns, 5
         )
     ;
 }

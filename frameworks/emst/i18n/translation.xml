@@ -82,6 +82,13 @@
         <val lang="en_US">Insert a capital yogh.</val>
     </key>
 
+    <key value="char.pound">
+        <val lang="en_US">Pound</val>
+    </key>
+    <key value="char.pound_description">
+        <val lang="en_US">Insert a pound sign.</val>
+    </key>
+
     <!-- Text Decoration -->
 
     <key value="bold">
@@ -397,51 +404,41 @@
     <!--  Global Attributes  -->
 
     <key value="id.label">
-        <comment>xml:id attribute</comment>
         <val lang="en_US">ID</val>
     </key>
 
     <key value="lang.label">
-        <comment>xml:lang attribute</comment>
         <val lang="en_US">Lang</val>
     </key>
 
     <key value="url.label">
-        <comment>url attribute</comment>
         <val lang="en_US">URL</val>
     </key>
 
     <key value="type.label">
-        <comment>type attribute</comment>
         <val lang="en_US">Type</val>
     </key>
 
     <key value="reason.label">
-        <comment>reason attribute</comment>
         <val lang="en_US">Reason</val>
     </key>
 
     <key value="place.label.textual">
-        <comment>place attribute</comment>
         <val lang="en_US">Place</val>
     </key>
 
     <key value="n.label">
-        <comment>n attribute</comment>
         <val lang="en_US">n</val>
     </key>
     <key value="n.tooltip">
-        <comment>n attribute tooltip</comment>
         <val lang="en_US">Any page number provided by the source</val>
     </key>
 
     <key value="facs.label">
-        <comment>facs attribute</comment>
         <val lang="en_US">Facsimile(s)</val>
     </key>
 
     <key value="hand.label">
-        <comment>hand attribute</comment>
         <val lang="en_US">Hand</val>
     </key>
 

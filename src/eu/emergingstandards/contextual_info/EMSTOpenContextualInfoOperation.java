@@ -12,8 +12,6 @@ import java.net.URL;
  */
 public class EMSTOpenContextualInfoOperation implements AuthorOperation {
 
-//    private static Logger logger = Logger.getLogger(EMSTOpenContextualInfoOperation.class.getName());
-
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
         EMSTContextualStyledList element = EMSTContextualStyledList.get(authorAccess);

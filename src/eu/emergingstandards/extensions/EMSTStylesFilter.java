@@ -31,7 +31,7 @@ public class EMSTStylesFilter implements StylesFilter {
     @Override
     public Styles filter(Styles styles, AuthorNode authorNode) {
         if (!styles.isInline()) {
-            addContextualElement(styles, authorNode);
+            addContextualStyledList(styles, authorNode);
 
             addFacsimileElement(styles, authorNode);
         }
@@ -41,19 +41,16 @@ public class EMSTStylesFilter implements StylesFilter {
     /*
     * Add the contextual element if the current Authornode represents a contextual reference
     * */
-    private void addContextualElement(Styles styles, AuthorNode authorNode) {
-//        System.out.println("AuthorNode: name: " + authorNode.getName() + "; type: " + authorNode.getType());
-        EMSTContextualStyledList contextualElement = EMSTContextualStyledList.get(authorNode);
-        if (contextualElement != null) {
+    private void addContextualStyledList(Styles styles, AuthorNode authorNode) {
+        EMSTContextualStyledList contextualStyledList = EMSTContextualStyledList.get(authorNode);
+        if (contextualStyledList != null) {
             Map<String, Object> comboboxArgs = new HashMap<>();
 
             comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TYPE, InplaceEditorArgumentKeys.TYPE_COMBOBOX);
-//            PROPERTY_EDIT is deprecated
-//            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT, contextualInfo.getEditProperty(authorNode));
-            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT_QUALIFIED, contextualElement.getEditPropertyQualified());
-            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_VALUES, contextualElement.getOxygenValues());
-            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_LABELS, contextualElement.getOxygenLabels());
-            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TOOLTIPS, contextualElement.getOxygenTooltips());
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDIT_QUALIFIED, contextualStyledList.getEditPropertyQualified());
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_VALUES, contextualStyledList.getOxygenValues());
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_LABELS, contextualStyledList.getOxygenLabels());
+            comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_TOOLTIPS, contextualStyledList.getOxygenTooltips());
 
             comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_EDITABLE, "false");
             comboboxArgs.put(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT, "true");

@@ -2400,6 +2400,53 @@
 											</actionMode-array>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>char.pound</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.pound)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.pound_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/pound-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/pound-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 4</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>£</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -2527,6 +2574,11 @@
 														<menuItem>
 															<field name="actionID">
 																<String>char.yogh.capital</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>char.pound</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -2864,6 +2916,11 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>char.yogh.capital</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.pound</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>

@@ -102,24 +102,32 @@ salute {
 }
 
 opener {
-    margin-bottom:1em;
+    margin-bottom:.5em;
 }
 
 closer {
-    margin-top:1em;
+    margin-top:.5em;
+}
+
+titlePart,
+dateline,
+salute,
+signed {
+    display:block;
+    padding:2px;
+    margin:2px;
+    margin-bottom: 5px;
 }
 
 fw {
-    padding:1px;
+    display:block;
+    padding:5px;
     text-align:right;
 }
 
 fw:before {
-    content: url('../images/forme_work-16.png');
-}
-
-fw:focus:after {
-    -oxy-prepend-content:
+    content: 
+        url('../images/forme_work-16.png')
         oxy_label(
             text, "${i18n(type.label)}: "
             styles, "@import 'labels_sub.css';"            
@@ -132,16 +140,6 @@ fw:focus:after {
 }
 
 /* Inline elements for text */
-
-titlePart,
-dateline,
-salute,
-signed {
-    display:block;
-    padding:2px;
-    margin:2px;
-    margin-bottom: 10px;
-}
 
 /* Elements with hidden Oxygen tags */
 titlePart,
@@ -194,7 +192,6 @@ expan {
 add {
     color: green;
     text-decoration: underline;
-    font-size:small;
     vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
 }
 
@@ -263,6 +260,7 @@ seg[function='formulaic']{
 /* Note */
 
 div note {
+    display:inline;
     border: 1px solid maroon;
     padding:1px;
     font-size: 11px;
@@ -298,11 +296,10 @@ unclear:hover:after {
 }
 
 /* @place */
-
-fw:focus:after,
-div note:focus:after,
+div note:before,
+fw:before,
 add:hover:after {
-    -oxy-prepend-content:
+    -oxy-append-content:
         oxy_label(
             text, "${i18n(place.label.textual)}: "
             styles, "@import 'labels_sub.css';"
@@ -361,8 +358,6 @@ pb:before {
         )
         oxy_popup(
             edit, "@facs"
-            /*values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
-            tooltips, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")*/
             selectionMode, multiple
         )
     ;
@@ -383,7 +378,6 @@ handShift:hover:after{
         )
         oxy_combobox(
             edit, "@new"
-/*            values, oxy_xpath("string-join(for $id in //handNote/@xml:id return concat('#', $id), ',')")*/
         )    
 }
 
@@ -398,7 +392,6 @@ gap:hover:after {
         )
         oxy_combobox(
             edit, "@hand"
-/*            values, oxy_xpath("string-join(for $id in //handNote/@xml:id return concat('#', $id), ',')")*/
         )
 }
 

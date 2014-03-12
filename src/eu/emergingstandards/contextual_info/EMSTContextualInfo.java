@@ -30,9 +30,8 @@ import static eu.emergingstandards.utils.EMSTUtils.nullToEmpty;
  */
 public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshEventListener> implements EMSTRefreshEventListener {
 
-    /* Global (Static) members */
-
     private static final Logger logger = Logger.getLogger(EMSTContextualInfo.class.getName());
+
     //  Base strings for Paths
     public static final String SOURCE_BASE_PATH = EditorVariables.PROJECT_DIRECTORY + "/contextual_info/";
     public static final String XQUERY_BASE_PATH = EditorVariables.FRAMEWORK_DIRECTORY + "/resources/";
@@ -42,6 +41,8 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     private static Map<EMSTContextualType, Path> sourcePaths = new EnumMap<>(EMSTContextualType.class);
 
     private static XQueryExecutable xQueryExecutable;
+
+    /* Monitor-related */
     private static EMSTFileMonitor xQueryMonitor;
     private static FileListener xQueryMonitorListener =
             new FileListener() {
@@ -83,6 +84,14 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     public static Path getXQueryPath() {
         if (xQueryPath == null) {
             xQueryPath = expandOxygenPath(XQUERY_PATH, getCurrentAuthorAccess());
+
+            if (xQueryMonitor == null) {
+                xQueryMonitor = EMSTFileMonitor.add(xQueryPath);
+
+                if (xQueryMonitor != null) {
+                    xQueryMonitor.addListener(xQueryMonitorListener);
+                }
+            }
         }
         return xQueryPath;
     }
@@ -120,13 +129,6 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
             proc.setConfigurationProperty(FeatureKeys.XQUERY_VERSION, "3.0");
             try {
                 xQueryExecutable = proc.newXQueryCompiler().compile(xqy.toFile());
-
-                if (xQueryMonitor == null) {
-                    xQueryMonitor = EMSTFileMonitor.add(xqy);
-                    if (xQueryMonitor != null) {
-                        xQueryMonitor.addListener(xQueryMonitorListener);
-                    }
-                }
             } catch (SaxonApiException | IOException e) {
                 logger.error(e, e);
             }
@@ -145,6 +147,31 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     private boolean initialized;
     private final Map<String, List<EMSTContextualItem>> items = new HashMap<>();
 
+    /* Monitor-related */
+    private EMSTFileMonitor sourceMonitor;
+    private FileListener sourceMonitorListener =
+            new FileListener() {
+                @Override
+                public void fileCreated(FileChangeEvent event) throws Exception {
+                    handleEvent();
+                }
+
+                @Override
+                public void fileDeleted(FileChangeEvent event) throws Exception {
+                    handleEvent();
+                }
+
+                @Override
+                public void fileChanged(FileChangeEvent event) throws Exception {
+                    handleEvent();
+                }
+
+                private void handleEvent() {
+                    refresh();
+                    notifyListeners();
+                }
+            };
+
     protected EMSTContextualInfo(EMSTContextualType contextualType) {
         this.contextualType = contextualType;
     }
@@ -160,7 +187,16 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
 
     @Nullable
     public Path getPath() {
-        return getSourcePath(getContextualType());
+        Path sourcePath = getSourcePath(getContextualType());
+
+        if (sourceMonitor == null) {
+            sourceMonitor = EMSTFileMonitor.add(sourcePath);
+
+            if (sourceMonitor != null) {
+                sourceMonitor.addListener(sourceMonitorListener);
+            }
+        }
+        return sourcePath;
     }
 
     @Nullable
@@ -190,9 +226,11 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
                 XQueryEvaluator xqe = xqx.load();
                 if (xqe != null) {
                     // Force synchronization so Oxygen gets the values on startup
-                    synchronized (items) {
-                        reset();
-                        try {
+//                    synchronized (items) {
+                    initialized = false;
+                    items.clear();
+
+                    try {
                             xqe.setSource(new SAXSource(new InputSource(src.toUri().toString())));
                             for (XdmItem item : xqe) {
                                 XdmNode node = (XdmNode) item;
@@ -210,33 +248,14 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
                                 }
                             }
 
-                            init(src);
-
-                        } catch (SaxonApiException e) {
+                        initialized = true;
+                    } catch (SaxonApiException e) {
                             logger.error(e, e);
                         }
-                    }
+//                    }
                 }
             }
         }
-    }
-
-    private synchronized void init(Path sourcePath) {
-        if (sourceMonitor == null)
-            sourceMonitor = EMSTFileMonitor.add(sourcePath);
-
-        if (sourceMonitor != null)
-            sourceMonitor.addListener(sourceMonitorListener);
-
-        initialized = true;
-    }
-
-    private synchronized void reset() {
-        initialized = false;
-
-        if (sourceMonitor != null) sourceMonitor.removeListener(sourceMonitorListener);
-
-        items.clear();
     }
 
     /* Event Dispatcher */
@@ -248,30 +267,4 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
         }
     }
 
-    /* Monitor-related */
-
-    private EMSTFileMonitor sourceMonitor;
-
-    private FileListener sourceMonitorListener =
-            new FileListener() {
-                @Override
-                public void fileCreated(FileChangeEvent event) throws Exception {
-                    handleEvent();
-                }
-
-                @Override
-                public void fileDeleted(FileChangeEvent event) throws Exception {
-                    handleEvent();
-                }
-
-                @Override
-                public void fileChanged(FileChangeEvent event) throws Exception {
-                    handleEvent();
-                }
-
-                private void handleEvent() {
-                    refresh();
-                    notifyListeners();
-                }
-            };
 }

@@ -8,6 +8,7 @@ import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 
+import javax.swing.*;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
@@ -47,6 +48,8 @@ public abstract class EMSTAbstractStyledList<I extends EMSTListItem>
     public final void setAuthorPage(WSAuthorEditorPage newAuthorPage) {
         if (newAuthorPage != null) {
             authorPage = new WeakReference<>(newAuthorPage);
+        } else {
+            authorPage = null;
         }
     }
 
@@ -95,11 +98,16 @@ public abstract class EMSTAbstractStyledList<I extends EMSTListItem>
 
     @Override
     public void refresh() {
-        WSAuthorEditorPage page = getAuthorPage();
-        AuthorElement element = getAuthorElement();
+        final WSAuthorEditorPage page = getAuthorPage();
+        final AuthorElement element = getAuthorElement();
 
         if (page != null && element != null) {
-            page.refresh(element);
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    page.refresh(element);
+                }
+            });
         }
     }
 }

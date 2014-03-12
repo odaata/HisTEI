@@ -11,21 +11,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Implemented my own CCFilter functionality - seems to be quicker, but still a bit sluggish">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/images/pound-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/images/pound-20.png" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractReferenceSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractReferenceSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTOpenContextualInfoOperation.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTOpenContextualInfoOperation.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/global_fields.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/global_fields.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/globals.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/globals.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/text.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/text.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Fixed refresh error with ContextualInfo">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/emst.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/emst.iml" afterPath="$PROJECT_DIR$/emst.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -339,7 +329,7 @@
       <file leaf-file-name="EMSTAbstractReferenceSchemaList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractReferenceSchemaList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="23" column="0" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="2250">
+            <state line="23" column="0" selection-start="866" selection-end="866" vertical-scroll-proportion="0.0" vertical-offset="324" max-vertical-offset="2250">
               <folding />
             </state>
           </provider>
@@ -348,7 +338,7 @@
       <file leaf-file-name="EMSTStylesFilter.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="33" column="0" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1602">
+            <state line="33" column="0" selection-start="1217" selection-end="1217" vertical-scroll-proportion="0.0" vertical-offset="306" max-vertical-offset="1602">
               <folding />
             </state>
           </provider>
@@ -357,7 +347,7 @@
       <file leaf-file-name="EMSTAbstractStyledList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="41" column="117" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1908">
+            <state line="41" column="117" selection-start="1317" selection-end="1317" vertical-scroll-proportion="0.0" vertical-offset="504" max-vertical-offset="1908">
               <folding>
                 <element signature="e#2846#2999#0" expanded="true" />
                 <element signature="e#2984#2985#0" expanded="true" />
@@ -414,7 +404,7 @@
       <file leaf-file-name="EMSTContextualStyledList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="39" column="112" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="2304">
+            <state line="39" column="112" selection-start="1745" selection-end="1745" vertical-scroll-proportion="0.0" vertical-offset="396" max-vertical-offset="2304">
               <folding />
             </state>
           </provider>
@@ -441,7 +431,7 @@
       <file leaf-file-name="EMSTExtensionsBundle.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="0" selection-start="1385" selection-end="1385" vertical-scroll-proportion="0.4" vertical-offset="320" max-vertical-offset="2718">
+            <state line="66" column="62" selection-start="2231" selection-end="2232" vertical-scroll-proportion="1.6648649" vertical-offset="320" max-vertical-offset="2718">
               <folding />
             </state>
           </provider>
@@ -877,6 +867,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="commons" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1400,7 +1404,11 @@
       <created>1394496670107</created>
       <updated>1394496670107</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="Fixed refresh error with ContextualInfo">
+      <created>1394662650112</created>
+      <updated>1394662650112</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1439,13 +1447,13 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2286645" sideWeight="0.49684212" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2286645" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2286645" sideWeight="0.5010526" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22931597" sideWeight="0.45473683" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22931597" sideWeight="0.54457575" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22931597" sideWeight="0.5431579" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -1499,8 +1507,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Added Guava jars to subversion" />
-    <MESSAGE value="Renamed oxygen library to include version (15.2)" />
     <MESSAGE value="Further tweaks to make more use of Utils" />
     <MESSAGE value="Further work on updating nodes under facsimile" />
     <MESSAGE value="Ton of work on Facsimile - almost got it working! Wow! It's been a big 'un!" />
@@ -1524,7 +1530,9 @@
     <MESSAGE value="Lots of fixes and tweaks for release of Amsterdam framework" />
     <MESSAGE value="Added rest of special chars for EMST&#10;Added icons for lists, events, relations, bibls" />
     <MESSAGE value="Implemented my own CCFilter functionality - seems to be quicker, but still a bit sluggish" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented my own CCFilter functionality - seems to be quicker, but still a bit sluggish" />
+    <MESSAGE value="Fixed refresh error with ContextualInfo" />
+    <MESSAGE value="Added Pound sign" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Pound sign" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1916,7 +1924,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="0" selection-start="1385" selection-end="1385" vertical-scroll-proportion="0.4" vertical-offset="320" max-vertical-offset="2718">
+        <state line="66" column="62" selection-start="2231" selection-end="2232" vertical-scroll-proportion="1.6648649" vertical-offset="320" max-vertical-offset="2718">
           <folding />
         </state>
       </provider>
@@ -1929,8 +1937,8 @@
           <artifact-editor>
             <show-sorted>false</show-sorted>
             <show-content>
-              <type id="artifact" />
               <type id="library" />
+              <type id="artifact" />
             </show-content>
           </artifact-editor>
           <last-edited>emst</last-edited>

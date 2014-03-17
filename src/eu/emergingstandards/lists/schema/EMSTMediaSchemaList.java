@@ -50,7 +50,7 @@ public class EMSTMediaSchemaList extends EMSTAbstractReferenceSchemaList<EMSTSch
     }
 
     @Override
-    public void refresh() {
+    public synchronized void refresh() {
         List<EMSTSchemaListItem> items = getItems();
         EMSTFacsimile facsimile = getFacsimile();
 

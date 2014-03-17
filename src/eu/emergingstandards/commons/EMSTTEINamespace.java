@@ -15,6 +15,7 @@ public class EMSTTEINamespace {
     public static final String HAND_SHIFT_ELEMENT_NAME = "handShift";
     public static final String LB_ELEMENT_NAME = "lb";
     public static final String MEDIA_ELEMENT_NAME = "media";
+    public static final String SEX_ELEMENT_NAME = "sex";
 
 
     public static final String BREAK_ATTRIB_NAME = "break";
@@ -25,6 +26,6 @@ public class EMSTTEINamespace {
     public static final String REASON_ATTRIB_NAME = "reason";
     public static final String TYPE_ATTRIB_NAME = "type";
     public static final String URL_ATTRIB_NAME = "url";
-
+    public static final String VALUE_ATTRIB_NAME = "value";
 
 }

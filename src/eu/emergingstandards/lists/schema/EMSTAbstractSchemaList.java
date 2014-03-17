@@ -7,6 +7,7 @@ import ro.sync.contentcompletion.xml.CIValue;
 import ro.sync.contentcompletion.xml.WhatPossibleValuesHasAttributeContext;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 /**
@@ -14,7 +15,7 @@ import java.util.List;
  */
 public abstract class EMSTAbstractSchemaList<I extends EMSTListItem> implements EMSTSchemaList<I> {
 
-    private final List<I> items = new ArrayList<>();
+    private final List<I> items = Collections.synchronizedList(new ArrayList<I>());
     private final List<CIValue> ciValues = new ArrayList<>();
 
     @NotNull
@@ -43,14 +44,16 @@ public abstract class EMSTAbstractSchemaList<I extends EMSTListItem> implements 
         if (items.isEmpty()) return null;
 
         if (ciValues.isEmpty()) {
-            for (I item : items) {
-                ciValues.add(new CIValue(item.getValue(), item.getTooltip()));
+            synchronized (items) {
+                for (I item : items) {
+                    ciValues.add(new CIValue(item.getValue(), item.getTooltip()));
+                }
             }
         }
         return ciValues;
     }
 
-    public void reset() {
+    public synchronized void reset() {
         items.clear();
         ciValues.clear();
     }

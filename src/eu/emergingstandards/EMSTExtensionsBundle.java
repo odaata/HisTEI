@@ -12,6 +12,8 @@ import ro.sync.ecss.extensions.api.UniqueAttributesRecognizer;
 import ro.sync.ecss.extensions.api.content.ClipboardFragmentProcessor;
 import ro.sync.exml.workspace.api.node.customizer.XMLNodeRendererCustomizer;
 
+import static eu.emergingstandards.utils.EMSTOxygenUtils.refreshCurrentPage;
+
 /**
  * Created by mike on 12/28/13.
  */
@@ -46,6 +48,7 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
 
     @Override
     public SchemaManagerFilter createSchemaManagerFilter() {
+        refreshCurrentPage();
         return new EMSTSchemaManagerFilter();
     }
 

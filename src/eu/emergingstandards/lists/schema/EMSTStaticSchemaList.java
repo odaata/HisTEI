@@ -59,7 +59,7 @@ public class EMSTStaticSchemaList extends EMSTAbstractSchemaList<EMSTSchemaListI
                         }
                 )
         );
-//        @break attribute on <lb> elements
+//        @break attribute on <lb> element
         LISTS.add(
                 new EMSTStaticSchemaList(
                         Arrays.asList(new EMSTSchemaListAttribute(BREAK_ATTRIB_NAME, LB_ELEMENT_NAME)),
@@ -81,6 +81,7 @@ public class EMSTStaticSchemaList extends EMSTAbstractSchemaList<EMSTSchemaListI
                         }
                 )
         );
+
     }
 
     @NotNull
@@ -89,11 +90,11 @@ public class EMSTStaticSchemaList extends EMSTAbstractSchemaList<EMSTSchemaListI
     }
 
     private final List<EMSTSchemaListAttribute> attributes;
-    private final String[][] items;
+    private final String[][] itemStrings;
 
-    protected EMSTStaticSchemaList(List<EMSTSchemaListAttribute> attributes, String[][] items) {
+    protected EMSTStaticSchemaList(List<EMSTSchemaListAttribute> attributes, String[][] itemStrings) {
         this.attributes = attributes;
-        this.items = items;
+        this.itemStrings = itemStrings;
 
         reset();
     }
@@ -105,11 +106,13 @@ public class EMSTStaticSchemaList extends EMSTAbstractSchemaList<EMSTSchemaListI
     }
 
     @Override
-    public void reset() {
+    public synchronized void reset() {
         super.reset();
 
-        for (String[] vals : items) {
-            this.getItems().add(EMSTSchemaListItem.get(vals[0], vals[1]));
+        final List<EMSTSchemaListItem> items = getItems();
+
+        for (String[] vals : itemStrings) {
+            items.add(EMSTSchemaListItem.get(vals[0], vals[1]));
         }
     }
 }

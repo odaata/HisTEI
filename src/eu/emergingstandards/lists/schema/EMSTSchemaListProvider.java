@@ -81,9 +81,11 @@ public class EMSTSchemaListProvider {
 
     @Nullable
     public EMSTSchemaList<? extends EMSTListItem> getList(WhatPossibleValuesHasAttributeContext context) {
-        for (EMSTSchemaList<? extends EMSTListItem> list : lists) {
-            if (list.matches(context)) {
-                return list;
+        synchronized (lists) {
+            for (EMSTSchemaList<? extends EMSTListItem> list : lists) {
+                if (list.matches(context)) {
+                    return list;
+                }
             }
         }
         return null;

@@ -1,7 +1,6 @@
 package eu.emergingstandards.lists.schema;
 
 import eu.emergingstandards.lists.EMSTListItem;
-import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import ro.sync.ecss.extensions.api.*;
 import ro.sync.ecss.extensions.api.node.AuthorDocument;
@@ -13,10 +12,9 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
 public abstract class EMSTAbstractReferenceSchemaList<I extends EMSTListItem> extends EMSTAbstractSchemaList<I>
         implements EMSTReferenceSchemaList<I>, AuthorListener {
 
-    private static final Logger logger = Logger.getLogger(EMSTAbstractReferenceSchemaList.class.getName());
+//    private static final Logger logger = Logger.getLogger(EMSTAbstractReferenceSchemaList.class.getName());
 
     protected final AuthorAccess authorAccess;
-//    private final Map<URL, List<I>> items = new HashMap<>();
 
     protected EMSTAbstractReferenceSchemaList(AuthorAccess authorAccess) {
         this.authorAccess = authorAccess;
@@ -32,12 +30,12 @@ public abstract class EMSTAbstractReferenceSchemaList<I extends EMSTListItem> ex
     }
 
     @Override
-    public final void addListener() {
+    public final synchronized void addListener() {
         getAuthorAccess().getDocumentController().addAuthorListener(this);
     }
 
     @Override
-    public final void removeListener() {
+    public final synchronized void removeListener() {
         getAuthorAccess().getDocumentController().removeAuthorListener(this);
     }
 
@@ -104,7 +102,8 @@ public abstract class EMSTAbstractReferenceSchemaList<I extends EMSTListItem> ex
     }
 
     @Override
-    public void documentChanged(AuthorDocument authorDocument, AuthorDocument authorDocument2) {
+    public void documentChanged(AuthorDocument oldDocument, AuthorDocument newDocument) {
+//        System.out.println("documentChanged(): oldDocument: " + oldDocument.toString() + "; newDocument: " + newDocument.toString());
     }
 
     @Override

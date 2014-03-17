@@ -16,6 +16,7 @@ import ro.sync.exml.workspace.api.editor.WSEditor;
 import ro.sync.exml.workspace.api.editor.page.WSEditorPage;
 import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 
+import javax.swing.*;
 import java.net.URL;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -236,6 +237,36 @@ public final class EMSTOxygenUtils {
         if (authorAccess != null) {
             authorAccess.getWorkspaceAccess().showErrorMessage(message);
         }
+    }
+
+    public static void refreshPage(final WSAuthorEditorPage page) {
+        if (page != null) {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    page.refresh();
+                }
+            });
+        }
+    }
+
+    public static void refreshCurrentPage() {
+        refreshPage(getCurrentAuthorEditorPage());
+    }
+
+    public static void refreshNode(final WSAuthorEditorPage page, final AuthorNode node) {
+        if (page != null && node != null) {
+            SwingUtilities.invokeLater(new Runnable() {
+                @Override
+                public void run() {
+                    page.refresh(node);
+                }
+            });
+        }
+    }
+
+    public static void refreshCurrentNode() {
+        refreshNode(getCurrentAuthorEditorPage(), getCurrentAuthorNode(getCurrentAuthorAccess()));
     }
 
     private EMSTOxygenUtils() {

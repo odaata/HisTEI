@@ -53,7 +53,7 @@ public class EMSTHandSchemaList extends EMSTAbstractReferenceSchemaList<EMSTSche
     }
 
     @Override
-    public void refresh() {
+    public synchronized void refresh() {
         List<EMSTSchemaListItem> items = getItems();
         List<AuthorElement> handNotes = getContentElements(getHandNotesElement());
 

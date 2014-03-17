@@ -12,4 +12,5 @@ public interface EMSTList<I extends EMSTListItem> {
     @NotNull
     List<I> getItems();
 
+    void reset();
 }

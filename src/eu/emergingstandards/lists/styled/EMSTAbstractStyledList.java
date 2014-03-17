@@ -1,5 +1,7 @@
 package eu.emergingstandards.lists.styled;
 
+import com.google.common.base.Function;
+import com.google.common.collect.Lists;
 import eu.emergingstandards.events.EMSTRefreshEventListener;
 import eu.emergingstandards.lists.EMSTListItem;
 import org.apache.commons.lang3.StringUtils;
@@ -8,12 +10,12 @@ import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 
-import javax.swing.*;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
 import static eu.emergingstandards.utils.EMSTOxygenUtils.escapeCommas;
+import static eu.emergingstandards.utils.EMSTOxygenUtils.refreshNode;
 
 /**
  * Created by mike on 3/4/14.
@@ -23,6 +25,10 @@ public abstract class EMSTAbstractStyledList<I extends EMSTListItem>
 
     private final WeakReference<AuthorElement> authorElement;
     private WeakReference<WSAuthorEditorPage> authorPage;
+
+    private String values = "";
+    private String labels = "";
+    private String tooltips = "";
 
     protected EMSTAbstractStyledList(AuthorElement authorElement) {
         this.authorElement = new WeakReference<>(authorElement);
@@ -45,7 +51,7 @@ public abstract class EMSTAbstractStyledList<I extends EMSTListItem>
     }
 
     @Override
-    public final void setAuthorPage(WSAuthorEditorPage newAuthorPage) {
+    public final synchronized void setAuthorPage(WSAuthorEditorPage newAuthorPage) {
         if (newAuthorPage != null) {
             authorPage = new WeakReference<>(newAuthorPage);
         } else {
@@ -64,50 +70,72 @@ public abstract class EMSTAbstractStyledList<I extends EMSTListItem>
     @NotNull
     @Override
     public String getOxygenValues() {
-        List<String> values = new ArrayList<>();
-
-        for (I item : getItems()) {
-            values.add(item.getValue());
+        if (values.isEmpty()) {
+            List<String> vals = transform(
+                    new Function<I, String>() {
+                        @Override
+                        public String apply(I item) {
+                            return item.getValue();
+                        }
+                    }
+            );
+            values = StringUtils.join(vals, ",");
         }
-        return StringUtils.join(values, ",");
+        return values;
     }
 
     @NotNull
     @Override
     public String getOxygenLabels() {
-        List<String> labels = new ArrayList<>();
-
-        for (I item : getItems()) {
-            labels.add(item.getLabel());
+        if (labels.isEmpty()) {
+            List<String> labs = transform(
+                    new Function<I, String>() {
+                        @Override
+                        public String apply(I item) {
+                            return item.getLabel();
+                        }
+                    }
+            );
+            labels = StringUtils.join(escapeCommas(labs), ",");
         }
-        return StringUtils.join(escapeCommas(labels), ",");
+        return labels;
     }
 
     @NotNull
     @Override
     public String getOxygenTooltips() {
-        List<String> tooltips = new ArrayList<>();
-
-        for (I item : getItems()) {
-            tooltips.add(item.getTooltip());
+        if (tooltips.isEmpty()) {
+            List<String> tips = transform(
+                    new Function<I, String>() {
+                        @Override
+                        public String apply(I item) {
+                            return item.getTooltip();
+                        }
+                    }
+            );
+            tooltips = StringUtils.join(escapeCommas(tips), ",");
         }
-        return StringUtils.join(escapeCommas(tooltips), ",");
+        return tooltips;
     }
 
-//    EMSTRefreshEventListener Method
+    @Override
+    public void reset() {
+        values = "";
+        labels = "";
+        tooltips = "";
+    }
+
+    //    EMSTRefreshEventListener Method
 
     @Override
     public void refresh() {
-        final WSAuthorEditorPage page = getAuthorPage();
-        final AuthorElement element = getAuthorElement();
+        reset();
 
-        if (page != null && element != null) {
-            SwingUtilities.invokeLater(new Runnable() {
-                @Override
-                public void run() {
-                    page.refresh(element);
-                }
-            });
-        }
+        refreshNode(getAuthorPage(), getAuthorElement());
     }
+
+    private synchronized List<String> transform(Function<I, String> function) {
+        return new ArrayList<>(Lists.transform(getItems(), function));
+    }
+
 }

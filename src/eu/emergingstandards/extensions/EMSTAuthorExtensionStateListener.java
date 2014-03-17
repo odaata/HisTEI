@@ -30,7 +30,9 @@ public class EMSTAuthorExtensionStateListener extends EMSTUniqueAttributesRecogn
     public void activated(AuthorAccess authorAccess) {
         super.activated(authorAccess);
 
-        schemaListProvider = EMSTSchemaListProvider.add(authorAccess);
+        if (schemaListProvider == null) {
+            schemaListProvider = EMSTSchemaListProvider.add(authorAccess);
+        }
     }
 
     /**

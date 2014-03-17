@@ -2,6 +2,7 @@ package eu.emergingstandards.contextual_info;
 
 import eu.emergingstandards.events.EMSTAbstractEventDispatcher;
 import eu.emergingstandards.events.EMSTRefreshEventListener;
+import eu.emergingstandards.lists.EMSTList;
 import eu.emergingstandards.monitor.EMSTFileMonitor;
 import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.s9api.*;
@@ -28,7 +29,8 @@ import static eu.emergingstandards.utils.EMSTUtils.nullToEmpty;
 /**
  * Created by mike on 1/10/14.
  */
-public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshEventListener> implements EMSTRefreshEventListener {
+public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshEventListener>
+        implements EMSTList, EMSTRefreshEventListener {
 
     private static final Logger logger = Logger.getLogger(EMSTContextualInfo.class.getName());
 
@@ -38,13 +40,16 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     public static final String XQUERY_PATH = XQUERY_BASE_PATH + "contextual_info.xql";
 
     private static Path xQueryPath;
-    private static Map<EMSTContextualType, Path> sourcePaths = new EnumMap<>(EMSTContextualType.class);
-
     private static XQueryExecutable xQueryExecutable;
+
+    private static final Map<EMSTContextualType, Path> sourcePaths =
+            Collections.synchronizedMap(new EnumMap<EMSTContextualType, Path>(EMSTContextualType.class));
+    private static final Map<EMSTContextualType, EMSTContextualInfo> infos =
+            Collections.synchronizedMap(new EnumMap<EMSTContextualType, EMSTContextualInfo>(EMSTContextualType.class));
 
     /* Monitor-related */
     private static EMSTFileMonitor xQueryMonitor;
-    private static FileListener xQueryMonitorListener =
+    private static final FileListener xQueryMonitorListener =
             new FileListener() {
                 @Override
                 public void fileCreated(FileChangeEvent event) throws Exception {
@@ -67,11 +72,10 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
                 }
             };
 
-    private static final Map<EMSTContextualType, EMSTContextualInfo> infos = new EnumMap<>(EMSTContextualType.class);
-
     @NotNull
-    static EMSTContextualInfo get(EMSTContextualType contextualType) {
-        EMSTContextualInfo info = infos.get(contextualType);
+    static EMSTContextualInfo get(final EMSTContextualType contextualType) {
+        EMSTContextualInfo info;
+        info = infos.get(contextualType);
 
         if (info == null) {
             info = new EMSTContextualInfo(contextualType);
@@ -107,7 +111,9 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
                             getCurrentAuthorAccess()
                     );
 
-            if (sourcePath != null) sourcePaths.put(contextualType, sourcePath);
+            if (sourcePath != null) {
+                sourcePaths.put(contextualType, sourcePath);
+            }
         }
         return sourcePath;
     }
@@ -120,7 +126,7 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
         return xQueryExecutable;
     }
 
-    private static void reload() {
+    private static synchronized void reload() {
         xQueryExecutable = null;
 
         Path xqy = getXQueryPath();
@@ -136,8 +142,10 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     }
 
     private static void refreshInfos() {
-        for (EMSTContextualInfo info : infos.values()) {
-            info.refresh();
+        synchronized (infos) {
+            for (EMSTContextualInfo info : infos.values()) {
+                info.refresh();
+            }
         }
     }
 
@@ -145,7 +153,8 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
 
     private EMSTContextualType contextualType;
     private boolean initialized;
-    private final Map<String, List<EMSTContextualItem>> items = new HashMap<>();
+    private final Map<String, List<EMSTContextualItem>> items =
+            Collections.synchronizedMap(new HashMap<String, List<EMSTContextualItem>>());
 
     /* Monitor-related */
     private EMSTFileMonitor sourceMonitor;
@@ -205,7 +214,7 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
     }
 
     @NotNull
-    public List<EMSTContextualItem> getItems(String type) {
+    public List<EMSTContextualItem> getItems(final String type) {
         String typeCleaned = nullToEmpty(type);
 
         if (!initialized) {
@@ -217,6 +226,12 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
         }
     }
 
+    @NotNull
+    @Override
+    public List<EMSTContextualItem> getItems() {
+        return getItems(null);
+    }
+
     @Override
     public void refresh() {
         Path src = getPath();
@@ -225,37 +240,42 @@ public class EMSTContextualInfo extends EMSTAbstractEventDispatcher<EMSTRefreshE
             if (xqx != null) {
                 XQueryEvaluator xqe = xqx.load();
                 if (xqe != null) {
-                    // Force synchronization so Oxygen gets the values on startup
-//                    synchronized (items) {
-                    initialized = false;
-                    items.clear();
-
-                    try {
-                            xqe.setSource(new SAXSource(new InputSource(src.toUri().toString())));
-                            for (XdmItem item : xqe) {
-                                XdmNode node = (XdmNode) item;
-                                EMSTContextualItem contextualItem = EMSTContextualItem.get(getContextualType(), node);
-                                if (contextualItem != null) {
-
-                                    String type = contextualItem.getType();
-                                    List<EMSTContextualItem> typedItems = items.get(type);
-
-                                    if (typedItems == null) {
-                                        typedItems = new ArrayList<>();
-                                        items.put(type, typedItems);
-                                    }
-                                    typedItems.add(contextualItem);
-                                }
-                            }
-
-                        initialized = true;
-                    } catch (SaxonApiException e) {
-                            logger.error(e, e);
-                        }
-//                    }
+                    reset();
+                    addItems(src, xqe);
                 }
             }
         }
+    }
+
+    private synchronized void addItems(Path src, XQueryEvaluator xqe) {
+        try {
+            xqe.setSource(new SAXSource(new InputSource(src.toUri().toString())));
+            for (XdmItem item : xqe) {
+                XdmNode node = (XdmNode) item;
+                EMSTContextualItem contextualItem = EMSTContextualItem.get(getContextualType(), node);
+                if (contextualItem != null) {
+
+                    String type = contextualItem.getType();
+                    List<EMSTContextualItem> typedItems = items.get(type);
+
+                    if (typedItems == null) {
+                        typedItems = new ArrayList<>();
+                        items.put(type, typedItems);
+                    }
+                    typedItems.add(contextualItem);
+                }
+            }
+            initialized = true;
+        } catch (SaxonApiException e) {
+            items.clear();
+            logger.error(e, e);
+        }
+    }
+
+    @Override
+    public synchronized void reset() {
+        initialized = false;
+        items.clear();
     }
 
     /* Event Dispatcher */

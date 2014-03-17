@@ -11,6 +11,7 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
 
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.WeakHashMap;
@@ -31,18 +32,15 @@ public class EMSTContextualStyledList extends EMSTAbstractStyledList<EMSTContext
     private static final String ID_REGEX = "(\\S+)";
     private static final Pattern REF_PATTERN = Pattern.compile(TYPE_REGEX + ":" + ID_REGEX);
 
-    private static final Map<AuthorNode, EMSTContextualStyledList> authorNodes = new WeakHashMap<>();
+    private static final Map<AuthorNode, EMSTContextualStyledList> authorNodes =
+            Collections.synchronizedMap(new WeakHashMap<AuthorNode, EMSTContextualStyledList>());
 
     //  Author page is required, but can only be set when available (later in startup sequence)
 //      Even if the page isn't available, ContextualElement serves the function of locating nodes that will need controls
 //      And Oxygen needs this info as early as possible, so have to return an object even if page is not yet available
     @Nullable
     public static EMSTContextualStyledList get(AuthorNode authorNode) {
-        EMSTContextualStyledList contextualStyledList;
-
-        synchronized (authorNodes) {
-            contextualStyledList = authorNodes.get(authorNode);
-        }
+        EMSTContextualStyledList contextualStyledList = authorNodes.get(authorNode);
 
         if (contextualStyledList == null) {
             EMSTContextualElementProperties elementProperties = EMSTContextualElementProperties.get(authorNode);
@@ -55,9 +53,7 @@ public class EMSTContextualStyledList extends EMSTAbstractStyledList<EMSTContext
                     contextualStyledList =
                             new EMSTContextualStyledList(castAuthorElement(authorNode), info, elementProperties);
 
-                    synchronized (authorNodes) {
-                        authorNodes.put(authorNode, contextualStyledList);
-                    }
+                    authorNodes.put(authorNode, contextualStyledList);
                 }
             }
         }

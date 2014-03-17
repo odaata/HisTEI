@@ -13,6 +13,7 @@
         <property name="artifact.temp.output.emst-oxygen" value="${artifacts.temp.dir}/emst_oxygen"/>
         <mkdir dir="${artifact.temp.output.emst-oxygen}"/>
         <zip destfile="${temp.jar.path.emst-oxygen.zip}" duplicate="preserve">
+            <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="emst"/>
             <zipfileset dir="${basedir}/emst" prefix="emst"/>
         </zip>
         <copy file="${temp.jar.path.emst-oxygen.zip}" tofile="${artifact.temp.output.emst-oxygen}/emst-oxygen.zip"/>
@@ -23,6 +24,7 @@
         <property name="artifact.temp.output.amsterdam-oxygen" value="${artifacts.temp.dir}/amsterdam_oxygen"/>
         <mkdir dir="${artifact.temp.output.amsterdam-oxygen}"/>
         <zip destfile="${temp.jar.path.amsterdam-oxygen.zip}" duplicate="preserve">
+            <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="amsterdam"/>
             <zipfileset dir="${basedir}/amsterdam" prefix="amsterdam"/>
         </zip>
         <copy file="${temp.jar.path.amsterdam-oxygen.zip}"

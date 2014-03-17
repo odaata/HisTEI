@@ -100,7 +100,11 @@
         <pathelement location="${basedir}/lib/commons-vfs2-2.0.jar"/>
     </path>
 
-    <path id="library.oxygen.classpath">
+    <path id="library.guava-16.0.1.classpath">
+        <pathelement location="${basedir}/lib/guava-16.0.1.jar"/>
+    </path>
+
+    <path id="library.oxygen-15.2.classpath">
         <fileset dir="${basedir}/../15.2/lib">
             <patternset refid="library.patterns"/>
         </fileset>
@@ -148,18 +152,20 @@
         <path refid="${module.jdk.classpath.emst}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
-        <path refid="library.oxygen.classpath"/>
+        <path refid="library.oxygen-15.2.classpath"/>
         <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.guava-16.0.1.classpath"/>
     </path>
 
     <path id="emst.runtime.production.module.classpath">
         <pathelement location="${emst.output.dir}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
-        <path refid="library.oxygen.classpath"/>
+        <path refid="library.oxygen-15.2.classpath"/>
         <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.guava-16.0.1.classpath"/>
     </path>
 
     <path id="emst.module.classpath">
@@ -167,9 +173,10 @@
         <pathelement location="${emst.output.dir}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
-        <path refid="library.oxygen.classpath"/>
+        <path refid="library.oxygen-15.2.classpath"/>
         <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.guava-16.0.1.classpath"/>
     </path>
 
     <path id="emst.runtime.module.classpath">
@@ -177,9 +184,10 @@
         <pathelement location="${emst.output.dir}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
-        <path refid="library.oxygen.classpath"/>
+        <path refid="library.oxygen-15.2.classpath"/>
         <path refid="library.commons-vfs2-2.0.classpath"/>
         <path refid="library.commons-lang3-3.1.classpath"/>
+        <path refid="library.guava-16.0.1.classpath"/>
     </path>
 
 
@@ -204,10 +212,8 @@
     <target name="compile.module.emst.production" depends="register.custom.compilers"
             description="Compile module emst; production classes">
         <mkdir dir="${emst.output.dir}"/>
-        <!-- MJO - set includeantruntime="false" per the warning generated -->
-        <javac2 destdir="${emst.output.dir}" debug="${compiler.debug}"
-                nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}"
-                fork="true" executable="${module.jdk.bin.emst}/javac" includeantruntime="false">
+        <javac2 destdir="${emst.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
+                memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.emst}/javac">
             <compilerarg line="${compiler.args.emst}"/>
             <bootclasspath refid="emst.module.bootclasspath"/>
             <classpath refid="emst.module.production.classpath"/>

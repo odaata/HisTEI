@@ -81,6 +81,10 @@ listOrg:before,
 listRelation:before,
 listEvent:before,
 taxonomy:not(:empty):before,
+person:before,
+place:before,
+org:before,
+category:before,
 event:before,
 location:before,
 address:before,
@@ -105,6 +109,10 @@ note[type="inventory"]:before {
     background-color:rgba(53, 25, 0, 0.6);
 }
 
+person:before,
+place:before,
+org:before,
+category:before,
 note[type="collection"]:before,
 listEvent:before,
 event:before {
@@ -204,6 +212,7 @@ relation,
 catDesc,
 desc,
 sex,
+idno,
 education,
 occupation,
 socecStatus,
@@ -335,6 +344,85 @@ note[type="inventory"] > idno:not([type]):before {
     ;
 }
 
+/* Sections */
+person:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(
+                " - "
+                oxy_xpath("string-join(for $name in ./persName/*[empty(@type) or @type != 'married'] return normalize-space($name), ' ')")
+                oxy_xpath("if (exists(./persName/*[@type = 'married'])) then ' / ' else ''")
+                oxy_xpath("string-join(for $name in ./persName/*[@type = 'married'] return normalize-space($name), ' ')")
+            )
+            color, white
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+relation:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", attr(name))
+            color, white
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+place:before,
+org:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./placeName | ./orgName)"))
+            color, white
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+note[type="collection"]:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./name[@type = 'short'])"))
+            color, white
+            styles, "@import 'labels.css';"
+        )        
+    ;
+}
+
+note[type="inventory"]:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./idno[empty(@type)][1])"))
+            color, white
+            styles, "@import 'labels.css';"
+        )        
+    ;
+}
+
+person:before,
+place:before,
+org:before,
+taxonomy:not(:empty):before,
+category:before,
+note[type="collection"]:before,
+note[type="inventory"]:before {
+    -oxy-append-content: 
+        oxy_label(
+            text, "ID: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_label(
+            text, attr(xml|id)
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
 /* Inline elements for text */
 person > persName,
 place > placeName,
@@ -355,87 +443,6 @@ desc region,
 desc country,
 desc bloc {
     color:olive;
-}
-
-/*desc date:before,
-desc placeName:before,
-desc orgName:before,
-desc district:before,
-desc settlement:before,
-desc region:before,
-desc country:before,
-desc bloc:before {
-    content: "";
-}*/
-
-/* Records */
-person,
-relation,
-place,
-org {
-    display:block;
-    margin:10px;
-    padding:10px;
-    border:2px inset;
-    -oxy-foldable:true;
-}
-
-/* Sections */
-person:before {
-    -oxy-append-content:
-        oxy_label(
-            text, oxy_concat(
-                " - "
-                oxy_xpath("string-join(for $name in ./persName/*[empty(@type) or @type != 'married'] return normalize-space($name), ' ')")
-                oxy_xpath("if (exists(./persName/*[@type = 'married'])) then ' / ' else ''")
-                oxy_xpath("string-join(for $name in ./persName/*[@type = 'married'] return normalize-space($name), ' ')")
-            )
-            styles, "@import 'labels.css';"
-        )
-    ;
-}
-
-relation:before {
-    -oxy-append-content:
-        oxy_label(
-            text, oxy_concat(
-                " - "
-                attr(name)
-            )
-            styles, "@import 'labels.css';"
-        )
-    ;
-}
-
-place:before,
-org:before {
-    -oxy-append-content:
-        oxy_label(
-            text, oxy_concat(" - ", oxy_xpath('normalize-space(./placeName | ./orgName)'))
-            styles, "@import 'labels.css';"
-        )
-    ;
-}
-
-person:before,
-place:before,
-org:before,
-category:before {
-    border-bottom:1px inset;
-    padding-bottom:5px;
-    width:100%;
-    margin:5px;
-    -oxy-append-content: 
-        oxy_label(
-            text, "ID: "
-            width, 75px
-            styles, "@import 'labels_sub.css';"
-        )
-        oxy_label(
-            text, attr(xml|id)
-            styles, "@import 'labels_sub.css';"
-        )
-    ;
 }
 
 /* Person */
@@ -521,31 +528,8 @@ addrLine {
 }
 
 /* Genre */
-taxonomy:not(:empty):before {
-    -oxy-append-content: 
-        oxy_label(
-            text, "ID: "
-            width, 75px
-            color, "white"
-            styles, "@import 'labels_sub.css';"
-        )
-        oxy_label(
-            text, attr(xml|id)
-            color, "white"
-            styles, "@import 'labels_sub.css';"
-        )
-    ;
-}
-
 category:before! > category {
     content: attr(xml|id);
-}
-
-category {
-    display:block;
-    border:1px inset grey;
-    margin:2px 0px;
-    padding:5px;
 }
 
 

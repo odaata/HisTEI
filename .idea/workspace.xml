@@ -11,26 +11,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Adding Dist folder to SVN">
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Fixed problem with values not showing up in SchemaLists at startup by implementing synchronized blocks&#10;Fixed TEIHeader issues with ContextualInfo">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractReferenceSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractReferenceSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTAuthorExtensionStateListener.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTAuthorExtensionStateListener.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTHandSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTHandSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/EMSTList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/EMSTList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTMediaSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTMediaSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTReferenceSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTReferenceSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/commons/EMSTTEINamespace.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/commons/EMSTTEINamespace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" afterPath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/contextual_info.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/contextual_info.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/labels.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/labels.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -300,7 +282,7 @@
       <file leaf-file-name="EMSTAbstractReferenceSchemaList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractReferenceSchemaList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="45" column="23" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2250">
+            <state line="45" column="23" selection-start="1432" selection-end="1432" vertical-scroll-proportion="0.0" vertical-offset="702" max-vertical-offset="2250">
               <folding />
             </state>
           </provider>
@@ -318,9 +300,9 @@
       <file leaf-file-name="EMSTAbstractSchemaList.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="22" column="51" selection-start="732" selection-end="732" vertical-scroll-proportion="0.09189189" vertical-offset="362" max-vertical-offset="1188">
+            <state line="23" column="86" selection-start="754" selection-end="754" vertical-scroll-proportion="0.727027" vertical-offset="1" max-vertical-offset="1044">
               <folding>
-                <element signature="imports" expanded="true" />
+                <element signature="e#731#732#0" expanded="true" />
                 <element signature="e#759#760#0" expanded="true" />
               </folding>
             </state>
@@ -330,7 +312,7 @@
       <file leaf-file-name="EMSTAbstractStyledList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="137" column="69" selection-start="3910" selection-end="3910" vertical-scroll-proportion="0.0" vertical-offset="1820" max-vertical-offset="2646">
+            <state line="137" column="69" selection-start="3910" selection-end="3910" vertical-scroll-proportion="0.0" vertical-offset="2466" max-vertical-offset="2646">
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#2160#2375#0" expanded="true" />
@@ -347,7 +329,7 @@
       <file leaf-file-name="EMSTList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/EMSTList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="14" column="17" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+            <state line="14" column="17" selection-start="250" selection-end="250" vertical-scroll-proportion="0.0" vertical-offset="216" max-vertical-offset="360">
               <folding />
             </state>
           </provider>
@@ -356,7 +338,7 @@
       <file leaf-file-name="EMSTContextualInfo.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="224" column="51" selection-start="7300" selection-end="7300" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4824">
+            <state line="224" column="51" selection-start="7300" selection-end="7300" vertical-scroll-proportion="0.0" vertical-offset="3528" max-vertical-offset="4824">
               <folding />
             </state>
           </provider>
@@ -365,7 +347,7 @@
       <file leaf-file-name="EMSTContextualStyledList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="34" column="73" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2214">
+            <state line="34" column="73" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="288" max-vertical-offset="2214">
               <folding />
             </state>
           </provider>
@@ -374,7 +356,7 @@
       <file leaf-file-name="EMSTOxygenUtils.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="246" column="0" selection-start="8166" selection-end="8166" vertical-scroll-proportion="0.0" vertical-offset="3817" max-vertical-offset="4500">
+            <state line="246" column="0" selection-start="8166" selection-end="8166" vertical-scroll-proportion="0.0" vertical-offset="3960" max-vertical-offset="4500">
               <folding>
                 <element signature="e#8218#8219#0" expanded="true" />
               </folding>
@@ -385,7 +367,7 @@
       <file leaf-file-name="EMSTStaticSchemaList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="113" column="49" selection-start="4673" selection-end="4673" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2052">
+            <state line="113" column="49" selection-start="4673" selection-end="4673" vertical-scroll-proportion="0.0" vertical-offset="1854" max-vertical-offset="2052">
               <folding />
             </state>
           </provider>
@@ -406,7 +388,7 @@
       <file leaf-file-name="EMSTAuthorExtensionStateListener.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTAuthorExtensionStateListener.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="32" column="113" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="270" max-vertical-offset="900">
+            <state line="32" column="113" selection-start="988" selection-end="988" vertical-scroll-proportion="0.0" vertical-offset="486" max-vertical-offset="900">
               <folding />
             </state>
           </provider>
@@ -415,7 +397,7 @@
       <file leaf-file-name="EMSTSchemaListProvider.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="82" column="49" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.0" vertical-offset="740" max-vertical-offset="1566">
+            <state line="82" column="49" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.0" vertical-offset="1242" max-vertical-offset="1566">
               <folding />
             </state>
           </provider>
@@ -424,7 +406,7 @@
       <file leaf-file-name="EMSTMediaSchemaList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTMediaSchemaList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="38" selection-start="1540" selection-end="1540" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1116">
+            <state line="48" column="38" selection-start="1540" selection-end="1540" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="1116">
               <folding />
             </state>
           </provider>
@@ -433,7 +415,7 @@
       <file leaf-file-name="EMSTHandSchemaList.java" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTHandSchemaList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="56" column="44" selection-start="1835" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="378" max-vertical-offset="1224">
+            <state line="56" column="44" selection-start="1835" selection-end="1835" vertical-scroll-proportion="0.0" vertical-offset="738" max-vertical-offset="1224">
               <folding />
             </state>
           </provider>
@@ -1369,7 +1351,11 @@
       <created>1394662823102</created>
       <updated>1394662823102</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="Fixed problem with values not showing up in SchemaLists at startup by implementing synchronized blocks&#10;Fixed TEIHeader issues with ContextualInfo">
+      <created>1395017315115</created>
+      <updated>1395017315115</updated>
+    </task>
+    <option name="localTasksCounter" value="61" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1468,7 +1454,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Major work on the Facsimile functionality - it now reads the base directory and creates elements for media files it finds! Yay!&#10;- Lots of refactoring and cleanup" />
     <MESSAGE value="Tweaked CSS for Facsimile&#10;Added new icons and refreshed all others - just made them bigger so they're easier to see" />
     <MESSAGE value="Added a bunch of new icons&#10;Added supplied, punctuation.supplied, div, div.entry, div.address&#10;Tweaked all author actions so ${caret} is placed properly&#10;Tweaked CSS&#10;Much, much more ;-)" />
     <MESSAGE value="Added Custom Node Renderer to Oygen extensions&#10;Added a bunch of icons for those nodes" />
@@ -1493,7 +1478,8 @@
     <MESSAGE value="Adding Dist folder to SVN" />
     <MESSAGE value="Removing manual branch to do it automatically" />
     <MESSAGE value="New version for Mo to test with all characters including the English pound sign" />
-    <option name="LAST_COMMIT_MESSAGE" value="New version for Mo to test with all characters including the English pound sign" />
+    <MESSAGE value="Fixed problem with values not showing up in SchemaLists at startup by implementing synchronized blocks&#10;Fixed TEIHeader issues with ContextualInfo" />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixed problem with values not showing up in SchemaLists at startup by implementing synchronized blocks&#10;Fixed TEIHeader issues with ContextualInfo" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1860,9 +1846,9 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="22" column="51" selection-start="732" selection-end="732" vertical-scroll-proportion="0.09189189" vertical-offset="362" max-vertical-offset="1188">
+        <state line="23" column="86" selection-start="754" selection-end="754" vertical-scroll-proportion="0.727027" vertical-offset="1" max-vertical-offset="1044">
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="e#731#732#0" expanded="true" />
             <element signature="e#759#760#0" expanded="true" />
           </folding>
         </state>

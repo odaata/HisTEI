@@ -8,7 +8,6 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.contentcompletion.xml.*;
 
-import java.lang.ref.WeakReference;
 import java.net.URL;
 import java.util.List;
 
@@ -18,7 +17,7 @@ import java.util.List;
 public class EMSTSchemaManagerFilter implements SchemaManagerFilter {
 
     private final URL editorLocation;
-    private WeakReference<EMSTSchemaListProvider> schemaListProvider;
+    private EMSTSchemaListProvider schemaListProvider;
 
     public EMSTSchemaManagerFilter() {
         editorLocation = EMSTOxygenUtils.getCurrentEditorLocation();
@@ -31,16 +30,10 @@ public class EMSTSchemaManagerFilter implements SchemaManagerFilter {
 
     @Nullable
     public EMSTSchemaListProvider getSchemaListProvider() {
-        EMSTSchemaListProvider provider = null;
-
-        if (schemaListProvider != null) provider = schemaListProvider.get();
-
-        if (provider == null) {
-            provider = EMSTSchemaListProvider.get(getEditorLocation());
-
-            if (provider != null) schemaListProvider = new WeakReference<>(provider);
+        if (schemaListProvider == null) {
+            schemaListProvider = EMSTSchemaListProvider.get(getEditorLocation());
         }
-        return provider;
+        return schemaListProvider;
     }
 
     @Override

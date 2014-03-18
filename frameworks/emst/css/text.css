@@ -16,6 +16,8 @@
 /* (Sub)Sections */
 titlePage:before,
 docTitle:before,
+docImprint:before,
+docDate:before,
 titlePart:before,
 div:before,
 opener:before,
@@ -32,7 +34,9 @@ postscript:before {
 
 titlePage:before,
 docTitle:before,
-titlePart:before {
+docDate:before,
+titlePart:before,
+docImprint:before {
     color:black;
     background-color:silver;
 }
@@ -40,6 +44,8 @@ titlePart:before {
 /* Foldable Sections */
 titlePage,
 docTitle,
+docImprint,
+docDate,
 div,
 opener,
 closer,

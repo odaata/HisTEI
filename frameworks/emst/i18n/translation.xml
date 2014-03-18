@@ -492,6 +492,10 @@
         <val lang="en_US">Reference</val>
     </key>
 
+    <key value="key.label">
+        <val lang="en_US">Key</val>
+    </key>
+
     <!--  Headings  -->
 
     <key value="head.label">
@@ -544,7 +548,7 @@
     </key>
 
     <key value="settlement.label">
-        <val lang="en_US">Settlement</val>
+        <val lang="en_US">Settlem.</val>
     </key>
 
     <key value="region.label">
@@ -655,8 +659,17 @@
 
     <!--  Header Fields  -->
 
+    <!--  Title Statment  -->
     <key value="title.label">
         <val lang="en_US">Title</val>
+    </key>
+
+    <key value="resp.label">
+        <val lang="en_US">Resp.</val>
+    </key>
+
+    <key value="name.label">
+        <val lang="en_US">Name</val>
     </key>
 
     <!--  PublicationStmt  -->
@@ -725,6 +738,14 @@
 
     <key value="docTitle.label">
         <val lang="en_US">Doc Title</val>
+    </key>
+
+    <key value="docImprint.label">
+        <val lang="en_US">Imprint</val>
+    </key>
+
+    <key value="docDate.label">
+        <val lang="en_US">Date</val>
     </key>
 
     <key value="titlePart.label">

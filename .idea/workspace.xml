@@ -11,14 +11,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Restyled contextual info records with colors as with other foldable sections elsewhere">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Added">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/build.xml" afterPath="$PROJECT_DIR$/frameworks/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst.xml" afterPath="$PROJECT_DIR$/dist/emst.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/LICENSE.txt" afterPath="$PROJECT_DIR$/LICENSE.txt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/teiHeader.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/teiHeader.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/text.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/text.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -110,7 +110,7 @@
         <option name="CONDITION" value="" />
         <option name="LOG_MESSAGE" value="" />
       </breakpoint>
-      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" line="59" class="eu.emergingstandards.extensions.EMSTSchemaManagerFilter" package="eu.emergingstandards.extensions">
+      <breakpoint url="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" line="52" class="eu.emergingstandards.extensions.EMSTSchemaManagerFilter" package="eu.emergingstandards.extensions">
         <option name="ENABLED" value="false" />
         <option name="LOG_ENABLED" value="false" />
         <option name="LOG_EXPRESSION_ENABLED" value="false" />
@@ -284,10 +284,37 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="emst.xml" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/dist/emst.xml">
+      <file leaf-file-name="EMSTSchemaManagerFilter.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="6" column="26" selection-start="401" selection-end="401" vertical-scroll-proportion="0.24269663" vertical-offset="0" max-vertical-offset="846">
+            <state line="47" column="52" selection-start="1417" selection-end="1417" vertical-scroll-proportion="1.4561797" vertical-offset="0" max-vertical-offset="1188">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EMSTSchemaListProvider.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="31" column="17" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0" vertical-offset="558" max-vertical-offset="1854">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EMSTContextualStyledList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="34" column="73" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="2538">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EMSTAbstractSchemaList.java" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="23" column="21" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0" vertical-offset="414" max-vertical-offset="1188">
               <folding />
             </state>
           </provider>
@@ -335,12 +362,10 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" />
         <option value="$PROJECT_DIR$/../15.2/output.log" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTAuthorExtensionStateListener.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/commons/EMSTTEINamespace.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/EMSTList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/utils/EMSTOxygenUtils.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTMediaSchemaList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTHandSchemaList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java" />
@@ -351,9 +376,11 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
         <option value="$PROJECT_DIR$/build.xml" />
-        <option value="$PROJECT_DIR$/LICENSE.txt" />
         <option value="$PROJECT_DIR$/frameworks/build.xml" />
         <option value="$PROJECT_DIR$/dist/emst.xml" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" />
+        <option value="$PROJECT_DIR$/LICENSE.txt" />
       </list>
     </option>
   </component>
@@ -366,7 +393,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="294" />
     <option name="y" value="24" />
-    <option name="width" value="1551" />
+    <option name="width" value="1527" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -416,7 +443,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
@@ -446,7 +472,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frameworks" />
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -460,12 +486,149 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="dist" />
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emergingstandards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emergingstandards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lists" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emergingstandards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lists" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="styled" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emergingstandards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="lists" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="schema" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emergingstandards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="extensions" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emergingstandards" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="contextual_info" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="emst" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frameworks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -485,7 +648,7 @@
     <property name="dynamic.classpath" value="false" />
     <property name="Repository.Attach.JavaDocs" value="true" />
     <property name="Repository.Attach.Sources" value="true" />
-    <property name="options.lastSelected" value="preferences.toDoOptions" />
+    <property name="options.lastSelected" value="copyright" />
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
@@ -598,6 +761,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -623,19 +799,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1003,7 +1166,11 @@
       <created>1395062547120</created>
       <updated>1395062547121</updated>
     </task>
-    <option name="localTasksCounter" value="63" />
+    <task id="LOCAL-00063" summary="Added MIT License&#10;Releasin new Dist for Mo to test - version 0.3.03">
+      <created>1395066200105</created>
+      <updated>1395066200105</updated>
+    </task>
+    <option name="localTasksCounter" value="64" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1027,40 +1194,40 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="294" y="24" width="1551" height="1056" extended-state="4" />
-    <editor active="false" />
+    <frame x="294" y="24" width="1527" height="1056" extended-state="4" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.49936467" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2414005" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4103115" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22821024" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22887558" sideWeight="0.45473683" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22853279" sideWeight="0.4568421" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22887558" sideWeight="0.5431579" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22853279" sideWeight="0.5431579" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22821024" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295711" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27561837" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48994082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2414005" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1069,8 +1236,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.54561406" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33609468" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1082,8 +1249,8 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.4526316" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295711" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27561837" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -1102,9 +1269,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Customized ContextualInfo to segment the lists by type &#10;Changed the actions and templates to reflect new config&#10;Figured out how to create a combobox to ask users for the node name - I used this to create one action to create all the places: district, settlement, etc. - yippee!!!!" />
-    <MESSAGE value="Added icon for repository node :-)" />
-    <MESSAGE value="Refactored ContextualInfo and created new EventDispatcher framework :-)" />
     <MESSAGE value="Fixed bug in casting URLs to Paths - caused issues on windows&#10;Restructured EMST Menus to match toolbars&#10;Added letter template" />
     <MESSAGE value="Build" />
     <MESSAGE value="Release for first test workshop on using the EMST framework on 2/13/2014 with the EMST crew. Saving this so problems reported can be tested with this codebase..." />
@@ -1127,7 +1291,10 @@
     <MESSAGE value="Maded basic labels a bit wider to accommodate Settlement" />
     <MESSAGE value="Restyled contextual info records with colors as with other foldable sections elsewhere" />
     <MESSAGE value="Synchronized all lists so they are loaded on startup of Oxygen&#10;Cached more variables for efficiency&#10;Restyled contextual info records with colors as with other foldable sections elsewhere&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="Synchronized all lists so they are loaded on startup of Oxygen&#10;Cached more variables for efficiency&#10;Restyled contextual info records with colors as with other foldable sections elsewhere&#10;" />
+    <MESSAGE value="Added MIT License&#10;Releasin new Dist for Mo to test - version 0.3.03" />
+    <MESSAGE value="Mistakenly created dist tag" />
+    <MESSAGE value="Added MIT License&#10;Fixed List issues not being refreshed&#10;More efficient lists with stored values" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added MIT License&#10;Fixed List issues not being refreshed&#10;More efficient lists with stored values" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1173,11 +1340,6 @@
     </buildFile>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/EMSTListItemAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="0" selection-start="737" selection-end="737" vertical-scroll-proportion="0.0" vertical-offset="256" max-vertical-offset="828" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListItem.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="13" column="0" selection-start="360" selection-end="360" vertical-scroll-proportion="0.0" vertical-offset="112" max-vertical-offset="522" />
@@ -1274,9 +1436,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/events/EMSTAbstractEventDispatcher.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="18" column="47" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="131" max-vertical-offset="810">
-          <folding />
-        </state>
+        <state line="18" column="47" selection-start="556" selection-end="556" vertical-scroll-proportion="0.0" vertical-offset="131" max-vertical-offset="810" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Oxygen_add-on.xml">
@@ -1315,16 +1475,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/commons/EMSTTEINamespace.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="57" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666">
-          <folding />
-        </state>
+        <state line="28" column="57" selection-start="1328" selection-end="1328" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="666" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTStyledList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="64" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648">
-          <folding />
-        </state>
+        <state line="12" column="64" selection-start="452" selection-end="452" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="648" />
       </provider>
     </entry>
     <entry file="jar:///usr/lib/jvm/java-7-oracle/src.zip!/java/lang/Object.java">
@@ -1360,16 +1516,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/EMSTList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="14" column="17" selection-start="250" selection-end="250" vertical-scroll-proportion="0.30508474" vertical-offset="0" max-vertical-offset="826">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="49" selection-start="2581" selection-end="2581" vertical-scroll-proportion="0.6403996" vertical-offset="899" max-vertical-offset="1800">
-          <folding />
-        </state>
+        <state line="14" column="17" selection-start="250" selection-end="250" vertical-scroll-proportion="0.30508474" vertical-offset="0" max-vertical-offset="826" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTReferenceSchemaList.java">
@@ -1389,20 +1536,6 @@
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="224" column="51" selection-start="7300" selection-end="7300" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4824">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="34" column="73" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2214">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="137" column="69" selection-start="3910" selection-end="3910" vertical-scroll-proportion="0.78848416" vertical-offset="1795" max-vertical-offset="2646">
           <folding />
         </state>
       </provider>
@@ -1435,32 +1568,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="62" column="38" selection-start="2042" selection-end="2042" vertical-scroll-proportion="0.5479452" vertical-offset="636" max-vertical-offset="1512">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="23" column="21" selection-start="754" selection-end="754" vertical-scroll-proportion="0.12106538" vertical-offset="152" max-vertical-offset="1008">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.properties">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="20" column="16" selection-start="1084" selection-end="1084" vertical-scroll-proportion="0.39955604" vertical-offset="0" max-vertical-offset="901">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="595" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/build.xml">
@@ -1479,7 +1589,52 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/emst.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="26" selection-start="401" selection-end="401" vertical-scroll-proportion="0.24269663" vertical-offset="0" max-vertical-offset="846">
+        <state line="6" column="26" selection-start="401" selection-end="401" vertical-scroll-proportion="0.11986682" vertical-offset="0" max-vertical-offset="901" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="23" column="21" selection-start="754" selection-end="754" vertical-scroll-proportion="0.0" vertical-offset="53" max-vertical-offset="1008">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="137" column="69" selection-start="3910" selection-end="3910" vertical-scroll-proportion="2.19863" vertical-offset="0" max-vertical-offset="2106">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualStyledList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="34" column="73" selection-start="1323" selection-end="1323" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="2214">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="31" column="17" selection-start="875" selection-end="875" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1620">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frameworks/emst/css/text.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="8028" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/LICENSE.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="23" selection-start="46" selection-end="46" vertical-scroll-proportion="0.08571429" vertical-offset="0" max-vertical-offset="468">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="47" column="52" selection-start="1417" selection-end="1417" vertical-scroll-proportion="1.4561797" vertical-offset="0" max-vertical-offset="1188">
           <folding />
         </state>
       </provider>
@@ -1502,6 +1657,17 @@
               <list>
                 <option value="0.2" />
                 <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="Copyright.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
               </list>
             </option>
           </splitter-proportions>

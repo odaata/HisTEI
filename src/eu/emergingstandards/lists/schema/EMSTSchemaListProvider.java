@@ -7,9 +7,9 @@ import ro.sync.contentcompletion.xml.WhatPossibleValuesHasAttributeContext;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 
 import java.net.URL;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-import java.util.WeakHashMap;
 
 import static eu.emergingstandards.utils.EMSTOxygenUtils.getEditorLocation;
 
@@ -18,11 +18,14 @@ import static eu.emergingstandards.utils.EMSTOxygenUtils.getEditorLocation;
  */
 public class EMSTSchemaListProvider {
 
-    private static final Map<URL, EMSTSchemaListProvider> providers = new WeakHashMap<>();
+    private static final Map<URL, EMSTSchemaListProvider> providers = new HashMap<>();
 
     @Nullable
     public static EMSTSchemaListProvider get(URL editorLocation) {
-        return providers.get(editorLocation);
+        if (editorLocation != null) {
+            return providers.get(editorLocation);
+        }
+        return null;
     }
 
     @NotNull

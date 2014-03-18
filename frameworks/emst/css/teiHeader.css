@@ -9,6 +9,7 @@
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
 /* Foldable Sections */
+titleStmt,
 publicationStmt,
 notesStmt,
 sourceDesc,
@@ -33,7 +34,7 @@ handNotes {
 }
 
 /* Section labels */
-
+titleStmt:before,
 publicationStmt:before,
 notesStmt:before,
 sourceDesc:before,
@@ -56,6 +57,10 @@ msDesc:before {
 }
 
 /* Fields */
+titleStmt,
+respStmt,
+resp,
+name,
 fileDesc,
 titleStmt,
 title,
@@ -74,6 +79,8 @@ catRef {
 
 /* Field labels */
 title:before,
+resp:before,
+name:before,
 authority:before,
 note:before,
 repository:before,
@@ -135,6 +142,21 @@ altIdentifier > idno:before {
 }
 
 /* creation */
+resp {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(key.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@key"
+            columns, 3
+        )
+        "  "
+    ;
+}
+
+
 creation > date:before,
 creation > persName:before,
 creation > orgName:before,

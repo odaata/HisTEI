@@ -7,7 +7,7 @@
                 <title>The following categories are used in the present version of the corpus (based on MEG-C):</title>
             </titleStmt>
             <publicationStmt>
-                <authority>Mike Olson</authority>
+                <authority>EMST</authority>
             </publicationStmt>
             <sourceDesc>
                 <p>Born Digital.</p>
@@ -15,48 +15,168 @@
         </fileDesc>
         <encodingDesc>
             <classDecl>
-                <taxonomy xml:id="EMST_GENRES" xml:lang="nl">
-                    <category xml:id="Aantekeningen">
-                        <catDesc/>
+                <taxonomy xml:id="EMST_GENRES">
+                    <category xml:id="ACCORD">
+                        <catDesc>a private or extrajudicial arrangement, esp. one of reconciliation</catDesc>
                     </category>
-                    <category xml:id="Biographie">
-                        <catDesc/>
+                    <category xml:id="AFFIDAVIT">
+                        <catDesc>a statement made in writing, confirmed by oath and intended to be used as judicial
+                            proof
+                        </catDesc>
                     </category>
-                    <category xml:id="Brief">
-                        <catDesc/>
+                    <category xml:id="AGREEMENT">
+                        <catDesc>an arrangement between two or more persons as to a course of action</catDesc>
                     </category>
-                    <category xml:id="Courant">
-                        <catDesc/>
+                    <category xml:id="ASSIGNMENT">
+                        <catDesc>a document by which a lessee transferred the unexpired portion of his/her term to a
+                            third party, who assumed all the obligations of the original lessee
+                        </catDesc>
                     </category>
-                    <category xml:id="Dagboek">
-                        <catDesc/>
+                    <category xml:id="ATTESTATION">
+                        <catDesc>a document by which witnesses swear that the transaction recorded in the deed really
+                            occurred. The same label is also used for documents whereby witnesses swear that a
+                            transaction has NOT occurred.
+                        </catDesc>
                     </category>
-                    <category xml:id="Dagboekaantekeningen">
-                        <catDesc/>
+                    <category xml:id="AWARD_ARBITRATION">
+                        <catDesc>the settlement of a dispute by an arbitrator</catDesc>
                     </category>
-                    <category xml:id="Familieaantekeningen">
-                        <catDesc/>
+                    <category xml:id="BOND">
+                        <catDesc>a private undertaking "to pay a specified sum of money by an appointed day" (Pugh 1947:
+                            li)
+                        </catDesc>
                     </category>
-                    <category xml:id="Familiekroniek">
-                        <catDesc/>
+                    <category xml:id="BOUNDARY_SURVEY">
+                        <catDesc>a document outlining the boundaries of a piece of land</catDesc>
                     </category>
-                    <category xml:id="Journaal">
-                        <catDesc/>
+                    <category xml:id="COMMISSIONING_AGREEMENT">
+                        <catDesc>a document by means of which one person commissions another for a particular piece of
+                            work
+                        </catDesc>
                     </category>
-                    <category xml:id="Justitieboek">
-                        <catDesc/>
+                    <category xml:id="COMMITMENT_TO_ARBITRATION">
+                        <catDesc>an agreement by the parties in a dispute to submit to arbitration by one or more named
+                            arbitrators
+                        </catDesc>
                     </category>
-                    <category xml:id="Kopieboek">
-                        <catDesc/>
+                    <category xml:id="COMPLAINT_PLAINT">
+                        <catDesc>a document expressing a complaint</catDesc>
                     </category>
-                    <category xml:id="Reisverslag">
-                        <catDesc/>
+                    <category xml:id="CONDITION_OF_OBLIGATION">
+                        <catDesc>a condition added to an obligation</catDesc>
                     </category>
-                    <category xml:id="Scheepsjournaal">
-                        <catDesc/>
+                    <category xml:id="COURT_ROLL">
+                        <catDesc>a document which records the judgement of a court</catDesc>
                     </category>
-                    <category xml:id="Verhaal">
-                        <catDesc/>
+                    <category xml:id="DECLARATION">
+                        <catDesc>a formal statement or announcement</catDesc>
+                    </category>
+                    <category xml:id="ENACTMENT">
+                        <catDesc>a document by the force of which a law is enacted</catDesc>
+                    </category>
+                    <category xml:id="EXCHANGE">
+                        <catDesc>a document by which two parties exchange interests of supposedly equivalent value
+                        </catDesc>
+                    </category>
+                    <category xml:id="GIFT_ENFEOFFMENT">
+                        <catDesc>a document that conveys an immediate title to a corporeal hereditament (land, houses
+                            etc.)
+                        </catDesc>
+                    </category>
+                    <category xml:id="GRANT">
+                        <catDesc>a document that conveys incorporeal hereditaments (intangible property)</catDesc>
+                    </category>
+                    <category xml:id="INQUEST">
+                        <catDesc>a record of a formal inquest</catDesc>
+                    </category>
+                    <category xml:id="JURAMENT">
+                        <catDesc>the oath required by the practitioners of a particular profession or the people
+                            appointed to a particular post
+                        </catDesc>
+                    </category>
+                    <category xml:id="LEASE">
+                        <catDesc>a document by which a landlord conveys his/her property to a person for the duration of
+                            their life, or for a limited number of years. The lessee normally paid rent to the lessor
+                        </catDesc>
+                    </category>
+                    <category xml:id="MARRIAGE_SETTLEMENT">
+                        <catDesc>a document which sets out the intentions of the different parties to a planned marriage
+                            and the steps they will take to effect them
+                        </catDesc>
+                    </category>
+                    <category xml:id="MEMORANDUM">
+                        <catDesc>a document in which the terms of a transaction or contract are embodied; a formal note
+                            of something to be remembered
+                        </catDesc>
+                    </category>
+                    <category xml:id="OBLIGATION">
+                        <catDesc>a document that commits a person to carry out a payment or other action; a written
+                            contract or bond
+                        </catDesc>
+                    </category>
+                    <category xml:id="ORDINANCE">
+                        <catDesc>an established set of principles or rules for a community or group</catDesc>
+                    </category>
+                    <category xml:id="PARTITION">
+                        <catDesc>a document that effects a division into several shares of an estate held in
+                            co-ownership
+                        </catDesc>
+                    </category>
+                    <category xml:id="PEDIGREE">
+                        <catDesc>a document presenting an ancestral line</catDesc>
+                    </category>
+                    <category xml:id="PETITION">
+                        <catDesc>a formal written request or supplication, appealing to an individual or group in
+                            authority (as a sovereign, legislature, administrative body, etc.) for some favour, right,
+                            or mercy, or in respect of a particular cause
+                        </catDesc>
+                    </category>
+                    <category xml:id="POWER_OF_ATTORNEY">
+                        <catDesc>document or clause appointing a person to act as another's representative in legal or
+                            business matters
+                        </catDesc>
+                    </category>
+                    <category xml:id="SURETY">
+                        <catDesc>document that guarantees the security of a contract, right or possession</catDesc>
+                    </category>
+                    <category xml:id="SURRENDER">
+                        <catDesc>a document by which a possession is terminated for the benefit of one who had
+                            previously enjoyed nothing but an expectancy
+                        </catDesc>
+                    </category>
+                    <category xml:id="USE">
+                        <catDesc>a document by which a vendor conveys his/her land to feoffees for the advantage of a
+                            third party
+                        </catDesc>
+                    </category>
+                    <category xml:id="WILL">
+                        <catDesc>a document by which a person states how his/her property should be disposed of after
+                            his/her death
+                        </catDesc>
+                    </category>
+                    <category xml:id="MINUTES">
+                        <catDesc>MINUTES</catDesc>
+                    </category>
+                    <category xml:id="CHARTERS">
+                        <catDesc>CHARTERS</catDesc>
+                    </category>
+                    <category xml:id="DEPOSITIONS">
+                        <catDesc>DEPOSITIONS</catDesc>
+                    </category>
+                    <category xml:id="CORRESPONDENCE">
+                        <catDesc>CORRESPONDENCE</catDesc>
+                    </category>
+                    <category xml:id="DIARIES_JOURNALS">
+                        <catDesc>DIARIES/JOURNALS</catDesc>
+                    </category>
+                    <category xml:id="CHRONICLES">
+                        <catDesc>CHRONICLES</catDesc>
+                    </category>
+                    <category xml:id="CALENDAR">
+                        <catDesc>CALENDAR</catDesc>
+                    </category>
+                    <category xml:id="PLAYS">
+                        <catDesc>PLAYS</catDesc>
                     </category>
                 </taxonomy>
             </classDecl>

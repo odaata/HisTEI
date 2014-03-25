@@ -62,14 +62,14 @@ affiliation,
 education:focus:after,
 faith:focus:after,
 occupation:focus:after,
-relation:hover:after,
+relation:focus:after,
 residence, 
 socecStatus:focus:after,
 state:focus:after,
 trait:focus:after {
     border:1px solid;
     margin:2px 0px;
-    padding: 1px;
+    padding:3px;
     font-size:small;
     font-weight:normal;
     line-height:1.25em;
@@ -136,31 +136,20 @@ trait:focus:after {
 /* Links */
 
 ptr,
-ref {
-    border:dashed;
-    border-width:1px;
+ref,
+note[type="url"] {
     color:blue;
     -oxy-display-tags:none;
 }
 
-/* ptr can't contain text, so disallow editing text() node */
 ptr,
-ref,
-note[type="url"] {
-    visibility:-oxy-collapse-text;
+ref {
+    border:1px dashed;
 }
 
-ref:hover,
-note[type="url"]:hover {
-    content: 
-        oxy_label(
-            text, "${i18n(label.label)}: "
-            styles, "@import 'labels_sub.css';"
-        )
-        oxy_textfield(
-            edit, "#text"
-        )
-    ;
+/* ptr can't contain text, so disallow editing text() node */
+ptr {
+    visibility:-oxy-collapse-text;
 }
 
 ptr:before,
@@ -169,23 +158,20 @@ ref:before {
 }
 
 ptr:hover:after,
-ref:hover:after {
-    link: attr(target);
+ref:focus:after {
+    padding:5px;
+    link: attr(target, string, "");
     content: 
         url('../images/link_open-16.png')
         oxy_label(
             text, "${i18n(url.label)}: "
+            width, 50px
             styles, "@import 'labels_sub.css';"
         )
         oxy_textfield(
             edit, "@target"
         )
     ;
-}
-
-note[type="url"] {
-    color:blue;
-    -oxy-display-tags:none;
 }
 
 note[type="url"]:before {
@@ -197,7 +183,8 @@ note[type="url"]:before {
     ;
 }
 
-note[type="url"]:hover:after {
+note[type="url"]:after {
+    padding-left:10px;
     link: oxy_xpath("text()");
     content: url('../images/link_open-16.png');
 }

@@ -33,6 +33,24 @@ bloc:before {
     -oxy-prepend-content: url('../images/place-16.png');
 }
 
+/* Elements with hidden Oxygen tags */
+date,
+persName,
+orgNae,
+placeName,
+district,
+settlement,
+region,
+country,
+bloc,
+prt,
+ref,
+note,
+lb,
+hi {
+    -oxy-display-tags:none;
+}
+
 /* Date */
 
 date:empty:after,
@@ -126,14 +144,19 @@ ref {
 }
 
 /* ptr can't contain text, so disallow editing text() node */
-ptr {
+ptr,
+ref,
+note[type="url"] {
     visibility:-oxy-collapse-text;
 }
 
 ref:hover,
 note[type="url"]:hover {
-    visibility:-oxy-collapse-text;
     content: 
+        oxy_label(
+            text, "${i18n(label.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
         oxy_textfield(
             edit, "#text"
         )
@@ -147,7 +170,7 @@ ref:before {
 
 ptr:hover:after,
 ref:hover:after {
-    link: attr(target);
+    link: attr(target, string, "");
     content: 
         url('../images/link_open-16.png')
         oxy_label(
@@ -184,9 +207,7 @@ note[type="url"]:hover:after {
 head {
     display:block;
     font-weight:bold;
-    padding-left:2px;
-    padding-bottom:5px;
-    margin-bottom:5px;
+    padding:5px;
     border-bottom:1px solid;
 }
 
@@ -217,14 +238,7 @@ p {
     margin:2px;
     margin-bottom: 10px;
     white-space:nowrap;
-    -oxy-display-tags:none;
     -oxy-foldable:true;
-}
-
-p * {
-    display:inline;
-    -oxy-display-tags:none;
-    white-space:nowrap;
 }
 
 lb {
@@ -235,6 +249,10 @@ lb {
 lb {
     content:"\A";
 }
+
+/*lb:first-child {
+    content:"";
+}*/
 
 lb[break="no"] {
     color:purple;

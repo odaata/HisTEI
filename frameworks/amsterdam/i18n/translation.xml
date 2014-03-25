@@ -10,23 +10,83 @@
 
     <!--  Character Actions  -->
 
-    <key value="long.s">
+    <key value="char.ash">
+        <val lang="en_US">ash</val>
+    </key>
+    <key value="char.ash_description">
+        <val lang="en_US">Insert an ash.</val>
+    </key>
+    <key value="char.ash.capital">
+        <val lang="en_US">capital ash</val>
+    </key>
+    <key value="char.ash.capital_description">
+        <val lang="en_US">Insert a capital ash.</val>
+    </key>
+
+    <key value="char.eth">
+        <val lang="en_US">eth</val>
+    </key>
+    <key value="char.eth_description">
+        <val lang="en_US">Insert an eth.</val>
+    </key>
+    <key value="char.eth.capital">
+        <val lang="en_US">capital eth</val>
+    </key>
+    <key value="char.eth.capital_description">
+        <val lang="en_US">Insert a capital eth.</val>
+    </key>
+
+    <key value="char.long.s">
         <val lang="en_US">long s</val>
     </key>
-    <key value="long.s_description">
+    <key value="char.long.s_description">
         <val lang="en_US">Insert a long s.</val>
     </key>
-    <key value="thorn">
+
+    <key value="char.thorn">
         <val lang="en_US">thorn</val>
     </key>
-    <key value="thorn_description">
+    <key value="char.thorn_description">
         <val lang="en_US">Insert a thorn.</val>
     </key>
-    <key value="thorn.capital">
+    <key value="char.thorn.capital">
         <val lang="en_US">capital thorn</val>
     </key>
-    <key value="thorn.capital_description">
+    <key value="char.thorn.capital_description">
         <val lang="en_US">Insert a capital thorn.</val>
+    </key>
+
+    <key value="char.wynn">
+        <val lang="en_US">wynn</val>
+    </key>
+    <key value="char.wynn_description">
+        <val lang="en_US">Insert a wynn.</val>
+    </key>
+    <key value="char.wynn.capital">
+        <val lang="en_US">capital wynn</val>
+    </key>
+    <key value="char.wynn.capital_description">
+        <val lang="en_US">Insert a capital wynn.</val>
+    </key>
+
+    <key value="char.yogh">
+        <val lang="en_US">yogh</val>
+    </key>
+    <key value="char.yogh_description">
+        <val lang="en_US">Insert a yogh.</val>
+    </key>
+    <key value="char.yogh.capital">
+        <val lang="en_US">capital yogh</val>
+    </key>
+    <key value="char.yogh.capital_description">
+        <val lang="en_US">Insert a capital yogh.</val>
+    </key>
+
+    <key value="char.pound">
+        <val lang="en_US">Pound</val>
+    </key>
+    <key value="char.pound_description">
+        <val lang="en_US">Insert a pound sign.</val>
     </key>
 
     <!-- Text Decoration -->
@@ -344,51 +404,41 @@
     <!--  Global Attributes  -->
 
     <key value="id.label">
-        <comment>xml:id attribute</comment>
         <val lang="en_US">ID</val>
     </key>
 
     <key value="lang.label">
-        <comment>xml:lang attribute</comment>
         <val lang="en_US">Lang</val>
     </key>
 
     <key value="url.label">
-        <comment>url attribute</comment>
         <val lang="en_US">URL</val>
     </key>
 
     <key value="type.label">
-        <comment>type attribute</comment>
         <val lang="en_US">Type</val>
     </key>
 
     <key value="reason.label">
-        <comment>reason attribute</comment>
         <val lang="en_US">Reason</val>
     </key>
 
     <key value="place.label.textual">
-        <comment>place attribute</comment>
         <val lang="en_US">Place</val>
     </key>
 
     <key value="n.label">
-        <comment>n attribute</comment>
         <val lang="en_US">n</val>
     </key>
     <key value="n.tooltip">
-        <comment>n attribute tooltip</comment>
         <val lang="en_US">Any page number provided by the source</val>
     </key>
 
     <key value="facs.label">
-        <comment>facs attribute</comment>
         <val lang="en_US">Facsimile(s)</val>
     </key>
 
     <key value="hand.label">
-        <comment>hand attribute</comment>
         <val lang="en_US">Hand</val>
     </key>
 
@@ -440,6 +490,10 @@
 
     <key value="ref.label">
         <val lang="en_US">Reference</val>
+    </key>
+
+    <key value="key.label">
+        <val lang="en_US">Key</val>
     </key>
 
     <!--  Headings  -->
@@ -494,7 +548,7 @@
     </key>
 
     <key value="settlement.label">
-        <val lang="en_US">Settlement</val>
+        <val lang="en_US">Settlem.</val>
     </key>
 
     <key value="region.label">
@@ -605,8 +659,17 @@
 
     <!--  Header Fields  -->
 
+    <!--  Title Statment  -->
     <key value="title.label">
         <val lang="en_US">Title</val>
+    </key>
+
+    <key value="resp.label">
+        <val lang="en_US">Resp.</val>
+    </key>
+
+    <key value="name.label">
+        <val lang="en_US">Name</val>
     </key>
 
     <!--  PublicationStmt  -->
@@ -675,6 +738,14 @@
 
     <key value="docTitle.label">
         <val lang="en_US">Doc Title</val>
+    </key>
+
+    <key value="docImprint.label">
+        <val lang="en_US">Imprint</val>
+    </key>
+
+    <key value="docDate.label">
+        <val lang="en_US">Date</val>
     </key>
 
     <key value="titlePart.label">

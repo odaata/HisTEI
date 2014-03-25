@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="http://emergingstandards.eu/css/contextual_info.css"?>
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader xml:lang="en">
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>List of Places for the Amsterdam project</title>
+                <title>List of Places for the Emerging Standards project</title>
             </titleStmt>
             <publicationStmt>
-                <authority>Mike Olson</authority>
+                <authority>EMST</authority>
             </publicationStmt>
             <sourceDesc>
                 <p>Born Digital.</p>
             </sourceDesc>
         </fileDesc>
     </teiHeader>
-    <text xml:lang="nl">
+    <text>
         <body>
             <listPlace>
                 <listPlace type="district">

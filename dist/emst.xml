@@ -11,9 +11,7 @@
         <xt:name>EMST</xt:name>
         <xt:description xmlns="http://www.w3.org/1999/xhtml">Emerging Standards Oxygen Framework</xt:description>
         <xt:license>
-            <![CDATA[
-
-END USER LICENSE AGREEMENT
+            <![CDATA[END USER LICENSE AGREEMENT
 The MIT License (MIT)
 
 Copyright (c) 2014 Mike Olson
@@ -34,8 +32,6 @@ FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
-]]></xt:license>
+SOFTWARE.]]></xt:license>
     </xt:extension>
 </xt:extensions>

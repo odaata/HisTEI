@@ -2499,7 +2499,7 @@
 						<null/>
 					</field>
 					<field name="schemaManagerFilterExtension">
-						<String>ro.sync.ecss.extensions.commons.ccfilter.ConfigurationSchemaManagerFilter</String>
+						<null/>
 					</field>
 					<field name="authorSWTDndExtension">
 						<null/>
@@ -2517,7 +2517,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>2</Integer>
+						<Integer>3</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

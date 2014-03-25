@@ -17,6 +17,7 @@ front,
 body,
 back {
     display:block;
+    padding:1px;
     -oxy-foldable:true;
 }
 
@@ -52,7 +53,7 @@ TEI {
 /*  Geneva - only (good-looking) font that supports OE chars (found so far)  */
     font-family:Geneva;
 /*    font-family:helvetica, verdana, arial, sans-serif;*/
-    font-size:12px;
+/*    font-size:12px;*/
 }
 
 TEI:before {
@@ -60,17 +61,7 @@ TEI:before {
     font-size:x-large;
 }
 
-TEI > *,
-teiHeader *,
-text > *,
-front > *,
-body > *,
-back > * {
-    display:block;
-    padding:1px;
-}
-
-text * {
+text {
     white-space:nowrap;
 }
 
@@ -99,6 +90,7 @@ text:before {
         )
         oxy_combobox(
             edit, "@xml:lang"
+            columns, 5
         )
     ;
 }

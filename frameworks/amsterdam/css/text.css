@@ -7,15 +7,17 @@
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
 /* Global mouseover border for inline editing in text */
-*:hover:after {
+/**:hover:after {
     border:1px dashed black;
-}
+}*/
 
 /* Sections, fields & labels */
 
 /* (Sub)Sections */
 titlePage:before,
 docTitle:before,
+docImprint:before,
+docDate:before,
 titlePart:before,
 div:before,
 opener:before,
@@ -32,7 +34,9 @@ postscript:before {
 
 titlePage:before,
 docTitle:before,
-titlePart:before {
+docDate:before,
+titlePart:before,
+docImprint:before {
     color:black;
     background-color:silver;
 }
@@ -40,6 +44,8 @@ titlePart:before {
 /* Foldable Sections */
 titlePage,
 docTitle,
+docImprint,
+docDate,
 div,
 opener,
 closer,
@@ -49,9 +55,9 @@ postscript {
 }
 
 /* Folded Sections */
-div {
+/*div {
     -oxy-folded:true;
-}
+}*/
 
 /* Field Labels */
 dateline::before,
@@ -90,38 +96,44 @@ div {
     -oxy-not-foldable-child: head, opener;
 }
 
-titlePage > *,
-docTitle > *,
-div > * {
+titlePage,
+docTitle,
+div,
+opener,
+closer,
+dateline,
+salute {
     display:block;
     padding:1px;
 }
 
 opener {
-    margin-bottom:1em;
+    margin-bottom:.5em;
 }
 
 closer {
-    margin-top:1em;
+    margin-top:.5em;
 }
 
-opener > *,
-closer > * {
+titlePart,
+dateline,
+salute,
+signed {
     display:block;
-    padding:1px;
+    padding:2px;
+    margin:2px;
+    margin-bottom: 5px;
 }
 
 fw {
-    padding:1px;
+    display:block;
+    padding:5px;
     text-align:right;
 }
 
 fw:before {
-    content: url('../images/forme_work-16.png');
-}
-
-fw:focus:before {
-    -oxy-prepend-content:
+    content: 
+        url('../images/forme_work-16.png')
         oxy_label(
             text, "${i18n(type.label)}: "
             styles, "@import 'labels_sub.css';"            
@@ -135,32 +147,25 @@ fw:focus:before {
 
 /* Inline elements for text */
 
+/* Elements with hidden Oxygen tags */
 titlePart,
 dateline,
 salute,
-signed {
-    display:block;
-    padding:2px;
-    margin:2px;
-    margin-bottom: 10px;
-    white-space:nowrap;
+signed,
+abbr,
+expan,
+add, 
+del,
+gap,
+unclear,
+supplied,
+foreign,
+seg,
+handShift,
+pb,
+pc,
+w {
     -oxy-display-tags:none;
-}
-
-titlePart > lb:first-child,
-dateline > lb:first-child,
-salute > lb:first-child,
-signed > lb:first-child {
-    content:"";
-}
-
-titlePart *,
-dateline *,
-salute *,
-signed * {
-    display:inline;
-    -oxy-display-tags:none;
-    white-space:nowrap;
 }
 
 div date,
@@ -173,7 +178,6 @@ div region,
 div country,
 div bloc {
     color:olive;
-/*    visibility:visible !important;*/
 }
 
 /* Milestones or elements with no text */
@@ -181,11 +185,10 @@ pb,
 handShift,
 gap {
     visibility:-oxy-collapse-text;
-    -oxy-display-tags:none;
 }
 
 abbr {
-  font-weight:bold;
+    font-weight:bold;
 }
 
 expan {
@@ -193,15 +196,14 @@ expan {
 }
 
 add {
-  color: green;
-  text-decoration: underline;
-  font-size:small;
-  vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
+    color: green;
+    text-decoration: underline;
+    vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
 }
 
 del {
-  color: red;
-  text-decoration: line-through;
+    color: red;
+    text-decoration: line-through;
 }
 
 gap {
@@ -211,8 +213,8 @@ gap {
 }
 
 unclear {
-  color: maroon;
-  font-style: italic;
+    color: maroon;
+    font-style: italic;
 }
 
 supplied:before {
@@ -251,7 +253,7 @@ foreign:hover:after {
 }
 
 salute,
-seg[function='salute']{
+seg[function='salute'] {
     background-color:silver;
     font-style:italic;
 }
@@ -264,6 +266,7 @@ seg[function='formulaic']{
 /* Note */
 
 div note {
+    display:inline;
     border: 1px solid maroon;
     padding:1px;
     font-size: 11px;
@@ -299,11 +302,10 @@ unclear:hover:after {
 }
 
 /* @place */
-
-fw:focus:before,
-div note:focus,
+div note:before,
+fw:before,
 add:hover:after {
-    -oxy-prepend-content:
+    -oxy-append-content:
         oxy_label(
             text, "${i18n(place.label.textual)}: "
             styles, "@import 'labels_sub.css';"
@@ -342,24 +344,26 @@ pb:before {
 }
 
 /* Media References to Facsimiles */
-titlePage:before,
-div:before,
-pb:before {
+[facs]:before {
     -oxy-append-content:
         oxy_button(
             actionID, "media.open"
             transparent, true
             showText, true
             showIcon, true
-        )
+        )    
+}
+
+titlePage:before,
+div:before,
+pb:before {
+    -oxy-append-content:
         oxy_label(
             text, "${i18n(facs.label)}: "
             styles, "@import 'labels_sub.css';"
         )
         oxy_popup(
             edit, "@facs"
-            values, oxy_xpath("string-join(for $id in (//graphic/@xml:id | //media/@xml:id) return concat('#', $id), ',')")
-            tooltips, oxy_xpath("string-join((//graphic/@url | //media/@url), ',')")
             selectionMode, multiple
         )
     ;
@@ -368,11 +372,21 @@ pb:before {
 /* Hand References */
 handShift {
     padding:0px 5px;
-    link: attr(new);
+    link: attr(new, string, "");
     content: url('../images/hand_shift-16.png');
 }
 
-handShift:hover:after,
+handShift:hover:after{
+    -oxy-append-content: 
+        oxy_label(
+            text, "${i18n(hand.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@new"
+        )    
+}
+
 add:hover:after,
 del:hover:after,
 unclear:hover:after,
@@ -383,14 +397,17 @@ gap:hover:after {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, oxy_concat("@", oxy_xpath("if (local-name() eq 'handShift') then 'new' else 'hand'"))
-            values, oxy_xpath("string-join(for $id in //handNote/@xml:id return concat('#', $id), ',')")
+            edit, "@hand"
         )
 }
 
-handShift[new]:hover:after,
+handShift[new]:hover:after {
+    link: attr(new, string, "");
+    -oxy-append-content: url('../images/hand_open-16.png');
+}
+
 [hand]:hover:after {
-    link: oxy_xpath("if (local-name() eq 'handShift') then data(@new) else data(@hand)");
+    link: attr(hand, string, "");
     -oxy-append-content: url('../images/hand_open-16.png');
 }
 

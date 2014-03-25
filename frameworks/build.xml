@@ -1,6 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="frameworks" default="all">
 
+    <property name="framework.emst" value="${basedir}/emst"/>
+    <property name="framework.amsterdam" value="${basedir}/amsterdam"/>
+
+    <patternset id="framework.files">
+        <include name="emst.jar"/>
+        <include name="catalog.xml"/>
+    </patternset>
+
+    <patternset id="framework.dirs">
+        <exclude name="templates"/>
+        <exclude name="schema"/>
+        <exclude name="odd"/>
+    </patternset>
+
     <target name="init.artifacts">
         <property name="artifacts.temp.dir" value="${basedir}/../__artifacts_temp"/>
         <property name="artifact.output.dist" value="${basedir}/../dist"/>
@@ -18,6 +32,29 @@
         </zip>
         <copy file="${temp.jar.path.emst-oxygen.zip}" tofile="${artifact.temp.output.emst-oxygen}/emst-oxygen.zip"/>
     </target>
+
+    <!--<target name="copy.amsterdam.framework.files" depends="init.artifacts" description="Copy supporting framework files for Amsterdam project">
+        <copy todir="${framework.amsterdam}" overwrite="true">
+            <fileset dir="${framework.emst}">
+                <patternset refid="framework.files"/>
+            </fileset>
+        </copy>
+
+        <delete>
+            <resources>
+                <dirset dir="${framework.amsterdam}">
+                    <patternset refid="framework.dirs"/>
+                </dirset>
+            </resources>
+        </delete>
+        <copy todir="${framework.amsterdam}">
+            <resources>
+                <dirset dir="${framework.emst}">
+                    <patternset refid="framework.dirs"/>
+                </dirset>
+            </resources>
+        </copy>
+    </target>-->
 
     <target name="artifact.amsterdam-oxygen" depends="init.artifacts"
             description="Build amsterdam-oxygen.zip">

@@ -61,7 +61,7 @@ media {
             columns, 10
         )
         oxy_label(
-            text, attr(url)
+            text, attr(url, string, "")
             styles, "@import 'labels_sub.css';"
         )
         oxy_label(

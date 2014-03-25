@@ -163,7 +163,7 @@ listPerson > listPerson[type]:before,
 listPlace > listPlace[type]:before,
 listOrg > listOrg[type]:before {
     background-color:rgba(53, 25, 0, 0.6);
-    content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type) , ")}");
+    content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, "") , ")}");
 }
 
 /* Special labels for the notes with specific functions
@@ -173,7 +173,7 @@ note[type="collection"]:before,
 note[type="inventories"]:before,
 note[type="inventory"]:before {
     display:block;
-    content: oxy_concat("${i18n(note.label.", attr(type), ")}");
+    content: oxy_concat("${i18n(note.label.", attr(type, string, ""), ")}");
 }
 
 /* Field labels */
@@ -284,7 +284,7 @@ name[type="short"]:before,
 name[type="full"]:before {
     content: 
         oxy_label(
-            text, oxy_concat("${i18n(", oxy_name(), ".label.", attr(type), ")}:")
+            text, oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, ""), ")}:")
             styles, "@import 'labels.css';"
         )
     ;
@@ -309,7 +309,7 @@ note[type="added"] {
 date[type="added"] {
     display:block;
     border:none;
-    content: attr(when);
+    content: attr(when, string, "");
 }
 
 date[type="added"]:after {
@@ -320,7 +320,7 @@ date[type="added"]:after {
 idno[type]:before {
     content: 
         oxy_label(
-            text, oxy_concat("${i18n(idno.label.", attr(type), ")}:")
+            text, oxy_concat("${i18n(idno.label.", attr(type, string, ""), ")}:")
             styles, "@import 'labels.css';"
         )
     ;
@@ -349,9 +349,9 @@ person:before {
     -oxy-append-content:
         oxy_label(
             text, oxy_concat(
-                " - "
-                oxy_xpath("string-join(for $name in ./persName/*[empty(@type) or @type != 'married'] return normalize-space($name), ' ')")
-                oxy_xpath("if (exists(./persName/*[@type = 'married'])) then ' / ' else ''")
+                " - ",
+                oxy_xpath("string-join(for $name in ./persName/*[empty(@type) or @type != 'married'] return normalize-space($name), ' ')"),
+                oxy_xpath("if (exists(./persName/*[@type = 'married'])) then ' / ' else ''"),
                 oxy_xpath("string-join(for $name in ./persName/*[@type = 'married'] return normalize-space($name), ' ')")
             )
             color, white
@@ -363,7 +363,7 @@ person:before {
 relation:before {
     -oxy-append-content:
         oxy_label(
-            text, oxy_concat(" - ", attr(name))
+            text, oxy_concat(" - ", attr(name, string, ""))
             color, white
             styles, "@import 'labels.css';"
         )
@@ -416,7 +416,7 @@ note[type="inventory"]:before {
             styles, "@import 'labels_sub.css';"
         )
         oxy_label(
-            text, attr(xml|id)
+            text, attr(xml|id, string, "")
             color, white
             styles, "@import 'labels_sub.css';"
         )
@@ -478,7 +478,7 @@ surname[type]:before,
 addName[type]:before {
     content: 
         oxy_label(
-            text, oxy_concat("${i18n(", oxy_name(), ".label.", attr(type), ")}:")
+            text, oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, ""), ")}:")
             width, 25px
             styles, "@import 'labels.css';"
         )
@@ -529,7 +529,7 @@ addrLine {
 
 /* Genre */
 category:before! > category {
-    content: attr(xml|id);
+    content: attr(xml|id, string, "");
 }
 
 

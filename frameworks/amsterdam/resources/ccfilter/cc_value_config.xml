@@ -90,7 +90,7 @@
 
     <!-- Running the xslt w/o useCache is way too slow when the document is of a bigger size -->
 
-    <!--<match attrName="hand">
+    <match attrName="hand">
         <xslt action="replace" href="hand.xsl" useCache="true"/>
     </match>
 
@@ -100,6 +100,6 @@
 
     <match attrName="facs">
         <xslt action="replace" href="facsimile.xsl" useCache="true"/>
-    </match>-->
+    </match>
 
 </config>

@@ -76,7 +76,7 @@ biblScope:before {
 biblScope[type]:before {
     content:
         oxy_label(
-            text, oxy_concat("${i18n(biblScope.label.", attr(type), ")}: ")
+            text, oxy_concat("${i18n(biblScope.label.", attr(type, string, ""), ")}: ")
             styles, "@import 'labels.css';"
         )
     ;
@@ -85,7 +85,7 @@ biblScope[type]:before {
 biblScope[unit]:before {
     content:
         oxy_label(
-            text, oxy_concat("${i18n(biblScope.label.", attr(unit), ")}: ")
+            text, oxy_concat("${i18n(biblScope.label.", attr(unit, string, ""), ")}: ")
             styles, "@import 'labels.css';"
         )
         oxy_label(
@@ -110,7 +110,7 @@ biblScope[unit]:before {
 idno[type]:before {
     content:
         oxy_label(
-            text, oxy_concat("${i18n(idno.label.", attr(type), ")}: ")
+            text, oxy_concat("${i18n(idno.label.", attr(type, string, ""), ")}: ")
             styles, "@import 'labels.css';"
         )
     ;
@@ -119,7 +119,7 @@ idno[type]:before {
 note[type="accessed"]:before {
     content:
         oxy_label(
-            text, oxy_concat("${i18n(date.label.", attr(type), ")}: ")
+            text, oxy_concat("${i18n(date.label.", attr(type, string, ""), ")}: ")
             styles, "@import 'labels.css';"
         )
     ;

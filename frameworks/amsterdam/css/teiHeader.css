@@ -9,6 +9,7 @@
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
 /* Foldable Sections */
+titleStmt,
 publicationStmt,
 notesStmt,
 sourceDesc,
@@ -33,7 +34,7 @@ handNotes {
 }
 
 /* Section labels */
-
+titleStmt:before,
 publicationStmt:before,
 notesStmt:before,
 sourceDesc:before,
@@ -55,8 +56,31 @@ msDesc:before {
     background-color:rgba(53, 25, 0, 0.6);    
 }
 
+/* Fields */
+titleStmt,
+respStmt,
+resp,
+name,
+fileDesc,
+titleStmt,
+title,
+authority,
+note,
+msDesc,
+msIdentifier,
+repository,
+collection,
+idno,
+altIdentifier,
+catRef {
+    display:block;
+}
+
+
 /* Field labels */
 title:before,
+resp:before,
+name:before,
 authority:before,
 note:before,
 repository:before,
@@ -73,8 +97,17 @@ catRef:before {
 /* Collapse text for all reference elements 
     (so that only the combobox will edit the field) */
 repository,
-creation > *,
-catRef {
+catRef,
+creation > date,
+creation > persName,
+creation > orgName,
+creation > placeName,
+creation > district,
+creation > settlement,
+creation > region,
+creation > country,
+creation > bloc {
+    display:block;
     vertical-align:middle;
     padding:5px 0px;
     visibility:-oxy-collapse-text;
@@ -109,11 +142,30 @@ altIdentifier > idno:before {
 }
 
 /* creation */
-creation > * {
-    padding:5px 0px;
+resp {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(key.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@key"
+            columns, 3
+        )
+        "  "
+    ;
 }
 
-creation > *:before {
+
+creation > date:before,
+creation > persName:before,
+creation > orgName:before,
+creation > placeName:before,
+creation > district:before,
+creation > settlement:before,
+creation > region:before,
+creation > country:before,
+creation > bloc:before {
     -oxy-append-content:
         oxy_label(
             text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
@@ -128,7 +180,11 @@ creation > *:before {
 
 /* Hand */
 handNote {
+    display:block;
+    padding:2px;
     border:1px inset;
+    visibility:-oxy-collapse-text;
+    white-space:normal;
 }
 
 handNote:before {
@@ -148,6 +204,23 @@ handNote:before {
         )
         oxy_combobox(
                 edit, "@scope"
+        )
+    ;
+}
+
+handNote:after {
+    display:block;
+    content:
+        oxy_label(
+            text, "${i18n(desc.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textArea(
+            edit, "#text"
+            contentType, "text/plain"
+            columns, 50
+            rows, 3
+            indentOnTab, false
         )
     ;
 }

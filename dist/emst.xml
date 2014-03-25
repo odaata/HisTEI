@@ -4,14 +4,13 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
-        <xt:version>0.3.04</xt:version>
+        <xt:version>0.3.05</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
         <xt:name>EMST</xt:name>
         <xt:description xmlns="http://www.w3.org/1999/xhtml">Emerging Standards Oxygen Framework</xt:description>
-        <xt:license>
-            <![CDATA[END USER LICENSE AGREEMENT
+        <xt:license><![CDATA[END USER LICENSE AGREEMENT
 The MIT License (MIT)
 
 Copyright (c) 2014 Mike Olson

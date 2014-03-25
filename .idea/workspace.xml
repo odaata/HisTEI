@@ -11,77 +11,13 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Build for next version">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/ash-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/ash-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/ash_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/ash_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/bibl-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/bibl-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/eth-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/eth-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/eth_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/eth_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/event_marriage-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/event_marriage-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listOrg-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listOrg-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listPerson-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listPerson-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listPlace-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listPlace-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listRelation-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/listRelation-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/pound-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/pound-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/relation_parent-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/relation_parent-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/relation_spouse-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/relation_spouse-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/taxonomy-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/taxonomy-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/wynn-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/wynn-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/wynn_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/wynn_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/yogh-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/yogh-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/yogh_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/yogh_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/amsterdam.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/css/annotation.css" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/emst.css" afterPath="" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Converted :hover to :focus for most elements&#10;Tweaked visual stuff for this as well - borders and more padding for hover operations&#10;Set Java compiler version to 1.7 to see if it helps installations on Mac (which is apparently difficult to upgrade to the latest Java patch release)">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" afterPath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" afterPath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/bibl.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/bibl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/bibl.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/bibl.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/build.xml" afterPath="$PROJECT_DIR$/frameworks/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/resources/ccfilter/cc_value_config.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/resources/ccfilter/cc_value_config.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/contextual_info.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/contextual_info.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/contextual_info.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/contextual_info.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst.xml" afterPath="$PROJECT_DIR$/dist/emst.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/facsimile.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/facsimile.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/facsimile.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/facsimile.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/templates/contextual_info/genre.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/templates/contextual_info/genre.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/global_fields.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/global_fields.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/global_fields.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/global_fields.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/globals.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/globals.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/templates/journal.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/templates/journal.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/labels.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/labels.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/templates/letter.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/templates/letter.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/templates/contextual_info/person.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/templates/contextual_info/person.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/templates/contextual_info/place.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/templates/contextual_info/place.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/templates/published_work.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/templates/published_work.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/teiHeader.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/teiHeader.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/text.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/text.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dictionaries/mike.xml" afterPath="$PROJECT_DIR$/.idea/dictionaries/mike.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/text.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/text.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/i18n/translation.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -356,10 +292,19 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/frameworks/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="48" selection-start="3585" selection-end="3585" vertical-scroll-proportion="1.6805556" vertical-offset="678" max-vertical-offset="1602">
+            <state line="78" column="48" selection-start="3585" selection-end="3585" vertical-scroll-proportion="0.0" vertical-offset="1404" max-vertical-offset="1602">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="emst.xml" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/dist/emst.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="3" column="52" selection-start="224" selection-end="224" vertical-scroll-proportion="0.121348314" vertical-offset="0" max-vertical-offset="756">
               <folding />
             </state>
           </provider>
@@ -424,8 +369,8 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" />
         <option value="$PROJECT_DIR$/LICENSE.txt" />
-        <option value="$PROJECT_DIR$/dist/emst.xml" />
         <option value="$PROJECT_DIR$/frameworks/build.xml" />
+        <option value="$PROJECT_DIR$/dist/emst.xml" />
       </list>
     </option>
   </component>
@@ -436,9 +381,9 @@
     <scope name="source" pattern="file:src//*" />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="248" />
+    <option name="x" value="150" />
     <option name="y" value="24" />
-    <option name="width" value="1509" />
+    <option name="width" value="1501" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -488,7 +433,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -563,48 +507,13 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="frameworks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="frameworks" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="amsterdam" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="dist" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
       <pane id="Scope" />
     </panes>
   </component>
@@ -738,19 +647,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -776,6 +672,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1159,7 +1068,11 @@
       <created>1395155469105</created>
       <updated>1395155469105</updated>
     </task>
-    <option name="localTasksCounter" value="67" />
+    <task id="LOCAL-00067" summary="Converted :hover to :focus for most elements&#10;Tweaked visual stuff for this as well - borders and more padding for hover operations&#10;Set Java compiler version to 1.7 to see if it helps installations on Mac (which is apparently difficult to upgrade to the latest Java patch release)">
+      <created>1395762623115</created>
+      <updated>1395762623115</updated>
+    </task>
+    <option name="localTasksCounter" value="68" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1183,7 +1096,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="248" y="24" width="1509" height="1056" extended-state="4" />
+    <frame x="150" y="24" width="1501" height="1056" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1197,11 +1110,11 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.220397" sideWeight="0.4568421" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22023399" sideWeight="0.4568421" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.220397" sideWeight="0.5431579" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22023399" sideWeight="0.5431579" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22785667" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
@@ -1215,8 +1128,8 @@
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27561837" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
-      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48994082" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2414005" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
@@ -1225,8 +1138,8 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.54561406" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33609468" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33609468" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1238,8 +1151,8 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21867321" sideWeight="0.4526316" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295711" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27561837" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout-to-restore>
@@ -1258,7 +1171,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed Bug where space in file names wouldn't allow media to be opened" />
     <MESSAGE value="Moved contextual_info templates into their own directory" />
     <MESSAGE value="Changed Facsimile so if same directory is given, it just doesn't update it rather than throw and error&#10;This allows user to still refresh nodes in same directory&#10;Fixed issue with Contextual Element - wasn't initiating the CSS in Oxygen because it returned a valid object only if AuthorPage was also available - now it just waits till it's available and sets it on later calls to get()" />
     <MESSAGE value="Added handShift and created new hand Action for adding handNotes, which now allow linking to people or just typing a description&#10;Setup CCFilter to create entries for all @hand and the handShift element" />
@@ -1283,7 +1195,8 @@
     <MESSAGE value="Tweaked my name in License&#10;Added Transcriber&#10;Added some stuff for titlePages" />
     <MESSAGE value="Build for next version" />
     <MESSAGE value="Fixed losing scope due to weak reference on SchemaListProvider&#10;Added some fields to CSS like transcriber and titlePage stuff" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed losing scope due to weak reference on SchemaListProvider&#10;Added some fields to CSS like transcriber and titlePage stuff" />
+    <MESSAGE value="Converted :hover to :focus for most elements&#10;Tweaked visual stuff for this as well - borders and more padding for hover operations&#10;Set Java compiler version to 1.7 to see if it helps installations on Mac (which is apparently difficult to upgrade to the latest Java patch release)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Converted :hover to :focus for most elements&#10;Tweaked visual stuff for this as well - borders and more padding for hover operations&#10;Set Java compiler version to 1.7 to see if it helps installations on Mac (which is apparently difficult to upgrade to the latest Java patch release)" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1571,18 +1484,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/dist/emst.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="39" selection-start="498" selection-end="498" vertical-scroll-proportion="0.16216215" vertical-offset="0" max-vertical-offset="888">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5202702" vertical-offset="1350" max-vertical-offset="45720">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5202702" vertical-offset="1350" max-vertical-offset="45720" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/dist/amsterdam.xml">
@@ -1601,7 +1505,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="48" selection-start="3585" selection-end="3585" vertical-scroll-proportion="1.6805556" vertical-offset="678" max-vertical-offset="1602">
+        <state line="78" column="48" selection-start="3585" selection-end="3585" vertical-scroll-proportion="0.0" vertical-offset="108" max-vertical-offset="1602">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/dist/emst.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="52" selection-start="224" selection-end="224" vertical-scroll-proportion="0.121348314" vertical-offset="0" max-vertical-offset="756">
           <folding />
         </state>
       </provider>

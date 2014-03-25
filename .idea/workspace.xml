@@ -11,18 +11,9 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Build for next version">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/annotation.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/odd/emst.framework" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/amsterdam.zip" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" afterPath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/build.xml" afterPath="$PROJECT_DIR$/frameworks/build.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="finished automating Amsterdam build process by copying files from EMST&#10;Moved Framework descriptor files to frameworks directory and then copy them in the build">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/global_fields.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/global_fields.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/text.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/text.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -291,7 +282,7 @@
       <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="215" column="137" selection-start="8476" selection-end="8476" vertical-scroll-proportion="0.0" vertical-offset="3725" max-vertical-offset="5328">
+            <state line="216" column="40" selection-start="8492" selection-end="8492" vertical-scroll-proportion="0.0" vertical-offset="3888" max-vertical-offset="5346">
               <folding />
             </state>
           </provider>
@@ -300,7 +291,7 @@
       <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frameworks/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="28" column="35" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.6388889" vertical-offset="228" max-vertical-offset="1494">
+            <state line="28" column="35" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.6202247" vertical-offset="228" max-vertical-offset="1512">
               <folding />
             </state>
           </provider>
@@ -1377,7 +1368,11 @@
       <created>1395781012105</created>
       <updated>1395781012105</updated>
     </task>
-    <option name="localTasksCounter" value="71" />
+    <task id="LOCAL-00071" summary="finished automating Amsterdam build process by copying files from EMST&#10;Moved Framework descriptor files to frameworks directory and then copy them in the build">
+      <created>1395785972104</created>
+      <updated>1395785972104</updated>
+    </task>
+    <option name="localTasksCounter" value="72" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1402,14 +1397,14 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="150" y="24" width="1501" height="1056" extended-state="4" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.49896765" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24088094" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24088094" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4103115" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5003441" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
@@ -1476,7 +1471,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Ummm, forgot to commit for a while now, so lots and lots o' changes (for the better of course)!" />
     <MESSAGE value="Major restructuring of the CSS into modular files&#10;It was way too slow with all CSS in a single file&#10;Also converted all CSS over to i18n functions, so all labels are now in translations.xml file&#10;added icon for label&#10;updated css for fields added by Amsterdam converstion" />
     <MESSAGE value="Lots of fixes and tweaks for release of Amsterdam framework" />
     <MESSAGE value="Added rest of special chars for EMST&#10;Added icons for lists, events, relations, bibls" />
@@ -1501,7 +1495,8 @@
     <MESSAGE value="Build for next version" />
     <MESSAGE value="New release with hover removed along with a few bug fixes and CSS tweaks" />
     <MESSAGE value="New release does not include Amsterdam" />
-    <option name="LAST_COMMIT_MESSAGE" value="New release does not include Amsterdam" />
+    <MESSAGE value="finished automating Amsterdam build process by copying files from EMST&#10;Moved Framework descriptor files to frameworks directory and then copy them in the build" />
+    <option name="LAST_COMMIT_MESSAGE" value="finished automating Amsterdam build process by copying files from EMST&#10;Moved Framework descriptor files to frameworks directory and then copy them in the build" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1791,14 +1786,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="215" column="137" selection-start="8476" selection-end="8476" vertical-scroll-proportion="0.0" vertical-offset="3725" max-vertical-offset="5328">
+        <state line="216" column="40" selection-start="8492" selection-end="8492" vertical-scroll-proportion="0.0" vertical-offset="3888" max-vertical-offset="5346">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="28" column="35" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.6388889" vertical-offset="228" max-vertical-offset="1494">
+        <state line="28" column="35" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.6202247" vertical-offset="228" max-vertical-offset="1512">
           <folding />
         </state>
       </provider>

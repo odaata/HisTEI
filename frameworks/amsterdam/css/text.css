@@ -6,10 +6,18 @@
 
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
-/* Global mouseover border for inline editing in text */
-/**:hover:after {
-    border:1px dashed black;
-}*/
+/* Global styles for hover/focus during inline editing */
+supplied:focus:after,
+foreign:focus:after,
+gap:hover:after,
+supplied:focus:after,
+unclear:focus:after,
+add:focus:after,
+del:focus:after,
+handShift:hover:after {
+    padding:5px;
+    border:1px dashed;
+}
 
 /* Sections, fields & labels */
 
@@ -53,11 +61,6 @@ postscript {
     display:block;
     -oxy-foldable:true;
 }
-
-/* Folded Sections */
-/*div {
-    -oxy-folded:true;
-}*/
 
 /* Field Labels */
 dateline::before,
@@ -188,10 +191,12 @@ gap {
 }
 
 abbr {
+    background-color: rgba(128, 0, 0, 0.1);
     font-weight:bold;
 }
 
 expan {
+    background-color: rgba(128, 0, 0, 0.1);
     font-style:italic;
 }
 
@@ -228,18 +233,24 @@ supplied {
     font-style:italic;
 }
 
-supplied:hover:after,
+supplied:focus:after,
 supplied:after {
     border:0px;
+    padding:0px;
     content: "]";
 }
 
+pc {
+    color:purple;
+}
+
 foreign {
+    color:#3D5229;
     font-style:italic;
     font-weight:bold;
 }
 
-foreign:hover:after {
+foreign:focus:after {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(lang.label)}: "
@@ -287,12 +298,12 @@ div note:before {
 /* @reason */
 
 gap:hover:after,
-supplied:hover:after,
-unclear:hover:after {
+supplied:focus:after,
+unclear:focus:after {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(reason.label)}: "
-            width, 50px
+            width, 70px
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
@@ -304,7 +315,7 @@ unclear:hover:after {
 /* @place */
 div note:before,
 fw:before,
-add:hover:after {
+add:focus:after {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(place.label.textual)}: "
@@ -360,6 +371,7 @@ pb:before {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(facs.label)}: "
+            width, 100px
             styles, "@import 'labels_sub.css';"
         )
         oxy_popup(
@@ -376,7 +388,7 @@ handShift {
     content: url('../images/hand_shift-16.png');
 }
 
-handShift:hover:after{
+handShift:hover:after {
     -oxy-append-content: 
         oxy_label(
             text, "${i18n(hand.label)}: "
@@ -387,9 +399,9 @@ handShift:hover:after{
         )    
 }
 
-add:hover:after,
-del:hover:after,
-unclear:hover:after,
+add:focus:after,
+del:focus:after,
+unclear:focus:after,
 gap:hover:after {
     -oxy-append-content: 
         oxy_label(
@@ -406,7 +418,8 @@ handShift[new]:hover:after {
     -oxy-append-content: url('../images/hand_open-16.png');
 }
 
-[hand]:hover:after {
+[hand]:focus:after,
+gap[hand]:hover:after {
     link: attr(hand, string, "");
     -oxy-append-content: url('../images/hand_open-16.png');
 }

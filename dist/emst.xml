@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xt:extensions xmlns:xt="http://www.oxygenxml.com/ns/extension"
-               xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+<xt:extensions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:xt="http://www.oxygenxml.com/ns/extension"
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
+
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
         <xt:version>0.3.05</xt:version>
@@ -9,8 +10,41 @@
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
         <xt:name>EMST</xt:name>
-        <xt:description xmlns="http://www.w3.org/1999/xhtml">Emerging Standards Oxygen Framework</xt:description>
+        <xt:description xmlns="http://www.w3.org/1999/xhtml">
+            <style type="text/css">
+                .title {
+                font-family:Verdana;
+                font-size:large;
+                font-weight:bold;
+                }
+
+                .body {
+                font-family:Geneva;
+                }
+
+                .header {
+                font-weight:bold;
+                }
+            </style>
+            <p class="title">
+                Emerging Standards Oxygen Framework
+            </p>
+            <div class="body">
+                <p class="header">
+                    What's new?
+                </p>
+                <ul>
+                    <li>Dropdown boxes now appear when the element has focus instead of when hovering
+                        over it with the mouse<br/>(Except for elements that don't have text, like
+                        <code>gap</code>,<code>handShift</code>, and<code>ptr</code>)
+                    </li>
+                    <li>Increased speed for large documents ('Twas a wee bit sluggish)</li>
+                    <li>Minor bug fixes with paths and dropdown list contents</li>
+                </ul>
+            </div>
+        </xt:description>
         <xt:license><![CDATA[END USER LICENSE AGREEMENT
+
 The MIT License (MIT)
 
 Copyright (c) 2014 Mike Olson
@@ -33,4 +67,5 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.]]></xt:license>
     </xt:extension>
+
 </xt:extensions>

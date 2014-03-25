@@ -1,0 +1,24 @@
+/*-----------------------------------------------------------------------------------------------
+----- EMST framework customizations for Oxygen 
+-----   TEI Documents
+-------------------------------------------------------------------------------------------------*/
+
+/* Global fields & labels */
+@import "globals.css";
+
+interpGrp,
+interp,
+s,
+cl,
+phr,
+w {
+    display:block;
+}
+
+interpGrp,
+s,
+s,
+cl,
+phr {
+    -oxy-foldable:true;
+}

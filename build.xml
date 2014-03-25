@@ -213,8 +213,9 @@
             description="Compile module emst; production classes">
         <mkdir dir="${emst.output.dir}"/>
         <javac2 destdir="${emst.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
-                memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.emst}/javac">
-            <compilerarg line="${compiler.args.emst}"/>
+                memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.emst}/javac"
+                includeantruntime="false">
+        <compilerarg line="${compiler.args.emst}"/>
             <bootclasspath refid="emst.module.bootclasspath"/>
             <classpath refid="emst.module.production.classpath"/>
             <src refid="emst.module.sourcepath"/>

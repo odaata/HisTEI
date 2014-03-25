@@ -11,8 +11,18 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Few more CSS tweaks before release">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst.xml" afterPath="$PROJECT_DIR$/dist/emst.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Build for next version">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/annotation.css" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/odd/emst.framework" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst.xml" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/amsterdam.zip" afterPath="" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" afterPath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/build.xml" afterPath="$PROJECT_DIR$/frameworks/build.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -281,7 +291,7 @@
       <file leaf-file-name="build.xml" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="36" column="17" selection-start="514" selection-end="1282" vertical-scroll-proportion="0.0" vertical-offset="3509" max-vertical-offset="5328">
+            <state line="215" column="137" selection-start="8476" selection-end="8476" vertical-scroll-proportion="0.0" vertical-offset="3725" max-vertical-offset="5328">
               <folding />
             </state>
           </provider>
@@ -290,7 +300,7 @@
       <file leaf-file-name="build.xml" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/frameworks/build.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="78" column="48" selection-start="3585" selection-end="3585" vertical-scroll-proportion="1.5972222" vertical-offset="714" max-vertical-offset="1602">
+            <state line="28" column="35" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.6388889" vertical-offset="228" max-vertical-offset="1494">
               <folding />
             </state>
           </provider>
@@ -351,12 +361,12 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTAbstractSchemaList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/EMSTAbstractStyledList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTContextualInfo.java" />
-        <option value="$PROJECT_DIR$/build.xml" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTSchemaListProvider.java" />
         <option value="$PROJECT_DIR$/LICENSE.txt" />
-        <option value="$PROJECT_DIR$/frameworks/build.xml" />
         <option value="$PROJECT_DIR$/dist/emst.xml" />
+        <option value="$PROJECT_DIR$/build.xml" />
+        <option value="$PROJECT_DIR$/frameworks/build.xml" />
       </list>
     </option>
   </component>
@@ -575,6 +585,303 @@
       <recent name="eu.emergingstandards.lists" />
       <recent name="eu.emergingstandards.commons" />
     </key>
+  </component>
+  <component name="RestoreUpdateTree">
+    <UpdateInfo date="Moments ago" ActionInfo="_Update">
+      <UpdatedFiles>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Updated from server" />
+          <option name="myStatusName" value="Changed on server" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="CHANGED_ON_SERVER" />
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Updated" />
+            <option name="myStatusName" value="Changed" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="UPDATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Created" />
+            <option name="myStatusName" value="Created" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="CREATED" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Deleted" />
+            <option name="myStatusName" value="Deleted" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="true" />
+            <option name="myId" value="REMOVED_FROM_REPOSITORY" />
+          </FILE-GROUP>
+          <FILE-GROUP>
+            <option name="myUpdateName" value="Restored" />
+            <option name="myStatusName" value="Will be restored" />
+            <option name="mySupportsDeletion" value="false" />
+            <option name="myCanBeAbsent" value="false" />
+            <option name="myId" value="RESTORED" />
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/catalog.xml</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/bibl.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/contextual_info.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/document.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/facsimile.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/global_fields.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/globals.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/labels.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/labels_sub.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/teiHeader.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/css/text.css</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/emst.jar</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/i18n</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/i18n/translation.xml</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/abbreviation-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/abbreviation-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/addition-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/addition-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/ash-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/ash-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/ash_capital-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/ash_capital-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/bibl-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/bibl-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/body-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/body-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/bold-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/bold-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/category-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/category-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/closer-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/closer-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/collection-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/collection-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/date-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/date-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/dateline-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/dateline-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/deletion-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/deletion-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/div-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/div-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/div_address-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/div_address-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/div_entry-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/div_entry-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/document_edit-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/document_edit-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/eth-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/eth-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/eth_capital-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/eth_capital-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/event_marriage-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/event_marriage-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/expansion-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/expansion-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/folder_image-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/folder_image-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/foreign-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/foreign-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/forme_work-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/forme_work-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/formulaic-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/formulaic-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/gap-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/gap-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/graphic-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/graphic-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/hand-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/hand-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/hand_open-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/hand_open-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/hand_shift-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/hand_shift-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/head-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/head-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/image_link-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/image_link-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/inventory-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/inventory-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/italic-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/italic-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/label-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/label-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/line_break-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/line_break-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/link-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/link-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/link_open-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/link_open-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listOrg-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listOrg-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listPerson-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listPerson-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listPlace-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listPlace-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listRelation-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/listRelation-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/long_s-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/long_s-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/note-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/note-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/opener-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/opener-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/org-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/org-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/page_break-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/page_break-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/paragraph-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/paragraph-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/pdf-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/pdf-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/person-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/person-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/place-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/place-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/postscript-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/postscript-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/pound-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/pound-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/punctuation-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/punctuation-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/punctuation_supplied-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/punctuation_supplied-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/relation_parent-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/relation_parent-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/relation_spouse-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/relation_spouse-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/repository-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/repository-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/salute-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/salute-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/signed-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/signed-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/subscript-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/subscript-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/superscript-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/superscript-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/supplied-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/supplied-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/taxonomy-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/taxonomy-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/tei-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/tei-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/tei_header-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/tei_header-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/text-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/text-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/thorn-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/thorn-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/thorn_capital-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/thorn_capital-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/title-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/title-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/unclear-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/unclear-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/underline-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/underline-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/wynn-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/wynn-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/wynn_capital-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/wynn_capital-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/yogh-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/yogh-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/yogh_capital-16.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/images/yogh_capital-20.png</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/lib</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/lib/ccfilter.jar</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/lib/commons-lang3-3.1.jar</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/lib/commons-vfs2-2.0.jar</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/lib/guava-16.0.1.jar</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/lib/tika-core-1.4.jar</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/ccfilter</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/ccfilter/cc_value_config.xml</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/ccfilter/configurationCC.xsd</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/ccfilter/facsimile.xsl</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/ccfilter/hand.xsl</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/contextual_info.xql</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/genre.txt</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/genre.xml</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/genre.xql</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/genre.xsl</PATH>
+            <PATH vcs="svn" revision="102">$PROJECT_DIR$/frameworks/amsterdam/resources/tei.xqm</PATH>
+          </FILE-GROUP>
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Modified" />
+          <option name="myStatusName" value="Modified" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MODIFIED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Skipped" />
+          <option name="myStatusName" value="Skipped" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SKIPPED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with conflicts" />
+          <option name="myStatusName" value="Will be merged with conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_CONFLICTS" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with tree conflicts" />
+          <option name="myStatusName" value="Merged with tree conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_TREE_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged with property conflicts" />
+          <option name="myStatusName" value="Will be merged with property conflicts" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED_WITH_PROPERTY_CONFLICT" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Merged" />
+          <option name="myStatusName" value="Will be merged" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="MERGED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Not in repository" />
+          <option name="myStatusName" value="Not in repository" />
+          <option name="mySupportsDeletion" value="true" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="UNKNOWN" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally added" />
+          <option name="myStatusName" value="Locally added" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_ADDED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Locally removed" />
+          <option name="myStatusName" value="Locally removed" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="LOCALLY_REMOVED" />
+        </FILE-GROUP>
+        <FILE-GROUP>
+          <option name="myUpdateName" value="Switched" />
+          <option name="myStatusName" value="Switched" />
+          <option name="mySupportsDeletion" value="false" />
+          <option name="myCanBeAbsent" value="false" />
+          <option name="myId" value="SWITCHED" />
+        </FILE-GROUP>
+      </UpdatedFiles>
+    </UpdateInfo>
   </component>
   <component name="RunManager" selected="Application.EMSTExtensionsBundle">
     <configuration default="false" name="EMSTExtensionsBundle" type="Application" factoryName="Application" temporary="true">
@@ -1062,7 +1369,15 @@
       <created>1395777969109</created>
       <updated>1395777969109</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="Configured Oxygen descriptor file with HTML for release notes/what's new">
+      <created>1395780973103</created>
+      <updated>1395780973103</updated>
+    </task>
+    <task id="LOCAL-00070" summary="Build for next version">
+      <created>1395781012105</created>
+      <updated>1395781012105</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1093,12 +1408,12 @@
       <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.49936467" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24112526" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.49896765" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24088094" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4103115" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32979977" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5003441" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3289941" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22780454" sideWeight="0.49684212" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
@@ -1161,9 +1476,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Changed Facsimile so if same directory is given, it just doesn't update it rather than throw and error&#10;This allows user to still refresh nodes in same directory&#10;Fixed issue with Contextual Element - wasn't initiating the CSS in Oxygen because it returned a valid object only if AuthorPage was also available - now it just waits till it's available and sets it on later calls to get()" />
-    <MESSAGE value="Added handShift and created new hand Action for adding handNotes, which now allow linking to people or just typing a description&#10;Setup CCFilter to create entries for all @hand and the handShift element" />
-    <MESSAGE value="Removed EMSTContextualSettings - realized it could easily be combined with EMSTContextualType Enum - just added FileName to the properties and changed the one place in the code that used it :-)" />
     <MESSAGE value="Ummm, forgot to commit for a while now, so lots and lots o' changes (for the better of course)!" />
     <MESSAGE value="Major restructuring of the CSS into modular files&#10;It was way too slow with all CSS in a single file&#10;Also converted all CSS over to i18n functions, so all labels are now in translations.xml file&#10;added icon for label&#10;updated css for fields added by Amsterdam converstion" />
     <MESSAGE value="Lots of fixes and tweaks for release of Amsterdam framework" />
@@ -1182,11 +1494,14 @@
     <MESSAGE value="Mistakenly created dist tag" />
     <MESSAGE value="Added MIT License&#10;Fixed List issues not being refreshed&#10;More efficient lists with stored values" />
     <MESSAGE value="Tweaked my name in License&#10;Added Transcriber&#10;Added some stuff for titlePages" />
-    <MESSAGE value="Build for next version" />
     <MESSAGE value="Fixed losing scope due to weak reference on SchemaListProvider&#10;Added some fields to CSS like transcriber and titlePage stuff" />
     <MESSAGE value="Converted :hover to :focus for most elements&#10;Tweaked visual stuff for this as well - borders and more padding for hover operations&#10;Set Java compiler version to 1.7 to see if it helps installations on Mac (which is apparently difficult to upgrade to the latest Java patch release)" />
     <MESSAGE value="Few more CSS tweaks before release" />
-    <option name="LAST_COMMIT_MESSAGE" value="Few more CSS tweaks before release" />
+    <MESSAGE value="Configured Oxygen descriptor file with HTML for release notes/what's new" />
+    <MESSAGE value="Build for next version" />
+    <MESSAGE value="New release with hover removed along with a few bug fixes and CSS tweaks" />
+    <MESSAGE value="New release does not include Amsterdam" />
+    <option name="LAST_COMMIT_MESSAGE" value="New release does not include Amsterdam" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1474,35 +1789,16 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.5202702" vertical-offset="1350" max-vertical-offset="45720" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/amsterdam.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="888">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="36" column="17" selection-start="514" selection-end="1282" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="5328">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/dist/emst.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="11" selection-start="679" selection-end="679" vertical-scroll-proportion="0.23973364" vertical-offset="0" max-vertical-offset="901">
+        <state line="215" column="137" selection-start="8476" selection-end="8476" vertical-scroll-proportion="0.0" vertical-offset="3725" max-vertical-offset="5328">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/build.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="78" column="48" selection-start="3585" selection-end="3585" vertical-scroll-proportion="1.5972222" vertical-offset="714" max-vertical-offset="1602">
+        <state line="28" column="35" selection-start="1420" selection-end="1420" vertical-scroll-proportion="0.6388889" vertical-offset="228" max-vertical-offset="1494">
           <folding />
         </state>
       </provider>

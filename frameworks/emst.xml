@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xt:extensions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+               xmlns:xt="http://www.oxygenxml.com/ns/extension"
+               xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
+
+    <xt:extension id="emst">
+        <xt:location href="emst-oxygen.zip"/>
+        <xt:version>0.3.05</xt:version>
+        <xt:oxy_version>15.2+</xt:oxy_version>
+        <xt:type>framework</xt:type>
+        <xt:author>Mike Olson</xt:author>
+        <xt:name>EMST</xt:name>
+        <xt:description xmlns="http://www.w3.org/1999/xhtml">
+            <style type="text/css">
+                .title {
+                font-family:Verdana;
+                font-size:large;
+                font-weight:bold;
+                }
+
+                .body {
+                font-family:Geneva;
+                }
+
+                .header {
+                font-weight:bold;
+                }
+            </style>
+            <p class="title">
+                Emerging Standards Oxygen Framework
+            </p>
+            <div class="body">
+                <p class="header">
+                    What's new?
+                </p>
+                <ul>
+                    <li>Dropdown boxes now appear when the element has focus instead of when hovering
+                        over it with the mouse<br/>(Except for elements that don't have text, like
+                        <code>gap</code>,<code>handShift</code>, and<code>ptr</code>)
+                    </li>
+                    <li>Increased speed for large documents ('Twas a wee bit sluggish)</li>
+                    <li>Minor bug fixes with paths and dropdown list contents</li>
+                </ul>
+            </div>
+        </xt:description>
+        <xt:license><![CDATA[END USER LICENSE AGREEMENT
+
+The MIT License (MIT)
+
+Copyright (c) 2014 Mike Olson
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.]]></xt:license>
+    </xt:extension>
+
+</xt:extensions>

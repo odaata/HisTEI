@@ -5,14 +5,10 @@
     <property name="framework.amsterdam" value="${basedir}/amsterdam"/>
 
     <patternset id="framework.files">
-        <include name="emst.jar"/>
-        <include name="catalog.xml"/>
-    </patternset>
-
-    <patternset id="framework.dirs">
-        <exclude name="templates"/>
-        <exclude name="schema"/>
-        <exclude name="odd"/>
+        <exclude name="odd/"/>
+        <exclude name="schema/"/>
+        <exclude name="templates/"/>
+        <exclude name="*.framework"/>
     </patternset>
 
     <target name="init.artifacts">
@@ -30,33 +26,30 @@
             <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="emst"/>
             <zipfileset dir="${basedir}/emst" prefix="emst"/>
         </zip>
-        <copy file="${temp.jar.path.emst-oxygen.zip}" tofile="${artifact.temp.output.emst-oxygen}/emst-oxygen.zip"/>
+        <copy file="${basedir}/emst.xml"
+              tofile="${artifact.temp.output.emst-oxygen}/emst.xml"/>
+        <copy file="${temp.jar.path.emst-oxygen.zip}"
+              tofile="${artifact.temp.output.emst-oxygen}/emst-oxygen.zip"/>
     </target>
 
-    <!--<target name="copy.amsterdam.framework.files" depends="init.artifacts" description="Copy supporting framework files for Amsterdam project">
-        <copy todir="${framework.amsterdam}" overwrite="true">
-            <fileset dir="${framework.emst}">
+    <target name="copy.amsterdam.framework.files" depends="init.artifacts"
+            description="Copy supporting framework files for Amsterdam project">
+        <delete includeemptydirs="true" failonerror="true">
+            <fileset dir="${framework.amsterdam}">
+                <patternset refid="framework.files"/>
+            </fileset>
+        </delete>
+        <copy todir="${framework.amsterdam}"
+              preservelastmodified="true"
+              includeEmptyDirs="true"
+              failonerror="true">
+        <fileset dir="${framework.emst}">
                 <patternset refid="framework.files"/>
             </fileset>
         </copy>
+    </target>
 
-        <delete>
-            <resources>
-                <dirset dir="${framework.amsterdam}">
-                    <patternset refid="framework.dirs"/>
-                </dirset>
-            </resources>
-        </delete>
-        <copy todir="${framework.amsterdam}">
-            <resources>
-                <dirset dir="${framework.emst}">
-                    <patternset refid="framework.dirs"/>
-                </dirset>
-            </resources>
-        </copy>
-    </target>-->
-
-    <target name="artifact.amsterdam-oxygen" depends="init.artifacts"
+    <target name="artifact.amsterdam-oxygen" depends="copy.amsterdam.framework.files"
             description="Build amsterdam-oxygen.zip">
         <property name="artifact.temp.output.amsterdam-oxygen" value="${artifacts.temp.dir}/amsterdam_oxygen"/>
         <mkdir dir="${artifact.temp.output.amsterdam-oxygen}"/>
@@ -64,6 +57,8 @@
             <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="amsterdam"/>
             <zipfileset dir="${basedir}/amsterdam" prefix="amsterdam"/>
         </zip>
+        <copy file="${basedir}/amsterdam.xml"
+              tofile="${artifact.temp.output.amsterdam-oxygen}/amsterdam.xml"/>
         <copy file="${temp.jar.path.amsterdam-oxygen.zip}"
               tofile="${artifact.temp.output.amsterdam-oxygen}/amsterdam-oxygen.zip"/>
     </target>

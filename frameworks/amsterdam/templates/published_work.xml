@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<TEI xml:id="TEI_${id}" xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+<TEI xml:id="TEI_${id}" xml:lang="nl" xmlns="http://www.tei-c.org/ns/1.0">
     <teiHeader>
         <fileDesc>
             <titleStmt>

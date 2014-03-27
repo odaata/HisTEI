@@ -1,4 +1,4 @@
-package eu.emergingstandards.id;
+package eu.emergingstandards.extensions;
 
 import ro.sync.ecss.extensions.commons.id.DefaultUniqueAttributesRecognizer;
 import ro.sync.ecss.extensions.commons.id.GenerateIDElementsInfo;

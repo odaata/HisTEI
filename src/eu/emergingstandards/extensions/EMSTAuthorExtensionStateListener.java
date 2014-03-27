@@ -1,6 +1,5 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.id.EMSTUniqueAttributesRecognizer;
 import eu.emergingstandards.lists.schema.EMSTSchemaListProvider;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;

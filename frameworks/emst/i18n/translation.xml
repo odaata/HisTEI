@@ -482,6 +482,18 @@
         <val lang="en_US">User Note</val>
     </key>
 
+    <key value="note.label.description">
+        <val lang="en_US">Description</val>
+    </key>
+
+    <key value="note.label.notes">
+        <val lang="en_US">Notes</val>
+    </key>
+
+    <key value="note.label.lindeman">
+        <val lang="en_US">Lindeman</val>
+    </key>
+
     <!--  Links  -->
 
     <key value="ptr.label">
@@ -489,7 +501,7 @@
     </key>
 
     <key value="ref.label">
-        <val lang="en_US">Reference</val>
+        <val lang="en_US">Ref</val>
     </key>
 
     <key value="key.label">

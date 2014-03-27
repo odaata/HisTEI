@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/css" href="http://emergingstandards.eu/css/contextual_info.css"?>
-<TEI xml:lang="nl" xmlns="http://www.tei-c.org/ns/1.0">
-    <teiHeader>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="en">
         <fileDesc>
             <titleStmt>
                 <title>List of Organizations for the Emerging Standards project</title>
@@ -14,7 +14,7 @@
             </sourceDesc>
         </fileDesc>
     </teiHeader>
-    <text>
+    <text xml:lang="nl">
         <body>
             <listOrg>
                 <listOrg type="repository">

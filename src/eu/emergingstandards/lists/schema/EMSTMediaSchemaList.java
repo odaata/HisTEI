@@ -3,7 +3,6 @@ package eu.emergingstandards.lists.schema;
 import eu.emergingstandards.facsimile.EMSTFacsimile;
 import eu.emergingstandards.facsimile.EMSTMedia;
 import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 
@@ -22,18 +21,8 @@ public class EMSTMediaSchemaList extends EMSTAbstractReferenceSchemaList<EMSTSch
     public static final List<EMSTSchemaListAttribute> ATTRIBUTES =
             Arrays.asList(new EMSTSchemaListAttribute(FACS_ATTRIB_NAME));
 
-    protected EMSTFacsimile facsimile;
-
     protected EMSTMediaSchemaList(AuthorAccess authorAccess) {
         super(authorAccess);
-    }
-
-    @Nullable
-    public EMSTFacsimile getFacsimile() {
-        if (facsimile == null) {
-            facsimile = EMSTFacsimile.get(getAuthorAccess());
-        }
-        return facsimile;
     }
 
     @NotNull
@@ -52,7 +41,7 @@ public class EMSTMediaSchemaList extends EMSTAbstractReferenceSchemaList<EMSTSch
     @Override
     public synchronized void refresh() {
         List<EMSTSchemaListItem> items = getItems();
-        EMSTFacsimile facsimile = getFacsimile();
+        EMSTFacsimile facsimile = EMSTFacsimile.get(getAuthorAccess());
 
         if (facsimile != null) {
             for (EMSTMedia media : facsimile.getMediaElements()) {

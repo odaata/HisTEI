@@ -11,23 +11,11 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="-Finished fixing Amsterdam templates&#10;-Added more fields to teiHeader for Amsterdam&#10;-Fixed small bug where media elements were not being updated if empty Facsimile element was present beforehand">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" afterPath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTNodeRendererCustomizer.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTNodeRendererCustomizer.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/commons/EMSTTEINamespace.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/commons/EMSTTEINamespace.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" afterPath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam.xml" afterPath="$PROJECT_DIR$/dist/amsterdam.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst.xml" afterPath="$PROJECT_DIR$/dist/emst.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst.xml" afterPath="$PROJECT_DIR$/frameworks/emst.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/teiHeader.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/teiHeader.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/i18n/translation.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/resp-16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/images/resp-16.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/resp-20.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/images/resp-20.png" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -1149,7 +1137,11 @@
       <created>1395955263105</created>
       <updated>1395955263105</updated>
     </task>
-    <option name="localTasksCounter" value="78" />
+    <task id="LOCAL-00078" summary="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release">
+      <created>1396026968117</created>
+      <updated>1396026968117</updated>
+    </task>
+    <option name="localTasksCounter" value="79" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1219,7 +1211,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Fixed problem with values not showing up in SchemaLists at startup by implementing synchronized blocks&#10;Fixed TEIHeader issues with ContextualInfo" />
     <MESSAGE value="Maded basic labels a bit wider to accommodate Settlement" />
     <MESSAGE value="Restyled contextual info records with colors as with other foldable sections elsewhere" />
     <MESSAGE value="Synchronized all lists so they are loaded on startup of Oxygen&#10;Cached more variables for efficiency&#10;Restyled contextual info records with colors as with other foldable sections elsewhere&#10;" />
@@ -1244,7 +1235,8 @@
     <MESSAGE value="Deleting out directory, since it's temporary and doesn't need to be in SVN" />
     <MESSAGE value="-Updated Amsterdam templates&#10;-Moved UniqueAttributesRecognizer to extensions sub-package" />
     <MESSAGE value="-Finished fixing Amsterdam templates&#10;-Added more fields to teiHeader for Amsterdam&#10;-Fixed small bug where media elements were not being updated if empty Facsimile element was present beforehand" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Finished fixing Amsterdam templates&#10;-Added more fields to teiHeader for Amsterdam&#10;-Fixed small bug where media elements were not being updated if empty Facsimile element was present beforehand" />
+    <MESSAGE value="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
+    <option name="LAST_COMMIT_MESSAGE" value="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

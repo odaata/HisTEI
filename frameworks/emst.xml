@@ -5,7 +5,7 @@
 
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
-        <xt:version>0.3.05</xt:version>
+        <xt:version>0.3.06</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -32,6 +32,52 @@
             <div class="body">
                 <p class="header">
                     What's new?
+                </p>
+                <p class="header">
+                    Version 0.3.06
+                </p>
+                <ul>
+                    <li>New buttons for inserting:
+                        <br/>
+                        <code>opener</code>,<code>closer</code>,<code>postscript</code>, and
+                        <code>respStmt</code>
+                    </li>
+                    <li>
+                        The keys for the
+                        <code>respStmt</code>
+                        were taken from the
+                        <a href="http://www.loc.gov/marc/relators/relacode.html">MARC Code List for Relators</a>
+                        <br/>
+                        It's an international standard used by librarians - only a small subset are available on the
+                        list.
+                    </li>
+                    <li>
+                        When adding a new
+                        <code>respStmt</code>
+                        a dialog box appears where you can select them from the list.
+                        <br/>
+                        (Unfortunately) it has to be done twice to fill in the key and the label, but hey you won't be
+                        adding it
+                        <i>that</i>
+                        often, right?
+                    </li>
+                    <li>Needed more screen space, so there is now an
+                        <i>Insert</i>
+                        menu on the
+                        <i>Sections</i>
+                        toolbar
+                        <br/>
+                        From there, you can insert larger sections, like the newly added ones as well as<code>div</code>
+                        's
+                    </li>
+                    <li>Fixed a bug: dropdown lists weren't refreshing after inserting new facsimile elements:
+                        <code>graphic</code>
+                        and
+                        <code>media</code>
+                    </li>
+                </ul>
+                <p class="header">
+                    Version 0.3.05
                 </p>
                 <ul>
                     <li>Dropdown boxes now appear when the element has focus instead of when hovering

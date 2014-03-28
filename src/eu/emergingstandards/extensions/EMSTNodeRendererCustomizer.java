@@ -44,6 +44,7 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("TEI", new EMSTIconNode("TEI", "tei"));
         iconNodes.put("teiHeader", new EMSTIconNode("teiHeader", "tei_header"));
         iconNodes.put("title", new EMSTIconNode("title"));
+        iconNodes.put("respStmt", new EMSTIconNode("respStmt", "resp"));
 //      Facsimile stuff
         iconNodes.put("facsimile", new EMSTIconNode("facsimile", "folder_image"));
         iconNodes.put("graphic", new EMSTIconNode("graphic"));

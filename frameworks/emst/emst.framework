@@ -2457,6 +2457,224 @@
 											</actionMode-array>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>opener</String>
+										</field>
+										<field name="name">
+											<String>${i18n(opener)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(opener_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/opener-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/opener-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('div')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;opener xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;dateline>&lt;date/>&lt;/dateline>
+  &lt;salute/>
+&lt;/opener></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>closer</String>
+										</field>
+										<field name="name">
+											<String>${i18n(closer)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(closer_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/closer-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/closer-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('div')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;closer xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;salute/>
+  &lt;signed/>
+&lt;/closer></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>postscript</String>
+										</field>
+										<field name="name">
+											<String>${i18n(postscript)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(postscript_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/postscript-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/postscript-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('div')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;postscript xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;p>&lt;lb/>${caret}&lt;/p>
+  &lt;signed/>
+&lt;/postscript></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>resp.stmt</String>
+										</field>
+										<field name="name">
+											<String>${i18n(resp.stmt)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(resp.stmt_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/resp-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/resp-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('titleStmt')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;respStmt xmlns="http://www.tei-c.org/ns/1.0">
+   &lt;resp key="${ask('Key?', combobox, ('ann':'Annotator'; 'crr':'Corrector'; 'edt':'Editor'; 'res':'Researcher'; 'trc':'Transcriber';), 'trc')}">
+    ${ask('Label?', combobox, ('Annotator':'Annotator'; 'Corrector':'Corrector'; 'Editor':'Editor'; 'Researcher':'Researcher'; 'Transcriber':'Transcriber';), 'Transcriber')}
+   &lt;/resp>
+   &lt;name>${caret}&lt;/name>
+&lt;/respStmt></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -2722,6 +2940,22 @@
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
+																<String>opener</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>closer</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>postscript</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
 																<String>div</String>
 															</field>
 														</menuItem>
@@ -2733,6 +2967,12 @@
 														<menuItem>
 															<field name="actionID">
 																<String>div.address</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>resp.stmt</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -3067,22 +3307,61 @@
 														<String>formulaic</String>
 													</field>
 												</toolbarItem>
-												<toolbarSeparator/>
-												<toolbarItem>
-													<field name="actionID">
-														<String>div</String>
+												<toolbar>
+													<field name="id">
+														<String>Insert</String>
 													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>div.entry</String>
+													<field name="type">
+														<Integer>3</Integer>
 													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>div.address</String>
+													<field name="largeIconPath">
+														<String></String>
 													</field>
-												</toolbarItem>
+													<field name="smallIconPath">
+														<String></String>
+													</field>
+													<field name="toolbarEntriesDescriptorList">
+														<toolbarEntry-array>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>opener</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>closer</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>postscript</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>div</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>div.entry</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>div.address</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>resp.stmt</String>
+																</field>
+															</toolbarItem>
+														</toolbarEntry-array>
+													</field>
+												</toolbar>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>

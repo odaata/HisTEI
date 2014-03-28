@@ -31,6 +31,19 @@ public class EMSTStaticSchemaList extends EMSTAbstractSchemaList<EMSTSchemaListI
                         }
                 )
         );
+//        @key attribute on <resp> elements
+        LISTS.add(
+                new EMSTStaticSchemaList(
+                        Arrays.asList(new EMSTSchemaListAttribute(KEY_ATTRIB_NAME, RESP_ELEMENT_NAME)),
+                        new String[][]{
+                                {"ann", "Annotator"},
+                                {"crr", "Corrector"},
+                                {"edt", "Editor"},
+                                {"res", "Researcher"},
+                                {"trc", "Transcriber"}
+                        }
+                )
+        );
 //        @type attribute on <div> elements
         LISTS.add(
                 new EMSTStaticSchemaList(

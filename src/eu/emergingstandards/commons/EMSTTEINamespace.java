@@ -15,12 +15,14 @@ public class EMSTTEINamespace {
     public static final String HAND_SHIFT_ELEMENT_NAME = "handShift";
     public static final String LB_ELEMENT_NAME = "lb";
     public static final String MEDIA_ELEMENT_NAME = "media";
+    public static final String RESP_ELEMENT_NAME = "resp";
     public static final String SEX_ELEMENT_NAME = "sex";
 
 
     public static final String BREAK_ATTRIB_NAME = "break";
     public static final String FACS_ATTRIB_NAME = "facs";
     public static final String HAND_ATTRIB_NAME = "hand";
+    public static final String KEY_ATTRIB_NAME = "key";
     public static final String MIME_TYPE_ATTRIB_NAME = "mimeType";
     public static final String NEW_ATTRIB_NAME = "new";
     public static final String REASON_ATTRIB_NAME = "reason";

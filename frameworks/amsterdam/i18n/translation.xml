@@ -151,7 +151,9 @@
         <val lang="en_US">Link</val>
     </key>
     <key value="link_description">
-        <val lang="en_US">Insert a generic link to any URL with optional text. Insert the ref element.</val>
+        <val lang="en_US">Insert a generic link to any URL with optional text. Insert the ref
+            element.
+        </val>
     </key>
 
     <key value="punctuation">
@@ -198,6 +200,27 @@
         <val lang="en_US">Insert a generic hand, i.e. NOT linked to a Person. Insert the handNote
             element.
         </val>
+    </key>
+
+    <key value="opener">
+        <val lang="en_US">Opener</val>
+    </key>
+    <key value="opener_description">
+        <val lang="en_US">Insert the opener element.</val>
+    </key>
+
+    <key value="closer">
+        <val lang="en_US">Closer</val>
+    </key>
+    <key value="closer_description">
+        <val lang="en_US">Insert the closer element.</val>
+    </key>
+
+    <key value="postscript">
+        <val lang="en_US">Postscript</val>
+    </key>
+    <key value="postscript_description">
+        <val lang="en_US">Insert the postscript element.</val>
     </key>
 
     <key value="salute">
@@ -294,12 +317,11 @@
         <val lang="en_US">Entry</val>
     </key>
     <key value="div.entry_description">
-        <val lang="en_US">Insert an entry (e.g. in a journal or travelogue) with
-            div[type="entry"].
+        <val lang="en_US">Insert an entry (e.g. in a journal or travelogue) with div[type="entry"].
         </val>
     </key>
     <key value="div.address">
-        <val lang="en_US">Entry</val>
+        <val lang="en_US">Address</val>
     </key>
     <key value="div.address_description">
         <val lang="en_US">Insert an address section (e.g. as part of a letter) with
@@ -482,6 +504,18 @@
         <val lang="en_US">User Note</val>
     </key>
 
+    <key value="note.label.description">
+        <val lang="en_US">Description</val>
+    </key>
+
+    <key value="note.label.notes">
+        <val lang="en_US">Notes</val>
+    </key>
+
+    <key value="note.label.lindeman">
+        <val lang="en_US">Lindeman</val>
+    </key>
+
     <!--  Links  -->
 
     <key value="ptr.label">
@@ -489,7 +523,7 @@
     </key>
 
     <key value="ref.label">
-        <val lang="en_US">Reference</val>
+        <val lang="en_US">Ref</val>
     </key>
 
     <key value="key.label">

@@ -10,6 +10,7 @@
 
 /* Foldable Sections */
 titleStmt,
+respStmt,
 publicationStmt,
 notesStmt,
 sourceDesc,
@@ -23,6 +24,7 @@ handNotes {
 }
 
 /* Collapsed Sections by Default */
+respStmt,
 publicationStmt,
 notesStmt,
 sourceDesc,
@@ -35,6 +37,7 @@ handNotes {
 
 /* Section labels */
 titleStmt:before,
+respStmt:before,
 publicationStmt:before,
 notesStmt:before,
 sourceDesc:before,
@@ -52,6 +55,7 @@ handNotes:before {
     content: oxy_concat("${i18n(", oxy_name(), ".label)}");
 }
 
+respStmt:before,
 msDesc:before {
     background-color:rgba(53, 25, 0, 0.6);    
 }
@@ -179,9 +183,9 @@ resp {
             text, oxy_concat("${i18n(key.label)}: ")
             styles, "@import 'labels_sub.css';"
         )
-        oxy_textfield(
+        oxy_combobox(
             edit, "@key"
-            columns, 3
+            columns, 6
         )
         "  "
     ;

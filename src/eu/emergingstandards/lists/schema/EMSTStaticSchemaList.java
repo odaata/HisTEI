@@ -75,10 +75,10 @@ public class EMSTStaticSchemaList extends EMSTAbstractSchemaList<EMSTSchemaListI
 //        @break attribute on <lb> element
         LISTS.add(
                 new EMSTStaticSchemaList(
-                        Arrays.asList(new EMSTSchemaListAttribute(BREAK_ATTRIB_NAME, LB_ELEMENT_NAME)),
+                        Arrays.asList(new EMSTSchemaListAttribute(BREAK_ATTRIB_NAME)),
                         new String[][]{
-                                {"yes", "the line break is between words"},
-                                {"no", "the line break is inside a word"}
+                                {"yes", "break is between words"},
+                                {"no", "break is inside a word"}
                         }
                 )
         );

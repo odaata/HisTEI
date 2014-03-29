@@ -559,6 +559,14 @@
         <val lang="en_US">Line Break</val>
     </key>
 
+    <key value="pb.label">
+        <val lang="en_US">Page Break</val>
+    </key>
+
+    <key value="break.label">
+        <val lang="en_US">Break</val>
+    </key>
+
     <!--  Contextual Info References  -->
 
     <key value="persName.label">

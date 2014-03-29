@@ -351,6 +351,14 @@ pb:before {
             columns, 4
             tooltips, "${i18n(n.tooltip)}"
         )
+        oxy_label(
+            text, "${i18n(break.label)}:"
+            width, 60px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@break"
+        )
     ;
 }
 

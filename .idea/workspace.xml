@@ -11,11 +11,14 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/resp-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/images/resp-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/images/resp-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/images/resp-20.png" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Forgot to add icon files to SVN">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst.xml" afterPath="$PROJECT_DIR$/frameworks/emst.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/globals.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/globals.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/teiHeader.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/teiHeader.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/text.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/text.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -265,7 +268,17 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf />
+    <leaf>
+      <file leaf-file-name="EMSTStaticSchemaList.java" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="79" column="41" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.80898875" vertical-offset="918" max-vertical-offset="2286">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -324,8 +337,8 @@
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTMediaSchemaList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/commons/EMSTTEINamespace.java" />
-        <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" />
         <option value="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTNodeRendererCustomizer.java" />
+        <option value="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" />
       </list>
     </option>
   </component>
@@ -338,7 +351,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="150" />
     <option name="y" value="24" />
-    <option name="width" value="1477" />
+    <option name="width" value="1469" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -388,6 +401,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -496,28 +511,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emergingstandards" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="extensions" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="emst" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="frameworks" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -538,8 +531,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -672,19 +663,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -710,6 +688,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1141,7 +1132,11 @@
       <created>1396026968117</created>
       <updated>1396026968117</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="Forgot to add icon files to SVN">
+      <created>1396026993105</created>
+      <updated>1396026993105</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1165,7 +1160,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="24" width="1477" height="1056" extended-state="4" />
+    <frame x="150" y="24" width="1469" height="1056" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1180,14 +1175,14 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2813156" sideWeight="0.45894736" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28078818" sideWeight="0.45894736" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2813156" sideWeight="0.54105264" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28078818" sideWeight="0.54105264" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.22768167" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22743177" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1211,8 +1206,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Maded basic labels a bit wider to accommodate Settlement" />
-    <MESSAGE value="Restyled contextual info records with colors as with other foldable sections elsewhere" />
     <MESSAGE value="Synchronized all lists so they are loaded on startup of Oxygen&#10;Cached more variables for efficiency&#10;Restyled contextual info records with colors as with other foldable sections elsewhere&#10;" />
     <MESSAGE value="Added MIT License&#10;Releasin new Dist for Mo to test - version 0.3.03" />
     <MESSAGE value="Mistakenly created dist tag" />
@@ -1236,7 +1229,9 @@
     <MESSAGE value="-Updated Amsterdam templates&#10;-Moved UniqueAttributesRecognizer to extensions sub-package" />
     <MESSAGE value="-Finished fixing Amsterdam templates&#10;-Added more fields to teiHeader for Amsterdam&#10;-Fixed small bug where media elements were not being updated if empty Facsimile element was present beforehand" />
     <MESSAGE value="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
-    <option name="LAST_COMMIT_MESSAGE" value="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
+    <MESSAGE value="Forgot to add icon files to SVN" />
+    <MESSAGE value="New release!&#10;-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
+    <option name="LAST_COMMIT_MESSAGE" value="New release!&#10;-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1470,9 +1465,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTUniqueAttributesRecognizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="0" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756">
-          <folding />
-        </state>
+        <state line="10" column="0" selection-start="314" selection-end="314" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="756" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java">
@@ -1536,13 +1529,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="32" column="58" selection-start="1113" selection-end="1113" vertical-scroll-proportion="0.0" vertical-offset="162" max-vertical-offset="2286">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/frameworks/emst.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1800">
@@ -1566,7 +1552,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTNodeRendererCustomizer.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="48" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.31964484" vertical-offset="162" max-vertical-offset="3420">
+        <state line="31" column="48" selection-start="1118" selection-end="1118" vertical-scroll-proportion="0.31964484" vertical-offset="162" max-vertical-offset="3420" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="79" column="41" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.80898875" vertical-offset="918" max-vertical-offset="2286">
           <folding />
         </state>
       </provider>

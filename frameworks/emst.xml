@@ -34,6 +34,17 @@
                     What's new?
                 </p>
                 <p class="header">
+                    Version 0.3.07
+                </p>
+                <ul>
+                    <li>Added
+                        <code>@break</code>
+                        attribute to
+                        <code>pb</code>
+                        so words can be broken over page breaks as well now!
+                    </li>
+                </ul>
+                <p class="header">
                     Version 0.3.06
                 </p>
                 <ul>
@@ -67,7 +78,8 @@
                         <i>Sections</i>
                         toolbar
                         <br/>
-                        From there, you can insert larger sections, like the newly added ones as well as<code>div</code>
+                        From there, you can insert larger sections, like the newly added ones as well as
+                        <code>div</code>
                         's
                     </li>
                     <li>Fixed a bug: dropdown lists weren't refreshing after inserting new facsimile elements:

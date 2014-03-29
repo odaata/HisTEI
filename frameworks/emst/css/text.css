@@ -328,17 +328,19 @@ add:focus:after {
 }
 
 /* Page Break */
-pb:before {
+pb {
     display:block;
     background-color:transparent;
-    border-style:groove none;
+    border-style:solid none;
+    border-width:1px 0px;
     vertical-align:middle;
     padding:5px;
-    margin:10px 0px;
-    border-width:1px 0px;
+    margin:5px 0px;
     font-weight:bold;
     font-size:small;
     line-height:1.5;
+}
+pb:before {
     counter-increment:pages;
     content: url('../images/page_break-16.png')
         " Page " counter(pages)
@@ -352,7 +354,7 @@ pb:before {
             tooltips, "${i18n(n.tooltip)}"
         )
         oxy_label(
-            text, "${i18n(break.label)}:"
+            text, "${i18n(break.label)}: "
             width, 60px
             styles, "@import 'labels_sub.css';"
         )

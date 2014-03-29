@@ -11,14 +11,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Forgot to add icon files to SVN">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="$PROJECT_DIR$/frameworks/emst/emst.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" afterPath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst.xml" afterPath="$PROJECT_DIR$/frameworks/emst.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/globals.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/globals.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/teiHeader.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/teiHeader.css" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="added @break to &lt;pb&gt; elements">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/text.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/text.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/emst/i18n/translation.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -268,17 +262,7 @@
     </favorites_list>
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="EMSTStaticSchemaList.java" pinned="false" current="true" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state line="79" column="41" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.80898875" vertical-offset="918" max-vertical-offset="2286">
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="FindManager">
     <FindUsagesManager>
@@ -351,7 +335,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="150" />
     <option name="y" value="24" />
-    <option name="width" value="1469" />
+    <option name="width" value="1461" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -401,8 +385,8 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -663,6 +647,19 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <method />
+    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -688,19 +685,6 @@
       <envs />
       <properties />
       <listeners />
-      <method />
-    </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1136,7 +1120,11 @@
       <created>1396026993105</created>
       <updated>1396026993105</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="added @break to &lt;pb&gt; elements">
+      <created>1396110454110</created>
+      <updated>1396110454110</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1160,11 +1148,11 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="24" width="1469" height="1056" extended-state="4" />
+    <frame x="150" y="24" width="1461" height="1056" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48979592" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.49896765" order="11" side_tool="false" content_ui="tabs" />
@@ -1173,13 +1161,12 @@
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5003441" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28078818" sideWeight="0.45894736" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28025478" sideWeight="0.45894736" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28078818" sideWeight="0.54105264" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28025478" sideWeight="0.54105264" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22743177" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
@@ -1188,6 +1175,7 @@
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3243824" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Dependency Viewer" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3295711" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27561837" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1206,7 +1194,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Synchronized all lists so they are loaded on startup of Oxygen&#10;Cached more variables for efficiency&#10;Restyled contextual info records with colors as with other foldable sections elsewhere&#10;" />
     <MESSAGE value="Added MIT License&#10;Releasin new Dist for Mo to test - version 0.3.03" />
     <MESSAGE value="Mistakenly created dist tag" />
     <MESSAGE value="Added MIT License&#10;Fixed List issues not being refreshed&#10;More efficient lists with stored values" />
@@ -1231,7 +1218,8 @@
     <MESSAGE value="-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
     <MESSAGE value="Forgot to add icon files to SVN" />
     <MESSAGE value="New release!&#10;-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
-    <option name="LAST_COMMIT_MESSAGE" value="New release!&#10;-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
+    <MESSAGE value="added @break to &lt;pb&gt; elements" />
+    <option name="LAST_COMMIT_MESSAGE" value="added @break to &lt;pb&gt; elements" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
@@ -1557,7 +1545,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/EMSTStaticSchemaList.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="79" column="41" selection-start="3664" selection-end="3664" vertical-scroll-proportion="0.80898875" vertical-offset="918" max-vertical-offset="2286">
+        <state line="79" column="41" selection-start="3664" selection-end="3664" vertical-scroll-proportion="-0.18876405" vertical-offset="1362" max-vertical-offset="2286">
           <folding />
         </state>
       </provider>

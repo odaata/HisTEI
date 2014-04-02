@@ -202,6 +202,13 @@
         </val>
     </key>
 
+    <key value="resp.stmt">
+        <val lang="en_US">Resp Stmt</val>
+    </key>
+    <key value="resp.stmt_description">
+        <val lang="en_US">Insert the respStmt element.</val>
+    </key>
+
     <key value="opener">
         <val lang="en_US">Opener</val>
     </key>
@@ -552,6 +559,14 @@
         <val lang="en_US">Line Break</val>
     </key>
 
+    <key value="pb.label">
+        <val lang="en_US">Page Break</val>
+    </key>
+
+    <key value="break.label">
+        <val lang="en_US">Break</val>
+    </key>
+
     <!--  Contextual Info References  -->
 
     <key value="persName.label">
@@ -659,6 +674,10 @@
         <val lang="en_US">Title Statement</val>
     </key>
 
+    <key value="respStmt.label">
+        <val lang="en_US">Responsibility Statement</val>
+    </key>
+
     <key value="publicationStmt.label">
         <val lang="en_US">Publication Statement</val>
     </key>
@@ -699,7 +718,7 @@
     </key>
 
     <key value="resp.label">
-        <val lang="en_US">Resp.</val>
+        <val lang="en_US">Resp</val>
     </key>
 
     <key value="name.label">

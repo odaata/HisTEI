@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="amsterdam">
         <xt:location href="amsterdam-oxygen.zip"/>
-        <xt:version>0.3.06</xt:version>
+        <xt:version>0.3.07</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>

@@ -11,7 +11,7 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Tweaked look of &lt;pb&gt; elements">
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="New release - 0.3.07&#10;- Changed background-color on abbr to differentiate from expan more clearly">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" afterPath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" />
@@ -20,7 +20,8 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst.xml" afterPath="$PROJECT_DIR$/dist/emst.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst.xml" afterPath="$PROJECT_DIR$/frameworks/emst.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/css/text.css" afterPath="$PROJECT_DIR$/frameworks/emst/css/text.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/css/text.css" afterPath="$PROJECT_DIR$/frameworks/amsterdam/css/text.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/i18n/translation.xml" afterPath="$PROJECT_DIR$/frameworks/amsterdam/i18n/translation.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="emst.iws" />
@@ -343,7 +344,7 @@
   <component name="ProjectFrameBounds">
     <option name="x" value="150" />
     <option name="y" value="24" />
-    <option name="width" value="1445" />
+    <option name="width" value="1437" />
     <option name="height" value="1056" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
@@ -655,19 +656,6 @@
       <option name="PORT" value="5005" />
       <method />
     </configuration>
-    <configuration default="true" type="Applet" factoryName="Applet">
-      <module name="" />
-      <option name="MAIN_CLASS_NAME" />
-      <option name="HTML_FILE_NAME" />
-      <option name="HTML_USED" value="false" />
-      <option name="WIDTH" value="400" />
-      <option name="HEIGHT" value="300" />
-      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
-      <option name="VM_PARAMETERS" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <method />
-    </configuration>
     <configuration default="true" type="TestNG" factoryName="TestNG">
       <module name="" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
@@ -693,6 +681,19 @@
       <envs />
       <properties />
       <listeners />
+      <method />
+    </configuration>
+    <configuration default="true" type="Applet" factoryName="Applet">
+      <module name="" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="HTML_FILE_NAME" />
+      <option name="HTML_USED" value="false" />
+      <option name="WIDTH" value="400" />
+      <option name="HEIGHT" value="300" />
+      <option name="POLICY_FILE" value="$APPLICATION_HOME_DIR$/bin/appletviewer.policy" />
+      <option name="VM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
       <method />
     </configuration>
     <configuration default="true" type="Application" factoryName="Application">
@@ -1136,7 +1137,11 @@
       <created>1396110935106</created>
       <updated>1396110935107</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="New release - 0.3.07&#10;- Changed background-color on abbr to differentiate from expan more clearly">
+      <created>1396437973119</created>
+      <updated>1396437973119</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1160,7 +1165,7 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="150" y="24" width="1445" height="1056" extended-state="4" />
+    <frame x="150" y="24" width="1437" height="1056" extended-state="4" />
     <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1174,15 +1179,15 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3284625" sideWeight="0.50057936" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="SVN Repositories" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22678186" sideWeight="0.49684212" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27916965" sideWeight="0.45894736" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22678186" sideWeight="0.5031579" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.27916965" sideWeight="0.54105264" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.2786177" sideWeight="0.54027927" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="SVN Repositories" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22743177" sideWeight="0.49731472" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="JetGradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -1206,7 +1211,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Mistakenly created dist tag" />
     <MESSAGE value="Added MIT License&#10;Fixed List issues not being refreshed&#10;More efficient lists with stored values" />
     <MESSAGE value="Tweaked my name in License&#10;Added Transcriber&#10;Added some stuff for titlePages" />
     <MESSAGE value="Fixed losing scope due to weak reference on SchemaListProvider&#10;Added some fields to CSS like transcriber and titlePage stuff" />
@@ -1231,7 +1235,8 @@
     <MESSAGE value="New release!&#10;-Added actions to insert opener, closer, postscript, and respStmt&#10;-Added resp icons&#10;-Added resp icon to respStmt for Outline view&#10;-Added @key attrib on resp to MediaSchemaLists&#10;-Edited descriptors for new release" />
     <MESSAGE value="added @break to &lt;pb&gt; elements" />
     <MESSAGE value="Tweaked look of &lt;pb&gt; elements" />
-    <option name="LAST_COMMIT_MESSAGE" value="Tweaked look of &lt;pb&gt; elements" />
+    <MESSAGE value="New release - 0.3.07&#10;- Changed background-color on abbr to differentiate from expan more clearly" />
+    <option name="LAST_COMMIT_MESSAGE" value="New release - 0.3.07&#10;- Changed background-color on abbr to differentiate from expan more clearly" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>

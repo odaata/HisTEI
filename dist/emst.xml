@@ -2,7 +2,6 @@
 <xt:extensions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                xmlns:xt="http://www.oxygenxml.com/ns/extension"
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
-
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
         <xt:version>0.3.06</xt:version>
@@ -12,52 +11,57 @@
         <xt:name>EMST</xt:name>
         <xt:description xmlns="http://www.w3.org/1999/xhtml">
             <style type="text/css">
-                .title {
-                font-family:Verdana;
-                font-size:large;
-                font-weight:bold;
-                }
-
-                .body {
-                font-family:Geneva;
-                }
-
-                .header {
-                font-weight:bold;
-                }
+                .title { font-family:Verdana; font-size:large; font-weight:bold;}
+                .body { font-family:Geneva; }
+                .header { font-weight:bold; }
+                code { font-size:large; }
+                p { margin:0px; padding:5px; }
             </style>
-            <p class="title">
-                Emerging Standards Oxygen Framework
-            </p>
+            <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
-                <p class="header">
-                    What's new?
-                </p>
-                <p class="header">
-                    Version 0.3.06
-                </p>
+                <p class="header">What's new?</p>
+                <p class="header">Version 0.3.07</p>
+                <ul>
+                    <li>Added
+                        <code>@break</code>
+                        attribute to page breaks (<code>pb</code>) so
+                        words can be broken over page breaks as well now!
+                    </li>
+                    <li>Tweaked the look n' feel of page breaks - less white space below them
+                        now
+                    </li>
+                    <li>Changed the
+                        <code>background-color</code>
+                        for abbreviations
+                        (<code>abbr</code>) so they're easier to differentiate from expansions
+                        (<code>expan</code>)
+                    </li>
+                </ul>
+                <p class="header">Version 0.3.06</p>
                 <ul>
                     <li>New buttons for inserting:
                         <br/>
                         <code>opener</code>,<code>closer</code>,<code>postscript</code>, and
                         <code>respStmt</code>
                     </li>
-                    <li>
-                        The keys for the
+                    <li>The keys for the
                         <code>respStmt</code>
                         were taken from the
-                        <a href="http://www.loc.gov/marc/relators/relacode.html">MARC Code List for Relators</a>
+                        <a
+                                href="http://www.loc.gov/marc/relators/relacode.html">MARC Code List for
+                            Relators
+                        </a>
                         <br/>
-                        It's an international standard used by librarians - only a small subset are available on the
-                        list.
+                        It's an international standard used by librarians - only a small
+                        subset are available on the list.
                     </li>
-                    <li>
-                        When adding a new
+                    <li>When adding a new
                         <code>respStmt</code>
-                        a dialog box appears where you can select them from the list.
+                        a dialog box appears where you can
+                        select them from the list.
                         <br/>
-                        (Unfortunately) it has to be done twice to fill in the key and the label, but hey you won't be
-                        adding it
+                        (Unfortunately) it has to be done twice to
+                        fill in the key and the label, but hey you won't be adding it
                         <i>that</i>
                         often, right?
                     </li>
@@ -67,22 +71,23 @@
                         <i>Sections</i>
                         toolbar
                         <br/>
-                        From there, you can insert larger sections, like the newly added ones as well as<code>div</code>
+                        From there, you can insert larger
+                        sections, like the newly added ones as well as
+                        <code>div</code>
                         's
                     </li>
-                    <li>Fixed a bug: dropdown lists weren't refreshing after inserting new facsimile elements:
+                    <li>Fixed a bug: dropdown lists weren't refreshing after inserting new facsimile
+                        elements:
                         <code>graphic</code>
                         and
                         <code>media</code>
                     </li>
                 </ul>
-                <p class="header">
-                    Version 0.3.05
-                </p>
+                <p class="header">Version 0.3.05</p>
                 <ul>
-                    <li>Dropdown boxes now appear when the element has focus instead of when hovering
-                        over it with the mouse<br/>(Except for elements that don't have text, like
-                        <code>gap</code>,<code>handShift</code>, and<code>ptr</code>)
+                    <li>Dropdown boxes now appear when the element has focus instead of when
+                        hovering over it with the mouse<br/>(Except for elements that don't have
+                        text, like<code>gap</code>,<code>handShift</code>, and<code>ptr</code>)
                     </li>
                     <li>Increased speed for large documents ('Twas a wee bit sluggish)</li>
                     <li>Minor bug fixes with paths and dropdown list contents</li>

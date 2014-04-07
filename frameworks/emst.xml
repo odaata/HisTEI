@@ -20,6 +20,14 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.3.08</p>
+                <ul>
+                    <li>Made IDs for Orgs editable with textfield, so you can name archives and other organizations</li>
+                    <li>Set type dropdown boxes to a default size so they easier to enter new text into</li>
+                    <li>Force refresh of page after updating Facsimile elements, so the dropdown lists are always up to
+                        date
+                    </li>
+                </ul>
                 <p class="header">Version 0.3.07</p>
                 <ul>
                     <li>Added

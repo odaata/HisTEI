@@ -1,6 +1,7 @@
 package eu.emergingstandards.facsimile;
 
 import eu.emergingstandards.exceptions.EMSTException;
+import eu.emergingstandards.utils.EMSTOxygenUtils;
 import ro.sync.ecss.extensions.api.*;
 
 import java.io.File;
@@ -46,6 +47,7 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
                     );
                     if (choice == 0) {
                         facsimile.updateMediaElements();
+                        EMSTOxygenUtils.refreshCurrentPage();
                     }
                 } catch (EMSTException e) {
                     e.notifyOxygenUser(authorAccess);

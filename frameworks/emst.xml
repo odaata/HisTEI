@@ -23,8 +23,10 @@
                 <p class="header">Version 0.3.08</p>
                 <ul>
                     <li>Made IDs for Orgs editable with textfield, so you can name archives and other organizations</li>
-                    <li>Set type dropdown boxes to a default size so they easier to enter new text into</li>
-                    <li>Force refresh of page after updating Facsimile elements, so the dropdown lists are always up to
+                    <li>Set type dropdown boxes to a default size so it's easier to enter new text into them</li>
+                    <li>Force refresh of page after updating
+                        <code>Facsimile</code>
+                        elements, so the dropdown lists are always up to
                         date
                     </li>
                 </ul>

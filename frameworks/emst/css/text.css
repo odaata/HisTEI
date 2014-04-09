@@ -407,6 +407,15 @@ handShift:hover:after {
         oxy_combobox(
             edit, "@new"
         )    
+        oxy_label(
+            text, "${i18n(script.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@script"
+            editable, true
+        )  
+    ;
 }
 
 add:focus:after,

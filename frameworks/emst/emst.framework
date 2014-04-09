@@ -590,7 +590,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('front', 'body', 'div', 'back')</String>
+														<String>local-name() = ('front', 'body', 'div', 'p', 'back')</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2544,6 +2544,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;closer xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;dateline>&lt;date>${caret}&lt;/date>&lt;/dateline>
   &lt;salute/>
   &lt;signed/>
 &lt;/closer></String>
@@ -2657,6 +2658,108 @@
    &lt;/resp>
    &lt;name>${caret}&lt;/name>
 &lt;/respStmt></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>dateline</String>
+										</field>
+										<field name="name">
+											<String>${i18n(dateline)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(dateline_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/dateline-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/dateline-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('opener','closer')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;dateline xmlns="http://www.tei-c.org/ns/1.0">&lt;date>${caret}&lt;/date>&lt;/dateline></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>signed</String>
+										</field>
+										<field name="name">
+											<String>${i18n(signed)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(signed_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/signed-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/signed-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('opener','closer')</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;signed xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 															<entry>
 																<String>insertLocation</String>
@@ -2929,12 +3032,23 @@
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
+																<String>formulaic</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
 																<String>salute</String>
 															</field>
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>formulaic</String>
+																<String>dateline</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>signed</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -3299,14 +3413,26 @@
 												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
+														<String>formulaic</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
 														<String>salute</String>
 													</field>
 												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
-														<String>formulaic</String>
+														<String>dateline</String>
 													</field>
 												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>signed</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
 												<toolbar>
 													<field name="id">
 														<String>Insert</String>

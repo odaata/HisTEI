@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
-        <xt:version>0.3.07</xt:version>
+        <xt:version>0.3.08</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -22,9 +22,41 @@
                 <p class="header">What's new?</p>
                 <p class="header">Version 0.3.08</p>
                 <ul>
+                    <li>
+                        We now have buttons for adding
+                        <code>dateline</code>
+                        and
+                        <code>signed</code>
+                        elements into the
+                        <code>opener</code>
+                        or
+                        <code>closer</code>
+                        sections.
+                        Oh and the closer now includes a
+                        <code>dateline</code>
+                        element by default now, when a new one is inserted
+                    </li>
+                    <li>
+                        Added starting set of suggested values for the
+                        <code>type</code>
+                        attribute on elements beneath the
+                        <code>creation</code>
+                        element in the header.
+                        But don't worry, you can still type anything there that suits your fancy! And we will surely be
+                        adding more as we transcribe more text types (oh and don't call me Shirley!)
+                    </li>
+                    <li>
+                        Added
+                        <code>@script</code>
+                        dropdown to<code>handNote</code>s and<code>handShift</code>s,
+                        so you can indicate that a hand copied the original, while also indicating what the original
+                        hand was - confused yet? ME TOO! ;-)
+                    </li>
+                    <li>forme work elements (<code>fw</code>) can now be added to paragraphs (<code>p</code>)
+                    </li>
                     <li>Made IDs for Orgs editable with textfield, so you can name archives and other organizations</li>
                     <li>Set type dropdown boxes to a default size so it's easier to enter new text into them</li>
-                    <li>Force refresh of page after updating
+                    <li>Force page refresh after updating
                         <code>Facsimile</code>
                         elements, so the dropdown lists are always up to
                         date

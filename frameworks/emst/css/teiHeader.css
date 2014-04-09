@@ -220,7 +220,7 @@ handNote {
     padding:2px;
     border:1px inset;
     visibility:-oxy-collapse-text;
-    white-space:normal;
+    white-space:pre-wrap;
 }
 
 handNote:before {
@@ -255,9 +255,18 @@ handNote:after {
             edit, "#text"
             contentType, "text/plain"
             columns, 50
-            rows, 3
+            rows, 2
             indentOnTab, false
         )
+        "\A"
+        oxy_label(
+            text, "${i18n(script.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@script"
+            editable, true
+        )  
     ;
 }
 

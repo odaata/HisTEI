@@ -44,6 +44,77 @@ public class EMSTStaticSchemaList extends EMSTAbstractSchemaList<EMSTSchemaListI
                         }
                 )
         );
+//        @type attribute on <date> elements within <creation>
+        LISTS.add(
+                new EMSTStaticSchemaList(
+                        Arrays.asList(new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, DATE_ELEMENT_NAME, CREATION_ELEMENT_NAME)),
+                        new String[][]{
+                                {"arrived", "when the letter or other document arrived at its destination"},
+                                {"copied", "when the text was copied"},
+                                {"deposed", "when the person involved was deposed"},
+                                {"sent", "when the letter or other document was sent"},
+                                {"written", "when the text was written"}
+                        }
+                )
+        );
+//        @type attribute on <persName> elements within <creation>
+        LISTS.add(
+                new EMSTStaticSchemaList(
+                        Arrays.asList(new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, PERS_NAME_ELEMENT_NAME, CREATION_ELEMENT_NAME)),
+                        new String[][]{
+                                {"author", "person who wrote the text or is responsible for its contents"},
+                                {"addressee", "person the letter or other document was addressed to"},
+                                {"copyist", "person who copied the text"},
+                                {"deponent", "person who being interviewed in a deposition"},
+                                {"sender", "person who sent the letter or other document"}
+                        }
+                )
+        );
+//        @type attribute on place elements within <creation>
+        LISTS.add(
+                new EMSTStaticSchemaList(
+                        Arrays.asList(
+                                new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, DISTRICT_ELEMENT_NAME, CREATION_ELEMENT_NAME),
+                                new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, SETTLEMENT_ELEMENT_NAME, CREATION_ELEMENT_NAME),
+                                new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, REGION_ELEMENT_NAME, CREATION_ELEMENT_NAME),
+                                new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, COUNTRY_ELEMENT_NAME, CREATION_ELEMENT_NAME),
+                                new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, BLOC_ELEMENT_NAME, CREATION_ELEMENT_NAME)
+                        ),
+                        new String[][]{
+                                {"arrived", "where the letter or other document arrived"},
+                                {"copied", "where the text was copied"},
+                                {"deposed", "where the person involved was deposed"},
+                                {"sent", "where the letter or other document was sent from"},
+                                {"written", "where the text was written"}
+                        }
+                )
+        );
+//        @type attribute on <orgName> elements within <creation>
+        LISTS.add(
+                new EMSTStaticSchemaList(
+                        Arrays.asList(new EMSTSchemaListAttribute(TYPE_ATTRIB_NAME, ORG_NAME_ELEMENT_NAME, CREATION_ELEMENT_NAME)),
+                        new String[][]{
+                                {"author", "org for which the author wrote the text"},
+                                {"addressee", "org the letter or other document was addressed to"},
+                                {"copyist", "org for which the text was copied"},
+                                {"deposition", "org holding the deposition"},
+                                {"sender", "org that sent the letter or other document"}
+                        }
+                )
+        );
+//        @script attribute on <handNote> and <handShift> elements
+        LISTS.add(
+                new EMSTStaticSchemaList(
+                        Arrays.asList(
+                                new EMSTSchemaListAttribute(SCRIPT_ATTRIB_NAME, HAND_SHIFT_ELEMENT_NAME),
+                                new EMSTSchemaListAttribute(SCRIPT_ATTRIB_NAME, HAND_NOTE_ELEMENT_NAME)
+                        ),
+                        new String[][]{
+                                {"copied", "Copied from a previous version of the text"},
+                                {"original", "Written by the original author"}
+                        }
+                )
+        );
 //        @type attribute on <div> elements
         LISTS.add(
                 new EMSTStaticSchemaList(

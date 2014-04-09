@@ -208,6 +208,7 @@ creation > bloc:before {
         )
         oxy_combobox(
             edit, "@type"
+            columns, 10
             editable, true
         )
     ;
@@ -219,7 +220,7 @@ handNote {
     padding:2px;
     border:1px inset;
     visibility:-oxy-collapse-text;
-    white-space:normal;
+    white-space:pre-wrap;
 }
 
 handNote:before {
@@ -231,7 +232,7 @@ handNote:before {
         )
         oxy_textfield(
             edit, "@xml:id"
-            columns, 10
+            columns, 15
         )
         oxy_label(
             text, "${i18n(scope.label)}: "
@@ -254,9 +255,18 @@ handNote:after {
             edit, "#text"
             contentType, "text/plain"
             columns, 50
-            rows, 3
+            rows, 2
             indentOnTab, false
         )
+        "\A"
+        oxy_label(
+            text, "${i18n(script.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@script"
+            editable, true
+        )  
     ;
 }
 

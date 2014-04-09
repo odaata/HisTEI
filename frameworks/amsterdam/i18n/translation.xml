@@ -223,11 +223,25 @@
         <val lang="en_US">Insert the closer element.</val>
     </key>
 
+    <key value="dateline">
+        <val lang="en_US">Dateline</val>
+    </key>
+    <key value="dateline_description">
+        <val lang="en_US">Insert the dateline element.</val>
+    </key>
+
     <key value="postscript">
         <val lang="en_US">Postscript</val>
     </key>
     <key value="postscript_description">
         <val lang="en_US">Insert the postscript element.</val>
+    </key>
+
+    <key value="signed">
+        <val lang="en_US">Signed</val>
+    </key>
+    <key value="signed_description">
+        <val lang="en_US">Insert the signed element.</val>
     </key>
 
     <key value="salute">
@@ -469,6 +483,10 @@
 
     <key value="hand.label">
         <val lang="en_US">Hand</val>
+    </key>
+
+    <key value="script.label">
+        <val lang="en_US">Script</val>
     </key>
 
     <!--  Date  -->

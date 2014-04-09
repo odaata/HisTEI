@@ -404,10 +404,10 @@ note[type="inventory"]:before {
 person:before,
 place:before,
 org:before,
-taxonomy:not(:empty):before,
-category:before,
 note[type="collection"]:before,
-note[type="inventory"]:before {
+note[type="inventory"]:before,
+taxonomy:not(:empty):before,
+category:before {
     -oxy-append-content: 
         oxy_label(
             text, "ID: "
@@ -415,10 +415,31 @@ note[type="inventory"]:before {
             width, 75px
             styles, "@import 'labels_sub.css';"
         )
+    ;
+}
+
+/* Records with UNeditable IDs */
+person:before,
+place:before,
+note[type="collection"]:before,
+note[type="inventory"]:before,
+taxonomy:not(:empty):before,
+category:before {
+    -oxy-append-content: 
         oxy_label(
             text, attr(xml|id, string, "")
             color, white
             styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+/* Records with editable IDs */
+org:before {
+    -oxy-append-content: 
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 15
         )
     ;
 }

@@ -213,7 +213,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M2 P</String>
+											<null/>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -392,7 +392,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M2 A</String>
+											<String>ctrl shift B</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -478,7 +478,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 A</String>
+											<String>ctrl shift A</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -521,7 +521,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 D</String>
+											<String>ctrl shift D</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -564,7 +564,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 G</String>
+											<String>ctrl shift G</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -619,7 +619,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 U</String>
+											<String>ctrl shift N</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -662,7 +662,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 P</String>
+											<String>ctrl shift P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -705,7 +705,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 F</String>
+											<String>ctrl shift F</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -748,7 +748,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 N</String>
+											<String>ctrl shift O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -845,13 +845,13 @@
 											<String>B</String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl shift MINUS</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -888,13 +888,13 @@
 											<String>B</String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl shift EQUALS</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1457,7 +1457,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 E</String>
+											<String>ctrl shift L</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1500,7 +1500,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>M1 M3 SEMICOLON</String>
+											<String>ctrl shift SEMICOLON</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>

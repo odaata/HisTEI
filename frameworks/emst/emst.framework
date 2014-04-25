@@ -1000,7 +1000,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1043,7 +1043,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
 														<map>

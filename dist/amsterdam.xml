@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="amsterdam">
         <xt:location href="amsterdam-oxygen.zip"/>
-        <xt:version>0.3.08</xt:version>
+        <xt:version>0.3.09</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -20,6 +20,16 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.3.09</p>
+                <ul>
+                    <li>Completely reconfigured keyboard shortcuts - mouse over the buttons to see what the current
+                        shortcut is for any button
+                    </li>
+                    <li>Moved all capital letters to their own submenu in EMST menu and EMST Characters toolbar called
+                        (guess what?)
+                        <em>Capitals</em>
+                    </li>
+                </ul>
                 <p class="header">Version 0.3.08</p>
                 <ul>
                     <li>

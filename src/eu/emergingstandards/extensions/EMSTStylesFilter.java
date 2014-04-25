@@ -1,9 +1,9 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.contextual_info.EMSTContextualStyledList;
-import eu.emergingstandards.utils.EMSTOxygenUtils;
-import eu.emergingstandards.utils.EMSTUtils;
-import eu.emergingstandards.utils.EMSTXMLUtils;
+import eu.emergingstandards.contextual_info.ContextualStyledList;
+import eu.emergingstandards.utils.MainUtils;
+import eu.emergingstandards.utils.OxygenUtils;
+import eu.emergingstandards.utils.XMLUtils;
 import ro.sync.ecss.css.EditorContent;
 import ro.sync.ecss.css.LabelContent;
 import ro.sync.ecss.css.StaticContent;
@@ -16,7 +16,7 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
 import java.util.HashMap;
 import java.util.Map;
 
-import static eu.emergingstandards.commons.EMSTTEINamespace.FACSIMILE_ELEMENT_NAME;
+import static eu.emergingstandards.commons.TEINamespace.FACSIMILE_ELEMENT_NAME;
 
 /**
  * Created by mike on 1/6/14.
@@ -42,7 +42,7 @@ public class EMSTStylesFilter implements StylesFilter {
     * Add the contextual element if the current Authornode represents a contextual reference
     * */
     private void addContextualStyledList(Styles styles, AuthorNode authorNode) {
-        EMSTContextualStyledList contextualStyledList = EMSTContextualStyledList.get(authorNode);
+        ContextualStyledList contextualStyledList = ContextualStyledList.get(authorNode);
         if (contextualStyledList != null) {
             Map<String, Object> comboboxArgs = new HashMap<>();
 
@@ -75,14 +75,14 @@ public class EMSTStylesFilter implements StylesFilter {
     * */
     private void addFacsimileElement(Styles styles, AuthorNode authorNode) {
         if (FACSIMILE_ELEMENT_NAME.equals(authorNode.getName())) {
-            AuthorElement authorElement = EMSTOxygenUtils.castAuthorElement(authorNode);
+            AuthorElement authorElement = OxygenUtils.castAuthorElement(authorNode);
 
             if (authorElement != null) {
-                String xmlBase = EMSTOxygenUtils.getAttrValue(authorElement.getAttribute(EMSTXMLUtils.XML_BASE_ATTRIB_NAME));
+                String xmlBase = OxygenUtils.getAttrValue(authorElement.getAttribute(XMLUtils.XML_BASE_ATTRIB_NAME));
                 if (xmlBase != null) {
                     Map<String, Object> labelProps = new HashMap<>();
 
-                    labelProps.put("text", EMSTUtils.decodeURL(xmlBase));
+                    labelProps.put("text", MainUtils.decodeURL(xmlBase));
                     labelProps.put("styles", "* { font-weight:normal; }");
                     StaticContent[] mixedContent = new StaticContent[]{new LabelContent(labelProps)};
 

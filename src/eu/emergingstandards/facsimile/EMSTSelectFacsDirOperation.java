@@ -1,7 +1,7 @@
 package eu.emergingstandards.facsimile;
 
 import eu.emergingstandards.exceptions.EMSTException;
-import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.utils.OxygenUtils;
 import ro.sync.ecss.extensions.api.*;
 
 import java.io.File;
@@ -14,7 +14,7 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
         int choice;
-        EMSTFacsimile facsimile = EMSTFacsimile.get(authorAccess);
+        Facsimile facsimile = Facsimile.get(authorAccess);
 
         if (facsimile == null) {
             choice = authorAccess.getWorkspaceAccess().showConfirmDialog(
@@ -25,7 +25,7 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
 
             if (choice == 0) {
                 try {
-                    facsimile = EMSTFacsimile.createFacsimileElement(authorAccess);
+                    facsimile = Facsimile.createFacsimileElement(authorAccess);
                 } catch (EMSTException e) {
                     e.notifyOxygenUser(authorAccess);
                 }
@@ -47,7 +47,7 @@ public class EMSTSelectFacsDirOperation implements AuthorOperation {
                     );
                     if (choice == 0) {
                         facsimile.updateMediaElements();
-                        EMSTOxygenUtils.refreshCurrentPage();
+                        OxygenUtils.refreshCurrentPage();
                     }
                 } catch (EMSTException e) {
                     e.notifyOxygenUser(authorAccess);

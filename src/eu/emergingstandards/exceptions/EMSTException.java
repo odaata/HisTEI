@@ -1,6 +1,6 @@
 package eu.emergingstandards.exceptions;
 
-import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.utils.OxygenUtils;
 import org.jetbrains.annotations.NotNull;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 
@@ -113,7 +113,7 @@ public class EMSTException extends Exception {
 
     public void notifyOxygenUser(AuthorAccess authorAccess) {
         if (!userNotified) {
-            EMSTOxygenUtils.showErrorMessage(authorAccess, generateMessage());
+            OxygenUtils.showErrorMessage(authorAccess, generateMessage());
             userNotified = true;
         }
     }

@@ -1,9 +1,9 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.lists.EMSTListItem;
-import eu.emergingstandards.lists.schema.EMSTSchemaList;
-import eu.emergingstandards.lists.schema.EMSTSchemaListProvider;
-import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.lists.ListItem;
+import eu.emergingstandards.lists.schema.SchemaList;
+import eu.emergingstandards.lists.schema.SchemaListProvider;
+import eu.emergingstandards.utils.OxygenUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.contentcompletion.xml.*;
@@ -17,10 +17,10 @@ import java.util.List;
 public class EMSTSchemaManagerFilter implements SchemaManagerFilter {
 
     private final URL editorLocation;
-    private EMSTSchemaListProvider schemaListProvider;
+    private SchemaListProvider schemaListProvider;
 
     public EMSTSchemaManagerFilter() {
-        editorLocation = EMSTOxygenUtils.getCurrentEditorLocation();
+        editorLocation = OxygenUtils.getCurrentEditorLocation();
     }
 
     @NotNull
@@ -29,9 +29,9 @@ public class EMSTSchemaManagerFilter implements SchemaManagerFilter {
     }
 
     @Nullable
-    public EMSTSchemaListProvider getSchemaListProvider() {
+    public SchemaListProvider getSchemaListProvider() {
         if (schemaListProvider == null) {
-            schemaListProvider = EMSTSchemaListProvider.get(getEditorLocation());
+            schemaListProvider = SchemaListProvider.get(getEditorLocation());
         }
         return schemaListProvider;
     }
@@ -48,10 +48,10 @@ public class EMSTSchemaManagerFilter implements SchemaManagerFilter {
 
     @Override
     public List<CIValue> filterAttributeValues(List<CIValue> ciValues, WhatPossibleValuesHasAttributeContext context) {
-        EMSTSchemaListProvider provider = getSchemaListProvider();
+        SchemaListProvider provider = getSchemaListProvider();
 
         if (provider != null) {
-            EMSTSchemaList<? extends EMSTListItem> list = provider.getList(context);
+            SchemaList<? extends ListItem> list = provider.getList(context);
             if (list != null) {
                 ciValues = list.getCIValues();
             }

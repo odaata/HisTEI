@@ -9,7 +9,7 @@ import ro.sync.ecss.extensions.api.*;
 public class EMSTOpenMediaOperation implements AuthorOperation {
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        EMSTMediaElement mediaElement = EMSTFacsimile.getMediaElement(authorAccess);
+        MediaElement mediaElement = Facsimile.getMediaElement(authorAccess);
 
         if (mediaElement != null) {
             try {

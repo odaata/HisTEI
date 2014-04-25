@@ -4,7 +4,7 @@ import org.apache.log4j.Logger;
 
 import java.net.URL;
 
-import static eu.emergingstandards.utils.EMSTUtils.castURLToFileString;
+import static eu.emergingstandards.utils.MainUtils.castURLToFileString;
 
 /**
  * Created by mike on 1/26/14.

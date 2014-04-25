@@ -1,6 +1,6 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.commons.EMSTIcon;
+import eu.emergingstandards.commons.Icon;
 import ro.sync.exml.workspace.api.node.customizer.BasicRenderingInformation;
 import ro.sync.exml.workspace.api.node.customizer.NodeRendererCustomizerContext;
 import ro.sync.exml.workspace.api.node.customizer.XMLNodeRendererCustomizer;
@@ -173,7 +173,7 @@ public class EMSTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
             }
 
             if (iconName != null) {
-                EMSTIcon icon = EMSTIcon.get(iconName);
+                Icon icon = Icon.get(iconName);
                 if (icon != null) {
                     renderingInfo.setIconPath(icon.getPath());
                 }

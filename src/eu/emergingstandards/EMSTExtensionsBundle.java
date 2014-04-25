@@ -12,7 +12,7 @@ import ro.sync.ecss.extensions.api.UniqueAttributesRecognizer;
 import ro.sync.ecss.extensions.api.content.ClipboardFragmentProcessor;
 import ro.sync.exml.workspace.api.node.customizer.XMLNodeRendererCustomizer;
 
-import static eu.emergingstandards.utils.EMSTOxygenUtils.refreshCurrentPage;
+import static eu.emergingstandards.utils.OxygenUtils.refreshCurrentPage;
 
 /**
  * Created by mike on 12/28/13.
@@ -78,7 +78,7 @@ public class EMSTExtensionsBundle extends ExtensionsBundle {
             authorNode = authorNode.getParent();
         }
 
-        EMSTContextualStyledList contextualElement = EMSTContextualStyledList.get(authorNode);
+        ContextualStyledList contextualElement = ContextualStyledList.get(authorNode);
         if (contextualElement != null) {
             return contextualElement.getURL();
         } else {

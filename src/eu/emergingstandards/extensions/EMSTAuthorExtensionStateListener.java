@@ -1,6 +1,6 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.lists.schema.EMSTSchemaListProvider;
+import eu.emergingstandards.lists.schema.SchemaListProvider;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 
@@ -9,10 +9,10 @@ import ro.sync.ecss.extensions.api.AuthorAccess;
  */
 public class EMSTAuthorExtensionStateListener extends EMSTUniqueAttributesRecognizer {
 
-    private EMSTSchemaListProvider schemaListProvider;
+    private SchemaListProvider schemaListProvider;
 
     @Nullable
-    public EMSTSchemaListProvider getSchemaListProvider() {
+    public SchemaListProvider getSchemaListProvider() {
         return schemaListProvider;
     }
 
@@ -30,7 +30,7 @@ public class EMSTAuthorExtensionStateListener extends EMSTUniqueAttributesRecogn
         super.activated(authorAccess);
 
         if (schemaListProvider == null) {
-            schemaListProvider = EMSTSchemaListProvider.add(authorAccess);
+            schemaListProvider = SchemaListProvider.add(authorAccess);
         }
     }
 
@@ -42,7 +42,7 @@ public class EMSTAuthorExtensionStateListener extends EMSTUniqueAttributesRecogn
     public void deactivated(AuthorAccess authorAccess) {
         super.deactivated(authorAccess);
 
-        EMSTSchemaListProvider.remove(authorAccess);
+        SchemaListProvider.remove(authorAccess);
         schemaListProvider = null;
     }
 }

@@ -1,6 +1,6 @@
 package eu.emergingstandards.extensions;
 
-import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.utils.OxygenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.xml.sax.EntityResolver;
@@ -194,9 +194,9 @@ public class EMSTReferenceResolver implements AuthorReferenceResolver {
     private HashMap<String, String> getReference(AuthorNode node) {
         HashMap<String, String> refMap = null;
 
-        AuthorElement element = EMSTOxygenUtils.castAuthorElement(node);
+        AuthorElement element = OxygenUtils.castAuthorElement(node);
         if (element != null) {
-            String ref = EMSTOxygenUtils.getAttrValue(element.getAttribute(REF_ATTRIB));
+            String ref = OxygenUtils.getAttrValue(element.getAttribute(REF_ATTRIB));
             if (ref != null) {
                 Matcher matcher = REF_PATTERN.matcher(ref);
                 boolean found = matcher.matches();

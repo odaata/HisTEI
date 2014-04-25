@@ -1,6 +1,6 @@
 package eu.emergingstandards.contextual_info;
 
-import eu.emergingstandards.utils.EMSTOxygenUtils;
+import eu.emergingstandards.utils.OxygenUtils;
 import ro.sync.ecss.extensions.api.*;
 import ro.sync.exml.editor.EditorPageConstants;
 import ro.sync.exml.workspace.api.PluginWorkspaceProvider;
@@ -14,13 +14,13 @@ public class EMSTOpenContextualInfoOperation implements AuthorOperation {
 
     @Override
     public void doOperation(AuthorAccess authorAccess, ArgumentsMap argumentsMap) throws IllegalArgumentException, AuthorOperationException {
-        EMSTContextualStyledList element = EMSTContextualStyledList.get(authorAccess);
+        ContextualStyledList element = ContextualStyledList.get(authorAccess);
         if (element != null) {
             URL sourceURL = element.getURL();
             if (sourceURL != null) {
                 PluginWorkspaceProvider.getPluginWorkspace().open(sourceURL, EditorPageConstants.PAGE_AUTHOR);
             } else {
-                EMSTOxygenUtils.showErrorMessage(authorAccess, "The file could not be found!");
+                OxygenUtils.showErrorMessage(authorAccess, "The file could not be found!");
             }
         }
     }

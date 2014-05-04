@@ -11,278 +11,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="New release - 0.3.09&#10;see release notes for changes">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/HisTEI-oxygen.zip" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/HisTEI.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/amsterdam/HisTEI.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/emst/HisTEI.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/abbreviation-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/abbreviation-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/addition-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/addition-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/ash-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/ash-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/ash_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/ash_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/bibl-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/bibl-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/body-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/body-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/bold-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/bold-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/category-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/category-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/lib/ccfilter.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/closer-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/closer-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/collection-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/collection-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/lib/commons-lang3-3.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/lib/commons-vfs2-2.0.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/date-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/date-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/dateline-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/dateline-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/deletion-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/deletion-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/div-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/div-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/div_address-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/div_address-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/div_entry-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/div_entry-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/document_edit-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/document_edit-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/eth-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/eth-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/eth_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/eth_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/event_marriage-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/event_marriage-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/expansion-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/expansion-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/folder_image-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/folder_image-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/foreign-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/foreign-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/forme_work-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/forme_work-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/formulaic-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/formulaic-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/gap-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/gap-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/graphic-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/graphic-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/lib/guava-16.0.1.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/hand-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/hand-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/hand_open-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/hand_open-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/hand_shift-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/hand_shift-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/head-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/head-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/image_link-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/image_link-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/inventory-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/inventory-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/italic-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/italic-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/label-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/label-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/line_break-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/line_break-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/link-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/link-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/link_open-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/link_open-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listOrg-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listOrg-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listPerson-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listPerson-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listPlace-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listPlace-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listRelation-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/listRelation-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/long_s-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/long_s-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/note-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/note-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/opener-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/opener-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/org-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/org-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/page_break-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/page_break-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/paragraph-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/paragraph-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/pdf-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/pdf-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/person-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/person-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/place-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/place-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/postscript-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/postscript-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/pound-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/pound-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/punctuation-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/punctuation-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/punctuation_supplied-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/punctuation_supplied-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/relation_parent-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/relation_parent-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/relation_spouse-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/relation_spouse-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/repository-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/repository-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/resp-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/resp-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/salute-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/salute-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/signed-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/signed-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/subscript-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/subscript-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/superscript-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/superscript-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/supplied-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/supplied-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/taxonomy-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/taxonomy-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/tei-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/tei-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/tei_header-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/tei_header-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/text-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/text-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/thorn-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/thorn-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/thorn_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/thorn_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/lib/tika-core-1.4.jar" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/title-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/title-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/unclear-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/unclear-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/underline-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/underline-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/wynn-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/wynn-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/wynn_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/wynn_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/yogh-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/yogh-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/yogh_capital-16.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/images/yogh_capital-20.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/info/histei/extensions/HTNodeRendererCustomizer.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/HisTEI.framework" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/HisTEI.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/dist/HisTEI.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/annotation.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/bibl.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/catalog.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/ccfilter/cc_value_config.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/ccfilter/configurationCC.xsd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/contextual_info.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/contextual_info.xql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/document.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/odd/emst.framework" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/facsimile.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/ccfilter/facsimile.xsl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/genre.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/genre.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/templates/contextual_info/genre.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/genre.xql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/genre.xsl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/global_fields.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/globals.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/ccfilter/hand.xsl" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/templates/journal.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/labels.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/labels_sub.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/templates/letter.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/templates/contextual_info/org.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/templates/contextual_info/person.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/templates/contextual_info/place.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/templates/published_work.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/odd/roma-to-framework.sh" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/tei.xqm" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/teiHeader.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/schema/tei_all-2.30.rng" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/schema/tei_all.rng" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/css/text.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/frameworks/HisTEI/i18n/translation.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/artifacts/emst.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/amsterdam/emst.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/frameworks/emst/emst.jar" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTNodeRendererCustomizer.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/emst.iml" afterPath="$PROJECT_DIR$/HisTEI.iml" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/EMSTExtensionsBundle.java" afterPath="$PROJECT_DIR$/src/info/histei/HTExtensionsBundle.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/commons/Icon.java" afterPath="$PROJECT_DIR$/src/info/histei/commons/Icon.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/commons/NamespaceType.java" afterPath="$PROJECT_DIR$/src/info/histei/commons/NamespaceType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/commons/TEINamespace.java" afterPath="$PROJECT_DIR$/src/info/histei/commons/TEINamespace.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/ContextualElementProperties.java" afterPath="$PROJECT_DIR$/src/info/histei/contextual_info/ContextualElementProperties.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/ContextualInfo.java" afterPath="$PROJECT_DIR$/src/info/histei/contextual_info/ContextualInfo.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/ContextualInfoComboBox.java" afterPath="$PROJECT_DIR$/src/info/histei/contextual_info/ContextualInfoComboBox.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/ContextualItem.java" afterPath="$PROJECT_DIR$/src/info/histei/contextual_info/ContextualItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/ContextualStyledList.java" afterPath="$PROJECT_DIR$/src/info/histei/contextual_info/ContextualStyledList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/ContextualType.java" afterPath="$PROJECT_DIR$/src/info/histei/contextual_info/ContextualType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/contextual_info/EMSTOpenContextualInfoOperation.java" afterPath="$PROJECT_DIR$/src/info/histei/contextual_info/HTOpenContextualInfoOperation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/events/AbstractEventDispatcher.java" afterPath="$PROJECT_DIR$/src/info/histei/events/AbstractEventDispatcher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/events/EventDispatcher.java" afterPath="$PROJECT_DIR$/src/info/histei/events/EventDispatcher.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/events/RefreshEventListener.java" afterPath="$PROJECT_DIR$/src/info/histei/events/RefreshEventListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTException.java" afterPath="$PROJECT_DIR$/src/info/histei/exceptions/HTException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/exceptions/EMSTFileMissingException.java" afterPath="$PROJECT_DIR$/src/info/histei/exceptions/HTFileMissingException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTAuthorExtensionStateListener.java" afterPath="$PROJECT_DIR$/src/info/histei/extensions/HTAuthorExtensionStateListener.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTReferenceResolver.java" afterPath="$PROJECT_DIR$/src/info/histei/extensions/HTReferenceResolver.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTSchemaManagerFilter.java" afterPath="$PROJECT_DIR$/src/info/histei/extensions/HTSchemaManagerFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTStylesFilter.java" afterPath="$PROJECT_DIR$/src/info/histei/extensions/HTStylesFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/extensions/EMSTUniqueAttributesRecognizer.java" afterPath="$PROJECT_DIR$/src/info/histei/extensions/HTUniqueAttributesRecognizer.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/AbstractMediaElement.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/AbstractMediaElement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTOpenMediaOperation.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/HTOpenMediaOperation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/EMSTSelectFacsDirOperation.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/HTSelectFacsDirOperation.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/Facsimile.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/Facsimile.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/Media.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/Media.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/MediaElement.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/MediaElement.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/MediaReference.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/MediaReference.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/MediaType.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/MediaType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/facsimile/MimeType.java" afterPath="$PROJECT_DIR$/src/info/histei/facsimile/MimeType.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/ListItem.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/ListItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/ListItemAdapter.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/ListItemAdapter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/Listable.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/Listable.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/AbstractReferenceSchemaList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/AbstractReferenceSchemaList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/AbstractSchemaList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/AbstractSchemaList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/HandSchemaList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/HandSchemaList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/MediaSchemaList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/MediaSchemaList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/ReferenceSchemaList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/ReferenceSchemaList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/SchemaList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/SchemaList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/SchemaListAttribute.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/SchemaListAttribute.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/SchemaListItem.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/SchemaListItem.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/SchemaListProvider.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/SchemaListProvider.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/schema/StaticSchemaList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/schema/StaticSchemaList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/AbstractStyledList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/styled/AbstractStyledList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/lists/styled/StyledList.java" afterPath="$PROJECT_DIR$/src/info/histei/lists/styled/StyledList.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/monitor/EMSTFileMonitor.java" afterPath="$PROJECT_DIR$/src/info/histei/monitor/HTFileMonitor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/monitor/FileListenerAdaptor.java" afterPath="$PROJECT_DIR$/src/info/histei/monitor/FileListenerAdaptor.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/DOMUtils.java" afterPath="$PROJECT_DIR$/src/info/histei/utils/DOMUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/FileTypeDetector.java" afterPath="$PROJECT_DIR$/src/info/histei/utils/FileTypeDetector.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/MainUtils.java" afterPath="$PROJECT_DIR$/src/info/histei/utils/MainUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/OxygenUtils.java" afterPath="$PROJECT_DIR$/src/info/histei/utils/OxygenUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/SaxonUtils.java" afterPath="$PROJECT_DIR$/src/info/histei/utils/SaxonUtils.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/eu/emergingstandards/utils/XMLUtils.java" afterPath="$PROJECT_DIR$/src/info/histei/utils/XMLUtils.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/.name" afterPath="$PROJECT_DIR$/.idea/.name" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" afterPath="$PROJECT_DIR$/frameworks/amsterdam/amsterdam.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.properties" afterPath="$PROJECT_DIR$/build.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/build.xml" afterPath="$PROJECT_DIR$/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/build.xml" afterPath="$PROJECT_DIR$/frameworks/build.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Renamed EMST to HisTEI (or HT for Java Modules)&#10;Added HisTEI framework, on which all other frameworks are based">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/HisTEI/resources/ccfilter/configurationCC.xsd" afterPath="$PROJECT_DIR$/frameworks/HisTEI/resources/ccfilter/configurationCC.xsd" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/workspace.xml" />
@@ -1296,7 +1026,11 @@
       <created>1398426631102</created>
       <updated>1398426631102</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="Renamed EMST to HisTEI (or HT for Java Modules)&#10;Added HisTEI framework, on which all other frameworks are based">
+      <created>1399213583696</created>
+      <updated>1399213583696</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1321,10 +1055,10 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="265" y="61" width="1567" height="981" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.48891482" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.48891482" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6662777" sideWeight="0.49896765" order="11" side_tool="false" content_ui="tabs" />
@@ -1336,11 +1070,11 @@
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32788798" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32827103" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32781065" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23142669" sideWeight="0.46091014" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23142669" sideWeight="0.4611872" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32973316" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.39987716" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23142669" sideWeight="0.537923" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.23142669" sideWeight="0.53881276" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3351235" sideWeight="0.49965918" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32985258" sideWeight="0.49940827" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="SVN Repositories" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22646478" sideWeight="0.49649534" order="4" side_tool="false" content_ui="tabs" />
@@ -1369,7 +1103,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="New release does not include Amsterdam" />
     <MESSAGE value="finished automating Amsterdam build process by copying files from EMST&#10;Moved Framework descriptor files to frameworks directory and then copy them in the build" />
     <MESSAGE value="Results of building EMST" />
     <MESSAGE value="Test build" />
@@ -1394,9 +1127,9 @@
     <MESSAGE value="New release - 0.3.08&#10;see release notes for changes" />
     <MESSAGE value="!!!!!&#10;-Renamed Java files, removing EMST prefix from most files&#10;!!!!!!&#10;-Configured new shortcuts for EMST&#10;" />
     <MESSAGE value="New release - 0.3.09&#10;see release notes for changes" />
-    <option name="LAST_COMMIT_MESSAGE" value="New release - 0.3.09&#10;see release notes for changes" />
+    <MESSAGE value="Renamed EMST to HisTEI (or HT for Java Modules)&#10;Added HisTEI framework, on which all other frameworks are based" />
+    <option name="LAST_COMMIT_MESSAGE" value="Renamed EMST to HisTEI (or HT for Java Modules)&#10;Added HisTEI framework, on which all other frameworks are based" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

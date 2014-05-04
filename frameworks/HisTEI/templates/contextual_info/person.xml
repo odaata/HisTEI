@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="http://emergingstandards.eu/css/contextual_info.css"?>
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>List of People for the Emerging Standards project</title>
+            </titleStmt>
+            <publicationStmt>
+                <authority>EMST</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listPerson>
+                <listPerson>
+                    <person xml:id="person_${id}">
+                        <persName>
+                            <roleName/>
+                            <forename/>
+                            <nameLink/>
+                            <surname/>
+                            <surname/>
+                        </persName>
+                        <sex/>
+                        <education/>
+                        <occupation/>
+                        <faith/>
+                        <socecStatus/>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                        <residence>
+                            <settlement/>
+                        </residence>
+                        <affiliation>
+                            <orgName/>
+                        </affiliation>
+                        <event type="marriage">
+                            <label>Marriage</label>
+                            <note type="marriage_partner">
+                                <persName/>
+                            </note>
+                        </event>
+                    </person>
+                </listPerson>
+
+                <listRelation type="personal">
+                    <relation name="parent"/>
+                    <relation name="spouse"/>
+                </listRelation>
+
+            </listPerson>
+        </body>
+    </text>
+</TEI>

@@ -1,0 +1,74 @@
+/*-----------------------------------------------------------------------------------------------
+----- EMST framework customizations for Oxygen 
+-----   Facsimile, media and grapbic elements to link to electronic facsimiles of original texts
+-------------------------------------------------------------------------------------------------*/
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Facsimile & Media */
+
+facsimile {
+    display:block;
+    border:1px solid;
+    -oxy-display-tags:none;
+    -oxy-foldable:true;
+    -oxy-folded:true;
+}
+
+facsimile:before {
+    content: 
+        oxy_label(
+            text, "${i18n(facsimile.label)}"
+            styles, "@import 'labels.css';"
+        )
+        oxy_button(
+            actionID, "facsimile.select.dir"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
+        oxy_label(
+            text, oxy_concat("${i18n(facsimile.label.base.directory)}: ")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Graph and Media Elements */
+
+graphic,
+media {
+    display:block;
+    visibility:-oxy-collapse-text;
+    font-weight:bold;
+    display:list-item;
+    list-style-type:disc;
+    margin-left:25px;
+    content:
+        oxy_button(
+            actionID, "media.open"
+            transparent, true
+            showText, true
+            showIcon, true
+        )
+        oxy_label(
+            text, oxy_concat("${i18n(id.label)}: ")
+            width, 5px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 10
+        )
+        oxy_label(
+            text, attr(url, string, "")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_label(
+            text, oxy_xpath("if (@mimeType ne '') then concat('  |  ', @mimeType) else ''")
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+

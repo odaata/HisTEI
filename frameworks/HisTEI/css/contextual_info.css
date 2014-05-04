@@ -1,0 +1,556 @@
+/*-----------------------------------------------------------------------------------------------
+----- EMST framework customizations for Oxygen 
+-----   made to the TEI css available at 
+-----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
+-------------------------------------------------------------------------------------------------*/
+
+/* Global fields & labels */
+@import "globals.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* white-space will be inherited by all fields below the lists */
+listPerson,
+listOrg,
+listPlace {
+    white-space:normal;
+}
+
+fileDesc,
+titleStmt,
+title,
+publicationStmt,
+authority, 
+sourceDesc {
+    display:block;
+}
+
+/* Foldable Sections */
+listPerson,
+listPlace,
+listOrg,
+listRelation,
+listEvent,
+taxonomy:not(:empty),
+person,
+relation,
+place,
+org,
+event,
+birth,
+death,
+residence,
+affiliation,
+category,
+location,
+address,
+note[type="collections"],
+note[type="collection"],
+note[type="inventories"],
+note[type="inventory"] {
+    display:block;
+    -oxy-foldable:true;
+}
+
+/* Collapsed Sections by Default */
+listPerson > listPerson,
+listPlace > listPlace,
+listOrg > listOrg,
+listRelation,
+listEvent,
+person,
+relation,
+place,
+org,
+category,
+event,
+residence,
+affiliation,
+address,
+note[type="collections"],
+note[type="collection"],
+note[type="inventories"],
+note[type="inventory"]  {
+    -oxy-folded:true;
+}
+
+/* Main Sections */
+listPerson:before,
+listPlace:before,
+listOrg:before,
+listRelation:before,
+listEvent:before,
+taxonomy:not(:empty):before,
+person:before,
+place:before,
+org:before,
+category:before,
+event:before,
+location:before,
+address:before,
+note[type="collections"]:before,
+note[type="collection"]:before,
+note[type="inventories"]:before,
+note[type="inventory"]:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+}
+
+listRelation:before {
+    background-color: rgba(64, 64, 255, 0.7);
+}
+
+address:before,
+note[type="inventory"]:before {
+    background-color:rgba(53, 25, 0, 0.6);
+}
+
+person:before,
+place:before,
+org:before,
+category:before,
+note[type="collection"]:before,
+listEvent:before,
+event:before {
+    background-color: rgba(0, 49, 200, 0.7);
+}
+
+/* Section labels */
+listPerson:before! > listPerson,
+listPlace:before! > listPlace,
+listOrg:before! > listOrg,
+listRelation:before,
+listEvent:before,
+taxonomy:not(:empty):before,
+person:before,
+place:before,
+org:before,
+category:before,
+event:before,
+birth:before,
+death:before,
+residence:before,
+affiliation:before,
+location:before,
+address:before {
+    display:block;
+    content: oxy_concat("${i18n(", oxy_name(), ".label)}");
+}
+
+person:before,
+place:before,
+org:before,
+category:before,
+note[type="collection"]:before,
+note[type="inventory"]:before {
+    font-style:italic;
+}
+
+/* Special labels for lists without a specified type */
+listPerson > listPerson:before,
+listPlace > listPlace:before,
+listOrg > listOrg:before {
+    background-color:rgba(53, 25, 0, 0.6);
+    content:"${i18n(list.label.untyped)}";
+}
+
+/* Special labels for lists with a specified type */
+listPerson > listPerson[type]:before,
+listPlace > listPlace[type]:before,
+listOrg > listOrg[type]:before {
+    background-color:rgba(53, 25, 0, 0.6);
+    content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, "") , ")}");
+}
+
+/* Special labels for the notes with specific functions
+    these are all essentially custom fields for the Amsterdam project */
+note[type="collections"]:before,
+note[type="collection"]:before,
+note[type="inventories"]:before,
+note[type="inventory"]:before {
+    display:block;
+    content: oxy_concat("${i18n(note.label.", attr(type, string, ""), ")}");
+}
+
+/* Field labels */
+
+/* Global fields with icons so appended to */
+date:before,
+persName:before,
+orgName:before,
+placeName:before,
+district:before,
+settlement:before,
+region:before,
+country:before,
+bloc:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Fields specific to contextual info */
+title,
+authority,
+sourceDesc,
+persName,
+orgName,
+placeName,
+district,
+settlement,
+region,
+country,
+bloc,
+relation,
+catDesc,
+desc,
+sex,
+idno,
+education,
+occupation,
+socecStatus,
+faith,
+addrLine,
+date[type="added"],
+note[type="inCorpus"],
+note[type="family"],
+note[type="generation"],
+note[type="marriage-partner"],
+note[type="hours"],
+note[type="searched"],
+note[type="user"],
+note[type="website"],
+name[type="short"],
+name[type="full"] {
+    display:block;
+    padding:1px;
+}
+
+title:before,
+authority:before,
+sourceDesc:before,
+relation:before,
+catDesc:before,
+desc:before,
+roleName:before,
+forename:before,
+nameLink:before,
+surname:before,
+sex:before,
+education:before,
+occupation:before,
+socecStatus:before,
+faith:before,
+addrLine:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Special labels for the actual names under the records
+    as opposed to the reference label when used elsewhere */
+person > persName:before,
+place > placeName:before,
+org > orgName:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label.name)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Special labels for fields with an <elementName>.label.<type> naming pattern */
+date[type="added"]:before,
+note[type="inCorpus"]:before,
+note[type="family"]:before,
+note[type="generation"]:before,
+note[type="marriage-partner"]:before,
+note[type="hours"]:before,
+note[type="searched"]:before,
+note[type="user"]:before,
+note[type="website"]:before,
+name[type="short"]:before,
+name[type="full"]:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, ""), ")}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/*event {
+    display:block;
+    -oxy-prepend-content: 
+        oxy_label(
+            text, oxy_concat("${i18n(placeName.label)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}*/
+
+note[type="added"] {
+    display:block;
+    visibility:-oxy-collapse-text;
+    white-space:-oxy-trim-when-ws-only;
+}
+
+date[type="added"] {
+    display:block;
+    border:none;
+    content: attr(when, string, "");
+}
+
+date[type="added"]:after {
+    content: "";
+}
+
+/* Special labels for custom fields from the Amsterdam project */
+idno[type]:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(idno.label.", attr(type, string, ""), ")}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+note[type="collection"] > idno:not([type]):before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(idno.label.collection)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+note[type="inventory"] > idno:not([type]):before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(idno.label.inventory)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Sections */
+person:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(
+                " - ",
+                oxy_xpath("string-join(for $name in ./persName/*[empty(@type) or @type != 'married'] return normalize-space($name), ' ')"),
+                oxy_xpath("if (exists(./persName/*[@type = 'married'])) then ' / ' else ''"),
+                oxy_xpath("string-join(for $name in ./persName/*[@type = 'married'] return normalize-space($name), ' ')")
+            )
+            color, white
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+relation:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", attr(name, string, ""))
+            color, white
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+place:before,
+org:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./placeName | ./orgName)"))
+            color, white
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+note[type="collection"]:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./name[@type = 'short'])"))
+            color, white
+            styles, "@import 'labels.css';"
+        )        
+    ;
+}
+
+note[type="inventory"]:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./idno[empty(@type)][1])"))
+            color, white
+            styles, "@import 'labels.css';"
+        )        
+    ;
+}
+
+person:before,
+place:before,
+org:before,
+note[type="collection"]:before,
+note[type="inventory"]:before,
+taxonomy:not(:empty):before,
+category:before {
+    -oxy-append-content: 
+        oxy_label(
+            text, "ID: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+/* Records with UNeditable IDs */
+person:before,
+place:before,
+note[type="collection"]:before,
+note[type="inventory"]:before,
+taxonomy:not(:empty):before,
+category:before {
+    -oxy-append-content: 
+        oxy_label(
+            text, attr(xml|id, string, "")
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+/* Records with editable IDs */
+org:before {
+    -oxy-append-content: 
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 15
+        )
+    ;
+}
+
+/* Inline elements for text */
+person > persName,
+place > placeName,
+org > orgName,
+desc,
+catDesc {
+    padding:5px 1px;
+    white-space:normal;
+}
+
+desc date,
+desc persName,
+desc placeName,
+desc orgName,
+desc district,
+desc settlement,
+desc region,
+desc country,
+desc bloc {
+    color:olive;
+}
+
+/* Person */
+person > persName > roleName {
+    visibility:-oxy-collapse-text;
+    content:
+        oxy_combobox(
+            edit, "#text"
+            editable, true
+            columns, 7
+            fontInherit, true
+        );
+}
+
+/* Narrow labels for names b/c they're inline */
+roleName:before,
+forename:before,
+nameLink:before,
+surname:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}:")
+            width, 25px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Special labels for typed names */
+forename[type]:before,
+nameLink[type]:before,
+surname[type]:before,
+addName[type]:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, ""), ")}:")
+            width, 25px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+sex {
+    visibility:-oxy-collapse-text;
+    -oxy-display-tags:none;
+    content:
+        oxy_combobox(
+                edit, "@value"
+                editable, false
+                values, "1, 2, 0"
+                labels, "male, female, unknown"
+        )
+    ;
+}
+
+event:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+            columns, 15
+        )
+    ;
+}
+
+/* Org */
+
+/* !!!Hack - can't figure out why oxygen styles just these fields differently wrt whitespace - 
+    It displays whitespace in address. This removes it, but makes it a bit weird to navigate */
+
+address {
+    visibility:-oxy-collapse-text;
+}
+
+addrLine {
+    visibility:visible;
+}
+
+/* Genre */
+category:before! > category {
+    content: attr(xml|id, string, "");
+}
+
+

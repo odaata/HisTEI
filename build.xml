@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project name="emst" default="all">
+<project name="HisTEI" default="all">
 
 
     <property file="build.properties"/>
@@ -58,9 +58,9 @@
 
     <!-- JDK definitions -->
 
-    <property name="jdk.bin.1.7.0_51" value="${jdk.home.1.7.0_51}/bin"/>
-    <path id="jdk.classpath.1.7.0_51">
-        <fileset dir="${jdk.home.1.7.0_51}">
+    <property name="jdk.bin.1.7.0" value="${jdk.home.1.7.0}/bin"/>
+    <path id="jdk.classpath.1.7.0">
+        <fileset dir="${jdk.home.1.7.0}">
             <include name="jre/lib/deploy.jar"/>
             <include name="jre/lib/jfr.jar"/>
             <include name="jre/lib/charsets.jar"/>
@@ -81,9 +81,9 @@
         </fileset>
     </path>
 
-    <property name="project.jdk.home" value="${jdk.home.1.7.0_51}"/>
-    <property name="project.jdk.bin" value="${jdk.bin.1.7.0_51}"/>
-    <property name="project.jdk.classpath" value="jdk.classpath.1.7.0_51"/>
+    <property name="project.jdk.home" value="${jdk.home.1.7.0}"/>
+    <property name="project.jdk.bin" value="${jdk.bin.1.7.0}"/>
+    <property name="project.jdk.classpath" value="jdk.classpath.1.7.0"/>
 
 
     <!-- Project Libraries -->
@@ -130,26 +130,26 @@
     <!-- Modules -->
 
 
-    <!-- Module emst -->
+    <!-- Module HisTEI -->
 
-    <dirname property="module.emst.basedir" file="${ant.file}"/>
+    <dirname property="module.HisTEI.basedir" file="${ant.file}"/>
 
 
-    <property name="module.jdk.home.emst" value="${project.jdk.home}"/>
-    <property name="module.jdk.bin.emst" value="${project.jdk.bin}"/>
-    <property name="module.jdk.classpath.emst" value="${project.jdk.classpath}"/>
+    <property name="module.jdk.home.HisTEI" value="${project.jdk.home}"/>
+    <property name="module.jdk.bin.HisTEI" value="${project.jdk.bin}"/>
+    <property name="module.jdk.classpath.HisTEI" value="${project.jdk.classpath}"/>
 
-    <property name="compiler.args.emst" value="-encoding UTF-8 -source 1.7 ${compiler.args}"/>
+    <property name="compiler.args.HisTEI" value="-encoding UTF-8 -source 1.7 ${compiler.args}"/>
 
-    <property name="emst.output.dir" value="${module.emst.basedir}/out/production/emst"/>
-    <property name="emst.testoutput.dir" value="${module.emst.basedir}/out/test/emst"/>
+    <property name="HisTEI.output.dir" value="${module.HisTEI.basedir}/out/production/HisTEI"/>
+    <property name="HisTEI.testoutput.dir" value="${module.HisTEI.basedir}/out/test/HisTEI"/>
 
-    <path id="emst.module.bootclasspath">
+    <path id="HisTEI.module.bootclasspath">
         <!-- Paths to be included in compilation bootclasspath -->
     </path>
 
-    <path id="emst.module.production.classpath">
-        <path refid="${module.jdk.classpath.emst}"/>
+    <path id="HisTEI.module.production.classpath">
+        <path refid="${module.jdk.classpath.HisTEI}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
         <path refid="library.oxygen-15.2.classpath"/>
@@ -158,8 +158,8 @@
         <path refid="library.guava-16.0.1.classpath"/>
     </path>
 
-    <path id="emst.runtime.production.module.classpath">
-        <pathelement location="${emst.output.dir}"/>
+    <path id="HisTEI.runtime.production.module.classpath">
+        <pathelement location="${HisTEI.output.dir}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
         <path refid="library.oxygen-15.2.classpath"/>
@@ -168,9 +168,9 @@
         <path refid="library.guava-16.0.1.classpath"/>
     </path>
 
-    <path id="emst.module.classpath">
-        <path refid="${module.jdk.classpath.emst}"/>
-        <pathelement location="${emst.output.dir}"/>
+    <path id="HisTEI.module.classpath">
+        <path refid="${module.jdk.classpath.HisTEI}"/>
+        <pathelement location="${HisTEI.output.dir}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
         <path refid="library.oxygen-15.2.classpath"/>
@@ -179,9 +179,9 @@
         <path refid="library.guava-16.0.1.classpath"/>
     </path>
 
-    <path id="emst.runtime.module.classpath">
-        <pathelement location="${emst.testoutput.dir}"/>
-        <pathelement location="${emst.output.dir}"/>
+    <path id="HisTEI.runtime.module.classpath">
+        <pathelement location="${HisTEI.testoutput.dir}"/>
+        <pathelement location="${HisTEI.output.dir}"/>
         <path refid="library.annotations.classpath"/>
         <path refid="library.tika-core-1.4.classpath"/>
         <path refid="library.oxygen-15.2.classpath"/>
@@ -191,82 +191,82 @@
     </path>
 
 
-    <patternset id="excluded.from.module.emst">
+    <patternset id="excluded.from.module.HisTEI">
         <patternset refid="ignored.files"/>
     </patternset>
 
-    <patternset id="excluded.from.compilation.emst">
-        <patternset refid="excluded.from.module.emst"/>
+    <patternset id="excluded.from.compilation.HisTEI">
+        <patternset refid="excluded.from.module.HisTEI"/>
     </patternset>
 
-    <path id="emst.module.sourcepath">
-        <dirset dir="${module.emst.basedir}">
+    <path id="HisTEI.module.sourcepath">
+        <dirset dir="${module.HisTEI.basedir}">
             <include name="src"/>
         </dirset>
     </path>
 
 
-    <target name="compile.module.emst" depends="compile.module.emst.production,compile.module.emst.tests"
-            description="Compile module emst"/>
+    <target name="compile.module.HisTEI" depends="compile.module.HisTEI.production,compile.module.HisTEI.tests"
+            description="Compile module HisTEI"/>
 
-    <target name="compile.module.emst.production" depends="register.custom.compilers"
-            description="Compile module emst; production classes">
-        <mkdir dir="${emst.output.dir}"/>
-        <javac2 destdir="${emst.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
-                memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.emst}/javac"
+    <target name="compile.module.HisTEI.production" depends="register.custom.compilers"
+            description="Compile module HisTEI; production classes">
+        <mkdir dir="${HisTEI.output.dir}"/>
+        <javac2 destdir="${HisTEI.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}"
+                memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.HisTEI}/javac"
                 includeantruntime="false">
-        <compilerarg line="${compiler.args.emst}"/>
-            <bootclasspath refid="emst.module.bootclasspath"/>
-            <classpath refid="emst.module.production.classpath"/>
-            <src refid="emst.module.sourcepath"/>
-            <patternset refid="excluded.from.compilation.emst"/>
+        <compilerarg line="${compiler.args.HisTEI}"/>
+            <bootclasspath refid="HisTEI.module.bootclasspath"/>
+            <classpath refid="HisTEI.module.production.classpath"/>
+            <src refid="HisTEI.module.sourcepath"/>
+            <patternset refid="excluded.from.compilation.HisTEI"/>
         </javac2>
 
-        <copy todir="${emst.output.dir}">
-            <fileset dir="${module.emst.basedir}/src">
+        <copy todir="${HisTEI.output.dir}">
+            <fileset dir="${module.HisTEI.basedir}/src">
                 <patternset refid="compiler.resources"/>
                 <type type="file"/>
             </fileset>
         </copy>
     </target>
 
-    <target name="compile.module.emst.tests" depends="register.custom.compilers,compile.module.emst.production"
-            description="compile module emst; test classes" unless="skip.tests"/>
+    <target name="compile.module.HisTEI.tests" depends="register.custom.compilers,compile.module.HisTEI.production"
+            description="compile module HisTEI; test classes" unless="skip.tests"/>
 
-    <target name="clean.module.emst" description="cleanup module">
-        <delete dir="${emst.output.dir}"/>
-        <delete dir="${emst.testoutput.dir}"/>
+    <target name="clean.module.HisTEI" description="cleanup module">
+        <delete dir="${HisTEI.output.dir}"/>
+        <delete dir="${HisTEI.testoutput.dir}"/>
     </target>
 
     <target name="init" description="Build initialization">
         <!-- Perform any build initialization in this target -->
     </target>
 
-    <target name="clean" depends="clean.module.emst" description="cleanup all"/>
+    <target name="clean" depends="clean.module.HisTEI" description="cleanup all"/>
 
-    <target name="build.modules" depends="init, clean, compile.module.emst" description="build all modules"/>
+    <target name="build.modules" depends="init, clean, compile.module.HisTEI" description="build all modules"/>
 
     <target name="init.artifacts">
         <property name="artifacts.temp.dir" value="${basedir}/__artifacts_temp"/>
-        <property name="artifact.output.emst" value="${basedir}/frameworks/emst"/>
+        <property name="artifact.output.HisTEI" value="${basedir}/frameworks/HisTEI"/>
         <mkdir dir="${artifacts.temp.dir}"/>
-        <property name="temp.jar.path.emst.jar" value="${artifacts.temp.dir}/emst.jar"/>
+        <property name="temp.jar.path.HisTEI.jar" value="${artifacts.temp.dir}/HisTEI.jar"/>
     </target>
 
-    <target name="artifact.emst" depends="init.artifacts, compile.module.emst"
-            description="Build &#39;emst&#39; artifact">
-        <property name="artifact.temp.output.emst" value="${artifacts.temp.dir}/emst"/>
-        <mkdir dir="${artifact.temp.output.emst}"/>
-        <jar destfile="${temp.jar.path.emst.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
-            <zipfileset dir="${emst.output.dir}"/>
+    <target name="artifact.HisTEI" depends="init.artifacts, compile.module.HisTEI"
+            description="Build &#39;HisTEI&#39; artifact">
+        <property name="artifact.temp.output.HisTEI" value="${artifacts.temp.dir}/HisTEI"/>
+        <mkdir dir="${artifact.temp.output.HisTEI}"/>
+        <jar destfile="${temp.jar.path.HisTEI.jar}" duplicate="preserve" filesetmanifest="mergewithoutmain">
+            <zipfileset dir="${HisTEI.output.dir}"/>
         </jar>
-        <copy file="${temp.jar.path.emst.jar}" tofile="${artifact.temp.output.emst}/emst.jar"/>
+        <copy file="${temp.jar.path.HisTEI.jar}" tofile="${artifact.temp.output.HisTEI}/HisTEI.jar"/>
     </target>
 
-    <target name="build.all.artifacts" depends="artifact.emst" description="Build all artifacts">
-        <mkdir dir="${artifact.output.emst}"/>
-        <copy todir="${artifact.output.emst}">
-            <fileset dir="${artifact.temp.output.emst}"/>
+    <target name="build.all.artifacts" depends="artifact.HisTEI" description="Build all artifacts">
+        <mkdir dir="${artifact.output.HisTEI}"/>
+        <copy todir="${artifact.output.HisTEI}">
+            <fileset dir="${artifact.temp.output.HisTEI}"/>
         </copy>
 
         <!-- Delete temporary files -->
@@ -275,8 +275,8 @@
 
     <!-- MJO - Copy library jars to target -->
     <target name="copy.library.files" depends="build.all.artifacts" description="Copy supporting library files">
-        <mkdir dir="${artifact.output.emst}/lib"/>
-        <copy todir="${artifact.output.emst}/lib">
+        <mkdir dir="${artifact.output.HisTEI}/lib"/>
+        <copy todir="${artifact.output.HisTEI}/lib">
             <fileset dir="${basedir}/lib">
                 <patternset refid="library.patterns"/>
             </fileset>

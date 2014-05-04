@@ -21,7 +21,7 @@
 					<field name="classpath">
 						<String-array>
 							<String>${framework}/i18n/</String>
-							<String>${framework}/emst.jar</String>
+							<String>${framework}/HisTEI.jar</String>
 							<String>${framework}/lib/commons-lang3-3.1.jar</String>
 							<String>${framework}/lib/commons-vfs2-2.0.jar</String>
 							<String>${framework}/lib/tika-core-1.4.jar</String>
@@ -276,7 +276,7 @@
 														<map/>
 													</field>
 													<field name="operationID">
-														<String>eu.emergingstandards.facsimile.EMSTOpenMediaOperation</String>
+														<String>info.histei.facsimile.HTOpenMediaOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -819,7 +819,7 @@
 														<map/>
 													</field>
 													<field name="operationID">
-														<String>eu.emergingstandards.contextual_info.EMSTOpenContextualInfoOperation</String>
+														<String>info.histei.contextual_info.HTOpenContextualInfoOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -1431,7 +1431,7 @@
 														<map/>
 													</field>
 													<field name="operationID">
-														<String>eu.emergingstandards.facsimile.EMSTSelectFacsDirOperation</String>
+														<String>info.histei.facsimile.HTSelectFacsDirOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2892,7 +2892,7 @@
 						<null/>
 					</field>
 					<field name="extensionsBundleClassName">
-						<String>eu.emergingstandards.EMSTExtensionsBundle</String>
+						<String>info.histei.HTExtensionsBundle</String>
 					</field>
 					<field name="useImposedInitialPage">
 						<Boolean>true</Boolean>

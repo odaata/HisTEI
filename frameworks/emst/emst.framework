@@ -21,7 +21,6 @@
 					<field name="classpath">
 						<String-array>
 							<String>${framework}/i18n/</String>
-							<String>${framework}/../../out/production/HisTEI/</String>
 							<String>${framework}/HisTEI.jar</String>
 							<String>${framework}/lib/commons-lang3-3.1.jar</String>
 							<String>${framework}/lib/commons-vfs2-2.0.jar</String>
@@ -3689,7 +3688,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

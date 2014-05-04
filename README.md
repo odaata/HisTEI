@@ -1,4 +1,4 @@
-histei
+HisTEI
 ======
 
-HisTEI: A Framework add-on for Oxygen XML Editor allowing researchers to transcribe historical documents in TEI
+A Framework add-on for Oxygen XML Editor allowing researchers to transcribe historical documents in TEI

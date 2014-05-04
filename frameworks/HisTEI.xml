@@ -24,7 +24,7 @@
                 <ul>
                     <li>First release for HisTEI on GitHub including a new HisTEI default framework</li>
                     <li>The Java classes now reside in a new package: info.histei</li>
-                    <li>All classes with EMST in the name has been changed to HT</li>
+                    <li>All classes with <code>EMST</code> prefix in the name have been changed to the prefix <code>HT</code></li>
                 </ul>
             </div>
         </xt:description>

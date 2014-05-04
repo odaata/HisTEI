@@ -11,14 +11,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Some previous changes were not saved in framework files">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/HisTEI-oxygen.zip" afterPath="$PROJECT_DIR$/dist/HisTEI-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/HisTEI/HisTEI.jar" afterPath="$PROJECT_DIR$/frameworks/HisTEI/HisTEI.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/amsterdam/HisTEI.jar" afterPath="$PROJECT_DIR$/frameworks/amsterdam/HisTEI.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/HisTEI.jar" afterPath="$PROJECT_DIR$/frameworks/emst/HisTEI.jar" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" afterPath="$PROJECT_DIR$/dist/amsterdam-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/dist/emst-oxygen.zip" afterPath="$PROJECT_DIR$/dist/emst-oxygen.zip" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/emst/emst.framework" afterPath="$PROJECT_DIR$/frameworks/emst/emst.framework" />
+    <list default="true" readonly="true" id="17f761a3-1a06-4fa6-b161-8a40c17234b5" name="Default" comment="Built first tag of HisTEI on GitHub">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/frameworks/HisTEI.xml" afterPath="$PROJECT_DIR$/frameworks/HisTEI.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path=".idea/workspace.xml" />
@@ -305,7 +299,6 @@
         <option value="$PROJECT_DIR$/frameworks/amsterdam.xml" />
         <option value="$PROJECT_DIR$/build.properties" />
         <option value="$PROJECT_DIR$/build.xml" />
-        <option value="$PROJECT_DIR$/frameworks/HisTEI.xml" />
         <option value="$PROJECT_DIR$/src/info/histei/commons/Icon.java" />
         <option value="$PROJECT_DIR$/src/info/histei/contextual_info/ContextualInfo.java" />
         <option value="$PROJECT_DIR$/src/info/histei/contextual_info/EMSTOpenContextualInfoOperation.java" />
@@ -330,6 +323,7 @@
         <option value="$PROJECT_DIR$/src/info/histei/utils/OxygenUtils.java" />
         <option value="$PROJECT_DIR$/frameworks/build.xml" />
         <option value="$PROJECT_DIR$/frameworks/HisTEI/HisTEI.framework" />
+        <option value="$PROJECT_DIR$/frameworks/HisTEI.xml" />
       </list>
     </option>
   </component>
@@ -412,6 +406,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HisTEI" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HisTEI" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HisTEI" />
+              <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="frameworks" />
               <option name="myItemType" value="com.android.tools.idea.gradle.projectView.AndroidPsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1040,7 +1048,11 @@
       <created>1399214294155</created>
       <updated>1399214294155</updated>
     </task>
-    <option name="localTasksCounter" value="93" />
+    <task id="LOCAL-00093" summary="Built first tag of HisTEI on GitHub">
+      <created>1399214555260</created>
+      <updated>1399214555260</updated>
+    </task>
+    <option name="localTasksCounter" value="94" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -1113,7 +1125,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="Results of building EMST" />
     <MESSAGE value="Test build" />
     <MESSAGE value="Edited Amsterdam descriptor for new release" />
     <MESSAGE value="Amsterdam - new release with hover removed along with a few bug fixes and CSS tweaks&#10;This will be version 0.3.05 for both frameworks" />
@@ -1138,7 +1149,8 @@
     <MESSAGE value="New release - 0.3.09&#10;see release notes for changes" />
     <MESSAGE value="Renamed EMST to HisTEI (or HT for Java Modules)&#10;Added HisTEI framework, on which all other frameworks are based" />
     <MESSAGE value="Some previous changes were not saved in framework files" />
-    <option name="LAST_COMMIT_MESSAGE" value="Some previous changes were not saved in framework files" />
+    <MESSAGE value="Built first tag of HisTEI on GitHub" />
+    <option name="LAST_COMMIT_MESSAGE" value="Built first tag of HisTEI on GitHub" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -1299,14 +1311,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.02907916" vertical-offset="0" max-vertical-offset="619">
           <caret line="1" column="14" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="14" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/frameworks/HisTEI.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.1453958" vertical-offset="0" max-vertical-offset="3258">
-          <caret line="5" column="33" selection-start-line="5" selection-start-column="27" selection-end-line="5" selection-end-column="33" />
           <folding />
         </state>
       </provider>
@@ -1544,6 +1548,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3980344" vertical-offset="64728" max-vertical-offset="66816">
           <caret line="3614" column="33" selection-start-line="3614" selection-start-column="28" selection-end-line="3614" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/frameworks/HisTEI.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.56590086" vertical-offset="0" max-vertical-offset="1116">
+          <caret line="26" column="92" selection-start-line="26" selection-start-column="85" selection-end-line="26" selection-end-column="85" />
           <folding />
         </state>
       </provider>

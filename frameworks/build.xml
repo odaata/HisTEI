@@ -97,10 +97,24 @@
 
     <target name="build.all.artifacts" depends="artifact.HisTEI-oxygen, artifact.emst-oxygen, artifact.amsterdam-oxygen"
             description="Build all artifacts">
+        <property name="artifact.output.dist.HisTEI" value="${artifact.output.dist}/HisTEI"/>
+        <property name="artifact.output.dist.emst" value="${artifact.output.dist}/emst"/>
+        <property name="artifact.output.dist.amsterdam" value="${artifact.output.dist}/amsterdam"/>
+
+        <delete dir="${artifact.output.dist}"/>
+
         <mkdir dir="${artifact.output.dist}"/>
-        <copy todir="${artifact.output.dist}">
+        <mkdir dir="${artifact.output.dist.HisTEI}"/>
+        <mkdir dir="${artifact.output.dist.emst}"/>
+        <mkdir dir="${artifact.output.dist.amsterdam}"/>
+
+        <copy todir="${artifact.output.dist.HisTEI}">
             <fileset dir="${artifact.temp.output.HisTEI-oxygen}"/>
+        </copy>
+        <copy todir="${artifact.output.dist.emst}">
             <fileset dir="${artifact.temp.output.emst-oxygen}"/>
+        </copy>
+        <copy todir="${artifact.output.dist.amsterdam}">
             <fileset dir="${artifact.temp.output.amsterdam-oxygen}"/>
         </copy>
 

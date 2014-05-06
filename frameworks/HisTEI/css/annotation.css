@@ -3,22 +3,66 @@
 -----   TEI Documents
 -------------------------------------------------------------------------------------------------*/
 
-/* Global fields & labels */
-@import "globals.css";
+/* TEI Document */
+@import "document.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
 
 interpGrp,
 interp,
 s,
 cl,
-phr,
-w {
+phr {
     display:block;
 }
 
 interpGrp,
 s,
-s,
 cl,
 phr {
     -oxy-foldable:true;
 }
+
+/* Main Sections */
+interpGrp:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+    white-space:normal;
+    -oxy-folded:true;
+}
+
+/* Special labels for interpGrps by type */
+interpGrp[type]:before {
+    background-color:rgba(53, 25, 0, 0.6);
+    content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, "") , ")}");
+}
+
+/* Interp fields */
+interp {
+    padding:5px 1px;
+    white-space:normal;
+    content:
+        oxy_label(
+            text, "${i18n(id.label)}:"
+            width, 35px
+            styles, "@import 'labels.css';"
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 5
+        )
+        oxy_label(
+            text, " - "
+            width, 15px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+
+
+

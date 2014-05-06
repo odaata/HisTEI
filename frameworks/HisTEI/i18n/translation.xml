@@ -866,6 +866,21 @@
     <key value="signed.label">
         <val lang="en_US">Signed</val>
     </key>
+    
+    <!-- Annotations -->
+    
+    <key value="interpGrp.label.functions">
+        <val lang="en_US">Functions</val>
+    </key>
+    <key value="interpGrp.label.clause">
+        <val lang="en_US">Clause Types</val>
+    </key>
+    <key value="interpGrp.label.phrase">
+        <val lang="en_US">Phrase Types</val>
+    </key>
+    <key value="interpGrp.label.pos">
+        <val lang="en_US">Part of Speech Tags (PoS)</val>
+    </key>
 
     <!--  Biblographic References  -->
 

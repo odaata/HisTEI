@@ -1472,7 +1472,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
+														<String>ancestor-or-self::*:p or ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2778,6 +2778,178 @@
 											</actionMode-array>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>word</String>
+										</field>
+										<field name="name">
+											<String>${i18n(word)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(word_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/word-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/word-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift W</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>sentence</String>
+										</field>
+										<field name="name">
+											<String>${i18n(sentence)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(sentence_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/sentence-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/sentence-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift S</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;s xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>clause</String>
+										</field>
+										<field name="name">
+											<String>${i18n(clause)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(clause_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/clause-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/clause-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift C</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;cl xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>phrase</String>
+										</field>
+										<field name="name">
+											<String>${i18n(phrase)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(phrase_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/phrase-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/phrase-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift H</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;phr xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -3148,6 +3320,41 @@
 														<menuItem>
 															<field name="actionID">
 																<String>facsimile.select.dir</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Annotations</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>sentence</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>clause</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>phrase</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -3569,6 +3776,44 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>facsimile.select.dir</String>
+													</field>
+												</toolbarItem>
+											</toolbarEntry-array>
+										</field>
+									</toolbar>
+									<toolbar>
+										<field name="id">
+											<String>HisTEI Annotations</String>
+										</field>
+										<field name="type">
+											<Integer>2</Integer>
+										</field>
+										<field name="largeIconPath">
+											<null/>
+										</field>
+										<field name="smallIconPath">
+											<null/>
+										</field>
+										<field name="toolbarEntriesDescriptorList">
+											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>sentence</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>clause</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>phrase</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>

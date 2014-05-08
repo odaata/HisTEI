@@ -1,24 +1,216 @@
 /*-----------------------------------------------------------------------------------------------
------ EMST framework customizations for Oxygen 
+----- HisTEI framework customizations for Oxygen 
 -----   TEI Documents
 -------------------------------------------------------------------------------------------------*/
 
-/* Global fields & labels */
-@import "globals.css";
+/* TEI Document */
+@import "document.css";
 
-interpGrp,
-interp,
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Whitespace changed to normal */
+p,
 s,
 cl,
 phr,
-w {
+w,
+pc {
+    white-space:-oxy-trim-when-ws-only;
+}
+
+gloss,
+s,
+cl,
+phr,
+w,
+pc {
     display:block;
 }
 
-interpGrp,
-s,
+/* Foldable sections */
+gloss,
 s,
 cl,
 phr {
     -oxy-foldable:true;
 }
+
+/* Main Sections */
+
+gloss:before,
+s:before,
+cl:before,
+phr:before {
+    display:block;
+    background-color:gray;
+    margin:5px;
+    content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}")
+            color, white
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+s:before {
+    background-color:rgba(53, 25, 0, 0.6);
+}
+
+cl:before {
+    background-color: rgba(64, 64, 255, 0.7);
+}
+
+phr:before {
+    background-color: rgba(0, 49, 200, 0.7);
+}
+
+w:before,
+pc:before {
+    content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            width, 25px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+
+/* @xml:lang */
+s:before,
+cl:before,
+phr:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(lang.label)}: "
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+w:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(lang.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+s:before,
+cl:before,
+phr:before,
+w:before {
+    -oxy-append-content:
+        oxy_combobox(
+            edit, "@xml:lang"
+            columns, 7
+        )
+    ;
+}
+
+/* @ana */
+cl:before,
+phr:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(ana.label)}: "
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+w:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(ana.label)}: "
+            width, 40px
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+cl:before,
+phr:before,
+w:before {
+    -oxy-append-content:
+        oxy_combobox(
+            edit, "@ana"
+            columns, 8
+        )
+    ;
+}
+
+/* @function */
+phr:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(function.label)}: "
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@function"
+            columns, 10
+        )
+    ;
+}
+
+
+/* InterpGrp fields - move to contextual_info? */
+
+interpGrp,
+interp {
+    display:block;
+}
+
+/* Foldable sections */
+interpGrp {
+    -oxy-foldable:true;
+}
+
+/* Main Sections */
+interpGrp:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+    white-space:normal;
+    -oxy-folded:true;
+}
+
+/* Special labels for interpGrps by type */
+interpGrp[type]:before {
+    background-color:rgba(53, 25, 0, 0.6);
+    content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, "") , ")}");
+}
+
+/* Interp fields */
+interp {
+    padding:5px 1px;
+    white-space:normal;
+    content:
+        oxy_label(
+            text, "${i18n(id.label)}:"
+            width, 35px
+            styles, "@import 'labels.css';"
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 5
+        )
+        oxy_label(
+            text, " - "
+            width, 15px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+
+

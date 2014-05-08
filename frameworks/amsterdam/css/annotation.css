@@ -3,22 +3,139 @@
 -----   TEI Documents
 -------------------------------------------------------------------------------------------------*/
 
-/* Global fields & labels */
-@import "globals.css";
+/* TEI Document */
+@import "document.css";
 
-interpGrp,
-interp,
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+gloss,
 s,
 cl,
 phr,
-w {
+w,
+pc {
     display:block;
 }
 
 interpGrp,
 s,
-s,
 cl,
 phr {
     -oxy-foldable:true;
 }
+
+s:before,
+cl:before,
+phr:before {
+    display:block;
+    font-weight:normal;
+    padding:0px;
+}
+
+s:after,
+cl:after,
+phr:after {
+    display:block;
+    border:0px;
+    padding:0px;
+}
+
+s:before {
+    content: " {";
+}
+
+s:after {
+    content: " }";
+}
+
+cl:before,
+phr:before {
+    content: " [";
+}
+
+cl:after,
+phr:after {
+    content: " ]";
+}
+
+/* Record labels */
+/*s:before,
+cl:before,
+phr:before,
+w:before,
+pc:before {
+    display:block;
+    content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}*/
+
+/* @xml:lang */
+s:before,
+cl:before,
+phr:before,
+w:focus:after {
+    -oxy-prepend-content:
+        oxy_label(
+            text, "${i18n(lang.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@xml:lang"
+            columns, 5
+        )
+    ;
+}
+
+/* InterpGrp fields - move to contextual_info? */
+
+interpGrp,
+interp {
+    display:block;
+}
+
+/* Main Sections */
+interpGrp:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+    white-space:normal;
+    -oxy-folded:true;
+}
+
+/* Special labels for interpGrps by type */
+interpGrp[type]:before {
+    background-color:rgba(53, 25, 0, 0.6);
+    content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, "") , ")}");
+}
+
+/* Interp fields */
+interp {
+    padding:5px 1px;
+    white-space:normal;
+    content:
+        oxy_label(
+            text, "${i18n(id.label)}:"
+            width, 35px
+            styles, "@import 'labels.css';"
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 5
+        )
+        oxy_label(
+            text, " - "
+            width, 15px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+
+

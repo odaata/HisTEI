@@ -379,6 +379,33 @@
             element.
         </val>
     </key>
+    
+    <!-- Annotations   -->
+    
+    <key value="sentence">
+        <val lang="en_US">Sentence</val>
+    </key>
+    <key value="sentence_description">
+        <val lang="en_US">Insert a sentence with the s element.</val>
+    </key>
+    <key value="clause">
+        <val lang="en_US">Clause</val>
+    </key>
+    <key value="clause_description">
+        <val lang="en_US">Insert a clause with the cl element.</val>
+    </key>
+    <key value="phrase">
+        <val lang="en_US">Phrase</val>
+    </key>
+    <key value="phrase_description">
+        <val lang="en_US">Insert a phrase with the phr element.</val>
+    </key>
+    <key value="word">
+        <val lang="en_US">Word</val>
+    </key>
+    <key value="word_description">
+        <val lang="en_US">Insert a word with the w element.</val>
+    </key>
 
     <!-- Contextual Information -->
 
@@ -386,7 +413,7 @@
         <val lang="en_US">date</val>
     </key>
     <key value="date_description">
-        <val lang="en_US">Insert a a date with the date element.</val>
+        <val lang="en_US">Insert a date with the date element.</val>
     </key>
 
     <key value="contextual.info.edit">
@@ -866,6 +893,51 @@
     <key value="signed.label">
         <val lang="en_US">Signed</val>
     </key>
+    
+    <!-- Annotations -->
+    
+    <key value="interpGrp.label.functions">
+        <val lang="en_US">Functions</val>
+    </key>
+    <key value="interpGrp.label.clause">
+        <val lang="en_US">Clause Types</val>
+    </key>
+    <key value="interpGrp.label.phrase">
+        <val lang="en_US">Phrase Types</val>
+    </key>
+    <key value="interpGrp.label.pos">
+        <val lang="en_US">Part of Speech Tags (PoS)</val>
+    </key>
+    
+    <key value="gloss.label">
+        <val lang="en_US">Gloss</val>
+    </key>
+    
+    <key value="s.label">
+        <val lang="en_US">Sentence</val>
+    </key>
+    <key value="cl.label">
+        <val lang="en_US">Clause</val>
+    </key>
+    <key value="phr.label">
+        <val lang="en_US">Phrase</val>
+    </key>
+    <key value="w.label">
+        <val lang="en_US">Word</val>
+    </key>
+    <key value="c.label">
+        <val lang="en_US">Character</val>
+    </key>
+    <key value="pc.label">
+        <val lang="en_US">Punctuation</val>
+    </key>
+    
+    <key value="ana.label">
+        <val lang="en_US">Ana</val>
+    </key>
+    <key value="function.label">
+        <val lang="en_US">Function</val>
+    </key>
 
     <!--  Biblographic References  -->
 
@@ -991,6 +1063,9 @@
     </key>
     <key value="listOrg.label.repository">
         <val lang="en_US">Repositories (i.e. Archives where old texts are kept)</val>
+    </key>
+    <key value="listOrg.label.court">
+        <val lang="en_US">Courts</val>
     </key>
 
     <key value="listEvent.label">

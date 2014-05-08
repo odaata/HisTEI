@@ -866,6 +866,40 @@
     <key value="signed.label">
         <val lang="en_US">Signed</val>
     </key>
+    
+    <!-- Annotations -->
+    
+    <key value="interpGrp.label.functions">
+        <val lang="en_US">Functions</val>
+    </key>
+    <key value="interpGrp.label.clause">
+        <val lang="en_US">Clause Types</val>
+    </key>
+    <key value="interpGrp.label.phrase">
+        <val lang="en_US">Phrase Types</val>
+    </key>
+    <key value="interpGrp.label.pos">
+        <val lang="en_US">Part of Speech Tags (PoS)</val>
+    </key>
+    
+    <key value="s.label">
+        <val lang="en_US">Sentence</val>
+    </key>
+    <key value="cl.label">
+        <val lang="en_US">Clause</val>
+    </key>
+    <key value="phr.label">
+        <val lang="en_US">Phrase</val>
+    </key>
+    <key value="w.label">
+        <val lang="en_US">Word</val>
+    </key>
+    <key value="c.label">
+        <val lang="en_US">Character</val>
+    </key>
+    <key value="pc.label">
+        <val lang="en_US">Punctuation</val>
+    </key>
 
     <!--  Biblographic References  -->
 

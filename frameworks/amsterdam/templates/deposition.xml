@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:lang="nl" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title/>
+            </titleStmt>
+            <publicationStmt>
+                <authority>Mike Olson</authority>
+                <idno/>
+            </publicationStmt>
+            <notesStmt>
+                <note/>
+            </notesStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <repository/>
+                        <collection/>
+                        <idno/>
+                        <altIdentifier>
+                            <idno/>
+                        </altIdentifier>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+
+        <profileDesc>
+            <creation>
+                <date type="deposed"/>
+                <persName type="deponent"/>
+                <settlement type="deposed"/>
+                <orgName type="deposition"/>
+            </creation>
+            <textClass>
+                <catRef target="gen:DEPOSITIONS"/>
+            </textClass>
+            <handNotes>
+                <handNote xml:id="hand_001"/>
+            </handNotes>
+        </profileDesc>
+    </teiHeader>
+    <facsimile>
+        <graphic url=""/>
+    </facsimile>
+    <text>
+        <body>
+            <div type="deposition">
+              <p></p>
+                <closer>
+                    <dateline></dateline>
+                    <salute> </salute>
+                    <signed></signed>
+                </closer>
+            </div>
+        </body>
+    </text>
+</TEI>

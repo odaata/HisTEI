@@ -444,6 +444,24 @@ org:before {
     ;
 }
 
+/* Records with types (e.g. not allowed by person) */
+org:before,
+event:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+            columns, 15
+        )
+    ;
+}
+
 /* Inline elements for text */
 person > persName,
 place > placeName,
@@ -515,22 +533,6 @@ sex {
                 editable, false
                 values, "1, 2, 0"
                 labels, "male, female, unknown"
-        )
-    ;
-}
-
-event:before {
-    -oxy-append-content:
-        oxy_label(
-            text, "${i18n(type.label)}: "
-            color, white
-            width, 75px
-            styles, "@import 'labels_sub.css';"
-        )
-        oxy_combobox(
-            edit, "@type"
-            editable, true
-            columns, 15
         )
     ;
 }

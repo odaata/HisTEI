@@ -29,15 +29,18 @@ declare function local:list($list as element()) as element(item)* {
                 ()
 };
 
-declare function local:item($id as xs:string, $type as xs:string?, 
-    $label as xs:string?, $tooltip as xs:string?) as element(item) {
+declare function local:item($id as xs:string?, $type as xs:string?, 
+    $label as xs:string?, $tooltip as xs:string?) as element(item)? {
     
-    element item { 
-        attribute value { $id },
-        if ($type != "") then attribute type { $type } else (),
-        element label { if ($label != "") then normalize-space($label) else $id },
-        if ($tooltip != "") then element tooltip { normalize-space($tooltip) } else ()
-    }
+    if ($id != "") then
+        element item { 
+            attribute value { $id },
+            if ($type != "") then attribute type { $type } else (),
+            element label { if ($label != "") then normalize-space($label) else $id },
+            if ($tooltip != "") then element tooltip { normalize-space($tooltip) } else ()
+        }
+    else
+        ()
 };
 
 declare function local:taxonomy($taxonomy as element()) as element(item)* {

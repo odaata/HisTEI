@@ -1064,6 +1064,9 @@
     <key value="listOrg.label.repository">
         <val lang="en_US">Repositories (i.e. Archives where old texts are kept)</val>
     </key>
+    <key value="listOrg.label.court">
+        <val lang="en_US">Courts</val>
+    </key>
 
     <key value="listEvent.label">
         <val lang="en_US">Events</val>

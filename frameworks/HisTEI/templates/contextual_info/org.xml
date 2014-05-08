@@ -4,10 +4,10 @@
     <teiHeader>
         <fileDesc>
             <titleStmt>
-                <title>List of Organizations for the Emerging Standards project</title>
+                <title>List of Organizations</title>
             </titleStmt>
             <publicationStmt>
-                <authority>EMST</authority>
+                <authority>HisTEI</authority>
             </publicationStmt>
             <sourceDesc>
                 <p>Born Digital.</p>
@@ -21,6 +21,16 @@
                     <org xml:id="org_${id}">
                         <orgName/>
                         <desc/>
+                    </org>
+                </listOrg>
+                <listOrg type="court">
+                    <org xml:id="org_${id}">
+                        <orgName/>
+                        <desc/>
+                        <location>
+                            <settlement/>
+                            <region/>
+                        </location>
                     </org>
                 </listOrg>
                 <listOrg>

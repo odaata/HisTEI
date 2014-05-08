@@ -105,7 +105,7 @@
     </path>
 
     <path id="library.oxygen-15.2.classpath">
-        <fileset dir="${basedir}/../15.2/lib">
+        <fileset dir="${basedir}/../Oxygen XML Editor 15/lib">
             <patternset refid="library.patterns"/>
         </fileset>
     </path>

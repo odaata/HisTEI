@@ -88,6 +88,71 @@
     <key value="char.pound_description">
         <val lang="en_US">Insert a pound sign.</val>
     </key>
+    
+    <key value="char.a.acute">
+        <val lang="en_US">a acute</val>
+    </key>
+    <key value="char.a.acute_description">
+        <val lang="en_US">Insert an a acute.</val>
+    </key>
+    <key value="char.a.capital.acute">
+        <val lang="en_US">capital a acute</val>
+    </key>
+    <key value="char.a.capital.acute_description">
+        <val lang="en_US">Insert a capital a acute.</val>
+    </key>
+
+    <key value="char.e.acute">
+        <val lang="en_US">e acute</val>
+    </key>
+    <key value="char.e.acute_description">
+        <val lang="en_US">Insert an e acute.</val>
+    </key>
+    <key value="char.e.capital.acute">
+        <val lang="en_US">capital e acute</val>
+    </key>
+    <key value="char.e.capital.acute_description">
+        <val lang="en_US">Insert a capital e acute.</val>
+    </key>
+    
+    <key value="char.i.acute">
+        <val lang="en_US">i acute</val>
+    </key>
+    <key value="char.i.acute_description">
+        <val lang="en_US">Insert an i acute.</val>
+    </key>
+    <key value="char.i.capital.acute">
+        <val lang="en_US">capital i acute</val>
+    </key>
+    <key value="char.i.capital.acute_description">
+        <val lang="en_US">Insert a capital i acute.</val>
+    </key>
+
+    <key value="char.o.acute">
+        <val lang="en_US">u acute</val>
+    </key>
+    <key value="char.o.acute_description">
+        <val lang="en_US">Insert an u acute.</val>
+    </key>
+    <key value="char.o.capital.acute">
+        <val lang="en_US">capital u acute</val>
+    </key>
+    <key value="char.o.capital.acute_description">
+        <val lang="en_US">Insert a capital u acute.</val>
+    </key>
+    
+    <key value="char.u.acute">
+        <val lang="en_US">u acute</val>
+    </key>
+    <key value="char.u.acute_description">
+        <val lang="en_US">Insert an u acute.</val>
+    </key>
+    <key value="char.u.capital.acute">
+        <val lang="en_US">capital u acute</val>
+    </key>
+    <key value="char.u.capital.acute_description">
+        <val lang="en_US">Insert a capital u acute.</val>
+    </key>
 
     <!-- Text Decoration -->
 

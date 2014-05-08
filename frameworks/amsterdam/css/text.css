@@ -32,7 +32,7 @@ opener:before,
 closer:before,
 postscript:before {
     display:block;
-    color:white;
+    color:yellow;
     background-color:gray;
     font-weight:bold;
     width:100%;

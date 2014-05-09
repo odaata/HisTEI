@@ -43,7 +43,8 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
             editButton = new JButton("Edit...");
         }
 
-        /*comboBox = new JComboBox<>();
+        comboBox = new JComboBox<>();
+        comboBox.addActionListener();
         comboBox.getDocument().addDocumentListener(new DocumentListener() {
             @Override
             public void removeUpdate(DocumentEvent e) {
@@ -120,7 +121,7 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
 
         comboBox.setMargin(imposedInsets);
 
-        defaultFont = comboBox.getFont();*/
+        defaultFont = comboBox.getFont();
     }
 
     @Override

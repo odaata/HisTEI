@@ -1146,7 +1146,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1250,7 +1250,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt C</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1328,7 +1328,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1406,7 +1406,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt 1</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1471,7 +1471,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
+														<String>ancestor-or-self::*:p or ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
 													</field>
 													<field name="argValues">
 														<map>

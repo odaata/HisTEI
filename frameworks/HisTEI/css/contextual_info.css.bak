@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------------------
------ HisTEI framework customizations for Oxygen 
+----- EMST framework customizations for Oxygen 
 -----   made to the TEI css available at 
 -----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
 -------------------------------------------------------------------------------------------------*/
@@ -12,9 +12,7 @@
 /* white-space will be inherited by all fields below the lists */
 listPerson,
 listOrg,
-listPlace,
-taxonomy,
-interpGrp {
+listPlace {
     white-space:normal;
 }
 
@@ -23,9 +21,7 @@ titleStmt,
 title,
 publicationStmt,
 authority, 
-sourceDesc,
-interpGrp,
-interp {
+sourceDesc {
     display:block;
 }
 
@@ -51,8 +47,7 @@ address,
 note[type="collections"],
 note[type="collection"],
 note[type="inventories"],
-note[type="inventory"],
-interpGrp {
+note[type="inventory"] {
     display:block;
     -oxy-foldable:true;
 }
@@ -75,8 +70,7 @@ address,
 note[type="collections"],
 note[type="collection"],
 note[type="inventories"],
-note[type="inventory"],
-interpGrp {
+note[type="inventory"]  {
     -oxy-folded:true;
 }
 
@@ -97,8 +91,7 @@ address:before,
 note[type="collections"]:before,
 note[type="collection"]:before,
 note[type="inventories"]:before,
-note[type="inventory"]:before,
-interpGrp:before {
+note[type="inventory"]:before {
     display:block;
     color:white;
     background-color:gray;
@@ -168,8 +161,7 @@ listOrg > listOrg:before {
 /* Special labels for lists with a specified type */
 listPerson > listPerson[type]:before,
 listPlace > listPlace[type]:before,
-listOrg > listOrg[type]:before,
-interpGrp[type]:before {
+listOrg > listOrg[type]:before {
     background-color:rgba(53, 25, 0, 0.6);
     content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, "") , ")}");
 }
@@ -563,19 +555,4 @@ category:before! > category {
     content: attr(xml|id, string, "");
 }
 
-/* Annotations */
 
-/* Interp fields */
-interp {
-    content:
-        oxy_textfield(
-            edit, "@xml:id"
-            columns, 5
-        )
-        oxy_label(
-            text, " - "
-            width, 15px
-            styles, "@import 'labels.css';"
-        )
-    ;
-}

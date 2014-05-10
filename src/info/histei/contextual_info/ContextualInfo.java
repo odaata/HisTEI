@@ -30,7 +30,7 @@ import static info.histei.utils.OxygenUtils.getCurrentAuthorAccess;
  * Created by mike on 1/10/14.
  */
 public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener>
-        implements Listable, RefreshEventListener {
+        implements Listable<ContextualItem>, RefreshEventListener {
 
     private static final Logger logger = Logger.getLogger(ContextualInfo.class.getName());
 
@@ -74,8 +74,7 @@ public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener
 
     @NotNull
     static ContextualInfo get(final ContextualType contextualType) {
-        ContextualInfo info;
-        info = infos.get(contextualType);
+        ContextualInfo info = infos.get(contextualType);
 
         if (info == null) {
             info = new ContextualInfo(contextualType);

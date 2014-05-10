@@ -1,22 +1,15 @@
 package info.histei.lists.schema;
 
-import org.jetbrains.annotations.NotNull;
-import org.jetbrains.annotations.Nullable;
+import info.histei.commons.AbstractUniqueAttribute;
 import ro.sync.contentcompletion.xml.WhatPossibleValuesHasAttributeContext;
 
 /**
  * Created by mike on 3/7/14.
  */
-public class SchemaListAttribute {
-
-    protected final String attributeName;
-    protected final String elementName;
-    protected final String parentElementName;
+public class SchemaListAttribute extends AbstractUniqueAttribute<WhatPossibleValuesHasAttributeContext> {
 
     public SchemaListAttribute(String attributeName, String elementName, String parentElementName) {
-        this.attributeName = attributeName;
-        this.elementName = elementName;
-        this.parentElementName = parentElementName;
+        super(attributeName, elementName, parentElementName);
     }
 
     public SchemaListAttribute(String attributeName, String elementName) {
@@ -27,29 +20,14 @@ public class SchemaListAttribute {
         this(attributeName, null, null);
     }
 
-    @NotNull
-    public String getAttributeName() {
-        return attributeName;
-    }
-
-    @Nullable
-    public String getElementName() {
-        return elementName;
-    }
-
-    @Nullable
-    public String getParentElementName() {
-        return parentElementName;
-    }
-
+    @Override
     public boolean matches(WhatPossibleValuesHasAttributeContext context) {
-        if (context == null || attributeName == null) return false;
+        if (context == null) return false;
 
         if (!attributeName.equals(context.getAttributeName())) return false;
 
         if (elementName != null) {
-            String contextElementName = context.getParentElement().getQName();
-            if (!elementName.equals(contextElementName)) return false;
+            if (!elementName.equals(context.getParentElement().getQName())) return false;
 
             if (parentElementName != null) {
                 if (!context.getElementStack().empty()) {

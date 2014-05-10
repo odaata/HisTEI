@@ -2,6 +2,7 @@ package info.histei.contextual_info;
 
 import info.histei.commons.Icon;
 import info.histei.utils.MainUtils;
+import info.histei.utils.OxygenUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.editor.AuthorInplaceContext;
@@ -16,6 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
+import java.nio.file.Path;
 import java.util.List;
 
 /**
@@ -27,28 +29,14 @@ public class ContextualInfoComboBox extends InplaceEditorRendererAdapter {
 
     private final static int VGAP = 0;  // vertical gap in panel layout
     private final static int HGAP = 5;  // horizontal gap
-    private static final String UNDO_MANAGER_PROPERTY = "undo-manager-property";
 
-    private final JPanel panel;
-    private JComboBox<ContextualItem> comboBox;
-    private final JButton editButton;
-
-//    private final Font defaultFont;
+    private final JPanel panel = new JPanel(new BorderLayout(HGAP, VGAP));
+    private final JComboBox<ContextualItem> comboBox = new JComboBox<>();;
+    private final JButton editButton = new JButton();
 
     private List<ContextualItem> items;
 
     public ContextualInfoComboBox() {
-        panel = new JPanel(new BorderLayout(HGAP, VGAP));
-
-        Icon icon = Icon.get("document_edit");
-        String iconPath = icon != null ? icon.getPath() : null;
-        if (iconPath != null) {
-            editButton = new JButton(new ImageIcon(iconPath));
-        } else {
-            editButton = new JButton("Edit...");
-        }
-
-        comboBox = new JComboBox<>();
         comboBox.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -56,10 +44,8 @@ public class ContextualInfoComboBox extends InplaceEditorRendererAdapter {
             }
         });
 
-        panel.add(comboBox, BorderLayout.CENTER);
-        panel.add(editButton, BorderLayout.EAST);
-        panel.setOpaque(false);
-
+        editButton.setHorizontalAlignment(SwingConstants.CENTER);
+        editButton.setHorizontalTextPosition(SwingConstants.CENTER);
         editButton.addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -70,6 +56,10 @@ public class ContextualInfoComboBox extends InplaceEditorRendererAdapter {
                 }
             }
         });
+
+        panel.add(comboBox, BorderLayout.CENTER);
+        panel.add(editButton, BorderLayout.EAST);
+        panel.setOpaque(false);
     }
 
     @Override
@@ -150,6 +140,25 @@ public class ContextualInfoComboBox extends InplaceEditorRendererAdapter {
                         break;
                     }
                 }
+            }
+        }
+
+        setButtonFace(context);
+    }
+
+    private void setButtonFace(AuthorInplaceContext context) {
+        if (editButton.getIcon() == null && MainUtils.nullToEmpty(editButton.getText()).isEmpty()) {
+            Icon icon = Icon.get("document_edit");
+            String iconPath = icon != null ? icon.getPath() : null;
+            if (iconPath != null) {
+                Path expandedPath = OxygenUtils.expandOxygenPath(iconPath, context.getAuthorAccess());
+                if (expandedPath != null) {
+                    editButton.setIcon(new ImageIcon(MainUtils.castPathToURL(expandedPath)));
+                }
+            }
+
+            if (editButton.getIcon() == null) {
+                editButton.setText("Edit...");
             }
         }
     }

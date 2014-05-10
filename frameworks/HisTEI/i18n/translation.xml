@@ -896,7 +896,7 @@
     
     <!-- Annotations -->
     
-    <key value="interpGrp.label.functions">
+    <key value="interpGrp.label.function">
         <val lang="en_US">Functions</val>
     </key>
     <key value="interpGrp.label.clause">

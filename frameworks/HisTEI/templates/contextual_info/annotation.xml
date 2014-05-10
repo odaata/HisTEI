@@ -57,7 +57,7 @@
             <interp xml:id="SC">Subordinating Clause</interp>
             <interp xml:id="RC">Relative Clause</interp>
          </interpGrp>
-         <interpGrp type="functions">
+         <interpGrp type="function">
             <interp xml:id="SUBJ">Subject</interp>
             <interp xml:id="OBJ">Object (Direct, Indirect; +case Nominative, Genitive, Dative,
                Accusative)</interp>

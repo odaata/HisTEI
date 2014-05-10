@@ -1,7 +1,7 @@
 package info.histei.extensions;
 
-import info.histei.lists.ListItem;
 import info.histei.lists.schema.SchemaList;
+import info.histei.lists.schema.SchemaListItem;
 import info.histei.lists.schema.SchemaListProvider;
 import info.histei.utils.OxygenUtils;
 import org.jetbrains.annotations.NotNull;
@@ -51,7 +51,7 @@ public class HTSchemaManagerFilter implements SchemaManagerFilter {
         SchemaListProvider provider = getSchemaListProvider();
 
         if (provider != null) {
-            SchemaList<? extends ListItem> list = provider.getList(context);
+            SchemaList<SchemaListItem> list = provider.getList(context);
             if (list != null) {
                 ciValues = list.getCIValues();
             }

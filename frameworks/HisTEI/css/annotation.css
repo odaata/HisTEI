@@ -144,6 +144,18 @@ w:before {
     ;
 }
 
+cl:before,
+phr:before,
+w:before {
+    -oxy-append-content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualInfoComboBox",
+            swingEditorClassName, "info.histei.contextual_info.ContextualInfoComboBox",
+            edit, "@ana"
+        )
+    ;
+}
+
 /* @function */
 phr:before {
     -oxy-append-content:

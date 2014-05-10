@@ -1,24 +1,27 @@
 package info.histei.contextual_info;
 
 import info.histei.commons.Icon;
+import info.histei.utils.MainUtils;
 import org.apache.log4j.Logger;
-import ro.sync.ecss.extensions.api.CursorType;
-import ro.sync.ecss.extensions.api.editor.AbstractInplaceEditor;
+import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.editor.AuthorInplaceContext;
-import ro.sync.ecss.extensions.api.editor.InplaceRenderer;
+import ro.sync.ecss.extensions.api.editor.InplaceEditorArgumentKeys;
+import ro.sync.ecss.extensions.api.editor.InplaceEditorRendererAdapter;
 import ro.sync.ecss.extensions.api.editor.RendererLayoutInfo;
-import ro.sync.exml.view.graphics.Rectangle;
+import ro.sync.exml.view.graphics.Dimension;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-
-// TODO: Create custom CSS ComboBox Control - this is the skeleton
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.util.List;
 
 /**
- * Created by mike on 2/25/14.
+ * Created by mike on 5/10/14.
  */
-public class ContextualInfoComboBox extends AbstractInplaceEditor implements InplaceRenderer {
+public class ContextualInfoComboBox extends InplaceEditorRendererAdapter {
 
     private static final Logger logger = Logger.getLogger(ContextualInfoComboBox.class.getName());
 
@@ -27,10 +30,12 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
     private static final String UNDO_MANAGER_PROPERTY = "undo-manager-property";
 
     private final JPanel panel;
-    private JComboBox<ArrayList<ContextualItem>> comboBox;
+    private JComboBox<ContextualItem> comboBox;
     private final JButton editButton;
 
-//    private final java.awt.Font defaultFont;
+//    private final Font defaultFont;
+
+    private List<ContextualItem> items;
 
     public ContextualInfoComboBox() {
         panel = new JPanel(new BorderLayout(HGAP, VGAP));
@@ -44,40 +49,16 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
         }
 
         comboBox = new JComboBox<>();
-        comboBox.addActionListener();
-        comboBox.getDocument().addDocumentListener(new DocumentListener() {
+        comboBox.addActionListener(new ActionListener() {
             @Override
-            public void removeUpdate(DocumentEvent e) {
-                fireEditingOccured();
-            }
-            @Override
-            public void insertUpdate(DocumentEvent e) {
-                fireEditingOccured();
-            }
-            @Override
-            public void changedUpdate(DocumentEvent e) {
-                fireEditingOccured();
+            public void actionPerformed(ActionEvent e) {
+                stopEditing();
             }
         });
 
         panel.add(comboBox, BorderLayout.CENTER);
-        panel.add(editButton,BorderLayout.EAST);
+        panel.add(editButton, BorderLayout.EAST);
         panel.setOpaque(false);
-
-        comboBox.addKeyListener(new KeyAdapter() {
-            @Override
-            public void keyPressed(KeyEvent e) {
-                if (e.getKeyCode() == KeyEvent.VK_ESCAPE) {
-                    // ESC must cancel the edit.
-                    e.consume();
-                    cancelEditing();
-                } else if (e.getKeyCode() == KeyEvent.VK_ENTER) {
-                    // An ENTER commits the value.
-                    e.consume();
-                    stopEditing(true);
-                }
-            }
-        });
 
         editButton.addKeyListener(new KeyAdapter() {
             @Override
@@ -89,69 +70,6 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
                 }
             }
         });
-
-        FocusListener focusListener = new FocusAdapter() {
-            @Override
-            public void focusLost(FocusEvent e) {
-                if (e.getOppositeComponent() != editButton
-                        && e.getOppositeComponent() != comboBox
-                        && !isBrowsing) {
-                    // The focus is outside the components of this editor.
-                    fireEditingStopped(new EditingEvent(comboBox.getText(), e.getOppositeComponent() == null));
-                }
-            }
-        };
-
-        editButton.addFocusListener(focusListener);
-        comboBox.addFocusListener(focusListener);
-
-        Insets originalInsets = comboBox.getMargin();
-        Insets imposedInsets = null;
-        if(originalInsets != null) {
-            imposedInsets = (Insets) originalInsets.clone();
-        } else {
-            //EXM-27442 - Maybe Nimbus LF, set some margins.
-            imposedInsets = new Insets(1, 1, 1, 1);
-        }
-        if (IS_WIN32 && IS_ECLIPSE) {
-            // On Eclipse the text field text should not flicker
-            imposedInsets.top = -1;
-            imposedInsets.left += 3;
-        }
-
-        comboBox.setMargin(imposedInsets);
-
-        defaultFont = comboBox.getFont();
-    }
-
-    @Override
-    public Object getRendererComponent(AuthorInplaceContext context) {
-        /*prepareComboBox(context);
-        return getComboBox();*/
-        return null;
-    }
-
-    @Override
-    public CursorType getCursorType(AuthorInplaceContext context, int x, int y) {
-        return CursorType.CURSOR_NORMAL;
-    }
-
-    @Override
-    public CursorType getCursorType(int x, int y) {
-        return null;
-    }
-
-    @Override
-    public String getTooltipText(AuthorInplaceContext context, int x, int y) {
-        return null;
-    }
-
-    @Override
-    public RendererLayoutInfo getRenderingInfo(AuthorInplaceContext context) {
-        /*prepareComboBox(context);
-
-        return computeRenderingInfo(context);*/
-        return null;
     }
 
     @Override
@@ -160,55 +78,80 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
     }
 
     @Override
-    public Object getEditorComponent(AuthorInplaceContext authorInplaceContext, Rectangle rectangle, ro.sync.exml.view.graphics.Point point) {
-        return null;
+    public Object getRendererComponent(AuthorInplaceContext context) {
+        prepareComponents(context);
+
+        return panel;
     }
 
     @Override
-    public Rectangle getScrollRectangle() {
-        return null;
+    public RendererLayoutInfo getRenderingInfo(AuthorInplaceContext context) {
+        prepareComponents(context);
+
+        return computeRenderingInfo(context);
+    }
+
+    @Override
+    public Object getEditorComponent(AuthorInplaceContext context, ro.sync.exml.view.graphics.Rectangle rectangle, ro.sync.exml.view.graphics.Point point) {
+        prepareComponents(context);
+
+        return panel;
     }
 
     @Override
     public void requestFocus() {
-
+        comboBox.requestFocus();
     }
 
     @Override
+    @Nullable
     public Object getValue() {
-        return null;
+        String value = null;
+        ContextualItem item = (ContextualItem) comboBox.getSelectedItem();
+
+        if (item != null) {
+            value = item.getValue();
+        }
+        return value;
     }
 
-    @Override
-    public void stopEditing() {
-
-    }
-
-    @Override
-    public void cancelEditing() {
-
-    }
-
-    /*private RendererLayoutInfo computeRenderingInfo(AuthorInplaceContext context) {
-        final java.awt.Dimension preferredSize = getComboBox().getPreferredSize();
+    private RendererLayoutInfo computeRenderingInfo(AuthorInplaceContext context) {
+        final java.awt.Dimension preferredSize = comboBox.getPreferredSize();
 
         // Get width
-        int width = getComboBox().getPreferredSize().width;
+        int width = comboBox.getPreferredSize().width;
 
         Integer columns = (Integer) context.getArguments().get(InplaceEditorArgumentKeys.PROPERTY_COLUMNS);
         if (columns != null && columns > 0) {
-            FontMetrics fontMetrics = getComboBox().getFontMetrics(getComboBox().getFont());
+            FontMetrics fontMetrics = comboBox.getFontMetrics(comboBox.getFont());
             width = columns * fontMetrics.charWidth('w');
         }
 
         return new RendererLayoutInfo(
-            getComboBox().getBaseline(preferredSize.width, preferredSize.height),
-            new Dimension(width, preferredSize.height)
+                comboBox.getBaseline(preferredSize.width, preferredSize.height),
+                new Dimension(width, preferredSize.height)
         );
     }
 
-    private void prepareComboBox(AuthorInplaceContext context) {
-        String value = MainUtils.nullToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.INITIAL_VALUE));
-        getComboBox().setSelectedItem(value);
-    }*/
+    private void prepareComponents(AuthorInplaceContext context) {
+        ContextualAttribute attribute = ContextualAttribute.get(context);
+        if (attribute != null) {
+            ContextualInfo info = ContextualInfo.get(attribute.getContextualType());
+
+            items = info.getItems(attribute.getTypeFilter());
+            ContextualItem[] itemsArray = items.toArray(new ContextualItem[items.size()]);
+            comboBox.setModel(new DefaultComboBoxModel<>(itemsArray));
+
+            String value = MainUtils.nullToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.INITIAL_VALUE));
+            if (!value.isEmpty()) {
+                for (ContextualItem item : items) {
+                    if (item.getValue().equals(value)) {
+                        comboBox.setSelectedItem(item);
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
 }

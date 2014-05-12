@@ -123,11 +123,15 @@ public class ContextualAttribute extends AbstractUniqueAttribute<AuthorInplaceCo
             AuthorElement authorElement = context.getElem();
             if (authorElement == null) return false;
 
+            if (authorElement.getType() == AuthorNode.NODE_TYPE_PSEUDO_ELEMENT) {
+                authorElement = (AuthorElement) authorElement.getParentElement();
+            }
+
             if (!elementName.equals(authorElement.getName())) return false;
 
             if (parentElementName != null) {
-                AuthorNode parentNode = authorElement.getParent();
-                if (parentNode == null || !parentElementName.equals(parentNode.getName())) return false;
+                AuthorElement parentElement = (AuthorElement) authorElement.getParentElement();
+                if (parentElement == null || !parentElementName.equals(parentElement.getName())) return false;
             }
         }
         return true;

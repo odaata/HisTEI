@@ -13,8 +13,7 @@ p,
 s,
 cl,
 phr,
-w,
-pc {
+w {
     white-space:normal;
 }
 
@@ -22,8 +21,7 @@ gloss,
 s,
 cl,
 phr,
-w,
-pc {
+w {
     display:block;
 }
 
@@ -64,8 +62,7 @@ phr:before {
     background-color: rgba(0, 49, 200, 0.7);
 }
 
-w:before,
-pc:before {
+w:before {
     content:
         oxy_label(
             text, oxy_concat("${i18n(", oxy_name(), ".label)} ")
@@ -136,22 +133,12 @@ w:before {
 cl:before,
 phr:before,
 w:before {
-    -oxy-append-content:
-        oxy_combobox(
-            edit, "@ana"
-            columns, 8
-        )
-    ;
-}
-
-cl:before,
-phr:before,
-w:before {
     -oxy-append-content: 
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualInfoComboBox",
             swingEditorClassName, "info.histei.contextual_info.ContextualInfoComboBox",
             edit, "@ana"
+            fontInherit, true
         )
     ;
 }
@@ -164,8 +151,11 @@ phr:before {
             color, white
             styles, "@import 'labels_sub.css';"
         )
-        oxy_combobox(
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualInfoComboBox",
+            swingEditorClassName, "info.histei.contextual_info.ContextualInfoComboBox",
             edit, "@function"
+            fontInherit, true
             columns, 10
         )
     ;

@@ -3,7 +3,11 @@
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/lib/commons-lang3-3.1.jar!/" />
     </CLASSES>
-    <JAVADOC />
-    <SOURCES />
+    <JAVADOC>
+      <root url="https://commons.apache.org/proper/commons-lang/javadocs/api-release/" />
+    </JAVADOC>
+    <SOURCES>
+      <root url="jar://$PROJECT_DIR$/../java_tools/apache_commons/commons-lang3-3.1/commons-lang3-3.1-sources.jar!/" />
+    </SOURCES>
   </library>
 </component>

@@ -95,10 +95,10 @@
     <key value="char.a.acute_description">
         <val lang="en_US">Insert an a acute.</val>
     </key>
-    <key value="char.a.capital.acute">
+    <key value="char.a.acute.capital">
         <val lang="en_US">capital a acute</val>
     </key>
-    <key value="char.a.capital.acute_description">
+    <key value="char.a.acute.capital_description">
         <val lang="en_US">Insert a capital a acute.</val>
     </key>
 
@@ -108,10 +108,10 @@
     <key value="char.e.acute_description">
         <val lang="en_US">Insert an e acute.</val>
     </key>
-    <key value="char.e.capital.acute">
+    <key value="char.e.acute.capital">
         <val lang="en_US">capital e acute</val>
     </key>
-    <key value="char.e.capital.acute_description">
+    <key value="char.e.acute.capital_description">
         <val lang="en_US">Insert a capital e acute.</val>
     </key>
     
@@ -121,24 +121,24 @@
     <key value="char.i.acute_description">
         <val lang="en_US">Insert an i acute.</val>
     </key>
-    <key value="char.i.capital.acute">
+    <key value="char.i.acute.capital">
         <val lang="en_US">capital i acute</val>
     </key>
-    <key value="char.i.capital.acute_description">
+    <key value="char.i.acute.capital_description">
         <val lang="en_US">Insert a capital i acute.</val>
     </key>
 
     <key value="char.o.acute">
-        <val lang="en_US">u acute</val>
+        <val lang="en_US">o acute</val>
     </key>
     <key value="char.o.acute_description">
-        <val lang="en_US">Insert an u acute.</val>
+        <val lang="en_US">Insert an o acute.</val>
     </key>
-    <key value="char.o.capital.acute">
-        <val lang="en_US">capital u acute</val>
+    <key value="char.o.acute.capital">
+        <val lang="en_US">capital o acute</val>
     </key>
-    <key value="char.o.capital.acute_description">
-        <val lang="en_US">Insert a capital u acute.</val>
+    <key value="char.o.acute.capital_description">
+        <val lang="en_US">Insert a capital o acute.</val>
     </key>
     
     <key value="char.u.acute">
@@ -147,13 +147,47 @@
     <key value="char.u.acute_description">
         <val lang="en_US">Insert an u acute.</val>
     </key>
-    <key value="char.u.capital.acute">
+    <key value="char.u.acute.capital">
         <val lang="en_US">capital u acute</val>
     </key>
-    <key value="char.u.capital.acute_description">
+    <key value="char.u.acute.capital_description">
         <val lang="en_US">Insert a capital u acute.</val>
     </key>
-
+    
+    <key value="char.ash.acute">
+        <val lang="en_US">ash acute</val>
+    </key>
+    <key value="char.ash.acute_description">
+        <val lang="en_US">Insert an ash acute.</val>
+    </key>
+    <key value="char.ash.acute.capital">
+        <val lang="en_US">capital ash acute</val>
+    </key>
+    <key value="char.ash.acute.capital_description">
+        <val lang="en_US">Insert a capital ash acute.</val>
+    </key>
+    
+    <key value="char.c.dot">
+        <val lang="en_US">c dot</val>
+    </key>
+    <key value="char.c.dot_description">
+        <val lang="en_US">Insert a c dot.</val>
+    </key>
+    
+    <key value="char.g.dot">
+        <val lang="en_US">g dot</val>
+    </key>
+    <key value="char.g.dot_description">
+        <val lang="en_US">Insert a g dot.</val>
+    </key>
+    
+    <key value="char.l.stroke">
+        <val lang="en_US">l stroke</val>
+    </key>
+    <key value="char.l.stroke_description">
+        <val lang="en_US">Insert a l stroke.</val>
+    </key>
+    
     <!-- Text Decoration -->
 
     <key value="bold">

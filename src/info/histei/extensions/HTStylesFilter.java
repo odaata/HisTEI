@@ -31,7 +31,7 @@ public class HTStylesFilter implements StylesFilter {
     @Override
     public Styles filter(Styles styles, AuthorNode authorNode) {
         if (!styles.isInline()) {
-            addContextualStyledList(styles, authorNode);
+//            addContextualStyledList(styles, authorNode);
 
             addFacsimileElement(styles, authorNode);
         }

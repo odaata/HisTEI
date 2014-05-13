@@ -24,9 +24,9 @@ import java.util.List;
 /**
  * Created by mike on 5/10/14.
  */
-public class ContextualInfoComboBox extends AbstractInplaceEditor implements InplaceRenderer {
+public class ContextualEditor extends AbstractInplaceEditor implements InplaceRenderer {
 
-//    private static final Logger logger = Logger.getLogger(ContextualInfoComboBox.class.getName());
+//    private static final Logger logger = Logger.getLogger(ContextualEditor.class.getName());
 
     public final static String PROPERTY_SHOW_BUTTON = "showButton";
 
@@ -39,7 +39,7 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
 
     private final java.awt.Font defaultFont;
 
-    public ContextualInfoComboBox() {
+    public ContextualEditor() {
         panel = new JPanel(new BorderLayout(HGAP, VGAP));
         comboBox = new HTComboBox<>();
 
@@ -115,12 +115,17 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
     private RendererLayoutInfo computeRenderingInfo(AuthorInplaceContext context) {
         final java.awt.Dimension preferredSize = comboBox.getPreferredSize();
 
+        int width = preferredSize.width;
+
         Integer columns = (Integer) context.getArguments().get(InplaceEditorArgumentKeys.PROPERTY_COLUMNS);
         if (columns != null && columns > 0) {
-            comboBox.setWidthChars(columns);
+            FontMetrics fontMetrics = comboBox.getFontMetrics(comboBox.getFont());
+            width = (columns * fontMetrics.charWidth('w'));
+//            comboBox.setWidthChars(columns);
         }
         // Add width for button and gap
-        int width = preferredSize.width + HGAP + editButton.getPreferredSize().width;
+        width += HGAP + editButton.getPreferredSize().width;
+//        int width = comboBox.getPreferredSize().width + HGAP + editButton.getPreferredSize().width;
 
         return new RendererLayoutInfo(
                 comboBox.getBaseline(preferredSize.width, preferredSize.height),
@@ -240,7 +245,7 @@ public class ContextualInfoComboBox extends AbstractInplaceEditor implements Inp
         }
 
         String fontInheritProperty = MainUtils.nullToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT));
-        boolean fontInherit = fontInheritProperty.isEmpty() || Boolean.parseBoolean(fontInheritProperty);
+        boolean fontInherit = !fontInheritProperty.isEmpty() && Boolean.parseBoolean(fontInheritProperty);
         ro.sync.exml.view.graphics.Font font = context.getStyles().getFont();
         java.awt.Font currentFont = fontInherit ? new java.awt.Font(font.getName(), font.getStyle(), font.getSize()) : defaultFont;
 

@@ -44,12 +44,7 @@ public class HTComboBox<E extends ListItem> extends JComboBox<E> {
 
     public HTComboBox() {
         setRenderer(new ToolTipRenderer());
-        resetWidthChars();
-    }
-
-    public HTComboBox(List<E> items) {
-        this();
-        setItems(items);
+//        resetWidthChars();
     }
 
     @Nullable
@@ -60,8 +55,6 @@ public class HTComboBox<E extends ListItem> extends JComboBox<E> {
     public void setItems(List<E> items) {
         this.items = items != null ? items : new ArrayList<E>();
         setModel(new DefaultComboBoxModel<>(new Vector<>(this.items)));
-
-        resetWidthChars();
     }
 
     public int getWidthChars() {
@@ -69,9 +62,11 @@ public class HTComboBox<E extends ListItem> extends JComboBox<E> {
     }
 
     public void setWidthChars(int chars) {
-        chars = chars < MIN_WIDTH_CHARS ? MIN_WIDTH_CHARS : chars;
+        widthChars = chars < MIN_WIDTH_CHARS ? MIN_WIDTH_CHARS : chars;
+
+        /*chars = chars < MIN_WIDTH_CHARS ? MIN_WIDTH_CHARS : chars;
         int maxLabelChars = getMaxLabelLength();
-        widthChars = chars < maxLabelChars ? maxLabelChars : chars;
+        widthChars = chars < maxLabelChars ? maxLabelChars : chars;*/
 
         FontMetrics fontMetrics = getFontMetrics(getFont());
         int width = (widthChars * fontMetrics.charWidth('w'));

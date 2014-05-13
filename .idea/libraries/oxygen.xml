@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="oxygen">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/Oxygen XML Editor 15/lib/oxygen.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="saxon9ee">
-    <CLASSES>
-      <root url="jar://$USER_HOME$/Oxygen XML Editor 15/lib/saxon9ee.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>

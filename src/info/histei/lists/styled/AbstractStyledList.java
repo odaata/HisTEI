@@ -4,6 +4,7 @@ import com.google.common.base.Function;
 import com.google.common.collect.Lists;
 import info.histei.events.RefreshEventListener;
 import info.histei.lists.ListItem;
+import info.histei.utils.OxygenUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -13,9 +14,6 @@ import ro.sync.exml.workspace.api.editor.page.author.WSAuthorEditorPage;
 import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
-
-import static info.histei.utils.OxygenUtils.escapeCommas;
-import static info.histei.utils.OxygenUtils.refreshNode;
 
 /**
  * Created by mike on 3/4/14.
@@ -96,7 +94,7 @@ public abstract class AbstractStyledList<I extends ListItem>
                         }
                     }
             );
-            labels = StringUtils.join(escapeCommas(labs), ",");
+            labels = StringUtils.join(OxygenUtils.escapeCommas(labs), ",");
         }
         return labels;
     }
@@ -113,7 +111,7 @@ public abstract class AbstractStyledList<I extends ListItem>
                         }
                     }
             );
-            tooltips = StringUtils.join(escapeCommas(tips), ",");
+            tooltips = StringUtils.join(OxygenUtils.escapeCommas(tips), ",");
         }
         return tooltips;
     }
@@ -131,7 +129,7 @@ public abstract class AbstractStyledList<I extends ListItem>
     public void refresh() {
         reset();
 
-        refreshNode(getAuthorPage(), getAuthorElement());
+        OxygenUtils.refreshNode(getAuthorPage(), getAuthorElement());
     }
 
     private synchronized List<String> transform(Function<I, String> function) {

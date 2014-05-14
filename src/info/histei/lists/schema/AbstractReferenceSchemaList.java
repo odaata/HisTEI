@@ -1,6 +1,5 @@
 package info.histei.lists.schema;
 
-import info.histei.lists.ListItem;
 import org.jetbrains.annotations.NotNull;
 import ro.sync.ecss.extensions.api.*;
 import ro.sync.ecss.extensions.api.node.AuthorDocument;
@@ -9,7 +8,7 @@ import ro.sync.ecss.extensions.api.node.AuthorNode;
 /**
  * Created by mike on 3/7/14.
  */
-public abstract class AbstractReferenceSchemaList<I extends ListItem> extends AbstractSchemaList<I>
+public abstract class AbstractReferenceSchemaList<I extends SchemaListItem> extends AbstractSchemaList<I>
         implements ReferenceSchemaList<I>, AuthorListener {
 
 //    private static final Logger logger = Logger.getLogger(AbstractReferenceSchemaList.class.getName());

@@ -1,8 +1,11 @@
-<TEI xmlns="http://www.tei-c.org/ns/1.0">
-  <teiHeader>
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type='text/css' href='http://emergingstandards.eu/css/contextual_info.css'?>
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
       <fileDesc>
          <titleStmt>
-            <title>Analytical Annotations and Functions for the Bilingualism in Medieval Ireland Project</title>
+            <title>Analytical Annotations and Functions for the Bilingualism in Medieval Ireland
+               Project</title>
          </titleStmt>
          <publicationStmt>
             <authority>Tom de Schepper</authority>
@@ -13,57 +16,60 @@
             <p>Born Digital.</p>
          </sourceDesc>
       </fileDesc>
-  </teiHeader>
-  <text>
-     <body>
+   </teiHeader>
+   <text>
+      <body>
          <p/>
       </body>
-     <back>
-        <interpGrp type="pos">
-           <interp xml:id="A">Adjective</interp>
-           <interp xml:id="B">Adverb</interp>
-           <interp xml:id="CR">Coordinator</interp>
-           <interp xml:id="D">Determiner</interp>
-           <interp xml:id="DN">Numeric Determiner</interp>
-           <interp xml:id="DPRP">Determined preposition</interp>
-           <interp xml:id="S">Complementizer</interp>
-           <interp xml:id="R">Relative Pronoun</interp>
-           <interp xml:id="P">Preposition</interp>
-           <interp xml:id="PPR">Prepositional Pronoun</interp>
-           <interp xml:id="PRT">Particle</interp>
-           <interp xml:id="PRTCJ">Conjunct Particle</interp>
-           <interp xml:id="N">Noun</interp>
-           <interp xml:id="NPRP">Proper Noun</interp>
-           <interp xml:id="NPR">Nominal Pronoun</interp>
-           <interp xml:id="V">Verb</interp>
-           <interp xml:id="VR">Relative Verb</interp>
-           <interp xml:id="VN">Verbal Noun</interp>
-           <interp xml:id="VC">Verbal Copula</interp>
-        </interpGrp>
-        <interpGrp type="phrase">
-           <interp xml:id="AP">Adjectival Phrase</interp>
-           <interp xml:id="BP">Adverbial Phrase</interp>
-           <interp xml:id="DP">Determiner Phrase</interp>
-           <interp xml:id="NP">Noun Phrase</interp>
-           <interp xml:id="PP">Prepositional Phrase</interp>
-           <interp xml:id="VP">Verb Phrase</interp>
-        </interpGrp>
-        <interpGrp type="clause">
-           <interp xml:id="MC">Main Clause</interp>
-           <interp xml:id="CC">Coordinating Clause</interp>
-           <interp xml:id="SC">Subordinating Clause</interp>
-           <interp xml:id="RC">Relative Clause</interp>
-        </interpGrp>
-        <interpGrp type="functions">
-           <interp xml:id="SUBJ">Subject</interp>
-           <interp xml:id="OBJ">Object (Direct, Indirect; +case Nominative, Genitive, Dative, Accusative)</interp>
-           <interp xml:id="PRE">Predicate (Verbal, Nominal)</interp>
-           <interp xml:id="COM">Complement (Predicate, PrePositional, Verbal, Nominal, PRonominal,
-              Nominative, Genitive, etc.)</interp>
-           <interp xml:id="ADJ">Adjunct (constituent in adjoined position)</interp>
-           <interp xml:id="APP">Apposition (isolated word/term/phrase)</interp>
-           <interp xml:id="FOR">Formula (form:utdix, form:abeo, form:quia etc?)</interp>
-        </interpGrp>
-     </back>
-  </text>
+      <back>
+         <div type="analysis">
+            <interpGrp type="pos">
+               <interp xml:id="A">Adjective</interp>
+               <interp xml:id="B">Adverb</interp>
+               <interp xml:id="CR">Coordinator</interp>
+               <interp xml:id="D">Determiner</interp>
+               <interp xml:id="DN">Numeric Determiner</interp>
+               <interp xml:id="DPRP">Determined preposition</interp>
+               <interp xml:id="S">Complementizer</interp>
+               <interp xml:id="R">Relative Pronoun</interp>
+               <interp xml:id="P">Preposition</interp>
+               <interp xml:id="PPR">Prepositional Pronoun</interp>
+               <interp xml:id="PRT">Particle</interp>
+               <interp xml:id="PRTCJ">Conjunct Particle</interp>
+               <interp xml:id="N">Noun</interp>
+               <interp xml:id="NPRP">Proper Noun</interp>
+               <interp xml:id="NPR">Nominal Pronoun</interp>
+               <interp xml:id="V">Verb</interp>
+               <interp xml:id="VR">Relative Verb</interp>
+               <interp xml:id="VN">Verbal Noun</interp>
+               <interp xml:id="VC">Verbal Copula</interp>
+            </interpGrp>
+            <interpGrp type="phrase">
+               <interp xml:id="AP">Adjectival Phrase</interp>
+               <interp xml:id="BP">Adverbial Phrase</interp>
+               <interp xml:id="DP">Determiner Phrase</interp>
+               <interp xml:id="NP">Noun Phrase</interp>
+               <interp xml:id="PP">Prepositional Phrase</interp>
+               <interp xml:id="VP">Verb Phrase</interp>
+            </interpGrp>
+            <interpGrp type="clause">
+               <interp xml:id="MC">Main Clause</interp>
+               <interp xml:id="CC">Coordinating Clause</interp>
+               <interp xml:id="SC">Subordinating Clause</interp>
+               <interp xml:id="RC">Relative Clause</interp>
+            </interpGrp>
+            <interpGrp type="function">
+               <interp xml:id="SUBJ">Subject</interp>
+               <interp xml:id="OBJ">Object (Direct, Indirect; +case Nominative, Genitive, Dative,
+                  Accusative)</interp>
+               <interp xml:id="PRE">Predicate (Verbal, Nominal)</interp>
+               <interp xml:id="COM">Complement (Predicate, Prepositional, Verbal, Nominal,
+                  Pronominal, Nominative, Genitive, etc.)</interp>
+               <interp xml:id="ADJ">Adjunct (constituent in adjoined position)</interp>
+               <interp xml:id="APP">Apposition (isolated word/term/phrase)</interp>
+               <interp xml:id="FOR">Formula (form:utdix, form:abeo, form:quia etc?)</interp>
+            </interpGrp>
+         </div>
+      </back>
+   </text>
 </TEI>

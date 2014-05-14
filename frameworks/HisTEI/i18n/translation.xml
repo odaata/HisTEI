@@ -995,7 +995,7 @@
     
     <!-- Annotations -->
     
-    <key value="interpGrp.label.functions">
+    <key value="interpGrp.label.function">
         <val lang="en_US">Functions</val>
     </key>
     <key value="interpGrp.label.clause">
@@ -1006,6 +1006,9 @@
     </key>
     <key value="interpGrp.label.pos">
         <val lang="en_US">Part of Speech Tags (PoS)</val>
+    </key>
+    <key value="div.label.analysis">
+        <val lang="en_US">Analytic Tags</val>
     </key>
     
     <key value="gloss.label">

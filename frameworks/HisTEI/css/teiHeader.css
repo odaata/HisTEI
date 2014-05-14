@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------------------
------ EMST framework customizations for Oxygen 
+----- HisTEI framework customizations for Oxygen 
 -----   TEI Header for a Document
 -------------------------------------------------------------------------------------------------*/
 
@@ -127,6 +127,36 @@ creation > bloc {
     visibility:-oxy-collapse-text;
 }
 
+repository,
+creation > persName,
+creation > orgName,
+creation > placeName,
+creation > district,
+creation > settlement,
+creation > region,
+creation > country,
+creation > bloc {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+        )
+    ;
+}
+
+catRef {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@target"
+            fontInherit, true
+        )
+    ;
+}
+
 /* Field Labels not automatically retrievable */
 publicationStmt > idno:before {
     content: 
@@ -240,6 +270,18 @@ handNote:before {
         )
         oxy_combobox(
                 edit, "@scope"
+        )
+    ;
+}
+
+handNote {
+    display:block;
+    content:
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@scribeRef"
+            fontInherit, true
         )
     ;
 }

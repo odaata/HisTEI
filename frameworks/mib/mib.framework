@@ -54,7 +54,7 @@
 											<String>MIB TEI Document</String>
 										</field>
 										<field name="alternate">
-											<Boolean>true</Boolean>
+											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
 									<cssFile>
@@ -1916,7 +1916,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt A</String>
+											<String>ctrl alt 2</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2503,7 +2503,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt A</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2597,7 +2597,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt E</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2691,7 +2691,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt I</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2785,7 +2785,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2879,7 +2879,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt U</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2973,7 +2973,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt 3</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3067,7 +3067,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt C</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3114,7 +3114,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt G</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3161,7 +3161,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt 4</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3208,7 +3208,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>ctrl alt D</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3246,10 +3246,10 @@
 											<String>${i18n(gloss_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/sentence-20.png</String>
+											<String>${framework}/images/gloss-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/sentence-16.png</String>
+											<String>${framework}/images/gloss-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String>a</String>
@@ -3268,6 +3268,135 @@
 															<entry>
 																<String>element</String>
 																<String>&lt;gloss xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>term</String>
+										</field>
+										<field name="name">
+											<String>${i18n(term)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(term_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/term-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/term-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;term xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>ab</String>
+										</field>
+										<field name="name">
+											<String>${i18n(ab)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(ab_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/ab-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/ab-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;ab xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>seg</String>
+										</field>
+										<field name="name">
+											<String>${i18n(seg)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(seg_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/seg-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/seg-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;seg xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
@@ -3728,6 +3857,42 @@
 														<menuItem>
 															<field name="actionID">
 																<String>word</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+											<menu>
+												<field name="label">
+													<String>Linking</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>term</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>seg</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>ab</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>gloss</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -4239,6 +4404,45 @@
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
+									<toolbar>
+										<field name="id">
+											<String>HisTEI Linking</String>
+										</field>
+										<field name="type">
+											<Integer>2</Integer>
+										</field>
+										<field name="largeIconPath">
+											<null/>
+										</field>
+										<field name="smallIconPath">
+											<null/>
+										</field>
+										<field name="toolbarEntriesDescriptorList">
+											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>term</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>seg</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>ab</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>gloss</String>
+													</field>
+												</toolbarItem>
+											</toolbarEntry-array>
+										</field>
+									</toolbar>
 								</toolbar-array>
 							</field>
 							<field name="contextualItems">
@@ -4354,7 +4558,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

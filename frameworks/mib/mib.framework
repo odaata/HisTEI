@@ -40,7 +40,7 @@
 											<String>${framework}/css/annotation.css</String>
 										</field>
 										<field name="title">
-											<String>HisTEI Annotations</String>
+											<String>MIB Annotations</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -51,7 +51,7 @@
 											<String>${framework}/css/document.css</String>
 										</field>
 										<field name="title">
-											<String>HisTEI TEI Document</String>
+											<String>MIB TEI Document</String>
 										</field>
 										<field name="alternate">
 											<Boolean>true</Boolean>
@@ -62,7 +62,7 @@
 											<String>${framework}/css/contextual_info.css</String>
 										</field>
 										<field name="title">
-											<String>HisTEI Contextual Info List</String>
+											<String>MIB Contextual Info List</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -2494,10 +2494,10 @@
 											<String>${i18n(char.a.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/a_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/a_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2541,10 +2541,10 @@
 											<String>${i18n(char.a.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/a_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/a_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2588,10 +2588,10 @@
 											<String>${i18n(char.e.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/e_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/e_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2635,10 +2635,10 @@
 											<String>${i18n(char.e.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/e_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/e_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2682,10 +2682,10 @@
 											<String>${i18n(char.i.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/i_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/i_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2729,10 +2729,10 @@
 											<String>${i18n(char.i.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/i_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/i_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2776,10 +2776,10 @@
 											<String>${i18n(char.o.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/o_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/o_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2823,10 +2823,10 @@
 											<String>${i18n(char.o.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/o_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/o_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2870,10 +2870,10 @@
 											<String>${i18n(char.u.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/u_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/u_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2917,10 +2917,10 @@
 											<String>${i18n(char.u.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/u_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/u_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -2964,10 +2964,10 @@
 											<String>${i18n(char.ash.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/ash_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/ash_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3011,10 +3011,10 @@
 											<String>${i18n(char.ash.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/ash_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/ash_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3058,10 +3058,10 @@
 											<String>${i18n(char.c.dot_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/c_dot-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/c_dot-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3105,10 +3105,10 @@
 											<String>${i18n(char.g.dot_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/g_dot-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/g_dot-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3152,10 +3152,10 @@
 											<String>${i18n(char.l.stroke_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/l_stroke-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/l_stroke-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3178,6 +3178,53 @@
 															<entry>
 																<String>text</String>
 																<String>ł</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>char.dot_above.cc</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.dot_above.cc)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.dot_above.cc_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/combining_dot-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/combining_dot-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>̇</String>
 															</entry>
 														</map>
 													</field>
@@ -3236,7 +3283,7 @@
 							<field name="menubarDescriptor">
 								<menu>
 									<field name="label">
-										<String>HisTEI</String>
+										<String>MIB</String>
 									</field>
 									<field name="accessKey">
 										<String>S</String>
@@ -3420,6 +3467,11 @@
 																</menuEntry-array>
 															</field>
 														</menu>
+														<menuItem>
+															<field name="actionID">
+																<String>char.dot_above.cc</String>
+															</field>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -3704,7 +3756,7 @@
 							<field name="toolbarDescriptor">
 								<toolbar>
 									<field name="id">
-										<String>HisTEI Formats</String>
+										<String>MIB Formats</String>
 									</field>
 									<field name="type">
 										<Integer>2</Integer>
@@ -3762,7 +3814,7 @@
 								<toolbar-array>
 									<toolbar>
 										<field name="id">
-											<String>HisTEI Characters</String>
+											<String>MIB Characters</String>
 										</field>
 										<field name="type">
 											<Integer>2</Integer>
@@ -3843,7 +3895,6 @@
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
-												<toolbarSeparator/>
 												<toolbar>
 													<field name="id">
 														<String>Capitals</String>
@@ -3897,12 +3948,17 @@
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.dot_above.cc</String>
+													</field>
+												</toolbarItem>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
 									<toolbar>
 										<field name="id">
-											<String>HisTEI Edits</String>
+											<String>MIB Edits</String>
 										</field>
 										<field name="type">
 											<Integer>2</Integer>
@@ -3977,7 +4033,7 @@
 									</toolbar>
 									<toolbar>
 										<field name="id">
-											<String>HisTEI Sections</String>
+											<String>MIB Sections</String>
 										</field>
 										<field name="type">
 											<Integer>2</Integer>
@@ -4103,7 +4159,7 @@
 									</toolbar>
 									<toolbar>
 										<field name="id">
-											<String>HisTEI Contextual Info</String>
+											<String>MIB Contextual Info</String>
 										</field>
 										<field name="type">
 											<Integer>2</Integer>
@@ -4152,7 +4208,7 @@
 									</toolbar>
 									<toolbar>
 										<field name="id">
-											<String>HisTEI Annotations</String>
+											<String>MIB Annotations</String>
 										</field>
 										<field name="type">
 											<Integer>2</Integer>
@@ -4303,7 +4359,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

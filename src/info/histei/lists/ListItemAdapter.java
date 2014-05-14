@@ -17,7 +17,7 @@ public class ListItemAdapter implements ListItem {
     protected String label;
     protected String tooltip;
 
-    protected ListItemAdapter(String value, String label, String tooltip) {
+    public ListItemAdapter(String value, String label, String tooltip) {
         this.value = nullToEmpty(value);
         this.label = nullToEmpty(label);
         this.tooltip = nullToEmpty(tooltip);

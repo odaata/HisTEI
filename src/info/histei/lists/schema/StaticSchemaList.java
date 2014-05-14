@@ -1,6 +1,5 @@
 package info.histei.lists.schema;
 
-import info.histei.lists.ListItem;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
@@ -15,7 +14,7 @@ import static info.histei.utils.XMLUtils.XML_LANG_ATTRIB_NAME;
  */
 public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
 
-    private static final List<SchemaList<? extends ListItem>> LISTS = new ArrayList<>(5);
+    private static final List<SchemaList<SchemaListItem>> LISTS = new ArrayList<>(5);
 
     static {
 //        @xml:lang attribute
@@ -169,7 +168,7 @@ public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
     }
 
     @NotNull
-    public static List<SchemaList<? extends ListItem>> getAll() {
+    public static List<SchemaList<SchemaListItem>> getAll() {
         return new ArrayList<>(LISTS);
     }
 

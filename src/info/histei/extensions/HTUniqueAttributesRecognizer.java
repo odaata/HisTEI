@@ -19,7 +19,10 @@ public class HTUniqueAttributesRecognizer extends DefaultUniqueAttributesRecogni
                     "biblStruct",
                     "biblFull",
                     "relation",
-                    "event"
+                    "event",
+                    "gloss",
+                    "span",
+                    "s", "cl", "phr", "w"
             }
     );
 

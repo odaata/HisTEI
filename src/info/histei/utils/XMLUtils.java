@@ -5,11 +5,10 @@ import org.apache.commons.lang3.StringEscapeUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 
+import javax.xml.namespace.QName;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
-
-import static info.histei.utils.MainUtils.emptyToNull;
 
 /**
  * Created by mike on 2/6/14.
@@ -24,6 +23,22 @@ public class XMLUtils {
     public static final String XML_NS_ATTRIB_NAME = "xmlns";
 
     @NotNull
+    public static String castQNameToXMLString(QName qName) {
+        String name = "";
+
+        if (qName != null) {
+            name = MainUtils.nullToEmpty(qName.getLocalPart());
+            if (!name.isEmpty()) {
+                String prefix = MainUtils.nullToEmpty(qName.getPrefix());
+                if (!prefix.isEmpty()) {
+                    name = prefix + ":" + name;
+                }
+            }
+        }
+        return name;
+    }
+
+    @NotNull
     public static String createElement(String elementName) {
         return createElement(NamespaceType.TEI.getURLID(), elementName, null);
     }
@@ -36,15 +51,15 @@ public class XMLUtils {
     @NotNull
     public static String createElement(String namespace, String elementName, Map<String, String> attributes) {
         String element = "";
-        namespace = emptyToNull(namespace);
-        elementName = emptyToNull(elementName);
+        namespace = MainUtils.emptyToNull(namespace);
+        elementName = MainUtils.emptyToNull(elementName);
         List<String> createdAttributes;
 
         if (namespace != null && elementName != null) {
             if (attributes != null) {
                 createdAttributes = new ArrayList<>(attributes.size() + 1);
                 for (String name : attributes.keySet()) {
-                    String value = emptyToNull(attributes.get(name));
+                    String value = MainUtils.emptyToNull(attributes.get(name));
                     if (value != null) {
                         String attr = createAttribute(name, value);
                         createdAttributes.add(attr);

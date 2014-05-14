@@ -15,7 +15,8 @@ public enum ContextualType {
     PERSON("Person", "psn", "person.xml"),
     PLACE("Place", "plc", "place.xml"),
     ORGANIZATION("Organization", "org", "org.xml"),
-    GENRE("Genre", "gen", "genre.xml");
+    GENRE("Genre", "gen", "genre.xml"),
+    ANNOTATION("Annotation", "ann", "annotation.xml");
 //  BIBLIOGRAPHY("Bibliography", "bib"),
 //  EVENT("Event", "evt");
 

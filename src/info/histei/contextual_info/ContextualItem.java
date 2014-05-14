@@ -3,8 +3,15 @@ package info.histei.contextual_info;
 import info.histei.lists.ListItemAdapter;
 import net.sf.saxon.s9api.QName;
 import net.sf.saxon.s9api.XdmNode;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 import static info.histei.utils.MainUtils.emptyToNull;
 import static info.histei.utils.MainUtils.nullToEmpty;
@@ -14,6 +21,13 @@ import static info.histei.utils.SaxonUtils.getChildText;
  * Created by mike on 2/10/14.
  */
 public class ContextualItem extends ListItemAdapter {
+
+    private static final Logger logger = Logger.getLogger(ContextualItem.class.getName());
+
+    //  Regexp info for retrieving IDs
+    private static final String TYPE_REGEX = "(" + StringUtils.join(ContextualType.getKeys(), "|") + ")";
+    private static final String ID_REGEX = "(\\S+)";
+    private static final Pattern REF_PATTERN = Pattern.compile(TYPE_REGEX + ":" + ID_REGEX);
 
     protected static final String TYPE_ATTRIB_NAME = "type";
 
@@ -58,5 +72,35 @@ public class ContextualItem extends ListItemAdapter {
     @NotNull
     public String getType() {
         return type;
+    }
+
+    @NotNull
+    public String getRefID() {
+        String id = "";
+        String value = getValue();
+
+        if (!value.isEmpty()) {
+            Matcher matcher = REF_PATTERN.matcher(value);
+            if (matcher.matches()) {
+                id = matcher.group(2);
+            }
+        }
+        return id;
+    }
+
+    @Nullable
+    public URL getURL() {
+        ContextualInfo info = ContextualInfo.get(getContextualType());
+        URL url = info.getURL();
+
+        if (url != null) {
+            try {
+                String id = getRefID();
+                if (!id.isEmpty()) url = new URL(url, "#" + id);
+            } catch (MalformedURLException e) {
+                logger.error(e, e);
+            }
+        }
+        return url;
     }
 }

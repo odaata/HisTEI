@@ -88,7 +88,113 @@
     <key value="char.pound_description">
         <val lang="en_US">Insert a pound sign.</val>
     </key>
+    
+    <key value="char.a.acute">
+        <val lang="en_US">a acute</val>
+    </key>
+    <key value="char.a.acute_description">
+        <val lang="en_US">Insert an a acute.</val>
+    </key>
+    <key value="char.a.acute.capital">
+        <val lang="en_US">capital a acute</val>
+    </key>
+    <key value="char.a.acute.capital_description">
+        <val lang="en_US">Insert a capital a acute.</val>
+    </key>
 
+    <key value="char.e.acute">
+        <val lang="en_US">e acute</val>
+    </key>
+    <key value="char.e.acute_description">
+        <val lang="en_US">Insert an e acute.</val>
+    </key>
+    <key value="char.e.acute.capital">
+        <val lang="en_US">capital e acute</val>
+    </key>
+    <key value="char.e.acute.capital_description">
+        <val lang="en_US">Insert a capital e acute.</val>
+    </key>
+    
+    <key value="char.i.acute">
+        <val lang="en_US">i acute</val>
+    </key>
+    <key value="char.i.acute_description">
+        <val lang="en_US">Insert an i acute.</val>
+    </key>
+    <key value="char.i.acute.capital">
+        <val lang="en_US">capital i acute</val>
+    </key>
+    <key value="char.i.acute.capital_description">
+        <val lang="en_US">Insert a capital i acute.</val>
+    </key>
+
+    <key value="char.o.acute">
+        <val lang="en_US">o acute</val>
+    </key>
+    <key value="char.o.acute_description">
+        <val lang="en_US">Insert an o acute.</val>
+    </key>
+    <key value="char.o.acute.capital">
+        <val lang="en_US">capital o acute</val>
+    </key>
+    <key value="char.o.acute.capital_description">
+        <val lang="en_US">Insert a capital o acute.</val>
+    </key>
+    
+    <key value="char.u.acute">
+        <val lang="en_US">u acute</val>
+    </key>
+    <key value="char.u.acute_description">
+        <val lang="en_US">Insert an u acute.</val>
+    </key>
+    <key value="char.u.acute.capital">
+        <val lang="en_US">capital u acute</val>
+    </key>
+    <key value="char.u.acute.capital_description">
+        <val lang="en_US">Insert a capital u acute.</val>
+    </key>
+    
+    <key value="char.ash.acute">
+        <val lang="en_US">ash acute</val>
+    </key>
+    <key value="char.ash.acute_description">
+        <val lang="en_US">Insert an ash acute.</val>
+    </key>
+    <key value="char.ash.acute.capital">
+        <val lang="en_US">capital ash acute</val>
+    </key>
+    <key value="char.ash.acute.capital_description">
+        <val lang="en_US">Insert a capital ash acute.</val>
+    </key>
+    
+    <key value="char.c.dot">
+        <val lang="en_US">c dot</val>
+    </key>
+    <key value="char.c.dot_description">
+        <val lang="en_US">Insert a c dot.</val>
+    </key>
+    
+    <key value="char.g.dot">
+        <val lang="en_US">g dot</val>
+    </key>
+    <key value="char.g.dot_description">
+        <val lang="en_US">Insert a g dot.</val>
+    </key>
+    
+    <key value="char.l.stroke">
+        <val lang="en_US">l stroke</val>
+    </key>
+    <key value="char.l.stroke_description">
+        <val lang="en_US">Insert a l stroke.</val>
+    </key>
+    
+    <key value="char.dot_above.cc">
+        <val lang="en_US">dot above</val>
+    </key>
+    <key value="char.dot_above.cc_description">
+        <val lang="en_US">Insert a dot above (on the previous character).</val>
+    </key>
+    
     <!-- Text Decoration -->
 
     <key value="bold">
@@ -379,6 +485,33 @@
             element.
         </val>
     </key>
+    
+    <!-- Annotations   -->
+    
+    <key value="sentence">
+        <val lang="en_US">Sentence</val>
+    </key>
+    <key value="sentence_description">
+        <val lang="en_US">Insert a sentence with the s element.</val>
+    </key>
+    <key value="clause">
+        <val lang="en_US">Clause</val>
+    </key>
+    <key value="clause_description">
+        <val lang="en_US">Insert a clause with the cl element.</val>
+    </key>
+    <key value="phrase">
+        <val lang="en_US">Phrase</val>
+    </key>
+    <key value="phrase_description">
+        <val lang="en_US">Insert a phrase with the phr element.</val>
+    </key>
+    <key value="word">
+        <val lang="en_US">Word</val>
+    </key>
+    <key value="word_description">
+        <val lang="en_US">Insert a word with the w element.</val>
+    </key>
 
     <!-- Contextual Information -->
 
@@ -386,7 +519,7 @@
         <val lang="en_US">date</val>
     </key>
     <key value="date_description">
-        <val lang="en_US">Insert a a date with the date element.</val>
+        <val lang="en_US">Insert a date with the date element.</val>
     </key>
 
     <key value="contextual.info.edit">
@@ -869,7 +1002,7 @@
     
     <!-- Annotations -->
     
-    <key value="interpGrp.label.functions">
+    <key value="interpGrp.label.function">
         <val lang="en_US">Functions</val>
     </key>
     <key value="interpGrp.label.clause">
@@ -880,6 +1013,13 @@
     </key>
     <key value="interpGrp.label.pos">
         <val lang="en_US">Part of Speech Tags (PoS)</val>
+    </key>
+    <key value="div.label.analysis">
+        <val lang="en_US">Analytic Tags</val>
+    </key>
+    
+    <key value="gloss.label">
+        <val lang="en_US">Gloss</val>
     </key>
     
     <key value="s.label">
@@ -899,6 +1039,13 @@
     </key>
     <key value="pc.label">
         <val lang="en_US">Punctuation</val>
+    </key>
+    
+    <key value="ana.label">
+        <val lang="en_US">Ana</val>
+    </key>
+    <key value="function.label">
+        <val lang="en_US">Function</val>
     </key>
 
     <!--  Biblographic References  -->
@@ -1025,6 +1172,9 @@
     </key>
     <key value="listOrg.label.repository">
         <val lang="en_US">Repositories (i.e. Archives where old texts are kept)</val>
+    </key>
+    <key value="listOrg.label.court">
+        <val lang="en_US">Courts</val>
     </key>
 
     <key value="listEvent.label">

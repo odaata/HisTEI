@@ -188,6 +188,13 @@
         <val lang="en_US">Insert a l stroke.</val>
     </key>
     
+    <key value="char.dot_above.cc">
+        <val lang="en_US">dot above</val>
+    </key>
+    <key value="char.dot_above.cc_description">
+        <val lang="en_US">Insert a dot above (on the previous character).</val>
+    </key>
+    
     <!-- Text Decoration -->
 
     <key value="bold">

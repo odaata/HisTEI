@@ -29,15 +29,18 @@ declare function local:list($list as element()) as element(item)* {
                 ()
 };
 
-declare function local:item($id as xs:string, $type as xs:string?, 
-    $label as xs:string?, $tooltip as xs:string?) as element(item) {
+declare function local:item($id as xs:string?, $type as xs:string?, 
+    $label as xs:string?, $tooltip as xs:string?) as element(item)? {
     
-    element item { 
-        attribute value { $id },
-        if ($type != "") then attribute type { $type } else (),
-        element label { if ($label != "") then normalize-space($label) else $id },
-        if ($tooltip != "") then element tooltip { normalize-space($tooltip) } else ()
-    }
+    if ($id != "") then
+        element item { 
+            attribute value { $id },
+            if ($type != "") then attribute type { $type } else (),
+            element label { if ($label != "") then normalize-space($label) else $id },
+            if ($tooltip != "") then element tooltip { normalize-space($tooltip) } else ()
+        }
+    else
+        ()
 };
 
 declare function local:taxonomy($taxonomy as element()) as element(item)* {
@@ -63,13 +66,14 @@ declare function local:interpGrp($nodes as element(tei:interpGrp)+) as element(i
     
     for $interp in $interpGrp/element(tei:interp)
     let $id := data($interp/@xml:id)
-    let $label := data(normalize-space($interp/text()))
+    let $label := $id
+    let $tooltip := data(normalize-space($interp/text()))
     return
-        local:item($id, $type, $label, ())
+        local:item($id, $type, $label, $tooltip)
 };
 
 let $taxonomy := //tei:classDecl/tei:taxonomy[1]
-let $interpGrps := //tei:text/tei:interpGrp
+let $interpGrps := //tei:interpGrp
 let $items := 
     switch(true())
     case exists($taxonomy/tei:category) return 

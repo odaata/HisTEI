@@ -1,5 +1,5 @@
 /*-----------------------------------------------------------------------------------------------
------ EMST framework customizations for Oxygen 
+----- HisTEI framework customizations for Oxygen 
 -----   made to the TEI css available at 
 -----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
 -------------------------------------------------------------------------------------------------*/
@@ -12,7 +12,9 @@
 /* white-space will be inherited by all fields below the lists */
 listPerson,
 listOrg,
-listPlace {
+listPlace,
+taxonomy,
+interpGrp {
     white-space:normal;
 }
 
@@ -21,7 +23,9 @@ titleStmt,
 title,
 publicationStmt,
 authority, 
-sourceDesc {
+sourceDesc,
+interpGrp,
+interp {
     display:block;
 }
 
@@ -47,9 +51,17 @@ address,
 note[type="collections"],
 note[type="collection"],
 note[type="inventories"],
-note[type="inventory"] {
+note[type="inventory"],
+div[type="analysis"],
+interpGrp {
     display:block;
     -oxy-foldable:true;
+}
+
+/* Expanded Sections by Default */
+back,
+div[type="analysis"] {
+    -oxy-folded:false;
 }
 
 /* Collapsed Sections by Default */
@@ -70,7 +82,8 @@ address,
 note[type="collections"],
 note[type="collection"],
 note[type="inventories"],
-note[type="inventory"]  {
+note[type="inventory"],
+interpGrp {
     -oxy-folded:true;
 }
 
@@ -91,7 +104,9 @@ address:before,
 note[type="collections"]:before,
 note[type="collection"]:before,
 note[type="inventories"]:before,
-note[type="inventory"]:before {
+note[type="inventory"]:before,
+div[type="analysis"]:before,
+interpGrp:before {
     display:block;
     color:white;
     background-color:gray;
@@ -161,9 +176,15 @@ listOrg > listOrg:before {
 /* Special labels for lists with a specified type */
 listPerson > listPerson[type]:before,
 listPlace > listPlace[type]:before,
-listOrg > listOrg[type]:before {
+listOrg > listOrg[type]:before,
+div[type="analysis"]:before,
+interpGrp[type]:before {
     background-color:rgba(53, 25, 0, 0.6);
     content: oxy_concat("${i18n(", oxy_name(), ".label.", attr(type, string, "") , ")}");
+}
+
+div[type="analysis"]:before {
+    background-color: rgba(0, 49, 200, 0.7);
 }
 
 /* Special labels for the notes with specific functions
@@ -444,6 +465,24 @@ org:before {
     ;
 }
 
+/* Records with types (e.g. not allowed by person) */
+org:before,
+event:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+            columns, 15
+        )
+    ;
+}
+
 /* Inline elements for text */
 person > persName,
 place > placeName,
@@ -519,22 +558,6 @@ sex {
     ;
 }
 
-event:before {
-    -oxy-append-content:
-        oxy_label(
-            text, "${i18n(type.label)}: "
-            color, white
-            width, 75px
-            styles, "@import 'labels_sub.css';"
-        )
-        oxy_combobox(
-            edit, "@type"
-            editable, true
-            columns, 15
-        )
-    ;
-}
-
 /* Org */
 
 /* !!!Hack - can't figure out why oxygen styles just these fields differently wrt whitespace - 
@@ -553,4 +576,19 @@ category:before! > category {
     content: attr(xml|id, string, "");
 }
 
+/* Annotations */
 
+/* Interp fields */
+interp {
+    content:
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 5
+        )
+        oxy_label(
+            text, " - "
+            width, 15px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}

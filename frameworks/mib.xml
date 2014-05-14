@@ -17,12 +17,18 @@
                 code { font-size:large; }
                 p { margin:0px; padding:5px; }
             </style>
-            <p class="title">Emerging Standards Oxygen Framework</p>
+            <p class="title">Medieval Irish Bilingualism Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
                 <p class="header">Version 0.4.00</p>
                 <ul>
                     <li>First release of the framework Medieval Irish Bilingualism</li>
+                    <li>Unicode character buttons were added to a menu with shortcut keys</li>
+                    <li><code>s</code>, <code>cl</code>, <code>phr</code> and <code>w</code> elements were added</li>
+                    <li>
+                        Glosses can be inserted and linked using the <code>gloss</code> element and <code>@target</code> attribute.
+                        These refer to places in the text marked up with an xml:id using the <code>ab</code>, <code>seg</code> or <code>term</code> elements.
+                    </li>
                 </ul>
             </div>
         </xt:description>

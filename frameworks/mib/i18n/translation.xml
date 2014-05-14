@@ -1063,6 +1063,9 @@
     <key value="gloss.label">
         <val lang="en_US">Gloss</val>
     </key>
+    <key value="target.label">
+        <val lang="en_US">Target</val>
+    </key>
     
     <key value="s.label">
         <val lang="en_US">Sentence</val>

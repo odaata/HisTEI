@@ -4,6 +4,7 @@
     <property name="framework.HisTEI" value="${basedir}/HisTEI"/>
     <property name="framework.emst" value="${basedir}/emst"/>
     <property name="framework.amsterdam" value="${basedir}/amsterdam"/>
+    <property name="framework.mib" value="${basedir}/mib"/>
 
     <patternset id="framework.files">
         <exclude name="odd/"/>
@@ -19,6 +20,7 @@
         <property name="temp.jar.path.HisTEI-oxygen.zip" value="${artifacts.temp.dir}/HisTEI-oxygen.zip"/>
         <property name="temp.jar.path.emst-oxygen.zip" value="${artifacts.temp.dir}/emst-oxygen.zip"/>
         <property name="temp.jar.path.amsterdam-oxygen.zip" value="${artifacts.temp.dir}/amsterdam-oxygen.zip"/>
+        <property name="temp.jar.path.mib-oxygen.zip" value="${artifacts.temp.dir}/mib-oxygen.zip"/>
     </target>
 
     <target name="artifact.HisTEI-oxygen" depends="init.artifacts" description="Build HisTEI-oxygen.zip">
@@ -95,11 +97,43 @@
               tofile="${artifact.temp.output.amsterdam-oxygen}/amsterdam-oxygen.zip"/>
     </target>
 
-    <target name="build.all.artifacts" depends="artifact.HisTEI-oxygen, artifact.emst-oxygen, artifact.amsterdam-oxygen"
+    <target name="copy.mib.framework.files" depends="init.artifacts"
+            description="Copy supporting framework files for Medieval Irish Bilingualism project">
+        <delete includeemptydirs="true" failonerror="true">
+            <fileset dir="${framework.mib}">
+                <patternset refid="framework.files"/>
+            </fileset>
+        </delete>
+        <copy todir="${framework.mib}"
+              preservelastmodified="true"
+              includeEmptyDirs="true"
+              failonerror="true">
+            <fileset dir="${framework.HisTEI}">
+                <patternset refid="framework.files"/>
+            </fileset>
+        </copy>
+    </target>
+
+    <target name="artifact.mib-oxygen" depends="copy.mib.framework.files"
+            description="Build mib-oxygen.zip">
+        <property name="artifact.temp.output.mib-oxygen" value="${artifacts.temp.dir}/mib_oxygen"/>
+        <mkdir dir="${artifact.temp.output.mib-oxygen}"/>
+        <zip destfile="${temp.jar.path.mib-oxygen.zip}" duplicate="preserve">
+            <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="mib"/>
+            <zipfileset dir="${basedir}/mib" prefix="mib"/>
+        </zip>
+        <copy file="${basedir}/mib.xml"
+              tofile="${artifact.temp.output.mib-oxygen}/mib.xml"/>
+        <copy file="${temp.jar.path.mib-oxygen.zip}"
+              tofile="${artifact.temp.output.mib-oxygen}/mib-oxygen.zip"/>
+    </target>
+
+    <target name="build.all.artifacts" depends="artifact.HisTEI-oxygen, artifact.emst-oxygen, artifact.amsterdam-oxygen, artifact.mib-oxygen"
             description="Build all artifacts">
         <property name="artifact.output.dist.HisTEI" value="${artifact.output.dist}/HisTEI"/>
         <property name="artifact.output.dist.emst" value="${artifact.output.dist}/emst"/>
         <property name="artifact.output.dist.amsterdam" value="${artifact.output.dist}/amsterdam"/>
+        <property name="artifact.output.dist.mib" value="${artifact.output.dist}/mib"/>
 
         <delete dir="${artifact.output.dist}"/>
 
@@ -107,6 +141,7 @@
         <mkdir dir="${artifact.output.dist.HisTEI}"/>
         <mkdir dir="${artifact.output.dist.emst}"/>
         <mkdir dir="${artifact.output.dist.amsterdam}"/>
+        <mkdir dir="${artifact.output.dist.mib}"/>
 
         <copy todir="${artifact.output.dist.HisTEI}">
             <fileset dir="${artifact.temp.output.HisTEI-oxygen}"/>
@@ -116,6 +151,9 @@
         </copy>
         <copy todir="${artifact.output.dist.amsterdam}">
             <fileset dir="${artifact.temp.output.amsterdam-oxygen}"/>
+        </copy>
+        <copy todir="${artifact.output.dist.mib}">
+            <fileset dir="${artifact.temp.output.mib-oxygen}"/>
         </copy>
 
         <!-- Delete temporary files -->

@@ -26,6 +26,8 @@ public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
                                 {"en", "English"},
                                 {"fr", "French"},
                                 {"de", "German"},
+                                {"ga", "Gaelic"},
+                                {"ga-la", "Gaelic-Latin"},
                                 {"la", "Latin"}
                         }
                 )

@@ -2961,10 +2961,10 @@
 											<String>${i18n(char.a.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/a_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/a_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3008,10 +3008,10 @@
 											<String>${i18n(char.a.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/a_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/a_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3055,10 +3055,10 @@
 											<String>${i18n(char.e.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/e_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/e_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3102,10 +3102,10 @@
 											<String>${i18n(char.e.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/e_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/e_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3149,10 +3149,10 @@
 											<String>${i18n(char.i.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/i_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/i_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3196,10 +3196,10 @@
 											<String>${i18n(char.i.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/i_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/i_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3243,10 +3243,10 @@
 											<String>${i18n(char.o.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/o_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/o_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3290,10 +3290,10 @@
 											<String>${i18n(char.o.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/o_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/o_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3337,10 +3337,10 @@
 											<String>${i18n(char.u.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/u_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/u_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3384,10 +3384,10 @@
 											<String>${i18n(char.u.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/wynn-20.png</String>
+											<String>${framework}/images/u_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/wynn-16.png</String>
+											<String>${framework}/images/u_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3431,10 +3431,10 @@
 											<String>${i18n(char.ash.acute_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/ash_acute-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/ash_acute-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3478,10 +3478,10 @@
 											<String>${i18n(char.ash.acute.capital_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/ash_acute_capital-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/ash_acute_capital-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3525,10 +3525,10 @@
 											<String>${i18n(char.c.dot_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/c_dot-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/c_dot-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3572,10 +3572,10 @@
 											<String>${i18n(char.g.dot_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/g_dot-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/g_dot-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -3619,10 +3619,10 @@
 											<String>${i18n(char.l.stroke_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/ash-20.png</String>
+											<String>${framework}/images/l_stroke-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/ash-16.png</String>
+											<String>${framework}/images/l_stroke-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>

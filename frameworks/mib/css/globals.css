@@ -1,0 +1,113 @@
+/*-----------------------------------------------------------------------------------------------
+----- HisTEI framework customizations for Oxygen 
+-----   global settings and fields to be set first in all CSS Styles
+-------------------------------------------------------------------------------------------------*/
+
+/* All dates and datable elements */
+@import "global_fields.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Global sections, fields & labels */
+
+/* Foldable Sections */
+TEI,
+teiHeader,
+front,
+body,
+back {
+    display:block;
+    padding:1px;
+    -oxy-foldable:true;
+}
+
+/* Folded Sections */
+front,
+back {
+    -oxy-folded:true;
+}
+
+/* Section labels */
+
+/* Global Sections */
+TEI:before,
+teiHeader:before,
+text:before,
+front:before,
+body:before,
+back:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+    content: oxy_concat("${i18n(", oxy_name(), ".label)}");
+}
+
+/* Global Text Layout */
+
+TEI {
+    display:block;
+    padding:10px 20px 5px 5px;
+/*  Geneva - only (good-looking) font that supports OE chars (found so far)  */
+    font-family:Geneva;
+/*    font-family:helvetica, verdana, arial, sans-serif;*/
+/*    font-size:12px;*/
+}
+
+TEI:before {
+    background-color:navy;
+    font-size:x-large;
+}
+
+text {
+    white-space:nowrap;
+}
+
+teiHeader {
+    border:1px solid;
+    -oxy-not-foldable-child: fileDesc;
+}
+
+teiHeader:before,
+text:before {
+    background-color:maroon;
+    font-size:large;
+}
+
+/* @xml:lang */
+TEI:before,
+teiHeader:before,
+text:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(lang.label)}: "
+            color, white
+            width, 90px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@xml:lang"
+            columns, 5
+        )
+    ;
+}
+
+/* @xml:id */
+TEI[xml|id]:before {
+    -oxy-append-content: 
+        oxy_label(
+            text, "ID: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_label(
+            text, attr(xml|id, string, "")
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+

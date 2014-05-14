@@ -1,0 +1,472 @@
+/*-----------------------------------------------------------------------------------------------
+----- HisTEI framework customizations for Oxygen 
+-----   made to the TEI css available at 
+-----   http://tei.svn.sourceforge.net/viewvc/tei/trunk/TEICSS/ 
+-------------------------------------------------------------------------------------------------*/
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Global styles for hover/focus during inline editing */
+supplied:focus:after,
+foreign:focus:after,
+gap:hover:after,
+supplied:focus:after,
+unclear:focus:after,
+add:focus:after,
+del:focus:after,
+handShift:hover:after {
+    padding:5px;
+    border:1px dashed;
+}
+
+/* Sections, fields & labels */
+
+/* (Sub)Sections */
+titlePage:before,
+docTitle:before,
+docImprint:before,
+docDate:before,
+titlePart:before,
+div:before,
+opener:before,
+closer:before,
+postscript:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+    content: oxy_concat("${i18n(", oxy_name(), ".label)}");
+}
+
+titlePage:before,
+docTitle:before,
+docDate:before,
+titlePart:before,
+docImprint:before {
+    color:black;
+    background-color:silver;
+}
+
+/* Foldable Sections */
+titlePage,
+docTitle,
+docImprint,
+docDate,
+div,
+opener,
+closer,
+postscript {
+    display:block;
+    -oxy-foldable:true;
+}
+
+/* Field Labels */
+dateline::before,
+salute:before,
+signed:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Layout */
+div:before,
+titlePart:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            width, 75px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+        )
+    ;
+}
+
+titlePage,
+docTitle {
+    -oxy-not-foldable-child: docTitle, titlePart;
+}
+
+div {
+    -oxy-not-foldable-child: head, opener;
+}
+
+titlePage,
+docTitle,
+div,
+opener,
+closer,
+dateline,
+salute {
+    display:block;
+    padding:1px;
+}
+
+opener {
+    margin-bottom:.5em;
+}
+
+closer {
+    margin-top:.5em;
+}
+
+titlePart,
+dateline,
+salute,
+signed {
+    display:block;
+    padding:2px;
+    margin:2px;
+    margin-bottom: 5px;
+}
+
+fw {
+    display:block;
+    padding:5px;
+    text-align:right;
+}
+
+fw:before {
+    content: 
+        url('../images/forme_work-16.png')
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+            edit, "@type"
+            editable, true
+        )
+    ;
+}
+
+/* Inline elements for text */
+
+/* Elements with hidden Oxygen tags */
+titlePart,
+dateline,
+salute,
+signed,
+abbr,
+expan,
+add, 
+del,
+gap,
+unclear,
+supplied,
+foreign,
+seg,
+handShift,
+pb,
+pc,
+w {
+    -oxy-display-tags:none;
+}
+
+div date,
+div persName,
+div orgName,
+div placeName,
+div district,
+div settlement,
+div region,
+div country,
+div bloc {
+    color:olive;
+}
+
+/* Milestones or elements with no text */
+pb,
+handShift,
+gap {
+    visibility:-oxy-collapse-text;
+}
+
+abbr {
+    background-color: rgba(0, 255, 0, 0.1);
+    font-weight:bold;
+}
+
+expan {
+    background-color: rgba(128, 0, 0, 0.1);
+    font-style:italic;
+}
+
+add {
+    color: green;
+    text-decoration: underline;
+    vertical-align: oxy_xpath("if (@place eq 'above') then 'super' else if (@place eq 'below') then 'sub' else 'middle'");
+}
+
+del {
+    color: red;
+    text-decoration: line-through;
+}
+
+gap {
+    color:orange;
+    content: "[...]";
+    font-style: italic;
+}
+
+unclear {
+    color: maroon;
+    font-style: italic;
+}
+
+supplied:before {
+    font-weight:normal;
+    padding:0px;
+    content: "[";    
+}
+
+supplied {
+    color: blue;
+    font-style:italic;
+}
+
+supplied:focus:after,
+supplied:after {
+    border:0px;
+    padding:0px;
+    content: "]";
+}
+
+pc {
+    color:purple;
+}
+
+foreign {
+    color:#3D5229;
+    font-style:italic;
+    font-weight:bold;
+}
+
+foreign:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(lang.label)}: "
+            width, 40px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@xml:lang"
+        )
+    ;
+}
+
+salute,
+seg[function='salute'] {
+    background-color:silver;
+    font-style:italic;
+}
+
+seg[function='formulaic']{
+    background-color: rgba(0, 128, 128, 0.2);
+    font-style:italic;
+}
+
+/* Note */
+
+div note {
+    display:inline;
+    border: 1px solid maroon;
+    padding:1px;
+    font-size: 11px;
+}
+
+div note:before {
+    font-size:smaller;
+    font-weight:bold;
+    content:
+        oxy_label(
+            text, "${i18n(note.label)}:"
+            width, 25px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* @reason */
+
+gap:hover:after,
+supplied:focus:after,
+unclear:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(reason.label)}: "
+            width, 70px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@reason"
+        )
+    ;
+}
+
+/* @place */
+div note:before,
+fw:before,
+add:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(place.label.textual)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@place"
+        )
+    ;
+}
+
+/* Page Break */
+pb {
+    display:block;
+    background-color:transparent;
+    border-style:solid none;
+    border-width:1px 0px;
+    vertical-align:middle;
+    padding:5px;
+    margin:5px 0px;
+    font-weight:bold;
+    font-size:small;
+    line-height:1.5;
+}
+pb:before {
+    counter-increment:pages;
+    content: url('../images/page_break-16.png')
+        " Page " counter(pages)
+        oxy_label(
+            text, "${i18n(n.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@n"
+            columns, 4
+            tooltips, "${i18n(n.tooltip)}"
+        )
+        oxy_label(
+            text, "${i18n(break.label)}: "
+            width, 60px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@break"
+        )
+    ;
+}
+
+/* Media References to Facsimiles */
+[facs]:before {
+    -oxy-append-content:
+        oxy_button(
+            actionID, "media.open"
+            transparent, true
+            showText, true
+            showIcon, true
+        )    
+}
+
+titlePage:before,
+div:before,
+pb:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(facs.label)}: "
+            width, 100px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_popup(
+            edit, "@facs"
+            selectionMode, multiple
+        )
+    ;
+}
+
+/* Hand References */
+handShift {
+    padding:0px 5px;
+    link: attr(new, string, "");
+    content: url('../images/hand_shift-16.png');
+}
+
+handShift:hover:after {
+    -oxy-append-content: 
+        oxy_label(
+            text, "${i18n(hand.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@new"
+        )    
+        oxy_label(
+            text, "${i18n(script.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@script"
+            editable, true
+        )  
+    ;
+}
+
+add:focus:after,
+del:focus:after,
+unclear:focus:after,
+gap:hover:after {
+    -oxy-append-content: 
+        oxy_label(
+            text, "${i18n(hand.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@hand"
+        )
+}
+
+handShift[new]:hover:after {
+    link: attr(new, string, "");
+    -oxy-append-content: url('../images/hand_open-16.png');
+}
+
+[hand]:focus:after,
+gap[hand]:hover:after {
+    link: attr(hand, string, "");
+    -oxy-append-content: url('../images/hand_open-16.png');
+}
+
+/* An attempt at numbering linebreaks...
+text p lb{
+    font-family:courier, fixed, monospace;
+    font-size:x-small;
+    content:
+        oxy_xpath(
+            "if (((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) mod 5) eq 0) then concat('\A', substring(concat(count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1, '     '), 1,4)) else if ((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) eq 1) then '    ' else '\A     '"
+        )
+    ;
+}*/
+
+/*w {
+    background-color:transparent;
+    border-style:groove none;
+    border-width:1px 0px;
+    font-weight:bold;
+    font-size:small;
+    line-height:2;
+    content:
+        oxy_popup(
+            edit, "@ana"
+            fontInherit, true
+            values, oxy_xpath("string-join(for $id in //interpGrp[@type eq 'pos']/interp/@xml:id return concat('#', $id), ',')")
+            labels, oxy_xpath("string-join(//interpGrp[@type eq 'pos']/interp/text(), ',')")
+            selectionMode, single
+        );
+}*/

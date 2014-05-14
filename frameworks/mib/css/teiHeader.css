@@ -1,0 +1,315 @@
+/*-----------------------------------------------------------------------------------------------
+----- HisTEI framework customizations for Oxygen 
+-----   TEI Header for a Document
+-------------------------------------------------------------------------------------------------*/
+
+/* Bibliographic References used in sourceDesc when transcribing published work */
+@import "bibl.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Foldable Sections */
+titleStmt,
+respStmt,
+publicationStmt,
+notesStmt,
+sourceDesc,
+msDesc,
+profileDesc,
+creation,
+textClass,
+handNotes {
+    display:block;
+    -oxy-foldable:true;
+}
+
+/* Collapsed Sections by Default */
+respStmt,
+publicationStmt,
+notesStmt,
+sourceDesc,
+profileDesc,
+creation,
+textClass,
+handNotes {
+    -oxy-folded:true;
+}
+
+/* Section labels */
+titleStmt:before,
+respStmt:before,
+publicationStmt:before,
+notesStmt:before,
+sourceDesc:before,
+msDesc:before,
+profileDesc:before,
+creation:before,
+textClass:before,
+handNotes:before {
+    display:block;
+    color:white;
+    background-color:gray;
+    font-weight:bold;
+    width:100%;
+    margin:5px;
+    content: oxy_concat("${i18n(", oxy_name(), ".label)}");
+}
+
+respStmt:before,
+msDesc:before {
+    background-color:rgba(53, 25, 0, 0.6);    
+}
+
+/* Fields */
+titleStmt,
+respStmt,
+resp,
+name,
+fileDesc,
+titleStmt,
+title,
+authority,
+note,
+msDesc,
+msIdentifier,
+repository,
+collection,
+idno,
+altIdentifier,
+catRef {
+    display:block;
+}
+
+
+/* Field labels */
+title:before,
+resp:before,
+name:before,
+authority:before,
+note:before,
+repository:before,
+collection:before,
+catRef:before {
+    content: 
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}:")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Special labels for the notes with specific functions
+    these are all essentially custom fields for the Amsterdam project */
+teiHeader note[type]:before {
+    content: oxy_concat("${i18n(note.label.", attr(type, string, ""), ")}:");
+}
+
+teiHeader note {
+    white-space:normal;
+}
+
+/* Collapse text for all reference elements 
+    (so that only the combobox will edit the field) */
+repository,
+catRef,
+creation > date,
+creation > persName,
+creation > orgName,
+creation > placeName,
+creation > district,
+creation > settlement,
+creation > region,
+creation > country,
+creation > bloc {
+    display:block;
+    vertical-align:middle;
+    padding:5px 0px;
+    visibility:-oxy-collapse-text;
+}
+
+repository,
+creation > persName,
+creation > orgName,
+creation > placeName,
+creation > district,
+creation > settlement,
+creation > region,
+creation > country,
+creation > bloc {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+        )
+    ;
+}
+
+catRef {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@target"
+            fontInherit, true
+        )
+    ;
+}
+
+/* Field Labels not automatically retrievable */
+publicationStmt > idno:before {
+    content: 
+        oxy_label(
+            text, "${i18n(idno.label.internal)}:"
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+msIdentifier > idno:before {
+    content: 
+        oxy_label(
+            text, "${i18n(idno.label.archive)}:"
+            width, 100px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+altIdentifier > idno:before {
+    content: 
+        oxy_label(
+            text, "${i18n(idno.label.alternative)}:"
+            width, 110px
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Special fields */
+collection[type]:before {
+    content:
+        oxy_label(
+            text, oxy_concat("${i18n(note.label.", attr(type, string ""), ")}:")
+            width, 110px
+            styles, "@import 'labels.css';"
+        )
+        oxy_label(
+            text, oxy_concat("${i18n(ref.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@ref"
+            columns, 14
+        )
+        "  "
+    ;
+}
+
+resp {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(key.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@key"
+            columns, 6
+        )
+        "  "
+    ;
+}
+
+/* creation */
+creation > date:before,
+creation > persName:before,
+creation > orgName:before,
+creation > placeName:before,
+creation > district:before,
+creation > settlement:before,
+creation > region:before,
+creation > country:before,
+creation > bloc:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            columns, 10
+            editable, true
+        )
+    ;
+}
+
+/* Hand */
+handNote {
+    display:block;
+    padding:2px;
+    border:1px inset;
+    visibility:-oxy-collapse-text;
+    white-space:pre-wrap;
+}
+
+handNote:before {
+    -oxy-append-content:
+        url('../images/hand-16.png')
+        oxy_label(
+            text, "${i18n(id.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textfield(
+            edit, "@xml:id"
+            columns, 15
+        )
+        oxy_label(
+            text, "${i18n(scope.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+                edit, "@scope"
+        )
+    ;
+}
+
+handNote {
+    display:block;
+    content:
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@scribeRef"
+            fontInherit, true
+        )
+    ;
+}
+
+handNote:after {
+    display:block;
+    content:
+        oxy_label(
+            text, "${i18n(desc.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textArea(
+            edit, "#text"
+            contentType, "text/plain"
+            columns, 50
+            rows, 2
+            indentOnTab, false
+        )
+        "\A"
+        oxy_label(
+            text, "${i18n(script.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@script"
+            editable, true
+        )  
+    ;
+}
+
+

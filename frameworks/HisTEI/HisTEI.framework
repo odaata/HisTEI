@@ -3655,6 +3655,53 @@
 											</actionMode-array>
 										</field>
 									</action>
+									<action>
+										<field name="id">
+											<String>char.dot_above.cc</String>
+										</field>
+										<field name="name">
+											<String>${i18n(char.dot_above.cc)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(char.dot_above.cc_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/ash-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/ash-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>text</String>
+																<String>̇</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
 								</action-array>
 							</field>
 							<field name="menubarDescriptor">
@@ -3894,6 +3941,11 @@
 																</menuEntry-array>
 															</field>
 														</menu>
+														<menuItem>
+															<field name="actionID">
+																<String>char.dot_above.cc</String>
+															</field>
+														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -4347,7 +4399,6 @@
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
-												<toolbarSeparator/>
 												<toolbar>
 													<field name="id">
 														<String>Capitals</String>
@@ -4421,6 +4472,11 @@
 														</toolbarEntry-array>
 													</field>
 												</toolbar>
+												<toolbarItem>
+													<field name="actionID">
+														<String>char.dot_above.cc</String>
+													</field>
+												</toolbarItem>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>

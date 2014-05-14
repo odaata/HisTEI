@@ -1,6 +1,9 @@
 package info.histei.lists.schema;
 
+import info.histei.commons.TEINamespace;
 import info.histei.utils.MainUtils;
+import info.histei.utils.OxygenUtils;
+import info.histei.utils.XMLUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
@@ -11,18 +14,14 @@ import javax.swing.text.BadLocationException;
 import java.util.Arrays;
 import java.util.List;
 
-import static info.histei.commons.TEINamespace.*;
-import static info.histei.utils.OxygenUtils.*;
-import static info.histei.utils.XMLUtils.XML_ID_ATTRIB_NAME;
-
 /**
  * Created by mike on 3/10/14.
  */
 public class HandSchemaList extends AbstractReferenceSchemaList<SchemaListItem> {
 
     public static final List<SchemaListAttribute> ATTRIBUTES = Arrays.asList(
-            new SchemaListAttribute(HAND_ATTRIB_NAME),
-            new SchemaListAttribute(NEW_ATTRIB_NAME, HAND_SHIFT_ELEMENT_NAME)
+            new SchemaListAttribute(TEINamespace.HAND_ATTRIB_NAME),
+            new SchemaListAttribute(TEINamespace.NEW_ATTRIB_NAME, TEINamespace.HAND_SHIFT_ELEMENT_NAME)
     );
 
     private AuthorElement handNotesElement;
@@ -34,7 +33,7 @@ public class HandSchemaList extends AbstractReferenceSchemaList<SchemaListItem> 
     @Nullable
     public AuthorElement getHandNotesElement() {
         if (handNotesElement == null) {
-            handNotesElement = getAuthorElement("//teiHeader/profileDesc/handNotes[1]", authorAccess);
+            handNotesElement = OxygenUtils.getAuthorElement("//teiHeader/profileDesc/handNotes[1]", authorAccess);
         }
         return handNotesElement;
     }
@@ -48,17 +47,17 @@ public class HandSchemaList extends AbstractReferenceSchemaList<SchemaListItem> 
     @Override
     public boolean isEdited(AuthorNode editedNode) {
         String name = editedNode.getName();
-        return (HAND_NOTES_ELEMENT_NAME.equals(name) ||
-                HAND_NOTE_ELEMENT_NAME.equals(name));
+        return (TEINamespace.HAND_NOTES_ELEMENT_NAME.equals(name) ||
+                TEINamespace.HAND_NOTE_ELEMENT_NAME.equals(name));
     }
 
     @Override
     public synchronized void refresh() {
         List<SchemaListItem> items = getItems();
-        List<AuthorElement> handNotes = getContentElements(getHandNotesElement());
+        List<AuthorElement> handNotes = OxygenUtils.getContentElements(getHandNotesElement());
 
         for (AuthorElement handNote : handNotes) {
-            String id = getAttrValue(handNote.getAttribute(XML_ID_ATTRIB_NAME));
+            String id = OxygenUtils.getAttrValue(handNote.getAttribute(XMLUtils.XML_ID_ATTRIB_NAME));
             if (id != null) id = "#" + id;
 
             String tooltip = null;
@@ -73,5 +72,11 @@ public class HandSchemaList extends AbstractReferenceSchemaList<SchemaListItem> 
                 items.add(listItem);
             }
         }
+    }
+
+    @Override
+    public synchronized void reset() {
+        super.reset();
+        handNotesElement = null;
     }
 }

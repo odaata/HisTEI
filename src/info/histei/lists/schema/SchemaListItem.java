@@ -20,4 +20,9 @@ public class SchemaListItem extends ListItemAdapter {
     protected SchemaListItem(String value, String tooltip) {
         super(value, null, tooltip);
     }
+
+    @Override
+    public String toString() {
+        return getValue();
+    }
 }

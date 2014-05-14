@@ -3771,11 +3771,6 @@
 										<toolbarEntry-array>
 											<toolbarItem>
 												<field name="actionID">
-													<String>char.ash</String>
-												</field>
-											</toolbarItem>
-											<toolbarItem>
-												<field name="actionID">
 													<String>bold</String>
 												</field>
 											</toolbarItem>
@@ -4359,7 +4354,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>4</Integer>
+						<Integer>3</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

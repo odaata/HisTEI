@@ -367,6 +367,48 @@
         </val>
     </key>
 
+    <!-- For glosses -->
+
+    <key value="gloss">
+        <val lang="en_US">Gloss</val>
+    </key>
+    <key value="gloss_description">
+        <val lang="en_US">Mark selected text as the gloss of a term or other textual segment. Surround text with
+            the gloss element.
+        </val>
+    </key>
+    
+    <key value="term">
+        <val lang="en_US">Term</val>
+    </key>
+    <key value="term_description">
+        <val lang="en_US">Mark selected text as a term to be glossed. Surround text with
+            the term element.
+        </val>
+    </key>
+    
+    <key value="ab">
+        <val lang="en_US">ab</val>
+    </key>
+    <key value="ab_description">
+        <val lang="en_US">Mark selected text as an anonymous block with an xml:id for linking. Surround text with
+            the ab element. From TEI manual: (anonymous block) contains any arbitrary component-level unit of text, 
+            acting as an anonymous container for phrase or inter level elements 
+            analogous to, but without the semantic baggage of, a paragraph.
+        </val>
+    </key>
+    
+    <key value="seg">
+        <val lang="en_US">ab</val>
+    </key>
+    <key value="seg_description">
+        <val lang="en_US">Mark selected text as an arbitrary segment with an xml:id for linking. Surround text with
+            the seg element. From TEI manual: (arbitrary segment) represents any segmentation of text below the ‘chunk’ level.
+        </val>
+    </key>
+
+    <!--  Common elements in textual segments  -->
+
     <key value="abbreviation">
         <val lang="en_US">Abbreviation</val>
     </key>

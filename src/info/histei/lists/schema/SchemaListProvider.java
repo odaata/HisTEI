@@ -59,6 +59,7 @@ public class SchemaListProvider implements ListProvider<WhatPossibleValuesHasAtt
 
         lists.add(new MediaSchemaList(authorAccess));
         lists.add(new HandSchemaList(authorAccess));
+        lists.add(new GlossSchemaList(authorAccess));
     }
 
     @Override

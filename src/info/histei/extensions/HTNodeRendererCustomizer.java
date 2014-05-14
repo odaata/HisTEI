@@ -13,7 +13,7 @@ import java.util.Map;
  */
 public class HTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
 
-    public static final Map<String, HTIconNode> iconNodes = new HashMap<>(70);
+    public static final Map<String, HTIconNode> iconNodes = new HashMap<>(75);
 
     private static class HTIconNode {
 
@@ -69,10 +69,20 @@ public class HTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("salute", new HTIconNode("salute"));
         iconNodes.put("signed", new HTIconNode("signed"));
         iconNodes.put("postscript", new HTIconNode("postscript"));
+//      Linking
+        iconNodes.put("gloss", new HTIconNode("gloss"));
+        iconNodes.put("ab", new HTIconNode("ab"));
+        iconNodes.put("term", new HTIconNode("term"));
+//      Annotations
+        iconNodes.put("s", new HTIconNode("sentence"));
+        iconNodes.put("cl", new HTIconNode("clause"));
+        iconNodes.put("phr", new HTIconNode("phrase"));
+        iconNodes.put("w", new HTIconNode("word"));
 //      seg@function
         initMap = new HashMap<>();
         initMap.put("salute", "salute");
         initMap.put("formulaic", "formulaic");
+        initMap.put("", "seg");
         iconNodes.put("seg", new HTIconNode("seg", null, "function", initMap));
 //      Breaks
         iconNodes.put("lb", new HTIconNode("lb", "line_break"));

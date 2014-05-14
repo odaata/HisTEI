@@ -141,6 +141,22 @@ public final class OxygenUtils {
     }
 
     @NotNull
+    public static List<AuthorElement> getAuthorElements(String xpath, AuthorAccess authorAccess) {
+        List<AuthorElement> authorElements = new ArrayList<>();
+
+        List<AuthorNode> authorNodes = getAuthorNodes(xpath, authorAccess);
+        if (authorNodes != null) {
+            for (AuthorNode node : authorNodes) {
+                AuthorElement element = castAuthorElement(node);
+                if (element != null) {
+                    authorElements.add(element);
+                }
+            }
+        }
+        return authorElements;
+    }
+
+    @NotNull
     public static List<AuthorElement> getContentElements(AuthorElement authorElement) {
         List<AuthorElement> elements = new ArrayList<>();
 

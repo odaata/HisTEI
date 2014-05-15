@@ -1,5 +1,6 @@
 package info.histei.contextual_info;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
@@ -8,8 +9,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import static info.histei.utils.MainUtils.nullToEmpty;
 
 /**
  * Created by mike on 2/3/14.
@@ -113,8 +112,8 @@ public class ContextualElementProperties {
         this.elementName = elementName;
         this.contextualType = contextualType;
         this.refAttributeName = refAttributeName;
-        this.sourceParent = nullToEmpty(sourceParent);
-        this.typeFilter = nullToEmpty(typeFilter);
+        this.sourceParent = StringUtils.trimToEmpty(sourceParent);
+        this.typeFilter = StringUtils.trimToEmpty(typeFilter);
     }
 
     private ContextualElementProperties(String elementName, ContextualType contextualType, String refAttributeName) {

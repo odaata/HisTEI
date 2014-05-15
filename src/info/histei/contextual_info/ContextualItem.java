@@ -13,8 +13,6 @@ import java.net.URL;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static info.histei.utils.MainUtils.emptyToNull;
-import static info.histei.utils.MainUtils.nullToEmpty;
 import static info.histei.utils.SaxonUtils.getChildText;
 
 /**
@@ -35,17 +33,17 @@ public class ContextualItem extends ListItemAdapter {
     public static ContextualItem get(ContextualType contextualType, XdmNode item) {
         ContextualItem contextualItem = null;
 
-        String value = emptyToNull(item.getAttributeValue(new QName(VALUE_ATTRIB_NAME)));
+        String value = StringUtils.trimToNull(item.getAttributeValue(new QName(VALUE_ATTRIB_NAME)));
 
         if (value != null && contextualType != null) {
             value = contextualType.getKey() + ":" + value;
 
-            String label = nullToEmpty(getChildText(item, LABEL_ELEMENT_NAME));
+            String label = StringUtils.trimToEmpty(getChildText(item, LABEL_ELEMENT_NAME));
             if (label.isEmpty()) label = value;
 
-            String tooltip = nullToEmpty(getChildText(item, TOOLTIP_ELEMENT_NAME));
+            String tooltip = StringUtils.trimToEmpty(getChildText(item, TOOLTIP_ELEMENT_NAME));
 
-            String type = nullToEmpty(item.getAttributeValue(new QName(TYPE_ATTRIB_NAME)));
+            String type = StringUtils.trimToEmpty(item.getAttributeValue(new QName(TYPE_ATTRIB_NAME)));
 
             contextualItem = new ContextualItem(value, label, tooltip, contextualType, type);
         }

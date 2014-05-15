@@ -1,6 +1,7 @@
 package info.histei.utils;
 
 import info.histei.exceptions.HTFileMissingException;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.log4j.Logger;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
@@ -26,7 +27,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import static info.histei.utils.MainUtils.castURLToPath;
-import static info.histei.utils.MainUtils.emptyToNull;
 
 /**
  * Created by mike on 1/13/14.
@@ -37,7 +37,7 @@ public final class OxygenUtils {
 
     @NotNull
     public static String escapeComma(String value) {
-        String escaped = emptyToNull(value);
+        String escaped = StringUtils.trimToNull(value);
 
         if (escaped != null) {
             return escaped.replace(",", "${comma}");
@@ -187,7 +187,7 @@ public final class OxygenUtils {
         String value = null;
 
         if (attrValue != null) {
-            value = emptyToNull(attrValue.getValue());
+            value = StringUtils.trimToNull(attrValue.getValue());
         }
         return value;
     }
@@ -218,7 +218,7 @@ public final class OxygenUtils {
         String relativePath = null;
 
         if (authorAccess != null) {
-            relativePath = emptyToNull(authorAccess.getUtilAccess().makeRelative(baseURL, childURL));
+            relativePath = StringUtils.trimToNull(authorAccess.getUtilAccess().makeRelative(baseURL, childURL));
             if (relativePath == null || relativePath.equals(".")) {
                 relativePath = null;
             }

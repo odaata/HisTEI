@@ -118,26 +118,6 @@ public class MainUtils {
         return encodedURL;
     }
 
-    @Nullable
-    public static String emptyToNull(String input) {
-        String str = null;
-
-        if (input != null) {
-            str = input.trim();
-            if (str.isEmpty()) str = null;
-        }
-        return str;
-    }
-
-    @NotNull
-    public static String nullToEmpty(String input) {
-        if (input == null) {
-            return "";
-        } else {
-            return input.trim();
-        }
-    }
-
     private MainUtils() {
 
     }

@@ -1,13 +1,12 @@
 package info.histei.utils;
 
 import net.sf.saxon.s9api.*;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static info.histei.utils.MainUtils.nullToEmpty;
 
 /**
  * Created by mike on 2/10/14.
@@ -19,7 +18,7 @@ public class SaxonUtils {
         List<XdmNode> childNodes = new ArrayList<>();
 
         if (parentNode != null && childName != null) {
-            QName childQName = new QName(nullToEmpty(namespace), childName);
+            QName childQName = new QName(StringUtils.trimToEmpty(namespace), childName);
             XdmSequenceIterator axisIterator = parentNode.axisIterator(Axis.CHILD, childQName);
             while (axisIterator.hasNext()) {
                 XdmItem childItem = axisIterator.next();

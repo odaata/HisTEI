@@ -17,7 +17,7 @@
                 code { font-size:large; }
                 p { margin:0px; padding:5px; }
             </style>
-            <p class="title">Emerging Standards Oxygen Framework</p>
+            <p class="title">HisTEI Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
                 <p class="header">Version 0.4.00</p>

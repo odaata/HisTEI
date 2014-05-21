@@ -1,6 +1,6 @@
 package info.histei.commons;
 
-import org.apache.commons.lang3.StringUtils;
+import info.histei.utils.MainUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
@@ -14,7 +14,7 @@ public abstract class AbstractUniqueAttribute<C> implements UniqueAttribute<C> {
     protected final String parentElementName;
 
     public AbstractUniqueAttribute(String attributeName, String elementName, String parentElementName) {
-        this.attributeName = StringUtils.trimToEmpty(attributeName);
+        this.attributeName = MainUtils.nullToEmpty(attributeName);
         this.elementName = elementName;
         this.parentElementName = parentElementName;
     }

@@ -6,6 +6,7 @@ import info.histei.lists.Listable;
 import info.histei.monitor.HTFileMonitor;
 import net.sf.saxon.lib.FeatureKeys;
 import net.sf.saxon.s9api.*;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.vfs2.FileChangeEvent;
 import org.apache.commons.vfs2.FileListener;
 import org.apache.log4j.Logger;
@@ -22,7 +23,6 @@ import java.nio.file.Path;
 import java.util.*;
 
 import static info.histei.utils.MainUtils.castPathToURL;
-import static info.histei.utils.MainUtils.nullToEmpty;
 import static info.histei.utils.OxygenUtils.expandOxygenPath;
 import static info.histei.utils.OxygenUtils.getCurrentAuthorAccess;
 
@@ -214,7 +214,7 @@ public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener
 
     @NotNull
     public List<ContextualItem> getItems(final String type) {
-        String typeCleaned = nullToEmpty(type);
+        String typeCleaned = StringUtils.trimToEmpty(type);
 
         if (!initialized) {
             refresh();

@@ -1,9 +1,9 @@
 package info.histei.lists.schema;
 
 import info.histei.commons.TEINamespace;
-import info.histei.utils.MainUtils;
 import info.histei.utils.OxygenUtils;
 import info.histei.utils.XMLUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.AuthorAccess;
@@ -62,7 +62,7 @@ public class HandSchemaList extends AbstractReferenceSchemaList<SchemaListItem> 
 
             String tooltip = null;
             try {
-                tooltip = MainUtils.emptyToNull(handNote.getTextContent());
+                tooltip = StringUtils.trimToNull(handNote.getTextContent());
             } catch (BadLocationException e) {
                 e.printStackTrace();
             }

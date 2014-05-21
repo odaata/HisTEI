@@ -1,7 +1,6 @@
 package info.histei.utils;
 
 import org.apache.log4j.Logger;
-import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 import java.io.File;
@@ -116,26 +115,6 @@ public class MainUtils {
             }
         }
         return encodedURL;
-    }
-
-    @Nullable
-    public static String emptyToNull(String input) {
-        String str = null;
-
-        if (input != null) {
-            str = input.trim();
-            if (str.isEmpty()) str = null;
-        }
-        return str;
-    }
-
-    @NotNull
-    public static String nullToEmpty(String input) {
-        if (input == null) {
-            return "";
-        } else {
-            return input.trim();
-        }
     }
 
     private MainUtils() {

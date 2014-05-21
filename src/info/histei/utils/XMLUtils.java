@@ -27,9 +27,9 @@ public class XMLUtils {
         String name = "";
 
         if (qName != null) {
-            name = MainUtils.nullToEmpty(qName.getLocalPart());
+            name = StringUtils.trimToEmpty(qName.getLocalPart());
             if (!name.isEmpty()) {
-                String prefix = MainUtils.nullToEmpty(qName.getPrefix());
+                String prefix = StringUtils.trimToEmpty(qName.getPrefix());
                 if (!prefix.isEmpty()) {
                     name = prefix + ":" + name;
                 }
@@ -51,15 +51,15 @@ public class XMLUtils {
     @NotNull
     public static String createElement(String namespace, String elementName, Map<String, String> attributes) {
         String element = "";
-        namespace = MainUtils.emptyToNull(namespace);
-        elementName = MainUtils.emptyToNull(elementName);
+        namespace = StringUtils.trimToNull(namespace);
+        elementName = StringUtils.trimToNull(elementName);
         List<String> createdAttributes;
 
         if (namespace != null && elementName != null) {
             if (attributes != null) {
                 createdAttributes = new ArrayList<>(attributes.size() + 1);
                 for (String name : attributes.keySet()) {
-                    String value = MainUtils.emptyToNull(attributes.get(name));
+                    String value = StringUtils.trimToNull(attributes.get(name));
                     if (value != null) {
                         String attr = createAttribute(name, value);
                         createdAttributes.add(attr);

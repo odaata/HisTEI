@@ -4,6 +4,7 @@ import info.histei.commons.HTComboBox;
 import info.histei.commons.Icon;
 import info.histei.utils.MainUtils;
 import info.histei.utils.OxygenUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.CursorType;
@@ -184,7 +185,7 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
         ContextualItem item = (ContextualItem) comboBox.getSelectedItem();
 
         if (item != null) {
-            value = MainUtils.emptyToNull(item.getValue());
+            value = StringUtils.trimToNull(item.getValue());
         }
         return value;
     }
@@ -227,7 +228,7 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
 
         comboBox.setItems(items);
 
-        String value = MainUtils.nullToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.INITIAL_VALUE));
+        String value = StringUtils.trimToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.INITIAL_VALUE));
         ContextualItem foundItem = null;
 
         if (!value.isEmpty()) {
@@ -244,7 +245,7 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
             comboBox.setSelectedIndex(-1);
         }
 
-        String fontInheritProperty = MainUtils.nullToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT));
+        String fontInheritProperty = StringUtils.trimToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT));
         boolean fontInherit = !fontInheritProperty.isEmpty() && Boolean.parseBoolean(fontInheritProperty);
         ro.sync.exml.view.graphics.Font font = context.getStyles().getFont();
         java.awt.Font currentFont = fontInherit ? new java.awt.Font(font.getName(), font.getStyle(), font.getSize()) : defaultFont;
@@ -254,7 +255,7 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
 
         InplaceEditorUtil.relayout(comboBox, context);
 
-        String showButtonProperty = MainUtils.nullToEmpty((String) context.getArguments().get(PROPERTY_SHOW_BUTTON));
+        String showButtonProperty = StringUtils.trimToEmpty((String) context.getArguments().get(PROPERTY_SHOW_BUTTON));
         boolean showButton = showButtonProperty.isEmpty() || Boolean.parseBoolean(showButtonProperty);
         editButton.setVisible(showButton);
 
@@ -276,7 +277,7 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
     }
 
     private void setButtonFace(AuthorInplaceContext context) {
-        if (editButton.getIcon() == null && MainUtils.nullToEmpty(editButton.getText()).isEmpty()) {
+        if (editButton.getIcon() == null && StringUtils.trimToEmpty(editButton.getText()).isEmpty()) {
             Icon icon = Icon.get("document_edit");
             String iconPath = icon != null ? icon.getPath() : null;
             if (iconPath != null) {

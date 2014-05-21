@@ -1,8 +1,7 @@
 package info.histei.lists;
 
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
-
-import static info.histei.utils.MainUtils.nullToEmpty;
 
 /**
  * Created by mike on 3/4/14.
@@ -18,9 +17,9 @@ public class ListItemAdapter implements ListItem {
     protected String tooltip;
 
     public ListItemAdapter(String value, String label, String tooltip) {
-        this.value = nullToEmpty(value);
-        this.label = nullToEmpty(label);
-        this.tooltip = nullToEmpty(tooltip);
+        this.value = StringUtils.trimToEmpty(value);
+        this.label = StringUtils.trimToEmpty(label);
+        this.tooltip = StringUtils.trimToEmpty(tooltip);
     }
 
     @NotNull

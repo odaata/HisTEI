@@ -1,9 +1,9 @@
 package info.histei.lists.schema;
 
 import info.histei.commons.TEINamespace;
-import info.histei.utils.MainUtils;
 import info.histei.utils.OxygenUtils;
 import info.histei.utils.XMLUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
@@ -50,7 +50,7 @@ public class GlossSchemaList extends AbstractReferenceSchemaList<SchemaListItem>
 
             String tooltip = null;
             try {
-                tooltip = MainUtils.emptyToNull(target.getTextContent());
+                tooltip = StringUtils.trimToNull(target.getTextContent());
             } catch (BadLocationException e) {
                 e.printStackTrace();
             }

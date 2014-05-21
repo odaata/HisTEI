@@ -1,8 +1,8 @@
 package info.histei.contextual_info;
 
 import info.histei.commons.AbstractUniqueAttribute;
-import info.histei.utils.MainUtils;
 import info.histei.utils.XMLUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.ecss.extensions.api.editor.AuthorInplaceContext;
@@ -91,7 +91,7 @@ public class ContextualAttribute extends AbstractUniqueAttribute<AuthorInplaceCo
                                   ContextualType contextualType, String typeFilter) {
         super(attributeName, elementName, parentElementName);
         this.contextualType = contextualType;
-        this.typeFilter = MainUtils.nullToEmpty(typeFilter);
+        this.typeFilter = StringUtils.trimToEmpty(typeFilter);
     }
 
     protected ContextualAttribute(String attributeName, String elementName,

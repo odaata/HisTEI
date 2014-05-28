@@ -1,0 +1,1318 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:lang="nl" xml:id="TEI_91" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Journael van myn Reyse, gedaen van Amsterdam nae Berlyn</title>
+            <respStmt>
+               <resp key="trc">Transcriber</resp>
+               <name>Jamie Nelemans</name>
+            </respStmt>
+            <respStmt>
+               <resp key="crr">Corrector</resp>
+               <name>Mike Olson</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Mike Olson</authority>
+            <idno>SAA_00076_De Graeff_00185_0000000091</idno>
+         </publicationStmt>
+         <notesStmt>
+            <note type="lindeman">
+               <lb/>
+               LindemanID: 702<lb/>
+               Type: Reisverslagen<lb/>
+               EntryNumber: 45<lb/>
+               Author_Name: Pieter de Graeff.<lb/>
+               Author_BirthDeath: Amsterdam 15 augustus 1638 - Amsterdam 3 juni 1707.<lb/>
+               Author_Bio: Zoon van Cornelis de Graeff (1599-1664), burgemeester van Amsterdam, en Catharina Hooft. Gehuwd met Jacoba Bicker (1640-1695) in 1662. Vervulde diverse overheidsfuncties, o.a. schepen van Amsterdam tot 1672.<lb/>
+               Doc_Location: GA Amsterdam FA De Graeff 185.<lb/>
+               Doc_Format: 12,5x17; 62 p.<lb/>
+               Doc_Title: Journael van mijn reijse gedaen van Amsterdam nae Berlijn gelegen in 't marck-graefschap van Brandeburgh.<lb/>
+               Doc_Language: <lb/>
+               Doc_Type: <lb/>
+               Doc_Goal: <lb/>
+               Doc_Date: 25 april 1655 - 4 juni 1655.<lb/>
+               Doc_Contents: Verslag van een reis van Amsterdam naar Duitsland, verblijf te Berlijn, in gezelschap van burgemeester Johan Huydecoper die als peetoom optrad bij de doop van de zoon van de Grote Keurvorst. De doop, tafelschikkingen, een spotvers op burgemeester Huydecoper.<lb/>
+               Doc_Editions: J.F.L. de Balbian Verster, ed., `Het journaal van Pieter de Graeff', /Jaarboek Amstelodamum/ XVI (1918) 149-168.<lb/>
+               Author_Bio_Dict: Van der Aa; NNBW II, 502.<lb/>
+               Comments: <lb/>
+            </note>
+         </notesStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository ref="org:SAA"/>
+                  <collection>De Graeff</collection>
+                  <idno>185</idno>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <creation>
+            <date cert="high" from="1655-04-25" to="1655-06-04" type="written"/>
+            <persName ref="psn:person_46" type="author"/>
+         </creation>
+         <textClass>
+            <catRef target="gen:Reisverslag"/>
+         </textClass>
+         <handNotes>
+            <handNote scope="major" scribeRef="psn:person_46" xml:id="Pieter_De_Graeff"> </handNote>
+            <handNote scope="minor" xml:id="songwriter">different hand for the song at the
+               end</handNote>
+         </handNotes>
+      </profileDesc>
+   </teiHeader>
+   <facsimile xml:base="../images/SAA_00076_De%20Graeff_00185_0000000091/">
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_01.jpg"
+         xml:id="image_001"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_02.jpg"
+         xml:id="image_002"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_03.jpg"
+         xml:id="image_003"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_04.jpg"
+         xml:id="image_004"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_05.jpg"
+         xml:id="image_005"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_06.jpg"
+         xml:id="image_006"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_07.jpg"
+         xml:id="image_007"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_08.jpg"
+         xml:id="image_008"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_09.jpg"
+         xml:id="image_009"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_10.jpg"
+         xml:id="image_010"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_11.jpg"
+         xml:id="image_011"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_12.jpg"
+         xml:id="image_012"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_13.jpg"
+         xml:id="image_013"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_14.jpg"
+         xml:id="image_014"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_15.jpg"
+         xml:id="image_015"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_16.jpg"
+         xml:id="image_016"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_17.jpg"
+         xml:id="image_017"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_18.jpg"
+         xml:id="image_018"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_19.jpg"
+         xml:id="image_019"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_20.jpg"
+         xml:id="image_020"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_21.jpg"
+         xml:id="image_021"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_22.jpg"
+         xml:id="image_022"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_23.jpg"
+         xml:id="image_023"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_24.jpg"
+         xml:id="image_024"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_25.jpg"
+         xml:id="image_025"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_26.jpg"
+         xml:id="image_026"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_27.jpg"
+         xml:id="image_027"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_28.jpg"
+         xml:id="image_028"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_29.jpg"
+         xml:id="image_029"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_30.jpg"
+         xml:id="image_030"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_31.jpg"
+         xml:id="image_031"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_32.jpg"
+         xml:id="image_032"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_33.jpg"
+         xml:id="image_033"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_34.jpg"
+         xml:id="image_034"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_35.jpg"
+         xml:id="image_035"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_36.jpg"
+         xml:id="image_036"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_37.jpg"
+         xml:id="image_037"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_38.jpg"
+         xml:id="image_038"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_39.jpg"
+         xml:id="image_039"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_40.jpg"
+         xml:id="image_040"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_41.jpg"
+         xml:id="image_041"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_42.jpg"
+         xml:id="image_042"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_43.jpg"
+         xml:id="image_043"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_44.jpg"
+         xml:id="image_044"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_45.jpg"
+         xml:id="image_045"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_46.jpg"
+         xml:id="image_046"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_47.jpg"
+         xml:id="image_047"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_48.jpg"
+         xml:id="image_048"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_49.jpg"
+         xml:id="image_049"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_50.jpg"
+         xml:id="image_050"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_51.jpg"
+         xml:id="image_051"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_52.jpg"
+         xml:id="image_052"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_53.jpg"
+         xml:id="image_053"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_54.jpg"
+         xml:id="image_054"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_55.jpg"
+         xml:id="image_055"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_56.jpg"
+         xml:id="image_056"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_57.jpg"
+         xml:id="image_057"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_58.jpg"
+         xml:id="image_058"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_59.jpg"
+         xml:id="image_059"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_60.jpg"
+         xml:id="image_060"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_61.jpg"
+         xml:id="image_061"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_62.jpg"
+         xml:id="image_062"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_63.jpg"
+         xml:id="image_063"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_64.jpg"
+         xml:id="image_064"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_65.jpg"
+         xml:id="image_065"/>
+      <graphic mimeType="image/jpeg" url="SAA_00076_De%20Graeff_00185_0000000091_Page_66.jpg"
+         xml:id="image_066"/>
+   </facsimile>
+   <text>
+      <front>
+         <pb facs="#image_002"/>
+         <div type="preface">
+            <p><lb/>Heer Pieter de Graeff Vrijheere van <lb/>Zuyd Polsbroeck, van Purmerlandt en
+                  <unclear>Alpen</unclear><pc force="weak">=</pc><lb break="no"/>dam; Oudt Schepen,
+               en Bewinthebber<lb/> vande generaele geoctrojeerde Oostindische<lb/> Compagnie inde
+               Camer tot Amsterdam.<lb/> Anno 1692.</p>
+         </div>
+         <pb facs="#image_003"/>
+         <titlePage>
+            <docTitle>
+               <titlePart type="main">IOURNAEL</titlePart>
+               <titlePart type="sub"> Van mijn Reijse gedaen van<lb/> Amsterdam nae Berlijn gele<pc
+                     force="weak">=</pc><lb break="no"/>gen int Marck<pc force="strong"
+                  >-</pc>Graefschap van<lb/> Brandenburgh. </titlePart>
+            </docTitle>
+            <docImprint>
+               <docDate when="1655">ANNO 1655</docDate>
+            </docImprint>
+         </titlePage>
+      </front>
+      <body>
+         <pb facs="#image_004"/>
+         <head>Journael</head>
+         <div type="entry">
+            <p><lb/><date when="1655-04-25">Sondagh den 25 April Anno 1655</date><lb break="yes"
+               />ben ick des middaghs ten een Uijr <lb/>met de H<expan>eer</expan> Johan
+               Huijdecooper <lb/>Ridder, heer van Maerse<pc force="weak">-</pc>veen, <lb/>ende
+               Neerdijck afgesanter vande <lb/>stadt Amsterdam, aen sijn keur<pc force="weak"
+                  >=</pc><lb break="no"/>vorstelycke doorluchtigheijdt van <lb/>Branden<pc
+                  force="weak">-</pc>burgh om over den doop <lb/>vanden jongen keur<pc force="weak"
+                  >-</pc>prins te staen, <lb/>ende met noch een goet geselschap <lb/>van Amsterdam
+               vertrocken door <lb/>de Diemermeer, Wesop, Ankeveen, <add place="above">over de</add>
+               Vuers, <lb/>Soest na Amersfoort. Alwaer wij gecomen <lb/>syn des avondts ten negen
+               Uijren <lb/>ende vernacht hebben. </p>
+         </div>
+         <pb facs="#image_005"/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-04-26">Maendagh den 26 dito</date> zijn wij <lb/>des morgens
+               ten half sessen van Amers<pc force="weak">=</pc><lb break="no"/>foort vertrocken door
+                  Hoevelake<expan>n</expan> Voorthuij<pc force="weak">=</pc><lb break="no"/>sen en
+               Elspit alwaer wij onse mid<pc force="weak">=</pc><lb break="no"/>gaghmael hielden
+               ende van daer <lb break="yes"/>over den Ysel nae Zwoll alwaer wij <lb/>gecomen sijn
+               des avondts ten half <lb/>sevenen ende vernacht hebben. </p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-04-27">Dinghsdagh den 27 dito</date> zijn wij des <lb/>morgens
+               ten half vyven van Zwoll <lb/>vertrocken over de Vecht door <del><unclear
+                     reason="overwriting">Delfsen</unclear></del>
+               <lb/>Arentfest, <gap reason="overwriting"/>, Heems, Hardenbergh <lb/>ende hielden
+               daer ons middagh<pc force="weak">=</pc><lb break="no"/>mael ende syn voort gereijst
+               door <lb/>Vennebroeck twelck de uyterste <lb/>frontier plaets is van ons
+               landt.<pb/>Voort door Hitterbeeck, Ulsen daer <lb/>wy een seer schoon spits op de
+               <lb/>Toorn sagen nae Nieuhousen en <lb/>syn daer gecomen des avondts <lb/>ten seven
+               uijren ende hebben <lb/>daer gesien een kasteel van <lb/>den Graef van Benthem
+               <lb/>twelck hy selve bijna geheel <lb/>heeft doen afbreken omdat <lb/>de troepen ten
+               tyde van Oorlog <lb/>daer quamen logeren, ende <lb/>hebben daer geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-04-28">Woensdagh den 28 dito</date> sijn wij <lb/>des morgens
+               Ten vijf uijren <lb/>van Nieuwhousen vertrocken door <lb/>Witmars alwaer een vrouwen
+               <lb/>Klooster was.<pb facs="#image_006"/>Voort door Lon over de Eems <lb/>door Lingen
+               daer wij ons mid<pc force="weak">=</pc><lb break="no"/>daghmael hielden, ende
+                  sage<expan>n</expan> daer <lb/>een ruine van een kasteel twelc <lb/>door boscruijt
+               op gespronge<expan>n</expan> was <lb/>voort namen wy onse reijs door
+               <lb/>Boorvinckel, Andorp, Hesfelte na <lb/>Loeninge alwaer wy des avonds <lb/>ten
+               half negen sijn gecome<expan>n</expan> ende <lb/>aldaer vernachten.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <date when="1655-04-29"><lb/>Donderdagh den 29 dito</date> syn wy <lb/>des morgens
+               ten vijf uijren van <lb/>Loeninge vertrocken door Krabbe<expan>n</expan><lb
+                  break="no"/>dorp, Kloppenburgh ende hielden <lb/>daer ons middaghmael ende daer
+               <lb/>was een kasteel dat wy wilden <lb/>besichtigen maer alsoo den<pb/>Commandant op
+               de jacht was <lb/>heeft sulcks niet mogen geschiede<expan>n</expan>
+               <lb/>soo sijn wij voort gereyst nae <lb/>Wilthousen alwaer wy gecomen <lb/>sijn des
+               avondts ten half negenen <lb/>ende vernachten. Daer hebben <lb/>wij becomen de
+               Vaendrager van <lb/>Coninghsmarck om ons te <lb/>convoijeren nae Bremen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-04-30">Vrijdagh den 30 dito</date> sijn wij des <lb/>morgens
+               vijf uijren van <lb/>Wilthousen vertrocken ende <lb/>namen onse wegh door Delmer<pc
+                  force="weak">=</pc><lb break="no"/>horst alwaer wy ons middag<lb break="no"/>mael
+                  hielden.<pb facs="#image_007"/>Ende sagen daer een treffelijc <lb/>Kasteel t<pc
+                  force="weak">'</pc>welck den Grave <lb/>van Oldenborgh toebehoorde ende <lb/>was
+               oock wel gefortificeert; ende <lb/>namen onse reijs voort door <lb/>Heussinge nae
+               Bremen al waer <lb/>wij gecomen sijn nae de middag <lb/>ten vier uijren. De heeren
+               onse <lb/>onse comste te vernomen hebbe<expan>n</expan>de <lb/>soo is terstont de
+               Syndicus den <lb/>heer van Maerseveen comen <lb/>begroeten, daer op sijn wij
+                  tersto<expan>n</expan>t <lb/>met de stadts wijn cannen be<pc force="weak"
+                  >=</pc><lb break="no"/>gistight. de Sijndicus sijn af<pc force="weak">=</pc><lb
+                  break="no"/>scheijdt genomen hebbende soo <lb/>hebben wy de resterende achter
+               <lb/>middagh toe gebracht in het <lb/>besichtigen van de stadt, ende<pb/>hebben daer
+               dien selven nacht <lb/>geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-01">Saterdagh den eersten Maeij</date> sijn <lb/>wij des
+               morgens ten ses uijren van <lb/>Bremen vertrocken, ende namen <lb/>onse reijs door
+               Arbergh, Mier, Achim, <lb/>alwaer wij onse middaghmael <lb/>hielden, ende voort door
+               Ottersbergh, <lb/>Winkeldorp, nae Kloosterseven al<pc force="weak">=</pc><lb
+                  break="no"/>waer wij quamen des avondts <lb/>ten acht uijren ende aldaer sliepen
+               <lb/>ende daer was een vrouwe<expan>n</expan>kloost<expan>e</expan>r<lb/><add
+                  place="margin">daer</add> alle de nonnen getrouwt, ende uijt <lb/>gestorven sijn;
+               behalven twee die <lb/>heel oudt ende noch daer in sijn. <lb/>Ende lichtelijck
+               blijven sullen. </p>
+         </div>
+         <pb facs="#image_008"/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-02">Sondagh den 2 dito</date>; sijn wij des <lb/>morgens ten
+               half vieren van <lb/>Kloosterseven vertrocken door Heijst, <lb/>Baers, Hoorn, Burgh,
+               alwaer wy onse <lb/>middaghmael gehouden hebbende <lb/>voort reysden, ende namen
+               onsen <lb/>wegh door Hooghlant, Ferck na<expan>e</expan> Krans,<lb/>van waer wy de Es
+               af ende de <lb/>Elve over voeren na Blanckeneuse <lb/>alwaer wy wederom op onse
+               <lb/>wagenen gingen sitten ende rede<expan>n</expan>
+               <lb/>van Blanckeneuse, door Nieustede <lb/>Ottense, Altena, en soo voort nae
+               <lb/>Hamborgh al waer wij noch dien <lb/>selven avondt ten seven uijeren <lb/>gecomen
+               sijn ende vernachten </p>
+         </div>
+         <pb/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-03">Maendagh den 3 dito</date> sijn wij des <lb/>morgens ten
+               acht uijren van <lb/>Hamborgh vertrocken door Steenbeek, <lb/>Baesdorp ende Esburgh,
+               ende <lb/>daer onse middaghmael gehoude<expan>n</expan>
+               <lb/>en sijn daer nae voort gereijst <lb/>door Saxenlauwenburgh <lb/>alwaer den
+               hertoogh van Neder<pc force="weak">=</pc><lb break="no"/>Saxen sijn hoff houd ende
+               voort <lb/>nae Buijsenburgh alwaer wij ge<pc force="weak">=</pc><lb break="no"/>comen
+               sijn des avonds ten half <lb/>negenen ende vernachten. </p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-04">Dinghsdaghs den 4 dito</date> sijn wij <lb/>des morgens
+               ten vijf uijren van <lb/>Buijsenburgh vertrocken door Swartoogs, <lb/>Sarisdorp, over
+               den holten vloet,<pb facs="#image_009"/>Voort door Ensenou, Vloon, Totdien, <lb/>en
+               Hagenouw alwaer wij onse <lb/>middaghmael hielden, ende zijn <lb/>van daer gereijst
+               door Goesdorp. <lb/><unclear reason="hand">P</unclear>igger Commer Kaerstede ende
+               <lb/>voort nae Grabbauw alwaer wij <lb/>gecomen sijn des avondts ten tien <lb/>uijren
+               ende vernacht hebben.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-05">Woonsdagh den 5 dito</date> sijn wij <lb/>des morgens
+               ten ses uyren van <lb/>Grabbauw, vertrocken door Waernauw <lb/>Serkleef door het
+               kasteel van de <lb/>heer van Bloemendal voort door <lb/>Bronselijn, Glavesijn, tot
+               Parlenborgh. <lb/>ende hebben daer ons middagh<lb break="no"/>mael gehouden.<pb/>Dit
+               is de eerste stadt int Marck<pc force="weak">=</pc><lb break="no"/>graefschap van
+               Brandenborgh. <lb/>Alwaer ons ontmoet sijn twee <lb/>Trawanten uyt de lijfgarde
+                  van<pc force="weak">=</pc><lb break="no"/>den keurvorst van Brandenburgh <lb/>de
+               welcke afgesonden waren om <lb/>ons een brief te behandigen, ende <lb/>hebben ons
+               voort tot Berlijn gecon<pc force="weak">=</pc><lb break="no"/>voyeert; ende reijsden
+               door Unse, <lb/>Visiken, Kleets, Koenouw, nae <lb/>Dollingh ende sijn daer gecomen
+               <lb/>des avondts ten half achten ende <lb/>vernacht hebben, ende sagen daer <lb/>een
+               kerck en toorn de welcke van <lb/>groote keijsteenen gemetselt was</p>
+         </div>
+         <pb facs="#image_010"/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-06">Donderdagh den 6 dito</date> sijn wij <lb/>des morgens
+               ten half vijven van <lb/>Dollingh vertrocken door Gomsoe, <lb/>Mecho, Kierits, tot
+               Woesterhousen <lb/>ende hebben daer ons middagh <lb/>mael gehouden. Welcke stedeken
+               <lb/>ten tijden van Oorloogh gheheel <lb/>afgebrandt is, sijn voort gereijst
+               <lb/>door Messeltien, en Roerloo, welcke <lb/>Dorp geheel geruwineert was, <lb/>jae,
+               soo datter niet over gebleven <lb/>is dan een geruwineerde kerc <lb/>en trocken voort
+               door Gaers <lb/>Mancker, Prodse en Walchum in <lb/>welcke Dorp mede niet over<pc
+                  force="weak">-</pc><lb break="no"/>gebleven was dan een geruwi<pc force="weak"
+                  >=</pc><lb break="no"/>neerde kerck doch in dit dorp<pb/>syn wederom eenige
+               weijnige <lb/>nieuwe huijsen gebouwt de welcke <lb/>bewoont worden door hollansche
+               <lb/>huijsluijden, die door den keurvorst <lb/>aldaer gebracht sijn. Ende wij
+               <lb/>voeren van daer over de Ryn nae <lb/>Ferberlijn. ende sijn daer gecomen <lb/>des
+               Avondts ten vijf uijren ende wij <lb/>hebben ons daer vernacht </p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-07">Vrijdagh den 7 dito</date> sijn wij des <lb/>morgens ten
+               ses uijren van Ferbelijn <lb/>vertrocken door Farma, Hopenbergh, <lb/>Linum,
+               Groenevelt, Coorn Basijn, <lb/>Alwaer wy ons middaghmael <lb/>gehouden hebben 't
+               welck dorp ge<pc force="weak">=</pc><lb break="no"/>legen was in het midden van<pb
+                  facs="#image_011"/> een Bosch van groote mastbome<expan>n</expan>
+               <lb/>ende sijn voort door een Bosch van <lb/>groote mastbomen welcke wel <lb/>twee
+               ofte drij uijren breedt was <lb/>door de stadt Spandouw gereijst na <lb/>het Casteel
+               Spandouw alwaer wij <lb/>gecomen sijn de avondts ten vijff <lb/>uijren ende sijn in
+               gehaelt door <lb/>syn Exelentie Swerin. Maerschalk <lb/>vande keurvorstinne ende den
+               <lb/>oversten Ribbeek met het los<pc force="weak">-</pc><lb break="no"/>branden van
+               ses Canons ende oock <lb/>op ons incomen een gantsche com<pc force="weak">=</pc><lb
+                  break="no"/>pagnie in slagh ordere stonde, <lb/>op welck Casteel wij oock ge<pc
+                  force="weak">=</pc><lb break="no"/>logeert sijn, welck Casteel<pb/>extraordinaris
+               sterck is, alsoo het <lb/>rontom in een Moeras leijt, ende <lb/>voorbij het Casteel
+               de Revier de <lb/>Spree loopt, ende is oock met een <lb/>stene muer uyt het water op
+                  ge<pc force="weak">=</pc><lb break="no"/>haelt, ende syn des avondts vande
+               <lb/>twee voor gemelde heeren name<pc force="weak">=</pc><lb break="no"/>lijck syn
+               Exelentie Swerin ende den <lb/>oversten Ribbeek treffelijck alte<pc force="weak"
+                  >=</pc><lb break="no"/>mael uyt Silver getracteert, ende <lb/>wierde de
+                  h<expan>eer</expan> van Maerseveen sijn<lb break="yes"/>handt water gebracht van
+               drie edel <lb/>lieden, waer van de eene een Lam<pc force="weak">=</pc><lb break="no"
+               />pet schottel, de andere de Can, ende <lb/>de derde de handt doeck aenbracht</p>
+         </div>
+         <pb facs="#image_012"/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-08">Saterdagh den 8 dito</date> voor de mid<pc force="weak"
+                  >-</pc><lb break="no"/>dagh hebben wij het casteel besien,<lb/>ende hebben aldaer
+               oock gesien <lb/>een treffelyck Ammonitiehuijs <lb/>van alle oorloghs behoeften
+               <lb/>ende instrumenten heel wel <lb/>versien. Des middaghs sijn wij <lb/>wederom
+               getracteert geweest <lb/>vande selve heeren, ende op de <lb/>selve maniere gelijck
+               des avont<unclear>s</unclear>
+               <lb/>van te vooren. ende hebben <lb/>aengeseten in dese manieren <lb/>gelijck dese
+               Cijpher letters <lb/>aenwijsen. <pb/><pb facs="#image_013"/>Ende nae dat wij ons
+                  mid<pc force="weak">=</pc><lb break="no"/>daghmael gehouden hadden <lb/>soo sijn
+               wij nade middagh <lb/>omtrent twee uijren van <lb/>Spandouw wederom met het
+               <lb/>losbranden van 6 canons <lb/>alwaer wederom een Compag<pc force="weak">=</pc><lb
+                  break="no"/>nie in slagh ordere stont, door <lb/>een bosch van groote mast<pc
+                  force="weak">-</pc><lb break="no"/>bomen na Berlijn vertrocken;<lb/>twelck twee
+               kleyne mylen van <lb/>daer is. Noch bij ons gekrege<expan>n</expan><lb/>hebbende twee
+               karossen ijder <lb/>met ses paerden. de eene van <lb/>sijn Exelentie Sweerin ende
+               <lb/>de andere vande overste Ribbeck<pb/>Ende als wij nu dicht onder <lb/>de stadt
+               Berlijn quamen, soo <lb/>sijn daer een deel groote heere<expan>n</expan>
+               <lb/>vant hoff, ende edellieden <lb/>de heer van Marseveen come<expan>n</expan>
+               <lb/>in halen, altemael in karosse<expan>n</expan>
+               <lb/>met ses paerden sittende tot <lb/>negen ofte tien int getal, <lb/>welcke voor
+               rijdende ons <lb/>geleijden door de stadt tot <lb/>dat wij quamen over het
+               <lb/>buijten hoff in het binnen <lb/>hoff, alwaer de edellieden <lb/>voor uijt gingen
+               ende ons <lb/>brachten in onse Logiment <lb/>nademiddagh ontrent ten<pb
+                  facs="#image_014"/>half vier Uren, twelck was <lb/>op het hoff met eenige trap<pc
+                  force="weak">=</pc><lb break="no"/>pen op te gaen. Des avondts <lb/>wierden wij
+               van twee ofte <lb/>drij groote heeren getracteert</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-09">Sondagh den 9 dito</date> nae dat <lb/>de keurvorst inde
+               kercke <lb/>geweest was soo heeft den <lb/>heer van Marseveen audientie <lb/>gehadt
+               ten half elven, aldus <lb/>Eerst quamen daer een deel <lb/>edellieden den heer van
+                  Mar<lb break="no"/>seveen uyt sijn quartier halen <pb/> Ende sij voorgaende en
+               sijdne <lb/> Edel lieden volgende quamen <lb/> alsoo door verscheijde kameren <lb/>
+               ende vertrecken vol heeren ende <lb/> Edellieden tot inde kamer vande <lb/> keurvorst
+               welcke vol vande <lb/> grootste heeren van het hoff <lb/> was ende alwaer de
+               keurvorst <lb/> in het midden stondt. Naer <lb/> gedane salutatie heeft de heer <lb/>
+               van Marseveen sijn last ende <lb/> aen brengen geuijtert met <lb/> eenige weijnige
+               woorden welke <lb/> heel sacht waren ende die het <lb/> hadde willen hooren; moste<pb
+                  facs="#image_015"/>al heel goet van gehoor geweest <lb/>syn, alhoe wel ick daer
+               heel <lb/>dicht bij stondt nochtans heb <lb/>ick niet een woordt connen <lb/>hooren:
+               noch verstaen, soo dat <lb/>ick niet en weet wat voor <lb/>een spraeck sij 'tsamen
+               gebruijct <lb/>hebben; ende dit gedaen synde <lb/>sijn wij van daer gegaen <lb/>met
+               gelijcke statie ter camere<expan>n</expan>
+               <lb/>vande keurvorstinne doende <lb/>aldaer dier gelijcke comple<pc force="weak"
+                  >=</pc><lb break="no"/>menten ende even eens <lb/>sprekende als vooren, ende
+               <lb/>wierden doen vorder geleijt<pb/>ter cameren vande oude keur<lb break="no"
+               />vorstinne moeder vanden te<pc force="weak">=</pc><lb break="no"/>genwoordigen
+               keurvorst,<lb/>Ende van daer voort bij de <lb/>Princes Dovagere met gelijc<pc
+                  force="weak">=</pc><lb break="no"/>ke Statie ende gelijcke eere,<lb/>ende wierdt
+               alsoo wederom <lb/>in sijn quartier geleydt al<pc force="weak">=</pc><lb break="no"
+               />waer wij een weijnigh ver<pc force="weak">=</pc><lb break="no"/>toeft hebbende is
+               terstont <lb/>wederom met gelijcke statie <lb/>geleydt in een groote Zael <lb/>alwaer
+               een Tafel gedeckt <lb/>stondt waer oock de heer van <lb/>Marseveen een weijnigh
+                  wacht<pc force="weak">=</pc><lb break="no"/>te<pb facs="#image_016"/>tot dat de
+               keurvorst met een <lb/>deel groote heeren en Vrouwen <lb/>sijn gecomen, met de welcke
+               <lb/>hy doen aende Tafel is gaen <lb/>sitten Ende heeft de Tafel <lb/>in deser
+               maniere gestaen; en<expan>de</expan>
+               <lb/>aen geseten gelijck dese lettere<expan>n</expan>
+               <lb/>en<expan>de</expan> Cijpheren: aen wijsen.<pb/><pb facs="#image_017"/>ende
+               terwijl de heer van Mar<pc force="weak">=</pc><lb break="no"/>seveen soo getracteert
+               is geweest <lb/>bij de grooten, soo syn wy in ons <lb/>quartier getracteert geweest
+               <lb/>vande kleynen namelyck van <lb/>de edellieden en andere
+                  hovelinge<expan>n</expan>
+               <lb/>ende na dat de heer van Mar<pc force="weak">=</pc><lb break="no"/>se<pc
+                  force="weak">-</pc>veen syn maeltijdt aldus <lb/>met de grooten gehouden had<pc
+                  force="weak">=</pc><lb break="no"/>de, soo is hij weder in sijn quar<pc
+                  force="weak">=</pc><lb break="no"/>tier geleydt ende na dat hy daer <lb/>een
+               weynigh vertoeft hadde <lb/>soo syn daer eenige heeren ge<pc force="weak">=</pc><lb
+                  break="no"/>comen den welcken de heer <lb/>van Marseveen ende ons alte<pc
+                  force="weak">=</pc><lb break="no"/>mael het hoff ende des<pb/>keurvorsten
+               principaelste rari<lb break="no"/>teijten hebben vertoont De <lb/>welcke bestonden in
+               rare ende <lb/>extraordinae schone schilderije<expan>n</expan>
+               <lb/>en allerleije konstige Uer<pc force="weak">-</pc>wercke<expan>n</expan>
+               <lb/>In welcken te besichtigen wij <lb/>dien achtermiddagh hebben toe<lb/>gebracht,
+               ende hebben oock ge<pc force="weak">=</pc><lb break="no"/>sien een seer schoon hoff
+               ende <lb/>veel schone rariteijten. Des <lb/>avondts heeft den heer van <lb/>Marse<pc
+                  force="weak">-</pc>Veen wederom in sijn <lb/>quartier ge<pc force="weak"
+               >-</pc>eeten; ende is ge<pc force="weak">=</pc><lb break="no"/>tracteert geweest
+               Gelijck des <lb/>avondts te vooren. </p>
+         </div>
+         <pb facs="#image_018"/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-10">Op Maendagh, den 10 Dito</date>
+               <lb/>sijn geschiedt de Ceremonien <lb/>vanden Doop vanden Jongen <lb/>Keur Prins van
+               Brandenborgh <lb/>Gelyck als volght </p>
+         </div>
+         <div type="entry">
+            <p><lb/><date when="1655-05-10">Maendagh den 10 Maey 1655</date>
+               <lb/>des nae middaghs ten twee <lb/>uijren, nae dat wij ons mid<pc force="weak"
+                  >=</pc><lb break="no"/>daghmael gehouden hadden <lb/>Soo is de heer Johan
+                  Huijde<pc force="weak">=</pc><lb break="no"/>cooper. H<expan>eer</expan> van
+                  Marse<pc force="weak">-</pc>Veen <lb/>met Joncker Johan van Mar<pc force="weak"
+                  >=</pc><lb break="no"/>seveen De H<expan>eer</expan> Matthias Deugen
+               <lb/>Secretaris Jan Corver Harman <lb/>vander Poll, Jacomo van Uffelen <lb/>De
+               Vaendrigh Coningh,<pb/>ende Ick, syn wy met ons achten <lb/>ende een deel edellieden
+               voor uijt <lb/>gaende, uijt ons quartier <lb/>eenige vertrecken door gegaen <lb/>tot
+               dat wy quamen voor de <lb/>Camer vande oude keurvorst<pc force="weak">=</pc><lb
+                  break="no"/>jnne Moeder vanden tegen<pc force="weak">=</pc><lb break="no"
+               />woordigen Keur vorst, welke <lb/>camer den Heer van Marse<pc force="weak">=</pc><lb
+                  break="no"/>veen alleen in gingh. Daer<lb/>wy alle voor bleven staen, ende
+               <lb/>vonden daer noch wel drymael <lb/>soo veel <del>soo veel</del> Edellieden als
+               <lb/>wij sterck waren, ende nae<lb break="yes"/>dat wij daer een weynigh ver<lb
+                  break="no"/>toeft hadden.<pb facs="#image_019"/>soo sijn alle de Edellieden voor
+               <lb/>uijt gegaen, ende wy mede, en<expan>de</expan>
+               <lb/>daer op syn gevolght de Peeters <lb/>vanden jongen keurvorst <lb/>Eerst gingen
+               alle de Stenden <lb/>welcke Peeters syn (aldus) eerst <lb/>gingen de gedeputeerden
+               vande <lb/>Steden van het keur vorstendom <lb/>van Brandenburgh. De standen <lb/>van
+               Ravensbergh, van der Marck <lb/>Van Minden, van Halverstadt, <lb/>van Pomeren, van
+               Cleeff, <lb/>van Pruijssen, ende vand<expan>e</expan> Marc<pc force="weak">=</pc><lb
+                  break="yes"/>brandenburgh. Doen volghde <lb/>de Heer van Marseveen gaende
+               <lb/>tusschen twee Maerschalcken.<pb/>Daer op volghde de oude keurvorst <lb/>jnne
+               welcke geleydt wierdt <lb/>door frederick lantgraef van <lb/>Hessen, de Princes
+               Dovagere <lb/>weduwe van Prince frederick <lb/>hendrick Prince van Orangie
+               <lb/>welcke geleijdt wierdt door den <lb/>keurvorst, de Princes Catrina <lb/>suster
+               vanden Coningh van <lb/>Bohemen ende de oude keurvorst<pc force="weak">=</pc><lb
+                  break="no"/>jnne geleydt door den Graeff <lb/>van Dona. Ritmeester vande
+               <lb/>Guarde te paert van hare hoogh <lb/>mogende heeren Staten Generale.<lb/>De
+               Abdisse van hervorde Pals <lb/>Graeffinne aenden Ryn, door<pb facs="#image_020"/>den
+               Graeff Spar. De Princes <lb/>Maria, jonghste dochter van
+               Prin<supplied>ce</supplied><lb/>frederick hendrick Prince van <lb/>Orangie wierdt
+               geleydt door de <lb/>Generael Spar, ende de generael<lb/>luijtenant Kannenborgh, door
+               <lb/>de eene wierdt sy in geleydt en<expan>de</expan>
+               <lb/>door de<expan>n</expan> andere<expan>n</expan> wederom uijt.<lb/>door welcken
+               sij uijt, ofte in <lb/>geleijt is: dat weet ick niet. <lb/>het dochterken en
+               Princesgie <lb/>van falsburgh, vanden lantgraef <lb/>fridts wierdt geleijdt door den
+               <lb/>generael Oosten. Daer aen sijn <lb/>gevolght een groote menichte <lb/>staet
+                  Joffvrouwen.<pb facs="#image_021"/>soo sijn wy alsoo met malcanderen <lb/>door een
+               langen Galderije tot <lb/>inde kerck toe gegaen, daer elck <lb/>syn plaetse genomen
+               hebbende, <lb/>een goede predicatie hebben ge<pc force="weak">=</pc><lb break="no"
+               />hoordt. Welcke predicatie gedaen <lb/>wierdt door Dom<expan>inee</expan> Bergius
+               ende <lb/>heeft sijn Text genomen uijt <lb/>het tweede boeck Samuels aen <lb/>het
+               sevende Cappittel het veertiend<expan>e</expan>
+               <lb/>vaers, ende luijden de woorden <lb/>als volght. <lb/><q>Ick sal hem syn tot
+                  eenen Vader, ende hij sal <lb/>mij sijn tot eenen Soone: De welcke als hij
+                  <lb/>misdoet, soo sal ick hem met eene men<pc force="weak">=</pc><lb break="no"
+                  />schen roede, ende met plagen der Menschen <lb/>Kinderen straffen.</q><pb
+                  facs="#image_021"/>De predicatie gedaen sijnde soo zijn <lb/>wij met een deel
+               edellieden weder<lb break="no"/>om voor uijt gegaen over de
+                  galde<supplied>rij</supplied>
+               <lb/>die inde kerck was tot aende trap <lb/>welcken wy afgingen tot voor <lb/>het
+               Coor voor het welcke wij bleve<supplied>n</supplied>
+               <lb/>staen. Welck Coor alle de Peeters <lb/>en groote heeren alleen in<pc
+                  force="weak">-</pc>gingen <lb/>Jn welcken Coor de vloer
+                  altemae<supplied>l</supplied>
+               <lb/>met root laken gedeckt, ende de <lb/>muer met Tapijten behangen <lb/>was. In
+               welck Coor oock stont <lb/>een kleijn tafelken met een goude <lb/>Lampet daer op al
+               waer sij een <lb/>weijnigh wachtende het kindt is <lb/>gehaelt in soo daniger
+               manieren<pb/>als volght. het kindt is gedragen <lb/>door de Princes henriette dochter
+               <lb/>van frederick hendrick Prince <lb/>van Orangie onder een hemel <lb/>welcken
+               hemel: door vier <lb/>Generalen. welckers namen <lb/>mij onbekent sijn op gehouden
+               <lb/>wierdt; ende worde geleijdt <lb/>door twee Vorsten, namelijck <lb/>door de vorst
+               van Anholt van <lb/>Dessouw, ende de vorst van <lb/>Anholt van Perenburgh. De
+               <lb/>Sluijer welcke over het kindt <lb/>lach wierdt op gehouden door <lb/>drie
+               Frelliees namelyck door <lb/>een van Dona, ende twee vander Lip.<pb facs="#image_022"
+               />tot voor de kerck deur alwaer <lb/>de hemel most blyven staen <lb/>alsoo de selve
+               door de deur met <lb/>en conde. Doch soo syn sij op de <lb/>selve maniere als ick
+               geseght <lb/>hebbe in de kerck gecomen, ende <lb/>sijn alsoo mede in het Coor ge<pc
+                  force="weak">=</pc><lb break="no"/>gaen alwaer het kindt wierdt <lb/>over gegeven
+               aende Landtgrae<supplied>f</supplied>
+               <lb/>fridts, alwaer den voornoem<lb break="no"/>de Dom<expan>inee</expan> Bergius aen
+               dat Tafeltg<supplied>e</supplied>
+               <lb/>ginck staen, ende na dat hij <lb/>eenige gebeden gelesen hadde <lb/>ende de
+               Landtgraef het kindt <lb/>ten Doop houdende heeft <lb/>het gedoopt en is
+               genaemt<pb/>Carolus Amelius.<lb break="yes"/>Ende de Doop gedaen sijnde soo <lb/>sijn
+               wij op de selve maniere <lb/>te rugge gekeert nade kamer <lb/>van den tegenwoordigen
+                  keur<pc force="weak">-</pc><lb break="no"/>vorstjnne, Alwaer doen de <lb/>Pille
+               gaven gegeven wierden. <lb/>voor welcken alle de Edel<lb/>lieden oock bleven staen,
+               doch <lb/>sijn wij met ons achten daer <lb/>in geleijdt. jn welcken Camer <lb/>de
+               vloer oock altemael met <lb/>root laken bedeckt, ende met <lb/>alderhande costelijcke
+                  cieragie<expan>n</expan>
+               <lb/>op gepronckt was. In welcken <lb/>camer oock stondt een silvere<pb
+                  facs="#image_023"/>Taeffel, en twee silvere brand <lb/>Isers, elck by gissingh wel
+               vyff <lb/>ofte ses voeten hoogh, in welcke <lb/>oock was een vergult heck, <lb/>waer
+               binnen de keurvorst <lb/>met syn Excelentie Sweerin <lb/>alleen stonden, welcken
+               camer <lb/>oock rontsom vol van staet <lb/>Jofvrouwen stondt, ende voorts
+               <lb/>niemandt in en was dan de <lb/>Peeters vanden Keur Prins <lb/>alleen met haer
+               gevolgh <lb/>Gelijck de H<expan>eer</expan> van Marseveen <lb/>met sijn gevolgh, voor
+               welck <lb/>voornoemde heck oock stondt <lb/>een taeffel op de welcke alle<pb/>Alle de
+               Pillegaven geset sijn <lb/>aldus: Eerst quamen daer <lb/>seven heeren. de eerste dede
+               <lb/>een oratie tegen de keurvorst<pc force="weak">=</pc><lb break="no"/>jnne, de
+               andere ses hadden in <lb/>elcken hand dry silvere vergul<pc force="weak">=</pc><lb
+                  break="no"/>de schalen drij hoogh <pc force="weak">'</pc>twelck te <lb/>samen ses
+               en dertigh was, ende <lb/>syn oratie voleijndt hebbende <lb/>heeft de selve aende
+                  keurvorst<pc force="weak">=</pc><lb break="no"/>jnne overgegeven, en sy weder<lb
+                  break="no"/>om aen sijn Excelentie Swe<expan>e</expan>rin <lb/>de welcke dese ses
+               en dertigh <lb/>schalen altemael op de voornoem<lb break="no"/>de tafel heeft neder
+               geset. Dit <lb/>was de Pille gaeff uijt den<pb facs="#image_024"/>name vande oude
+                  keurvorstin<expan>ne</expan>
+               <lb/>Doen quamen daer wederom <lb/>vier heeren de eerste dede een <lb/>Oratie wederom
+               tegen de keur<lb break="no"/>vorstinne, de tweede hadde een <lb/>silver vergulde
+               lampet, de derde <lb/>ende de vierde hadden elck een <lb/>silvere vergulden bloempot
+               met <lb/>bloemen. De welcke mede sijn <lb/>Oratie voleijnt hebbende heeft <lb/>mede
+               sijn pillegaven overge<pc force="weak">=</pc><lb break="no"/>geven aende
+               keurvorstinne,<lb/>ende sij wederom aen syn <lb/>Excelentie Sweerin de welcke dese
+               <lb/>oock op het voorschreven tafelgie <lb/>heeft neder geset.<pb/>Dit was de
+               Pillegaeff uijt de <lb/>naem van de Princes Catharina <lb/>suster vanden oude
+                  keurvorstin<pc force="strong">.</pc>
+               <lb/>Doen quam de heer van Maer<pc force="weak">=</pc><lb break="no"/>seveen, welcke
+               mede op de selve <lb/>maniere sijn Pillegift heeft <lb/>overgegeven, daer nae de
+                  stan<pc force="weak">=</pc><lb break="no"/>den van Marck Brandenborgh, doen
+               <lb/>de Standen van Pruys<expan>s</expan>en, welcke<expan>n</expan>s <lb/>Pille gaef
+               was een Cabinet <lb/>met een purperfluwele Beurs <lb/>met twintigh duijsent
+                  ducaten<pc force="strong">.</pc><lb/>Doen de standen van Cleeff. <lb/>Daernae
+                  volghde<expan>n</expan> de Standen van <lb/>Pomeren, de Standen van Halver<pc
+                  force="weak">=</pc><lb break="no"/>stadt. <pb facs="#image_025"/>Doen wederom de
+               Standen <lb/>van Minden. Daer nae de <lb/>Standen van Marck. Als <lb/>mede, de
+               Standen van Ravens<pc force="weak">-</pc><lb break="no"/>bergh, ende doen; de
+                  gedeputeerd<supplied reason="damage">en</supplied>
+               <lb/>van de Steden van het Keur<pc force="weak">=</pc><lb break="no"/>vorstendom van
+               Brandenburgh. <lb/>welcke alle op de selve manier <lb/>gelyck ick geseght hebbe haer
+               <lb/>Pille gaven hebben overgege<pc force="weak">=</pc><lb break="no"/>ven, doch
+               beneffens dese twale<supplied reason="damage">n</supplied><lb/>soo sijn nog Peters
+               geweest <lb/>de Lantgraeff Frederick van <lb/>Hessen uijt den naem vanden
+               <lb/>Coningh Zweden. ende de<pb/>Princes Dovagere weduwe van <lb/>Prins Frederick
+               Hendrick Prince <lb/>Orangie welcke hare Pille<pc force="weak">=</pc><lb break="no"
+               />gaven al hadden overgegeven <lb/>eer ick inde kamer was, ende <lb/>nae dat dit
+               alles dus gedaen was <lb/>soo sijn wij wederom met de heer <lb/>van Maerseveen naer
+               ons quartier <lb/>gekeert, ende sijn daer van twee <lb/>a drij heeren getracreert
+               geweest <lb/>gelijck des avondts te vooren.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-11">Den 11 dito</date> op Dinghsdagh sijn <lb/>wy des
+               s’morgens met de heer <lb/>van Maerseveen des keurvorste<expan>n</expan>
+               <lb/><unclear>W</unclear>aerande wesen besichtigen.<pb facs="#image_026"/>De welcke
+               heel ordentelijcken <lb/>beplant, ende seer groot was. <lb/>Des naemiddagh heeft de
+               Heer <lb/>van Maerse veen in sijn quartier <lb/>gegeten, ende is wederom ge<pc
+                  force="weak">=</pc><lb break="no"/>lyck te vooren van twee â drij <lb/>heeren
+               getracteert geweest <lb/>Voorts sijn wij dien gantschen <lb/>achtermiddagh op het
+               hoff <lb/>geweest, overmidts dat het <lb/>dien dach seer heet weder was <lb/>ende te
+               warm was om te gaen <lb/>wandelen, ofte ijets anders <lb/>te doen, dan tegen den
+               Avond <lb/>doen hebben wij de heer van<pb/>Maerseveen geleijdt in een salet
+               <lb/>alwaer een tafel gedeckt stondt <lb/>ende gevonden hebben veel <lb/>grooten,
+               Alwaer doen gehouden <lb/>is voor de eerste reijs, het kin<pc force="weak">=</pc><lb
+                  break="no"/>dermael; ofte het doopmael, <lb/>vanden Jongen Keur Prins <lb/>van
+                  Branden<pc force="weak">-</pc>burgh. Ende de <lb/>tafel stondt op dese maniere
+               <lb/>gedeckt gelijck dese navolgende<lb break="yes"/>figuere; ende hebben
+                  aengesete<expan>n</expan><lb/>Gelijck dese Cypheren, ende <lb/>letteren
+               aenwijsen.</p>
+         </div>
+         <pb facs="#image_027"/>
+         <pb facs="#image_028"/>
+         <pb/>
+         <div type="entry">
+            <p>
+               <lb/>Op Woensdagh Den 12 dito syn <lb/>wy des morgens ten ses uijren <lb/>met twee
+               karossen elck met <lb/>ses paerden int geselschap van <lb/>syn Excelentie Swerin ende
+               <lb/>eenige andere groote heere<expan>n</expan>
+               <lb/>na Orangieburgh gereden <lb/>om dathuijs te besichtigen, <lb/><pc force="weak"
+                  >'</pc>twelck is het speel ofte jacht <lb/>huijs vande Ceurvorstjnne <lb/>ende is
+               gelegen ontrent twee <lb/>duijtsche mijlen ofte drie <lb/>uij<add place="above"
+                  >r</add>en gaens boven ofte ter <lb/>sijden Berlijn, ende sijn wij dan <lb/>aldus
+               gereden door seer schone<pb facs="#image_029"/>groote ende hooge
+                  Bosche<expan>n</expan>
+               <lb/>van Mastbomen ende sijn <lb/>mede gepasseert wel ses <lb/>â acht dorpen welcke
+               alle <lb/>de keurvorst mits gaders <lb/>het landt daer bij leggende <lb/>de
+               keurvorstinne geschonc<pc force="weak">=</pc><lb break="no"/>ken heeft, ende op de
+               helft <lb/>vanden wegh comende <lb/>hebben wy daer gevonden <lb/>twalef varsche
+               paerden <lb/>ende eenige knechte<expan>n</expan> welcke <lb/>daeghs te voren daer
+                  ge<pc force="weak">=</pc><lb break="no"/>comen waren de welcke <lb/>terstont onse
+               paerden<pb/>daer wij mede gereden hadden <lb/>uytgeslagen hebben ende de <lb/>andere
+               weder datelijck daer <lb/>voor geslagen, ende wy sijn <lb/>alsoo op een harden stap
+               gelijck <lb/>te vooren, (hoe wel het seer heet <lb/>weder ende de wegh seer gul<lb
+                  break="no"/>ende swaer te trecken was) <lb/>voort gereden ende daer des
+               <lb/>morgen omtrent acht uijren <lb/>comende, hebben wesen besien <lb/>het huijs <pc
+                  force="weak">'</pc>twelck seer fraeij <lb/>was, maer noch niet <pc force="weak"
+                  >'</pc>teene<pc force="weak">=</pc><lb break="no"/>mael volmaeckt even wel
+               <lb/>waren daer de solders van<pb facs="#image_030"/>ouderen geschildert doch <lb/>de
+               de meeste met beelden <lb/>welcke heel fraey waren <lb/>ende het huys gesien
+                  hebben<pc force="weak">=</pc><lb break="no"/>de; soo sijn wy geleijt in een
+               <lb/>camer al waer een tafel <lb/>gedeckt stont daer wij heer<pc force="weak"
+                  >=</pc><lb break="no"/>lyck vande heeren die met <lb/>ons gecomen waren alte<pc
+                  force="weak">=</pc><lb break="no"/>mael uijt silver getrac<pc force="weak"
+                  >=</pc><lb break="no"/>teert sijn geweest. ende na <lb/>dat wy gegeten hadden, soo
+               <lb/>heten sy tot ons vermaeck <lb/>aldaer een wolf comen, den <lb/>welcken sij van
+               eenige hon<pc force="weak">=</pc><lb break="no"/>den die sy daer hadden<pb/>bycans
+               lieten doodt bijten ende <lb/>dit gedaen synde; soo sijn wij <lb/>wederom den selven
+               wegh <lb/>met de voorschreven paerde<expan>n</expan>
+               <lb/>nae Berlijn gereden al waer <lb/>wij gecomen sij des na mid<pc force="weak"
+                  >=</pc><lb break="no"/>daghs omtrent ten half vier <lb/>uijren ende op het hoff
+                  ge<pc force="weak">=</pc><lb break="no"/>comen sijnde soo hebben wij <lb/>aldaer
+               door de vensters gesien <lb/>Ringh loopen <pc force="weak">'</pc>twelck seer
+               <lb/>fraeij om aen te sien was. <lb/>Eerst syn daer gecomen ach<pc force="weak"
+                  >=</pc><lb break="no"/>tien heeren alle op schone <lb/>paersen sittende; ende elck
+               <lb/>hadde een speer ofte een lans<pb facs="#image_031"/>voor hem, ende een swyns<pc
+                  force="weak">=</pc><lb break="no"/>spriet ofte een half spietsie <lb/>achter in
+               syn Sael ende een <lb/>degen op sijn sijde. Voor welke <lb/>achtien heeren was
+               rijdende <lb/>een keteltrommelslager slaen<lb break="no"/>de op een keteltrommel,
+               ende <lb/>veertien Trompetiers van <lb/>welcke datter tien waren <lb/>die
+               keurvorstelycke levereij <lb/>klederen aen hadden welcke <lb/>alle geleijd, ofte
+                  gecomman<pc force="weak">=</pc><lb break="no"/>deert worden door den Lant<lb
+                  break="yes"/>graef Frederick van Hessen. <lb/>Daer aen volghden beijde de
+               <lb/>vorsten van Anholt daer<pb/>na de Generael Oosten ende <lb/>den Graeff van Dona,
+               daer <lb/>aen sijn gecomen noch veel<lb break="yes"/>voor name heeren welckers<lb
+                  break="yes"/>namen myn onbekent sijn <lb/>alle twee in een gelit rijdende.
+               <lb/>Ende na datse alle in een <lb/>besloten perck waren gecome<expan>n</expan>
+               <lb/>soo syn daer drij hoofden van <lb/>papier gemaeckt gestelt, twee <lb/>elck op
+               een stack ende het <lb/>derde op de aerde neder, ende <lb/>doen heeft de eerste
+               beginnen <lb/>te lopen namelijck de Lant graef <lb/>van Hessen ende na dat hij ge<pc
+                  force="weak">=</pc><lb break="no"/>daen hadde hebben voorts<pb facs="#image_032"
+               />alle de heeren elck op sijn <lb/>beurte mede beginnen te <lb/>lopen, ende nae dat
+               dit dus <lb/>gedaen was soo syn de prijse<expan>n</expan>
+               <lb/>uijt gedeijlt welckers eerste <lb/>bestont in een silver ver<pc force="weak"
+                  >=</pc><lb break="no"/>gult lampet twelck heeft <lb/>gecregen de Lant graeff
+               <lb/>van Hessen. De twede prijs <lb/>was een silvere kan ende <lb/>worde gegeven aen
+               de op<pc force="weak">=</pc><lb break="no"/>perste stalmeester van de <lb/>keurvorst.
+               De derde ofte <lb/>de laetste prijs sijnde een <lb/>Bokael ofte een silvere
+               <lb/>vergulde kop en dese heeft<pb/>gecregen de vorst van Hu<pc force="weak"
+                  >=</pc><lb break="no"/>holt van Dessouw. Ende na <lb/>dat dese Prijsen op deser
+                  ma<pc force="weak">=</pc><lb break="no"/>niere uijt gedeelt waren, soo <lb/>sijn
+               sij wederom in goede ordre <lb/>uijt het perck gereden. Des <lb/>avondts is voor de
+               twedemael <lb/>gehouden het kinder ofte doop <lb/>mael gelyck des avondts <lb/>van te
+               voren, ende na dat sij <lb/>ge<pc force="weak">-</pc>eeten hadden, soo is terstont
+               <lb/>de tafel wegh genomen ende <lb/>hebben doen mael aldaer ver<lb break="no"/>toont
+               een heerlijck Balet <lb/>vertonende alderhande vreem<pc force="weak">=</pc><lb
+                  break="no"/>de natien, die daer met per<pc force="weak">=</pc><lb break="no"
+               />sonagien uijt gebeeld wierden</p>
+         </div>
+         <pb facs="#image_033"/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-13">Donderdagh den 13 dito</date> des <lb/>smorgens Daerna,
+               soo hebben <lb/>wij noch voor den eten met <lb/>twee van des keurvorsten
+               <lb/>Karossen destadt Berlijn, <lb/>wesen besien ende door ge<pc force="weak"
+                  >=</pc><lb break="no"/>reden, welck al een tame<pc force="weak">=</pc><lb
+                  break="no"/>lijcken stadt is, ende is ge<pc force="weak">=</pc><lb break="no"
+               />bouwt op de maniere gelijck <lb/>Antwerpen, met hele brede <lb/>straten de goten in
+               het <lb/>midden van de straet, ende <lb/>alle de huijsen hebben grote <lb/>poorten
+               soo datmen daer <lb/>gemackelijck met een karos <lb/>met ses paerden can in
+               rijden</p>
+            <p><lb break="yes"/>s<pc force="weak">'</pc>middaghs heeft de heer van <lb/>Marseveen,
+               in sijn quartier ge<pc force="weak">=</pc><lb break="no"/>eten ende des namiddaghs
+               soo <lb/>hebben wij des keurvorsten <lb/>tuijgh huijs ofte wapen huijs <lb/>wesen
+               besichtigen, het welcke <lb/>van alderhande schone wape<pc force="weak">=</pc><lb
+                  break="no"/>nen voor eenige duijsenden <lb/>mannen wel voor sien was <lb/>met
+               namen een groote menic<pc force="weak">=</pc><lb break="no"/>te Pistolen ende was een
+               seer <lb/>lange plaets altemael met <lb/>Camertgiens afgeschoten waer <lb/>in het
+               geweer hingh alsmede <lb/>veel Antiquiteijten ende<pb facs="#image_034"
+               />vreemdigheden van alder<pc force="weak">=</pc><lb break="no"/>handen oudt geweer.
+               Ende <lb/>van daer gekomen sijnde <lb/>soo hebben wij op het hoff <lb/>aen malkander
+               sien trou<pc force="weak">=</pc><lb break="no"/>wen, een hoffjoncker ende <lb/>een
+               staet joffer, welcke <lb/>ceremonien op deser ma<pc force="weak">=</pc><lb break="no"
+               />niere sijn geschiedt. Eerst <lb/>quam de Bruydegom ge<pc force="weak">=</pc><lb
+                  break="no"/>naemt Otto van Greben. <lb/>Welcke geleijdt wierdt <lb/>door de Vorst
+               van Anholt <lb/>van Dessouw, ende den <lb/>Vorst van Anholt was <lb/>Peren
+               burgh<pb/>jn een groot salet, een weijnig <lb/>hier nae quam de bruijdt <lb/>welcke
+               geleydt worde door <lb/>de keurvorst ende den lant <lb/>Graeff Frederick van hes<pc
+                  force="weak">=</pc><lb break="no"/>sen. hier aen volghde de oude
+               <lb/>keurvorstjnne welcke ge<pc force="weak">=</pc><lb break="no"/>leijdt worde door
+               den heer <lb/>en Baron Botlits, hier<lb/>aen volghden de Princes <lb/>Douagere
+               geleijdt door <lb/>de Graeff van Dova, <lb/>doe de tegenwoordigen <lb/>keurvorstjnne
+               welcke ge<pc force="weak">=</pc><lb break="no"/>leijdt worde door sijn Exe<pc
+                  force="weak">=</pc><lb break="no"/>lentie Swerin,<pb facs="#image_035"/>Daer nae
+               de Princes Catha<pc force="weak">=</pc><lb break="no"/>rina, doe de Abdisse van
+               <lb/>Hervorde, doe de huijsvrou<lb/>vanden Landt graeff van <lb/>Hessen, doe de
+               Princes <lb/>Henriette; doe de Princes <lb/>Maria, doe het Princesgie <lb/>van
+                  Fals<pc force="weak">-</pc>burgs de welcke <lb/>alle door groote ende
+               <lb/>voorname heeren geleijt <lb/>wierden, welcks namen <lb/>mij onbekent sijn hier
+               <lb/>aen volghden seventwin<pc force="weak">=</pc><lb break="no"/>tigh staet jufferen
+               waer <lb/>van de drij eerste van drie <lb/>heeren sijn geleydt<pb/>geweest, de andere
+                  vieren<pc force="weak">=</pc><lb break="no"/>twintigh gingen elck alleen <lb/>ende
+               na dat nu alle dese<lb/>sleep inde camer gecomen <lb/>was, soo is den bruijdegom
+               <lb/>ende de bruijdt voor een <lb/>laegh banckgie gaen staen <lb/>aende andere syde
+               van <lb/>het banckgie, ofte tegen <lb/>haer over is gaen staen <lb/>de Domine welcke
+               was <lb/>de Predicant Bergius die <lb/>de Keur<pc force="weak">-</pc>Prins gedoopt
+               <lb/>heeft, ende nae dat hij <lb/>eenige gebeden gelesen <lb/>hadde soo heeft de
+                  bruijde<pc force="weak">=</pc><pb break="no" facs="#image_036"/>gom de bruijdt een
+               ringh <lb/>gegeven, ende de bruijdt <lb/>de bruijdegom des gelijcs <lb/>eenen anderen
+               ringh<lb/>welcke nae dat sij soo mal<pc force="weak">-</pc><lb break="no"/>kanderen
+               een ringh over<lb break="yes"/>ende weer gegeven had<pc force="weak">=</pc><lb
+                  break="no"/>den soo hebben sij mal<pc force="weak">=</pc><lb break="no"/>kanderen
+               de rechter <lb/>handt gegeven, ende <lb/>heeftse den
+               voornoemde<expan>n</expan><lb/>Domine aenmalcander <lb/>getrouwt hier na sijn sij
+               <lb/>op het voorschreven banc<pc force="weak">=</pc><lb break="no"/>gie op haer knien
+               gaen <lb/>leggen ende heeft den<pb/>voornoemden Domine het <lb/>gebedt gedaen. Hier
+               aen sijn <lb/>sij alle te samen gelijck te <lb/>voren te rugge gekeert Des
+               <lb/>avondts heeft de heer van <lb/>Marseveen bij haer te Bruij<pc force="weak"
+                  >=</pc><lb break="no"/>loff geweest, ende wij heb<pc force="weak">=</pc><lb
+                  break="no"/>ben in ons quartier gegete<expan>n</expan>
+               <lb/>ende hadden wel tien ofte <lb/>twalef speel luijden over <lb/>tafel. Nae het
+               Avondtmael <lb/>wierden wij geleydt in een <lb/>camer, des avondts om<pc force="weak"
+                  >=</pc><lb break="no"/>trent tien uijren alwaer <lb/>wij door de venster gesien
+               <lb/>hebben alderhande schone<pb facs="#image_037"/>Vuerwercken soo op het
+               <lb/>Water, van alderhande <lb/>waterballen; als inde lucht <lb/>soo datter dickwils
+               wel <lb/>een duijsent vuerpijlen <lb/>gelyck op gingen; ende <lb/>de gehele lucht vol
+               vuer <lb/>was. Dit vuerwerck dat<lb/>duerde ontrent twee uijre<expan>n</expan></p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-14">Vrijdagh den 14 dito</date> sijn <lb/>wij des <pc
+                  force="weak">'</pc>s morgens ten <lb/>half achten ten hooff<lb/>gecomen ende is
+               doen de <lb/>Heer van Marseveen met <lb/>de Caros, van vele groten<pb/>sijn
+               affscheijt gaen neme<expan>n</expan>
+               <lb/>als, eerstelijck vanden Resident <lb/>van Sweden, vanden Her<pc force="weak"
+                  >=</pc><lb break="no"/>toogh van Cimbren, vande<lb/>vorsten van Anholt en Des<pc
+                  force="weak">=</pc><lb break="no"/>souw, en Perenburgh. Des <lb/>middaghs heeft
+               hij gelijck <lb/>te voren in sijn quartier <lb/>gegeten, ende des namiddags
+               <lb/>voort sijn af scheijdt nemende <lb/>vande Princes Douagere, <lb/>vande oude
+               keurvorstinne <lb/>des gelijcks oock vanden Keur<pc force="weak">=</pc><lb break="no"
+               />Vorst, en keurvorstjnne, ende <lb/>noch van veel meer groten <lb/>die mij vergeten
+               sijn.</p>
+            <pb facs="#image_038"/>
+            <p>
+               <lb/>Des avonts is den Heer van <lb/>Marseveen getracteert geweest <lb/>door den Lant
+               graeff van <lb/>Hessen ende noch eenige <lb/>voorname heeren meer, ende
+               <lb/>overtafel sittende heeft de <lb/>Lantgraeff uijt den naem <lb/>vande Keur Vorst,
+               den Heere<lb/>van Maerseveen eenen jvoren <lb/>Bockael geschonken, welcke <lb/>den
+               Keurvorst selfs soude <lb/>gedraeijt hebben. Ende nadat <lb/>wij ons avondmael
+               gehouden <lb/>hadden, soo hebben wij ons <lb/>af<pc force="weak">-</pc>scheijd
+               genomen vanden <lb/>Lant graeff van Hessen<pb/>ende van alle de heeren die ons
+               <lb/>dien avond getracteert hadden <lb/>ende sijn gelyck alle avonden <lb/>van te
+               vooren met eenige flam<pc force="weak">=</pc><lb break="no"/>beeuwen naer huijs
+               geleijd, ooc <lb/>heeft de Heer van Marseveen <lb/>ons belast dat wij des anderen
+               <lb/>daeghs s<pc force="weak">'</pc>morgens ten vijf Uren <lb/>souden wederom maken
+               in het <lb/>hoff zijn.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/>Op <date when="1655-05-15">Saturdagh Den 15 Maeij</date>
+               <lb/>syn wy volgens het bevel vande <lb/>heer van Marseveen des s<pc force="weak"
+                  >'</pc>morge<expan>n</expan>s <lb/>ten vijf uijren in t<pc force="weak">'</pc>hoff
+                  gecomen<pb facs="#image_039"/>Ende is als doen bij ons geco<pc force="weak"
+                  >=</pc><lb break="no"/>men Den oversten Rachouw <lb/>die ons met ons sevenen
+                  name<pc force="weak">=</pc><lb break="no"/>lijck Joncker van
+               Maerseveen.<lb/>Secretaris Corver, Joncker <lb/>Harman vande Pol. mijn heer
+               <lb/>agent Matthias Doegen. als <lb/>mede Jacomo van Uffelen. de <lb/>vaendrager
+               Claes Coningh. <lb/>ende Mijn yder een Gouden <lb/>penningh heeft gegeven; ende
+               <lb/>nae dat wij wat ontbeten <lb/>hadden: Soo zijn wij des s<pc force="weak"
+                  >'</pc>mor<pc force="weak">=</pc><lb break="no"/>gens ontrent ses uyren van
+               <lb/>Berlijn nae Amsterdam weder<pc force="weak">=</pc><pb break="no"/>om vertrocken
+               door Spandouw <lb/>alwaer wij in het voorbij gaen <lb/>ses Canon schoten uijt het
+                  ka<pc force="weak">=</pc><lb break="no"/>steel ontfingen ende vanden <lb/>oversten
+               Ribbeeck tot Branden<lb break="no"/>burgh geconvojeert wierden ende <lb/>voort deur
+               Stoocken, Fallie, Woester<pc force="weak">=</pc><lb break="no"/>marck, Tremmer,
+               alwaer wij ge<pc force="weak">=</pc><lb break="no"/>comen sijn ende middaghmael
+               <lb/>gehouden hebben. ende syn doen <lb/>voort gereden na Brandenburgh <lb/>alwaer
+               wij gecomen sijn ten <lb/>vier uijren ende hebben aldaer <lb/>die nacht geslapen.
+               Ende sagen <lb/>daer een Capelle welcke drijhon<pc force="weak">=</pc><pb break="no"
+                  facs="#image_040"/>dert jaren voor Christi ge<pc force="weak">=</pc><lb break="no"
+               />boorte soude getimmert wesen <lb/>(soo ons geseijdt worde) ende <lb/>noch op een
+               Bergh een oude<expan>n</expan>
+               <lb/>heijdensche ofte Gotische <lb/>Tempel, welck bij na heel ge<pc force="weak"
+                  >=</pc><lb break="no"/>ruineert was, ende hebben <lb/>noch gesien een kerck inde
+               <lb/>welcke het Koor drijentwin<lb break="no"/>tigh Trappen op te gaen wa<supplied
+                  reason="damage">ren</supplied>
+               <lb/>ende oock met een seer schone <lb/>steene verwelleste over=<lb break="no"
+               />slagen. Alwaer wij in het <lb/>Keurvorstelijcke hoff ge<pc force="weak">=</pc><lb
+                  break="no"/>logeert waren ende wierden<pb/>van verscheyde heeren getrac<pc
+                  force="weak">=</pc><lb break="no"/>teert. Ende dese stadt worde <lb/>gehouden te
+               zyn drij steden <lb/>overmidts elck bijsonder met <lb/>een Muer omcingelt is.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-16">Den 16 dito</date> syn wij des s<pc force="weak"
+               >'</pc>morgens <lb/>ten vyf uijren van Brandenburgh <lb/>vertrocken door Lingen,
+               Kliniken, <lb/>tot Zigesar alwaer wij middag<lb break="no"/>mael
+                  hielde<expan>n</expan>, ende daer was een <lb/>schoon Kasteel op het welcke
+               <lb/>Christiaen Wilhelm geboren <lb/>Marck Graeff van Branden<pc force="weak"
+                  >-</pc><lb break="no"/>burgh woonde<expan>n</expan>; den welcken<pb
+                  facs="#image_041"/>oud Oom ofte Bestevaders <lb/>broeder vanden tegenwoordigen
+               <lb/>Keurvorst is, ende in het ver<pc force="weak">=</pc><lb break="no"/>overen van
+               Maeghdenburgh <lb/>gevangen gecregen ende paeps <lb/>geworden is. Ende van daer
+               <lb/>voort deur Hoogentsigats nae <lb/>Sipile alwaer wij gecomen <lb/>sijn s<pc
+                  force="weak">'</pc>avondts ten tien uijren <lb/>ende hebben aldaer geslapen</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-17">Den 17 dito</date> sijn wij des smorgens <lb/>ten vijf
+               uijren vertrocken na <lb/>Maeghdenburgh alwaer wij ge<pc force="weak">=</pc><lb
+                  break="no"/>comen sijn des s<pc force="weak">'</pc>morgens<pb/>ten negen uijren,
+               ende dien <lb/>gantschen dagh aldaer vertoef<pc force="weak">-</pc><lb break="no"
+               />den om de stadt te gaen besien, <lb/>ende wy sagen oock veel dinge<expan>n</expan>
+               <lb/>welcke om te verhalen te lang <lb/>soude zijn.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-18">Den 18 dito</date> zijn wij des s<pc force="weak"
+                  >'</pc>morge<expan>n</expan>s <lb/>ten half vijven van Maechde<expan>n</expan>burg
+               <lb/>vertrocken door Barleben Jasleben <lb/>Sambswegen Kluin alwaer wij ons
+               <lb/>middaghmael gehouden hebben <lb/>ende daer nae voort deur Solpke <lb/>Jechon na
+               Zuarenbeeck alwaer wij <lb/>gecomen sijn s<pc force="weak">'</pc>avondts<pb
+                  facs="#image_042"/><lb/>ten half achten ende hebben <lb/>daer dien nacht
+               geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-19">Den 19 dito</date> zyn wy des smor<pc force="weak"
+                  >=</pc><lb break="no"/>gens ten vier uren van Zuaren<pc force="weak">=</pc><lb
+                  break="no"/>beeck vertrocken deur Keublits <lb/>duins Mellijn Juberen alwaer
+               <lb/>wy ons middaghmael gehoude<expan>n</expan>
+               <lb/>hebbende sijn voort gereijst <lb/>deur Swulouw na Wieren daer <lb/> wij gecomen
+               sijn ten half achte<expan>n</expan>
+               <lb/>ende geslapen hebben </p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-20">Donderdagh den 20 dito</date> sijn <lb/>wy des smorgens
+               ses uijren<pb/>van Wieren vertrocken door <lb/>Amerleemke, Grootliden, Oldenstat
+               <lb/>Emmendorp alwaer een water<lb break="no"/>val was over de Elvenauw voort
+               <lb/>deur Bunsdorp, Bejernisin, Klooster<pc force="weak">=</pc><lb break="no"/>mede
+               (alwaer een vrouwenkloo<pc force="weak">=</pc><lb break="no"/>ster was, doch soo
+               danigh dat <lb/>de vrouwluijden daer uijt moch<pc force="weak">-</pc><lb break="no"
+               />ten gaen wanneer het haer <lb/>beliefden) na Broeckdorp tot <lb/>Buenbuttel alwaer
+               wy onsen <lb/>middaghmael gehouden hebben <lb/>Voort deur Ever na Lunenborgh
+               <lb/>alwaer wij gecomen sijn ten ses <lb/>uijren en hebben daer geslapen.<pb
+                  facs="#image_043"/>Ende hebben voorts dien avondt <lb/>deur gebracht met destadt
+               te <lb/>besichtigen ende wy hebben onder <lb/>anderen gesien de Sout brun de
+               <lb/>welcke heel raer was om gesien <lb/>te worden, alwaer oock was <lb/>een kasteel
+               boven op een steen<pc force="weak">=</pc><lb break="no"/>rotse t<pc force="weak"
+                  >'</pc>welck heel sterck was <lb/>van buijten aen te sien, doch <lb/>wij en
+               mochten het van binnen <lb/>niet besichtigen, ende wij sagen <lb/>noch diergelijcke
+               dingen meer</p>
+         </div>
+         <div type="entry">
+            <p>
+               <date when="1655-05-21"><lb/>Vrijdagh den 21 dito</date> sijn wij <lb/>wederom
+               vertrocken van<pb/>Lunenbergh s<pc force="weak">'</pc>morgens ten ses
+                  ure<expan>n</expan>
+               <lb/>door Verbeeck, Borstel, Winse, al<pc force="weak">-</pc><lb break="no"/>waer een
+               schoon Kasteel was <lb/>na dat wij int voorby rijden sien <lb/>conden, voort deur
+               Hoop alwaer <lb/>wy over de Elve voeren nae <lb/>Tollenspijcker ende hielden aldaer
+               <lb/>ons middaghmael ende voorts <lb/>van Tollenspijcker sijn eenige van <lb/>het
+               geselschap waer onder ick <lb/>mede was; de Elve afgevaren <lb/>voorbij Vierlant,
+               Oxenwater Bolthous <lb/>Ossenwater, Welwater, nae Hamborgh <lb/>alwaer wij gecomen
+               sijn des<pb facs="#image_044"/>avondts ten ses uijren ende <lb/>gingen dien avondt de
+               stadt <lb/>besichtigen daer nae hebben <lb/>wij avondtmael gehouden <lb/>oock heeft
+               den Resident Roemer <lb/>met ons gegeten ende hebben <lb/>daer geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-22">Saterdagh den 22 dito</date> hebben <lb/>wij voor de
+               middagh wederom <lb/>de stadt wesen besichtigen <lb/>ende des middaghs wierden
+               <lb/>wy getracteert door twee <lb/>Raetsheeren, namelijck door <lb/>den Raetsheer van
+               Holten<pb/>ende den Raedsheer vander <lb/>Vecht ende nae dat wij gegeten <lb/>hadden:
+               is ons comen begroeten <lb/>de heer Burgermeester Mutter <lb/>ende is ons oock
+               aengeseyd door <lb/>de stadts schencker dat wij sou<pc force="weak">-</pc><lb
+                  break="no"/>den gedefroijeert worden. Ten <lb/>vier uijren quam de Resident
+               <lb/>Roemer wederom om ons noch <lb/>eenige rare dingen te vertonen <lb/>des avondts
+               hebben wij alleen<lb break="yes"/>gegeten.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-23">Sondagh den 23 dito</date> sijn wij des <lb/>morgens ten
+               seven uijren inde <lb/>kercke geleijd door den Resident<pb facs="#image_045"/>Roemer
+               tot Altena alwaer <lb/>een Gereformeerde kerck is. <lb/>Des middaghs heeft bij ons
+               <lb/>gegeten de Resident Roemer <lb/>ende Marcelis, nade middagh <lb/>hebben wij de
+               fortificatie wesen <lb/>besichtigen vergeselschapt <lb/>synde wederom door den
+               <lb/>Resident Roemer, Marcelis, <lb/>ende een Officier, welcke ons <lb/>alles wel
+               vertoonde, Des <lb/>avondts hebben wij wederom <lb/>alleen gegeten. ende dien
+               <lb/>nacht daer wederom geslapen.</p>
+         </div>
+         <pb/>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-24">Maendagh Den 24 dito</date> syn wij <lb/>des morgens ten
+               tien uijren van <lb/>Hamborgh met een Speeljacht de <lb/>Elve opgevaren <add
+                  place="above">voor</add> bij Altena Nieu<pc force="weak">=</pc><lb break="no"
+               />stede, Dockenhoen, Blanckenneuse <lb/>nade Crans alwaer wij middagh <lb/>hielden en
+               onse wagenen verwach<lb break="no"/>ten en gingen op sitten ende rede<expan>n</expan>
+               <lb/>duer Jerck Laetrovers Hooghlant nae <lb/>Hoornburgh alwaer wij gecomen <lb/>zijn
+               namiddagh ten vier uijren <lb/>ende hebben daer geslapen </p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-25">Dinghsdagh Den 25</date> sijn wij des<lb break="yes"
+               />morgens ten vyf uijren<pb facs="#image_046"/><lb/>vertrocken <add place="inline"
+                     >va<expan>n</expan></add> Hoornburgh deur <lb/>Baers, Heijst, Kloosterseve
+                  al<pc force="weak">=</pc><lb break="no"/>waer wij middaghmael hiel<pc force="weak"
+                  >=</pc><lb break="no"/>den; ende oock het Klooster <lb/>gingen besien. Voort deur
+               <lb/>Winckeldorp Ottersbeeck nae <lb/>Achim alwaer wij gecomen <lb/>zijn des avondts
+               ten half elven <lb/>ende hebben daer geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-26">Woensdagh Den 26 dito</date> sijn <lb/>wy wederom
+               vertrocken van <lb/>Achim des morgens ten half<pc force="weak">=</pc><lb/>achten ende
+               namen onsen<pb/>wegh deur Mier Arbergh voort <lb/>na Bremen, ende syn daer ge-
+               <lb/>comen des middaghs ten twa- <lb/>lef uijren ende gingen dien <lb/>achtermiddagh
+               destadtbesien <lb/>ende hebben aldaer geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <date when="1655-05-27"><lb/>Donderdagh Den 27 dito</date> sijn <lb/>wy des morgens
+               ten seven uijren <lb/>van Bremen vertrocken deur <lb/>Heuslingen Delmerhorst Habrug
+               <lb/>Valckenburgh, Dinghstede alwaer <lb/>wij middaghden. en reijsden voort <lb/>deur
+               Tenhorn, Lintel, Blanckenburgh,<pb facs="#image_047"/>nae Oldenburgh alwaer wij
+               <lb/>gecomen zijn ten seven uijren <lb/>en hebben daer geslapen ende <lb/>gingen dien
+               avondt noch de <lb/>stadt besien; ende nae dat <lb/>wij wederom een weijnigh <lb/>in
+               onsen herbergh waren, soo <lb/>is den Graeff van Oldenburgh <lb/>selfs, en een deel
+               Edellieden <lb/>vooruijtgaende ons comen <lb/>halen <add place="above">met</add>
+               Karossen, met ses <lb/>paerden, ende heeft ons geleijdt <lb/>op sijn hoff alwaer een
+                  mael<pc force="weak">=</pc><lb break="no"/>tijdt synde hebben met hem
+               <lb/>gegeten. <pb/><pb facs="#image_048"/><pb/>ende syn getracteert geweest <lb/>door
+               de Graeff van Oldenburgh, <lb/>de vorstinne van Holsteijn sijn <lb/>huysvrouwe, de
+               Frellie van Wit<pc force="weak">=</pc><lb break="no"/>gensteijn ende door de Frellie
+               van <lb/>Borbij ende des avondts na dat <lb/>wij gegeten hadden soo heeft den
+               <lb/>Grave ons tot beneden toe geleijt <lb/>ende zijn wederom door de twee
+               <lb/>selfde Carossen met ses paerden <lb/>in ons logiment gebracht </p>
+         </div>
+         <div type="entry">
+            <p>
+               <date when="1655-05-28"><lb/>Vrijdagh Den 28 dito</date> syn des <lb/>morgens heel
+               vroegh on ver<pc force="weak">=</pc><pb break="no" facs="#image_049"/>scheijden
+               Edellieden, ende <lb/>van het hoffgesin vanden <lb/>Grave comen halen, ende
+               <lb/>hebben ons doen vertoont <lb/>de paerden vanden Grave <lb/>welcke heel schoon
+               waren <lb/>ende die gesien hebbende; soo <lb/>hebben sij <add place="above">ons</add>
+               <pc force="weak">'</pc>t huijs gebracht,<lb/>ende een weijnigh met mal<pc
+                  force="weak">=</pc><lb break="no"/>canderen ontbeten hebbende <lb/>soo syn sy
+               ontrent des <pc force="weak">'</pc>smor<pc force="weak">=</pc><lb break="no"/>gens
+               ten half sevenen van <lb/>Oldenburgh vertrocken, ende <lb/>sy alte samen te paerde
+               sijnde<pb/>hebben ons uijtgeleijdt tot <lb/>ontrent een half mijl buijten <lb/>de
+               stadt, ende hebben ons met <lb/>negen Canon schoten vereert <lb/>ende hebben oock een
+                  Trompet<pc force="weak">=</pc><lb break="no"/>ter met ons gehadt. Voort zijn
+               <lb/>wij gereijst deur Griesstede, Blix<pc force="weak">=</pc><lb break="no"/>house
+               (alwaer wij middaghden)<lb/>Geselhorst, Mansilindern, Apen welck <lb/>de uijterste
+               frontier plaets van <lb/>Oldenburgh is ende daer ontfingen <lb/>wy int voorbij ryden
+               ses Canon <lb/>schoten, ende namen voort onsen <lb/>wegh deur Diteren Loevelde
+                  Stickhouse<pb facs="#image_050"/><lb/>en Boeckel twelck een schants <lb/>is toe
+               behorende den Grave <lb/>van Emden, Nortmoer, Loug<pc force="weak">=</pc><lb
+                  break="no"/>birum, Louge, nae Lier alwaer <lb/>wij gecomen zijn <pc force="weak"
+                  >'</pc>savondts <lb/>ten acht uijren ende hebben <lb/>daer geslapen</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-29">Saturdagh Den 29 dito</date> sijn <lb/>wij heel vroegh
+               het fort Lieroort <lb/>wesen besichtigen <pc force="weak">'</pc>twelck seer <lb/>wel
+               gefortificeert is ende wij <lb/>wierden om geleijdt door den <lb/>Capteijn Segers
+               ende den<pb/>Luytenant Kock ende na dat <lb/>wy het fort wel besichtight
+                  hadde<expan>n</expan>
+               <lb/>soo heeft ons den voornoemden <lb/>Capiteijn Segers in syn huijs ge<pc
+                  force="weak">=</pc><lb break="no"/>leijdt alwaer noch eenige andere
+               <lb/>Officieren bij gecomen sijnde <lb/>met malcanderen wat ontbeten <lb/>hebben dit
+               gedaen sijnde, soo sijn <lb/>wy ontrent ten half elven van <lb/>Lieroort met het af
+               schieten van <lb/>drie Canonschoten met een Schip <lb/>de Eems afgevaren voorbij
+               Hogast, <lb/>Terburgh, Middelstenburgh Viersten<pc force="weak">=</pc><lb break="no"
+               />burgh Wedermuncke, Roerechem,<pb facs="#image_051"/>Oldersum, Gandersum,
+               Pettemermunck, <lb/>Petken, Wildesweer, Tarsum kleijne <lb/>en groote Borsum. alle
+               dese dorpen <lb/>hierboven aengeroert, wanneer<pc force="weak">=</pc><lb/>men is
+               varende van Lieroort <lb/>na Emden leggen aende rechter<pc force="weak">=</pc><lb
+                  break="no"/>handt, ende dese navolgende <lb/>aende linckerhandt, als Eskelum,
+               <lb/>Termoede Binnegum, Solborgh, Jemgum,<lb/>Boomborgh Hatsum, Midlum,
+               Kritsum,<lb/>Koldenborgh Nendorp, Oldendorp, Dit<pc force="weak">=</pc><lb break="no"
+               />sumpogen Larelte nae Emden.<lb/>alwaer wij gecomen syn des <lb/>middaghs ten half
+               twe uijren <lb/>ende gingen dien achtermiddag<pb/>de stadt besichtigen ende
+                  vertroc<pc force="weak">=</pc><lb break="no"/>ken wederom ten half sessen met
+               <lb/>het selve Schip de Eems af nae <lb/>Delfsiel alwaer wy gecomen sijn <lb/>des
+               avondts ten half negenen ende <lb/>hebben daer dien nacht geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-30">Sondagh Den 30 dito</date> sijn wij des <lb/>smorgens
+               ten half negenen met <lb/>de jaeghschuijt van Delfsiel vertroc<pc force="weak"
+                  >=</pc><lb break="no"/>ken deur Dam, Sanst, Loppersumertil <lb/>Mude, Post, Bolte,
+               Garmerwolde, nae <lb/>Groningen alwaer wij gecomen sijn <lb/>te half twee uijren ende
+                  hebben<pb facs="#image_052"/>daer ons middaghmael ge<pc force="weak">=</pc><lb
+                  break="no"/>houden ende nae gedane mael<pc force="weak">=</pc><lb break="no"
+               />tijdt soo is by ons gecomen <lb/>een Edelman van Graeff <lb/>Willem Stadthouder van
+                  Vries<pc force="weak">=</pc><lb break="no"/>landt welcke vraeghde ofte <lb/>het
+               wel gelegentheyt soude <lb/>geven dat Graeff Wilhelm <lb/>de heer van Marseveen eens
+               <lb/>soude comen besoecken. Daer <lb/>op de heer van Maerseveen <lb/>antwoorde dat
+               hij Graeff <lb/>Wilhelm soude comen besoecken <lb/>Ende daer op is terstont<pb/>de
+               Heer van Marseveen met sijn <lb/>gantsche<expan>n</expan> treijn nae het hoff
+               <lb/>van Graeff Wilhelm gereden <lb/>ende daer gecomen sijnde soo <lb/>stondt den
+               Grave Wilhelm <lb/>buijten de deur om de heer van <lb/>Marseveen te verwachten ende
+               <lb/>de Grave, den heer van Mar<pc force="weak">=</pc><lb break="no"/>seveen welcom
+               geheten hebbende <lb/>soo sijn sy gesamentlijck nae <lb/>binnen gegaen alwaer sy met
+               <lb/>malcanderen ontrent drie uijre<expan>n</expan>
+               <lb/>discoureerden, ende haer discours<lb break="yes"/>geeijndight sijnde; soo is
+                  de<pb facs="#image_053"/>heer van Marseveen met zijn <lb/>gantsche treijn wederom
+               met <lb/>sijn Karos naer zijn logiment <lb/>gereden, ende na dat hij een
+               <lb/>weijnigh in sijn logiment ge<pc force="weak">=</pc><lb break="no"/>weest was;
+               soo is terstont den <lb/>selfden Edelman comen vragen <lb/>ofte het wel
+               gelegentheijdt soude <lb/>geven dat Graeff Wilhelm <lb/>de Heer van Maerseveen
+               <lb/>eens soude comen besoecken <lb/>daer op de H<expan>eer</expan> van Marseveen
+               <lb/>antwoorde dat het hem wel <lb/>gelegen quam, als het<pb/>Graeff Wilhelm
+               beliefde, <lb/>daer op is terstont Graeff <lb/>Wilhelm met een karos bij den
+               <lb/>Heer van Marseveen in zyn logi<pc force="weak">=</pc><lb break="no"/>ment
+               gecomen, ende na dat hij <lb/>ontrent een half uijr met den <lb/>Heer van Marseveen
+               gediscoureert <lb/>hadde<expan>n</expan> soo is den Grave weder <lb/>met sijn karos
+               na sijn hoff gerede<expan>n</expan>
+               <lb/>Daer op is terstont weder gecomen <lb/>den voornoemden Edelman om <lb/>den heer
+               van Maerseveen met <lb/>syn gantschen treijn te gaste <lb/>nooden, daer op den Heer
+               van <lb/>Maerseveen antwoorde dat hij<pb facs="#image_054"/>comen soude, soo is dan
+               des <lb/>avondts omtrent acht uijren <lb/>de Heer van Marseveen met sijn <lb/>volck
+               te weten Joncker van Marse<pc force="weak">=</pc><lb break="no"/>veen, Secretaris
+               Corver, Pol, <lb/>Uffelen, Coningh ende Jck daer heen <lb/>gereden, ende daer gecomen
+               <lb/>synde: soo heeft Graeff <lb/>Wilhelm ons vriendelijck welcom <lb/>geheten, en
+               heeft ons geleijdt <lb/>in een kamer al waer wij een <lb/>ronde Tafel gedeckt vonden
+               in <lb/>dusdaniger manieren; ende <lb/>hebben aengeseten: gelijck dese <lb/>Cijpher
+               letteren aenwijsen.<pb/><pb facs="#image_055"/>Ende nae dat wij gegeten hadden
+               <lb/>soo syn wij door de Karosse van <lb/>Grave Wilhelm wederom thuijs
+               <lb/>gebracht.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-05-31">Den 31 dito</date>, op Maendagh na dat <lb/>wij des
+               morgens vroegh destadt <lb/>hadden hadden wesen besichtigen <lb/>soo sijn des morgens
+               ten seven <lb/>uijren van Groningen vertrocken <lb/>deur Helpen, Hooren, Punt, Vries,
+               <lb/>Ree, Pitloo, Assen, aldaer wij mid<pc force="weak">=</pc><lb break="no"
+               />daghmael gehouden hebbende <lb/>sijn voort gereijst deur Holien<pc force="weak"
+                  >=</pc><lb break="no"/>klinck nae Diveren, alwaer wij <lb/>gecomen sijn <pc
+                  force="weak">'</pc>tsavonds ten seven <lb/>uijren ende hebbe daer geslapen </p>
+         </div>
+         <pb/>
+         <div type="entry">
+            <p>
+               <date when="1655-06-01"><lb/>Dinghsdagh Den eersten Junij</date> zijn <lb/>wy des
+               morgens ten vier uyren van <lb/>Diveren vertrocken deur Uffelen, Havelte
+               <lb/>Swartesluijs, ten Oort, van waer wij over <lb/>het Swarte<pc force="weak"
+               >-</pc>water voeren na Geelmuijen <lb/>voorts van Geelmuijen door IJselmuijen
+               <lb/>tot Campen. De Magistraet onse <lb/>comste vernomen hebbende, heeft <lb/>de heer
+               van Marseveen wesen begroete<expan>n</expan><lb/>ende de Magistraet Den heer van
+               <lb/>Marseveen begroet hebbende soo is <lb/>De heer van Marseveen met synen
+               <lb/>gantschen Treijn beleefdelyck getrac<pc force="weak">=</pc><lb break="no"
+               />teert, ende onsen af scheijdt genome<expan>n</expan>
+               <lb/>hebbende sijn voort gereijst van <lb/>Campen, door Camperveen, Oostwolde,<pb
+                  facs="#image_056"/>Somerdijck na Elburgh daer wij ge<pc force="weak">=</pc><lb
+                  break="no"/>comen sijn des avondts ten acht <lb/>uijren: ende hebben daer dien
+               <lb/>nacht geslapen.</p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-06-02">Woensdagh den tweden dito</date> syn <lb/>wij des
+               morgens ten halff <lb/>sessen van Elburgh vertrocke<expan>n</expan>
+               <lb/>en namen onsen wegh deur <lb/>Doorspijcker, Nunspit, Hulsthorst, <lb/>Armelen,
+               Niekercke, alwaer wij <lb/>onse<expan>n</expan> middaghmael gehouden <lb/>hebben;
+               ende na gedane maeltijd <lb/>voort deur Amersfoort, de Bilt <lb/>nae Uijtrecht ende
+               sijn daer <lb/>gecomen des avondts ten half <lb/>negenen ende vernachten. </p>
+         </div>
+         <pb/>
+         <div type="entry">
+            <p>
+               <date when="1655-06-03"><lb/>Donderdagh Den 3 dito</date>, sijn wij des <lb/>morgens
+               ten seven uijren van <lb/>Uijtrecht vertrocken deur Suijsen, Marse, <lb/>nae
+               Goudesteijn en<expan>de</expan> sijn daer gecome<expan>n</expan>
+               <lb/><pc force="weak">'</pc>smorgens ten half negenen ende <lb/>brachten daer dien
+               gantschen dag <lb/>toe int besichtigen van kastelen, <lb/>ende gebouwen, soo met den
+               heer <lb/>van Marseveen, als anderen <lb/>toe behorende, ende wij hebben <lb/>dien
+               nacht met onsen gantschen <lb/>Treyn op Goudensteijn geslapen. </p>
+         </div>
+         <div type="entry">
+            <p>
+               <lb/><date when="1655-06-04">Vrijdagh Den 4 dito</date> na dat wij ons
+               <lb/>middaghmael op Goudensteijn ge<pc force="weak">=</pc><lb break="no"/>houden
+               hadden doen sijn wij des<pb facs="#image_057"/>middaghs ten twalef uren van
+               <lb/>Goudesteijn vertrocken deur <lb/>Breukelen, Nieuwersluijs, Loener<pc
+                  force="weak">=</pc><lb break="no"/>sloot, Baenbrugh, Abkouw, Ouwer<pc force="weak"
+                  >=</pc><lb break="no"/>kerck over de Diemerbrugh voorts <lb/>deur de Diemermeer,
+               nae<lb/>Amsterdam, alwaer wij gecome<expan>n</expan>
+               <lb/>zijn des avondts ten vijf uijren <lb/>ende wierden van een Cornet <lb/>Paerden
+               treffelijck ingehaelt <lb/>de welcke ons oock hebben over <lb/>den Dam geleydt tot
+               voor de <lb/>deur vanden Heer van Marseveen <lb/>daer een ijder sijn af scheijdt
+                  <lb/>va<expan>n</expan>de Heer van Marseveen heeft <lb/>genomen ende is naer huijs
+               <lb/>gegaen ende de reijs geeijndigt</p>
+         </div>
+         <fw place="top" type="header">Mijlen</fw>
+         <div type="miles">
+            <p>
+               <lb/>Van Hamborgh tot Esburgh 3 <lb/>Van Esb<expan>urgh</expan> tot Lauwenburgh 3
+               <lb/>van Lauwenb<expan>urgh</expan> tot Buijsenburgh 1<lb/>van
+                  Buijsenb<expan>urgh</expan> tot Hagenauw 4 <lb/>van Hagenauw tot Grabouw 4
+               <lb/>van Grabouw tot Perlenburgh 4 <lb/>van Perlenb<expan>urgh</expan> tot Dollingh 3
+               <lb/>van Dollingh tot Woesterhouse 3 <lb/>van Woesterh<expan>ouse</expan> tot
+               ferberlijn 3 <lb/>van ferberlijn tot Basijn 3 <lb/>van Basijn, tot Spandauw 2
+               <lb/>van Spandauw, tot Berlijn 2 <lb/>35 </p>
+         </div>
+         <pb facs="#image_058"/>
+         <fw place="top" type="header">Mijlen</fw>
+         <div type="miles">
+            <p>
+               <lb/>Van Berlijn tot Spandouw 2 <lb/>van Spand<expan>ouw</expan> tot
+                  Brande<expan>n</expan>burgh 6 <lb/>van Brandenburgh tot Zigeser 3 <lb/>van Zigeser
+               tot Zipelen 4 <lb/>van Zipelen tot Maeghdenb<supplied>urgh</supplied> 2 1/2 <lb/>van
+                  Maeghdenb<expan>urgh</expan> tot Sambswege<expan>n</expan> 2 <lb/>van Sambswegen
+               tot Kluin 3 <lb/>van Kluin tot Quarenbeeck 3 <lb/>van Quarenbee<expan>c</expan>k tot
+               Juberen 3<lb/>van Juberen tot Wieren 4 <lb/>van Wieren tot Bienbuttel 4 <lb/>van
+               Bienbuttel tot Lunenburgh 2 <lb/>van Lunenb<expan>urgh</expan> tot Tollenspijcker 3
+               <lb/>van Tollensp<expan>ijcker</expan> tot Hamborgh 4 <lb/>45 1/2 </p>
+         </div>
+         <pb/>
+         <fw place="top" type="header">Mijlen</fw>
+         <div type="miles">
+            <p>
+               <lb/>Van Hamborgh tot <add place="above">de</add> Crans 2 <lb/>van de Crans tot
+               Hoornburgh 2 <lb/>van Hoornburgh tot Kloosterseve 4 <lb/>van Kloosterseve tot
+               Ottersbergh 3 <lb/>van Ottersbergh tot Bremen 3 <lb/>van Bremen tot Delmerhorst 1
+               <lb/>van Delemerhorst tot Valckenb<expan>urgh</expan> 1 <lb/>van Valckenburgh tot
+               Dingstede 1 1/2 <lb/>van Dingstede tot Oldenburgh 2 1/2 <lb/>van
+                  Oldenb<expan>urgh</expan> tot Blicxhouse 2 <lb/>van Blicxhouse tot, Apen 2
+               <lb/>van Apel tot Lier 2 <lb/>van Lier tot Emden 2 <lb/>van Emden tot Delfsiel 2
+               <lb/>30 </p>
+         </div>
+         <pb facs="#image_059"/>
+         <fw place="top" type="header">Mijlen</fw>
+         <div type="miles">
+            <p>
+               <lb/>Van Delfziel tot Groninge<expan>n</expan> 3 <lb/>van Groningen tot Assen 3
+               <lb/>van Assen tot Diveren 3 <lb/>van Diveren tot Swartsluijs 6 <unclear
+                  reason="photo">1/2</unclear>
+               <lb/>van Swartsluijs tot Campen 2 <unclear reason="photo">1/2</unclear>
+               <lb/>van Campen tot Elburgh 2 1/2 <lb/>van Elburgh, tot Armelen 5 <lb/>van Armelen
+               tot Amersfoort 5 <lb/>van Amersfoort tot Uijtrecht 3 <lb/>van Uijtrecht tot Amsterdam
+               7 <lb/>40 1/2 </p>
+         </div>
+         <pb/>
+         <div type="travelers">
+            <p>
+               <lb/>De Heer van Marseveen <lb/>De Heer Mattias Deugen <lb/>Joncker van Marseveen
+               <lb/>Secretaris Jan Corver <lb/>Joncker Harman vande Pol <lb/>Jacomo van Uffelen
+               <lb/>De Hofmeester Claes Coningh <lb/>Jck <lb/>De <add place="above">Heer</add> Haga,
+               edelman vande Princes <lb/>Douagere, heen en niet wederom </p>
+         </div>
+         <div type="servants">
+            <head>Dienaers met Leverij</head>
+            <p>
+               <lb/>Barent, dienaer vande Heer van Marse<pc force="weak">=</pc><add place="below"
+                  >veen</add>
+               <lb/>Gijsbert Gerritsz<expan>oon</expan>, myn dienaer <lb/>Hendrick de dienaer van
+               Hinlopen </p>
+         </div>
+         <pb facs="#image_060"/>
+         <div type="soldiers">
+            <head>Soldaten</head>
+            <p>
+               <lb/>Christiaen de Sargiant <lb/>Mattijs de dienaer vande Hoff<pc force="weak"
+                  >-</pc><lb break="no"/>meester Conigh. <lb/>Jan Adamsz<expan>oon</expan>
+            </p>
+         </div>
+         <div type="lackeys">
+            <head>Lackeijen</head>
+            <p>
+               <lb/>Jan Albertz<supplied>oon</supplied> ten Brinck.<lb/>Jeroen <lb/>Pieter de
+               Koetsier <lb/>Paulus se postilion, ofte voor<pc force="weak">=</pc><lb break="no"
+               />rijder </p>
+         </div>
+         <pb/>
+         <div type="servants">
+            <head>Dienaers sonder Leverijen</head>
+            <p>
+               <lb/>Evert Govertz<supplied>oon</supplied> dienaer van Jacomo <lb/>van
+               Uffelen.<lb/>Hans Jurge dienaer vande Agent <lb/>Deuge.<lb/><abbr>Mr</abbr> Breen. de
+               Barbier van onse <lb/>Treijn <lb/>Jan Lucingh de Bode <lb/>Willem de dienaer van Haga
+               <lb/>heen, en wederom </p>
+         </div>
+         <pb facs="#image_061"/>
+         <pb/>
+         <div type="song">
+            <p>
+               <lb/><handShift new="#songwriter"/>Een liedt op d<expan>e</expan> inhalingh <lb/>van
+                  d<expan>e</expan> H<expan>eer</expan> Joan Huijdecoper <lb/>Ridder
+                  H<expan>eer</expan> van Maarseveen <lb/>en Neerdijck Burgemeest<add place="above"
+                  >er</add>
+               <lb/>en Raat tot Amsterdam <lb/>als af gesant aan sijn Keur<pc force="weak">=</pc><lb
+                  break="no"/>Vorstelijcke doorlugtigheit <lb/>van Brandenburgh geweest
+               <lb/>sijnde.</p>
+            <p><lb break="yes"/>1<lb break="yes"/>Luijstere na dit Statelijck liedt <lb/>hoe den
+               Heer van Goudestijn <lb/>sich als een post gebruijken liet <lb/>na het Hoff van
+               Barlijn <lb/>en hoe syn E<expan>dele</expan> trock op de loop <lb/>Om by dees Jonge
+               Keur vorsts doop <lb/>te sijn.</p>
+            <pb facs="#image_062"/>
+            <p>
+               <lb/>2 <lb/>Hij nam een schoone swiete mee <lb/>die om hem swierde dick <lb/>Verciert
+               na d<expan>e</expan> alder nieuwste <unclear reason="hand">huere</unclear>
+               <lb/>en <pc force="weak">'</pc>Heerlijck op geschickt <lb/>met roo Rocken swart
+               gechambreert <lb/>en met broeken gebouillioneert <lb/>met blick. </p>
+            <p>
+               <lb/>3 <lb/>beslagen, want ghij moet verstaen <lb/>dat hy was President <lb/>en
+               daarom dat hij selfs souw gaen <lb/>docht men niet aparent <lb/>maar Heeren boecken
+               soo men siet <lb/>syn voor een ieders oogen niet <lb/>bekent </p>
+            <p>
+               <lb/>4 <lb/>Wat hy daar ginder heeft gedaan <lb/>dat staat in de Courant <lb/>daarom
+               sal ick het overslaan<pb/>daar wort door <pc force="weak">'</pc>t gantsche landt
+               <lb/>genoechsaam van gediscoureert <lb/>wat dat daar heeft gebesoigneert <lb/>den
+               quant.</p>
+            <p>
+               <lb/>5 <lb/>Maar hoe hij in sijn Signorij <lb/>nu was gekomen siet
+                  <lb/>wouwd<expan>e</expan> hy sonder Cavallerij <lb/>in de Stadt comen niet
+               <lb/>sy moesten comen halen fijn <lb/>gelyck geschreven wiert na sijn <lb/>gebiet </p>
+            <p>
+               <lb/>6 <lb/>Maar op Schijtvalken seer koen <lb/>gestegen syn te paart <lb/>verciert
+               met sluijers blauw en groen <lb/>met pistolen en swaardt <lb/>daar swierden veel
+               Carossen door <lb/>ter Eeren den Heer van Signoor <lb/>Meffaart.</p>
+            <pb facs="#image_063"/>
+            <p>
+               <lb/>7 <lb/>Maar die hem wachten den eersten dagh <lb/>kreegen een grooten neus,
+               <lb/>Want men geen Heerschap komen sagh <lb/>hij was te glorieus <lb/>sy moesten <pc
+                  force="weak">'</pc>s anderen daags weerom <lb/>maar dat wiert maar genomen om
+               <lb/>tre deus </p>
+            <p>
+               <lb/>8 <lb/>Van Burgemeesters vande Stadt <lb/>maar <pc force="weak">'</pc>t witte
+               broots geslacht <lb/>als die hier voor volkregen <pc force="weak">'</pc>t gat<lb/><pc
+                  force="weak">'</pc>t ende haar moet en kracht<lb/>sij vatten malkanderen bij de
+               kop <lb/>en trommelden met vuijsten op <lb/>onsacht </p>
+            <p>
+               <lb/>9 <lb/>Menigh paar blauw oogen kreegh<lb/>en dicke neus boven dat<lb/>de minste
+               kreegh een vreemde veegh<pb/>met Wijn off Zop bekladt <lb/>get koeck eters hier blyff
+               u gelt <lb/>dat men jouw aff parst met gewelt <lb/>de Stadt</p>
+            <p>
+               <lb/>10 <lb/>Prins van Oranje Edelen helt <lb/>was uwe Hoogheijt maar groot
+               <lb/>Hollant souw beter sijn gestelt <lb/>dat nu lydt veel aan stoot <lb/>want soo
+               langh <pc force="weak">'</pc>t Loevesteijns gebroet <lb/>regeert, blijft de gemeente
+               goet <lb/>in noot. </p>
+            <closer>
+               <dateline>Aldus gerijmt den <gap/> in <date when="1655">den <lb/>Jaare
+                        A<expan>nno</expan> 1655</date></dateline>
+            </closer>
+         </div>
+      </body>
+   </text>
+</TEI>

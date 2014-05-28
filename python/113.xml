@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:id="TEI_113" xml:lang="nl" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Brief van Cornelis Backer Janszoon aan F. van Limborch, 2. maart 1731</title>
+            <respStmt>
+               <resp key="trc">Transcriber</resp>
+               <name>Jamie Nelemans</name>
+            </respStmt>
+            <respStmt>
+               <resp key="crr">Corrector</resp>
+               <name>Mike Olson</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Mike Olson</authority>
+            <idno>SAA_00172_Backer_00109_0000000113</idno>
+         </publicationStmt>
+         <notesStmt>
+            <note/>
+         </notesStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository ref="org:SAA"/>
+                  <collection ref="org:collection_10" type="collection">Familie Backer en
+                     aanverwante families</collection>
+                  <collection ref="org:inventory_57" type="inventory">Brieven van Cornelis
+                     Backer aan F. van Limborch, advocaat-fiscaal te 's-Gravenhage. 9
+                     stukken Met een copie van antwoord door F. van Limborch. Aangekocht
+                     op veiling.1731 - 1756</collection>
+                  <idno>109</idno>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <creation>
+            <date cert="high" type="sent" when="1731-03-02"/>
+            <persName ref="psn:person_87" type="sender"/>
+            <persName ref="psn:person_80" type="addressee"/>
+         </creation>
+         <textClass>
+            <catRef target="gen:Brief"/>
+         </textClass>
+         <handNotes>
+            <handNote scope="sole" scribeRef="psn:person_87" xml:id="hand_001"/>
+         </handNotes>
+      </profileDesc>
+   </teiHeader>
+   <facsimile xml:base="../images/SAA_00172_Backer_00109_0000000113/">
+      <graphic mimeType="image/jpeg" url="1_SAA_00172_Backer_00109_0000000113.JPG"
+         xml:id="image_001"/>
+      <graphic mimeType="image/jpeg" url="2_SAA_00172_Backer_00109_0000000113.JPG"
+         xml:id="image_002"/>
+   </facsimile>
+  <text>
+      <body>
+         <pb facs="#image_001"/>
+         <div type="letter">
+            <opener>
+               <salute>Myn Heer en Hoogwaardige Vriend</salute>
+            </opener>
+            <p>
+               <lb/>Hoe soude ik konnen wachten tot myne overkomst, schoon <lb/>die aanstaande
+               woensdag syn sal, met <abbr>U Wel ED</abbr> te betuygen <lb/>de oneyndige
+               verplichtinge die <abbr>U Wel Ed</abbr> onwaardeerbaare <lb/>vrindschap op my en ons
+               gantsche Huys legt, met <lb/>sigh wel, midden in de groote menigte van affaires die
+                  <lb/><abbr>U Wel Ed</abbr> van alle kanten omring<unclear reason="overwriting"
+                  >en</unclear> nogtans te willen <lb/>beswaaren met een last, die myne
+                  verleegent<add place="below">heyt</add> soo <lb/>dikwils ter toevlucht by <abbr>U
+                  Wel ED:</abbr> gekoomen, wel vuurig <lb/>gewenscht dog <add place="above"
+                  >haar</add> noyt soude hebben durven vergen, neen <pb facs="#image_002"/>neen
+               waardigen Heer myne hertelyk gevoelens <lb/>van erkentenisse syn te levendig en te
+               seer gepene<pc force="weak">=</pc><lb break="no"/>treert van de wesentlyke
+               importantie deser gunst <lb/>om sigh te konnen inhouden tot de mondelinge
+               <lb/>danksegginge die <abbr>U Wel Ed</abbr> dieswegens eerstdaags <lb/>hoop te koomen
+               doen, die met soo veel reedenis</p>
+            <closer>
+               <salute>Myn Heer en Hoogwaardige Vriend</salute>
+               <salute><abbr>U Wel Ed</abbr> seer gehoorsaame Dienaer</salute>
+               <signed>Backer Jansz</signed>
+               <dateline><settlement>Amst<expan>erdam</expan></settlement>
+                  <date when="1731-03-02">2 maar<lb break="yes"/><hi rend="underline"
+                     >1731</hi></date></dateline>
+            </closer>
+         </div>
+      </body>
+  </text>
+</TEI>

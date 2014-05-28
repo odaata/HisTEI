@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:id="TEI_92" xml:lang="nl" xmlns="http://www.tei-c.org/ns/1.0">
+      <teiHeader>
+            <fileDesc>
+                  <titleStmt>
+                        <title>Afschriften van Familieaantekeningen, geschreven door Cornelis Jorisz
+                              en vrouw en Willem Backer en vrouw</title>
+                        <respStmt>
+                              <resp key="trc">Transcriber</resp>
+                              <name>Jamie Nelemans</name>
+                        </respStmt>
+                        <respStmt>
+                              <resp key="crr">Corrector</resp>
+                              <name>Mike Olson</name>
+                        </respStmt>
+                  </titleStmt>
+                  <publicationStmt>
+                        <authority>Mike Olson</authority>
+                        <idno>SAA_00172_Backer_00063_0000000092</idno>
+                  </publicationStmt>
+                  <notesStmt>
+                        <note/>
+                  </notesStmt>
+                  <sourceDesc>
+                        <msDesc>
+                              <msIdentifier>
+                                    <repository ref="org:SAA"/>
+                                    <collection ref="org:collection_10" type="collection">Familie
+                                          Backer en aanverwante families</collection>
+                                    <collection ref="org:inventory_47" type="inventory">Afschriften
+                                          uit een boek, geschreven door Cornelis Jorisz en vrouw en
+                                          Willem Backer en vrouw, betreffende genealogie
+                                          enbezittingen van het eerste echtpaar. 3 stukken
+                                          Vervaardigd door Cornelis Backer 18e eeuw.1588 -
+                                          1624</collection>
+                                    <idno>63</idno>
+                              </msIdentifier>
+                        </msDesc>
+                  </sourceDesc>
+            </fileDesc>
+            <profileDesc>
+                  <creation>
+                        <date cert="high" from="1588" to="1624" type="written"/>
+                        <date cert="high" notAfter="1775" notBefore="1710" type="copied"/>
+                        <persName ref="psn:person_19" type="author"/>
+                        <persName ref="psn:person_xct_cty_qn" type="author"/>
+                        <persName ref="psn:person_18" type="author"/>
+                        <persName ref="psn:person_79" type="copyist"/>
+                  </creation>
+                  <textClass>
+                        <catRef target="gen:Familieaantekeningen"/>
+                  </textClass>
+                  <handNotes>
+                        <handNote scope="sole" scribeRef="psn:person_79" script="copied" xml:id="copyist_Cornelis_Backer"/>
+                        <handNote scope="major" scribeRef="psn:person_19" script="original" xml:id="Cornelis_Joriszoon"/>
+                        <handNote scope="minor" scribeRef="psn:person_xct_cty_qn" script="original" xml:id="Grietje_Backer"/>
+                        <handNote scope="minor" scribeRef="psn:person_18" script="original" xml:id="Willem_Backer"/>
+                  </handNotes>
+            </profileDesc>
+      </teiHeader>
+      <facsimile xml:base="../images/SAA_00172_Backer_00063_0000000092/">
+            <graphic mimeType="image/jpeg" url="01_SAA_00172_Backer_00063_0000000092.JPG"
+                  xml:id="image_001"/>
+            <graphic mimeType="image/jpeg" url="02_SAA_00172_Backer_00063_0000000092.JPG"
+                  xml:id="image_002"/>
+      </facsimile>
+      <text>
+            <body>
+                  <pb facs="#image_001"/>
+                  <div type="preface">
+                        <p>
+                              <lb/><handShift new="#copyist_Cornelis_Backer" script="original"
+                              />Copije uit een ingebonde boeck in Folio, hebbende tot opschrift op
+                              het plat <lb/><pc force="weak">'</pc>t Generael boeck. geschreven door
+                              Cornelis Jorisse, Grietje Willems Backers <lb/>Brechje Spiegel, en
+                              Willem Backer. zijnde gemerckt op <pc force="weak">'</pc>t plat
+                              <lb/></p>
+                        <p>Welkers origineel mij medegedeelt en berustende is 1728. door en bij den
+                              Heere W<expan>illem</expan>
+                              <lb/>Jacob Backer Lestevenon, zoon van Matheus Lestevenon en Elisabet
+                              Backer <lb/>Willems dochter, en mits dien door mij Cornelis Backer
+                              zoon van Willem Backer <lb/>Cornelis en Magdalena de la Coirt Pieters
+                                    d<expan>ochter</expan> gecopieert en geextraheert. </p>
+                  </div>
+                  <div type="entry">
+                        <opener>
+                              <dateline><date when="1588">Anno 1588</date>.</dateline>
+                              <salute/>
+                        </opener>
+                        <p><lb/><handShift new="#copyist_Cornelis_Backer" script="copied"
+                                    /><handShift new="#Cornelis_Joriszoon" script="original"/>Item
+                              Ick Cornelis Jorisse geboren den 25. Maart 1564. heb getrouwt <date
+                                    when="1588-12-25">den 25. decemb<expan>er</expan> 1588</date>.
+                              <lb/>Grietje Willems Backers tot mijn huisvrou, ende ik out sijnde 24
+                              Jaer, ende Grietje voor<pc force="weak">=</pc><lb break="no"/>schreve
+                              omtrent 18 jaer. Godt wil ons verlenen een salich eijnde. </p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item <date when="1589-11-06">den 6e November anno 89</date>. heeft
+                              mijn huisfrou ontfanghen omtrent ses uren <lb/><pc force="weak"
+                              >'</pc>savons een jonge dochter, ende is genaempt Trintje Cornelis,
+                              wesende maendach, ende is <lb/>genompt nae mijn moeder Trijn
+                              Hillebrants <abbr>S.G.</abbr> ende mijn broeder Hillebrant Jorisse
+                              <lb/>ende mijn Suster lijbet Joriss ende Annete Backers hebbent ter
+                              doop geheven. </p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item <date when="1590-12-18">den 18 december anno 90</date> heeft
+                              mijn huisfrou ontfangen omtrent een uren naede mid<pc force="weak"
+                                    >=</pc><lb break="no"/>dag een jonge dochter, ende heeft geleeft
+                              omtrent vier uren, ende is den 20. december be<pc force="weak"
+                                    >=</pc><lb break="no"/>graven in die ouwe kerreck in mijn
+                              schoonmoeders graft dat haer toekompt.</p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item <date when="1592-02-28">den 28 Februarij Anno 1592</date>.
+                              heeft mijn huisfrou ontfangen omtrent te vierde half <lb/>uren naede
+                              middag een jonge dochter, ende heeft geleeft omtrent twee uren, ende
+                              is den <lb/>5. maert begraven in mijn schoonmoeders graft in die ouwe
+                              kerreck. </p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item <date when="1594-02-26">den 26. Februarij Anno 1594</date>.
+                              heeft mijn huisfrou ontfangen omtrent te sevendalf <lb/>uren <pc
+                                    force="weak">'</pc>smorgens een jonge dochter ende is genaempt
+                              Annetje Cornelis wesende op een <lb/>Saturdach, ende is genoemt nae
+                              mijn huisfrouwe bestemoeder Anne Karstens <abbr>S.G.</abbr>
+                              <lb/>ende mijn broeder Joris Joris, ende mijn huisfrouws moeder
+                              Lijsbet van Loven hebbent <lb/>ten doop geheven.</p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item <date when="1595-04-17">den 17 April Anno 1595</date> heeft
+                              mijn huisfrou ontfangen omtrent te vijf uren nae<pc force="weak"
+                                    >-</pc><lb break="no"/>middagh een jonge Soon, ende is genaempt
+                              Willem Cornelis weesende op een maendagh <lb/>ende is genoempt nae
+                              mijn huysfrouwe Vader Willem Backer <abbr>S.G.</abbr> ende mijn
+                                    huys<pc force="weak">=</pc><lb break="no"/>frouwe broder Jacob
+                              Backer ende Annetje Backers hebbent ten doop geheven. </p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item op <date when="1596-07-22">den 22 Julij Anno 1596</date> heeft
+                              mijn huijsfrou gebaert omtrent tiendalf uren smor<pc force="weak"
+                                    >=</pc><lb break="no"/>gens een jonge soon, ende is genaempt
+                              Jores Cornelis, wesende op een maendagh ende <lb/>is genaempt nae mijn
+                              Vader <abbr>S.G.</abbr> ende mijn broder Hillebrant Joris ende mijn
+                              Suster <lb/>Lijsbet Joris hebbent ter doop geheven. </p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item dit kint is gestorven op <date when="1597-07-17">den 17 Julij
+                                          <expan>anno</expan> 97</date>. op een donderdach omtrent
+                              te drie uren <lb/>en is den 19 dijto begraven in mijn schoonmoeders
+                              graft. </p>
+                  </div>
+                  <div type="entry">
+                        <p><lb/>Item op <date when="1597-12-12">den 12 december anno 1597</date>.
+                              heeft mijn huijsfrou gebaert omtrent hallef vieren <lb/>smorgens een
+                              jonge dochter wesende op een vrijdach en is genaempt Giertje Cornelis
+                              <lb/>en is genoempt nae mijn schoon bestemoeder Giertjen Noemen en
+                              Frans Hendrickse <lb/>Oetger en Annetge Backers hebbent ten doep
+                                    geheven.<lb break="yes"/>Sij sterf den 30 October <pc
+                                    force="weak">'</pc>s morgens te half negen uren 1615, wesende
+                              een vrijdach: is <lb/><pc force="weak">'</pc>s maendachs daer aen
+                              begraven in de oude kerck in<pc force="weak">'</pc>t graft bij haer
+                              Vader. </p>
+                  </div>
+                  <pb facs="#image_002"/>
+                  <div type="entry">
+                        <p><lb/><handShift new="#Grietje_Backer" script="original"/>Mijn man
+                              Cornelis is <date when="1599-03-14">den 14 Maert Anno 1599</date> in
+                              den Heere gherust, wesende <lb/>op een sondach t saevent ontrent half
+                              Sievenen en is begraven den 17. maert in de <lb/>oude kerck, daer mijn
+                              broeder Willem Backer in begraeven leit in midden van de <lb/>kerck
+                              daer mijn Vaeder <abbr>S.G.</abbr> wapen op stat en het comt ons met
+                              ons 3 toe, met <lb/>mijn Suster en met mijn broeder. </p>
+                  </div>
+                  <div type="entry">
+                        <p>
+                              <date when="1599-06-08"><lb/>Den 8 Junij Anno 1599</date>. heb ik
+                              gebaert een jonge dochter ende is ter doop gehouden den <lb/>10.
+                              Junius ende is genoemt nae haer Vader <abbr>S.G.</abbr> Cornelis
+                              Jorisse, ende Lijbet Joris <lb/>en Joris Jorisse sijn gewaer geweest.
+                              <lb/>Sij is getrouwt den 8 May 1616 met Cornelis Schallinger Gerritsen
+                        </p>
+                  </div>
+                  <div type="entry">
+                        <p>
+                              <lb/><handShift new="#Willem_Backer" script="original"/>Mijn Moeder
+                              Grietgen Backers waer geboren op den 2 Februarij 1574. wesende
+                              <lb/>een . . . . is gestorven op den 27 Augustij weesende een
+                              dingesdach <lb/><pc force="weak">'</pc>s middags te elf uuren 1624. is
+                              vrijdach daer aen bij mijn Vader begraven <lb/>in de oude kerck.</p>
+                  </div>
+
+            </body>
+      </text>
+</TEI>

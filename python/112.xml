@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:id="TEI_112" xml:lang="nl" xmlns="http://www.tei-c.org/ns/1.0">
+   <teiHeader>
+      <fileDesc>
+         <titleStmt>
+            <title>Brief van Cornelis Backer Janszoon aan F. van Limborch, 23. februari 1732</title>
+            <respStmt>
+               <resp key="trc">Transcriber</resp>
+               <name>Jamie Nelemans</name>
+            </respStmt>
+            <respStmt>
+               <resp key="crr">Corrector</resp>
+               <name>Mike Olson</name>
+            </respStmt>
+         </titleStmt>
+         <publicationStmt>
+            <authority>Mike Olson</authority>
+            <idno>SAA_00172_Backer_00109_0000000112</idno>
+         </publicationStmt>
+         <notesStmt>
+            <note/>
+         </notesStmt>
+         <sourceDesc>
+            <msDesc>
+               <msIdentifier>
+                  <repository ref="org:SAA"/>
+                  <collection ref="org:collection_10" type="collection">Familie Backer en
+                     aanverwante families</collection>
+                  <collection ref="org:inventory_57" type="inventory">Brieven van Cornelis
+                     Backer aan F. van Limborch, advocaat-fiscaal te 's-Gravenhage. 9
+                     stukken Met een copie van antwoord door F. van Limborch. Aangekocht
+                     op veiling.1731 - 1756</collection>
+                  <idno>109</idno>
+               </msIdentifier>
+            </msDesc>
+         </sourceDesc>
+      </fileDesc>
+      <profileDesc>
+         <creation>
+            <date cert="high" type="sent" when="1732-02-23"/>
+            <persName ref="psn:person_87" type="sender"/>
+            <persName ref="psn:person_80" type="addressee"/>
+         </creation>
+         <textClass>
+            <catRef target="gen:Brief"/>
+         </textClass>
+         <handNotes>
+            <handNote scope="sole" scribeRef="psn:person_87" xml:id="hand_001"/>
+         </handNotes>
+      </profileDesc>
+   </teiHeader>
+   <facsimile xml:base="../images/SAA_00172_Backer_00109_0000000112/">
+      <graphic mimeType="image/jpeg" url="1_SAA_00172_Backer_00109_0000000112.JPG"
+         xml:id="image_001"/>
+      <graphic mimeType="image/jpeg" url="2_SAA_00172_Backer_00109_0000000112.JPG"
+         xml:id="image_002"/>
+   </facsimile>
+  <text>
+      <body>
+         <pb facs="#image_001"/>
+         <div type="letter">
+            <opener>
+               <salute>Wel Edele Heer</salute>
+            </opener>
+            <p>
+               <lb/>Haar te kennen alleen, is, buyten de Hooge motiven <lb/>die ik hebbe tot
+               onuytwischbaare erkentenisse, reeden genoeg <lb/>voor een niet t’eenmaal verkeert
+               geplaaste Ziel, om, waar<pc force="weak">-</pc><lb break="no"/>digen Heer, te
+               trachten aan <abbr>U Wel Ed</abbr> genoegens te voldoen <lb/>dat heb Jaa sal ik
+               altoos van ganscher herten soeken <pb facs="#image_002"/>en wilden uytslag mynen
+               goeden yver en <abbr>U Wel Ed</abbr>
+               <lb/>reets veel te groote verplichtinge haaren welmenenden <lb/>vriend dierwegens met
+               eenige achtinge vereeren, sal <lb/>er den helft te veel voldaen zyn aan de 500
+               billyke <lb/>als oprechte intentie van</p>
+            <closer>
+               <salute>Wel Edele Heer</salute>
+               <salute><abbr>U Wel Edel</abbr> seer gehoorsaame Dienaer</salute>
+               <signed>Backer Jansz</signed>
+               <dateline>Amst<expan>erdam</expan>
+                  <date when="1732-02-23">23 feb<lb break="yes"/><hi rend="underline"
+                     >1732</hi></date></dateline>
+            </closer>
+         </div>
+      </body>
+  </text>
+</TEI>

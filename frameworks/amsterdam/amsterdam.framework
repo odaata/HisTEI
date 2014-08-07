@@ -587,7 +587,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/> ${caret}</String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>
@@ -2326,13 +2326,13 @@
 													<field name="argValues">
 														<map>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;cl xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2369,8 +2369,567 @@
 													<field name="argValues">
 														<map>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;phr xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.prep</String>
+										</field>
+										<field name="name">
+											<String>prep</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a preposition included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:APPR"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.noun</String>
+										</field>
+										<field name="name">
+											<String>noun</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a noun included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:NN"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.art.def</String>
+										</field>
+										<field name="name">
+											<String>def. art.</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a definite article included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:DARTD"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.art.ind</String>
+										</field>
+										<field name="name">
+											<String>ind. art.</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for an indefinite article included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:DARTI"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.adj</String>
+										</field>
+										<field name="name">
+											<String>adj</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for an attributive adjective included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:ADJA"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.det.poss</String>
+										</field>
+										<field name="name">
+											<String>poss. det.</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a possesive determiner included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:DPOSS"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.noun.proper</String>
+										</field>
+										<field name="name">
+											<String>prop. noun</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a proper noun included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:NPROP"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.noun.adj</String>
+										</field>
+										<field name="name">
+											<String>adj. noun</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for an adjectival noun included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:NADJ"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.prep.art</String>
+										</field>
+										<field name="name">
+											<String>fused prep</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a preposition fused with an article included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:APPRART"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.det.ind</String>
+										</field>
+										<field name="name">
+											<String>ind. det.</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for an indefinite determiner included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:DI"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.post</String>
+										</field>
+										<field name="name">
+											<String>post</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a postposition included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:APPO"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.det.dem</String>
+										</field>
+										<field name="name">
+											<String>dem. det.</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a demonstrative determiner included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:DDEM"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>word.noun.art</String>
+										</field>
+										<field name="name">
+											<String>art. noun</String>
+										</field>
+										<field name="description">
+											<String>Insert a w tag with the annotation for a noun with fused article included</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0" ana="ann:NART"/></String>
 															</entry>
 														</map>
 													</field>
@@ -2717,7 +3276,77 @@
 										<null/>
 									</field>
 									<field name="menuEntriesDescriptorList">
-										<menuEntry-array/>
+										<menuEntry-array>
+											<menuItem>
+												<field name="actionID">
+													<String>word.prep</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.prep.art</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>word.adj</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>word.noun</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.noun.art</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.noun.proper</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.noun.adj</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>word.art.def</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.art.ind</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.det.poss</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.det.ind</String>
+												</field>
+											</menuItem>
+											<menuItem>
+												<field name="actionID">
+													<String>word.det.dem</String>
+												</field>
+											</menuItem>
+											<menuSeparator/>
+											<menuItem>
+												<field name="actionID">
+													<String>word.post</String>
+												</field>
+											</menuItem>
+										</menuEntry-array>
 									</field>
 								</menu>
 							</field>
@@ -3058,6 +3687,88 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>word</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.prep</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.prep.art</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.adj</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.noun</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.noun.art</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.noun.proper</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.noun.adj</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.art.def</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.art.ind</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.det.poss</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.det.ind</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.det.dem</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>word.post</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>

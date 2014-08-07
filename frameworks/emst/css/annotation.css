@@ -8,35 +8,11 @@
 
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
-/* Whitespace changed to normal */
-p,
-s,
-cl,
-phr,
-w {
-    white-space:normal;
-}
-
-s,
-cl,
-phr,
-w {
-    display:block;
-}
-
-/* Foldable sections */
-s,
-cl,
-phr {
-    -oxy-foldable:true;
-}
-
-/* Main Sections */
-
-s:before,
-cl:before,
-phr:before {
-    display:block;
+/* Labels */
+s:focus:after,
+cl:focus:after,
+phr:focus:after,
+w:focus:after {
     background-color:gray;
     content:
         oxy_label(
@@ -47,67 +23,26 @@ phr:before {
     ;
 }
 
-s:before {
+s:focus:after {
     background-color:rgba(53, 25, 0, 0.6);
 }
 
-cl:before {
+cl:focus:after {
     background-color: rgba(64, 64, 255, 0.7);
 }
 
-phr:before {
+phr:focus:after {
     background-color: rgba(0, 49, 200, 0.7);
 }
 
-w:before {
-    content:
-        oxy_label(
-            text, oxy_concat("${i18n(", oxy_name(), ".label)} ")
-            width, 25px
-            color, rgba(0, 128, 0, 1)
-            styles, "@import 'labels.css';"
-        )
-    ;
-}
-
-
-/* @xml:lang */
-s:before,
-cl:before,
-phr:before {
-    -oxy-append-content:
-        oxy_label(
-            text, "${i18n(lang.label)}: "
-            color, white
-            styles, "@import 'labels_sub.css';"
-        )
-    ;
-}
-
-w:before {
-    -oxy-append-content:
-        oxy_label(
-            text, "${i18n(lang.label)}: "
-            styles, "@import 'labels_sub.css';"
-        )
-    ;
-}
-
-s:before,
-cl:before,
-phr:before,
-w:before {
-    -oxy-append-content:
-        oxy_combobox(
-            edit, "@xml:lang"
-            columns, 7
-        )
-    ;
+w:focus:after {
+    background-color: rgba(0, 128, 0, 0.7);
 }
 
 /* @ana */
-cl:before,
-phr:before {
+cl:focus:after,
+phr:focus:after,
+w:focus:after {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(ana.label)}: "
@@ -117,19 +52,9 @@ phr:before {
     ;
 }
 
-w:before {
-    -oxy-append-content:
-        oxy_label(
-            text, "${i18n(ana.label)}: "
-            width, 40px
-            styles, "@import 'labels_sub.css';"
-        )
-    ;
-}
-
-cl:before,
-phr:before,
-w:before {
+cl:focus:after,
+phr:focus:after,
+w:focus:after {
     -oxy-append-content: 
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
@@ -140,7 +65,7 @@ w:before {
 }
 
 /* @function */
-phr:before {
+phr:focus:after {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(function.label)}: "
@@ -155,3 +80,28 @@ phr:before {
     ;
 }
 
+/* @xml:lang */
+s:focus:after,
+cl:focus:after,
+phr:focus:after,
+w:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(lang.label)}: "
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+    ;
+}
+
+s:focus:after,
+cl:focus:after,
+phr:focus:after,
+w:focus:after {
+    -oxy-append-content:
+        oxy_combobox(
+            edit, "@xml:lang"
+            columns, 7
+        )
+    ;
+}

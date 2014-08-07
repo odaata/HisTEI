@@ -170,8 +170,7 @@ seg,
 term,
 handShift,
 pb,
-pc,
-w {
+pc {
     -oxy-display-tags:none;
 }
 
@@ -538,3 +537,30 @@ text p lb{
             selectionMode, single
         );
 }*/
+
+
+/* Linguistic units and annotations */
+
+s,
+cl,
+phr,
+w {
+    padding:2px;
+    -oxy-display-tags:none;
+}
+
+s {
+    border:1px solid rgb(53, 25, 0);
+}
+
+cl {
+    border:1px solid rgb(64, 64, 255);
+}
+
+phr {
+    border:1px solid rgb(0, 49, 200);
+}
+
+w {
+    border:1px solid rgb(0, 128, 0);
+}

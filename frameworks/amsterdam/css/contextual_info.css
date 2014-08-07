@@ -583,7 +583,7 @@ interp {
     content:
         oxy_textfield(
             edit, "@xml:id"
-            columns, 5
+            columns, 8
         )
         oxy_label(
             text, " - "

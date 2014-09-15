@@ -715,6 +715,14 @@
     <key value="note.label.lindeman">
         <val lang="en_US">Lindeman</val>
     </key>
+    
+    <key value="note.label.accessed">
+        <val lang="en_US">Accessed</val>
+    </key>
+    
+    <key value="note.label.url">
+        <val lang="en_US">URL</val>
+    </key>
 
     <!--  Links  -->
 

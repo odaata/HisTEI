@@ -1,0 +1,21 @@
+/*-----------------------------------------------------------------------------------------------
+----- HisTEI framework customizations for Oxygen 
+-----   TEI Documents with wrapping text - stop-gap measure until something more elegant is created to handle this
+-------------------------------------------------------------------------------------------------*/
+
+/* TEI Document */
+@import "document.css";
+
+@namespace xml url('http://www.w3.org/XML/1998/namespace');
+
+/* Override the current white-space settings so lines wrap normally */
+text,
+p {
+    white-space:normal;
+}
+
+/* Remove line breaks */
+lb,
+lb[break="no"] {
+    content: "";
+}

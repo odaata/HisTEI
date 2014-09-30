@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
-        <xt:version>0.3.09</xt:version>
+        <xt:version>0.4.1</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -20,6 +20,19 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.4.1</p>
+                <ul>
+                    <li>
+                        Added new CSS to render texts with no line breaks using normal text flow. This is handy for digitized published works
+                        in which the physical line breaks are unimportant. To switch between the two modes, select the Styles button/dropdown
+                        and then pick the <i>Document Wrap Text</i> option. Brought to you buy the burgeoning HisTEI user community :-)
+                    </li>
+                    <li>Oh and a couple o' bugs were squashed along the way</li>
+                </ul>
+                <p class="header">Version 0.4.0</p>
+                <ul>
+                    <li>First release for HisTEI on GitHub including a new HisTEI default framework</li>
+                </ul>
                 <p class="header">Version 0.3.09</p>
                 <ul>
                     <li>Completely reconfigured keyboard shortcuts according to

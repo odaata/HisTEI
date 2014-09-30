@@ -5,7 +5,7 @@
       <fileDesc>
          <titleStmt>
             <title>Analytical Annotations and Functions for the Bilingualism in Medieval Ireland
-               Project</title>
+               Project (used as an example for HisTEI here)</title>
          </titleStmt>
          <publicationStmt>
             <authority>Tom de Schepper</authority>
@@ -43,6 +43,9 @@
                <interp xml:id="VR">Relative Verb</interp>
                <interp xml:id="VN">Verbal Noun</interp>
                <interp xml:id="VC">Verbal Copula</interp>
+            </interpGrp>
+            <interpGrp type="word">
+               <interp xml:id="DI">Dimorph</interp>
             </interpGrp>
             <interpGrp type="phrase">
                <interp xml:id="AP">Adjectival Phrase</interp>

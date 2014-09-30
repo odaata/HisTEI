@@ -80,6 +80,22 @@ phr:focus:after {
     ;
 }
 
+/* @type for w */
+w:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@type"
+        )
+    ;
+}
+
 /* @xml:lang */
 s:focus:after,
 cl:focus:after,

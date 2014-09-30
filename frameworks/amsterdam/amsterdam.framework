@@ -48,10 +48,10 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/contextual_info.css</String>
+											<String>${framework}/css/annotation.css</String>
 										</field>
 										<field name="title">
-											<String>Amsterdam Contextual Info List</String>
+											<String>Amsterdam Annotations</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -59,10 +59,21 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/annotation.css</String>
+											<String>${framework}/css/wrap_text.css</String>
 										</field>
 										<field name="title">
-											<String>Amsterdam Annotations</String>
+											<String>Amsterdam Document Wrap Text</String>
+										</field>
+										<field name="alternate">
+											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/contextual_info.css</String>
+										</field>
+										<field name="title">
+											<String>Amsterdam Contextual Info List</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -2326,13 +2337,13 @@
 													<field name="argValues">
 														<map>
 															<entry>
-																<String>fragment</String>
+																<String>element</String>
 																<String>&lt;cl xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2369,13 +2380,13 @@
 													<field name="argValues">
 														<map>
 															<entry>
-																<String>fragment</String>
+																<String>element</String>
 																<String>&lt;phr xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</map>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>

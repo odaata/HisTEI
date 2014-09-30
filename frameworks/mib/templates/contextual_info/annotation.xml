@@ -44,6 +44,9 @@
                <interp xml:id="VN">Verbal Noun</interp>
                <interp xml:id="VC">Verbal Copula</interp>
             </interpGrp>
+            <interpGrp type="word">
+               <interp xml:id="DI">Dimorph</interp>
+            </interpGrp>
             <interpGrp type="phrase">
                <interp xml:id="AP">Adjectival Phrase</interp>
                <interp xml:id="BP">Adverbial Phrase</interp>

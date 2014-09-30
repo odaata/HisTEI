@@ -49,13 +49,13 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/contextual_info.css</String>
+											<String>${framework}/css/wrap_text.css</String>
 										</field>
 										<field name="title">
-											<String>HisTEI Contextual Info List</String>
+											<String>HisTEI Document Wrap Text</String>
 										</field>
 										<field name="alternate">
-											<Boolean>false</Boolean>
+											<Boolean>true</Boolean>
 										</field>
 									</cssFile>
 									<cssFile>
@@ -71,13 +71,13 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/wrap_text.css</String>
+											<String>${framework}/css/contextual_info.css</String>
 										</field>
 										<field name="title">
-											<String>HisTEI Wrap Text</String>
+											<String>HisTEI Contextual Info List</String>
 										</field>
 										<field name="alternate">
-											<Boolean>true</Boolean>
+											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
 								</cssFile-array>
@@ -736,7 +736,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/> ${caret}</String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>
@@ -5136,7 +5136,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

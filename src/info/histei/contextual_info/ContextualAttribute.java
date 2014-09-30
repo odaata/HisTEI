@@ -69,6 +69,7 @@ public class ContextualAttribute extends AbstractUniqueAttribute<AuthorInplaceCo
 
 //        w element
         ATTRIBUTES.add(new ContextualAttribute("ana", "w", ContextualType.ANNOTATION, "pos"));
+        ATTRIBUTES.add(new ContextualAttribute("type", "w", ContextualType.ANNOTATION, "word"));
 
     }
 

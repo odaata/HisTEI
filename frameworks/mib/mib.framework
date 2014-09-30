@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="16.0" xml:space="preserve">
+<serialized version="15.2" xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
 			<documentTypeDescriptor-array>
 				<documentTypeDescriptor>
-					<field name="extensionPatch">
-						<null/>
-					</field>
 					<field name="name">
 						<String>MIB</String>
 					</field>
@@ -40,17 +37,6 @@
 								<cssFile-array>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/annotation.css</String>
-										</field>
-										<field name="title">
-											<String>MIB Annotations</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
 											<String>${framework}/css/document.css</String>
 										</field>
 										<field name="title">
@@ -62,10 +48,10 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/contextual_info.css</String>
+											<String>${framework}/css/annotation.css</String>
 										</field>
 										<field name="title">
-											<String>MIB Contextual Info List</String>
+											<String>MIB Annotations</String>
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
@@ -76,10 +62,21 @@
 											<String>${framework}/css/wrap_text.css</String>
 										</field>
 										<field name="title">
-											<String>MIB Wrap Text</String>
+											<String>MIB Document Wrap Text</String>
 										</field>
 										<field name="alternate">
 											<Boolean>true</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/contextual_info.css</String>
+										</field>
+										<field name="title">
+											<String>MIB Contextual Info List</String>
+										</field>
+										<field name="alternate">
+											<Boolean>false</Boolean>
 										</field>
 									</cssFile>
 								</cssFile-array>
@@ -4572,7 +4569,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>4</Integer>
+						<Integer>5</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

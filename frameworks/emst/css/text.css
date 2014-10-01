@@ -472,7 +472,7 @@ term:focus:after {
         )
         oxy_textfield(
             edit, "@xml:id"
-            columns, 12
+            columns, 20
         )
         oxy_label(
             text, "${i18n(lang.label)}: "
@@ -496,7 +496,7 @@ gloss:before {
         )
         oxy_combobox(
             edit, "@target"
-            columns, 12
+            columns, 20
         )
         oxy_label(
             text, "${i18n(lang.label)}: "
@@ -508,6 +508,12 @@ gloss:before {
             columns, 7
         )
     ;
+}
+
+gloss[target]:after {
+    padding: 0px 5px;
+    link: attr(target, string, "");
+    content: url('../images/link_open-16.png');
 }
 
 /* An attempt at numbering linebreaks...

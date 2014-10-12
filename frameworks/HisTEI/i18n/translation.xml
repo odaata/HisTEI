@@ -280,6 +280,13 @@
 
     <!-- Text Body -->
 
+    <key value="toggle.text.wrap">
+        <val lang="en_US">Toggle Text Wrap</val>
+    </key>
+    <key value="toggle.text.wrap_description">
+        <val lang="en_US">Toggle whether text is wrapped to fit the screen or only according to line breaks</val>
+    </key>
+
     <key value="line.break">
         <val lang="en_US">lb</val>
     </key>

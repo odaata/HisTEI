@@ -72,6 +72,14 @@ text:before {
     font-size:large;
 }
 
+text {
+    white-space:normal;
+}
+
+text:toggle-wrap {
+    white-space:nowrap;
+}
+
 /* @xml:lang */
 TEI:before,
 teiHeader:before,

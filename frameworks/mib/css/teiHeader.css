@@ -104,10 +104,6 @@ teiHeader note[type]:before {
     content: oxy_concat("${i18n(note.label.", attr(type, string, ""), ")}:");
 }
 
-teiHeader note {
-    white-space:normal;
-}
-
 /* Collapse text for all reference elements 
     (so that only the combobox will edit the field) */
 repository,

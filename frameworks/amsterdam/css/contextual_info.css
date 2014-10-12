@@ -9,15 +9,6 @@
 
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
-/* white-space will be inherited by all fields below the lists */
-listPerson,
-listOrg,
-listPlace,
-taxonomy,
-interpGrp {
-    white-space:normal;
-}
-
 fileDesc,
 titleStmt,
 title,
@@ -490,7 +481,6 @@ org > orgName,
 desc,
 catDesc {
     padding:5px 1px;
-    white-space:normal;
 }
 
 desc date,

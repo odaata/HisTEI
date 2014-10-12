@@ -59,17 +59,6 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/wrap_text.css</String>
-										</field>
-										<field name="title">
-											<String>Amsterdam Document Wrap Text</String>
-										</field>
-										<field name="alternate">
-											<Boolean>true</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
 											<String>${framework}/css/contextual_info.css</String>
 										</field>
 										<field name="title">
@@ -112,7 +101,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -155,7 +144,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -198,7 +187,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>

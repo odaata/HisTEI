@@ -49,17 +49,6 @@
 									</cssFile>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/wrap_text.css</String>
-										</field>
-										<field name="title">
-											<String>HisTEI Document Wrap Text</String>
-										</field>
-										<field name="alternate">
-											<Boolean>true</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
 											<String>${framework}/css/annotation.css</String>
 										</field>
 										<field name="title">
@@ -113,7 +102,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -156,7 +145,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -199,7 +188,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -5136,7 +5125,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

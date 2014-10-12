@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="HisTEI">
         <xt:location href="HisTEI-oxygen.zip"/>
-        <xt:version>0.4.2</xt:version>
+        <xt:version>0.4.3</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -20,6 +20,14 @@
             <p class="title">HisTEI Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.4.3</p>
+                <ul>
+                    <li>
+                        After a higher-than-average "duh!" factor, I finally figured out that we can have both manual line breaks
+                        as well as text wrapping naturally at the same time. Line breaks are now represented in the text with an icon, 
+                        so it's clearly shown
+                    </li>
+                </ul>
                 <p class="header">Version 0.4.2</p>
                 <ul>
                     <li>

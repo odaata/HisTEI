@@ -46,7 +46,6 @@ bloc,
 prt,
 ref,
 note,
-lb,
 hi {
     -oxy-display-tags:none;
 }
@@ -224,28 +223,20 @@ p {
     padding:2px;
     margin:2px;
     margin-bottom: 10px;
-    white-space:nowrap;
     -oxy-foldable:true;
 }
 
 lb {
     visibility:-oxy-collapse-text;
     -oxy-display-tags:none;
+    content:url('../images/line_break-12.png') "\A";
 }
-
-lb {
-    content:"\A";
-}
-
-/*lb:first-child {
-    content:"";
-}*/
 
 lb[break="no"] {
     color:purple;
     font-weight:bold;  
     /* Possibilities: → – */
-    -oxy-prepend-content:"→";
+    content:"→\A";
 }
 
 /* Global Textual Styles */

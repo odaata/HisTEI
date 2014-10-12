@@ -61,10 +61,6 @@ TEI:before {
     font-size:x-large;
 }
 
-text {
-    white-space:nowrap;
-}
-
 teiHeader {
     border:1px solid;
     -oxy-not-foldable-child: fileDesc;

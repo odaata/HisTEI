@@ -643,7 +643,19 @@
     <key value="type.label">
         <val lang="en_US">Type</val>
     </key>
-
+    
+    <key value="status.label">
+        <val lang="en_US">Status</val>
+    </key>
+    
+    <key value="method.label">
+        <val lang="en_US">Method</val>
+    </key>
+    
+    <key value="source.label">
+        <val lang="en_US">Source</val>
+    </key>
+    
     <key value="reason.label">
         <val lang="en_US">Reason</val>
     </key>
@@ -881,6 +893,14 @@
     <key value="titleStmt.label">
         <val lang="en_US">Title Statement</val>
     </key>
+    
+    <key value="editionStmt.label">
+        <val lang="en_US">Edition Statement</val>
+    </key>
+    
+    <key value="extent.label">
+        <val lang="en_US">Extent</val>
+    </key>
 
     <key value="respStmt.label">
         <val lang="en_US">Responsibility Statement</val>
@@ -897,7 +917,60 @@
     <key value="sourceDesc.label">
         <val lang="en_US">Source Description</val>
     </key>
-
+    
+    <key value="encodingDesc.label">
+        <val lang="en_US">Encoding Description</val>
+    </key>
+    
+    <key value="projectDesc.label">
+        <val lang="en_US">Project Description</val>
+    </key>
+    
+    <key value="samplingDecl.label">
+        <val lang="en_US">Sampling Decl</val>
+    </key>
+    
+    <!--  Editorial Declaration  -->
+    
+    <key value="editorialDecl.label">
+        <val lang="en_US">Editorial Declaration</val>
+    </key>
+    
+    <key value="correction.label">
+        <val lang="en_US">Correction</val>
+    </key>
+    <key value="normalization.label">
+        <val lang="en_US">Normalization</val>
+    </key>
+    <key value="quotation.label">
+        <val lang="en_US">Quotation</val>
+    </key>
+    <key value="hyphenation.label">
+        <val lang="en_US">Hyphenation</val>
+    </key>
+    <key value="segmentation.label">
+        <val lang="en_US">Segmentation</val>
+    </key>
+    <key value="stdVals.label">
+        <val lang="en_US">Std Vals</val>
+    </key>
+    <key value="interpretation.label">
+        <val lang="en_US">Interpretation</val>
+    </key>
+    <key value="punctuation.label">
+        <val lang="en_US">Punctuation</val>
+    </key>
+    
+    <key value="marks.label">
+        <val lang="en_US">Marks</val>
+    </key>
+    
+    <key value="eol.label">
+        <val lang="en_US">End-of-line</val>
+    </key>
+    
+    <!-- Profile Description  -->
+    
     <key value="msDesc.label">
         <val lang="en_US">Manuscript Description</val>
     </key>
@@ -920,23 +993,7 @@
 
     <!--  Header Fields  -->
 
-    <!--  Title Statment  -->
-    <key value="title.label">
-        <val lang="en_US">Title</val>
-    </key>
-
-    <key value="resp.label">
-        <val lang="en_US">Resp</val>
-    </key>
-
-    <key value="name.label">
-        <val lang="en_US">Name</val>
-    </key>
-
     <!--  PublicationStmt  -->
-    <key value="authority.label">
-        <val lang="en_US">Authority</val>
-    </key>
 
     <key value="idno.label">
         <val lang="en_US">ID</val>
@@ -1113,6 +1170,10 @@
 
     <!--  Biblographic References  -->
 
+    <key value="listBibl.label">
+        <val lang="en_US">Bibliography List</val>
+    </key>
+
     <key value="bibl.label">
         <val lang="en_US">Bibl</val>
     </key>
@@ -1124,25 +1185,59 @@
     <key value="biblFull.label">
         <val lang="en_US">Bibl (Full)</val>
     </key>
-
-    <key value="analytic.label">
-        <val lang="en_US">Article/Chapter Information</val>
+    
+    <key value="title.label">
+        <val lang="en_US">Title</val>
     </key>
-
-    <key value="monogr.label">
-        <val lang="en_US">Publication Information</val>
-    </key>
-
-    <key value="series.label">
-        <val lang="en_US">Series Information</val>
-    </key>
-
+    
     <key value="author.label">
         <val lang="en_US">Author</val>
     </key>
-
+    
     <key value="editor.label">
         <val lang="en_US">Editor</val>
+    </key>
+    
+    <key value="sponsor.label">
+        <val lang="en_US">Sponsor</val>
+    </key>
+    
+    <key value="funder.label">
+        <val lang="en_US">Funder</val>
+    </key>
+    
+    <key value="principal.label">
+        <val lang="en_US">Principal</val>
+    </key>
+    
+    <!--  Responsibility  -->
+    
+    <key value="respStmt.label">
+        <val lang="en_US">Responsibility Statement</val>
+    </key>
+    
+    <key value="resp.label">
+        <val lang="en_US">Resp</val>
+    </key>
+    
+    <key value="name.label">
+        <val lang="en_US">Name</val>
+    </key>
+
+    <key value="analytic.label">
+        <val lang="en_US">Article/Chapter</val>
+    </key>
+
+    <key value="monogr.label">
+        <val lang="en_US">Book</val>
+    </key>
+
+    <key value="series.label">
+        <val lang="en_US">Series</val>
+    </key>
+    
+    <key value="seriesStmt.label">
+        <val lang="en_US">Series Statement</val>
     </key>
 
     <key value="edition.label">
@@ -1152,11 +1247,27 @@
     <key value="publisher.label">
         <val lang="en_US">Publisher</val>
     </key>
+    
+    <key value="distributor.label">
+        <val lang="en_US">Distributor</val>
+    </key>
+    
+    <key value="authority.label">
+        <val lang="en_US">Authority</val>
+    </key>
 
     <key value="pubPlace.label">
         <val lang="en_US">Place</val>
     </key>
-
+    
+    <key value="availability.label">
+        <val lang="en_US">Availability</val>
+    </key>
+    
+    <key value="licence.label">
+        <val lang="en_US">Licence</val>
+    </key>
+    
     <key value="biblScope.label">
         <val lang="en_US">Scope</val>
     </key>

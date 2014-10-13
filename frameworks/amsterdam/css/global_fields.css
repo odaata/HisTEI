@@ -188,7 +188,7 @@ note[type="url"]:after {
     content: url('../images/link_open-16.png');
 }
 
-/* Headings/Labels */
+/* Headings & Labels */
 
 head {
     display:block;
@@ -197,8 +197,28 @@ head {
     border-bottom:1px solid;
 }
 
+head[type="title"] {
+    font-size:larger;
+}
+
+head[type="sub"] {
+    font-size:smaller;
+    font-variant:small-caps;
+}
+
 head:before {
-    content: url('../images/head-16.png');
+    content:
+        url('../images/head-16.png')
+        oxy_label(
+            text, oxy_concat("${i18n(type.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            values, "main, sub, title"
+        )
+        "  "
+    ;
 }
 
 label {

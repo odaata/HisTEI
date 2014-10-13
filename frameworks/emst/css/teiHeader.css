@@ -10,10 +10,12 @@
 
 /* Foldable Sections */
 titleStmt,
-respStmt,
+editionStmt,
 publicationStmt,
 notesStmt,
 sourceDesc,
+encodingDesc,
+editorialDecl,
 msDesc,
 profileDesc,
 creation,
@@ -24,10 +26,11 @@ handNotes {
 }
 
 /* Collapsed Sections by Default */
-respStmt,
 publicationStmt,
 notesStmt,
 sourceDesc,
+encodingDesc,
+editorialDecl,
 profileDesc,
 creation,
 textClass,
@@ -37,10 +40,12 @@ handNotes {
 
 /* Section labels */
 titleStmt:before,
-respStmt:before,
+editionStmt:before,
 publicationStmt:before,
 notesStmt:before,
 sourceDesc:before,
+encodingDesc:before,
+editorialDecl:before,
 msDesc:before,
 profileDesc:before,
 creation:before,
@@ -55,20 +60,14 @@ handNotes:before {
     content: oxy_concat("${i18n(", oxy_name(), ".label)}");
 }
 
-respStmt:before,
 msDesc:before {
     background-color:rgba(53, 25, 0, 0.6);    
 }
 
 /* Fields */
-titleStmt,
-respStmt,
-resp,
-name,
 fileDesc,
 titleStmt,
-title,
-authority,
+extent,
 note,
 msDesc,
 msIdentifier,
@@ -76,20 +75,38 @@ repository,
 collection,
 idno,
 altIdentifier,
-catRef {
+catRef,
+projectDesc,
+samplingDecl,
+correction,
+normalization,
+quotation,
+hyphenation,
+segmentation,
+stdVals,
+interpretation,
+punctuation {
     display:block;
 }
 
 
 /* Field labels */
-title:before,
-resp:before,
-name:before,
-authority:before,
+extent:before,
 note:before,
 repository:before,
 collection:before,
-catRef:before {
+catRef:before,
+projectDesc:before,
+samplingDecl:before,
+correction:before,
+normalization:before,
+quotation:before,
+hyphenation:before,
+segmentation:before,
+stdVals:before,
+interpretation:before,
+punctuation:before
+{
     content: 
         oxy_label(
             text, oxy_concat("${i18n(", oxy_name(), ".label)}:")
@@ -203,20 +220,6 @@ collection[type]:before {
     ;
 }
 
-resp {
-    -oxy-append-content:
-        oxy_label(
-            text, oxy_concat("${i18n(key.label)}: ")
-            styles, "@import 'labels_sub.css';"
-        )
-        oxy_combobox(
-            edit, "@key"
-            columns, 6
-        )
-        "  "
-    ;
-}
-
 /* creation */
 creation > date:before,
 creation > persName:before,
@@ -308,4 +311,80 @@ handNote:after {
     ;
 }
 
+/* Editorial Declaration */
+
+correction:before {
+    -oxy-append-content: " "
+        oxy_label(
+            text, oxy_concat("${i18n(status.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@status"
+        )
+        " "
+        oxy_label(
+            text, oxy_concat("${i18n(method.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@method"
+        )
+        " "
+    ;
+}
+
+normalization:before {
+    -oxy-append-content: " "
+        oxy_label(
+            text, oxy_concat("${i18n(method.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@method"
+        )
+        " "
+        oxy_label(
+            text, "${i18n(source.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@source"
+            columns, 25
+        )
+        " "
+    ;
+}
+
+normalization[source]:after {
+    padding: 0px 5px;
+    link: attr(source, string, "");
+    content: url('../images/link_open-16.png');
+}
+
+quotation:before {
+    -oxy-append-content: " "
+        oxy_label(
+            text, oxy_concat("${i18n(marks.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@marks"
+        )
+        " "
+    ;
+}
+
+hyphenation:before {
+    -oxy-append-content: " "
+        oxy_label(
+            text, oxy_concat("${i18n(eol.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@eol"
+        )
+        " "
+    ;
+}
 

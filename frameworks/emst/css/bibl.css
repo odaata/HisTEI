@@ -4,20 +4,41 @@
 -------------------------------------------------------------------------------------------------*/
 
 /* Bibliographic references */
+listBibl,
 biblStruct,
-biblFull {
+biblFull,
+respStmt,
+editionStmt,
+availability,
+licence,
+seriesStmt {
     display:block;
-    border:1px solid;
     -oxy-display-tags:none;
     -oxy-foldable:true;
 }
 
+listBibl,
+biblStruct,
+biblFull,
+respStmt,
+editionStmt,
+availability,
+seriesStmt {
+    -oxy-folded:true;
+}
+
 /* Section Labels */
+listBibl:before,
 biblStruct:before,
 biblFull:before,
+respStmt:before,
+editionStmt:before,
 analytic:before,
 monogr:before,
-series:before {
+series:before,
+seriesStmt:before,
+availability:before,
+licence:before {
     display:block;
     color:white;
     background-color:rgba(0, 0, 128, 0.5);
@@ -27,15 +48,24 @@ series:before {
     content: oxy_concat("${i18n(", oxy_name(), ".label)}");
 }
 
+listBibl:before {
+    background-color:gray;
+}
+
 /* Field labels */
 bibl:before,
 title:before,
 author:before,
 editor:before,
-biblStruct date:before,
-biblFull date:before,
+sponsor:before,
+funder:before,
+principal:before,
+resp:before,
+name:before,
 edition:before,
 publisher:before,
+distributor:before,
+authority:before,
 pubPlace:before {
     content: 
         oxy_label(
@@ -46,8 +76,6 @@ pubPlace:before {
 }
 
 bibl,
-biblStruct,
-biblFull,
 analytic,
 monogr,
 series,
@@ -55,13 +83,75 @@ imprint,
 title,
 author,
 editor,
+sponsor,
+funder,
+principal,
 resp,
+name,
 edition,
 publisher,
+distributor,
+authority,
 pubPlace,
 biblScope,
 idno {
     display:block;
+}
+
+title {
+    font-weight:bold;
+}
+
+title[type="sub"] {
+    font-size:smaller;
+    font-variant:small-caps;
+}
+
+title:before {
+    -oxy-append-content: 
+        oxy_label(
+            text, oxy_concat("${i18n(type.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            values, "main, sub"
+        )
+        "  "
+    ;
+}
+
+availability:before {
+    -oxy-append-content: " "
+        oxy_label(
+            text, oxy_concat("${i18n(status.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@status"
+        )
+        "  "
+    ;
+}
+
+licence:before {
+    -oxy-append-content: 
+        oxy_label(
+            text, "${i18n(url.label)}: "
+            width, 50px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@target"
+            columns, 25
+        )
+    ;
+}
+
+licence[target]:after {
+    padding: 0px 5px;
+    link: attr(target, string, "");
+    content: url('../images/link_open-16.png');
 }
 
 biblScope:before {
@@ -122,6 +212,20 @@ note[type="accessed"]:before {
             text, oxy_concat("${i18n(date.label.", attr(type, string, ""), ")}: ")
             styles, "@import 'labels.css';"
         )
+    ;
+}
+
+resp {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(key.label)}: ")
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@key"
+            columns, 6
+        )
+        "  "
     ;
 }
 

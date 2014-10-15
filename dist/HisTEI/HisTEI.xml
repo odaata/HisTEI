@@ -29,16 +29,27 @@
                             stretches past the edge of the Oxygen window.
                         </p>
                         <p>
-                            This means, of course, that a text with line breaks will still wrap, if the Oxygen window is too narrow. 
-                            So, I added a new command to allow toggling text wrapping on and off completely. You can find this command on the <i>Formats</i> menu 
-                            with the label <i>Toggle Text Wrap</i>. I also added a button to the Formats toolbar: it's a capital <i>A</i> with 
-                            a blue arrow pointing backwards (to represent wrapping the text to a new line). 
-                            By default, text wrapping is on. Click the button once to turn it off. 
-                            At that point, only line breaks within the text will be used to wrap the text to a new line. Click it again to turn it back on. 
-                        </p> 
+                            This means, of course, if the Oxygen window is too narrow, a text with line breaks will still wrap.
+                            So, I added a new command to allow toggling text wrapping <b>ON</b> and <b>OFF</b> completely.
+                        </p>
                         <p>
-                            Additionally, since text wrapping is on by default now, it is more difficult to see clearly where manual line breaks in the text are, so
-                            I added an icon (an arrow pointing down and back) that is displayed inline within the text to represent an manual line break.
+                            You can find this command on the <i>Formats</i> menu with the label <i>Toggle Text Wrap</i>.
+                            I also added a button to the Formats toolbar: it's a capital <i>A</i> with
+                            a blue arrow pointing backwards (to represent wrapping the text to a new line).
+                        </p>
+                        <p>
+                            By default, text wrapping is <b>ON</b>. Click the button once to turn it <b>OFF</b>.
+                            At that point, only manual line breaks within the text will be used to wrap to a new line.
+                            Click it again to turn it back <b>ON</b>.
+                        </p>
+                        <p>
+                            Additionally, since text wrapping is <b>ON</b> by default now, it is more difficult to see clearly where manual line breaks are, so
+                            I added an icon (an arrow pointing down and back) that is displayed inline within the text to represent manual line breaks.
+                            Please let me know what you think of this!
+                        </p>
+                        <p>
+                            Finally, I removed the old way of wrapping text (namely with another CSS stylesheet which used to be accessed via the
+                            <i>Styles</i> toolbar)
                         </p>
                     </li>
                     <li>
@@ -47,7 +58,11 @@
                     </li>
                     <li>
                         Type dropdowns are also now available for <code>head</code> and <code>title</code> elements in order to distinguish between 
-                        main and sub headings and titles :-)
+                        main and sub headings and titles
+                    </li>
+                    <li>
+                        TIFF Images now supported: When setting a new base directory for the <code>facsimile</code> element, 
+                        TIFF image files are recognized and added to the list of graphics
                     </li>
                 </ul>
                 <p class="header">Version 0.4.2</p>

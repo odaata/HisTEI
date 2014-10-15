@@ -14,6 +14,7 @@ import static info.histei.commons.TEINamespace.MEDIA_ELEMENT_NAME;
 public enum MimeType {
     JPG(GRAPHIC_ELEMENT_NAME, "image/jpeg", "image"),
     PNG(GRAPHIC_ELEMENT_NAME, "image/png", "image"),
+    TIFF(MEDIA_ELEMENT_NAME, "image/tiff", "image"),
     PDF(MEDIA_ELEMENT_NAME, "application/pdf", "pdf");
 
     // Lookup table

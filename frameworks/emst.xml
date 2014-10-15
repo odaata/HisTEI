@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
-        <xt:version>0.4.2</xt:version>
+        <xt:version>0.4.3</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -20,6 +20,36 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.4.3</p>
+                <ul>
+                    <li>
+                        <p>
+                            After a higher-than-average "duh!" factor, I finally figured out that we can have <b>both</b> manual line breaks (i.e. TEI <code>lb</code> elements)
+                            <b>as well as text wrapping at the same time</b>. Now, by default, new lines are created for manual line breaks as well as when the text
+                            stretches past the edge of the Oxygen window.
+                        </p>
+                        <p>
+                            This means, of course, that a text with line breaks will still wrap, if the Oxygen window is too narrow.
+                            So, I added a new command to allow toggling text wrapping on and off completely. You can find this command on the <i>Formats</i> menu
+                            with the label <i>Toggle Text Wrap</i>. I also added a button to the Formats toolbar: it's a capital <i>A</i> with
+                            a blue arrow pointing backwards (to represent wrapping the text to a new line).
+                            By default, text wrapping is on. Click the button once to turn it off.
+                            At that point, only line breaks within the text will be used to wrap the text to a new line. Click it again to turn it back on.
+                        </p>
+                        <p>
+                            Additionally, since text wrapping is on by default now, it is more difficult to see clearly where manual line breaks in the text are, so
+                            I added an icon (an arrow pointing down and back) that is displayed inline within the text to represent an manual line break.
+                        </p>
+                    </li>
+                    <li>
+                        I also added many new styles for elements in the TEI Header (mainly in the <code>titleStmt</code> and <code>encodingDesc</code> elements).
+                        It's now much closer to handling all possible fields in these elements.
+                    </li>
+                    <li>
+                        Type dropdowns are also now available for <code>head</code> and <code>title</code> elements in order to distinguish between
+                        main and sub headings and titles :-)
+                    </li>
+                </ul>
                 <p class="header">Version 0.4.2</p>
                 <ul>
                     <li>

@@ -8,7 +8,7 @@
 
     <patternset id="framework.files">
         <exclude name="odd/"/>
-        <!--<exclude name="resources/"/>-->
+        <exclude name="resources/"/>
         <exclude name="schema/"/>
         <exclude name="templates/"/>
         <exclude name="*.framework"/>

@@ -975,6 +975,10 @@
         <val lang="en_US">Manuscript Description</val>
     </key>
 
+    <key value="msContents.label">
+        <val lang="en_US">Manuscript Contents</val>
+    </key>
+
     <key value="profileDesc.label">
         <val lang="en_US">Profile Description</val>
     </key>

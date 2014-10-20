@@ -4617,7 +4617,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>4</Integer>
+						<Integer>3</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

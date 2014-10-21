@@ -1073,6 +1073,14 @@
     <key value="titlePart.label">
         <val lang="en_US">Title Part</val>
     </key>
+    
+    <key value="figure.label">
+        <val lang="en_US">Figure</val>
+    </key>
+    
+    <key value="figDesc.label">
+        <val lang="en_US">Figure Description</val>
+    </key>
 
     <!-- Structure/Layout -->
 
@@ -1104,6 +1112,10 @@
 
     <key value="postscript.label">
         <val lang="en_US">Postscript</val>
+    </key>
+
+    <key value="byline.label">
+        <val lang="en_US">Byline</val>
     </key>
 
     <key value="dateline.label">

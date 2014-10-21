@@ -28,6 +28,8 @@ docTitle:before,
 docImprint:before,
 docDate:before,
 titlePart:before,
+figure:before,
+figDesc:before,
 div:before,
 opener:before,
 closer:before,
@@ -55,6 +57,8 @@ titlePage,
 docTitle,
 docImprint,
 docDate,
+figure,
+figDesc,
 div,
 opener,
 closer,
@@ -65,6 +69,7 @@ gloss {
 }
 
 /* Field Labels */
+byline:before,
 dateline::before,
 salute:before,
 signed:before {
@@ -103,9 +108,12 @@ div {
 
 titlePage,
 docTitle,
+figure,
+figDesc,
 div,
 opener,
 closer,
+byline,
 dateline,
 salute {
     display:block;
@@ -121,6 +129,7 @@ closer {
 }
 
 titlePart,
+byline,
 dateline,
 salute,
 signed {
@@ -128,6 +137,11 @@ signed {
     padding:2px;
     margin:2px;
     margin-bottom: 5px;
+}
+
+byline {
+    font-size:smaller;
+    font-variant:small-caps;
 }
 
 fw {
@@ -154,6 +168,7 @@ fw:before {
 
 /* Elements with hidden Oxygen tags */
 titlePart,
+byline,
 dateline,
 salute,
 signed,

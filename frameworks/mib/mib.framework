@@ -37,17 +37,6 @@
 								<cssFile-array>
 									<cssFile>
 										<field name="href">
-											<String>${framework}/css/document.css</String>
-										</field>
-										<field name="title">
-											<String>MIB TEI Document</String>
-										</field>
-										<field name="alternate">
-											<Boolean>false</Boolean>
-										</field>
-									</cssFile>
-									<cssFile>
-										<field name="href">
 											<String>${framework}/css/annotation.css</String>
 										</field>
 										<field name="title">
@@ -55,6 +44,17 @@
 										</field>
 										<field name="alternate">
 											<Boolean>false</Boolean>
+										</field>
+									</cssFile>
+									<cssFile>
+										<field name="href">
+											<String>${framework}/css/document.css</String>
+										</field>
+										<field name="title">
+											<String>MIB TEI Document</String>
+										</field>
+										<field name="alternate">
+											<Boolean>true</Boolean>
 										</field>
 									</cssFile>
 									<cssFile>
@@ -4575,7 +4575,91 @@
 						</documentTypeRule-array>
 					</field>
 					<field name="scenarios">
-						<scenario-array/>
+						<scenario-array>
+							<scenario>
+								<field name="advancedOptionsMap">
+									<null/>
+								</field>
+								<field name="name">
+									<String>lang_switches</String>
+								</field>
+								<field name="baseURL">
+									<String></String>
+								</field>
+								<field name="footerURL">
+									<String></String>
+								</field>
+								<field name="fOPMethod">
+									<String>pdf</String>
+								</field>
+								<field name="fOProcessorName">
+									<String>Apache FOP</String>
+								</field>
+								<field name="headerURL">
+									<String></String>
+								</field>
+								<field name="inputXSLURL">
+									<String>file:/opt/oxygen/HisTEI/frameworks/mib/resources/lang_switches.xql</String>
+								</field>
+								<field name="inputXMLURL">
+									<String>${currentFileURL}</String>
+								</field>
+								<field name="defaultScenario">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="isFOPPerforming">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="type">
+									<String>XML_XQUERY</String>
+								</field>
+								<field name="saveAs">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="openInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="outputFile">
+									<null/>
+								</field>
+								<field name="openOtherLocationInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="locationToOpenInBrowserURL">
+									<null/>
+								</field>
+								<field name="openInEditor">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="showInHTMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInXMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInSVGPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInResultSetPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useXSLTInput">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="xsltParams">
+									<list/>
+								</field>
+								<field name="cascadingStylesheets">
+									<String-array/>
+								</field>
+								<field name="xslTransformer">
+									<String>Saxon-PE XQuery</String>
+								</field>
+								<field name="extensionURLs">
+									<String-array/>
+								</field>
+							</scenario>
+						</scenario-array>
 					</field>
 					<field name="validationScenarios">
 						<validationScenario-array/>
@@ -4584,7 +4668,9 @@
 						<null/>
 					</field>
 					<field name="defaultTransformationScenarios">
-						<null/>
+						<list>
+							<String>lang_switches</String>
+						</list>
 					</field>
 					<field name="extensionsBundleClassName">
 						<String>info.histei.HTExtensionsBundle</String>
@@ -4617,7 +4703,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

@@ -779,7 +779,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="hand"/></String>
 															</entry>
 														</map>
 													</field>

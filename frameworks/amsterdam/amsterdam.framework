@@ -642,7 +642,7 @@
 														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="hand"/></String>
 															</entry>
 														</map>
 													</field>
@@ -3330,75 +3330,90 @@
 									</field>
 									<field name="menuEntriesDescriptorList">
 										<menuEntry-array>
-											<menuItem>
-												<field name="actionID">
-													<String>word.prep</String>
+											<menu>
+												<field name="label">
+													<String>Nouns</String>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.prep.art</String>
+												<field name="accessKey">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>word.adj</String>
+												<field name="iconPath">
+													<String></String>
 												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>word.noun</String>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>word.prep</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.prep.art</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>word.adj</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>word.noun</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.noun.art</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.noun.proper</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.noun.adj</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>word.art.def</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.art.ind</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.det.poss</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.det.ind</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>word.det.dem</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>word.post</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
 												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.noun.art</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.noun.proper</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.noun.adj</String>
-												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>word.art.def</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.art.ind</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.det.poss</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.det.ind</String>
-												</field>
-											</menuItem>
-											<menuItem>
-												<field name="actionID">
-													<String>word.det.dem</String>
-												</field>
-											</menuItem>
-											<menuSeparator/>
-											<menuItem>
-												<field name="actionID">
-													<String>word.post</String>
-												</field>
-											</menuItem>
+											</menu>
 										</menuEntry-array>
 									</field>
 								</menu>
@@ -3748,6 +3763,24 @@
 														<String>word</String>
 													</field>
 												</toolbarItem>
+											</toolbarEntry-array>
+										</field>
+									</toolbar>
+									<toolbar>
+										<field name="id">
+											<String>Amsterdam Noun Annotations</String>
+										</field>
+										<field name="type">
+											<Integer>2</Integer>
+										</field>
+										<field name="largeIconPath">
+											<null/>
+										</field>
+										<field name="smallIconPath">
+											<null/>
+										</field>
+										<field name="toolbarEntriesDescriptorList">
+											<toolbarEntry-array>
 												<toolbarItem>
 													<field name="actionID">
 														<String>word.prep</String>

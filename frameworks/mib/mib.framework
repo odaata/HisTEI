@@ -639,12 +639,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>element</String>
-																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="hand"/></String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4599,7 +4599,7 @@
 									<String></String>
 								</field>
 								<field name="inputXSLURL">
-									<String>file:/opt/oxygen/HisTEI/frameworks/mib/resources/lang_switches.xql</String>
+									<String>${framework}/resources/lang_switches.xql</String>
 								</field>
 								<field name="inputXMLURL">
 									<String>${currentFileURL}</String>
@@ -4614,13 +4614,13 @@
 									<String>XML_XQUERY</String>
 								</field>
 								<field name="saveAs">
-									<Boolean>false</Boolean>
+									<Boolean>true</Boolean>
 								</field>
 								<field name="openInBrowser">
 									<Boolean>false</Boolean>
 								</field>
 								<field name="outputFile">
-									<null/>
+									<File>/home/mike/Downloads/MIB output/${cfn}_lang_switches.xml</File>
 								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
@@ -4668,9 +4668,7 @@
 						<null/>
 					</field>
 					<field name="defaultTransformationScenarios">
-						<list>
-							<String>lang_switches</String>
-						</list>
+						<null/>
 					</field>
 					<field name="extensionsBundleClassName">
 						<String>info.histei.HTExtensionsBundle</String>
@@ -4703,7 +4701,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>4</Integer>
+						<Integer>3</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

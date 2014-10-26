@@ -8,16 +8,52 @@ declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 
 import module namespace txt="http://cohd.info/xquery/tei2text" at "tei2text.xqm";
 
-declare function local:get-parent-ann($currentAnn as element()) as element() {
-    $currentAnn/ancestor::*[local-name(.) = ("s", "cl", "phr", "w")][1]
+declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
+declare option output:indent "yes";
+
+declare variable $local:annElements := ("s", "cl", "phr", "w");
+declare variable $local:innerAnnElements := subsequence($local:annElements, 2);
+
+declare function local:get-parent-ann($ann as element()?) as element()? {
+    if (exists($ann)) then
+        $ann/ancestor::*[local-name(.) = $local:annElements][1]
+    else
+        ()
 };
 
-declare function local:get-lang($element as element()) as xs:string? {
-    $element/ancestor-or-self::*[attribute::xml:lang][1]/@xml:lang
+declare function local:get-children-anns($ann as element()?) as element()* {
+    if (exists($ann)) then
+        $ann//*[local-name(.) = $local:innerAnnElements]
+    else
+        ()
+};
+
+declare function local:get-preceding-ann($ann as element()?) as element()? {
+    if (exists($ann)) then
+        $ann/preceding::*[local-name() = $local:innerAnnElements][1]
+    else
+        ()
+};
+
+declare function local:get-content-ann($ann as element()?) as element()? {
+    if (exists($ann)) then
+        $ann/ancestor::tei:s[1]
+    else
+        ()
+};
+
+declare function local:get-lang($node as node()?) as xs:string? {
+    if (exists($node)) then
+        $node/ancestor-or-self::*[attribute::xml:lang][1]/@xml:lang
+    else
+        ()
 };
 
 declare function local:get-id($field as xs:string?) as xs:string? {
-    substring-after($field, ":")
+    if (exists($field)) then
+        substring-after($field, ":")
+    else
+        ()
 };
 
 declare function local:get-gloss-info($switch as element()) as element()* {
@@ -66,29 +102,63 @@ declare function local:get-ann-info($ann as element()?, $prefix as xs:string) as
     )   
 };
 
-element switches {
-    let $innerAnnElements := ("cl", "phr", "w")
-    for $switch at $n in //tei:s//*[local-name(.) = $innerAnnElements and (local:get-lang(.) ne local:get-lang(local:get-parent-ann(.)))]
-    let $s := $switch/ancestor::tei:s[1]
+declare function local:get-switches($sentences as element()*) as element()* {
+    let $switches := 
+        (: Loop through all annotations found within sentences and compare lang with preceding annotation :)
+        for $ann in $sentences//*[local-name() = $local:innerAnnElements]
+        let $annLang := local:get-lang($ann)
+        let $preceding := local:get-preceding-ann($ann)
+        let $isSwitch := 
+            if (exists($preceding)) then 
+                ($annLang ne local:get-lang($preceding)) 
+            else 
+                false()
+        (: Only include annotations with children all of the same language or have no children at all (<w/>) :)
+        let $isSwitch :=
+            if ($isSwitch) then
+                let $children := local:get-children-anns($ann)
+                return
+                    empty($children[local:get-lang(.) ne $annLang])
+            else
+                false()
+        where $isSwitch
+        return
+            $ann
+    (: Finally filter out annotations whose parents are already included immediately before
+        This prevents situations, where e.g. a phrase is a switch and by definition the first word in the 
+        phrase is returned as a switch because its language is different from preceding annotation as well 
+        as its parents
+    :)
+    for $switch at $n in $switches
     let $parentAnn := local:get-parent-ann($switch)
-    
-    let $preNodes := txt:outerTextNodes($switch, true(), $s)
-    let $preAnn := $preNodes[local-name(.) = $innerAnnElements][1]
-    
-    let $postNodes := txt:outerTextNodes($switch, false(), $s)
-    let $postAnn := $postNodes[local-name(.) = $innerAnnElements][1]
     return
-        element switch {
-            element fileName { replace (document-uri(/), concat('^.*', "/"), "")  },
-            element order { $n },
-            element sentID { data($s/@xml:id) },
-            element sentText { txt:toText($s) },
-            local:get-ann-info($switch, "switch"),
-            local:get-ann-info($preAnn, "preSwitch"),
-            local:get-ann-info($postAnn, "postSwitch"),
-            local:get-ann-info($parentAnn, "parent"),
-            local:get-gloss-info($switch)
-        }
-}
+        if ($n gt 1 and exists($parentAnn) and $parentAnn is $switches[$n - 1]) then
+            ()
+        else
+            $switch
+};
 
+declare function local:switches($sentences as element()*, $fileName as xs:string) as element(switches) {
+    element switches {
+        let $switches := local:get-switches($sentences)
+        for $switch at $n in $switches
+        let $s := local:get-content-ann($switch)
+        let $preceding := local:get-preceding-ann($switch)
+        return
+            element switch {
+                element fileName { $fileName },
+                element order { $n },
+                element sentID { data($s/@xml:id) },
+                element sentText { txt:toText($s) },
+                local:get-ann-info($switch, "switch"),
+                local:get-ann-info($preceding, "pre"),
+                local:get-gloss-info($switch)
+            }
+    }
+};
+
+let $fileName := replace (document-uri(/), '^.*/', "")
+let $sentences := //tei:s
+return
+    local:switches($sentences, $fileName)
 

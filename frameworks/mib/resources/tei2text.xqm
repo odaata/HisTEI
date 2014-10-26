@@ -64,16 +64,16 @@ declare function txt:transformNodes($nodes as node()*) as xs:string* {
             ()
 };
 
-declare function txt:outerTextNodes($elem as element()?, $previous as xs:boolean, $topElem as element()?) as node()* {
+declare function txt:outerNodes($elem as element()?, $previous as xs:boolean, $topElem as element()?) as node()* {
     if (empty($elem) or (exists($topElem) and ($topElem eq $elem))) then
         ()
     else
         let $parent := $elem/parent::*
         return
             if ($previous) then 
-                (txt:outerTextNodes($parent, $previous, $topElem), $elem/preceding-sibling::node()) 
+                (txt:outerNodes($parent, $previous, $topElem), $elem/preceding-sibling::node()) 
             else
-                ($elem/following-sibling::node(), txt:outerTextNodes($parent, $previous, $topElem))
+                ($elem/following-sibling::node(), txt:outerNodes($parent, $previous, $topElem))
 };
 
 declare function txt:cutToWord($start as xs:boolean, $input as xs:string?, $outputLength as xs:integer?) as xs:string? {
@@ -102,11 +102,18 @@ declare function txt:cutToWord($start as xs:boolean, $input as xs:string?) as xs
     txt:cutToWord($start, $input, ())
 };
 
+declare function txt:get-content-element($element as element()?) as element()? {
+    if (exists($element)) then
+        $element/ancestor::*[local-name() = $txt:contentElements][1]
+    else
+        ()
+};
+
 declare function txt:context($elem as element()) as element(context) {
-    let $contentElement := $elem/ancestor::*[local-name() = $txt:contentElements][1]
+    let $contentElement := txt:get-content-element($elem)
     
-    let $preTextNodes := txt:outerTextNodes($elem, true(), $contentElement)
-    let $postTextNodes := txt:outerTextNodes($elem, false(), $contentElement)
+    let $preTextNodes := txt:outerNodes($elem, true(), $contentElement)
+    let $postTextNodes := txt:outerNodes($elem, false(), $contentElement)
     
     let $preText := txt:toText($preTextNodes)
     let $postText := txt:toText($postTextNodes)

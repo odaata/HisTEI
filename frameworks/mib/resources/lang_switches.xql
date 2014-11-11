@@ -28,11 +28,22 @@ declare function local:get-children-anns($ann as element()?) as element()* {
         ()
 };
 
-declare function local:get-preceding-ann($ann as element()?) as element()? {
+declare function local:get-preceding-ann($ann as element()?, $names as xs:string*) as element()? {
     if (exists($ann)) then
-        $ann/preceding::*[local-name() = $local:innerAnnElements][1]
+        let $contentAnn := local:get-content-ann($ann)
+        let $names := if (exists($names)) then $names else $local:innerAnnElements 
+        let $preceding := $ann/preceding::*[local-name() = $names][1]
+        return
+            if (exists($contentAnn)) then
+                $contentAnn//*[local-name() = $names] intersect $preceding
+            else
+                $preceding
     else
         ()
+};
+
+declare function local:get-preceding-ann($ann as element()?) as element()? {
+    local:get-preceding-ann($ann, ())
 };
 
 declare function local:get-content-ann($ann as element()?) as element()? {
@@ -143,7 +154,8 @@ declare function local:switches($sentences as element()*, $fileName as xs:string
         let $switches := local:get-switches($sentences)
         for $switch at $n in $switches
         let $s := local:get-content-ann($switch)
-        let $preceding := local:get-preceding-ann($switch)
+        let $preceding := local:get-preceding-ann($switch, $switch/local-name())
+        let $preceding := if (exists($preceding)) then $preceding else local:get-preceding-ann($switch)
         return
             element switch {
                 element fileName { $fileName },

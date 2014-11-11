@@ -45,7 +45,15 @@ declare function txt:transformNodes($nodes as node()*) as xs:string* {
             return
                 if ($name = $txt:milestoneElements) then
                     if ($node/@break eq "no") then "" else " "
-                    
+                
+                else if ($name eq "seg" and $node/@function eq "formulaic") then 
+                    let $wrappedNodes := txt:transformNodes($node/node())
+                    return
+                        if (exists($wrappedNodes)) then
+                            string-join(("^", $wrappedNodes, "^"))
+                        else
+                            ""
+                
                 else if ($name = $txt:removedElements) then ""
                 
                 else if (map:contains($txt:replacedElements, $name)) then $txt:replacedElements($name)

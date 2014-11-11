@@ -2966,7 +2966,7 @@
 											<String>${framework}/images/toggle_text_wrap-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String></String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2975,7 +2975,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>true()</String>
 													</field>
 													<field name="argValues">
 														<map>

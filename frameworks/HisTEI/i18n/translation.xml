@@ -621,6 +621,17 @@
             etc).
         </val>
     </key>
+    
+    <!--  Reports  -->
+    
+    <key value="report.lang.switches">
+        <val lang="en_US">Report: Language Switches</val>
+    </key>
+    <key value="report.lang.switches_description">
+        <val lang="en_US">Generate a report containing all language code switches within sentences</val>
+    </key>
+
+
 
     <!--  Labels for use in CSS Styles  -->
 

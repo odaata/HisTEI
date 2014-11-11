@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="mib">
         <xt:location href="mib-oxygen.zip"/>
-        <xt:version>0.4.3</xt:version>
+        <xt:version>0.4.4</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -16,6 +16,11 @@
             <p class="title">Medieval Irish Bilingualism Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.4.4</p>
+                <ul>
+                    <li>Added the lang. switches report (XQuery) to MIB framework</li>
+                    <li>You can generate the report via a button on the end of the Annotations toolbar/menu (after the word annotation)</li>
+                </ul>
                 <p class="header">Version 0.4.3</p>
                 <ul>
                     <li>

@@ -9,15 +9,29 @@
 @namespace xml url('http://www.w3.org/XML/1998/namespace');
 
 /* Labels */
+s:focus,
+cl:focus,
+phr:focus,
+w:focus,
+pc:focus,
+num:focus,
+measure:focus {
+    padding:6px 0px;
+}
+
 s:focus:after,
 cl:focus:after,
 phr:focus:after,
-w:focus:after {
+w:focus:after,
+pc:focus:after,
+num:focus:after,
+measure:focus:after {
     background-color:gray;
     content:
         oxy_label(
             text, oxy_concat("${i18n(", oxy_name(), ".label)}")
             color, white
+            width, 60px
             styles, "@import 'labels.css';"
         )
     ;
@@ -32,11 +46,23 @@ cl:focus:after {
 }
 
 phr:focus:after {
-    background-color: rgba(0, 49, 200, 0.7);
+    background-color: rgba(0, 128, 0, 0.7);
 }
 
 w:focus:after {
-    background-color: rgba(0, 128, 0, 0.7);
+    background-color: rgba(0, 49, 200, 0.7);
+}
+
+pc:focus:after {
+    background-color: rgba(0, 49, 200, 0.7);
+}
+
+num:focus:after {
+    background-color: rgba(255, 128, 0, 0.7);
+}
+
+measure:focus:after {
+    background-color: rgba(128, 0, 255, 0.7);
 }
 
 /* @ana */
@@ -80,18 +106,17 @@ phr:focus:after {
     ;
 }
 
-/* @type for w */
-w:focus:after {
+/* @force for pc */
+pc:focus:after {
     -oxy-append-content:
         oxy_label(
-            text, "${i18n(type.label)}: "
+            text, "${i18n(force.label)}: "
             color, white
             styles, "@import 'labels_sub.css';"
         )
-        oxy_editor(
-            rendererClassName, "info.histei.contextual_info.ContextualEditor",
-            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
-            edit, "@type"
+        oxy_combobox(
+            edit, "@force"
+            columns, 7
         )
     ;
 }
@@ -107,17 +132,77 @@ w:focus:after {
             color, white
             styles, "@import 'labels_sub.css';"
         )
-    ;
-}
-
-s:focus:after,
-cl:focus:after,
-phr:focus:after,
-w:focus:after {
-    -oxy-append-content:
         oxy_combobox(
             edit, "@xml:lang"
             columns, 7
+        )
+    ;
+}
+
+/* Numbers and Measures */
+
+/* @type */
+num:focus:after,
+measure:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            color, white
+            width, 50px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            columns, 10
+        )
+    ;
+}
+
+num:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(value.label)}: "
+            color, white
+            width, 50px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@value"
+            columns, 4
+        )
+    ;
+}
+
+measure:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(quantity.label)}: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@quantity"
+            columns, 4
+        )
+        oxy_label(
+            text, "${i18n(unit.label)}: "
+            color, white
+            width, 45px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@unit"
+        )
+        oxy_label(
+            text, "${i18n(commodity.label)}: "
+            color, white
+            width, 95px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@commodity"
+            columns, 10
         )
     ;
 }

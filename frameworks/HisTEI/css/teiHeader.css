@@ -19,6 +19,7 @@ editorialDecl,
 msDesc,
 msContents,
 profileDesc,
+revisionDesc,
 creation,
 textClass,
 handNotes {
@@ -33,6 +34,7 @@ sourceDesc,
 encodingDesc,
 editorialDecl,
 profileDesc,
+revisionDesc,
 creation,
 textClass,
 handNotes {
@@ -50,6 +52,7 @@ editorialDecl:before,
 msDesc:before,
 msContents:before,
 profileDesc:before,
+revisionDesc:before,
 creation:before,
 textClass:before,
 handNotes:before {
@@ -86,7 +89,8 @@ hyphenation,
 segmentation,
 stdVals,
 interpretation,
-punctuation {
+punctuation,
+change {
     display:block;
 }
 
@@ -106,8 +110,8 @@ hyphenation:before,
 segmentation:before,
 stdVals:before,
 interpretation:before,
-punctuation:before
-{
+punctuation:before,
+change:before {
     content: 
         oxy_label(
             text, oxy_concat("${i18n(", oxy_name(), ".label)}:")
@@ -120,6 +124,16 @@ punctuation:before
     these are all essentially custom fields for the Amsterdam project */
 teiHeader note[type]:before {
     content: oxy_concat("${i18n(note.label.", attr(type, string, ""), ")}:");
+}
+
+repository:before {
+    -oxy-prepend-content:
+        url('../images/repository-16.png')
+}
+
+collection:before {
+    -oxy-prepend-content:
+        url('../images/collection-16.png')
 }
 
 /* Collapse text for all reference elements 
@@ -141,6 +155,7 @@ creation > bloc {
     visibility:-oxy-collapse-text;
 }
 
+/* Reference fields that use the HisTEI contextual editor */
 repository,
 creation > persName,
 creation > orgName,
@@ -251,9 +266,19 @@ handNote {
     border:1px inset;
     visibility:-oxy-collapse-text;
     white-space:pre-wrap;
+    content:
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor"
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor"
+            edit, "@scribeRef"
+            fontInherit, true
+        )
+    ;
 }
 
 handNote:before {
+    padding: 0px;
+    vertical-align: middle;
     -oxy-append-content:
         url('../images/hand-16.png')
         oxy_label(
@@ -262,7 +287,7 @@ handNote:before {
         )
         oxy_textfield(
             edit, "@xml:id"
-            columns, 15
+            columns, 12
         )
         oxy_label(
             text, "${i18n(scope.label)}: "
@@ -270,18 +295,6 @@ handNote:before {
         )
         oxy_combobox(
                 edit, "@scope"
-        )
-    ;
-}
-
-handNote {
-    display:block;
-    content:
-        oxy_editor(
-            rendererClassName, "info.histei.contextual_info.ContextualEditor",
-            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
-            edit, "@scribeRef"
-            fontInherit, true
         )
     ;
 }
@@ -309,6 +322,89 @@ handNote:after {
             edit, "@script"
             editable, true
         )  
+    ;
+}
+
+/* Revision Description */
+
+revisionDesc:before {
+    padding: 0px;
+    vertical-align: middle;
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(status.label)}: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+                edit, "@status"
+        )
+}
+
+/* Change (very similar to handNote) */
+change {
+    display:block;
+    padding:2px;
+    border:1px inset;
+    visibility:-oxy-collapse-text;
+    white-space:pre-wrap;
+    content:
+        oxy_label(
+            text, "${i18n(who.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor"
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor"
+            edit, "@who"
+            fontInherit, true
+        )
+    ;
+}
+
+change:before {
+    -oxy-prepend-content:
+        url('../images/change-16.png')
+}
+
+change:before {
+    padding: 0px;
+    vertical-align: middle;
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(status.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+                edit, "@status"
+        )
+        oxy_label(
+            text, "${i18n(when.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_datePicker(
+            columns, 18
+            edit, "@when"
+            format, "yyyy-MM-dd'T'HH:mm:ss"
+        )
+    ;
+}
+
+change:after {
+    display:block;
+    content:
+        oxy_label(
+            text, "${i18n(desc.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_textArea(
+            edit, "#text"
+            contentType, "text/plain"
+            columns, 50
+            rows, 2
+            indentOnTab, false
+        )
     ;
 }
 
@@ -358,7 +454,8 @@ normalization:before {
 }
 
 normalization[source]:after {
-    padding: 0px 5px;
+    padding-left: 5px;
+    vertical-align: middle;
     link: attr(source, string, "");
     content: url('../images/link_open-16.png');
 }
@@ -388,4 +485,5 @@ hyphenation:before {
         " "
     ;
 }
+
 

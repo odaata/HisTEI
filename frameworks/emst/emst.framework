@@ -101,7 +101,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -144,7 +144,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -187,7 +187,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -319,7 +319,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -495,7 +495,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -542,7 +542,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -999,7 +999,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1042,7 +1042,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1471,7 +1471,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:p or ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1526,7 +1526,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2059,7 +2059,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2106,7 +2106,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2153,7 +2153,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2200,7 +2200,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2247,7 +2247,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2294,7 +2294,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2341,7 +2341,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2388,7 +2388,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2435,7 +2435,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>

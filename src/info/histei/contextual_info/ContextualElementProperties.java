@@ -39,6 +39,9 @@ public class ContextualElementProperties {
         properties.add(new ContextualElementProperties(
                 "handNote", ContextualType.PERSON, "scribeRef"));
 
+//        change element - filter for editors, i.e. people who work on the project
+        properties.add(new ContextualElementProperties(
+                "change", ContextualType.PERSON, "who", null, "editor"));
 
 //        Place-related references - they are always displayed with a combo box, i.e. no sourceParent
 

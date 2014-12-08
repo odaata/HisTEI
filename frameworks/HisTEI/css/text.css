@@ -151,6 +151,8 @@ fw {
 }
 
 fw:before {
+    padding: 0px;
+    vertical-align: middle;
     content: 
         url('../images/forme_work-16.png')
         oxy_label(
@@ -185,7 +187,8 @@ seg,
 term,
 handShift,
 pb,
-pc {
+pc,
+title {
     -oxy-display-tags:none;
 }
 
@@ -292,6 +295,18 @@ seg[function='formulaic']{
     font-style:italic;
 }
 
+text title {
+    display:inline;
+    font-weight:bold;
+    text-decoration: underline;
+}
+
+text title:before {
+    padding-right: 2px;
+    vertical-align: middle;
+    content: url('../images/title-16.png');
+}
+
 /* Note */
 
 div note {
@@ -358,7 +373,10 @@ pb {
     font-size:small;
     line-height:1.5;
 }
+
 pb:before {
+    padding: 0px;
+    vertical-align: middle;
     counter-increment:pages;
     content: url('../images/page_break-16.png')
         " Page " counter(pages)
@@ -411,7 +429,8 @@ pb:before {
 
 /* Hand References */
 handShift {
-    padding:0px 5px;
+    padding:0px;
+    vertical-align: middle;
     link: attr(new, string, "");
     content: url('../images/hand_shift-16.png');
 }
@@ -451,12 +470,16 @@ gap:hover:after {
 }
 
 handShift[new]:hover:after {
+    padding-left: 5px;
+    vertical-align: middle;
     link: attr(new, string, "");
     -oxy-append-content: url('../images/hand_open-16.png');
 }
 
 [hand]:focus:after,
 gap[hand]:hover:after {
+    padding-left: 5px;
+    vertical-align: middle;
     link: attr(hand, string, "");
     -oxy-append-content: url('../images/hand_open-16.png');
 }
@@ -526,7 +549,8 @@ gloss:before {
 }
 
 gloss[target]:after {
-    padding: 0px 5px;
+    padding-left: 5px;
+    vertical-align: middle;
     link: attr(target, string, "");
     content: url('../images/link_open-16.png');
 }
@@ -565,8 +589,12 @@ text p lb{
 s,
 cl,
 phr,
-w {
-    padding:2px;
+w,
+pc,
+num,
+measure {
+    vertical-align:bottom;
+    padding-top:2px;
     -oxy-display-tags:none;
 }
 
@@ -579,9 +607,21 @@ cl {
 }
 
 phr {
-    border:1px solid rgb(0, 49, 200);
+    border:1px solid rgb(0, 128, 0);
 }
 
 w {
-    border:1px solid rgb(0, 128, 0);
+    border:1px solid rgb(0, 49, 200);
+}
+
+pc {
+    border:1px solid rgb(0, 49, 200);
+}
+
+num {
+    border:1px solid rgb(255, 128, 0);
+}
+
+measure {
+    border:1px solid rgb(128, 0, 255);
 }

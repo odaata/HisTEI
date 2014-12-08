@@ -16,12 +16,18 @@
 
 /* Field Icons */
 date:before {
+    padding-right: 2px;
+    vertical-align: middle;
     -oxy-prepend-content: url('../images/date-16.png');
 }
 persName:before {
+    padding-right: 2px;
+    vertical-align: middle;
     -oxy-prepend-content: url('../images/person-16.png');
 }
 orgName:before {
+    padding-right: 2px;
+    vertical-align: middle;
     -oxy-prepend-content: url('../images/org-16.png');
 }
 placeName:before,
@@ -30,13 +36,15 @@ settlement:before,
 region:before,
 country:before,
 bloc:before {
+    padding-right: 2px;
+    vertical-align: middle;
     -oxy-prepend-content: url('../images/place-16.png');
 }
 
 /* Elements with hidden Oxygen tags */
 date,
 persName,
-orgNae,
+orgName,
 placeName,
 district,
 settlement,
@@ -153,15 +161,23 @@ ptr {
 
 ptr:before,
 ref:before {
+    padding-right: 2px;
+    vertical-align: middle;
     content: url('../images/link-16.png');
+}
+
+ptr[target]:after,
+ref[target]:after {
+    padding-left: 5px;
+    vertical-align: middle;
+    link: attr(target, string, "");
+    content: url('../images/link_open-16.png');
 }
 
 ptr:hover:after,
 ref:focus:after {
     padding:5px;
-    link: attr(target, string, "");
-    content: 
-        url('../images/link_open-16.png')
+    -oxy-append-content: 
         oxy_label(
             text, "${i18n(url.label)}: "
             width, 50px
@@ -169,6 +185,7 @@ ref:focus:after {
         )
         oxy_textfield(
             edit, "@target"
+            columns, 25
         )
     ;
 }
@@ -183,7 +200,8 @@ note[type="url"]:before {
 }
 
 note[type="url"]:after {
-    padding-left:10px;
+    padding-left:5px;
+    vertical-align: middle;
     link: oxy_xpath("text()");
     content: url('../images/link_open-16.png');
 }
@@ -207,6 +225,8 @@ head[type="sub"] {
 }
 
 head:before {
+    padding-right: 2px;
+    vertical-align: middle;
     content:
         url('../images/head-16.png')
         oxy_label(
@@ -229,12 +249,16 @@ label {
 }
 
 label:before{
+    padding-right: 2px;
+    vertical-align: middle;
     content: url('../images/label-16.png');
 }
 
 /* Paragraph and accompanying Line Break */
 
 p:before{
+    padding: 0px;
+    vertical-align: middle;
     content: url('../images/paragraph-16.png');
 }
 
@@ -247,6 +271,8 @@ p {
 }
 
 lb {
+    padding: 0px;
+    vertical-align: middle;
     visibility:-oxy-collapse-text;
     -oxy-display-tags:none;
     content:url('../images/line_break-12.png') "\A";

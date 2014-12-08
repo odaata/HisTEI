@@ -320,7 +320,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -496,7 +496,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -543,7 +543,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -817,7 +817,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1000,7 +1000,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1043,7 +1043,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1472,7 +1472,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:p or ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1527,7 +1527,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -1663,7 +1663,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text</String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2060,7 +2060,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2107,7 +2107,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2154,7 +2154,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2201,7 +2201,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2248,7 +2248,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2295,7 +2295,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2342,7 +2342,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2389,7 +2389,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2436,7 +2436,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -2976,7 +2976,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3023,7 +3023,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3070,7 +3070,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3117,7 +3117,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3164,7 +3164,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3211,7 +3211,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3258,7 +3258,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3305,7 +3305,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3352,7 +3352,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3399,7 +3399,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3446,7 +3446,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3493,7 +3493,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3540,7 +3540,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3587,7 +3587,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3634,7 +3634,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3681,7 +3681,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
 														<map>
@@ -3916,6 +3916,194 @@
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.TogglePseudoClassOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>change</String>
+										</field>
+										<field name="name">
+											<String>${i18n(change)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(change_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/change-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/change-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd'T'HH:mm:ss)}">${caret}&lt;/change></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//revisionDesc[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>title</String>
+										</field>
+										<field name="name">
+											<String>${i18n(title)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(title_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/title-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/title-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;title xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>number</String>
+										</field>
+										<field name="name">
+											<String>${i18n(number)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(number_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/number-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/number-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift M</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;num xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>measure</String>
+										</field>
+										<field name="name">
+											<String>${i18n(measure)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(measure_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/measure-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/measure-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift QUOTE</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<map>
+															<entry>
+																<String>element</String>
+																<String>&lt;measure xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</map>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -4233,16 +4421,6 @@
 																<String>note</String>
 															</field>
 														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>punctuation</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>punctuation.supplied</String>
-															</field>
-														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -4289,9 +4467,15 @@
 																<String>forme.work</String>
 															</field>
 														</menuItem>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>formulaic</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>title</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -4308,6 +4492,12 @@
 														<menuItem>
 															<field name="actionID">
 																<String>signed</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>change</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -4427,6 +4617,28 @@
 														<menuItem>
 															<field name="actionID">
 																<String>word</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>punctuation</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>punctuation.supplied</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>number</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>measure</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -4804,16 +5016,6 @@
 														<String>note</String>
 													</field>
 												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>punctuation</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>punctuation.supplied</String>
-													</field>
-												</toolbarItem>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
@@ -4863,9 +5065,15 @@
 														<String>forme.work</String>
 													</field>
 												</toolbarItem>
+												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
 														<String>formulaic</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>title</String>
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>
@@ -4882,6 +5090,12 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>signed</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>change</String>
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>
@@ -5025,6 +5239,28 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>word</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>punctuation</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>punctuation.supplied</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>number</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>measure</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>
@@ -5184,7 +5420,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

@@ -45,6 +45,10 @@ public class HTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("teiHeader", new HTIconNode("teiHeader", "tei_header"));
         iconNodes.put("title", new HTIconNode("title"));
         iconNodes.put("respStmt", new HTIconNode("respStmt", "resp"));
+//      Manuscript Description - collection
+        iconNodes.put("collection", new HTIconNode("collection", "collection"));
+//      Revision Description - change
+        iconNodes.put("change", new HTIconNode("change", "change"));
 //      Facsimile stuff
         iconNodes.put("facsimile", new HTIconNode("facsimile", "folder_image"));
         iconNodes.put("graphic", new HTIconNode("graphic"));
@@ -97,7 +101,6 @@ public class HTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("abbr", new HTIconNode("abbr", "abbreviation"));
         iconNodes.put("expan", new HTIconNode("expan", "expansion"));
         iconNodes.put("foreign", new HTIconNode("foreign"));
-        iconNodes.put("pc", new HTIconNode("pc", "punctuation"));
 //      note@type for storing Archive info in Org - otherwise normal note icon
         initMap = new HashMap<>();
         initMap.put("archive", "repository");

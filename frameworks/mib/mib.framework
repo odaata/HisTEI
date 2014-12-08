@@ -101,15 +101,15 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="bold"/></String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -144,15 +144,15 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="underline"/></String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -187,15 +187,15 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="italic"/></String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -679,15 +679,15 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text</String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;pc xmlns="http://www.tei-c.org/ns/1.0" force="${ask('force: strong - punctuation breaks a word; weak - does not break a word; inter - unspecified', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'weak')}">${ask('Which punctuation character(s)?', generic, '-')}&lt;/pc>${caret}</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -862,15 +862,15 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="subscript"/></String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -905,15 +905,15 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text or ancestor-or-self::*:desc</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="superscript"/></String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1334,10 +1334,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:p or ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or ancestor-or-self::*:note</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;lb xmlns="http://www.tei-c.org/ns/1.0" break="${ask('Is this line break between words?', combobox, ('yes':'yes'; 'no':'no';), 'yes')}"/>${caret}</String>
@@ -1354,7 +1354,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1389,10 +1389,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:text</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
@@ -1409,7 +1409,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1525,15 +1525,15 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:text</String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0">&lt;pc force="${ask('force: strong - punctuation breaks a word; weak - does not break a word; inter - unspecified', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'strong')}">${ask('Which punctuation character(s)?', generic, '.')}&lt;/pc>&lt;/supplied> ${caret}</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1922,10 +1922,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -1934,7 +1934,7 @@
 																<String>text</String>
 																<String>æ</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -1969,10 +1969,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -1981,7 +1981,7 @@
 																<String>text</String>
 																<String>Æ</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2509,10 +2509,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2521,7 +2521,7 @@
 																<String>text</String>
 																<String>á</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2556,10 +2556,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2568,7 +2568,7 @@
 																<String>text</String>
 																<String>Á</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2603,10 +2603,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2615,7 +2615,7 @@
 																<String>text</String>
 																<String>é</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2650,10 +2650,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2662,7 +2662,7 @@
 																<String>text</String>
 																<String>É</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2697,10 +2697,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2709,7 +2709,7 @@
 																<String>text</String>
 																<String>í</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2744,10 +2744,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2756,7 +2756,7 @@
 																<String>text</String>
 																<String>Í</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2791,10 +2791,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2803,7 +2803,7 @@
 																<String>text</String>
 																<String>ó</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2838,10 +2838,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2850,7 +2850,7 @@
 																<String>text</String>
 																<String>Ó</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2885,10 +2885,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2897,7 +2897,7 @@
 																<String>text</String>
 																<String>ú</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2932,10 +2932,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2944,7 +2944,7 @@
 																<String>text</String>
 																<String>Ú</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2979,10 +2979,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2991,7 +2991,7 @@
 																<String>text</String>
 																<String>ǽ</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3026,10 +3026,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3038,7 +3038,7 @@
 																<String>text</String>
 																<String>Ǽ</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3073,10 +3073,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3085,7 +3085,7 @@
 																<String>text</String>
 																<String>ċ</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3120,10 +3120,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3132,7 +3132,7 @@
 																<String>text</String>
 																<String>ġ</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3167,10 +3167,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3179,7 +3179,7 @@
 																<String>text</String>
 																<String>ł</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3214,10 +3214,10 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>true()</String>
+														<String></String>
 													</field>
 													<field name="argValues">
-														<serializableOrderedMap>
+														<map>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3226,7 +3226,7 @@
 																<String>text</String>
 																<String>̇</String>
 															</entry>
-														</serializableOrderedMap>
+														</map>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -4702,7 +4702,29 @@
 									<Boolean>true</Boolean>
 								</field>
 								<field name="xsltParams">
-									<list/>
+									<list>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
+														<String>reportType</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${ask('Which language switches report would you like to run?', combobox, ('linear':'linear'; 'hierarchical':'hierarchical'; 'matrix':'matrix';), 'linear')}</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+									</list>
 								</field>
 								<field name="cascadingStylesheets">
 									<String-array/>

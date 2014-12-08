@@ -60,6 +60,60 @@ declare function local:get-lang($node as node()?) as xs:string? {
         ()
 };
 
+declare function local:get-switches-linear($sentences as element()*) as element()* {
+    let $switches := 
+        (: Loop through all annotations found within sentences and compare lang with preceding annotation :)
+        for $ann in $sentences//*[local-name() = $local:innerAnnElements]
+        let $annLang := local:get-lang($ann)
+        let $preceding := local:get-preceding-ann($ann)
+        let $isSwitch := 
+            if (exists($preceding)) then 
+                ($annLang ne local:get-lang($preceding)) 
+            else 
+                false()
+        (: Only include annotations with children all of the same language or have no children at all (<w/>) :)
+        let $isSwitch :=
+            if ($isSwitch) then
+                let $children := local:get-children-anns($ann)
+                return
+                    empty($children[local:get-lang(.) ne $annLang])
+            else
+                false()
+        where $isSwitch
+        return
+            $ann
+    (: Finally filter out annotations whose parents are already included immediately before
+        This prevents situations, where e.g. a phrase is a switch and by definition the first word in the 
+        phrase is returned as a switch because its language is different from preceding annotation as well 
+        as its parents
+    :)
+    for $switch at $n in $switches
+    let $parentAnn := local:get-parent-ann($switch)
+    return
+        if ($n gt 1 and exists($parentAnn) and $parentAnn is $switches[$n - 1]) then
+            ()
+        else
+            $switch
+};
+
+declare function local:get-switches-hierarchical($sentences as element()*, $matrixFilter as xs:boolean) as element()* {
+    for $s in $sentences
+    let $sLang := local:get-lang($s)
+    for $ann in local:get-children-anns($s)
+    let $annLang := local:get-lang($ann)
+    let $parentAnnLang := local:get-lang(local:get-parent-ann($ann))
+    let $matrixFilter := if ($matrixFilter) then ($annLang ne $sLang) else true()
+    where ($annLang ne $parentAnnLang) and $matrixFilter
+(:    where ($annLang ne $parentAnnLang) and ($annLang ne $sLang):)
+    (:where ($annLang ne $parentAnnLang):)
+    return
+        $ann
+};
+
+declare function local:get-switches-hierarchical($sentences as element()*) as element()* {
+    local:get-switches-hierarchical($sentences, false())
+};
+
 declare function local:get-id($field as xs:string?) as xs:string? {
     if (exists($field)) then
         substring-after($field, ":")
@@ -107,70 +161,53 @@ declare function local:get-ann-info($ann as element()?, $prefix as xs:string) as
         element { concat($prefix, "Text") } { txt:toText($ann) },
         element { concat($prefix, "Lang") } { $lang },
         element { concat($prefix, "Name") } { $name },
-        element { concat($prefix, "WordType") } { $wordType },
         element { concat($prefix, "Ana") } { $ana },
         element { concat($prefix, "Function") } { $function }
+(:        element { concat($prefix, "WordType") } { $wordType } :)
     )   
 };
 
-declare function local:get-switches($sentences as element()*) as element()* {
-    let $switches := 
-        (: Loop through all annotations found within sentences and compare lang with preceding annotation :)
-        for $ann in $sentences//*[local-name() = $local:innerAnnElements]
-        let $annLang := local:get-lang($ann)
-        let $preceding := local:get-preceding-ann($ann)
-        let $isSwitch := 
-            if (exists($preceding)) then 
-                ($annLang ne local:get-lang($preceding)) 
-            else 
-                false()
-        (: Only include annotations with children all of the same language or have no children at all (<w/>) :)
-        let $isSwitch :=
-            if ($isSwitch) then
-                let $children := local:get-children-anns($ann)
-                return
-                    empty($children[local:get-lang(.) ne $annLang])
-            else
-                false()
-        where $isSwitch
-        return
-            $ann
-    (: Finally filter out annotations whose parents are already included immediately before
-        This prevents situations, where e.g. a phrase is a switch and by definition the first word in the 
-        phrase is returned as a switch because its language is different from preceding annotation as well 
-        as its parents
-    :)
-    for $switch at $n in $switches
-    let $parentAnn := local:get-parent-ann($switch)
-    return
-        if ($n gt 1 and exists($parentAnn) and $parentAnn is $switches[$n - 1]) then
-            ()
-        else
-            $switch
-};
-
-declare function local:switches($sentences as element()*, $fileName as xs:string) as element(switches) {
+declare function local:switches($switches as element()*, $fileName as xs:string) as element(switches) {
     element switches {
-        let $switches := local:get-switches($sentences)
         for $switch at $n in $switches
         let $s := local:get-content-ann($switch)
         let $preceding := local:get-preceding-ann($switch, $switch/local-name())
         let $preceding := if (exists($preceding)) then $preceding else local:get-preceding-ann($switch)
+        let $parent := local:get-parent-ann($switch)
         return
             element switch {
                 element fileName { $fileName },
                 element order { $n },
                 element sentID { data($s/@xml:id) },
+                element sentLang { local:get-lang($s) },
                 element sentText { txt:toText($s) },
                 local:get-ann-info($switch, "switch"),
+                local:get-ann-info($parent, "parent"),
                 local:get-ann-info($preceding, "pre"),
                 local:get-gloss-info($switch)
             }
     }
 };
 
+declare function local:report($reportType as xs:string, $fileName as xs:string, $sentences as element(tei:s)*) as element(switches) {
+    let $switches := 
+        switch($reportType)
+        case "linear" return 
+            local:get-switches-linear($sentences)
+        case "hierarchical" return 
+            local:get-switches-hierarchical($sentences)
+        case "matrix" return 
+            local:get-switches-hierarchical($sentences, true())
+        default return 
+            ()
+    return
+        local:switches($switches, $fileName)
+};
+
+declare variable $reportType as xs:string external := "linear";
+
 let $fileName := replace (document-uri(/), '^.*/', "")
 let $sentences := //tei:s
 return
-    local:switches($sentences, $fileName)
+    local:report($reportType, $fileName, $sentences)
 

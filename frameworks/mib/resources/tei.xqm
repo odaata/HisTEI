@@ -99,15 +99,18 @@ declare function teix:format-year($datable as element()) as xs:string {
     teix:format-year($datable, true())
 };
 
-declare function teix:year-info($datable as element(), $single-estimates as xs:boolean) as map(xs:string, item()) {
-    let $when := teix:year($datable/@when)
-    let $notBefore := teix:year($datable/@notBefore)
-    let $notAfter := teix:year($datable/@notAfter)
-    let $from := teix:year($datable/@from)
-    let $to := teix:year($datable/@to)
-    let $cert := string($datable/@cert)
-    return
-        switch(true())
+declare function teix:year-info($datable as element()?, $single-estimates as xs:boolean) as map(xs:string, item()) {
+    if (empty($datable)) then
+        map:new()
+    else
+        let $when := teix:year($datable/@when)
+        let $notBefore := teix:year($datable/@notBefore)
+        let $notAfter := teix:year($datable/@notAfter)
+        let $from := teix:year($datable/@from)
+        let $to := teix:year($datable/@to)
+        let $cert := string($datable/@cert)
+        return
+            switch(true())
             case exists($when) return 
                 map { "year" := $when, "cert" := $cert }
             
@@ -130,7 +133,7 @@ declare function teix:year-info($datable as element(), $single-estimates as xs:b
                 map:new()
 };
 
-declare function teix:year-info($datable as element()) as map(xs:string, item())? {
+declare function teix:year-info($datable as element()?) as map(xs:string, item())? {
     teix:year-info($datable, true())
 };
 

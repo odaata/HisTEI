@@ -36,6 +36,11 @@ public class ContextualAttribute extends AbstractUniqueAttribute<AuthorInplaceCo
 //        handNote element - no filter (as of yet)
         ATTRIBUTES.add(new ContextualAttribute("scribeRef", "handNote", ContextualType.PERSON));
 
+//        change element - filter for editors, i.e. people who work on the project
+        ATTRIBUTES.add(new ContextualAttribute("who", "change", ContextualType.PERSON, "editor"));
+
+//        respStmt/name element - filter for editors
+        ATTRIBUTES.add(new ContextualAttribute("ref", "name", "respStmt", ContextualType.PERSON, "editor"));
 
 //        Place-related references - they are always displayed with a combo box, i.e. no sourceParent
 

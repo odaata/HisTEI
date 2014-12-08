@@ -941,6 +941,10 @@
         <val lang="en_US">Sampling Decl</val>
     </key>
     
+    <key value="revisionDesc.label">
+        <val lang="en_US">Revision Description</val>
+    </key>
+    
     <!--  Editorial Declaration  -->
     
     <key value="editorialDecl.label">
@@ -1004,6 +1008,21 @@
 
     <key value="handNotes.label">
         <val lang="en_US">Hands</val>
+    </key>
+    
+    <!--  Revision Description  -->
+    
+    <key value="change.label">
+        <val lang="en_US">Change</val>
+    </key>
+    <key value="status.label">
+        <val lang="en_US">Status</val>
+    </key>
+    <key value="who.label">
+        <val lang="en_US">Who</val>
+    </key>
+    <key value="when.label">
+        <val lang="en_US">When</val>
     </key>
 
     <!--  Header Fields  -->
@@ -1170,7 +1189,7 @@
     </key>
     
     <key value="s.label">
-        <val lang="en_US">Sentence</val>
+        <val lang="en_US">Sent.</val>
     </key>
     <key value="cl.label">
         <val lang="en_US">Clause</val>
@@ -1182,10 +1201,10 @@
         <val lang="en_US">Word</val>
     </key>
     <key value="c.label">
-        <val lang="en_US">Character</val>
+        <val lang="en_US">Char.</val>
     </key>
     <key value="pc.label">
-        <val lang="en_US">Punctuation</val>
+        <val lang="en_US">Punct.</val>
     </key>
     
     <key value="ana.label">
@@ -1193,6 +1212,9 @@
     </key>
     <key value="function.label">
         <val lang="en_US">Function</val>
+    </key>
+    <key value="force.label">
+        <val lang="en_US">Force</val>
     </key>
 
     <!--  Biblographic References  -->
@@ -1347,6 +1369,9 @@
 
     <key value="listPerson.label">
         <val lang="en_US">People</val>
+    </key>
+    <key value="listPerson.label.editor">
+        <val lang="en_US">Editors (i.e. people who worked on the corpus)</val>
     </key>
 
     <key value="listPlace.label">

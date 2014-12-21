@@ -58,8 +58,9 @@ public class HTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("body", new HTIconNode("body"));
 //      Divs
         initMap = new HashMap<>();
-        initMap.put("address", "div_address");
+        initMap.put("address", "address");
         initMap.put("entry", "div_entry");
+        initMap.put("stamp", "stamp");
         iconNodes.put("div", new HTIconNode("div", "div", "type", initMap));
 //      Paragraph - level
         iconNodes.put("p", new HTIconNode("p", "paragraph"));
@@ -132,11 +133,19 @@ public class HTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("listPlace", new HTIconNode("listPlace"));
         iconNodes.put("place", new HTIconNode("place"));
         iconNodes.put("placeName", new HTIconNode("placeName", "place"));
-        iconNodes.put("district", new HTIconNode("district", "place"));
-        iconNodes.put("settlement", new HTIconNode("settlement", "place"));
-        iconNodes.put("region", new HTIconNode("region", "place"));
-        iconNodes.put("country", new HTIconNode("country", "place"));
-        iconNodes.put("bloc", new HTIconNode("bloc", "place"));
+        iconNodes.put("district", new HTIconNode("district"));
+        iconNodes.put("settlement", new HTIconNode("settlement"));
+        iconNodes.put("region", new HTIconNode("region"));
+        iconNodes.put("country", new HTIconNode("country"));
+        iconNodes.put("bloc", new HTIconNode("bloc"));
+
+//      Address
+        iconNodes.put("address", new HTIconNode("address"));
+        iconNodes.put("addrLine", new HTIconNode("address_line"));
+        iconNodes.put("street", new HTIconNode("street"));
+        iconNodes.put("postCode", new HTIconNode("postcode"));
+        iconNodes.put("postBox", new HTIconNode("postbox"));
+
 //      Org
         iconNodes.put("listOrg", new HTIconNode("listOrg"));
         iconNodes.put("org", new HTIconNode("org"));

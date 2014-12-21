@@ -14,7 +14,7 @@ import static info.histei.utils.XMLUtils.XML_LANG_ATTRIB_NAME;
  */
 public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
 
-    private static final List<SchemaList<SchemaListItem>> LISTS = new ArrayList<>(5);
+    private static final List<SchemaList<SchemaListItem>> LISTS = new ArrayList<>(12);
 
     static {
 //        @xml:lang attribute
@@ -162,11 +162,25 @@ public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
                                 {"rubbing", "any kind of rubbing/strikethrough/blot"},
                                 {"hand", "anything illegible because of the handwriting"},
                                 {"overwriting", "legibility is hampered by overwriting"},
-                                {"damage", "illegible/unclear due to damage: smoke, hole, tear, water damage"}
+                                {"damage", "illegible/unclear due to damage: smoke, hole, tear, water damage"},
+                                {"faded", "writing is faded and difficult to read"}
                         }
                 )
         );
-
+//        @status attribute (for change and revisionDesc)
+        LISTS.add(
+                new StaticSchemaList(
+                        Arrays.asList(new SchemaListAttribute(STATUS_ATTRIB_NAME)),
+                        new String[][]{
+                                {"transcr_started", "initial transcription started but not yet complete"},
+                                {"transcribed", "transcription complete"},
+                                {"corr_started", "corrections started but not yet complete"},
+                                {"corrected", "corrections completed"},
+                                {"token_started", "tokenization started but not yet complete"},
+                                {"tokenized", "tokenization complete"}
+                        }
+                )
+        );
     }
 
     @NotNull

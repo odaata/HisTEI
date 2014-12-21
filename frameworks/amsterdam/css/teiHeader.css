@@ -327,6 +327,21 @@ handNote:after {
 
 /* Revision Description */
 
+revisionDesc:before {
+    padding: 0px;
+    vertical-align: middle;
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(status.label)}: "
+            color, white
+            width, 75px
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_combobox(
+                edit, "@status"
+        )
+}
+
 /* Change (very similar to handNote) */
 change {
     display:block;

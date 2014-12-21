@@ -8,6 +8,8 @@
         <language description="Dutch" lang="nl_NL"/>
     </languageList>
 
+    <!-- Actions -->
+
     <!--  Character Actions  -->
 
     <key value="char.ash">
@@ -88,7 +90,7 @@
     <key value="char.pound_description">
         <val lang="en_US">Insert a pound sign.</val>
     </key>
-    
+
     <key value="char.a.acute">
         <val lang="en_US">a acute</val>
     </key>
@@ -114,7 +116,7 @@
     <key value="char.e.acute.capital_description">
         <val lang="en_US">Insert a capital e acute.</val>
     </key>
-    
+
     <key value="char.i.acute">
         <val lang="en_US">i acute</val>
     </key>
@@ -140,7 +142,7 @@
     <key value="char.o.acute.capital_description">
         <val lang="en_US">Insert a capital o acute.</val>
     </key>
-    
+
     <key value="char.u.acute">
         <val lang="en_US">u acute</val>
     </key>
@@ -153,7 +155,7 @@
     <key value="char.u.acute.capital_description">
         <val lang="en_US">Insert a capital u acute.</val>
     </key>
-    
+
     <key value="char.ash.acute">
         <val lang="en_US">ash acute</val>
     </key>
@@ -166,35 +168,35 @@
     <key value="char.ash.acute.capital_description">
         <val lang="en_US">Insert a capital ash acute.</val>
     </key>
-    
+
     <key value="char.c.dot">
         <val lang="en_US">c dot</val>
     </key>
     <key value="char.c.dot_description">
         <val lang="en_US">Insert a c dot.</val>
     </key>
-    
+
     <key value="char.g.dot">
         <val lang="en_US">g dot</val>
     </key>
     <key value="char.g.dot_description">
         <val lang="en_US">Insert a g dot.</val>
     </key>
-    
+
     <key value="char.l.stroke">
         <val lang="en_US">l stroke</val>
     </key>
     <key value="char.l.stroke_description">
         <val lang="en_US">Insert a l stroke.</val>
     </key>
-    
+
     <key value="char.dot_above.cc">
         <val lang="en_US">dot above</val>
     </key>
     <key value="char.dot_above.cc_description">
         <val lang="en_US">Insert a dot above (on the previous character).</val>
     </key>
-    
+
     <!-- Text Decoration -->
 
     <key value="bold">
@@ -258,34 +260,43 @@
     </key>
     <key value="link_description">
         <val lang="en_US">Insert a generic link to any URL with optional text. Insert the ref
-            element.
-        </val>
+            element. </val>
     </key>
 
-    <key value="punctuation">
-        <val lang="en_US">Punctuation</val>
+    <!--  Header Actions  -->
+
+    <key value="revisonDesc">
+        <val lang="en_US">Revison Desc.</val>
     </key>
-    <key value="punctuation_description">
-        <val lang="en_US">Insert punctuation. Insert the pc element.</val>
-    </key>
-    <key value="punctuation.supplied">
-        <val lang="en_US">Supplied Punctuation</val>
-    </key>
-    <key value="punctuation.supplied_description">
-        <val lang="en_US">Insert punctuation supplied by the editor (e.g. for easier readability or
-            automatically splitting sentences). Insert the pc element wrapped in the supplied
-            element.
-        </val>
+    <key value="revisonDesc_description">
+        <val lang="en_US">Insert the revision description in the TEI header (for transcripts created
+            without one). Insert the revisionDesc element.</val>
     </key>
 
-    <!-- Text Body -->
+    <key value="change">
+        <val lang="en_US">Change</val>
+    </key>
+    <key value="change_description">
+        <val lang="en_US">Insert a change made by an Editor to this document. Insert the change
+            element. </val>
+    </key>
 
-    <key value="toggle.text.wrap">
-        <val lang="en_US">Toggle Text Wrap</val>
+    <key value="hand">
+        <val lang="en_US">Hand</val>
     </key>
-    <key value="toggle.text.wrap_description">
-        <val lang="en_US">Toggle whether text is wrapped to fit the screen or only according to line breaks</val>
+    <key value="hand_description">
+        <val lang="en_US">Insert a generic hand, i.e. NOT linked to a Person. Insert the handNote
+            element. </val>
     </key>
+
+    <key value="resp.stmt">
+        <val lang="en_US">Resp Stmt</val>
+    </key>
+    <key value="resp.stmt_description">
+        <val lang="en_US">Insert the respStmt element.</val>
+    </key>
+
+    <!-- Milestones   -->
 
     <key value="line.break">
         <val lang="en_US">lb</val>
@@ -306,20 +317,15 @@
 
         <val lang="en_US">Insert a hand shift. Insert the handShift element.</val>
     </key>
-    <key value="hand">
-        <val lang="en_US">Hand</val>
-    </key>
-    <key value="hand_description">
-        <val lang="en_US">Insert a generic hand, i.e. NOT linked to a Person. Insert the handNote
-            element.
-        </val>
-    </key>
 
-    <key value="resp.stmt">
-        <val lang="en_US">Resp Stmt</val>
+    <!-- Text Body -->
+
+    <key value="toggle.text.wrap">
+        <val lang="en_US">Toggle Text Wrap</val>
     </key>
-    <key value="resp.stmt_description">
-        <val lang="en_US">Insert the respStmt element.</val>
+    <key value="toggle.text.wrap_description">
+        <val lang="en_US">Toggle whether text is wrapped to fit the screen or only according to line
+            breaks</val>
     </key>
 
     <key value="opener">
@@ -362,16 +368,21 @@
     </key>
     <key value="salute_description">
         <val lang="en_US">Mark selected text as being the salute. Either insert the salute element
-            or surround text with seg[function="salute"].
-        </val>
+            or surround text with seg[function="salute"]. </val>
     </key>
     <key value="formulaic">
         <val lang="en_US">Formulaic</val>
     </key>
     <key value="formulaic_description">
         <val lang="en_US">Mark selected text as containing formulaic language. Surround text with
-            seg[function="formulaic"].
-        </val>
+            seg[function="formulaic"].</val>
+    </key>
+    <key value="title">
+        <val lang="en_US">Title</val>
+    </key>
+    <key value="title_description">
+        <val lang="en_US">Mark selected text as being the title of a work. Surround text with the
+            title element.</val>
     </key>
 
     <!-- For glosses -->
@@ -380,38 +391,36 @@
         <val lang="en_US">Gloss</val>
     </key>
     <key value="gloss_description">
-        <val lang="en_US">Mark selected text as the gloss of a term or other textual segment. Surround text with
-            the gloss element.
-        </val>
+        <val lang="en_US">Mark selected text as the gloss of a term or other textual segment.
+            Surround text with the gloss element. </val>
     </key>
-    
+
     <key value="term">
         <val lang="en_US">Term</val>
     </key>
     <key value="term_description">
-        <val lang="en_US">Mark selected text as a term to be glossed. Surround text with
-            the term element.
-        </val>
+        <val lang="en_US">Mark selected text as a term to be glossed. Surround text with the term
+            element. </val>
     </key>
-    
+
     <key value="ab">
         <val lang="en_US">ab</val>
     </key>
     <key value="ab_description">
-        <val lang="en_US">Mark selected text as an anonymous block with an xml:id for linking. Surround text with
-            the ab element. From TEI manual: (anonymous block) contains any arbitrary component-level unit of text, 
-            acting as an anonymous container for phrase or inter level elements 
-            analogous to, but without the semantic baggage of, a paragraph.
+        <val lang="en_US">Mark selected text as an anonymous block with an xml:id for linking.
+            Surround text with the ab element. From TEI manual: (anonymous block) contains any
+            arbitrary component-level unit of text, acting as an anonymous container for phrase or
+            inter level elements analogous to, but without the semantic baggage of, a paragraph.
         </val>
     </key>
-    
+
     <key value="seg">
-        <val lang="en_US">ab</val>
+        <val lang="en_US">seg</val>
     </key>
     <key value="seg_description">
-        <val lang="en_US">Mark selected text as an arbitrary segment with an xml:id for linking. Surround text with
-            the seg element. From TEI manual: (arbitrary segment) represents any segmentation of text below the ‘chunk’ level.
-        </val>
+        <val lang="en_US">Mark selected text as an arbitrary segment with an xml:id for linking.
+            Surround text with the seg element. From TEI manual: (arbitrary segment) represents any
+            segmentation of text below the ‘chunk’ level. </val>
     </key>
 
     <!--  Common elements in textual segments  -->
@@ -435,8 +444,7 @@
     </key>
     <key value="foreign_description">
         <val lang="en_US">A part of the original text written in a foreign language. Insert the
-            foreign element.
-        </val>
+            foreign element. </val>
     </key>
     <key value="note">
         <val lang="en_US">Note</val>
@@ -496,14 +504,6 @@
         <val lang="en_US">Insert an entry (e.g. in a journal or travelogue) with div[type="entry"].
         </val>
     </key>
-    <key value="div.address">
-        <val lang="en_US">Address</val>
-    </key>
-    <key value="div.address_description">
-        <val lang="en_US">Insert an address section (e.g. as part of a letter) with
-            div[type="address"].
-        </val>
-    </key>
 
     <key value="paragraph">
         <val lang="en_US">Insert Paragraph</val>
@@ -531,12 +531,11 @@
     </key>
     <key value="forme.work_description">
         <val lang="en_US">Insert a running header, page number, catchword, etc. using the forme work
-            element.
-        </val>
+            element. </val>
     </key>
-    
+
     <!-- Annotations   -->
-    
+
     <key value="sentence">
         <val lang="en_US">Sentence</val>
     </key>
@@ -561,11 +560,37 @@
     <key value="word_description">
         <val lang="en_US">Insert a word with the w element.</val>
     </key>
+    <key value="punctuation">
+        <val lang="en_US">Punctuation</val>
+    </key>
+    <key value="punctuation_description">
+        <val lang="en_US">Insert punctuation. Insert the pc element.</val>
+    </key>
+    <key value="punctuation.supplied">
+        <val lang="en_US">Supplied Punctuation</val>
+    </key>
+    <key value="punctuation.supplied_description">
+        <val lang="en_US">Insert punctuation supplied by the editor (e.g. for easier readability or
+            automatically splitting sentences). Insert the pc element wrapped in the supplied
+            element. </val>
+    </key>
+    <key value="number">
+        <val lang="en_US">Number</val>
+    </key>
+    <key value="number_description">
+        <val lang="en_US">Insert a number. Insert the num element.</val>
+    </key>
+    <key value="measure">
+        <val lang="en_US">Measure</val>
+    </key>
+    <key value="measure_description">
+        <val lang="en_US">Insert a measure. Insert the measure element.</val>
+    </key>
 
     <!-- Contextual Information -->
 
     <key value="date">
-        <val lang="en_US">date</val>
+        <val lang="en_US">Date</val>
     </key>
     <key value="date_description">
         <val lang="en_US">Insert a date with the date element.</val>
@@ -579,22 +604,67 @@
         <val lang="en_US">Load the referenced contextual information for editing.</val>
     </key>
 
+    <key value="list.editors">
+        <val lang="en_US">Editors List</val>
+    </key>
+    <key value="list.editors_description">
+        <val lang="en_US">Insert a new list to hold editors who work on the current project (used in
+            Resp. Stmts. and Changes).</val>
+    </key>
+
     <key value="person">
-        <val lang="en_US">psn</val>
+        <val lang="en_US">Person</val>
     </key>
     <key value="person_description">
         <val lang="en_US">Insert a person.</val>
     </key>
 
     <key value="place">
-        <val lang="en_US">plc</val>
+        <val lang="en_US">Place</val>
     </key>
     <key value="place_description">
         <val lang="en_US">Insert a place.</val>
     </key>
+    <key value="address">
+        <val lang="en_US">Address</val>
+    </key>
+    <key value="address_description">
+        <val lang="en_US">Insert an address inline or as a new div. Insert either an address
+            element or a div[type="address"].</val>
+    </key>
+    <key value="stamp">
+        <val lang="en_US">Stamp</val>
+    </key>
+    <key value="stamp_description">
+        <val lang="en_US">Insert a div[type="stamp"].</val>
+    </key>
+    <key value="address_line">
+        <val lang="en_US">Address Line</val>
+    </key>
+    <key value="address_line_description">
+        <val lang="en_US">Insert an addrLine.</val>
+    </key>
+    <key value="postbox">
+        <val lang="en_US">Post Box</val>
+    </key>
+    <key value="postbox_description">
+        <val lang="en_US">Insert a postBox.</val>
+    </key>
+    <key value="street">
+        <val lang="en_US">Street</val>
+    </key>
+    <key value="street_description">
+        <val lang="en_US">Insert a street.</val>
+    </key>
+    <key value="postcode">
+        <val lang="en_US">Post Code</val>
+    </key>
+    <key value="postcode_description">
+        <val lang="en_US">Insert a postCode.</val>
+    </key>
 
     <key value="org">
-        <val lang="en_US">org</val>
+        <val lang="en_US">Organization</val>
     </key>
     <key value="org_description">
         <val lang="en_US">Insert an organization.</val>
@@ -608,8 +678,7 @@
     </key>
     <key value="facsimile.select.dir_description">
         <val lang="en_US">Select the base directory where the images and/or media for this text are
-            located. This modifies the xml:base attribute.
-        </val>
+            located. This modifies the xml:base attribute. </val>
     </key>
 
     <key value="media.open">
@@ -618,17 +687,17 @@
     </key>
     <key value="media.open_description">
         <val lang="en_US">Load the media associated with the current place in the file (images, pdf,
-            etc).
-        </val>
+            etc). </val>
     </key>
-    
+
     <!--  Reports  -->
-    
+
     <key value="report.lang.switches">
         <val lang="en_US">Report: Language Switches</val>
     </key>
     <key value="report.lang.switches_description">
-        <val lang="en_US">Generate a report containing all language code switches within sentences</val>
+        <val lang="en_US">Generate a report containing all language code switches within
+            sentences</val>
     </key>
 
 
@@ -654,19 +723,19 @@
     <key value="type.label">
         <val lang="en_US">Type</val>
     </key>
-    
+
     <key value="status.label">
         <val lang="en_US">Status</val>
     </key>
-    
+
     <key value="method.label">
         <val lang="en_US">Method</val>
     </key>
-    
+
     <key value="source.label">
         <val lang="en_US">Source</val>
     </key>
-    
+
     <key value="reason.label">
         <val lang="en_US">Reason</val>
     </key>
@@ -745,11 +814,11 @@
     <key value="note.label.lindeman">
         <val lang="en_US">Lindeman</val>
     </key>
-    
+
     <key value="note.label.accessed">
         <val lang="en_US">Accessed</val>
     </key>
-    
+
     <key value="note.label.url">
         <val lang="en_US">URL</val>
     </key>
@@ -904,11 +973,11 @@
     <key value="titleStmt.label">
         <val lang="en_US">Title Statement</val>
     </key>
-    
+
     <key value="editionStmt.label">
         <val lang="en_US">Edition Statement</val>
     </key>
-    
+
     <key value="extent.label">
         <val lang="en_US">Extent</val>
     </key>
@@ -928,29 +997,29 @@
     <key value="sourceDesc.label">
         <val lang="en_US">Source Description</val>
     </key>
-    
+
     <key value="encodingDesc.label">
         <val lang="en_US">Encoding Description</val>
     </key>
-    
+
     <key value="projectDesc.label">
         <val lang="en_US">Project Description</val>
     </key>
-    
+
     <key value="samplingDecl.label">
         <val lang="en_US">Sampling Decl</val>
     </key>
-    
+
     <key value="revisionDesc.label">
         <val lang="en_US">Revision Description</val>
     </key>
-    
+
     <!--  Editorial Declaration  -->
-    
+
     <key value="editorialDecl.label">
         <val lang="en_US">Editorial Declaration</val>
     </key>
-    
+
     <key value="correction.label">
         <val lang="en_US">Correction</val>
     </key>
@@ -975,17 +1044,17 @@
     <key value="punctuation.label">
         <val lang="en_US">Punctuation</val>
     </key>
-    
+
     <key value="marks.label">
         <val lang="en_US">Marks</val>
     </key>
-    
+
     <key value="eol.label">
         <val lang="en_US">End-of-line</val>
     </key>
-    
+
     <!-- Profile Description  -->
-    
+
     <key value="msDesc.label">
         <val lang="en_US">Manuscript Description</val>
     </key>
@@ -1009,9 +1078,9 @@
     <key value="handNotes.label">
         <val lang="en_US">Hands</val>
     </key>
-    
+
     <!--  Revision Description  -->
-    
+
     <key value="change.label">
         <val lang="en_US">Change</val>
     </key>
@@ -1103,11 +1172,11 @@
     <key value="titlePart.label">
         <val lang="en_US">Title Part</val>
     </key>
-    
+
     <key value="figure.label">
         <val lang="en_US">Figure</val>
     </key>
-    
+
     <key value="figDesc.label">
         <val lang="en_US">Figure Description</val>
     </key>
@@ -1159,9 +1228,9 @@
     <key value="signed.label">
         <val lang="en_US">Signed</val>
     </key>
-    
+
     <!-- Annotations -->
-    
+
     <key value="interpGrp.label.function">
         <val lang="en_US">Functions</val>
     </key>
@@ -1180,14 +1249,14 @@
     <key value="div.label.analysis">
         <val lang="en_US">Analytic Tags</val>
     </key>
-    
+
     <key value="gloss.label">
         <val lang="en_US">Gloss</val>
     </key>
     <key value="target.label">
         <val lang="en_US">Target</val>
     </key>
-    
+
     <key value="s.label">
         <val lang="en_US">Sent.</val>
     </key>
@@ -1206,7 +1275,13 @@
     <key value="pc.label">
         <val lang="en_US">Punct.</val>
     </key>
-    
+    <key value="num.label">
+        <val lang="en_US">Number</val>
+    </key>
+    <key value="measure.label">
+        <val lang="en_US">Measure</val>
+    </key>
+
     <key value="ana.label">
         <val lang="en_US">Ana</val>
     </key>
@@ -1215,6 +1290,18 @@
     </key>
     <key value="force.label">
         <val lang="en_US">Force</val>
+    </key>
+    <key value="value.label">
+        <val lang="en_US">Value</val>
+    </key>
+    <key value="commodity.label">
+        <val lang="en_US">Commodity</val>
+    </key>
+    <key value="quantity.label">
+        <val lang="en_US">Quantity</val>
+    </key>
+    <key value="unit.label">
+        <val lang="en_US">Unit</val>
     </key>
 
     <!--  Biblographic References  -->
@@ -1234,41 +1321,41 @@
     <key value="biblFull.label">
         <val lang="en_US">Bibl (Full)</val>
     </key>
-    
+
     <key value="title.label">
         <val lang="en_US">Title</val>
     </key>
-    
+
     <key value="author.label">
         <val lang="en_US">Author</val>
     </key>
-    
+
     <key value="editor.label">
         <val lang="en_US">Editor</val>
     </key>
-    
+
     <key value="sponsor.label">
         <val lang="en_US">Sponsor</val>
     </key>
-    
+
     <key value="funder.label">
         <val lang="en_US">Funder</val>
     </key>
-    
+
     <key value="principal.label">
         <val lang="en_US">Principal</val>
     </key>
-    
+
     <!--  Responsibility  -->
-    
+
     <key value="respStmt.label">
         <val lang="en_US">Responsibility Statement</val>
     </key>
-    
+
     <key value="resp.label">
         <val lang="en_US">Resp</val>
     </key>
-    
+
     <key value="name.label">
         <val lang="en_US">Name</val>
     </key>
@@ -1284,7 +1371,7 @@
     <key value="series.label">
         <val lang="en_US">Series</val>
     </key>
-    
+
     <key value="seriesStmt.label">
         <val lang="en_US">Series Statement</val>
     </key>
@@ -1296,11 +1383,11 @@
     <key value="publisher.label">
         <val lang="en_US">Publisher</val>
     </key>
-    
+
     <key value="distributor.label">
         <val lang="en_US">Distributor</val>
     </key>
-    
+
     <key value="authority.label">
         <val lang="en_US">Authority</val>
     </key>
@@ -1308,15 +1395,15 @@
     <key value="pubPlace.label">
         <val lang="en_US">Place</val>
     </key>
-    
+
     <key value="availability.label">
         <val lang="en_US">Availability</val>
     </key>
-    
+
     <key value="licence.label">
         <val lang="en_US">Licence</val>
     </key>
-    
+
     <key value="biblScope.label">
         <val lang="en_US">Scope</val>
     </key>

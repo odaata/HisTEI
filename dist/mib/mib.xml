@@ -4,7 +4,7 @@
     xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="mib">
         <xt:location href="mib-oxygen.zip"/>
-        <xt:version>0.4.4</xt:version>
+        <xt:version>0.4.5</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -16,6 +16,16 @@
             <p class="title">Medieval Irish Bilingualism Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.4.5</p>
+                <ul>
+                    <li>The lang_switches report is now much more flexible. 
+                        When you run the report, a dropdown box appears that lets you select which view of the data you want to see.
+                        See the Word doc in Dropbox for more details...
+                    </li>
+                    <li>Linear - the original report with linear code switches</li>
+                    <li>Hierarchical - a top-down approach for finding switches</li>
+                    <li>Matrix - a more restrictive Hierarchical report that only finds differences between the sentence’s matrix language and any child annotations</li>
+                </ul>
                 <p class="header">Version 0.4.4</p>
                 <ul>
                     <li>Added the lang. switches report (XQuery) to MIB framework</li>

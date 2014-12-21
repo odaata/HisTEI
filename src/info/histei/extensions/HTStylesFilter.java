@@ -1,15 +1,12 @@
 package info.histei.extensions;
 
-import info.histei.contextual_info.ContextualStyledList;
 import info.histei.utils.MainUtils;
 import info.histei.utils.OxygenUtils;
 import info.histei.utils.XMLUtils;
-import ro.sync.ecss.css.EditorContent;
 import ro.sync.ecss.css.LabelContent;
 import ro.sync.ecss.css.StaticContent;
 import ro.sync.ecss.css.Styles;
 import ro.sync.ecss.extensions.api.StylesFilter;
-import ro.sync.ecss.extensions.api.editor.InplaceEditorArgumentKeys;
 import ro.sync.ecss.extensions.api.node.AuthorElement;
 import ro.sync.ecss.extensions.api.node.AuthorNode;
 
@@ -26,22 +23,19 @@ import static info.histei.commons.TEINamespace.FACSIMILE_ELEMENT_NAME;
  */
 public class HTStylesFilter implements StylesFilter {
 
-    private static final String CONTEXTUAL_INFO_ACTION_ID = "contextual.info.edit";
+//    private static final String CONTEXTUAL_INFO_ACTION_ID = "contextual.info.edit";
 
     @Override
     public Styles filter(Styles styles, AuthorNode authorNode) {
-        if (!styles.isInline()) {
-//            addContextualStyledList(styles, authorNode);
+        addFacsimileElement(styles, authorNode);
 
-            addFacsimileElement(styles, authorNode);
-        }
         return styles;
     }
 
     /*
     * Add the contextual element if the current Authornode represents a contextual reference
     * */
-    private void addContextualStyledList(Styles styles, AuthorNode authorNode) {
+    /*private void addContextualStyledList(Styles styles, AuthorNode authorNode) {
         ContextualStyledList contextualStyledList = ContextualStyledList.get(authorNode);
         if (contextualStyledList != null) {
             Map<String, Object> comboboxArgs = new HashMap<>();
@@ -67,14 +61,14 @@ public class HTStylesFilter implements StylesFilter {
             StaticContent[] mixedContent = new StaticContent[]{new EditorContent(comboboxArgs), new EditorContent(buttonArgs)};
             styles.setProperty(Styles.KEY_MIXED_CONTENT, mixedContent);
         }
-    }
+    }*/
 
     /*
     *   Adds a label for the xml:base attribute - only way to decode the URL for human consumption is via Java
     *       so this function just adds a label with the url decoded
     * */
     private void addFacsimileElement(Styles styles, AuthorNode authorNode) {
-        if (FACSIMILE_ELEMENT_NAME.equals(authorNode.getName())) {
+        if (!styles.isInline() && FACSIMILE_ELEMENT_NAME.equals(authorNode.getName())) {
             AuthorElement authorElement = OxygenUtils.castAuthorElement(authorNode);
 
             if (authorElement != null) {

@@ -265,6 +265,14 @@
 
     <!--  Header Actions  -->
 
+    <key value="revisonDesc">
+        <val lang="en_US">Revison Desc.</val>
+    </key>
+    <key value="revisonDesc_description">
+        <val lang="en_US">Insert the revision description in the TEI header (for transcripts created
+            without one). Insert the revisionDesc element.</val>
+    </key>
+
     <key value="change">
         <val lang="en_US">Change</val>
     </key>
@@ -496,13 +504,6 @@
         <val lang="en_US">Insert an entry (e.g. in a journal or travelogue) with div[type="entry"].
         </val>
     </key>
-    <key value="div.address">
-        <val lang="en_US">Address</val>
-    </key>
-    <key value="div.address_description">
-        <val lang="en_US">Insert an address section (e.g. as part of a letter) with
-            div[type="address"]. </val>
-    </key>
 
     <key value="paragraph">
         <val lang="en_US">Insert Paragraph</val>
@@ -603,6 +604,14 @@
         <val lang="en_US">Load the referenced contextual information for editing.</val>
     </key>
 
+    <key value="list.editors">
+        <val lang="en_US">Editors List</val>
+    </key>
+    <key value="list.editors_description">
+        <val lang="en_US">Insert a new list to hold editors who work on the current project (used in
+            Resp. Stmts. and Changes).</val>
+    </key>
+
     <key value="person">
         <val lang="en_US">Person</val>
     </key>
@@ -615,6 +624,43 @@
     </key>
     <key value="place_description">
         <val lang="en_US">Insert a place.</val>
+    </key>
+    <key value="address">
+        <val lang="en_US">Address</val>
+    </key>
+    <key value="address_description">
+        <val lang="en_US">Insert an address inline or as a new div. Insert either an address
+            element or a div[type="address"].</val>
+    </key>
+    <key value="stamp">
+        <val lang="en_US">Stamp</val>
+    </key>
+    <key value="stamp_description">
+        <val lang="en_US">Insert a div[type="stamp"].</val>
+    </key>
+    <key value="address_line">
+        <val lang="en_US">Address Line</val>
+    </key>
+    <key value="address_line_description">
+        <val lang="en_US">Insert an addrLine.</val>
+    </key>
+    <key value="postbox">
+        <val lang="en_US">Post Box</val>
+    </key>
+    <key value="postbox_description">
+        <val lang="en_US">Insert a postBox.</val>
+    </key>
+    <key value="street">
+        <val lang="en_US">Street</val>
+    </key>
+    <key value="street_description">
+        <val lang="en_US">Insert a street.</val>
+    </key>
+    <key value="postcode">
+        <val lang="en_US">Post Code</val>
+    </key>
+    <key value="postcode_description">
+        <val lang="en_US">Insert a postCode.</val>
     </key>
 
     <key value="org">

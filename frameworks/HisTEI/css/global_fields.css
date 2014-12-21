@@ -15,30 +15,67 @@
 }
 
 /* Field Icons */
-date:before {
-    padding-right: 2px;
-    vertical-align: middle;
-    -oxy-prepend-content: url('../images/date-16.png');
-}
-persName:before {
-    padding-right: 2px;
-    vertical-align: middle;
-    -oxy-prepend-content: url('../images/person-16.png');
-}
-orgName:before {
-    padding-right: 2px;
-    vertical-align: middle;
-    -oxy-prepend-content: url('../images/org-16.png');
-}
+date:before,
+persName:before,
+orgName:before,
 placeName:before,
 district:before,
 settlement:before,
 region:before,
 country:before,
-bloc:before {
+bloc:before,
+address:before,
+addrLine:before,
+street:before,
+postCode:before,
+postBox:before {
     padding-right: 2px;
     vertical-align: middle;
+}
+
+date:before {
+    -oxy-prepend-content: url('../images/date-16.png');
+}
+persName:before {
+    -oxy-prepend-content: url('../images/person-16.png');
+}
+orgName:before {
+    -oxy-prepend-content: url('../images/org-16.png');
+}
+placeName:before {
     -oxy-prepend-content: url('../images/place-16.png');
+}
+district:before {
+    -oxy-prepend-content: url('../images/district-16.png');
+}
+settlement:before {
+    -oxy-prepend-content: url('../images/settlement-16.png');
+}
+region:before {
+    -oxy-prepend-content: url('../images/region-16.png');
+}
+country:before {
+    -oxy-prepend-content: url('../images/country-16.png');
+}
+bloc:before {
+    -oxy-prepend-content: url('../images/bloc-16.png');
+}
+
+/* Address */
+address:before {
+    -oxy-prepend-content: url('../images/address-16.png');
+}
+addrLine:before {
+    -oxy-prepend-content: url('../images/address_line-16.png');
+}
+street:before {
+    -oxy-prepend-content: url('../images/street-16.png');
+}
+postCode:before {
+    -oxy-prepend-content: url('../images/postcode-16.png');
+}
+postBox:before {
+    -oxy-prepend-content: url('../images/postbox-16.png');
 }
 
 /* Elements with hidden Oxygen tags */
@@ -54,7 +91,8 @@ bloc,
 prt,
 ref,
 note,
-hi {
+hi
+{
     -oxy-display-tags:none;
 }
 
@@ -284,6 +322,17 @@ lb[break="no"] {
     /* Possibilities: → – */
     content:"→\A";
 }
+
+/* An attempt at numbering linebreaks...
+text p lb{
+    font-family:courier, fixed, monospace;
+    font-size:x-small;
+    content:
+        oxy_xpath(
+            "if (((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) mod 5) eq 0) then concat('\A', substring(concat(count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1, '     '), 1,4)) else if ((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) eq 1) then '    ' else '\A     '"
+        )
+    ;
+}*/
 
 /* Global Textual Styles */
 

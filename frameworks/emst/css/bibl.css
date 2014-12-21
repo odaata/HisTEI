@@ -108,7 +108,10 @@ title[type="sub"] {
 }
 
 title:before {
+    padding-right: 2px;
+    vertical-align: middle;
     -oxy-append-content: 
+        url('../images/title-16.png')
         oxy_label(
             text, oxy_concat("${i18n(type.label)}: ")
             styles, "@import 'labels_sub.css';"
@@ -118,6 +121,28 @@ title:before {
             values, "main, sub"
         )
         "  "
+    ;
+}
+
+title[ref]:after {
+    padding-left: 5px;
+    vertical-align: middle;
+    link: attr(ref, string, "");
+    content: url('../images/link_open-16.png');
+}
+
+title:focus:after {
+    padding:5px;
+    -oxy-append-content: 
+        oxy_label(
+            text, "${i18n(ref.label)}: "
+            width, 40px
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_textfield(
+            edit, "@ref"
+            columns, 25
+        )
     ;
 }
 

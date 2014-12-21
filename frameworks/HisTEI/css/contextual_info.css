@@ -474,28 +474,8 @@ event:before {
     ;
 }
 
-/* Inline elements for text */
-person > persName,
-place > placeName,
-org > orgName,
-desc,
-catDesc {
-    padding:5px 1px;
-}
-
-desc date,
-desc persName,
-desc placeName,
-desc orgName,
-desc district,
-desc settlement,
-desc region,
-desc country,
-desc bloc {
-    color:olive;
-}
-
 /* Person */
+
 person > persName > roleName {
     visibility:-oxy-collapse-text;
     content:
@@ -548,6 +528,23 @@ sex {
     ;
 }
 
+/* Place */
+
+district,
+settlement,
+region,
+country,
+bloc {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+        )
+    ;
+}
+
 /* Org */
 
 /* !!!Hack - can't figure out why oxygen styles just these fields differently wrt whitespace - 
@@ -579,6 +576,46 @@ interp {
             text, " - "
             width, 15px
             styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+/* Inline elements for text */
+person > persName,
+place > placeName,
+org > orgName,
+desc,
+catDesc {
+    padding:5px 1px;
+}
+
+desc date,
+desc persName,
+desc placeName,
+desc orgName,
+desc district,
+desc settlement,
+desc region,
+desc country,
+desc bloc {
+    color:olive;
+}
+
+desc persName:focus:after,
+desc placeName:focus:after,
+desc orgName:focus:after,
+desc district:focus:after,
+desc settlement:focus:after,
+desc region:focus:after,
+desc country:focus:after,
+desc bloc:focus:after {
+    padding-left: 2px;
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
         )
     ;
 }

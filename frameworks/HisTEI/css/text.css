@@ -72,7 +72,9 @@ gloss {
 byline:before,
 dateline::before,
 salute:before,
-signed:before {
+signed:before,
+opener > address:before,
+closer > address:before {
     content: 
         oxy_label(
             text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
@@ -188,7 +190,9 @@ term,
 handShift,
 pb,
 pc,
-title {
+title,
+opener > *,
+closer > * {
     -oxy-display-tags:none;
 }
 
@@ -200,8 +204,35 @@ div district,
 div settlement,
 div region,
 div country,
-div bloc {
+div bloc,
+div addrLine,
+div street,
+div postcode,
+div postbox {
     color:olive;
+}
+
+/*div address {
+    background-color: rgba(64, 128, 64, 0.1);
+}*/
+
+div persName:focus:after,
+div placeName:focus:after,
+div orgName:focus:after,
+div district:focus:after,
+div settlement:focus:after,
+div region:focus:after,
+div country:focus:after,
+div bloc:focus:after {
+    padding-left: 2px;
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+        )
+    ;
 }
 
 /* Milestones or elements with no text */
@@ -554,34 +585,6 @@ gloss[target]:after {
     link: attr(target, string, "");
     content: url('../images/link_open-16.png');
 }
-
-/* An attempt at numbering linebreaks...
-text p lb{
-    font-family:courier, fixed, monospace;
-    font-size:x-small;
-    content:
-        oxy_xpath(
-            "if (((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) mod 5) eq 0) then concat('\A', substring(concat(count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1, '     '), 1,4)) else if ((count(./preceding::lb intersect ./preceding::pb[1]/following::lb) + 1) eq 1) then '    ' else '\A     '"
-        )
-    ;
-}*/
-
-/*w {
-    background-color:transparent;
-    border-style:groove none;
-    border-width:1px 0px;
-    font-weight:bold;
-    font-size:small;
-    line-height:2;
-    content:
-        oxy_popup(
-            edit, "@ana"
-            fontInherit, true
-            values, oxy_xpath("string-join(for $id in //interpGrp[@type eq 'pos']/interp/@xml:id return concat('#', $id), ',')")
-            labels, oxy_xpath("string-join(//interpGrp[@type eq 'pos']/interp/text(), ',')")
-            selectionMode, single
-        );
-}*/
 
 
 /* Linguistic units and annotations */

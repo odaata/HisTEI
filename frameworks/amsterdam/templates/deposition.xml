@@ -40,6 +40,9 @@
                 <handNote xml:id="hand_001"/>
             </handNotes>
         </profileDesc>
+        <revisionDesc>
+            <change when="${date(yyyy-MM-dd'T'HH:mm:ss)}"/>
+        </revisionDesc>
     </teiHeader>
     <facsimile>
         <graphic url=""/>

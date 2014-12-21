@@ -42,6 +42,7 @@ public class TEINamespace {
     public static final String REASON_ATTRIB_NAME = "reason";
     public static final String REND_ATTRIB_NAME = "rend";
     public static final String SCRIPT_ATTRIB_NAME = "script";
+    public static final String STATUS_ATTRIB_NAME = "status";
     public static final String TARGET_ATTRIB_NAME = "target";
     public static final String TYPE_ATTRIB_NAME = "type";
     public static final String URL_ATTRIB_NAME = "url";

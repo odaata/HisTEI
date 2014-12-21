@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="amsterdam">
         <xt:location href="amsterdam-oxygen.zip"/>
-        <xt:version>0.4.3</xt:version>
+        <xt:version>0.4.5</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -20,6 +20,33 @@
             <p class="title">Amsterdam Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.4.5</p>
+                <ul>
+                    <li>Several new tags have been added (with buttons too!)</li>
+                    <li>title: you can now mark stretches of text as representing the Title of a something, e.g. a book or play.
+                        You can save a link to the book by using the ref attribute (e.g. Google Books)</li>
+                    <li>Revision Description and Changes</li>
+                    <li>You can now store information about the status of your transcriptions within the revisionDesc element in the TEI Header.
+                        Each change made to the document is recorded in a change element with the status of the document, the date and time as well as the person who made the change</li>
+                    <li>To take advantage of the person who made changes, you need to add a new list of people in your Person contextual_info file with a type of &apos;editor&apos;</li>
+                    <li>Use the button on the toolbar or in the menu to insert a change (can be done from anywhere in the document)</li>
+                    <li>If you created a transcript from an older template and don't have a revisionDesc, use this button to insert one into the TEI Header</li>
+                    <li>New Annotations</li>
+                    <li>num: you can now mark up numbers that occur within the text.
+                        In the Annotations view (under Styles) you can also save metadata about what the actual number is</li>
+                    <li>measure: you can now mark up amounts of things, e.g. $20.00. Here too you can save metadata about what sort of measure it is</li>
+                    <li>Addresses</li>
+                    <li>You can now insert addresses either as a separate div or within the opener or closer or even within the text itself. By default
+                        each new Address comes with an address line, street and city</li>
+                    <li>In addition, all sub-elements of an address can now be added from the Addresses menu/toolbar in the Contextual Info menu/toolbar</li>
+                    <li>You can also insert a div to hold information about any stamps found on a letter</li>
+                    <li>Contextual Info</li>
+                    <li>You can now normalize all Contextual Info elements within the text - when placing the cursor inside one of these elements, a dropdown
+                        box appears with the list of normalized entities from the Contextual Info files</li>
+                    <li>The place file has been updated, so you can select other place types within each kind of place (e.g. for Settlements, you can now select
+                        a Region and Country rather than typing it again. This helps with normalization within places</li>
+                    <li>There's more, but it's too much to type here! :-)</li>
+                </ul>
                 <p class="header">Version 0.4.3</p>
                 <ul>
                     <li>

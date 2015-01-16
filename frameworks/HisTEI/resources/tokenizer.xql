@@ -5,9 +5,9 @@ import module namespace functx="http://www.functx.com" at "functx.xql";
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
-declare namespace uuid = "java:java.util.UUID";
+declare namespace uuid="java:java.util.UUID";
 
-declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
+declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
 declare option output:omit-xml-declaration "no";
 declare option output:indent "no";
 
@@ -52,17 +52,6 @@ declare function local:contains-ws($string as xs:string?) as xs:boolean {
 
 declare function local:contains-ws-element($element as element()?) as xs:boolean {
     exists($element//text()[local:contains-ws(.) and not(local:is-empty-oxy-comment(.))])
-};
-
-declare function local:is-element-break($element as element()?) as xs:boolean {
-    let $elementName := local-name($element)
-    return
-        if ($elementName = $breakNames) then
-            ($element/@break ne "no")
-        else if ($elementName eq "pc") then
-            ($element/@force ne "weak")
-        else
-            false()
 };
 
 declare function local:is-empty-oxy-comment($textNode as node()?) as xs:boolean {
@@ -228,7 +217,7 @@ declare function local:token($tokenFunc as function(item()*) as element()*, $con
             $tokenFunc($content)
 };
 
-declare function local:tokenize-text($text as text(), $tokenFunc as function(item()*) as element()*, 
+(:declare function local:tokenize-text($text as text(), $tokenFunc as function(item()*) as element()*, 
                                         $nodes as node()*, $nextN as xs:integer?, $currentToken) {
     if (local:contains-ws($text, "all")) then
         ( local:token($tokenFunc, $currentToken), " ", local:tokenize($tokenFunc, $nodes, $nextN) )
@@ -252,8 +241,65 @@ declare function local:tokenize-text($text as text(), $tokenFunc as function(ite
                         else
                             ( local:token($tokenFunc, $token), " " )
                 
-                let $lastToken 
-                := $tokens[last()]
+                let $lastToken := $tokens[last()]
+                return
+                ( 
+                    $tokenized, if ($lastToken eq "") then " " else (),
+                    local:tokenize($tokenFunc, $nodes, $nextN, if ($lastToken eq "") then () else $lastToken)
+                )
+};:)
+
+declare function local:split-text($text as text()) as element(fn:analyze-string-result) {
+    let $numberBreaks := ":\.\-/'"""
+    let $numberBreaksRegex := concat("[", $numberBreaks, "]")
+    let $numberRegex := concat("\p{N}+", $numberBreaksRegex, "*[\p{N}", $numberBreaks, "]*|", 
+        "[\p{N}", $numberBreaks, "]*\p{N}+", $numberBreaksRegex, "*")
+    
+    let $nonBreakingPunct := "\p{Pd}\p{Pc}'="
+    let $nonBreakingPunctRegex := concat("[", $nonBreakingPunct, "]+")
+    
+    let $breakingPunct := "\p{S}\p{P}"
+    let $breakingPunctRegex := concat("[", $breakingPunct, "]")
+    
+    let $whitespace := "\s"
+    let $whitespaceRegex := concat("[", $whitespace, "]+")
+    
+    let $regexes := ( $numberRegex, $nonBreakingPunctRegex, $breakingPunctRegex, $whitespaceRegex )
+    let $regex := string-join(for $re in $regexes return concat("(", $re, ")"), "|")
+    return
+        analyze-string($text, $regex)
+};
+
+declare function local:tokenize-text($text as text(), $tokenFunc as function(item()*) as element()*, 
+                                        $nodes as node()*, $nextN as xs:integer?, $currentToken) {
+    if (local:contains-ws($text, "all")) then
+        ( local:token($tokenFunc, $currentToken), $text, local:tokenize($tokenFunc, $nodes, $nextN) )
+    else
+        let $tokens := local:split-text($text)/fn:analyze-string-result/*
+        for $token in $tokens
+        return
+            
+        
+        
+        let $numTokens := count($tokens)
+        return
+            if ($numTokens eq 1) then
+                local:tokenize($tokenFunc, $nodes, $nextN, ($currentToken, $tokens))
+            else
+                let $tokenized := 
+                    for $token at $i in $tokens
+                    return
+                        if ($i eq 1) then
+                            if ($token eq "") then
+                                ( local:token($tokenFunc, $currentToken), " " )
+                            else
+                                ( local:token($tokenFunc, ($currentToken, $token)), " " )
+                        else if ($i eq $numTokens) then
+                            ()
+                        else
+                            ( local:token($tokenFunc, $token), " " )
+                
+                let $lastToken := $tokens[last()]
                 return
                 ( 
                     $tokenized, if ($lastToken eq "") then " " else (),
@@ -378,24 +424,29 @@ declare function local:tokenize-doc($element as element()) as element() {
 };
 
 
-let $trans := doc("file:///home/mike/Amsterdam/transcriptions/SAA_05061_Schout-Sch_00567_0000000667.xml")
+
+
+(:let $trans := doc("file:///home/mike/Amsterdam/transcriptions/SAA_05061_Schout-Sch_00567_0000000667.xml"):)
 (:let $trans := doc("file:///home/mike/Amsterdam/test-letter.xml"):)
-let $trimmedTrans := local:clean-spaces-doc($trans/TEI)
-let $splitTrans := local:split-sub-word-elements-doc($trimmedTrans)
-let $p := ($trimmedTrans//p)[last()]
-let $p := $trimmedTrans/text[1]/body[1]/div[66]/p[1]
-return
+(:let $trimmedTrans := local:clean-spaces-doc($trans/TEI):)
+(:let $splitTrans := local:split-sub-word-elements-doc($trimmedTrans):)
+(:let $p := ($trimmedTrans//p)[last()]:)
+(:let $p := $trimmedTrans/text[1]/body[1]/div[66]/p[1]:)
+(:return:)
 (:    $splitTrans:)
-    local:tokenize-doc($splitTrans)
+(:    local:tokenize-doc($splitTrans):)
     
-(:    element results {
-        let $endPunct := "/!du/de–er—in=o!!"
+    element results {
+        
+        
+        let $numTest := " 1.00 4:--  testing .45 15. 45/. 65/99. 22... 00.55 IV III $ f = + - "
+        let $endPunct := "whoa,&#09;""dude"" is [cool], yo! (He's the /!du/de–er—in=o!!))"
         let $beginPunct := "?Que"
         let $midPunct := "duder-ino"
         let $tokens := tokenize($endPunct, "\W")
         return
-            analyze-string($endPunct, "(\p{Po}+)|(\p{P}+|=+)")
-    }:)
+            analyze-string(concat($numTest, $endPunct), $regex)
+    }
 
 
 

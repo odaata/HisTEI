@@ -586,6 +586,13 @@
     <key value="measure_description">
         <val lang="en_US">Insert a measure. Insert the measure element.</val>
     </key>
+    
+    <key value="tokenizer.single">
+        <val lang="en_US">Tokenize</val>
+    </key>
+    <key value="tokenizer.single_description">
+        <val lang="en_US">Tokenize the current file. Annotate words, punctuation and numbers.</val>
+    </key>
 
     <!-- Contextual Information -->
 

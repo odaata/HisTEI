@@ -109,6 +109,9 @@
                             of something to be remembered
                         </catDesc>
                     </category>
+                    <category xml:id="OATH">
+                        <catDesc>a formal declaration of a fact or a promise by invoking a deity or other authority as a witness to affirm the truth of the statement of a fact or a promise </catDesc>
+                    </category>
                     <category xml:id="OBLIGATION">
                         <catDesc>a document that commits a person to carry out a payment or other action; a written
                             contract or bond

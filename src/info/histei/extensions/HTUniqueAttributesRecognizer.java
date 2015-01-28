@@ -26,7 +26,9 @@ public class HTUniqueAttributesRecognizer extends DefaultUniqueAttributesRecogni
                     "s",
                     "cl",
                     "phr",
-                    "w"
+                    "w",
+                    "num",
+                    "measure"
             }
     );
 

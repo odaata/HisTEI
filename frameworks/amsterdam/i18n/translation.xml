@@ -707,7 +707,36 @@
             sentences</val>
     </key>
 
-
+    <!-- IDs Options -->
+    
+    <key value="id.options">
+        <val lang="en_US">ID Options...</val>
+        <val lang="de_DE">ID-Optionen...</val>
+        <val lang="fr_FR">Options pour ID...</val>
+        <val lang="ja_JP">ID Options...</val>
+        <val lang="nl_NL">ID-opties...</val>
+    </key>
+    <key value="id.options_description">
+        <val lang="en_US">Options for IDs handling</val>
+        <val lang="de_DE">Optionen für ID-Handhabung</val>
+        <val lang="fr_FR">Options pour la manipulation des ID</val>
+        <val lang="ja_JP">IDs 操作のためのオプション</val>
+        <val lang="nl_NL">Opties voor verwerking van ID's</val>
+    </key>
+    <key type="action" value="generate.ids">
+        <val lang="en_US">Generate IDs</val>
+        <val lang="de_DE">Erzeuge IDs</val>
+        <val lang="fr_FR">Générer les IDs</val>
+        <val lang="ja_JP">IDs の生成</val>
+        <val lang="nl_NL">Genereer ID's</val>
+    </key>
+    <key type="action" value="generate.ids_description">
+        <val lang="en_US">Generate IDs for the current selection</val>
+        <val lang="de_DE">Erzeuge IDs für die aktuelle Auswahl</val>
+        <val lang="fr_FR">Générer les IDs pour la sélection courante</val>
+        <val lang="ja_JP">現在の選択に IDsの生成</val>
+        <val lang="nl_NL">Genereer ID's voor de huidige selectie</val>
+    </key>
 
     <!--  Labels for use in CSS Styles  -->
 

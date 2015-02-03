@@ -3044,7 +3044,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd'T'HH:mm:ss)}">${caret}&lt;/change></String>
+																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd'T'HH:mm:ss)}" who="psn:person_${userID}">${caret}&lt;/change></String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>
@@ -3233,7 +3233,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;revisionDesc  xmlns="http://www.tei-c.org/ns/1.0">
-  &lt;change when="${date(yyyy-MM-dd'T'HH:mm:ss)}">${caret}&lt;/change>
+  &lt;change when="${date(yyyy-MM-dd'T'HH:mm:ss)}" who="psn:person_${userID}">${caret}&lt;/change>
 &lt;/revisionDesc></String>
 															</entry>
 															<entry>
@@ -4174,11 +4174,6 @@
 																<String>tokenizer.single</String>
 															</field>
 														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>generate.ids</String>
-															</field>
-														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -4763,11 +4758,6 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>tokenizer.single</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>generate.ids</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>

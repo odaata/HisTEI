@@ -5,10 +5,13 @@ import module namespace functx="http://www.functx.com" at "functx.xql";
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
+declare namespace uuid = "java:java.util.UUID";
 
 declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
 declare option output:omit-xml-declaration "no";
 declare option output:indent "no";
+
+declare variable $userID as xs:string external := "";
 
 (: Tokenization Regex Character Classes - can also be passed in externally :)
 declare variable $numberBreakClass as xs:string external := ":\.\-/'""%";
@@ -148,6 +151,7 @@ declare function local:num($content, $type as xs:string?, $value as xs:string?) 
                     $newType[1]
         return
             element num {
+                attribute xml:id { concat("num_", uuid:randomUUID()) },
                 if (exists($type)) then attribute type { $type } else (),
                 if (exists($value)) then attribute value { $value } else (),
                 $content
@@ -186,6 +190,7 @@ declare function local:word($content) as element(w)? {
         $content
     else
         element w {
+            attribute xml:id { concat("w_", uuid:randomUUID()) },
             $content
         }
 };
@@ -569,10 +574,65 @@ declare function local:tokenize-doc($element as element()) as element() {
     )
 };
 
+declare function local:update-extent($wordCount as xs:integer, $extent as element(extent)?) as element(extent) {
+    let $measure := <measure quantity="{$wordCount}" unit="words">{$wordCount} words</measure>
+    let $newContents := $extent/node() except $extent/measure[@unit eq "words"]
+    return
+        if (exists($extent)) then
+            local:replace-content($extent, ($newContents, $measure) )
+        else
+            element extent { $measure }
+};
+
+declare function local:update-revisionDesc($userID as xs:string?, $revisionDesc as element(revisionDesc)?) as element(revisionDesc) {
+    let $change := element change {
+        attribute status { "tokenized" },
+        attribute { "when" } { current-dateTime() },
+        if ($userID ne "") then attribute who { "psn:person_" || $userID } else (),
+        "Tokenized by HisTEI"
+    }
+    return
+        if (exists($revisionDesc)) then
+            local:replace-content($revisionDesc, ($revisionDesc/node(), $change) )
+        else
+            element revisionDesc { $change }
+};
+
+declare function local:update-header($tei as element(TEI)) as element(TEI) {
+    let $wordCount := count($tei//w | $tei//num)
+    
+    let $teiHeader := $tei/teiHeader[1]
+    let $fileDesc := $teiHeader/fileDesc[1]
+    let $extent := local:update-extent($wordCount, $fileDesc/extent[1])
+    
+    let $fileDescContents := $fileDesc/node() except $fileDesc/extent
+    let $pubStmtPos := index-of($fileDescContents, ($fileDesc/publicationStmt | $fileDesc/sourceDesc)[1])
+    let $fileDescContents := if (exists($pubStmtPos)) then insert-before($fileDescContents, $pubStmtPos, $extent) else ($fileDescContents, $extent)
+    let $newFileDesc := local:replace-content($fileDesc, $fileDescContents )
+    
+    let $newRevisionDesc := local:update-revisionDesc($userID, $teiHeader/revisionDesc[1])
+    let $newContents := $teiHeader/node() except ($teiHeader/fileDesc, $teiHeader/revisionDesc)
+    let $newHeader := local:replace-content($teiHeader, ( $newFileDesc, $newContents, $newRevisionDesc ) )
+    return
+        local:replace-content($tei, 
+            for $rootNode in $tei/node()
+            return
+                typeswitch($rootNode)
+                case element() return
+                    if (local-name($rootNode) eq "teiHeader") then
+                        $newHeader
+                    else
+                        $rootNode
+                default return
+                    $rootNode
+        )
+};
+
 let $trimmedTrans := local:clean-spaces-doc(/TEI)
 let $splitTrans := local:split-sub-word-elements-doc($trimmedTrans)
+let $tokenized := local:tokenize-doc($splitTrans)
 return
-    local:tokenize-doc($splitTrans)
+    local:update-header($tokenized)
 
 
 

@@ -3035,7 +3035,7 @@
 														<map>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd'T'HH:mm:ss)}">${caret}&lt;/change></String>
+																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd'T'HH:mm:ss)}" who="psn:person_${userID}">${caret}&lt;/change></String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>
@@ -3224,7 +3224,7 @@
 															<entry>
 																<String>fragment</String>
 																<String>&lt;revisionDesc  xmlns="http://www.tei-c.org/ns/1.0">
-  &lt;change when="${date(yyyy-MM-dd'T'HH:mm:ss)}">${caret}&lt;/change>
+  &lt;change when="${date(yyyy-MM-dd'T'HH:mm:ss)}" who="psn:person_${userID}">${caret}&lt;/change>
 &lt;/revisionDesc></String>
 															</entry>
 															<entry>

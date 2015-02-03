@@ -4,7 +4,7 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
-        <xt:version>0.4.5</xt:version>
+        <xt:version>0.5.0</xt:version>
         <xt:oxy_version>15.2+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
@@ -20,6 +20,47 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Version 0.5.0</p>
+                <ul>
+                    <li>Added the tokenizer! You can now split your transcriptions into separate words, numbers and punctuation</li>
+                    <li>To tokenize a text, </li>
+                    
+                    <li>
+                        <ul>
+                            <li>Open it in Oxygen and then click the Tokenize button on the Annotations menu or toolbar</li>
+                            <li>You will then be asked to save the tokenized version somewhere (I'd recommend saving it in a separate place from the original transcription)</li>
+                            <li>The new file will have a word count (extent) and a change automatically added to the TEI Header to show it's been tokenized</li>
+                            <li>Each token will be surrounded by a colored box. To edit attributes for each token, click the Styles toolbar and select the Annotations style.
+                                When you click inside a token, the attributes to edit will appear after it</li>
+                            <li>The tokenizer also removes extra spaces from the document as well as cleaning up markup that isn't conducive to tokenization</li>
+                            <li>The tokenizer is still new and fairly untested, so any feedback is welcome!</li>
+                        </ul>
+                    </li>
+                    
+                    <li>
+                        <p>Words</p>
+                        <p>Compounds or those words containing non-breaking punctuation are kept as a whole word with any internal punctuation marked up with the break attribute set to no.
+                            This also applies to words that end in non-breaking punctuation next to a break. Non-breaking punctuation consists of dashes and underscores as well as &apos; and =
+                        </p>
+                    </li>
+                    <li><p>Numbers</p>
+                        <p>Numbers are split out of the text using only digits interspersed with possible number breaks for historical texts. Right now they are :.-/%&quot;&apos;
+                            This means that no roman numerals are recognized - those should be hand tagged beforehand. 
+                            If the number can be recognized, it's type is also set (i.e. cardinal, ordinal, fraction, percentage)
+                            Currency symbols are marked up as punctuation - this is because most currency information is not contained in symbols in historical texts.
+                        </p>
+                    </li>
+                    <li>
+                        <p>Punctuation</p>
+                        <p>All other punctuation and any non-breaking punctuation not adjacent to a word are marked up as regular punctuation.</p>
+                    </li>
+                    
+                    <li>Added new hooks for a custom editor variable: if you set a Custom Editor Variable (in the Options menu) named userID (case-sensitive) to your initials, 
+                        whenever you add a change to a document in revisionDesc or tokenize a document, your userID will be used in the change element. 
+                        This must match an xml:id for a person in your person file, but stored in a new list called Editors (i.e. you and other editors on your project)</li>
+                    <li>Finally, added functions for handling unique IDs to the framework menu. You can generate IDs on elements selected in the editor and/or change the way IDs are generated. 
+                        I don't recommend changing these settings unles you know what you're doing!</li>
+                </ul>
                 <p class="header">Version 0.4.5</p>
                 <ul>
                     <li>Several new tags have been added (with buttons too!)</li>

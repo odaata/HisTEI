@@ -1,6 +1,7 @@
 xquery version "3.0";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
+import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
@@ -195,34 +196,6 @@ declare function local:word($content) as element(w)? {
         }
 };
 
-declare function local:replace-content($element as element(), $newContent, 
-                                           $newAttributes as attribute()*) as element() {
-    element { local-name($element) } {
-        if (exists($newAttributes)) then $newAttributes else $element/@*,
-        $newContent
-    }
-};
-
-declare function local:replace-content($element as element(), $newContent) as element() {
-    local:replace-content($element, $newContent, ())
-};
-
-(: $type can be "anywhere", "starts", "ends", "all" nothing defaults to "anywhere" :)
-declare function local:contains-ws($string as xs:string?, $type as xs:string?) as xs:boolean {
-    let $regex :=
-        switch ($type)
-        case "starts" return "^\s"
-        case "ends" return "\s$"
-        case "all" return "^\s+$"
-        default return "\s"
-    return
-        matches($string, $regex)
-};
-
-declare function local:contains-ws($string as xs:string?) as xs:boolean {
-    local:contains-ws($string, ())
-};
-
 declare function local:is-empty-oxy-comment($textNode as node()?) as xs:boolean {
     (
         exists($textNode) 
@@ -267,7 +240,7 @@ declare function local:trimTextNode($textNode as text()?) as text()? {
 };
 
 declare function local:clean-spaces($element as element()) {
-    let $trimmedElement := local:replace-content($element,
+    let $trimmedElement := utils:replace-content($element,
         for $node in $element/node()
         return
             typeswitch ($node)
@@ -288,13 +261,13 @@ declare function local:clean-spaces($element as element()) {
         else
             let $addBeginSpace := 
                 if ($firstChild instance of text()) then 
-                    local:contains-ws(local:trimTextNode($firstChild), "starts") 
+                    utils:contains-ws(local:trimTextNode($firstChild), "starts") 
                 else 
                     false()
             
             let $addEndSpace := 
                 if ($lastChild instance of text()) then 
-                    local:contains-ws(local:trimTextNode($lastChild), "ends") 
+                    utils:contains-ws(local:trimTextNode($lastChild), "ends") 
                 else 
                     false()
             
@@ -324,13 +297,13 @@ declare function local:clean-spaces($element as element()) {
             return
             (
                 if ($addBeginSpace) then $textSpace else (),
-                local:replace-content($trimmedElement, $childNodes),
+                utils:replace-content($trimmedElement, $childNodes),
                 if ($addEndSpace) then $textSpace else ()
             )
 };
 
 declare function local:clean-spaces-doc($element as element()) as element() {
-    local:replace-content($element, 
+    utils:replace-content($element, 
         for $node in $element/node()
         return
             typeswitch($node)
@@ -362,7 +335,7 @@ declare function local:sub-word-elements-token-types($annFunc as function(item()
 };
 
 declare function local:split-sub-word-elements-doc($element as element()) as element() {
-    local:replace-content($element, 
+    utils:replace-content($element, 
         for $node in $element/node()
         return
             typeswitch($node)
@@ -370,7 +343,7 @@ declare function local:split-sub-word-elements-doc($element as element()) as ele
                 let $elementName := local-name($node)
                 return
                     if ($elementName = $subWordToSplitNames) then
-                        let $annFunc := function($content) { local:replace-content($node, $content) }
+                        let $annFunc := function($content) { utils:replace-content($node, $content) }
                         let $tokenTypes := local:sub-word-elements-token-types($annFunc)
                         return
                             local:tokenize($tokenTypes, $node/node())
@@ -406,7 +379,7 @@ declare function local:token($tokenTypes as map(xs:integer, map(xs:string, item(
                         if ($elementName = ($milestoneNames, "gap")) then
                             $content
                         else if (exists($elementName) and not($elementName = $subWordNames)) then
-                            local:replace-content($content, local:tokenize($tokenTypes, $content/node()))
+                            utils:replace-content($content, local:tokenize($tokenTypes, $content/node()))
                         else
                             local:run-ann-func($tokenTypes, $key, $content)
                 
@@ -520,7 +493,7 @@ declare function local:tokenize-element($element as element(), $tokenTypes as ma
             or not($elementName = ($subWordNames, $editNames, $milestoneNames))) then
         ( 
             local:token($tokenTypes, $currentToken), 
-            local:replace-content($element, local:tokenize($tokenTypes, $element/node())), 
+            utils:replace-content($element, local:tokenize($tokenTypes, $element/node())), 
             local:tokenize($tokenTypes, $nodes, $nextN) 
         )
         else
@@ -560,13 +533,13 @@ declare function local:tokenize($tokenTypes as map(xs:integer, map(xs:string, it
 };
 
 declare function local:tokenize-doc($element as element()) as element() {
-    local:replace-content($element, 
+    utils:replace-content($element, 
         for $node in $element/node()
         return
             typeswitch($node)
             case element() return
                 if (exists($node/ancestor::body) and local-name($node) = $contentNames) then
-                    local:replace-content($node, local:tokenize($defaultTokenTypes, $node/node()))
+                    utils:replace-content($node, local:tokenize($defaultTokenTypes, $node/node()))
                 else
                     local:tokenize-doc($node)
             default return
@@ -579,7 +552,7 @@ declare function local:update-extent($wordCount as xs:integer, $extent as elemen
     let $newContents := $extent/node() except $extent/measure[@unit eq "words"]
     return
         if (exists($extent)) then
-            local:replace-content($extent, ($newContents, $measure) )
+            utils:replace-content($extent, ($newContents, $measure) )
         else
             element extent { $measure }
 };
@@ -593,7 +566,7 @@ declare function local:update-revisionDesc($userID as xs:string?, $revisionDesc 
     }
     return
         if (exists($revisionDesc)) then
-            local:replace-content($revisionDesc, ($revisionDesc/node(), $change) )
+            utils:replace-content($revisionDesc, ($revisionDesc/node(), $change) )
         else
             element revisionDesc { $change }
 };
@@ -608,13 +581,13 @@ declare function local:update-header($tei as element(TEI)) as element(TEI) {
     let $fileDescContents := $fileDesc/node() except $fileDesc/extent
     let $pubStmtPos := index-of($fileDescContents, ($fileDesc/publicationStmt | $fileDesc/sourceDesc)[1])
     let $fileDescContents := if (exists($pubStmtPos)) then insert-before($fileDescContents, $pubStmtPos, $extent) else ($fileDescContents, $extent)
-    let $newFileDesc := local:replace-content($fileDesc, $fileDescContents )
+    let $newFileDesc := utils:replace-content($fileDesc, $fileDescContents )
     
     let $newRevisionDesc := local:update-revisionDesc($userID, $teiHeader/revisionDesc[1])
     let $newContents := $teiHeader/node() except ($teiHeader/fileDesc, $teiHeader/revisionDesc)
-    let $newHeader := local:replace-content($teiHeader, ( $newFileDesc, $newContents, $newRevisionDesc ) )
+    let $newHeader := utils:replace-content($teiHeader, ( $newFileDesc, $newContents, $newRevisionDesc ) )
     return
-        local:replace-content($tei, 
+        utils:replace-content($tei, 
             for $rootNode in $tei/node()
             return
                 typeswitch($rootNode)

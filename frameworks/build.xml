@@ -9,6 +9,7 @@
     <patternset id="framework.files">
         <exclude name="odd/"/>
         <exclude name="resources/"/>
+        <include name="resources/utils.xqm"/>
         <exclude name="schema/"/>
         <exclude name="templates/"/>
         <exclude name="*.framework"/>

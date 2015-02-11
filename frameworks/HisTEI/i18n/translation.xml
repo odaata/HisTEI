@@ -1587,6 +1587,9 @@
     <key value="addName.label.nick">
         <val lang="en_US">Nickname</val>
     </key>
+    <key value="addName.label">
+        <val lang="en_US">Add Name</val>
+    </key>
 
     <key value="birth.label">
         <val lang="en_US">Birth</val>

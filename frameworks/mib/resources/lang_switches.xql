@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-import module namespace txt="http://cohd.info/xquery/tei2text" at "tei2text.xqm";
+import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xqm";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei="http://www.tei-c.org/ns/1.0";

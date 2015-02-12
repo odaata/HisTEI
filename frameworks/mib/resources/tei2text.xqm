@@ -3,7 +3,7 @@ xquery version "3.0";
 (:~
  : A set of helper functions to transform TEI data to other formats (only text for now)
  :)
-module namespace txt="http://cohd.info/xquery/tei2text";
+module namespace txt="http://histei.info/xquery/tei2text";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
 

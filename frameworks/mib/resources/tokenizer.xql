@@ -1,7 +1,7 @@
 xquery version "3.0";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
-import module namespace teix="http://cohd.info/xquery/tei" at "tei.xqm";
+import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare default element namespace "http://www.tei-c.org/ns/1.0";

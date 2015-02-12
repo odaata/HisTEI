@@ -491,7 +491,8 @@ person > persName > roleName {
 roleName:before,
 forename:before,
 nameLink:before,
-surname:before {
+surname:before,
+addName:before {
     content: 
         oxy_label(
             text, oxy_concat("${i18n(", oxy_name(), ".label)}:")

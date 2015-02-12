@@ -1,11 +1,12 @@
 xquery version "3.0";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
+import module namespace teix="http://cohd.info/xquery/tei" at "tei.xqm";
+import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
-declare namespace uuid = "java:java.util.UUID";
 
 declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
 declare option output:omit-xml-declaration "no";
@@ -60,12 +61,12 @@ declare function local:token-types() as map(xs:integer, map(xs:string, item())) 
     let $wordRegex := concat($wordClassRegex, "+")
     return
         map {
-            1 := map { $TYPE_LABEL := "ordinal", $REGEX_LABEL := $ordinalNumberRegex, $ANN_FUNC_LABEL := local:num(?, "ordinal") },
+            1 := map { $TYPE_LABEL := "ordinal", $REGEX_LABEL := $ordinalNumberRegex, $ANN_FUNC_LABEL := teix:num(?, "ordinal") },
             2 := map { $TYPE_LABEL := "number", $REGEX_LABEL := $numberRegex, $ANN_FUNC_LABEL := local:num#1 },
-            3 := map { $TYPE_LABEL := "compound", $REGEX_LABEL := $compoundRegex, $ANN_FUNC_LABEL := local:word#1 },
-            4 := map { $TYPE_LABEL := "breakingPunct", $REGEX_LABEL := $breakingPunctRegex, $IS_BREAK_LABEL := true(), $ANN_FUNC_LABEL := local:pc#1 },
+            3 := map { $TYPE_LABEL := "compound", $REGEX_LABEL := $compoundRegex, $ANN_FUNC_LABEL := teix:word#1 },
+            4 := map { $TYPE_LABEL := "breakingPunct", $REGEX_LABEL := $breakingPunctRegex, $IS_BREAK_LABEL := true(), $ANN_FUNC_LABEL := teix:pc#1 },
             5 := map { $TYPE_LABEL := "whitespace", $REGEX_LABEL := $whitespaceRegex, $IS_BREAK_LABEL := true() },
-            6 := map { $TYPE_LABEL := "word", $REGEX_LABEL := $wordRegex, $ANN_FUNC_LABEL := local:word#1 },
+            6 := map { $TYPE_LABEL := "word", $REGEX_LABEL := $wordRegex, $ANN_FUNC_LABEL := teix:word#1 },
         }
 };
 
@@ -119,133 +120,40 @@ declare function local:is-break($tokenTypes as map(xs:integer, map(xs:string, it
             false()
 };
 
-(: Annotation Functions :)
-
-declare function local:num($content, $type as xs:string?, $value as xs:string?) as element(num)? {
-    if (empty($content)) then
-        $content
-    else
-        let $type := 
-            if (exists($type)) then
-                $type
-            else
-                let $ordinal := $defaultTokenTypes(1)($REGEX_LABEL)
-                let $numberClassRegex := concat("[", $numberClass, "]")
-                let $numTypes := map { 
-                    "ordinal" := $ordinal, 
-                    "fraction" := concat($numberClassRegex, "+/", $numberClassRegex, "+"), 
-                    "percentage" := concat($numberClassRegex, "+%"),
-                    "decimal" := concat($numberClassRegex, "+([,:\.]", $numberClassRegex, "+)+"),
-                    "cardinal" := concat("^", $numberClassRegex, "+[\.]*$")
-                }
-                let $num := element num { $content }
-                let $text := xs:string($num)
-                let $newType := 
-                    for $key in map:keys($numTypes)
-                    return
-                        if (matches($text, $numTypes($key))) then
-                            $key
-                        else
-                            ()
-                return
-                    $newType[1]
-        return
-            element num {
-                attribute xml:id { concat("num_", uuid:randomUUID()) },
-                if (exists($type)) then attribute type { $type } else (),
-                if (exists($value)) then attribute value { $value } else (),
-                $content
-            }
-};
-
-declare function local:num($content, $type as xs:string?) as element(num)? {
-    local:num($content, $type, ())
-};
-
 declare function local:num($content) as element(num)? {
-    local:num($content, ())
-};
-
-declare function local:pc($content, $force as xs:string?, $type as xs:string?) as element(pc)? {
     if (empty($content)) then
-        $content
+        ()
     else
-        element pc {
-            if (exists($force)) then attribute force { $force } else (),
-            if (exists($type)) then attribute type { $type } else (),
-            $content
+        let $numberClassRegex := concat("[", $numberClass, "]")
+        let $numTypes := map { 
+            "ordinal" := $defaultTokenTypes(1)($REGEX_LABEL), 
+            "fraction" := concat($numberClassRegex, "+/", $numberClassRegex, "+"), 
+            "percentage" := concat($numberClassRegex, "+%"),
+            "decimal" := concat($numberClassRegex, "+([,:\.]", $numberClassRegex, "+)+"),
+            "cardinal" := concat("^", $numberClassRegex, "+[\.]*$")
         }
-};
-
-declare function local:pc($content, $force as xs:string?) as element(pc)? {
-    local:pc($content, $force, ())
-};
-
-declare function local:pc($content) as element(pc)? {
-    local:pc($content, ())
-};
-
-declare function local:word($content) as element(w)? {
-    if (empty($content)) then
-        $content
-    else
-        element w {
-            attribute xml:id { concat("w_", uuid:randomUUID()) },
-            $content
-        }
-};
-
-declare function local:replace-content($element as element(), $newContent, 
-                                           $newAttributes as attribute()*) as element() {
-    element { local-name($element) } {
-        if (exists($newAttributes)) then $newAttributes else $element/@*,
-        $newContent
-    }
-};
-
-declare function local:replace-content($element as element(), $newContent) as element() {
-    local:replace-content($element, $newContent, ())
-};
-
-(: $type can be "anywhere", "starts", "ends", "all" nothing defaults to "anywhere" :)
-declare function local:contains-ws($string as xs:string?, $type as xs:string?) as xs:boolean {
-    let $regex :=
-        switch ($type)
-        case "starts" return "^\s"
-        case "ends" return "\s$"
-        case "all" return "^\s+$"
-        default return "\s"
-    return
-        matches($string, $regex)
-};
-
-declare function local:contains-ws($string as xs:string?) as xs:boolean {
-    local:contains-ws($string, ())
-};
-
-declare function local:is-empty-oxy-comment($textNode as node()?) as xs:boolean {
-    (
-        exists($textNode) 
-        and $textNode instance of text()
-        and $textNode/preceding-sibling::node()[1] instance of processing-instruction(oxy_comment_start)
-        and $textNode/following-sibling::node()[1] instance of processing-instruction(oxy_comment_end)
-        and normalize-space($textNode) eq ""
-    )
-};
-
-declare function local:non-empty-text-nodes($element as element()) as text()* {
-    $element//text()[normalize-space() ne ""]
+        let $num := element num { $content }
+        let $text := string($num)
+        let $type := 
+            for $key in map:keys($numTypes)
+            return
+                if (matches($text, $numTypes($key))) then
+                    $key
+                else
+                    ()
+        return
+            teix:num($content, $type)
 };
 
 declare function local:trimTextNode($textNode as text()?) as text()? {
     if (exists($textNode)) then
-        if (local:is-empty-oxy-comment($textNode)) then
+        if (utils:is-empty-oxy-comment($textNode)) then
             $textNode
         else
-            let $preceding := $textNode/preceding::node()[self::* or (self::text() and not(local:is-empty-oxy-comment(.)))][1]
+            let $preceding := $textNode/preceding::node()[self::* or (self::text() and not(utils:is-empty-oxy-comment(.)))][1]
             let $isBegin := (local-name($preceding) = $breakNames)
                     
-            let $following := $textNode/following::node()[self::* or (self::text() and not(local:is-empty-oxy-comment(.)))][1]
+            let $following := $textNode/following::node()[self::* or (self::text() and not(utils:is-empty-oxy-comment(.)))][1]
             let $isEnd := (local-name($following) = $breakNames)
             
             let $text := 
@@ -267,7 +175,7 @@ declare function local:trimTextNode($textNode as text()?) as text()? {
 };
 
 declare function local:clean-spaces($element as element()) {
-    let $trimmedElement := local:replace-content($element,
+    let $trimmedElement := utils:replace-content($element,
         for $node in $element/node()
         return
             typeswitch ($node)
@@ -279,8 +187,8 @@ declare function local:clean-spaces($element as element()) {
                 $node
     ) 
 
-    let $firstChild := $trimmedElement/(text()[not(local:is-empty-oxy-comment(.))] | *)[1]
-    let $lastChild := $trimmedElement/(text()[not(local:is-empty-oxy-comment(.))] | *)[last()]
+    let $firstChild := $trimmedElement/(text()[not(utils:is-empty-oxy-comment(.))] | *)[1]
+    let $lastChild := $trimmedElement/(text()[not(utils:is-empty-oxy-comment(.))] | *)[last()]
     
     return
         if (empty($firstChild)) then
@@ -288,13 +196,13 @@ declare function local:clean-spaces($element as element()) {
         else
             let $addBeginSpace := 
                 if ($firstChild instance of text()) then 
-                    local:contains-ws(local:trimTextNode($firstChild), "starts") 
+                    utils:contains-ws(local:trimTextNode($firstChild), "starts") 
                 else 
                     false()
             
             let $addEndSpace := 
                 if ($lastChild instance of text()) then 
-                    local:contains-ws(local:trimTextNode($lastChild), "ends") 
+                    utils:contains-ws(local:trimTextNode($lastChild), "ends") 
                 else 
                     false()
             
@@ -324,13 +232,13 @@ declare function local:clean-spaces($element as element()) {
             return
             (
                 if ($addBeginSpace) then $textSpace else (),
-                local:replace-content($trimmedElement, $childNodes),
+                utils:replace-content($trimmedElement, $childNodes),
                 if ($addEndSpace) then $textSpace else ()
             )
 };
 
 declare function local:clean-spaces-doc($element as element()) as element() {
-    local:replace-content($element, 
+    utils:replace-content($element, 
         for $node in $element/node()
         return
             typeswitch($node)
@@ -362,7 +270,7 @@ declare function local:sub-word-elements-token-types($annFunc as function(item()
 };
 
 declare function local:split-sub-word-elements-doc($element as element()) as element() {
-    local:replace-content($element, 
+    utils:replace-content($element, 
         for $node in $element/node()
         return
             typeswitch($node)
@@ -370,7 +278,7 @@ declare function local:split-sub-word-elements-doc($element as element()) as ele
                 let $elementName := local-name($node)
                 return
                     if ($elementName = $subWordToSplitNames) then
-                        let $annFunc := function($content) { local:replace-content($node, $content) }
+                        let $annFunc := function($content) { utils:replace-content($node, $content) }
                         let $tokenTypes := local:sub-word-elements-token-types($annFunc)
                         return
                             local:tokenize($tokenTypes, $node/node())
@@ -406,7 +314,7 @@ declare function local:token($tokenTypes as map(xs:integer, map(xs:string, item(
                         if ($elementName = ($milestoneNames, "gap")) then
                             $content
                         else if (exists($elementName) and not($elementName = $subWordNames)) then
-                            local:replace-content($content, local:tokenize($tokenTypes, $content/node()))
+                            utils:replace-content($content, local:tokenize($tokenTypes, $content/node()))
                         else
                             local:run-ann-func($tokenTypes, $key, $content)
                 
@@ -425,7 +333,7 @@ declare function local:compound($compound as xs:string?) {
         return
             typeswitch($part)
             case element(fn:match) return
-                local:pc($part/text(), "weak")
+                teix:pc($part/text(), "weak")
             case element(fn:non-match) return
                 $part/text()
             default return
@@ -520,7 +428,7 @@ declare function local:tokenize-element($element as element(), $tokenTypes as ma
             or not($elementName = ($subWordNames, $editNames, $milestoneNames))) then
         ( 
             local:token($tokenTypes, $currentToken), 
-            local:replace-content($element, local:tokenize($tokenTypes, $element/node())), 
+            utils:replace-content($element, local:tokenize($tokenTypes, $element/node())), 
             local:tokenize($tokenTypes, $nodes, $nextN) 
         )
         else
@@ -560,13 +468,13 @@ declare function local:tokenize($tokenTypes as map(xs:integer, map(xs:string, it
 };
 
 declare function local:tokenize-doc($element as element()) as element() {
-    local:replace-content($element, 
+    utils:replace-content($element, 
         for $node in $element/node()
         return
             typeswitch($node)
             case element() return
                 if (exists($node/ancestor::body) and local-name($node) = $contentNames) then
-                    local:replace-content($node, local:tokenize($defaultTokenTypes, $node/node()))
+                    utils:replace-content($node, local:tokenize($defaultTokenTypes, $node/node()))
                 else
                     local:tokenize-doc($node)
             default return
@@ -579,23 +487,9 @@ declare function local:update-extent($wordCount as xs:integer, $extent as elemen
     let $newContents := $extent/node() except $extent/measure[@unit eq "words"]
     return
         if (exists($extent)) then
-            local:replace-content($extent, ($newContents, $measure) )
+            utils:replace-content($extent, ($newContents, $measure) )
         else
             element extent { $measure }
-};
-
-declare function local:update-revisionDesc($userID as xs:string?, $revisionDesc as element(revisionDesc)?) as element(revisionDesc) {
-    let $change := element change {
-        attribute status { "tokenized" },
-        attribute { "when" } { current-dateTime() },
-        if ($userID ne "") then attribute who { "psn:person_" || $userID } else (),
-        "Tokenized by HisTEI"
-    }
-    return
-        if (exists($revisionDesc)) then
-            local:replace-content($revisionDesc, ($revisionDesc/node(), $change) )
-        else
-            element revisionDesc { $change }
 };
 
 declare function local:update-header($tei as element(TEI)) as element(TEI) {
@@ -608,24 +502,14 @@ declare function local:update-header($tei as element(TEI)) as element(TEI) {
     let $fileDescContents := $fileDesc/node() except $fileDesc/extent
     let $pubStmtPos := index-of($fileDescContents, ($fileDesc/publicationStmt | $fileDesc/sourceDesc)[1])
     let $fileDescContents := if (exists($pubStmtPos)) then insert-before($fileDescContents, $pubStmtPos, $extent) else ($fileDescContents, $extent)
-    let $newFileDesc := local:replace-content($fileDesc, $fileDescContents )
+    let $newFileDesc := utils:replace-content($fileDesc, $fileDescContents )
     
-    let $newRevisionDesc := local:update-revisionDesc($userID, $teiHeader/revisionDesc[1])
+    let $change := teix:change("tokenized", "Tokenized by HisTEI", $userID)
+    let $newRevisionDesc := teix:update-revisionDesc($change, $teiHeader/revisionDesc[1])
     let $newContents := $teiHeader/node() except ($teiHeader/fileDesc, $teiHeader/revisionDesc)
-    let $newHeader := local:replace-content($teiHeader, ( $newFileDesc, $newContents, $newRevisionDesc ) )
+    let $newHeader := utils:replace-content($teiHeader, ( $newFileDesc, $newContents, $newRevisionDesc ) )
     return
-        local:replace-content($tei, 
-            for $rootNode in $tei/node()
-            return
-                typeswitch($rootNode)
-                case element() return
-                    if (local-name($rootNode) eq "teiHeader") then
-                        $newHeader
-                    else
-                        $rootNode
-                default return
-                    $rootNode
-        )
+        utils:replace-content($tei, ( $newHeader, $tei/node() except $tei/teiHeader ))
 };
 
 let $trimmedTrans := local:clean-spaces-doc(/TEI)

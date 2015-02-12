@@ -1,12 +1,9 @@
 xquery version "3.0";
 
-import module namespace teix="http://cohd.info/xquery/tei" at "tei.xqm";
-
-declare namespace tei="http://www.tei-c.org/ns/1.0";
+import module namespace txt="http://cohd.info/xquery/tei2text" at "tei2text.xqm";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
-
-import module namespace txt="http://cohd.info/xquery/tei2text" at "tei2text.xqm";
+declare namespace tei="http://www.tei-c.org/ns/1.0";
 
 declare namespace output = "http://www.w3.org/2010/xslt-xquery-serialization";
 declare option output:indent "yes";

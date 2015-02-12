@@ -1,6 +1,6 @@
 xquery version "3.0";
 
-import module namespace teix="http://cohd.info/xquery/tei" at "tei.xqm";
+import module namespace txt="http://cohd.info/xquery/tei2text" at "tei2text.xqm";
 
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
@@ -15,13 +15,13 @@ declare function local:list($list as element()) as element(item)* {
     return
         typeswitch ($node) 
         case element(tei:person)
-            return local:item($id, $type, teix:person($node), ()) 
+            return local:item($id, $type, txt:person($node), ()) 
         case element(tei:place)
-            return local:item($id, $type, teix:place($node), ()) 
+            return local:item($id, $type, txt:place($node), ()) 
         case element(tei:org)
-            return local:item($id, $type, teix:org($node), ()) 
+            return local:item($id, $type, txt:org($node), ()) 
         case element(tei:category)
-            return teix:category($node)
+            return txt:category($node)
         default return
             if (local-name($node) = ("listPerson", "listPlace", "listOrg")) then
                 local:list($node)
@@ -53,7 +53,7 @@ declare function local:taxonomy($taxonomy as element()) as element(item)* {
             if (exists($node/tei:category)) then
                 local:taxonomy($node)
             else
-                let $label-tooltip := teix:category($node)
+                let $label-tooltip := txt:category($node)
                 return
                     local:item($id, $type, $label-tooltip[1], $label-tooltip[2])
         default

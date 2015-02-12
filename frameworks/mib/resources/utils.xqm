@@ -36,3 +36,20 @@ declare function utils:contains-ws($string as xs:string?, $type as xs:string?) a
 declare function utils:contains-ws($string as xs:string?) as xs:boolean {
     utils:contains-ws($string, ())
 };
+
+declare function utils:is-empty-oxy-comment($textNode as node()?) as xs:boolean {
+    (
+        exists($textNode) 
+        and $textNode instance of text()
+        and $textNode/preceding-sibling::node()[1] instance of processing-instruction(oxy_comment_start)
+        and $textNode/following-sibling::node()[1] instance of processing-instruction(oxy_comment_end)
+        and normalize-space($textNode) eq ""
+    )
+};
+
+declare function utils:non-empty-text-nodes($element as element()) as text()* {
+    $element//text()[normalize-space() ne ""]
+};
+
+
+

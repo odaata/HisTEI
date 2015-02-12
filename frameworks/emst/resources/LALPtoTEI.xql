@@ -369,7 +369,7 @@ declare function local:get-lalp-letters($inputDir as xs:string) as element(lette
     element letters {
         let $fileExtension := ".txt"
         for $file in file:list($inputDir)[ends-with(., $fileExtension)]
-        let $basename := substring-before($file, $fileExtension)
+        let $basename := file:base-name($file, $fileExtension)
         order by $file
         return
             let $transPath := concat($inputDir, file:dir-separator(), $file)
@@ -556,7 +556,9 @@ let $allNames := for $nameElement in $allNamesElements return xs:string($nameEle
 (\: Get all the unique names :\)
 let $uniqueNames := distinct-values($allNames):)
 return
-    element names {
+    $letters
+
+    (:element names {
         let $field := "Mr. {a} { henry H. goulburn} Ma{yor of Lon}don and william {a hay}"
         let $tokens := tokenize($field, "\s+")
         let $unclearTokenLocs := 
@@ -566,7 +568,7 @@ return
         return
             for $n in ($firstLoc to $lastLoc) return $n
 
-        (:let $newToken := 
+        (\:let $newToken := 
             let $matches := analyze-string("{", "\{+(.*)\}+|\{+(.*)|(.*)\}+")/*
             let $totalMatches := count($matches)
             for $element in $matches
@@ -578,16 +580,22 @@ return
                 else if ($totalMatches eq 1 or $elementName eq "match") then
                     element unclear { $value }
                 else
-                    $value:)
-        (:let $field := "{henry goulburn}"
-        let $field := "william {a hay}":)
+                    $value:\)
+        (\:let $field := "{henry goulburn}"
+        let $field := "william {a hay}":\)
         return
-(:            for $token in $tokens return element token { $token }:)
-(:            analyze-string("{", "\{+(.*)\}+|\{+(.*)|(.*)\}+")/*:)
-(:            local:unclear($field):)
-(:            empty($newToken):)
+(\:            for $token in $tokens return element token { $token }:\)
+(\:            analyze-string("{", "\{+(.*)\}+|\{+(.*)|(.*)\}+")/*:\)
+(\:            local:unclear($field):\)
+(\:            empty($newToken):\)
             local:parse-names($field)
-    }
+    }:)
+    
+    
+    
+    
+    
+    
     (:let $origTokens := tokenize($field, "\s+")
     let $unclearTokenLocs := 
         for tumbling window $window in $origTokens

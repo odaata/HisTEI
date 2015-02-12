@@ -5,10 +5,68 @@ xquery version "3.0";
  :)
 module namespace utils="http://histei.info/xquery/utils";
 
-declare namespace map="http://www.w3.org/2005/xpath-functions/map";
+import module namespace functx="http://www.functx.com" at "functx.xql";
 
+declare namespace file="http://expath.org/ns/file";
+declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
+(: File-related Functions :)
+
+(: Checks if a path is valid and also a directory. 
+    If a file is given, the path to the parent directory is returned.
+    If a path is invalid or does not exist, an empty string is returned.   
+    Paths are uniformly returned with a slash on the end (to make adding file names to them easier)
+:)
+declare function utils:get-dir-path($uri as xs:anyURI?) as xs:string? {
+    if (empty($uri)) then
+        ()
+    else
+        let $path := utils:uri-to-path($uri)
+        let $path := 
+            if (file:is-dir($path)) then
+                $path
+            else if (file:is-file($path)) then
+                functx:substring-before-last($path, file:dir-separator()) 
+            else
+                ()
+        return
+            if (empty($path)) then
+                ()
+            else if (ends-with($path, file:dir-separator())) then
+                $path
+            else
+                concat($path, file:dir-separator())
+};
+
+declare function utils:uri-to-path($uri as xs:anyURI?) as xs:string? {
+    if (empty($uri)) then
+        ()
+    else
+        let $uriString := string($uri)
+        return
+            if (starts-with($uriString, "file:/")) then
+                replace(substring-after($uriString, "file:/"), "/", 
+                    functx:escape-for-regex(file:dir-separator())
+                )
+            else
+                ()
+};
+
+declare function utils:path-to-uri($path as xs:string?) as xs:anyURI? {
+    if (empty($path) or $path eq "") then
+        ()
+    else
+        let $path := 
+            if (file:dir-separator() ne "/") then 
+                replace($path, functx:escape-for-regex(file:dir-separator()), "/")
+            else
+                $path
+        return
+            xs:anyURI(concat("file:/", $path))
+};
+
+(: Generic functions for processing XML :)
 declare function utils:replace-content($element as element(), $newContent, 
                                             $newAttributes as attribute()*) as element() {
     element { node-name($element) } {

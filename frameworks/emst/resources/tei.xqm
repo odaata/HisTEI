@@ -3,6 +3,7 @@ xquery version "3.0";
 (:~
  : A set of helper functions to generate TEI elements
  :)
+ 
 module namespace teix="http://histei.info/xquery/tei";
 
 import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";

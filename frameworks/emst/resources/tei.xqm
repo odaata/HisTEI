@@ -28,7 +28,7 @@ declare function teix:change($status as xs:string, $content, $userID as xs:strin
     teix:change($status, $content, $userID, ())
 };
 
-declare function teix:update-revisionDesc($change as element(change), $revisionDesc as element(revisionDesc)?, 
+declare function teix:update-revisionDesc($change as element(change)+, $revisionDesc as element(revisionDesc)?, 
                                             $status as xs:string?) as element(revisionDesc) {
     if (empty($revisionDesc)) then
         element revisionDesc { $change }
@@ -42,7 +42,7 @@ declare function teix:update-revisionDesc($change as element(change), $revisionD
             utils:replace-content($revisionDesc, ( $revisionDesc/node(), $change ), $attrs)
 };
 
-declare function teix:update-revisionDesc($change as element(change), $revisionDesc as element(revisionDesc)?) as element(revisionDesc) {
+declare function teix:update-revisionDesc($change as element(change)+, $revisionDesc as element(revisionDesc)?) as element(revisionDesc) {
     teix:update-revisionDesc($change, $revisionDesc, ())
 };
 

@@ -21,8 +21,8 @@ declare variable $transURI as xs:anyURI external;
 declare variable $tokenizedURI as xs:anyURI external;
 
 let $transPath := "/home/mike/Amsterdam/Transcriptions.txt"
-let $transRows := utils:parse-tab-file($transPath)
+let $transToGet := utils:parse-tab-file($transPath)
 return
     element transcriptions {
-        $transRows 
+        $transToGet 
     }

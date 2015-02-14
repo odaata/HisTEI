@@ -66,6 +66,46 @@ declare function utils:path-to-uri($path as xs:string?) as xs:anyURI? {
             xs:anyURI(concat("file:/", $path))
 };
 
+(:
+    Parse a tab-delimited file and return its rows as a collection of maps with the keys being  
+        either header names taken from the first row or the ordinal position of each field
+:)
+declare function utils:parse-tab-file($path as xs:string, $hasHeaders as xs:boolean?) as element(row)* {
+    let $hasHeaders := if (empty($hasHeaders)) then true() else $hasHeaders
+    let $fieldPrefix := "f_"
+    
+    let $lines := file:read-text-lines($path)
+    let $fieldNames := 
+        for $field at $pos in tokenize($lines[1], "\t")
+        return
+            if ($hasHeaders) then
+                let $field := normalize-space($field)
+                return
+                    if ($field castable as xs:QName) then 
+                        $field 
+                    else 
+                        concat($fieldPrefix, $field)
+            else
+                concat($fieldPrefix, $pos)
+           
+    let $body := if ($hasHeaders) then subsequence($lines, 2) else $lines
+    
+    for $line in $body
+    return
+        element row {
+            for $field at $pos in tokenize($line, "\t")
+            let $fieldName := $fieldNames[$pos]
+            let $fieldName := if (empty($fieldName) or $fieldName eq "") then concat($fieldPrefix, $pos) else $fieldName
+            return
+                element { $fieldName } { normalize-space($field) }
+        }
+};
+
+declare function utils:parse-tab-file($path as xs:string) as element(row)* {
+    utils:parse-tab-file($path, ())
+};
+
+
 (: Generic functions for processing XML :)
 declare function utils:replace-content($element as element(), $newContent, 
                                             $newAttributes as attribute()*) as element() {
@@ -108,6 +148,7 @@ declare function utils:is-empty-oxy-comment($textNode as node()?) as xs:boolean 
 declare function utils:non-empty-text-nodes($element as element()) as text()* {
     $element//text()[normalize-space() ne ""]
 };
+
 
 
 

@@ -159,6 +159,18 @@ declare function txt:year($date as xs:string?) as xs:integer? {
         ()
 };
 
+declare function txt:status($tei as element(tei:TEI)*) as xs:string* {
+    for $doc in $tei
+    let $revisionDesc := $doc//tei:revisionDesc[1]
+    return
+        if (exists($revisionDesc/@status)) then
+            string($revisionDesc/@status)
+        else
+            let $changes := for $change in $revisionDesc/tei:change order by $change/@when return $change
+            return
+                string($changes[last()]/@status)
+};
+
 (: Functions for processing mixed-content text nodes :)
 
 declare function txt:toText($textNodes as node()*) as xs:string {

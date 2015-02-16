@@ -8,23 +8,24 @@ xquery version "3.0";
  :)
 
 import module namespace tok="http://histei.info/xquery/tei/tokenizer" at "tokenizer.xqm";
-import module namespace functx="http://www.functx.com" at "functx.xql";
 import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare namespace file="http://expath.org/ns/file";
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
-declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
-declare option output:omit-xml-declaration "no";
-declare option output:indent "yes";
-
 declare variable $userID as xs:string external := "";
 declare variable $transURI as xs:anyURI external;
 declare variable $tokenizedURI as xs:anyURI external;
 
-(:let $userID := "MJO"
-let $transURI := xs:anyURI("file:/Z:/home/Amsterdam/dbnl/tei/DBNL_bran002leve01_01.xml")
-let $tokenizedURI := xs:anyURI("file:/Z:/home/Amsterdam/tokenized/"):)
+(:let $userID := "MJO":)
+
+(: Windows URIs:)
+(:let $transURI := xs:anyURI("file:/Z:/home/Amsterdam/old stuff from Jamie")
+let $tokenizedURI := xs:anyURI("file:/Z:/home/Amsterdam/tokenized"):)
+
+(: Linux/Mac URIs :)
+(:let $transURI := xs:anyURI("file:/home/mike/Amsterdam/dbnl/tei")
+let $tokenizedURI := xs:anyURI("file:/home/mike/Amsterdam/tokenized"):)
 
 let $transPath := utils:get-dir-path($transURI)
 let $tokenizedPath := utils:get-dir-path($tokenizedURI)
@@ -39,7 +40,7 @@ return
                 attribute tokenizedPath { $tokenizedPath },
                 attribute total { count($docs) },
                 for $doc in $docs
-                let $fileName := functx:substring-after-last(string(document-uri($doc)), "/")
+                let $fileName := utils:get-filenames($doc)[1]
                 let $tokenizedFilePath := concat($tokenizedPath, $fileName)
                 order by $fileName
                 
@@ -47,11 +48,7 @@ return
                 let $tokenizedTrans := tok:tokenize($trans, $userID)
                 return
                     element file { 
-                        file:write($tokenizedFilePath, $tokenizedTrans, 
-                           <output:serialization-parameters>
-                               <output:omit-xml-declaration value="no"/>
-                           </output:serialization-parameters>
-                        ),
+                        file:write($tokenizedFilePath, $tokenizedTrans, $utils:OUTPUT_NO_INDENT),
                         element filename { $fileName }, 
                         element wordCount { 
                             data($tokenizedTrans//tei:fileDesc/tei:extent/tei:measure[@unit eq "words"]/@quantity[1]) 

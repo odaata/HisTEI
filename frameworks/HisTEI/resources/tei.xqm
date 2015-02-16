@@ -13,7 +13,48 @@ declare default element namespace "http://www.tei-c.org/ns/1.0";
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace uuid="java:java.util.UUID";
 
+declare %private variable $teix:HEADER_FIELDS := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc");
+declare %private variable $teix:FILE_DESC_FIELDS := 
+    ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc");
+    
+declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
+declare %private variable $teix:DEFAULT_FILE_DESC := <fileDesc>{$teix:DEFAULT_TITLE_STMT}<publicationStmt/><sourceDesc/></fileDesc>;
+declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
+
+
 (: Header Updates :)
+declare function teix:update-teiHeader($newElements as element()*, $header as element(teiHeader)?) as element(teiHeader) {
+    let $header := if (empty($header)) then $teix:DEFAULT_HEADER else $header
+    return
+        utils:update-content-ordered($header, $teix:HEADER_FIELDS, $newElements)
+};
+
+declare function teix:update-fileDesc($newElements as element()*, $fileDesc as element(fileDesc)?) as element(fileDesc) {
+    let $fileDesc := if (empty($fileDesc)) then $teix:DEFAULT_FILE_DESC else $fileDesc
+    return
+        utils:update-content-ordered($fileDesc, $teix:FILE_DESC_FIELDS, $newElements)
+};
+
+(: FileDesc :)
+declare function teix:update-fileDesc($quantity as xs:integer, $unit as xs:string, $extent as element(extent)?) as element(extent) {
+    let $measure := <measure quantity="{$quantity}" unit="{$unit}">{concat($quantity, " ", $unit)}</measure>
+    let $newContents := $extent/node() except $extent/measure[@unit eq $unit]
+    return
+        if (exists($extent)) then
+            utils:replace-content($extent, ($newContents, $measure) )
+        else
+            element extent { $measure }
+};
+
+declare function teix:update-extent($quantity as xs:integer, $unit as xs:string, $extent as element(extent)?) as element(extent) {
+    let $measure := <measure quantity="{$quantity}" unit="{$unit}">{concat($quantity, " ", $unit)}</measure>
+    let $newContents := $extent/node() except $extent/measure[@unit eq $unit]
+    return
+        if (exists($extent)) then
+            utils:replace-content($extent, ($newContents, $measure) )
+        else
+            element extent { $measure }
+};
 
 declare function teix:change($status as xs:string, $content, $userID as xs:string?, $when as xs:dateTime?) as element(change) {
     element change {

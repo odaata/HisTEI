@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="15.2" xml:space="preserve">
-	<map>
+<serialized version="16.1" xml:space="preserve">
+	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
 			<documentTypeDescriptor-array>
 				<documentTypeDescriptor>
+					<field name="extensionPatch">
+						<null/>
+					</field>
 					<field name="name">
 						<String>HisTEI</String>
 					</field>
@@ -105,12 +108,12 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="bold"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -148,12 +151,12 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="underline"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -191,12 +194,12 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="italic"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -234,7 +237,7 @@
 														<String>local-name() = ('div', 'postscript')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;p xmlns="http://www.tei-c.org/ns/1.0">&lt;lb/>${caret}&lt;/p></String>
@@ -247,7 +250,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -285,7 +288,7 @@
 														<String>local-name() = ('graphic','media','facsimile') or exists(@facs)</String>
 													</field>
 													<field name="argValues">
-														<map/>
+														<serializableOrderedMap/>
 													</field>
 													<field name="operationID">
 														<String>info.histei.facsimile.HTOpenMediaOperation</String>
@@ -323,12 +326,12 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>text</String>
 																<String>ſ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -366,7 +369,7 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart or ancestor-or-self::*:fw</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;expan xmlns="http://www.tei-c.org/ns/1.0"/></String>
@@ -375,7 +378,7 @@
 																<String>schemaAware</String>
 																<String>true</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -413,12 +416,12 @@
 														<String>local-name() = ('body', 'div', 'front', 'back', 'listPerson', 'listPlace', 'listOrg')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;head xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -456,12 +459,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;abbr xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -499,7 +502,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -508,7 +511,7 @@
 																<String>text</String>
 																<String>þ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -546,7 +549,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -555,7 +558,7 @@
 																<String>text</String>
 																<String>Þ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -593,12 +596,12 @@
 														<String>local-name() = ('front', 'body', 'div', 'p', 'back')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;fw xmlns="http://www.tei-c.org/ns/1.0" type="header" place="top"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -636,12 +639,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;add xmlns="http://www.tei-c.org/ns/1.0" place="above"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -679,12 +682,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;del xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -722,7 +725,7 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
@@ -739,7 +742,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -777,12 +780,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;unclear xmlns="http://www.tei-c.org/ns/1.0" reason="hand"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -820,12 +823,12 @@
 														<String>ancestor-or-self::*:text</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;pc xmlns="http://www.tei-c.org/ns/1.0" force="${ask('force: strong - punctuation breaks a word; weak - does not break a word; inter - unspecified', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'weak')}">${ask('Which punctuation character(s)?', generic, '-')}&lt;/pc>${caret}</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -863,12 +866,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;foreign xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -906,12 +909,12 @@
 														<String>ancestor-or-self::*:div</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" anchored="false" place="margin">${caret}&lt;/note></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -922,12 +925,12 @@
 														<String>ancestor-or-self::*:desc or local-name() = ('notesStmt','person', 'place', 'org')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;note xmlns="http://www.tei-c.org/ns/1.0" anchored="false">${caret}&lt;/note></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -965,7 +968,7 @@
 														<String>local-name() = ('persName','placeName','orgName','handNote','district','settlement','region','country','bloc','repository','catRef')</String>
 													</field>
 													<field name="argValues">
-														<map/>
+														<serializableOrderedMap/>
 													</field>
 													<field name="operationID">
 														<String>info.histei.contextual_info.HTOpenContextualInfoOperation</String>
@@ -1003,12 +1006,12 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="subscript"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1046,12 +1049,12 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;hi xmlns="http://www.tei-c.org/ns/1.0" rend="superscript"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1089,7 +1092,7 @@
 														<String>local-name() = ('opener', 'closer')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;salute xmlns="http://www.tei-c.org/ns/1.0">${caret}&lt;/salute></String>
@@ -1102,7 +1105,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1113,12 +1116,12 @@
 														<String>ancestor-or-self::p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;seg xmlns="http://www.tei-c.org/ns/1.0" function="salute"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1156,12 +1159,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;persName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1172,12 +1175,12 @@
 														<String>local-name() = ('creation')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;persName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1188,7 +1191,7 @@
 														<String>local-name() eq 'listPerson'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;person  xmlns="http://www.tei-c.org/ns/1.0">
@@ -1222,7 +1225,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1260,12 +1263,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;${ask('What kind of place would you like to insert?', combobox, ('district':'District'; 'settlement':'Settlement'; 'region':'Region'; 'country':'Country'; 'bloc':'Bloc'; 'placeName':'Uncategorized';), 'settlement')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1276,12 +1279,12 @@
 														<String>local-name() = ('creation')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;${ask('What kind of place would you like to insert?', combobox, ('district':'district'; 'settlement':'settlement'; 'region':'region'; 'country':'country'; 'bloc':'bloc'; 'placeName':'uncategorized';), 'settlement')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1292,7 +1295,7 @@
 														<String>local-name() eq 'listPlace'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0">
@@ -1300,7 +1303,7 @@
   &lt;country/>
 &lt;/place></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1338,12 +1341,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1354,12 +1357,12 @@
 														<String>local-name() = ('creation')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1370,7 +1373,7 @@
 														<String>local-name() eq 'listOrg'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0">
@@ -1378,7 +1381,7 @@
     &lt;desc/>
 &lt;/org></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1416,12 +1419,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1432,12 +1435,12 @@
 														<String>local-name() = ('creation')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;date xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1475,7 +1478,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;lb xmlns="http://www.tei-c.org/ns/1.0" break="${ask('Is this line break between words?', combobox, ('yes':'yes'; 'no':'no';), 'yes')}"/>${caret}</String>
@@ -1492,7 +1495,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1530,7 +1533,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;pb xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
@@ -1547,7 +1550,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1585,7 +1588,7 @@
 														<String>not(exists(//body/*[starts-with(local-name(), "list")]))</String>
 													</field>
 													<field name="argValues">
-														<map/>
+														<serializableOrderedMap/>
 													</field>
 													<field name="operationID">
 														<String>info.histei.facsimile.HTSelectFacsDirOperation</String>
@@ -1623,12 +1626,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -1666,12 +1669,12 @@
 														<String>ancestor-or-self::*:text</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;supplied xmlns="http://www.tei-c.org/ns/1.0">&lt;pc force="${ask('force: strong - punctuation breaks a word; weak - does not break a word; inter - unspecified', combobox, ('strong':'strong'; 'weak':'weak'; 'inter':'inter';), 'strong')}">${ask('Which punctuation character(s)?', generic, '.')}&lt;/pc>&lt;/supplied> ${caret}</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1709,7 +1712,7 @@
 														<String>local-name() = ('front', 'body', 'back')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;div xmlns="http://www.tei-c.org/ns/1.0">&lt;p>&lt;lb/>${caret}&lt;/p>&lt;/div></String>
@@ -1722,7 +1725,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1760,7 +1763,7 @@
 														<String>local-name() = ('front', 'body', 'back')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;div xmlns="http://www.tei-c.org/ns/1.0" type="entry">
@@ -1782,7 +1785,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1820,7 +1823,7 @@
 														<String>local-name() = ('front', 'body', 'back')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;div xmlns="http://www.tei-c.org/ns/1.0" type="address">&lt;p>&lt;lb/>${caret}&lt;/p>&lt;/div></String>
@@ -1833,7 +1836,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1844,12 +1847,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;address xmlns="http://www.tei-c.org/ns/1.0">&lt;addrLine>${caret}&lt;/addrLine> &lt;street>&lt;/street> &lt;settlement>&lt;/settlement>&lt;/address></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1887,7 +1890,7 @@
 														<String>ancestor-or-self::*:p or ancestor-or-self::*:opener or ancestor-or-self::*:closer or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;handShift xmlns="http://www.tei-c.org/ns/1.0"/></String>
@@ -1904,7 +1907,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1942,7 +1945,7 @@
 														<String>local-name() eq 'handNotes'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;handNote xmlns="http://www.tei-c.org/ns/1.0" xml:id="hand_">${caret}&lt;/handNote></String>
@@ -1955,7 +1958,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -1993,12 +1996,12 @@
 														<String>ancestor-or-self::div or ancestor-or-self::*:titlePart</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;seg xmlns="http://www.tei-c.org/ns/1.0" function="formulaic"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -2036,12 +2039,12 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;ref xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -2079,7 +2082,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2088,7 +2091,7 @@
 																<String>text</String>
 																<String>ƿ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2126,7 +2129,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2135,7 +2138,7 @@
 																<String>text</String>
 																<String>Ƿ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2173,7 +2176,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2182,7 +2185,7 @@
 																<String>text</String>
 																<String>ȝ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2220,7 +2223,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2229,7 +2232,7 @@
 																<String>text</String>
 																<String>Ȝ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2267,7 +2270,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2276,7 +2279,7 @@
 																<String>text</String>
 																<String>æ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2314,7 +2317,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2323,7 +2326,7 @@
 																<String>text</String>
 																<String>Æ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2361,7 +2364,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2370,7 +2373,7 @@
 																<String>text</String>
 																<String>ð</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2408,7 +2411,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2417,7 +2420,7 @@
 																<String>text</String>
 																<String>Ð</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2455,7 +2458,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -2464,7 +2467,7 @@
 																<String>text</String>
 																<String>£</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -2502,7 +2505,7 @@
 														<String>local-name() = ('div')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;opener xmlns="http://www.tei-c.org/ns/1.0">
@@ -2518,7 +2521,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -2556,7 +2559,7 @@
 														<String>local-name() = ('div')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;closer xmlns="http://www.tei-c.org/ns/1.0">
@@ -2573,7 +2576,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -2611,7 +2614,7 @@
 														<String>local-name() = ('div')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;postscript xmlns="http://www.tei-c.org/ns/1.0">
@@ -2627,7 +2630,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -2665,7 +2668,7 @@
 														<String>local-name() = ('titleStmt')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;respStmt xmlns="http://www.tei-c.org/ns/1.0">
@@ -2683,7 +2686,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -2721,7 +2724,7 @@
 														<String>local-name() = ('opener','closer')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;dateline xmlns="http://www.tei-c.org/ns/1.0">&lt;date>${caret}&lt;/date>&lt;/dateline></String>
@@ -2734,7 +2737,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -2772,7 +2775,7 @@
 														<String>local-name() = ('opener','closer')</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;signed xmlns="http://www.tei-c.org/ns/1.0"/></String>
@@ -2785,7 +2788,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -2823,12 +2826,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -2866,12 +2869,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;s xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -2909,12 +2912,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;cl xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -2952,12 +2955,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;phr xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -2995,7 +2998,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3004,7 +3007,7 @@
 																<String>text</String>
 																<String>á</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3042,7 +3045,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3051,7 +3054,7 @@
 																<String>text</String>
 																<String>Á</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3089,7 +3092,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3098,7 +3101,7 @@
 																<String>text</String>
 																<String>é</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3136,7 +3139,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3145,7 +3148,7 @@
 																<String>text</String>
 																<String>É</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3183,7 +3186,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3192,7 +3195,7 @@
 																<String>text</String>
 																<String>í</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3230,7 +3233,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3239,7 +3242,7 @@
 																<String>text</String>
 																<String>Í</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3277,7 +3280,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3286,7 +3289,7 @@
 																<String>text</String>
 																<String>ó</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3324,7 +3327,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3333,7 +3336,7 @@
 																<String>text</String>
 																<String>Ó</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3371,7 +3374,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3380,7 +3383,7 @@
 																<String>text</String>
 																<String>ú</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3418,7 +3421,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3427,7 +3430,7 @@
 																<String>text</String>
 																<String>Ú</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3465,7 +3468,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3474,7 +3477,7 @@
 																<String>text</String>
 																<String>ǽ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3512,7 +3515,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3521,7 +3524,7 @@
 																<String>text</String>
 																<String>Ǽ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3559,7 +3562,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3568,7 +3571,7 @@
 																<String>text</String>
 																<String>ċ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3606,7 +3609,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3615,7 +3618,7 @@
 																<String>text</String>
 																<String>ġ</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3653,7 +3656,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3662,7 +3665,7 @@
 																<String>text</String>
 																<String>ł</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3700,7 +3703,7 @@
 														<String></String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>schemaAware</String>
 																<String>true</String>
@@ -3709,7 +3712,7 @@
 																<String>text</String>
 																<String>̇</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertOrReplaceTextOperation</String>
@@ -3747,12 +3750,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;gloss xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -3790,12 +3793,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;term xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -3833,12 +3836,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;ab xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -3876,12 +3879,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;seg xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -3919,7 +3922,7 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>elementLocation</String>
 																<String>//text</String>
@@ -3928,7 +3931,7 @@
 																<String>name</String>
 																<String>toggle-wrap</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.TogglePseudoClassOperation</String>
@@ -3966,7 +3969,7 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd'T'HH:mm:ss)}" who="psn:person_${userID}">${caret}&lt;/change></String>
@@ -3987,7 +3990,7 @@
 																<String>schemaAware</String>
 																<String>true</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -4025,12 +4028,12 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;title xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4068,12 +4071,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;num xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4111,12 +4114,12 @@
 														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;measure xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4154,7 +4157,7 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;revisionDesc  xmlns="http://www.tei-c.org/ns/1.0">
@@ -4177,7 +4180,7 @@
 																<String>schemaAware</String>
 																<String>true</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -4215,7 +4218,7 @@
 														<String>local-name() eq "listPerson" and local-name(./parent::*) eq "body"</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;listPerson  xmlns="http://www.tei-c.org/ns/1.0" type="editor">
@@ -4242,7 +4245,7 @@
 																<String>schemaAware</String>
 																<String>true</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -4280,12 +4283,12 @@
 														<String>local-name() eq 'address'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;addrLine xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4323,12 +4326,12 @@
 														<String>local-name() eq 'address'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;street xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4366,12 +4369,12 @@
 														<String>local-name() eq 'address'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;postBox xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4409,12 +4412,12 @@
 														<String>local-name() eq 'address'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
 																<String>&lt;postCode xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
@@ -4452,7 +4455,7 @@
 														<String>local-name() eq 'body'</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
 																<String>&lt;div xmlns="http://www.tei-c.org/ns/1.0" type="stamp">&lt;p>&lt;lb/>${caret}&lt;/p>&lt;/div></String>
@@ -4465,7 +4468,7 @@
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
@@ -4503,12 +4506,12 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>scenarioNames</String>
 																<String>tokenizer-single</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ExecuteTransformationScenariosOperation</String>
@@ -4546,7 +4549,7 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map/>
+														<serializableOrderedMap/>
 													</field>
 													<field name="operationID">
 														<String>info.histei.id.HTConfigureAutoIDElementsOperation</String>
@@ -4584,7 +4587,7 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map/>
+														<serializableOrderedMap/>
 													</field>
 													<field name="operationID">
 														<String>info.histei.id.GenerateIDsHTOperation</String>
@@ -4622,12 +4625,12 @@
 														<String>true()</String>
 													</field>
 													<field name="argValues">
-														<map>
+														<serializableOrderedMap>
 															<entry>
 																<String>scenarioNames</String>
 																<String>tokenizer-collection</String>
 															</entry>
-														</map>
+														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
 														<String>ro.sync.ecss.extensions.commons.operations.ExecuteTransformationScenariosOperation</String>
@@ -6123,6 +6126,9 @@
 								<field name="outputFile">
 									<null/>
 								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
 								</field>
@@ -6226,6 +6232,9 @@
 									<Boolean>false</Boolean>
 								</field>
 								<field name="outputFile">
+									<null/>
+								</field>
+								<field name="outputResource">
 									<null/>
 								</field>
 								<field name="openOtherLocationInBrowser">
@@ -6333,6 +6342,9 @@
 								<field name="outputFile">
 									<null/>
 								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
 								<field name="openOtherLocationInBrowser">
 									<Boolean>false</Boolean>
 								</field>
@@ -6363,6 +6375,27 @@
 											<field name="paramDescription">
 												<paramDescriptor>
 													<field name="localName">
+														<String>teiURI</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${ask('Directory with TEI files to be tokenized.', url, '${pdu}')}</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
 														<String>tokenizedURI</String>
 													</field>
 													<field name="prefix">
@@ -6375,27 +6408,6 @@
 											</field>
 											<field name="value">
 												<String>${ask('Directory for tokenized files.', url, '${pdu}')}</String>
-											</field>
-											<field name="hasXPathValue">
-												<Boolean>false</Boolean>
-											</field>
-										</transformationParameter>
-										<transformationParameter>
-											<field name="paramDescription">
-												<paramDescriptor>
-													<field name="localName">
-														<String>transURI</String>
-													</field>
-													<field name="prefix">
-														<null/>
-													</field>
-													<field name="namespace">
-														<null/>
-													</field>
-												</paramDescriptor>
-											</field>
-											<field name="value">
-												<String>${ask('Directory with TEI files to be tokenized.', url, '${pdu}')}</String>
 											</field>
 											<field name="hasXPathValue">
 												<Boolean>false</Boolean>
@@ -6476,7 +6488,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>4</Integer>
+						<Integer>3</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>
@@ -6490,5 +6502,5 @@
 				</documentTypeDescriptor>
 			</documentTypeDescriptor-array>
 		</entry>
-	</map>
+	</serializableOrderedMap>
 </serialized>

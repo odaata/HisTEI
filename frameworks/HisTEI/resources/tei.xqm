@@ -16,7 +16,12 @@ declare namespace uuid="java:java.util.UUID";
 declare %private variable $teix:HEADER_FIELDS := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc");
 declare %private variable $teix:FILE_DESC_FIELDS := 
     ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc");
-    
+declare %private variable $teix:PROFILE_DESC_FIELDS := 
+    ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes");
+
+declare %private variable $teix:TITLE_STMT_FIELDS :=
+    ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal");
+
 declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
 declare %private variable $teix:DEFAULT_FILE_DESC := <fileDesc>{$teix:DEFAULT_TITLE_STMT}<publicationStmt/><sourceDesc/></fileDesc>;
 declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
@@ -36,16 +41,6 @@ declare function teix:update-fileDesc($newElements as element()*, $fileDesc as e
 };
 
 (: FileDesc :)
-declare function teix:update-fileDesc($quantity as xs:integer, $unit as xs:string, $extent as element(extent)?) as element(extent) {
-    let $measure := <measure quantity="{$quantity}" unit="{$unit}">{concat($quantity, " ", $unit)}</measure>
-    let $newContents := $extent/node() except $extent/measure[@unit eq $unit]
-    return
-        if (exists($extent)) then
-            utils:replace-content($extent, ($newContents, $measure) )
-        else
-            element extent { $measure }
-};
-
 declare function teix:update-extent($quantity as xs:integer, $unit as xs:string, $extent as element(extent)?) as element(extent) {
     let $measure := <measure quantity="{$quantity}" unit="{$unit}">{concat($quantity, " ", $unit)}</measure>
     let $newContents := $extent/node() except $extent/measure[@unit eq $unit]

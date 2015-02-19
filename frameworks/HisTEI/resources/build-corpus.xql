@@ -20,6 +20,7 @@ declare variable $fileExtension as xs:string external := ".xml";
 declare variable $transToGetPath := "/home/mike/Amsterdam/Transcriptions.txt";
 declare variable $transPath := "/home/mike/Amsterdam/transcriptions";
 declare variable $corpusPath := "/home/mike/Amsterdam/corpus";
+declare variable $updatedPath := "/home/mike/Amsterdam/updated";
 
 declare function local:move-corrected-to-corpus($transToGet as element(row)*) as element(fileMoved)* {
     if (empty($transPath) or empty($corpusPath)) then
@@ -37,66 +38,45 @@ declare function local:move-corrected-to-corpus($transToGet as element(row)*) as
             ()
 };
 
-declare function local:update-content-ordered($element as element(), $fieldNames as xs:string+, 
-                                                            $newElements as element()*) as element() {
-    let $nodes := $element/node()
-    let $fieldsMap := map:new(
-        for $fieldName in $fieldNames
+declare function local:update-resp($tei as element(tei:TEI)) {
+    let $header := $tei/tei:teiHeader
+    let $fileDesc := $header/tei:fileDesc
+    let $titleStmt := $fileDesc/tei:titleStmt
+    let $respStmts := 
+        for $respStmt in $titleStmt/tei:respStmt
+        let $key := string($respStmt/tei:resp/@key)
+        let $resp := normalize-space($respStmt/tei:resp/text())
+        let $name := normalize-space($respStmt/tei:name/text())
         return
-            map:entry($fieldName, 
-                for $node at $pos in $nodes
-                return
-                    if ($node instance of element() and local-name($node) eq $fieldName) then
-                        $pos
-                    else
-                        ()
-            )
-    )
-    let $startFunc := function($pos as xs:integer) as xs:integer {
-        if ($pos eq 1) then 
-            1 
-        else 
-            let $prevLocs := for $n in (1 to $pos - 1) return $fieldsMap($fieldNames[$n])[last()]
-            return
-                if (exists($prevLocs)) then $prevLocs[last()] + 1 else 1
-    }
-    let $newNodes := 
-        for $fieldName at $pos in $fieldNames
-        let $newElement := $newElements[local-name() eq $fieldName]
-        
-        let $locs := $fieldsMap($fieldName)
-        let $oldElement := 
-            if (empty($locs)) then
-                ()
-            else if (count($locs) eq 1) then
-                $nodes[$locs[1]]
-            else
-                subsequence($nodes, $locs[1], ($locs[last()] - $locs[1]) + 1)
-        
-        let $updatedElement := 
-            if (exists($newElement)) then 
-            (
-                $newElement,
-                $oldElement except $oldElement[local-name() eq $fieldName]
-            )
-            else 
-                $oldElement
-        
-        let $prevNodes := 
-            if (empty($locs)) then
-                ()
-            else
-                let $start := $startFunc($pos)
-                return
-                    subsequence($nodes, $start, $locs[1] - $start)
+            switch(true())
+            case contains($name, "Jamie") return
+                teix:respStmt("trc", "JN", "Jamie Nelemans", "Transcriber")
+            default return
+                teix:respStmt($key, "MJO", "Mike Olson", $resp)
+    let $titleStmt := teix:update-titleStmt($titleStmt, $respStmts)
+    let $fileDesc := teix:update-fileDesc($fileDesc, $titleStmt)
+    let $changes := 
+        for $respStmt in $respStmts
         return
-            ( $prevNodes, $updatedElement )
+            switch($respStmt/tei:resp/@key) 
+            case "trc" return 
+                teix:change(
+                    "transcribed", 
+                    "Transcribed from facsimile", 
+                    substring-after($respStmt/tei:name/@ref, "_"), 
+                    dateTime(xs:date("2014-01-01"), xs:time("00:00:00"))
+                )
+            default return
+                teix:change(
+                    "corrected", 
+                    "Corrected from facsimile", 
+                    substring-after($respStmt/tei:name/@ref, "_"), 
+                    dateTime(xs:date("2015-01-01"), xs:time("00:00:00"))
+                )
+    let $revisionDesc := teix:update-revisionDesc($changes, $header/tei:revisionDesc)
+    let $header := teix:update-teiHeader($header, ($fileDesc, $revisionDesc))
     return
-        element { node-name($element) } {
-            $element/@*,
-            $newNodes,
-            subsequence($nodes, $startFunc(count($fieldNames) + 1))
-        }
+        teix:update-TEI($tei, $header)
 };
 
 let $headerFieldNames := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc")
@@ -111,22 +91,25 @@ let $transToGet := utils:parse-tab-file($transToGetPath)
 let $basenames := for $file in $transFiles return file:base-name($file, $fileExtension)
 let $transDocs := collection($transPath)[exists(tei:TEI) and utils:get-file-basenames(.)]:)
 return (
-    document {
-        element transcriptions {
-(:            local:update-content-ordered($testHeader, $headerFieldNames, (<profileDesc/>, <fileDesc/>, <encodingDesc/>)):)
-            teix:update-teiHeader((<fileDesc/>, <encodingDesc/>, <profileDesc/>), $testHeader)
-            (:for tumbling window $window in $testHeader/node()
-            start $first at $firstLoc when true()
-            end $last at $lastLoc when contains($last, "}")
-            return
-                for $n in ($firstLoc to $lastLoc) return $n:)
-                    
-            (:for $name in utils:get-file-basenames($transDocs)
-            order by $name
-            return (
-                element basename { $name }
-            ):)
-        }
+    
+(:    local:update-resp(doc("/home/mike/Amsterdam/corpus/UA_00067_Huydecoper_00041_0000000001.xml")/tei:TEI):)
+
+
+(:    doc("/home/mike/Downloads/INL-Tagged_SAA_00231_Marquette_00366_0000000071.xml"):)
+(:    doc("/home/mike/Downloads/INL-Tagged_SAA_00231_Marquette_00366_0000000071.xml")//tei:w[contains(string-join(text(), ""), "vande")]:)
+
+    element category {
+        attribute xml:id { "AMST_GROUPS" },
+        for $family in distinct-values($transToGet/Family/normalize-space(text()))
+        return
+            <category xml:id="{replace($family, "\s+", "_")}">
+                <catDesc>{$family}</catDesc>
+            </category> 
+        (:for $name in utils:get-file-basenames($transDocs)
+        order by $name
+        return (
+            element basename { $name }
+        ):)
     }
 )
     

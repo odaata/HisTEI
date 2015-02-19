@@ -32,9 +32,13 @@ declare variable $txt:CERTAINTY := map {
     "high" := "^"
 };
 
+declare function txt:id-as-label($id as xs:string?) as xs:string? {
+   replace($id, "_", " ") 
+};
+
 declare function txt:category($category as element(tei:category)) as xs:string+ {
     (
-       string(replace($category/@xml:id, "_", " ")), 
+       txt:id-as-label($category/@xml:id), 
        string(normalize-space($category/tei:catDesc/text()))
     )
 };
@@ -157,6 +161,18 @@ declare function txt:year($date as xs:string?) as xs:integer? {
         xs:integer(substring($date, 1, 4))
     else
         ()
+};
+
+declare function txt:status($tei as element(tei:TEI)*) as xs:string* {
+    for $doc in $tei
+    let $revisionDesc := $doc//tei:revisionDesc[1]
+    return
+        if (exists($revisionDesc/@status)) then
+            string($revisionDesc/@status)
+        else
+            let $changes := for $change in $revisionDesc/tei:change order by $change/@when return $change
+            return
+                string($changes[last()]/@status)
 };
 
 (: Functions for processing mixed-content text nodes :)

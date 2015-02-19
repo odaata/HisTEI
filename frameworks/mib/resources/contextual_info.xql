@@ -4,10 +4,6 @@ import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xq
 
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
-declare namespace map="http://www.w3.org/2005/xpath-functions/map";
-
-(:declare variable $quote := "&#34;";:)
-
 declare function local:list($list as element()) as element(item)* {
     for $node in $list/element()
     let $id := data($node/@xml:id)
@@ -73,15 +69,19 @@ declare function local:interpGrp($nodes as element(tei:interpGrp)+) as element(i
 };
 
 let $taxonomy := //tei:classDecl/tei:taxonomy[1]
-let $interpGrps := //tei:interpGrp
+let $interpGrps := //tei:back//tei:interpGrp
 let $items := 
     switch(true())
     case exists($taxonomy/tei:category) return 
-(:    if (exists($taxonomy/tei:category)) then:)
-        local:taxonomy($taxonomy)
+        let $items := local:taxonomy($taxonomy)
+        let $schemeItems := 
+            for $scheme in distinct-values($items/@type)
+            return
+                local:item($scheme, "scheme", txt:id-as-label($scheme), ())
+        return
+            ( $schemeItems, $items )
     case exists($interpGrps) return
         local:interpGrp($interpGrps)
-(:    else:)
     default return 
         local:list(//tei:body)
 return

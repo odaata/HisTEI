@@ -1169,6 +1169,10 @@
     <key value="catRef.label">
         <val lang="en_US">Genre</val>
     </key>
+    
+    <key value="scheme.label">
+        <val lang="en_US">Scheme</val>
+    </key>
 
     <key value="handNote.label">
         <val lang="en_US">Hand</val>

@@ -32,9 +32,13 @@ declare variable $txt:CERTAINTY := map {
     "high" := "^"
 };
 
+declare function txt:id-as-label($id as xs:string?) as xs:string? {
+   replace($id, "_", " ") 
+};
+
 declare function txt:category($category as element(tei:category)) as xs:string+ {
     (
-       string(replace($category/@xml:id, "_", " ")), 
+       txt:id-as-label($category/@xml:id), 
        string(normalize-space($category/tei:catDesc/text()))
     )
 };

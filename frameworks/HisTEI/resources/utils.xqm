@@ -14,6 +14,10 @@ declare namespace tei="http://www.tei-c.org/ns/1.0";
 
 declare namespace decoder="java:java.net.URLDecoder";
 
+(: Errors :)
+(: Raised by utils:update-content-ordered() if no fieldNames are provided either as xs:string+ or map(xs:string, xs:string+) :)
+declare variable $utils:NO_FIELD_NAMES_ERROR := QName("http://histei.info/xquery/utils/error", "NoFieldNamesError");
+
 declare variable $utils:OUTPUT_NO_INDENT := <output:serialization-parameters><output:indent value="no"/></output:serialization-parameters>;
 declare variable $utils:DEFAULT_OUTPUT := $utils:OUTPUT_NO_INDENT;
 
@@ -199,8 +203,7 @@ declare function utils:saxon-collection-uri($path as xs:anyAtomicType?, $recurse
         let $unparsed := if ($unparsed) then "unparsed=yes" else ()
         let $queryParms := string-join(( $recurseParm, $selectParm, $unparsed ), ";")
         
-        let $uri := if ($path instance of xs:anyURI) then $path else utils:path-to-uri(string($path))
-        let $uri := utils:path-to-uri(utils:get-dir-path($uri))
+        let $uri := utils:path-to-uri(utils:get-dir-path($path))
         return
             if (exists($uri)) then
                 xs:anyURI(concat($uri, "?", $queryParms))
@@ -414,14 +417,26 @@ declare function utils:update-attributes($element as element(), $newAttributes a
  : - Items being added take precedence over older nodes and therefore come first in the output
  : 
  : @param $element element() node with ordered sub-elements to be updated
- : @param $fieldNames Ordered set of all possible element names that could appear beneath the main element() node 
+ : @param $fieldNames Ordered set of all possible element names that could appear beneath the main element() node.
+ :  Either a set of at least one string, i.e. xs:string+ or a map using the element() node's local-name as the key 
+ :  with the value being the ordered set of element names, i.e. map(xs:string, xs:string+) 
  : @param $newElements Set of new element() nodes to update the existing content with
  : @return New element() node containing updated content in the order of $fieldNames, 
- :  with $newElements replacing the original element where present 
+ :  with $newElements replacing the original element where present
+ : @error If $fieldNames is neither of type xs:string+ nor map(xs:string, xs:string+), a NoFieldNamesError is thrown
 :)
-declare function utils:update-content-ordered($element as element(), $fieldNames as xs:string+, 
+declare function utils:update-content-ordered($element as element(), $fieldNames as item()+, 
                                                             $newElements as element()*) as element() {
     let $nodes := $element/node()
+    let $fieldNames := 
+        if ($fieldNames instance of xs:string+) then
+            $fieldNames
+        else if ($fieldNames instance of map(xs:string, xs:string+)) then
+            $fieldNames(local-name($element))
+        else
+            error($utils:NO_FIELD_NAMES_ERROR, concat("No valid fieldNames were provided! ",
+                "The $fieldNames variable must be either xs:string+ or map(xs:string, xs:string+)."))
+    
     let $fieldsMap := map:new(
         for $fieldName in $fieldNames
         return
@@ -480,6 +495,10 @@ declare function utils:update-content-ordered($element as element(), $fieldNames
             subsequence($nodes, $startFunc(count($fieldNames) + 1))
         }
 };
+
+
+
+
 
 
 

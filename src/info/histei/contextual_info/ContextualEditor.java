@@ -30,6 +30,8 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
 //    private static final Logger logger = Logger.getLogger(ContextualEditor.class.getName());
 
     public final static String PROPERTY_SHOW_BUTTON = "showButton";
+    public final static String PROPERTY_CONTEXTUAL_INFO = "contextual_type";
+    public final static String PROPERTY_FILTER_TYPE = "contextual_filter";
 
     private final static int VGAP = 0;  // vertical gap in panel layout
     private final static int HGAP = 7;  // horizontal gap
@@ -55,7 +57,6 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
             @Override
             public void focusLost(FocusEvent e) {
                 fireCommitValue(getEditingEvent());
-//                stopEditing();
             }
         });
 
@@ -118,12 +119,14 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
 
         int width = preferredSize.width;
 
-        Integer columns = (Integer) context.getArguments().get(InplaceEditorArgumentKeys.PROPERTY_COLUMNS);
+//        Using the columns property blows up, so removing for now
+/*        String columnsProp = getArgument(context, InplaceEditorArgumentKeys.PROPERTY_COLUMNS);
+        Integer columns = columnsProp.isEmpty() ? null : Integer.parseInt(columnsProp);
         if (columns != null && columns > 0) {
             FontMetrics fontMetrics = comboBox.getFontMetrics(comboBox.getFont());
             width = (columns * fontMetrics.charWidth('w'));
 //            comboBox.setWidthChars(columns);
-        }
+        }*/
         // Add width for button and gap
         width += HGAP + editButton.getPreferredSize().width;
 //        int width = comboBox.getPreferredSize().width + HGAP + editButton.getPreferredSize().width;
@@ -209,26 +212,34 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
     public ContextualInfo getContextualInfo(AuthorInplaceContext context) {
         ContextualInfo info = null;
 
-        ContextualAttribute attribute = ContextualAttribute.get(context);
-        if (attribute != null) {
-            info = ContextualInfo.get(attribute.getContextualType());
+        ContextualType contextualType = ContextualType.get(getArgument(context, PROPERTY_CONTEXTUAL_INFO));
+        if (contextualType != null) {
+            info = ContextualInfo.get(contextualType);
         }
         return info;
+    }
+
+    @NotNull
+    public String getTypeFilter(AuthorInplaceContext context) {
+        return getArgument(context, PROPERTY_FILTER_TYPE);
+    }
+
+    @NotNull
+    public String getArgument(AuthorInplaceContext context, String key) {
+        return StringUtils.trimToEmpty((String) context.getArguments().get(key));
     }
 
     private void prepareComponents(AuthorInplaceContext context) {
         List<ContextualItem> items = new ArrayList<>();
 
-        ContextualAttribute attribute = ContextualAttribute.get(context);
-        if (attribute != null) {
-            ContextualInfo info = ContextualInfo.get(attribute.getContextualType());
-
-            items = info.getItems(attribute.getTypeFilter());
+        ContextualInfo info = getContextualInfo(context);
+        if (info != null) {
+            items = info.getItems(getTypeFilter(context));
         }
 
         comboBox.setItems(items);
 
-        String value = StringUtils.trimToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.INITIAL_VALUE));
+        String value = getArgument(context, InplaceEditorArgumentKeys.INITIAL_VALUE);
         ContextualItem foundItem = null;
 
         if (!value.isEmpty()) {
@@ -245,7 +256,7 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
             comboBox.setSelectedIndex(-1);
         }
 
-        String fontInheritProperty = StringUtils.trimToEmpty((String) context.getArguments().get(InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT));
+        String fontInheritProperty = getArgument(context, InplaceEditorArgumentKeys.PROPERTY_FONT_INHERIT);
         boolean fontInherit = !fontInheritProperty.isEmpty() && Boolean.parseBoolean(fontInheritProperty);
         ro.sync.exml.view.graphics.Font font = context.getStyles().getFont();
         java.awt.Font currentFont = fontInherit ? new java.awt.Font(font.getName(), font.getStyle(), font.getSize()) : defaultFont;
@@ -255,7 +266,7 @@ public class ContextualEditor extends AbstractInplaceEditor implements InplaceRe
 
         InplaceEditorUtil.relayout(comboBox, context);
 
-        String showButtonProperty = StringUtils.trimToEmpty((String) context.getArguments().get(PROPERTY_SHOW_BUTTON));
+        String showButtonProperty = getArgument(context, PROPERTY_SHOW_BUTTON);
         boolean showButton = showButtonProperty.isEmpty() || Boolean.parseBoolean(showButtonProperty);
         editButton.setVisible(showButton);
 

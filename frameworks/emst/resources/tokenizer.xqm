@@ -486,22 +486,12 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
     )
 };
 
- declare %private function tok:update-extent($wordCount as xs:integer, $extent as element(extent)?) as element(extent) {
-    let $measure := <measure quantity="{$wordCount}" unit="words">{$wordCount} words</measure>
-    let $newContents := $extent/node() except $extent/measure[@unit eq "words"]
-    return
-        if (exists($extent)) then
-            utils:replace-content($extent, ($newContents, $measure) )
-        else
-            element extent { $measure }
-};
-
  declare %private function tok:update-header($tei as element(TEI), $userID as xs:string?) as element(TEI) {
     let $wordCount := count($tei//w | $tei//num)
     
     let $teiHeader := $tei/teiHeader[1]
     let $fileDesc := $teiHeader/fileDesc[1]
-    let $extent := tok:update-extent($wordCount, $fileDesc/extent[1])
+    let $extent := teix:update-extent($wordCount, "words", $fileDesc/extent[1])
     
     let $fileDescContents := $fileDesc/node() except $fileDesc/extent
     let $pubStmtPos := index-of($fileDescContents, ($fileDesc/publicationStmt | $fileDesc/sourceDesc)[1])

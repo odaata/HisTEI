@@ -941,44 +941,6 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>contextual.info.edit</String>
-										</field>
-										<field name="name">
-											<String>${i18n(contextual.info.edit)}</String>
-										</field>
-										<field name="description">
-											<String>${i18n(contextual.info.edit_description)}</String>
-										</field>
-										<field name="largeIconPath">
-											<String>${framework}/images/document_edit-20.png</String>
-										</field>
-										<field name="smallIconPath">
-											<String>${framework}/images/document_edit-16.png</String>
-										</field>
-										<field name="accessKey">
-											<String></String>
-										</field>
-										<field name="accelerator">
-											<null/>
-										</field>
-										<field name="actionModes">
-											<actionMode-array>
-												<actionMode>
-													<field name="xpathCondition">
-														<String>local-name() = ('persName','placeName','orgName','handNote','district','settlement','region','country','bloc','repository','catRef')</String>
-													</field>
-													<field name="argValues">
-														<serializableOrderedMap/>
-													</field>
-													<field name="operationID">
-														<String>info.histei.contextual_info.HTOpenContextualInfoOperation</String>
-													</field>
-												</actionMode>
-											</actionMode-array>
-										</field>
-									</action>
-									<action>
-										<field name="id">
 											<String>subscript</String>
 										</field>
 										<field name="name">
@@ -6488,7 +6450,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>

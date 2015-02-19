@@ -66,6 +66,6 @@ public class HTSchemaManagerFilter implements SchemaManagerFilter {
 
     @Override
     public String getDescription() {
-        return "Emerging Standards Schema Manager Filter.";
+        return "HisTEI Schema Manager Filter.";
     }
 }

@@ -590,7 +590,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/> ${caret}</String>
+																<String>&lt;gap xmlns="http://www.tei-c.org/ns/1.0"/>${caret}</String>
 															</entry>
 															<entry>
 																<String>goToNextEditablePosition</String>
@@ -1090,7 +1090,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;${ask('What kind of place would you like to insert?', combobox, ('district':'district'; 'settlement':'settlement'; 'region':'region'; 'country':'country'; 'bloc':'bloc'; 'placeName':'uncategorized';), 'settlement')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;${ask('What kind of place would you like to insert?', combobox, ('district':'District'; 'settlement':'Settlement'; 'region':'Region'; 'country':'Country'; 'bloc':'Bloc'; 'placeName':'Uncategorized';), 'settlement')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1620,19 +1620,19 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>div.address</String>
+											<String>address</String>
 										</field>
 										<field name="name">
-											<String>${i18n(div.address)}</String>
+											<String>${i18n(address)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(div.address_description)}</String>
+											<String>${i18n(address_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/div_address-20.png</String>
+											<String>${framework}/images/address-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/div_address-16.png</String>
+											<String>${framework}/images/address-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -1659,6 +1659,22 @@
 															<entry>
 																<String>insertPosition</String>
 																<String>Inside as first child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;address xmlns="http://www.tei-c.org/ns/1.0">&lt;addrLine>${caret}&lt;/addrLine> &lt;street>&lt;/street> &lt;settlement>&lt;/settlement>&lt;/address></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -3419,7 +3435,706 @@
 											</actionMode-array>
 										</field>
 									</action>
+                                    <action>
+										<field name="id">
+											<String>change</String>
+										</field>
+										<field name="name">
+											<String>${i18n(change)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(change_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/change-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/change-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;change xmlns="http://www.tei-c.org/ns/1.0" when="${date(yyyy-MM-dd'T'HH:mm:ss)}" who="psn:person_${userID}">${caret}&lt;/change></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//revisionDesc[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
 									<action>
+										<field name="id">
+											<String>title</String>
+										</field>
+										<field name="name">
+											<String>${i18n(title)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(title_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/title-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/title-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>a</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>element</String>
+																<String>&lt;title xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>number</String>
+										</field>
+										<field name="name">
+											<String>${i18n(number)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(number_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/number-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/number-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift M</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>element</String>
+																<String>&lt;num xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>measure</String>
+										</field>
+										<field name="name">
+											<String>${i18n(measure)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(measure_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/measure-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/measure-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<String>ctrl shift QUOTE</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:p</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>element</String>
+																<String>&lt;measure xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>revisonDesc</String>
+										</field>
+										<field name="name">
+											<String>${i18n(revisonDesc)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(revisonDesc_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;revisionDesc  xmlns="http://www.tei-c.org/ns/1.0">
+  &lt;change when="${date(yyyy-MM-dd'T'HH:mm:ss)}" who="psn:person_${userID}">${caret}&lt;/change>
+&lt;/revisionDesc></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String>//teiHeader[1]</String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as last child</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>list.editors</String>
+										</field>
+										<field name="name">
+											<String>${i18n(list.editors)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(list.editors_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/user_editor-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/user_editor-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq "listPerson" and local-name(./parent::*) eq "body"</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;listPerson  xmlns="http://www.tei-c.org/ns/1.0" type="editor">
+    &lt;person xml:id="person_INI">
+        &lt;persName>
+            &lt;forename>${caret}&lt;/forename>&lt;surname/>
+        &lt;/persName>
+    &lt;/person>
+&lt;/listPerson></String>
+															</entry>
+															<entry>
+																<String>goToNextEditablePosition</String>
+																<String>true</String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>After</String>
+															</entry>
+															<entry>
+																<String>schemaAware</String>
+																<String>true</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>address_line</String>
+										</field>
+										<field name="name">
+											<String>${i18n(address_line)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(address_line_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/address_line-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/address_line-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'address'</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>element</String>
+																<String>&lt;addrLine xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>street</String>
+										</field>
+										<field name="name">
+											<String>${i18n(street)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(street_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/street-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/street-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'address'</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>element</String>
+																<String>&lt;street xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>postbox</String>
+										</field>
+										<field name="name">
+											<String>${i18n(postbox)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(postbox_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/postbox-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/postbox-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'address'</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>element</String>
+																<String>&lt;postBox xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>postcode</String>
+										</field>
+										<field name="name">
+											<String>${i18n(postcode)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(postcode_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/postcode-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/postcode-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'address'</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>element</String>
+																<String>&lt;postCode xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>stamp</String>
+										</field>
+										<field name="name">
+											<String>${i18n(stamp)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(stamp_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/stamp-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/stamp-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() eq 'body'</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;div xmlns="http://www.tei-c.org/ns/1.0" type="stamp">&lt;p>&lt;lb/>${caret}&lt;/p>&lt;/div></String>
+															</entry>
+															<entry>
+																<String>insertLocation</String>
+																<String></String>
+															</entry>
+															<entry>
+																<String>insertPosition</String>
+																<String>Inside as first child</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>tokenizer.single</String>
+										</field>
+										<field name="name">
+											<String>${i18n(tokenizer.single)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(tokenizer.single_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/tokenizer-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/tokenizer-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>scenarioNames</String>
+																<String>tokenizer-single</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteTransformationScenariosOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>id.options</String>
+										</field>
+										<field name="name">
+											<String>${i18n(id.options)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(id.options_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String></String>
+										</field>
+										<field name="smallIconPath">
+											<String></String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap/>
+													</field>
+													<field name="operationID">
+														<String>info.histei.id.HTConfigureAutoIDElementsOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>generate.ids</String>
+										</field>
+										<field name="name">
+											<String>${i18n(generate.ids)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(generate.ids_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/generate_ids-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/generate_ids-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap/>
+													</field>
+													<field name="operationID">
+														<String>info.histei.id.GenerateIDsHTOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>tokenizer.collection</String>
+										</field>
+										<field name="name">
+											<String>${i18n(tokenizer.collection)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(tokenizer.collection_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/tokenizer_collection-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/tokenizer_collection-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String></String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>true()</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>scenarioNames</String>
+																<String>tokenizer-collection</String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.ExecuteTransformationScenariosOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+									</action>
+                                    <action>
 										<field name="id">
 											<String>report.lang.switches</String>
 										</field>
@@ -3724,16 +4439,6 @@
 																<String>note</String>
 															</field>
 														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>punctuation</String>
-															</field>
-														</menuItem>
-														<menuItem>
-															<field name="actionID">
-																<String>punctuation.supplied</String>
-															</field>
-														</menuItem>
 													</menuEntry-array>
 												</field>
 											</menu>
@@ -3780,9 +4485,15 @@
 																<String>forme.work</String>
 															</field>
 														</menuItem>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>formulaic</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>title</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -3799,6 +4510,12 @@
 														<menuItem>
 															<field name="actionID">
 																<String>signed</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>change</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -3830,13 +4547,24 @@
 														</menuItem>
 														<menuItem>
 															<field name="actionID">
-																<String>div.address</String>
+																<String>address</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>stamp</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>resp.stmt</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>revisonDesc</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -3869,20 +4597,72 @@
 																<String>person</String>
 															</field>
 														</menuItem>
+                                                        <menuItem>
+															<field name="actionID">
+																<String>org</String>
+															</field>
+														</menuItem>
 														<menuItem>
 															<field name="actionID">
 																<String>place</String>
 															</field>
 														</menuItem>
+                                                        <menuSeparator/>
+														<menu>
+															<field name="label">
+																<String>Addresses</String>
+															</field>
+															<field name="accessKey">
+																<String></String>
+															</field>
+															<field name="iconPath">
+																<String>${framework}/images/address-16.png</String>
+															</field>
+															<field name="menuEntriesDescriptorList">
+																<menuEntry-array>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>address</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>stamp</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>address_line</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>street</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>postbox</String>
+																		</field>
+																	</menuItem>
+																	<menuItem>
+																		<field name="actionID">
+																			<String>postcode</String>
+																		</field>
+																	</menuItem>
+																</menuEntry-array>
+															</field>
+														</menu>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
-																<String>org</String>
+																<String>facsimile.select.dir</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
-																<String>facsimile.select.dir</String>
+																<String>list.editors</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -3918,6 +4698,39 @@
 														<menuItem>
 															<field name="actionID">
 																<String>word</String>
+															</field>
+														</menuItem>
+                                                        <menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>punctuation</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>punctuation.supplied</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>number</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>measure</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
+														<menuItem>
+															<field name="actionID">
+																<String>tokenizer.single</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>tokenizer.collection</String>
 															</field>
 														</menuItem>
 														<menuSeparator/>
@@ -3960,6 +4773,31 @@
 														<menuItem>
 															<field name="actionID">
 																<String>gloss</String>
+															</field>
+														</menuItem>
+													</menuEntry-array>
+												</field>
+											</menu>
+                                            <menu>
+												<field name="label">
+													<String>IDs</String>
+												</field>
+												<field name="accessKey">
+													<String></String>
+												</field>
+												<field name="iconPath">
+													<String></String>
+												</field>
+												<field name="menuEntriesDescriptorList">
+													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>id.options</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>generate.ids</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -4251,16 +5089,6 @@
 														<String>note</String>
 													</field>
 												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>punctuation</String>
-													</field>
-												</toolbarItem>
-												<toolbarItem>
-													<field name="actionID">
-														<String>punctuation.supplied</String>
-													</field>
-												</toolbarItem>
 											</toolbarEntry-array>
 										</field>
 									</toolbar>
@@ -4310,9 +5138,15 @@
 														<String>forme.work</String>
 													</field>
 												</toolbarItem>
+												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
 														<String>formulaic</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>title</String>
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>
@@ -4329,6 +5163,12 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>signed</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>change</String>
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>
@@ -4375,13 +5215,24 @@
 															</toolbarItem>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>div.address</String>
+																	<String>address</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>stamp</String>
 																</field>
 															</toolbarItem>
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
 																	<String>resp.stmt</String>
+																</field>
+															</toolbarItem>
+															<toolbarSeparator/>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>revisonDesc</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
@@ -4420,20 +5271,75 @@
 														<String>person</String>
 													</field>
 												</toolbarItem>
+                                                <toolbarItem>
+													<field name="actionID">
+														<String>org</String>
+													</field>
+												</toolbarItem>
 												<toolbarItem>
 													<field name="actionID">
 														<String>place</String>
 													</field>
 												</toolbarItem>
+												<toolbarSeparator/>
+                                                <toolbar>
+													<field name="id">
+														<String>Addresses</String>
+													</field>
+													<field name="type">
+														<Integer>3</Integer>
+													</field>
+													<field name="largeIconPath">
+														<String>${framework}/images/address-20.png</String>
+													</field>
+													<field name="smallIconPath">
+														<String>${framework}/images/address-16.png</String>
+													</field>
+													<field name="toolbarEntriesDescriptorList">
+														<toolbarEntry-array>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>address</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>stamp</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>address_line</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>street</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>postbox</String>
+																</field>
+															</toolbarItem>
+															<toolbarItem>
+																<field name="actionID">
+																	<String>postcode</String>
+																</field>
+															</toolbarItem>
+														</toolbarEntry-array>
+													</field>
+												</toolbar>
+												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
-														<String>org</String>
+														<String>facsimile.select.dir</String>
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
-														<String>facsimile.select.dir</String>
+														<String>list.editors</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>
@@ -4472,6 +5378,39 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>word</String>
+													</field>
+												</toolbarItem>
+                                                <toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>punctuation</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>punctuation.supplied</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>number</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>measure</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
+												<toolbarItem>
+													<field name="actionID">
+														<String>tokenizer.single</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>tokenizer.collection</String>
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>
@@ -4596,6 +5535,264 @@
 					</field>
 					<field name="scenarios">
 						<scenario-array>
+                            <scenario>
+								<field name="advancedOptionsMap">
+									<null/>
+								</field>
+								<field name="name">
+									<String>tokenizer-single</String>
+								</field>
+								<field name="baseURL">
+									<String></String>
+								</field>
+								<field name="footerURL">
+									<String></String>
+								</field>
+								<field name="fOPMethod">
+									<String>pdf</String>
+								</field>
+								<field name="fOProcessorName">
+									<String>Apache FOP</String>
+								</field>
+								<field name="headerURL">
+									<String></String>
+								</field>
+								<field name="inputXSLURL">
+									<String>${framework}/resources/tokenizer-single.xql</String>
+								</field>
+								<field name="inputXMLURL">
+									<String>${currentFileURL}</String>
+								</field>
+								<field name="defaultScenario">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="isFOPPerforming">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="type">
+									<String>XML_XQUERY</String>
+								</field>
+								<field name="saveAs">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="openInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="outputFile">
+									<null/>
+								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
+								<field name="openOtherLocationInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="locationToOpenInBrowserURL">
+									<null/>
+								</field>
+								<field name="openInEditor">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="showInHTMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInXMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInSVGPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInResultSetPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useXSLTInput">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="xsltParams">
+									<list>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
+														<String>userID</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${userID}</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+									</list>
+								</field>
+								<field name="cascadingStylesheets">
+									<String-array/>
+								</field>
+								<field name="xslTransformer">
+									<String>Saxon-PE XQuery</String>
+								</field>
+								<field name="extensionURLs">
+									<String-array/>
+								</field>
+							</scenario>
+							<scenario>
+								<field name="advancedOptionsMap">
+									<null/>
+								</field>
+								<field name="name">
+									<String>tokenizer-collection</String>
+								</field>
+								<field name="baseURL">
+									<String></String>
+								</field>
+								<field name="footerURL">
+									<String></String>
+								</field>
+								<field name="fOPMethod">
+									<String>pdf</String>
+								</field>
+								<field name="fOProcessorName">
+									<String>Apache FOP</String>
+								</field>
+								<field name="headerURL">
+									<String></String>
+								</field>
+								<field name="inputXSLURL">
+									<String>${framework}/resources/tokenizer-collection.xql</String>
+								</field>
+								<field name="inputXMLURL">
+									<null/>
+								</field>
+								<field name="defaultScenario">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="isFOPPerforming">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="type">
+									<String>XML_XQUERY</String>
+								</field>
+								<field name="saveAs">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="openInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="outputFile">
+									<null/>
+								</field>
+								<field name="outputResource">
+									<null/>
+								</field>
+								<field name="openOtherLocationInBrowser">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="locationToOpenInBrowserURL">
+									<null/>
+								</field>
+								<field name="openInEditor">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="showInHTMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInXMLPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInSVGPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="showInResultSetPane">
+									<Boolean>false</Boolean>
+								</field>
+								<field name="useXSLTInput">
+									<Boolean>true</Boolean>
+								</field>
+								<field name="xsltParams">
+									<list>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
+														<String>teiURI</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${ask('Directory with TEI files to be tokenized.', url, '${pdu}')}</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
+														<String>tokenizedURI</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${ask('Directory for tokenized files.', url, '${pdu}')}</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+										<transformationParameter>
+											<field name="paramDescription">
+												<paramDescriptor>
+													<field name="localName">
+														<String>userID</String>
+													</field>
+													<field name="prefix">
+														<null/>
+													</field>
+													<field name="namespace">
+														<null/>
+													</field>
+												</paramDescriptor>
+											</field>
+											<field name="value">
+												<String>${userID}</String>
+											</field>
+											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+										</transformationParameter>
+									</list>
+								</field>
+								<field name="cascadingStylesheets">
+									<String-array/>
+								</field>
+								<field name="xslTransformer">
+									<String>Saxon-PE XQuery</String>
+								</field>
+								<field name="extensionURLs">
+									<String-array/>
+								</field>
+							</scenario>
 							<scenario>
 								<field name="advancedOptionsMap">
 									<null/>

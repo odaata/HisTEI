@@ -8,7 +8,7 @@
 
     <patternset id="framework.files">
         <exclude name="odd/"/>
-        <!--<exclude name="resources/"/>-->
+        <exclude name="resources/"/>
         <include name="resources/contextual_info.xql"/>
         <include name="resources/functx.xql"/>
         <include name="resources/report-corpus-all.xql"/>

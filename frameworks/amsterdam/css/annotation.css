@@ -78,14 +78,50 @@ w:focus:after {
     ;
 }
 
-cl:focus:after,
-phr:focus:after,
+cl:focus:after {
+    -oxy-append-content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ana"
+            contextual_type, "ann"
+            contextual_filter, "clause"
+        )
+    ;
+}
+
+phr:focus:after {
+    -oxy-append-content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ana"
+            contextual_type, "ann"
+            contextual_filter, "phrase"
+        )
+    ;
+}
+
 w:focus:after {
     -oxy-append-content: 
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@ana"
+            contextual_type, "ann"
+            contextual_filter, "pos"
+        )
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            color, white
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@type"
+            contextual_type, "ann"
+            contextual_filter, "word"
         )
     ;
 }
@@ -102,6 +138,8 @@ phr:focus:after {
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@function"
+            contextual_type, "ann"
+            contextual_filter, "function"
         )
     ;
 }

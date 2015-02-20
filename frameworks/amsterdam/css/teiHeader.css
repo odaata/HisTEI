@@ -156,10 +156,56 @@ creation > bloc {
 }
 
 /* Reference fields that use the HisTEI contextual editor */
-repository,
-creation > persName,
-creation > orgName,
-creation > placeName,
+repository {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "org"
+            contextual_filter, "repository"
+        )
+    ;
+}
+
+creation > persName {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "psn"
+        )
+    ;
+}
+
+creation > orgName {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "org"
+        )
+    ;
+}
+
+creation > placeName {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "plc"
+        )
+    ;
+}
+
+
 creation > district,
 creation > settlement,
 creation > region,
@@ -171,6 +217,26 @@ creation > bloc {
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@ref"
             fontInherit, true
+            contextual_type, "plc"
+            contextual_filter, oxy_name()
+        )
+    ;
+}
+
+/* Genres */
+catRef:before {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(scheme.label)}: "
+            styles, "@import 'labels_sub.css';"            
+        )
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@scheme"
+            fontInherit, true
+            contextual_type, "gen"
+            contextual_filter, "scheme"
         )
     ;
 }
@@ -182,6 +248,21 @@ catRef {
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@target"
             fontInherit, true
+            contextual_type, "gen"
+            contextual_filter, "EMST_GENRES"
+        )
+    ;
+}
+
+catRef[scheme] {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@target"
+            fontInherit, true
+            contextual_type, "gen"
+            contextual_filter, oxy_replace(attr(scheme, string, ""), "gen:", "")
         )
     ;
 }
@@ -272,6 +353,7 @@ handNote {
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor"
             edit, "@scribeRef"
             fontInherit, true
+            contextual_type, "psn"
         )
     ;
 }
@@ -359,6 +441,8 @@ change {
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor"
             edit, "@who"
             fontInherit, true
+            contextual_type, "psn"
+            contextual_filter, "editor"
         )
     ;
 }

@@ -262,6 +262,8 @@ respStmt > name {
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@ref"
             fontInherit, true
+            contextual_type, "psn"
+            contextual_filter, "editor"
         )
     ;
 }

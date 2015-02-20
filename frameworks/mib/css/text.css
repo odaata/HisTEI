@@ -225,12 +225,57 @@ div region:focus:after,
 div country:focus:after,
 div bloc:focus:after {
     padding-left: 2px;
+}
+
+div persName:focus:after {
     content: 
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@ref"
             fontInherit, true
+            contextual_type, "psn"
+        )
+    ;
+}
+
+div placeName:focus:after {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "plc"
+        )
+    ;
+}
+
+div orgName:focus:after {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "org"
+        )
+    ;
+}
+
+div district:focus:after,
+div settlement:focus:after,
+div region:focus:after,
+div country:focus:after,
+div bloc:focus:after {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "plc"
+            contextual_filter, oxy_name()
         )
     ;
 }

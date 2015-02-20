@@ -531,6 +531,11 @@ sex {
 
 /* Place */
 
+desc district:focus:after,
+desc settlement:focus:after,
+desc region:focus:after,
+desc country:focus:after,
+desc bloc:focus:after,
 district,
 settlement,
 region,
@@ -542,6 +547,8 @@ bloc {
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@ref"
             fontInherit, true
+            contextual_type, "plc"
+            contextual_filter, oxy_name()
         )
     ;
 }
@@ -611,12 +618,44 @@ desc region:focus:after,
 desc country:focus:after,
 desc bloc:focus:after {
     padding-left: 2px;
+}
+
+desc persName:focus:after {
     content: 
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
             edit, "@ref"
             fontInherit, true
+            contextual_type, "psn"
         )
     ;
 }
+
+desc orgName:focus:after {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "org"
+        )
+    ;
+}
+
+desc placeName:focus:after {
+    content: 
+        oxy_editor(
+            rendererClassName, "info.histei.contextual_info.ContextualEditor",
+            swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
+            edit, "@ref"
+            fontInherit, true
+            contextual_type, "plc"
+        )
+    ;
+}
+
+
+
+

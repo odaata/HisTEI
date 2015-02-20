@@ -19,7 +19,6 @@
         <include name="resources/report-corpus-all.xql"/>
         <include name="resources/tei.xqm"/>
         <include name="resources/tei2text.xqm"/>
-        <include name="resources/tokenizer.xql"/>
         <include name="resources/tokenizer.xqm"/>
         <include name="resources/tokenizer-collection.xql"/>
         <include name="resources/tokenizer-single.xql"/>

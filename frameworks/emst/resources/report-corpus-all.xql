@@ -25,6 +25,7 @@ xquery version "3.0";
  : - Notes
  :)
 
+import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xqm";
 import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
@@ -35,6 +36,7 @@ declare variable $contextualInfoURI as xs:anyURI external;
 
 declare function local:report() as element(corpusAll) {
     element corpusAll {
+        let $conInfoMap := teix:get-contextual-info-docs($contextualInfoURI)
         for $doc in collection(utils:saxon-collection-uri($teiURI))[exists(tei:TEI)]
         let $docURI := document-uri($doc)
         let $tei := $doc/tei:TEI[1]
@@ -87,7 +89,7 @@ let $testDoc := concat($teiURI, "/SAA_00231_Marquette_00366_0000000071.xml")
 let $docs := collection(utils:saxon-collection-uri($teiURI))[exists(tei:TEI)]
 let $conInfoDocs := collection(utils:saxon-collection-uri($contextualInfoURI))[exists(tei:TEI)]
 return
-    local:get-creation-types($teiURI)
+    local:get-creation-types()
     (:element places {
         for $place in txt:get-places($docs/tei:TEI//*)
         order by local-name($place)

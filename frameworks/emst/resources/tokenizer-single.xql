@@ -12,7 +12,6 @@ import module namespace tok="http://histei.info/xquery/tei/tokenizer" at "tokeni
 declare default element namespace "http://www.tei-c.org/ns/1.0";
 
 declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
-declare option output:omit-xml-declaration "no";
 declare option output:indent "no";
 
 declare variable $userID as xs:string external := "";

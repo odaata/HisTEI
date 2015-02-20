@@ -24,15 +24,6 @@ declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map
     "textClass" := ("classCode", "catRef", "keywors")
 };
 
-(:declare %private variable $teix:HEADER_FIELDS := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc");
-declare %private variable $teix:FILE_DESC_FIELDS := 
-    ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc");
-declare %private variable $teix:PROFILE_DESC_FIELDS := 
-    ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes");
-
-declare %private variable $teix:TITLE_STMT_FIELDS :=
-    ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal");:)
-
 declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
 declare %private variable $teix:DEFAULT_FILE_DESC := <fileDesc>{$teix:DEFAULT_TITLE_STMT}<publicationStmt/><sourceDesc/></fileDesc>;
 declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
@@ -279,4 +270,33 @@ declare function teix:format-context-info-ref($type as xs:string, $id as xs:stri
 declare function teix:format-context-info-ref($type as xs:string, $id as xs:string?) as xs:string? {
     teix:format-context-info-ref($type, $id, ())
 };
+
+declare function teix:get-xml-id-from-ref($ref as xs:string?) as xs:string? {
+    $ref
+};
+
+declare function teix:get-contextual-info-docs($contextualInfoPath as xs:anyAtomicType?) as map(xs:string, document-node()) {
+    let $uri := utils:saxon-collection-uri($contextualInfoPath, false())
+    return
+        map:new(
+            if (empty($uri)) then 
+                ()
+            else
+                for $doc in collection($uri)[exists(TEI)]
+                let $key := utils:get-file-basenames($doc)
+                return
+                    if (empty($key) and $key ne "") then
+                        ()
+                    else
+                        map:entry($key, $doc)
+        )
+};
+
+
+
+
+
+
+
+
 

@@ -11,6 +11,7 @@
         <!--<exclude name="resources/"/>-->
         <include name="resources/contextual_info.xql"/>
         <include name="resources/functx.xql"/>
+        <include name="resources/report-corpus-all.xql"/>
         <include name="resources/tei.xqm"/>
         <include name="resources/tei2text.xqm"/>
         <include name="resources/tokenizer.xql"/>

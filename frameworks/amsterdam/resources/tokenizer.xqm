@@ -526,6 +526,42 @@ declare function tok:tokenize($teiElements as element(TEI)*) as element(TEI)* {
     tok:tokenize($teiElements)
 };
 
+declare function tok:tokenize-collection($teiURI as xs:anyAtomicType, $tokenizedURI as xs:anyAtomicType, $userID as xs:string?) as element() {
+    let $teiPath := utils:get-dir-path($teiURI)
+    let $tokenizedPath := utils:get-dir-path($tokenizedURI)
+    return
+        utils:element-NS("tokenizedFiles",
+            (
+                utils:attribute-NS("userID", $userID),
+                if (exists($teiPath) and exists($tokenizedPath)) then
+                    let $docs := collection(utils:saxon-collection-uri($teiPath))[exists(TEI)]
+                    return
+                    (
+                        utils:attribute-NS("teiPath", $teiPath),
+                        utils:attribute-NS("tokenizedPath", $tokenizedPath),
+                        utils:attribute-NS("total", count($docs)),
+                        for $doc in $docs
+                        let $tokenizedTrans := tok:tokenize($doc/TEI[1], $userID)
+                        let $newFilePath := utils:write-transformation($teiPath, $tokenizedPath, $doc, $tokenizedTrans)
+                        order by $newFilePath
+                        return
+                            utils:element-NS("file", ( 
+                                utils:element-NS("path", $newFilePath),
+                                utils:element-NS("wordCount", data($tokenizedTrans//fileDesc/extent/measure[@unit eq "words"]/@quantity[1]) )
+                            ))
+                    )
+                else
+                (
+                    utils:element-NS("transDir", ( utils:attribute-NS("invalid", empty($teiPath)), $teiURI )),
+                    utils:element-NS("tokenizedDir", ( utils:attribute-NS("invalid", empty($tokenizedPath) ), $tokenizedURI )),
+                    utils:element-NS("error", "The provided directories are invalid!" )
+                )
+            )
+        )
+};
+
+
+
 
 
 

@@ -25,11 +25,18 @@ declare variable $txt:wrappedElements := map{
 
 (: Functions for TEI fields :)
 
-declare variable $txt:CERTAINTY := map { 
+declare %private variable $txt:CERTAINTY := map { 
     "unknown" := "",
     "low" := "*",
     "medium" := "",
     "high" := "^"
+};
+
+declare %private variable $txt:CREATION_TYPES := map {
+    "date" := ("sent", "written", "deposed"),
+    "org" := ("sender", "author", "deposition"),
+    "person" := ("sender", "author", "deponent"),
+    "place" := ("sent", "written", "deposed")
 };
 
 declare function txt:id-as-label($id as xs:string?) as xs:string? {
@@ -163,16 +170,59 @@ declare function txt:year($date as xs:string?) as xs:integer? {
         ()
 };
 
-declare function txt:status($tei as element(tei:TEI)*) as xs:string* {
+declare function txt:get-places($elements as element()*) as element()* {
+    $elements[local-name() = ("placename", "district", "settlement", "region", "tei:country", "bloc")]
+};
+
+(:~
+ : Returns one element for each entity located beneath the TEI creation element (i.e. date, org, person, place)
+ :  that represents the entity that was key in creating the document (e.g. for a letter the person where @type equals "sender")
+ : 
+ : @param $tei A single TEI element
+ : @return A set of maximum four elements, one for each entity below the TEI creation element, if present (i.e. date, org, person, place)
+:)
+declare function txt:creation($tei as element(tei:TEI)) {
+    let $creation := $tei/tei:teiHeader/tei:profileDesc/tei:creation[1]
+    return
+        if (empty($creation)) then
+            ()
+        else
+            let $filterFunc := function($elements as element()*, $creationType as xs:string) as element()? {
+                let $createdElements := $elements[@type = $txt:CREATION_TYPES($creationType)]
+                return
+                    if (empty($createdElements)) then $elements[empty(@type)][1] else $createdElements[1]
+            }
+            return (
+                $filterFunc($creation/tei:date, "date"),
+                $filterFunc($creation/tei:orgName, "org"),
+                $filterFunc($creation/tei:persName, "person"),
+                $filterFunc(txt:get-places($creation/*), "place")
+            )
+};
+
+(:~
+ : Returns the current status of the document as the latest TEI change element or
+ :  if status is set on the revisionDesc element, the latest TEI change element with the same status
+ :  otherwise, it returns the string value of the status attribute on the revisionDesc element
+ : 
+ : @param $tei One or more TEI elements
+ : @return Either the most recent TEI change element or a string with the document's global status, on revisionDesc
+:)
+declare function txt:status($tei as element(tei:TEI)*) {
     for $doc in $tei
     let $revisionDesc := $doc//tei:revisionDesc[1]
+    let $docStatus := $revisionDesc/@status
+    let $changes := for $change in $revisionDesc/tei:change order by $change/@when return $change
     return
-        if (exists($revisionDesc/@status)) then
-            string($revisionDesc/@status)
-        else
-            let $changes := for $change in $revisionDesc/tei:change order by $change/@when return $change
+        if (exists($docStatus) and $docStatus ne "") then
+            let $change := $changes[@status eq $docStatus][last()]
             return
-                string($changes[last()]/@status)
+                if (empty($change)) then
+                    $docStatus
+                else
+                    $change
+        else
+           $changes[last()]
 };
 
 (: Functions for processing mixed-content text nodes :)

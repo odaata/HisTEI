@@ -4563,16 +4563,16 @@
 											<String>tokenizer.collection</String>
 										</field>
 										<field name="name">
-											<String>${i18n(tokenizer.single)}</String>
+											<String>${i18n(tokenizer.collection)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(tokenizer.single_description)}</String>
+											<String>${i18n(tokenizer.collection_description)}</String>
 										</field>
 										<field name="largeIconPath">
-											<String>${framework}/images/tokenizer-20.png</String>
+											<String>${framework}/images/tokenizer_collection-20.png</String>
 										</field>
 										<field name="smallIconPath">
-											<String>${framework}/images/tokenizer-16.png</String>
+											<String>${framework}/images/tokenizer_collection-16.png</String>
 										</field>
 										<field name="accessKey">
 											<String></String>
@@ -4616,11 +4616,6 @@
 									</field>
 									<field name="menuEntriesDescriptorList">
 										<menuEntry-array>
-											<menuItem>
-												<field name="actionID">
-													<String>tokenizer.collection</String>
-												</field>
-											</menuItem>
 											<menu>
 												<field name="label">
 													<String>Formats</String>
@@ -5205,6 +5200,11 @@
 														<menuItem>
 															<field name="actionID">
 																<String>tokenizer.single</String>
+															</field>
+														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>tokenizer.collection</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -5924,6 +5924,11 @@
 												<toolbarItem>
 													<field name="actionID">
 														<String>tokenizer.single</String>
+													</field>
+												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>tokenizer.collection</String>
 													</field>
 												</toolbarItem>
 											</toolbarEntry-array>

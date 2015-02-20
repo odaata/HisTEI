@@ -593,6 +593,12 @@
     <key value="tokenizer.single_description">
         <val lang="en_US">Tokenize the current file. Annotate words, punctuation and numbers.</val>
     </key>
+    <key value="tokenizer.collection">
+        <val lang="en_US">Tokenize Collection</val>
+    </key>
+    <key value="tokenizer.collection_description">
+        <val lang="en_US">Tokenize an entire folder (and subfolders). Specify the directory where the TEI files are and the directory to save the tokenized results in.</val>
+    </key>
 
     <!-- Contextual Information -->
 

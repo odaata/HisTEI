@@ -13,26 +13,72 @@ declare default element namespace "http://www.tei-c.org/ns/1.0";
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace uuid="java:java.util.UUID";
 
+declare variable $teix:NS_TEI as xs:string := "http://www.tei-c.org/ns/1.0";
+
 declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map {
     "TEI" := ("teiHeader", "fsdDecl", "facsimile", "sourceDoc", "text"),
     "teiHeader" := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc"),
     "fileDesc" := ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc"),
     "profileDesc" := ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes"),
-    "titleStmt" := ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal")
+    "titleStmt" := ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal"),
+    "textClass" := ("classCode", "catRef", "keywors")
 };
 
-declare %private variable $teix:HEADER_FIELDS := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc");
+(:declare %private variable $teix:HEADER_FIELDS := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc");
 declare %private variable $teix:FILE_DESC_FIELDS := 
     ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc");
 declare %private variable $teix:PROFILE_DESC_FIELDS := 
     ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes");
 
 declare %private variable $teix:TITLE_STMT_FIELDS :=
-    ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal");
+    ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal");:)
 
 declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
 declare %private variable $teix:DEFAULT_FILE_DESC := <fileDesc>{$teix:DEFAULT_TITLE_STMT}<publicationStmt/><sourceDesc/></fileDesc>;
 declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
+
+declare %private variable $teix:DEFAULT_TEXT_CLASS := <textClass><catRef/></textClass>;
+declare %private variable $teix:DEFAULT_PROFILE_DESC := 
+    <profileDesc>
+        <creation>
+            <date/>
+            <persName/>
+            <settlement/>
+        </creation>
+        {$teix:DEFAULT_TEXT_CLASS}
+        <handNotes>
+            <handNote xml:id="hand_001"/>
+        </handNotes>
+    </profileDesc>;
+
+(: Generic XML Functions :)
+
+(:~
+ : Generate a new element with the given name within the TEI namespace
+ : - Convenience function for generating lots of TEI elements
+ : 
+ : @param $name name for the new element, including the optional prefix
+ : @param $content content to go inside the new element
+ : @return New element() node with the given name within the TEI namespace containing the supplied content
+:)
+declare function teix:element-tei($name as xs:string, $content) as element() {
+    utils:element-NS($name, $content, $teix:NS_TEI)
+};
+
+(:~
+ : Generate a new attribute with the given name within the TEI namespace
+ : - Convenience function for generating lots of TEI attributes
+ : 
+ : @param $name name for the new attribute, including the optional prefix
+ : @param $value the value for the new attribute
+ : @return New attribute() node with the given name within the TEI namespace containing the supplied value
+:)
+declare function teix:attribute-NS($name as xs:string, $value as xs:anyAtomicType?) as attribute()? {
+    if (empty($value) or string($value) eq "") then
+        ()
+    else
+        utils:attribute-NS($name, $value, $teix:NS_TEI)
+};
 
 (: Update any ordered TEI component using the $teix:ORDERED_ELEMENTS_MAP variable to select the fieldNames
     If no fieldNames are found, an error is thrown
@@ -40,6 +86,8 @@ declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFA
 declare function teix:update-tei-content-ordered($element as element(), $newElements as element()*) as element() {
     utils:update-content-ordered($element, $teix:ORDERED_ELEMENTS_MAP, $newElements)
 };
+
+(: Functions for specific TEI nodes starting with the entire document :)
 
 declare function teix:update-TEI($element as element(TEI), $newElements as element()*) as element(TEI) {
     teix:update-tei-content-ordered($element, $newElements)
@@ -82,7 +130,6 @@ declare function teix:respStmt($respKey as xs:string?, $userID as xs:string?,
     }
 };
 
-
 declare function teix:update-extent($quantity as xs:integer, $unit as xs:string, $extent as element(extent)?) as element(extent) {
     let $measure := <measure quantity="{$quantity}" unit="{$unit}">{concat($quantity, " ", $unit)}</measure>
     let $newContents := $extent/node() except $extent/measure[@unit eq $unit]
@@ -91,6 +138,28 @@ declare function teix:update-extent($quantity as xs:integer, $unit as xs:string,
             utils:replace-content($extent, ($newContents, $measure) )
         else
             element extent { $measure }
+};
+
+
+(: profileDesc :)
+
+declare function teix:update-profileDesc($profileDesc as element(profileDesc)?, $newElements as element()*) as element(profileDesc) {
+    let $profileDesc := if (empty($profileDesc)) then $teix:DEFAULT_PROFILE_DESC else $profileDesc
+    return
+        teix:update-tei-content-ordered($profileDesc, $newElements)
+};
+
+declare function teix:update-textClass($textClass as element(textClass)?, $newElements as element()*) as element(textClass) {
+    let $textClass := if (empty($textClass)) then $teix:DEFAULT_TEXT_CLASS else $textClass
+    return
+        teix:update-tei-content-ordered($textClass, $newElements)
+};
+
+declare function teix:catRef($targetID as xs:string?, $schemeID as xs:string?) as element(catRef) {
+    element catRef {
+        if ($schemeID ne "") then attribute scheme { teix:format-context-info-ref("gen", $schemeID) } else (),
+        if ($targetID ne "") then attribute target { teix:format-context-info-ref("gen", $targetID) } else ()
+    }
 };
 
 (: revisionDesc :)
@@ -192,6 +261,7 @@ declare function teix:word($content) as element(w)? {
 :)
 declare function teix:format-context-info-ref($type as xs:string, $id as xs:string?, $idSep as xs:string?) as xs:string? {
     if (exists($id)) then
+        let $id := replace(normalize-space($id), " ", "_")
         let $idSep := if (empty($idSep)) then "_" else $idSep
         let $idPrefix := 
             switch($type)

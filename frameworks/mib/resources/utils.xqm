@@ -375,6 +375,43 @@ declare function utils:non-empty-text-nodes($element as element()) as text()* {
 };
 
 (:~
+ : Generate a new element with the given name within the given namespace
+ : - If no namespace is given, an element in the 'empty' namespace is returned
+ : 
+ : @param $name name for the new element, including the optional prefix
+ : @param $content content to go inside the new element
+ : @param $namespace XML namespace for the new element, no namespace results in an element in the 'empty' namespace
+ : @return New element() node with the given name within the given namespace containing the supplied content
+:)
+declare function utils:element-NS($name as xs:string, $content, $namespace as xs:string?) as element() {
+    element { QName($namespace, $name) } { $content }
+};
+
+declare function utils:element-NS($name as xs:string, $content) as element() {
+    utils:element-NS($name, $content, ())
+};
+
+(:~
+ : Generate a new attribute with the given name within the given namespace
+ : - If no namespace is given, an attribute in the 'empty' namespace is returned
+ : 
+ : @param $name name for the new attribute, including the optional prefix
+ : @param $value the value for the new attribute
+ : @param $namespace XML namespace for the new attribute, no namespace results in an attribute in the 'empty' namespace
+ : @return New attribute() node with the given name within the given namespace containing the supplied value
+:)
+declare function utils:attribute-NS($name as xs:string, $value as xs:anyAtomicType?, $namespace as xs:string?) as attribute()? {
+    if (empty($value) or string($value) eq "") then
+        ()
+    else
+        attribute { QName($namespace, $name) } { $value }
+};
+
+declare function utils:attribute-NS($name as xs:string, $value as xs:anyAtomicType?) as attribute()? {
+    utils:attribute-NS($name, $value, ())
+};
+
+(:~
  : Transform an element by replacing its contents
  : - If new attributes are provided, existing attributes are overwritten, otherwise they are copied 
  : 

@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project name="frameworks" default="all">
 
-    <!--<property name="framework.HisTEI" value="${basedir}/HisTEI"/>
-    <property name="framework.emst" value="${basedir}/emst"/>
+    <property name="framework.HisTEI" value="${basedir}/HisTEI"/>
+    <!--<property name="framework.emst" value="${basedir}/emst"/>
     <property name="framework.amsterdam" value="${basedir}/amsterdam"/>
     <property name="framework.mib" value="${basedir}/mib"/>-->
 
@@ -33,16 +33,14 @@
     <macrodef name="copyFrameworkFiles"
               description="Copy framework files from HisTEI framework">
         <attribute name="framework.name"/>
+        <attribute name="framework.dir" default="${basedir}/@{framework.name}"/>
         <sequential>
-            <property name="framework.HisTEI" value="${basedir}/HisTEI"/>
-            <property name="framework.dir" value="${basedir}/@{framework.name}"/>
-
             <delete includeemptydirs="true" failonerror="true">
-                <fileset dir="${framework.dir}">
+                <fileset dir="@{framework.dir}">
                     <patternset refid="framework.files"/>
                 </fileset>
             </delete>
-            <copy todir="${framework.dir}"
+            <copy todir="@{framework.dir}"
                   preservelastmodified="true"
                   includeEmptyDirs="true"
                   failonerror="true">
@@ -51,11 +49,11 @@
                 </fileset>
             </copy>
             <delete includeemptydirs="true" failonerror="true">
-                <fileset dir="${framework.dir}">
+                <fileset dir="@{framework.dir}">
                     <patternset refid="resources.files"/>
                 </fileset>
             </delete>
-            <copy todir="${framework.dir}"
+            <copy todir="@{framework.dir}"
                   preservelastmodified="true"
                   includeEmptyDirs="true"
                   failonerror="true">
@@ -69,30 +67,31 @@
     <macrodef name="zipFramework"
               description="Zip the framework into an archive to be distributed">
         <attribute name="framework.name"/>
+        <attribute name="framework.temp.dir" default="${temp.dir}/@{framework.name}"/>
         <sequential>
-            <property name="framework.temp.dir" value="${temp.dir}/@{framework.name}"/>
-
-            <mkdir dir="${framework.temp.dir}"/>
-            <zip destfile="${framework.temp.dir}/@{framework.name}-oxygen.zip" duplicate="preserve">
+            <mkdir dir="@{framework.temp.dir}"/>
+            <zip destfile="@{framework.temp.dir}/@{framework.name}-oxygen.zip" duplicate="preserve">
                 <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="@{framework.name}"/>
                 <zipfileset dir="${basedir}/@{framework.name}" prefix="@{framework.name}"/>
             </zip>
             <copy file="${basedir}/@{framework.name}.xml"
-                  tofile="${framework.temp.dir}/@{framework.name}.xml"/>
+                  tofile="@{framework.temp.dir}/@{framework.name}.xml"/>
         </sequential>
     </macrodef>
     
     <macrodef name="copyToDist"
               description="Copy the newly created artifacts to the dist folder and delete temp directory">
         <attribute name="framework.name"/>
+        <attribute name="framework.temp.dir" default="${temp.dir}/@{framework.name}"/>
+        <attribute name="framework.dist.dir" default="${dist.dir}/@{framework.name}"/>
         <sequential>
-            <property name="framework.temp.dir" value="${temp.dir}/@{framework.name}"/>
-            <property name="framework.dist.dir" value="${dist.dir}/@{framework.name}"/>
+            <!--<property name="framework.temp.dir" value="${temp.dir}/@{framework.name}"/>
+            <property name="framework.dist.dir" value="${dist.dir}/@{framework.name}"/>-->
 
-            <mkdir dir="${framework.dist.dir}"/>
+            <mkdir dir="@{framework.dist.dir}"/>
 
-            <copy todir="${framework.dist.dir}">
-                <fileset dir="${framework.temp.dir}"/>
+            <copy todir="@{framework.dist.dir}">
+                <fileset dir="@{framework.temp.dir}"/>
             </copy>
         </sequential>
     </macrodef>

@@ -2,10 +2,6 @@
 <project name="frameworks" default="all">
 
     <property name="framework.HisTEI" value="${basedir}/HisTEI"/>
-    <!--<property name="framework.emst" value="${basedir}/emst"/>
-    <property name="framework.amsterdam" value="${basedir}/amsterdam"/>
-    <property name="framework.mib" value="${basedir}/mib"/>-->
-
     <property name="temp.dir" value="${basedir}/../__artifacts_temp"/>
     <property name="dist.dir" value="${basedir}/../dist"/>
 
@@ -30,8 +26,7 @@
         <include name="resources/utils.xqm"/>
     </patternset>
 
-    <macrodef name="copyFrameworkFiles"
-              description="Copy framework files from HisTEI framework">
+    <macrodef name="copyFrameworkFiles" description="Copy framework files from HisTEI framework">
         <attribute name="framework.name"/>
         <attribute name="framework.dir" default="${basedir}/@{framework.name}"/>
         <sequential>
@@ -64,8 +59,7 @@
         </sequential>
     </macrodef>
 
-    <macrodef name="zipFramework"
-              description="Zip the framework into an archive to be distributed">
+    <macrodef name="zipFramework" description="Zip the framework into an archive to be distributed">
         <attribute name="framework.name"/>
         <attribute name="framework.temp.dir" default="${temp.dir}/@{framework.name}"/>
         <sequential>
@@ -79,15 +73,11 @@
         </sequential>
     </macrodef>
     
-    <macrodef name="copyToDist"
-              description="Copy the newly created artifacts to the dist folder and delete temp directory">
+    <macrodef name="copyToDist" description="Copy the newly created artifacts to the dist folder and delete temp directory">
         <attribute name="framework.name"/>
         <attribute name="framework.temp.dir" default="${temp.dir}/@{framework.name}"/>
         <attribute name="framework.dist.dir" default="${dist.dir}/@{framework.name}"/>
         <sequential>
-            <!--<property name="framework.temp.dir" value="${temp.dir}/@{framework.name}"/>
-            <property name="framework.dist.dir" value="${dist.dir}/@{framework.name}"/>-->
-
             <mkdir dir="@{framework.dist.dir}"/>
 
             <copy todir="@{framework.dist.dir}">
@@ -96,7 +86,8 @@
         </sequential>
     </macrodef>
 
-    <target name="build.all.frameworks" description="Build an entire framework using the HisTEI">
+    <target name="build.all.frameworks"
+            description="Build all frameworks and copy them to the dist directory for distribution">
         <copyFrameworkFiles framework.name="emst"/>
         <copyFrameworkFiles framework.name="amsterdam"/>
         <copyFrameworkFiles framework.name="mib"/>
@@ -117,166 +108,6 @@
 
         <delete dir="${temp.dir}"/>
     </target>
-
-    <!--<target name="init.artifacts">
-        <property name="temp.dir" value="${basedir}/../__artifacts_temp"/>
-        <property name="dist.dir" value="${basedir}/../dist"/>
-        <mkdir dir="${temp.dir}"/>
-        <property name="temp.jar.path.HisTEI-oxygen.zip" value="${temp.dir}/HisTEI-oxygen.zip"/>
-        <property name="temp.jar.path.emst-oxygen.zip" value="${temp.dir}/emst-oxygen.zip"/>
-        <property name="temp.jar.path.amsterdam-oxygen.zip" value="${temp.dir}/amsterdam-oxygen.zip"/>
-        <property name="temp.jar.path.mib-oxygen.zip" value="${temp.dir}/mib-oxygen.zip"/>
-    </target>
-
-    <target name="artifact.HisTEI-oxygen" depends="init.artifacts" description="Build HisTEI-oxygen.zip">
-        <property name="artifact.temp.output.HisTEI-oxygen" value="${temp.dir}/HisTEI_oxygen"/>
-        <mkdir dir="${artifact.temp.output.HisTEI-oxygen}"/>
-        <zip destfile="${temp.jar.path.HisTEI-oxygen.zip}" duplicate="preserve">
-            <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="HisTEI"/>
-            <zipfileset dir="${basedir}/HisTEI" prefix="HisTEI"/>
-        </zip>
-        <copy file="${basedir}/HisTEI.xml"
-              tofile="${artifact.temp.output.HisTEI-oxygen}/HisTEI.xml"/>
-        <copy file="${temp.jar.path.HisTEI-oxygen.zip}"
-              tofile="${artifact.temp.output.HisTEI-oxygen}/HisTEI-oxygen.zip"/>
-    </target>
-
-    <target name="copy.emst.framework.files" depends="init.artifacts"
-            description="Copy supporting framework files for Amsterdam project">
-        <delete includeemptydirs="true" failonerror="true">
-            <fileset dir="${framework.emst}">
-                <patternset refid="framework.files"/>
-            </fileset>
-        </delete>
-        <copy todir="${framework.emst}"
-              preservelastmodified="true"
-              includeEmptyDirs="true"
-              failonerror="true">
-            <fileset dir="${framework.HisTEI}">
-                <patternset refid="framework.files"/>
-            </fileset>
-        </copy>
-        <delete includeemptydirs="true" failonerror="true">
-            <fileset dir="${framework.emst}">
-                <patternset refid="resources.files"/>
-            </fileset>
-        </delete>
-        <copy todir="${framework.emst}"
-              preservelastmodified="true"
-              includeEmptyDirs="true"
-              failonerror="true">
-            <fileset dir="${framework.HisTEI}">
-                <patternset refid="resources.files"/>
-            </fileset>
-        </copy>
-    </target>
-
-    <target name="artifact.emst-oxygen" depends="copy.emst.framework.files" description="Build emst-oxygen.zip">
-        <property name="artifact.temp.output.emst-oxygen" value="${temp.dir}/emst_oxygen"/>
-        <mkdir dir="${artifact.temp.output.emst-oxygen}"/>
-        <zip destfile="${temp.jar.path.emst-oxygen.zip}" duplicate="preserve">
-            <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="emst"/>
-            <zipfileset dir="${basedir}/emst" prefix="emst"/>
-        </zip>
-        <copy file="${basedir}/emst.xml"
-              tofile="${artifact.temp.output.emst-oxygen}/emst.xml"/>
-        <copy file="${temp.jar.path.emst-oxygen.zip}"
-              tofile="${artifact.temp.output.emst-oxygen}/emst-oxygen.zip"/>
-    </target>
-
-    <target name="copy.amsterdam.framework.files" depends="init.artifacts"
-            description="Copy supporting framework files for Amsterdam project">
-        <delete includeemptydirs="true" failonerror="true">
-            <fileset dir="${framework.amsterdam}">
-                <patternset refid="framework.files"/>
-            </fileset>
-        </delete>
-        <copy todir="${framework.amsterdam}"
-              preservelastmodified="true"
-              includeEmptyDirs="true"
-              failonerror="true">
-        <fileset dir="${framework.HisTEI}">
-                <patternset refid="framework.files"/>
-            </fileset>
-        </copy>
-    </target>
-
-    <target name="artifact.amsterdam-oxygen" depends="copy.amsterdam.framework.files"
-            description="Build amsterdam-oxygen.zip">
-        <property name="artifact.temp.output.amsterdam-oxygen" value="${temp.dir}/amsterdam_oxygen"/>
-        <mkdir dir="${artifact.temp.output.amsterdam-oxygen}"/>
-        <zip destfile="${temp.jar.path.amsterdam-oxygen.zip}" duplicate="preserve">
-            <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="amsterdam"/>
-            <zipfileset dir="${basedir}/amsterdam" prefix="amsterdam"/>
-        </zip>
-        <copy file="${basedir}/amsterdam.xml"
-              tofile="${artifact.temp.output.amsterdam-oxygen}/amsterdam.xml"/>
-        <copy file="${temp.jar.path.amsterdam-oxygen.zip}"
-              tofile="${artifact.temp.output.amsterdam-oxygen}/amsterdam-oxygen.zip"/>
-    </target>
-
-    <target name="copy.mib.framework.files" depends="init.artifacts"
-            description="Copy supporting framework files for Medieval Irish Bilingualism project">
-        <delete includeemptydirs="true" failonerror="true">
-            <fileset dir="${framework.mib}">
-                <patternset refid="framework.files"/>
-            </fileset>
-        </delete>
-        <copy todir="${framework.mib}"
-              preservelastmodified="true"
-              includeEmptyDirs="true"
-              failonerror="true">
-            <fileset dir="${framework.HisTEI}">
-                <patternset refid="framework.files"/>
-            </fileset>
-        </copy>
-    </target>
-
-    <target name="artifact.mib-oxygen" depends="copy.mib.framework.files"
-            description="Build mib-oxygen.zip">
-        <property name="artifact.temp.output.mib-oxygen" value="${temp.dir}/mib_oxygen"/>
-        <mkdir dir="${artifact.temp.output.mib-oxygen}"/>
-        <zip destfile="${temp.jar.path.mib-oxygen.zip}" duplicate="preserve">
-            <zipfileset dir="${basedir}/../" includes="LICENSE*" prefix="mib"/>
-            <zipfileset dir="${basedir}/mib" prefix="mib"/>
-        </zip>
-        <copy file="${basedir}/mib.xml"
-              tofile="${artifact.temp.output.mib-oxygen}/mib.xml"/>
-        <copy file="${temp.jar.path.mib-oxygen.zip}"
-              tofile="${artifact.temp.output.mib-oxygen}/mib-oxygen.zip"/>
-    </target>
-
-    <target name="build.all.artifacts" depends="artifact.HisTEI-oxygen, artifact.emst-oxygen, artifact.amsterdam-oxygen, artifact.mib-oxygen"
-            description="Build all artifacts">
-        <property name="dist.dir.HisTEI" value="${dist.dir}/HisTEI"/>
-        <property name="dist.dir.emst" value="${dist.dir}/emst"/>
-        <property name="dist.dir.amsterdam" value="${dist.dir}/amsterdam"/>
-        <property name="dist.dir.mib" value="${dist.dir}/mib"/>
-
-        <delete dir="${dist.dir}"/>
-
-        <mkdir dir="${dist.dir}"/>
-        <mkdir dir="${dist.dir.HisTEI}"/>
-        <mkdir dir="${dist.dir.emst}"/>
-        <mkdir dir="${dist.dir.amsterdam}"/>
-        <mkdir dir="${dist.dir.mib}"/>
-
-        <copy todir="${dist.dir.HisTEI}">
-            <fileset dir="${artifact.temp.output.HisTEI-oxygen}"/>
-        </copy>
-        <copy todir="${dist.dir.emst}">
-            <fileset dir="${artifact.temp.output.emst-oxygen}"/>
-        </copy>
-        <copy todir="${dist.dir.amsterdam}">
-            <fileset dir="${artifact.temp.output.amsterdam-oxygen}"/>
-        </copy>
-        <copy todir="${dist.dir.mib}">
-            <fileset dir="${artifact.temp.output.mib-oxygen}"/>
-        </copy>
-
-        &lt;!&ndash; Delete temporary files &ndash;&gt;
-        <delete dir="${temp.dir}"/>
-    </target>-->
 
     <target name="all" depends="build.all.frameworks"
             description="build all frameworks and copy them to the dist directory for distribution"/>

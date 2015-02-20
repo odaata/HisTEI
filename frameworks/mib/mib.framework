@@ -3435,7 +3435,7 @@
 											</actionMode-array>
 										</field>
 									</action>
-                                    <action>
+									<action>
 										<field name="id">
 											<String>change</String>
 										</field>
@@ -4134,7 +4134,7 @@
 											</actionMode-array>
 										</field>
 									</action>
-                                    <action>
+									<action>
 										<field name="id">
 											<String>report.lang.switches</String>
 										</field>
@@ -4597,7 +4597,7 @@
 																<String>person</String>
 															</field>
 														</menuItem>
-                                                        <menuItem>
+														<menuItem>
 															<field name="actionID">
 																<String>org</String>
 															</field>
@@ -4607,7 +4607,7 @@
 																<String>place</String>
 															</field>
 														</menuItem>
-                                                        <menuSeparator/>
+														<menuSeparator/>
 														<menu>
 															<field name="label">
 																<String>Addresses</String>
@@ -4700,7 +4700,7 @@
 																<String>word</String>
 															</field>
 														</menuItem>
-                                                        <menuSeparator/>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>punctuation</String>
@@ -4778,7 +4778,7 @@
 													</menuEntry-array>
 												</field>
 											</menu>
-                                            <menu>
+											<menu>
 												<field name="label">
 													<String>IDs</String>
 												</field>
@@ -5271,7 +5271,7 @@
 														<String>person</String>
 													</field>
 												</toolbarItem>
-                                                <toolbarItem>
+												<toolbarItem>
 													<field name="actionID">
 														<String>org</String>
 													</field>
@@ -5282,7 +5282,7 @@
 													</field>
 												</toolbarItem>
 												<toolbarSeparator/>
-                                                <toolbar>
+												<toolbar>
 													<field name="id">
 														<String>Addresses</String>
 													</field>
@@ -5380,7 +5380,7 @@
 														<String>word</String>
 													</field>
 												</toolbarItem>
-                                                <toolbarSeparator/>
+												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
 														<String>punctuation</String>
@@ -5535,7 +5535,7 @@
 					</field>
 					<field name="scenarios">
 						<scenario-array>
-                            <scenario>
+							<scenario>
 								<field name="advancedOptionsMap">
 									<null/>
 								</field>

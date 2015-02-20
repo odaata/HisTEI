@@ -43,32 +43,35 @@ declare function txt:id-as-label($id as xs:string?) as xs:string? {
    replace($id, "_", " ") 
 };
 
-declare function txt:category($category as element(tei:category)) as xs:string+ {
+declare function txt:category($category as element(tei:category)?) as xs:string* {
     (
        txt:id-as-label($category/@xml:id), 
-       string(normalize-space($category/tei:catDesc/text()))
+       normalize-space($category/tei:catDesc/text())
     )
 };
 
-declare function txt:place($place as element(tei:place)) as xs:string {
-    string(normalize-space($place/tei:placeName/text()))
+declare function txt:place($place as element(tei:place)?) as xs:string? {
+    normalize-space($place/tei:placeName/text())
 };
 
-declare function txt:org($org as element(tei:org)) as xs:string {
-    string(normalize-space($org/tei:orgName/text()))
+declare function txt:org($org as element(tei:org)?) as xs:string? {
+    normalize-space($org/tei:orgName/text())
 };
 
-declare function txt:person($person as element(tei:person)) as xs:string {
-    let $name := txt:name-info($person/tei:persName)
-    let $birth := txt:year-info($person/tei:birth)
-    let $death := txt:year-info($person/tei:death)
-    let $dates := 
-        if ($birth("year") or $death("year")) then 
-            concat("(", $birth("year"), "-", $death("year"), ")")
-        else 
-            ""
-    return
-        string-join(($name("forename"), $name("surname"), $dates), " ")
+declare function txt:person($person as element(tei:person)?) as xs:string? {
+    if (empty($person)) then
+        ()
+    else
+        let $name := txt:name-info($person/tei:persName)
+        let $birth := txt:year-info($person/tei:birth)
+        let $death := txt:year-info($person/tei:death)
+        let $dates := 
+            if ($birth("year") or $death("year")) then 
+                concat("(", $birth("year"), "-", $death("year"), ")")
+            else 
+                ""
+        return
+            string-join(($name("forename"), $name("surname"), $dates), " ")
 };
 
 declare function txt:name-info($persName as element(tei:persName)?) as map(xs:string, xs:string)? {

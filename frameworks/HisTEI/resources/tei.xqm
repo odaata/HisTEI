@@ -24,6 +24,16 @@ declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map
     "textClass" := ("classCode", "catRef", "keywors")
 };
 
+declare variable $teix:CON_INFO_TYPES := element contextualTypes {
+    element contextualType { attribute key { "psn" }, attribute file { "person.xml" }, attribute idPrefix { "person" } },
+    element contextualType { attribute key { "plc" }, attribute file { "place.xml" }, attribute idPrefix { "place" } },
+    element contextualType { attribute key { "org" }, attribute file { "org.xml" }, attribute idPrefix { "org" } },
+    element contextualType { attribute key { "gen" }, attribute file { "genre.xml" } },
+    element contextualType { attribute key { "ann" }, attribute file { "annotation.xml" } }
+};
+declare variable $teix:CON_INFO_REGEX := concat("(", string-join($teix:CON_INFO_TYPES/*/string(@key), "|"), "):(\S+)");
+
+
 declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
 declare %private variable $teix:DEFAULT_FILE_DESC := <fileDesc>{$teix:DEFAULT_TITLE_STMT}<publicationStmt/><sourceDesc/></fileDesc>;
 declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
@@ -251,28 +261,31 @@ declare function teix:word($content) as element(w)? {
  :  This return value can be saved to any TEI ref-like attribute (e.g. ref, scribeRef, who) 
 :)
 declare function teix:format-context-info-ref($type as xs:string, $id as xs:string?, $idSep as xs:string?) as xs:string? {
-    if (exists($id)) then
+    if (empty($id)) then
+        ()
+    else
         let $id := replace(normalize-space($id), " ", "_")
         let $idSep := if (empty($idSep)) then "_" else $idSep
-        let $idPrefix := 
-            switch($type)
-            case "psn" return "person"
-            case "plc" return "place"
-            case "org" return "org"
-            default return ()
-        let $refID := if (exists($idPrefix)) then concat($idPrefix, $idSep, $id) else $id
+        let $conType := $teix:CON_INFO_TYPES/*[@key eq $type]
         return
-            concat($type, ":", $refID)
-    else
-        ()
+            if (empty($conType)) then
+                ()
+            else
+                let $idPrefix := $conType/@idPrefix
+                let $refID := if (exists($idPrefix)) then concat($idPrefix, $idSep, $id) else $id
+                return
+                    concat($type, ":", $refID)
 };
 
 declare function teix:format-context-info-ref($type as xs:string, $id as xs:string?) as xs:string? {
     teix:format-context-info-ref($type, $id, ())
 };
 
-declare function teix:get-xml-id-from-ref($ref as xs:string?) as xs:string? {
-    $ref
+declare function teix:split-ref($ref as xs:string?) as xs:string* {
+    if (matches($ref, $teix:CON_INFO_REGEX)) then
+        ( replace($ref, $teix:CON_INFO_REGEX, "$1"), replace($ref, $teix:CON_INFO_REGEX, "$2") )
+    else
+        ()
 };
 
 declare function teix:get-contextual-info-docs($contextualInfoPath as xs:anyAtomicType?) as map(xs:string, document-node()) {
@@ -283,13 +296,23 @@ declare function teix:get-contextual-info-docs($contextualInfoPath as xs:anyAtom
                 ()
             else
                 for $doc in collection($uri)[exists(TEI)]
-                let $key := utils:get-file-basenames($doc)
+                let $filename := utils:get-filenames($doc)
+                let $conType := $teix:CON_INFO_TYPES/*[@file eq $filename]
                 return
-                    if (empty($key) and $key ne "") then
-                        ()
+                    if (exists($conType)) then
+                        map:entry(string($conType/@key), $doc)
                     else
-                        map:entry($key, $doc)
+                        ()
         )
+};
+
+declare function teix:get-contextual-info-by-ref($contextualInfoMap as map(xs:string, document-node()), $ref as xs:string?) as element()? {
+    let $refParts := teix:split-ref($ref)
+    return
+        if (exists($refParts[1])) then
+            $contextualInfoMap($refParts[1])//*[@xml:id eq $refParts[2]][1]
+        else
+            ()
 };
 
 

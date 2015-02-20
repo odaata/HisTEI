@@ -9,6 +9,12 @@
     <patternset id="framework.files">
         <exclude name="odd/"/>
         <exclude name="resources/"/>
+        <exclude name="schema/"/>
+        <exclude name="templates/"/>
+        <exclude name="*.framework"/>
+    </patternset>
+
+    <patternset id="resources.files">
         <include name="resources/contextual_info.xql"/>
         <include name="resources/functx.xql"/>
         <include name="resources/report-corpus-all.xql"/>
@@ -19,9 +25,6 @@
         <include name="resources/tokenizer-collection.xql"/>
         <include name="resources/tokenizer-single.xql"/>
         <include name="resources/utils.xqm"/>
-        <exclude name="schema/"/>
-        <exclude name="templates/"/>
-        <exclude name="*.framework"/>
     </patternset>
 
     <target name="init.artifacts">
@@ -60,6 +63,19 @@
               failonerror="true">
             <fileset dir="${framework.HisTEI}">
                 <patternset refid="framework.files"/>
+            </fileset>
+        </copy>
+        <delete includeemptydirs="true" failonerror="true">
+            <fileset dir="${framework.emst}">
+                <patternset refid="resources.files"/>
+            </fileset>
+        </delete>
+        <copy todir="${framework.emst}"
+              preservelastmodified="true"
+              includeEmptyDirs="true"
+              failonerror="true">
+            <fileset dir="${framework.HisTEI}">
+                <patternset refid="resources.files"/>
             </fileset>
         </copy>
     </target>

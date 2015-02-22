@@ -1,12 +1,7 @@
 xquery version "3.0";
 
 (:~
- : Build the Amsterdam corpus based on values converted to tab delimited text from the Transcriptions.xlm Excel worksheet
- : - Update catRef with scheme AMST_GROUPS for every text, so the Amsterdam groupings are available for searches
- : - Update responsibility with references to editors Jamie & Mike for transcriptions
- : - Update revisionDesc with a change event for transcription and correction events for transcriptions
- : - Update all places, inserting a place based on the first dateline element encountered, or Amsterdam as a default
- : - Finally, tokenize everything into the tokenized directory
+ : Search the Amsterdam corpus and return
  :
  : @author Mike Olson
  : @version 0.1

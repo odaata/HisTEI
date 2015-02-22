@@ -16,7 +16,7 @@ declare namespace decoder="java:java.net.URLDecoder";
 
 (: Errors :)
 (: Raised by utils:update-content-ordered() if no fieldNames are provided either as xs:string+ or map(xs:string, xs:string+) :)
-declare variable $utils:NO_FIELD_NAMES_ERROR := QName("http://histei.info/xquery/utils/error", "NoFieldNamesError");
+declare %private variable $utils:NO_FIELD_NAMES_ERROR := QName("http://histei.info/xquery/utils/error", "NoFieldNamesError");
 
 declare variable $utils:OUTPUT_NO_INDENT := <output:serialization-parameters><output:indent value="no"/></output:serialization-parameters>;
 declare variable $utils:DEFAULT_OUTPUT := $utils:OUTPUT_NO_INDENT;

@@ -14,14 +14,16 @@ declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace uuid="java:java.util.UUID";
 
 declare variable $teix:NS_TEI as xs:string := "http://www.tei-c.org/ns/1.0";
+declare variable $teix:PLACE_ELEMENT_NAMES := ("placeName", "district", "settlement", "region", "country", "bloc");
 
 declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map {
     "TEI" := ("teiHeader", "fsdDecl", "facsimile", "sourceDoc", "text"),
     "teiHeader" := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc"),
     "fileDesc" := ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc"),
-    "profileDesc" := ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes"),
     "titleStmt" := ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal"),
-    "textClass" := ("classCode", "catRef", "keywors")
+    "profileDesc" := ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes"),
+    "creation" := ("date", "persName", $teix:PLACE_ELEMENT_NAMES, "orgName"),
+    "textClass" := ("classCode", "catRef", "keywords")
 };
 
 declare variable $teix:CON_INFO_TYPES := element contextualTypes {
@@ -38,19 +40,10 @@ declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></title
 declare %private variable $teix:DEFAULT_FILE_DESC := <fileDesc>{$teix:DEFAULT_TITLE_STMT}<publicationStmt/><sourceDesc/></fileDesc>;
 declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
 
+declare %private variable $teix:DEFAULT_CREATION := <creation><date/><persName/><settlement/></creation>;
 declare %private variable $teix:DEFAULT_TEXT_CLASS := <textClass><catRef/></textClass>;
-declare %private variable $teix:DEFAULT_PROFILE_DESC := 
-    <profileDesc>
-        <creation>
-            <date/>
-            <persName/>
-            <settlement/>
-        </creation>
-        {$teix:DEFAULT_TEXT_CLASS}
-        <handNotes>
-            <handNote xml:id="hand_001"/>
-        </handNotes>
-    </profileDesc>;
+declare %private variable $teix:DEFAULT_HAND_NOTES := <handNotes><handNote xml:id="hand_001"/></handNotes>;
+declare %private variable $teix:DEFAULT_PROFILE_DESC := element profileDesc { $teix:DEFAULT_CREATION, $teix:DEFAULT_TEXT_CLASS, $teix:DEFAULT_HAND_NOTES };
 
 (: Generic XML Functions :)
 
@@ -148,6 +141,12 @@ declare function teix:update-profileDesc($profileDesc as element(profileDesc)?, 
     let $profileDesc := if (empty($profileDesc)) then $teix:DEFAULT_PROFILE_DESC else $profileDesc
     return
         teix:update-tei-content-ordered($profileDesc, $newElements)
+};
+
+declare function teix:update-creation($creation as element(creation)?, $newElements as element()*) as element(creation) {
+    let $creation := if (empty($creation)) then $teix:DEFAULT_CREATION else $creation
+    return
+        teix:update-tei-content-ordered($creation, $newElements)
 };
 
 declare function teix:update-textClass($textClass as element(textClass)?, $newElements as element()*) as element(textClass) {

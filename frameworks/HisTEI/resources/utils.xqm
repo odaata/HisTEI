@@ -325,6 +325,17 @@ declare function utils:parse-tab-file($path as xs:string) as element(row)* {
 (: Generic functions for processing XML :)
 
 (:~
+ : Returns true if the given attribute exists and does not contain an empty string
+ : 
+ : @param $string String to be checked for whitespace
+ : @param $type Can be "anywhere", "starts", "ends", "all". If none of those options are given, the default is "anywhere".
+ : @return True if whitespace is present for the given $type
+:)
+declare function utils:attr-exists($attribute as attribute()?) as xs:boolean {
+    exists($attribute) and $attribute ne ""
+};
+
+(:~
  : Returns true if the given string contains whitespace specified by the type of check
  :  - Field names that are not valid QNames are prefixed with f_ (this is always the case if the file has no headers)
  : 

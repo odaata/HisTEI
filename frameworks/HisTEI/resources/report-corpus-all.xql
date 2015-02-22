@@ -44,15 +44,8 @@ declare function local:report($teiURI as xs:anyURI, $contextualInfoURI as xs:any
                 element error { "The given path was invalid or no contextual information was found!" }
             else
                 let $docs := collection($uri)[exists(tei:TEI)]
-                let $genreSchemes := map:new(
-                    for $scheme in distinct-values($docs/tei:TEI//tei:profileDesc/tei:textClass/tei:catRef/@scheme)
-                    let $refParts := teix:split-ref($scheme) 
-                    return
-                        if (empty($refParts) or $refParts[2] eq "EMST_GENRES") then
-                            ()
-                        else
-                            map:entry($scheme, $refParts[2])
-                )
+                let $genreSchemeRefs := 
+                    distinct-values($docs//tei:profileDesc/tei:textClass/tei:catRef[not(txt:is-genre(.))]/@scheme)
                 
                 for $doc in $docs
                 let $docURI := document-uri($doc)
@@ -65,21 +58,24 @@ declare function local:report($teiURI as xs:anyURI, $contextualInfoURI as xs:any
                 
                 let $status := txt:status($tei)
         
+                let $genre := txt:genre($tei) 
+                let $genreCat := teix:get-contextual-info-by-ref($conInfoMap, $genre/@target)
+                
                 let $catRefs := $header/tei:profileDesc/tei:textClass/tei:catRef
-                let $genre := teix:get-contextual-info-by-ref($conInfoMap, $catRefs[empty(@scheme) or @scheme eq "gen:EMST_GENRES"]/@target[1])
                 let $otherGenres := 
                     let $otherCatRefs := $catRefs except $genre
-                    for $scheme in map:keys($genreSchemes)
-                    let $otherGenre := teix:get-contextual-info-by-ref($conInfoMap, $otherCatRefs[@scheme eq $scheme]/@target[1])
-                    order by $scheme
+                    for $schemeRef in $genreSchemeRefs
+                    let $otherGenre := 
+                        teix:get-contextual-info-by-ref($conInfoMap, $otherCatRefs[@scheme eq $schemeRef]/@target[1])
+                    order by $schemeRef
                     return
-                        element { $genreSchemes($scheme) } { txt:category($otherGenre)[1] }
+                        element { teix:split-ref($schemeRef)[2] } { txt:category($otherGenre)[1] }
                         
                 let $creation := txt:creation($tei)
                 let $yearInfo := txt:year-info($creation[local-name() eq "date"])
                 let $org := teix:get-contextual-info-by-ref($conInfoMap, $creation[local-name() eq "orgName"]/@ref[1])
                 let $person := teix:get-contextual-info-by-ref($conInfoMap, $creation[local-name() eq "persName"]/@ref[1])
-                let $place := teix:get-contextual-info-by-ref($conInfoMap, txt:get-places($creation)/@ref[1])
+                let $place := teix:get-contextual-info-by-ref($conInfoMap, $creation[txt:is-place(.)][1]/@ref)
                 return
                     element teiDoc {
                         element teiID { $teiID },
@@ -87,7 +83,7 @@ declare function local:report($teiURI as xs:anyURI, $contextualInfoURI as xs:any
                         element status { if (empty($status)) then () else string($status/@status) },
                         element statusDate { if (empty($status)) then () else string($status/@when) },
                         element statusUserID { if (empty($status)) then () else substring-after($status/@who, "person_") },
-                        element genre { txt:category($genre)[1] },
+                        element genre { txt:category($genreCat)[1] },
                         $otherGenres,
                         element year { $yearInfo("year") },
                         element certainty { $yearInfo("cert") },
@@ -110,7 +106,7 @@ declare function local:get-creation-types($teiURI as xs:anyURI) as element(typeL
     let $dateTypes := distinct-values($docs/tei:TEI//tei:date/@type)
     let $orgTypes := distinct-values($docs/tei:TEI//(tei:orgName | tei:repository)/@type)
     let $personTypes := distinct-values($docs/tei:TEI//(tei:persName | tei:name)/@type)
-    let $placeTypes := distinct-values(txt:get-places($docs/tei:TEI//*)/@type)
+    let $placeTypes := distinct-values($docs/tei:TEI//*[txt:is-place(.)]/@type)
     return
         element typeLabels {
             element dateTypes { for $type in $dateTypes return element dateType { $type } },
@@ -124,7 +120,7 @@ declare function local:get-creation-types($teiURI as xs:anyURI) as element(typeL
 (:let $teiURI := xs:anyURI("file:/Z:/home/Amsterdam/tokenized"):)
 
 (: Linux/Mac URIs :)
-let $teiURI := xs:anyURI("file:/home/mike/Amsterdam/tokenized")
+(:let $teiURI := xs:anyURI("file:/home/mike/Amsterdam/tokenized")
 let $contextualInfoURI := xs:anyURI("file:/home/mike/Amsterdam/contextual_info")
 
 let $testDoc := doc(concat($teiURI, "/SAA_00231_Marquette_00366_0000000071.xml"))
@@ -134,20 +130,10 @@ let $docs := collection($uri)
 let $conInfoMap := teix:get-contextual-info-docs($contextualInfoURI)
 let $creation := txt:creation($testDoc/tei:TEI)
 let $conInfoRecord := teix:get-contextual-info-by-ref($conInfoMap, $creation/tei:persName/@ref[1])
-return
-    (:element creationPlaces {
-        for $place in txt:get-places($docs//tei:creation/*)
-        where exists($place/@ref)
-        return
-            element place { $place }
-    }:)
-    (:element creation {
-        element returned { $creation },
-        element ref { string($creation[tei:persName]) },
-        element conInfoRecord { $conInfoRecord },
-        element personText { txt:person($conInfoRecord) }
-    }:)
+return:)
     local:report($teiURI, $contextualInfoURI)
+
+
 
 
 

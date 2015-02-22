@@ -9,6 +9,7 @@ xquery version "3.0";
 
 import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 import module namespace tok="http://histei.info/xquery/tei/tokenizer" at "tokenizer.xqm";
+import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xqm";
 import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare namespace file="http://expath.org/ns/file";
@@ -24,6 +25,8 @@ declare variable $corpusPath := "/home/mike/Amsterdam/corpus";
 declare variable $dbnlPath := "/home/mike/Amsterdam/dbnl/tei";
 declare variable $updatedPath := "/home/mike/Amsterdam/updated";
 declare variable $tokenizedPath := "/home/mike/Amsterdam/tokenized";
+
+declare variable $contextualInfoPath := "/home/mike/Amsterdam/contextual_info";
 
 declare function local:move-corrected-to-corpus($transToGet as element(row)*) as element(fileMoved)* {
     if (empty($transPath) or empty($corpusPath)) then
@@ -81,16 +84,19 @@ declare function local:update-resp($tei as element(tei:TEI)) as element(tei:TEI)
                     "corrected", 
                     "Corrected from facsimile", 
                     substring-after($respStmt/tei:name/@ref, "_"), 
-                    dateTime(xs:date("2015-01-01"), xs:time("00:00:00"))
+                    dateTime(xs:date("2015-02-01"), xs:time("00:00:00"))
                 )
     let $changes := 
         for $change in $changes
         let $oldChange := $revisionDesc/tei:change[@status eq $change/@status]
         return
             if (exists($oldChange)) then $oldChange else $change
-    let $revisionDesc := teix:element-tei("revisionDesc", 
-        ( $revisionDesc/@*, $changes, $revisionDesc/node() except $revisionDesc/tei:change )
-    )
+    let $allChanges := 
+        for $node in ($changes, $revisionDesc/node() except $revisionDesc/tei:change[@status = $changes/@status])
+        order by if ($node instance of element(tei:change)) then data($node/@when) else ()
+        return
+            $node
+    let $revisionDesc := teix:element-tei("revisionDesc", ( $revisionDesc/@*, $allChanges ))
     let $header := teix:update-teiHeader($header, ($fileDesc, $revisionDesc))
     return
         teix:update-TEI($tei, $header)
@@ -159,6 +165,96 @@ declare function local:update-trans() {
     )
 };
 
+declare function local:update-places() as element(placesAdded) {
+    let $uniquePlaceNames := 
+        <firstPlaces>
+            <placeName origPlaceName="Alckmaer" newPlaceName="Alckmaar"/>
+            <placeName origPlaceName="Amsterdam" newPlaceName="Amsterdam"/>
+            <placeName origPlaceName="Breda" newPlaceName="Breda"/>
+            <placeName origPlaceName="Breukelen" newPlaceName="Breukelen"/>
+            <placeName origPlaceName="Bruxelles" newPlaceName="Brussel"/>
+            <placeName origPlaceName="GENEVEN" newPlaceName="Genève"/>
+            <placeName origPlaceName="Geneve" newPlaceName="Genève"/>
+            <placeName origPlaceName="Geneven" newPlaceName="Genève"/>
+            <placeName origPlaceName="Hage" newPlaceName="Den Haag"/>
+            <placeName origPlaceName="Leijden" newPlaceName="Leiden"/>
+            <placeName origPlaceName="Leyden" newPlaceName="Leiden"/>
+            <placeName origPlaceName="Limburc" newPlaceName="Limburg"/>
+            <placeName origPlaceName="Marseille" newPlaceName="Marseille"/>
+            <placeName origPlaceName="Marzeille" newPlaceName="Marseille"/>
+            <placeName origPlaceName="Napoli" newPlaceName="Napels"/>
+            <placeName origPlaceName="S' Graven Hag." newPlaceName="Den Haag"/>
+            <placeName origPlaceName="Utrecht" newPlaceName="Utrecht"/>
+            <placeName origPlaceName="Venetia" newPlaceName="Venetië"/>
+            <placeName origPlaceName="Voortwyk" newPlaceName="Voortwijck bij Breukelen"/>
+            <placeName origPlaceName="hage" newPlaceName="Den Haag"/>
+            <placeName origPlaceName="in Geneven" newPlaceName="Genève"/>
+            <placeName origPlaceName="venetia" newPlaceName="Venetië"/>
+            <placeName origPlaceName="venetie" newPlaceName="Venetië"/>
+            <placeName origPlaceName="voors wijk" newPlaceName="Voortwijck bij Breukelen"/>
+        </firstPlaces>
+    
+    let $docs := collection(utils:saxon-collection-uri($corpusPath))[exists(tei:TEI)]
+    let $conInfoMap := teix:get-contextual-info-docs($contextualInfoPath)
+    let $places := $conInfoMap("plc")//tei:place
+    return
+        element placesAdded {
+            attribute corpusPath { $corpusPath },
+            attribute updatedPath { $updatedPath },
+            attribute total { count($docs) },
+            
+            for $doc in $docs
+            let $tei := $doc/tei:TEI[1]
+            let $genre := txt:genre($tei)
+            
+            let $amsterdamPlace := teix:element-tei("settlement", $places[normalize-space(tei:placeName) eq "Amsterdam"]/@xml:id )
+            let $creationPlace := txt:creation($tei)[txt:is-place(.)]
+            let $newPlace :=
+                if (utils:attr-exists($creationPlace/@ref)) then
+                    ()
+                else
+                    let $dateLinePlace := ($tei/tei:text//tei:dateline//*[txt:is-place(.)])[1]
+                    let $dateLinePlaceName := normalize-space($dateLinePlace)
+                    
+                    let $newPlaceName := $uniquePlaceNames/*[@origPlaceName eq $dateLinePlaceName]/@newPlaceName
+                    let $place := $places[normalize-space(tei:placeName) eq $newPlaceName]
+                    
+                    let $newPlaceElementName := data($place/parent::tei:listPerson/@type)
+                    let $newPlaceElementName := if (empty($newPlaceElementName) or $newPlaceElementName eq "") then "settlement" else $newPlaceElementName
+                    
+                    let $id := if (exists($place)) then $place/@xml:id else $amsterdamPlace/@xml:id
+                    let $ref := if (utils:attr-exists($dateLinePlace/@ref)) then data($dateLinePlace/@ref) else concat("plc:", $id) 
+                    return
+                        teix:element-tei($newPlaceElementName, ( attribute ref { $ref }, attribute type { if ($genre/@target eq "gen:Brief") then "sent" else "written" } ))
+            
+            let $updatedTEI := 
+                if (utils:attr-exists($creationPlace/@ref)) then
+                    $tei
+                else
+                    let $creation := teix:update-creation($tei//tei:creation[1], $newPlace)
+                    let $profileDesc := teix:update-profileDesc($tei//tei:profileDesc[1], $creation)
+                    let $header := teix:update-teiHeader($tei/tei:teiHeader, $profileDesc)
+                    return
+                        teix:update-TEI($tei, $header)
+            
+            let $newFilePath := utils:write-transformation($corpusPath, $updatedPath, $doc, $updatedTEI)
+            order by $newFilePath
+            return
+                element file { 
+                     element path { $newFilePath },
+                     element newPlace { $newPlace }
+                }
+    }
+};
+
+declare function local:build-corpus() {
+    element corpus {
+        element DBNL { local:update-DBNL-catRef() },
+        element trans { local:update-trans() },
+        tok:tokenize-collection($updatedPath, $tokenizedPath, $userID)
+    }
+};
+
 let $testLetter := doc("/home/mike/Amsterdam/test-letter.xml")
 let $testHeader := $testLetter/tei:TEI/tei:teiHeader
 let $testElement := <tei:change when="2015-01-01"><!-- Comment here -->This is a test</tei:change>
@@ -170,13 +266,42 @@ let $testElement := <tei:change when="2015-01-01"><!-- Comment here -->This is a
 (:let $transFiles := for $file in file:list($transPath)[ends-with(., $fileExtension)] order by $file return $file
 let $basenames := for $file in $transFiles return file:base-name($file, $fileExtension)
 let $transDocs := collection($transPath)[exists(tei:TEI) and utils:get-file-basenames(.)]:)
-(:let $docs := collection(utils:saxon-collection-uri($dbnlPath))[exists(tei:TEI)]:)
+
+(:let $exampleLetter := $docs[tei:TEI/@xml:id eq "TEI_103"]:)
+(:let $firstPlaces := $docs//tei:dateline//*[txt:is-place(.)][1]/normalize-space(.):)
+(:let $docsNoPlaces := $docs[empty(txt:creation(tei:TEI)[txt:is-place(.)])]:)
+
 return (
-    element corpus {
-        element DBNL { local:update-DBNL-catRef() },
-        element trans { local:update-trans() },
-        tok:tokenize-collection($updatedPath, $tokenizedPath, $userID)
-    }
+        tok:tokenize-collection($corpusPath, $tokenizedPath, $userID)
+
+        
+        (:element nonLetterFirstPlaces {
+            let $nonLetterFirstPlaces := 
+                for $doc in $docs
+                let $tei := $doc/tei:TEI[1]
+                let $genre := txt:genre($tei)
+                where not($genre/@target eq "gen:Brief")
+                return
+                    $tei//tei:dateline//*[txt:is-place(.)][1]/normalize-space(.)
+            
+            for $placeName in distinct-values($nonLetterFirstPlaces)
+            order by $placeName
+            return
+                element placeName { $placeName }
+                
+                (\:for $doc in $docs
+                let $tei := $doc/tei:TEI[1]
+                let $genre := txt:genre($tei)
+                where ($genre/@target eq "gen:Brief")
+                return
+                    $genre:\)
+            
+            (\:let $firstPlaces := $docs//tei:dateline//*[txt:is-place(.)][1]/normalize-space(.)
+            for $placeName in $uniquePlaceNames/*
+            order by data($placeName/@newPlaceName)
+            return
+                $placeName:\)
+        }:)
 )
 
 (:    local:update-catRef($testLetter/tei:TEI, "Backer"):)

@@ -6,6 +6,7 @@ xquery version "3.0";
 module namespace txt="http://histei.info/xquery/tei2text";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
+import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
@@ -173,8 +174,24 @@ declare function txt:year($date as xs:string?) as xs:integer? {
         ()
 };
 
-declare function txt:get-places($elements as element()*) as element()* {
-    $elements[local-name() = ("placename", "district", "settlement", "region", "tei:country", "bloc")]
+declare function txt:is-genre($element as element(tei:catRef)) as xs:boolean {
+    let $scheme := data($element/@scheme)
+    return
+        (empty($scheme) or $scheme eq "") or contains($scheme, "EMST_GENRES")
+};
+
+(:~
+ : Returns the single catRef (if it exists) that represents the main text genre
+ : 
+ : @param $tei A single TEI element
+ : @return A single catRef element (if it exists), containing a reference to the main text genre
+:)
+declare function txt:genre($tei as element(tei:TEI)) as element(tei:catRef)? {
+    ($tei/tei:teiHeader/tei:profileDesc/tei:textClass/tei:catRef[txt:is-genre(.)])[1]
+};
+
+declare function txt:is-place($element as element()?) as xs:boolean {
+    local-name($element) = $teix:PLACE_ELEMENT_NAMES
 };
 
 (:~
@@ -199,7 +216,7 @@ declare function txt:creation($tei as element(tei:TEI)) {
                 $filterFunc($creation/tei:date, "date"),
                 $filterFunc($creation/tei:orgName, "org"),
                 $filterFunc($creation/tei:persName, "person"),
-                $filterFunc(txt:get-places($creation/*), "place")
+                $filterFunc($creation/*[txt:is-place(.)], "place")
             )
 };
 

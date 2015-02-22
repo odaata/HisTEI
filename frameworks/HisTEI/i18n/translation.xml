@@ -712,6 +712,13 @@
         <val lang="en_US">Generate a report containing all language code switches within
             sentences</val>
     </key>
+    
+    <key value="report.corpus.all">
+        <val lang="en_US">Entire Corpus Report</val>
+    </key>
+    <key value="report.corpus.all_description">
+        <val lang="en_US">Generate a tabular report containing all information about TEI files contained in a chosen directory</val>
+    </key>
 
     <!-- IDs Options -->
     

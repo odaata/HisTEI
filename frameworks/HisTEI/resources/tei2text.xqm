@@ -6,10 +6,11 @@ xquery version "3.0";
 module namespace txt="http://histei.info/xquery/tei2text";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
-import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
+
+declare variable $txt:PLACE_ELEMENT_NAMES := ("placeName", "district", "settlement", "region", "country", "bloc");
 
 declare variable $txt:contextLength := 164;
 
@@ -187,7 +188,7 @@ declare function txt:genre($tei as element(tei:TEI)) as element(tei:catRef)? {
 };
 
 declare function txt:is-place($element as element()?) as xs:boolean {
-    local-name($element) = $teix:PLACE_ELEMENT_NAMES
+    local-name($element) = $txt:PLACE_ELEMENT_NAMES
 };
 
 (:~

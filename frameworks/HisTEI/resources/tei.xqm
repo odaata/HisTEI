@@ -243,7 +243,7 @@ declare function teix:num($content, $type as xs:string?, $value as xs:string?) a
         $content
     else
         element num {
-            attribute xml:id { concat("num_", uuid:randomUUID()) },
+            attribute xml:id { teix:format-id("num", uuid:randomUUID()) },
             if (exists($type)) then attribute type { $type } else (),
             if (exists($value)) then attribute value { $value } else (),
             $content
@@ -282,7 +282,7 @@ declare function teix:word($content) as element(w)? {
         $content
     else
         element w {
-            attribute xml:id { concat("w_", uuid:randomUUID()) },
+            attribute xml:id { teix:format-id("w", uuid:randomUUID()) },
             $content
         }
 };
@@ -319,21 +319,16 @@ declare function teix:split-ref($ref as xs:string?) as xs:string* {
         ()
 };
 
-declare function teix:con-info-docs-map($contextualInfoPath as xs:anyAtomicType?) as map(xs:string, document-node()) {
-    let $uri := utils:saxon-collection-uri($contextualInfoPath, false())
-    return
+declare function teix:con-info-docs-map($contextualInfoURI as xs:anyURI) as map(xs:string, document-node()) {
         map:new(
-            if (empty($uri)) then 
-                ()
-            else
-                for $doc in teix:collection($uri)
-                let $filename := utils:get-filenames($doc)
-                let $conType := $teix:CON_INFO_TYPES/*[@file eq $filename]
-                return
-                    if (exists($conType)) then
-                        map:entry(string($conType/@key), $doc)
-                    else
-                        ()
+            for $doc in teix:collection($contextualInfoURI)
+            let $filename := utils:filenames($doc)
+            let $conType := $teix:CON_INFO_TYPES/*[@file eq $filename]
+            return
+                if (exists($conType)) then
+                    map:entry(string($conType/@key), $doc)
+                else
+                    ()
         )
 };
 

@@ -7,81 +7,15 @@ module namespace utils="http://histei.info/xquery/utils";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
 
-declare namespace file="http://expath.org/ns/file";
-declare namespace map="http://www.w3.org/2005/xpath-functions/map";
-declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
-declare namespace tei="http://www.tei-c.org/ns/1.0";
-
 declare namespace decoder="java:java.net.URLDecoder";
+declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 
 (: Errors :)
 (: Raised by utils:update-content-ordered() if no fieldNames are provided either as xs:string+ or map(xs:string, xs:string+) :)
 declare %private variable $utils:NO_FIELD_NAMES_ERROR := QName("http://histei.info/xquery/utils/error", "NoFieldNamesError");
 
-declare variable $utils:OUTPUT_NO_INDENT := <output:serialization-parameters><output:indent value="no"/></output:serialization-parameters>;
-declare variable $utils:DEFAULT_OUTPUT := $utils:OUTPUT_NO_INDENT;
 
-(: File-related Functions :)
-
-(:~
- : Converts a URI to a native path
- : - Removes file: prefix and replaces the URI / with whatever the platform separator is
- : - If the URI schema is NOT file:, it returns nothing, since there's no native path
- : 
- : @param $uri URI or native path to a local file. 
- : @return If a URI is provided, it is converted, 
- :  everything else is assumed to be a native path and returned as a string
-:)
-declare function utils:uri-to-path($uri as xs:anyAtomicType?) as xs:string? {
-    typeswitch($uri)
-    case xs:string return
-        $uri
-    case xs:anyURI return
-        let $uriString := string($uri)
-        let $path := 
-            if (starts-with($uriString, "file:")) then
-                if (file:dir-separator() eq "/") then
-                    substring-after($uriString, "file:")
-                else
-                    replace(substring-after($uriString, "file:/"), "/", 
-                        functx:escape-for-regex(file:dir-separator())
-                    )
-            else
-                ()
-        return
-            decoder:decode($path, "UTF-8")
-    default return
-        string($uri)
-};
-
-(:~
- : Converts a native path to a URI
- : 
- : @param $path Native path to a local file or directory.
- : @return URI to the local file or directory.
-:)
-declare function utils:path-to-uri($path as xs:string?) as xs:anyURI? {
-    if (empty($path) or $path eq "") then
-        ()
-    else
-        let $path := 
-            if (file:dir-separator() eq "/") then
-                substring($path, 2)
-            else
-                replace($path, functx:escape-for-regex(file:dir-separator()), "/")
-        let $encoded := 
-            string-join(
-                for $part in tokenize($path, "/")
-                return
-                    if (matches($part, "^\p{L}+:$")) then
-                        $part
-                    else
-                        encode-for-uri($part)
-                , "/"
-            )
-        return
-            xs:anyURI(concat("file:/", $encoded))
-};
+(: Generic functions for processing XML :)
 
 (:~
  : Gets the document URI and then returns the filename portion of the path for each input document-node()
@@ -89,7 +23,7 @@ declare function utils:path-to-uri($path as xs:string?) as xs:anyURI? {
  : @param $docs Set of document nodes (e.g. from a call to collection())
  : @return Set of filenames, one for each document-node in $docs
 :)
-declare function utils:get-filenames($docs as document-node()*) as xs:string* {
+declare function utils:filenames($docs as document-node()*) as xs:string* {
     for $doc in $docs
     return
         decoder:decode(functx:substring-after-last(string(document-uri($doc)), "/"), "UTF-8")
@@ -101,228 +35,12 @@ declare function utils:get-filenames($docs as document-node()*) as xs:string* {
  : @param $docs Set of document nodes (e.g. from a call to collection())
  : @return Set of file basenames (without extension), one for each document-node in $docs
 :)
-declare function utils:get-file-basenames($docs as document-node()*) as xs:string* {
-    let $filenames := utils:get-filenames($docs)
+declare function utils:file-basenames($docs as document-node()*) as xs:string* {
+    let $filenames := utils:filenames($docs)
     for $filename in $filenames
     return
         functx:substring-before-last($filename, ".")
 };
-
-(:~
- : Appends a filename to a base path using the correct local separator (i.e. (back)slash)
- : 
- : @param $dir Native path to a local directory.
- : @param $file Filename to be appended to the directory path.
- : @return Native path to a local file.
-:)
-declare function utils:resolve-path($dir as xs:string?, $file as xs:string?) as xs:string? {
-    if (empty($dir) or $dir eq "") then
-        ()
-    else
-        let $dir := 
-            if (ends-with($dir, file:dir-separator())) then
-                $dir
-            else
-                concat($dir, file:dir-separator())
-        return
-            concat($dir, $file)
-};
-
-declare function utils:resolve-path($dir as xs:string?) as xs:string? {
-    utils:resolve-path($dir, ())
-};
-
-(:~
- : Gets the parent directory for a native path to a local file
- : 
- : @param $file Native path to a local file.
- : @return Native path to the parent directory for the given file. Ends with a (back)slash.
-:)
-declare function utils:get-dir-from-file($file as xs:string?) as xs:string? {
-    if (empty($file) or $file eq "") then
-        ()
-    else
-        let $dir := functx:substring-before-last($file, file:dir-separator())
-        return
-            if (empty($dir) or $dir eq "") then
-                ()
-            else
-                utils:resolve-path($dir)
-};
-
-(:~
- : Checks if a path is valid and returns the directory portion as a native file path
- :  If a file is given, the path to the parent directory is returned.
- :  If a path is invalid or does not exist, an empty string is returned.   
- :  Paths are uniformly returned with a (back)slash on the end (to make adding file names to them easier)
- : 
- : @param $path Native path to a local file. Can be a string or uri. A string is assumed to be a native path
- :      while a URI is converted to a native path.
- : @return Native path or URI referring to the directory
-:)
-declare function utils:get-dir-path($path as xs:anyAtomicType?) as xs:string? {
-    if (empty($path) or $path eq "") then
-        ()
-    else
-        let $path := utils:uri-to-path($path)
-        let $path := 
-            if (file:is-dir($path)) then
-                $path
-            else if (file:is-file($path)) then
-                utils:get-dir-from-file($path) 
-            else
-                ()
-        return
-            if (empty($path)) then
-                ()
-            else
-                utils:resolve-path($path)
-};
-
-(:~
- : Appends Saxon-specific queryParameters to the URI after checking if the directory exists
- : 
- : @param $path The path to the collection. Can be a string or uri. A string is assumed to be a path
- :      and as such is converted to a URI before concatenation
- : @param $recurse Whether the collection should include all subdirectories recursively. Default is true().
- : @param $select The pattern for filtering files contained in a collection directory. Default is XML files: *.(xml|XML).
- : @param $recurse Whether the collection should be treated as unparsed text (for reading text files). Default is false().
- : @return A URI with the Saxon queryParamaters appended, if the collection directory exists
-:)
-declare function utils:saxon-collection-uri($path as xs:anyAtomicType?, $recurse as xs:boolean?, 
-                                    $select as xs:string?, $unparsed as xs:boolean?) as xs:anyURI? {
-    if (empty($path) or $path eq "") then
-        ()
-    else
-        let $recurse := if (empty($recurse)) then true() else $recurse
-        let $select := if (empty($select) or $select eq "") then "*.(xml|XML)" else $select
-        let $unparsed := if (empty($unparsed)) then false() else $unparsed
-        
-        let $recurseParm := if ($recurse) then "recurse=yes" else ()
-        let $selectParm := concat("select=", encode-for-uri($select))
-        let $unparsed := if ($unparsed) then "unparsed=yes" else ()
-        let $queryParms := string-join(( $recurseParm, $selectParm, $unparsed ), ";")
-        
-        let $uri := utils:path-to-uri(utils:get-dir-path($path))
-        return
-            if (exists($uri)) then
-                xs:anyURI(concat($uri, "?", $queryParms))
-            else
-                ()
-};
-
-declare function utils:saxon-collection-uri($path as xs:anyAtomicType?, $recurse as xs:boolean?, 
-                                    $select as xs:string?) as xs:anyURI? {
-    utils:saxon-collection-uri($path, $recurse, $select, ())
-};
-
-declare function utils:saxon-collection-uri($path as xs:anyAtomicType?, $recurse as xs:boolean?) as xs:anyURI? {
-    utils:saxon-collection-uri($path, $recurse, ())
-};
-
-declare function utils:saxon-collection-uri($path as xs:anyAtomicType?) as xs:anyURI? {
-    utils:saxon-collection-uri($path, ())
-};
-
-(:~
- : Writes a (transformed) document to a target directory, 
- :  maintaining the same directory structure found below the source directory
- : 
- : @param $sourceDir Native path or URI to the source directory where the original document is stored
- : @param $targetDir Native path or URI to the target directory where the transformed document will be written
- : @param $originalDoc Document-node() of the original document before transformation
- : @param $newItems Transformed XML document to be output
- : @param $outputParms Serialization paramaters. If none provided, $utils:DEFAULT_OUTPUT is used
- : @return Native path to a local file.
-:)
-declare function utils:write-transformation($sourceDir as xs:anyAtomicType, $targetDir as xs:anyAtomicType, 
-                                                $originalDoc as document-node(), $newItems,
-                                                $outputParms as element(output:serialization-parameters)?) {
-    
-    let $sourceDir := utils:uri-to-path($sourceDir)
-    let $targetDir := utils:uri-to-path($targetDir)
-    
-    let $newPathEnd := substring-after(utils:uri-to-path(document-uri($originalDoc)), $sourceDir)
-    let $newPath := concat($targetDir, $newPathEnd)
-    return
-        utils:write-file($newPath, $newItems, $outputParms)
-};
-
-declare function utils:write-transformation($sourceDir as xs:anyAtomicType, $targetDir as xs:anyAtomicType, 
-                                                $originalDoc as document-node(), $newItems) {
-    
-    utils:write-transformation($sourceDir, $targetDir, $originalDoc, $newItems, ())
-};
-
-(:~
- : Writes $items to a local file at the given native path
- : 
- : @param $path Native path or URI to the target file
- : @param $items XML document to be output
- : @param $outputParms Serialization paramaters. If none provided, $utils:DEFAULT_OUTPUT is used
- : @return Native path to the newly written local file.
-:)
-declare function utils:write-file($path as xs:anyAtomicType, $items, $outputParms as element(output:serialization-parameters)?) {
-    let $outputParms := if (empty($outputParms)) then $utils:DEFAULT_OUTPUT else $outputParms
-    let $path := utils:uri-to-path($path)
-    let $dir := utils:get-dir-from-file($path)
-    return (
-        file:create-dir($dir),
-        file:write($path, $items, $outputParms),
-        $path
-    )
-};
-
-declare function utils:write-file($path as xs:anyAtomicType, $items) {
-    utils:write-file($path, $items, ())
-};
-
-(:~
- : Parse a tab-delimited file and return its rows as a collection of maps with the keys being
- :  either header names taken from the first row or the ordinal position of each field
- :  - Field names that are not valid QNames are prefixed with f_ (this is always the case if the file has no headers)
- : 
- : @param $path Native path to the tab-delimited file
- : @param $hasHeaders Whether the first row in the file contains the names of the fields. Default is true().
- : @return Set of row elements containing the fields using headers in the tab-delimited file or ordinal names
-:)
-declare function utils:parse-tab-file($path as xs:string, $hasHeaders as xs:boolean?) as element(row)* {
-    let $hasHeaders := if (empty($hasHeaders)) then true() else $hasHeaders
-    let $fieldPrefix := "f_"
-    
-    let $lines := file:read-text-lines($path)
-    let $fieldNames := 
-        for $field at $pos in tokenize($lines[1], "\t")
-        return
-            if ($hasHeaders) then
-                let $field := normalize-space($field)
-                return
-                    if ($field castable as xs:QName) then 
-                        $field 
-                    else 
-                        concat($fieldPrefix, $field)
-            else
-                concat($fieldPrefix, $pos)
-           
-    let $body := if ($hasHeaders) then subsequence($lines, 2) else $lines
-    
-    for $line in $body
-    return
-        element row {
-            for $field at $pos in tokenize($line, "\t")
-            let $fieldName := $fieldNames[$pos]
-            let $fieldName := if (empty($fieldName) or $fieldName eq "") then concat($fieldPrefix, $pos) else $fieldName
-            return
-                element { $fieldName } { normalize-space($field) }
-        }
-};
-
-declare function utils:parse-tab-file($path as xs:string) as element(row)* {
-    utils:parse-tab-file($path, ())
-};
-
-
-(: Generic functions for processing XML :)
 
 (:~
  : Returns true if the given attribute exists and does not contain an empty string

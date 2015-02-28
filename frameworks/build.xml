@@ -24,6 +24,7 @@
         <include name="resources/tokenizer-collection.xql"/>
         <include name="resources/tokenizer-single.xql"/>
         <include name="resources/utils.xqm"/>
+        <include name="resources/utils-saxon.xqm"/>
     </patternset>
 
     <macrodef name="copyFrameworkFiles" description="Copy framework files from HisTEI framework">

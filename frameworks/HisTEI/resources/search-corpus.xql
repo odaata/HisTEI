@@ -8,9 +8,9 @@ xquery version "3.0";
  :)
 
 import module namespace rpt="http://histei.info/xquery/reports" at "reports.xqm";
+import module namespace sax="http://histei.info/xquery/utils/saxon" at "utils-saxon.xqm";
 import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xqm";
-import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare namespace file="http://expath.org/ns/file";
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
@@ -97,8 +97,8 @@ declare function local:hits($teiDocs as document-node()*,
     }
 };
 
-let $teiDocs := teix:collection(utils:saxon-collection-uri($tokenizedPath))
-let $conInfoMap := teix:con-info-docs-map($contextualInfoPath)
+let $teiDocs := teix:collection(sax:collection-uri($tokenizedPath))
+let $conInfoMap := teix:con-info-docs-map(sax:collection-uri($contextualInfoPath))
 let $rptHeaders := rpt:headers($teiDocs, $conInfoMap)
 
 let $wordenUnique := doc("file:/home/mike/Downloads/Amsterdam_searches/worden_unique.xml")//rawText[exists(isWorden/text())]/text()

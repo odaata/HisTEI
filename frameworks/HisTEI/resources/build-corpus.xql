@@ -13,8 +13,8 @@ xquery version "3.0";
  :)
 
 import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
-import module namespace tok="http://histei.info/xquery/tei/tokenizer" at "tokenizer.xqm";
 import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xqm";
+import module namespace sax="http://histei.info/xquery/utils/saxon" at "utils-saxon.xqm";
 import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare namespace file="http://expath.org/ns/file";
@@ -38,7 +38,7 @@ declare function local:move-corrected-to-corpus($transToGet as element(row)*) as
         ()
     else
         for $trans in $transToGet[Status/text() eq "Corrected"]
-        let $path := utils:resolve-path($transPath, concat($trans/Images/text(), $fileExtension))
+        let $path := sax:resolve-path($transPath, concat($trans/Images/text(), $fileExtension))
         return
         if (file:is-file($path)) then
             (
@@ -125,7 +125,7 @@ declare function local:update-catRef($tei as element(tei:TEI), $group as xs:stri
 };
 
 declare function local:update-DBNL-catRef() {
-    let $docs := teix:collection(utils:saxon-collection-uri($dbnlPath))
+    let $docs := teix:collection(sax:collection-uri($dbnlPath))
     return (
         element transcriptions {
             attribute dbnlPath { $dbnlPath },
@@ -133,7 +133,7 @@ declare function local:update-DBNL-catRef() {
             attribute total { count($docs) },
             for $doc in $docs
             let $updatedTEI := local:update-catRef($doc/tei:TEI[1], "DBNL")
-            let $newFilePath := utils:write-transformation($dbnlPath, $updatedPath, $doc, $updatedTEI)
+            let $newFilePath := sax:write-transformation($dbnlPath, $updatedPath, $doc, $updatedTEI)
             order by $newFilePath
             return
                 element file { 
@@ -146,19 +146,19 @@ declare function local:update-DBNL-catRef() {
 };
 
 declare function local:update-trans() {
-    let $transToGet := utils:parse-tab-file($transToGetPath)
-    let $docs := teix:collection(utils:saxon-collection-uri($corpusPath))
+    let $transToGet := sax:parse-tab-file($transToGetPath)
+    let $docs := teix:collection(sax:collection-uri($corpusPath))
     return (
         element transcriptions {
             attribute corpusPath { $corpusPath },
             attribute updatedPath { $updatedPath },
             attribute total { count($docs) },
             for $doc in $docs
-            let $basename := utils:get-file-basenames($doc)
+            let $basename := utils:file-basenames($doc)
             let $family := $transToGet[Images/text() eq $basename]/Family/text()
             let $updatedTEI := local:update-catRef($doc/tei:TEI[1], $family)
             let $updatedTEI := local:update-resp($updatedTEI)
-            let $newFilePath := utils:write-transformation($corpusPath, $updatedPath, $doc, $updatedTEI)
+            let $newFilePath := sax:write-transformation($corpusPath, $updatedPath, $doc, $updatedTEI)
             order by $newFilePath
             return
                 element file { 
@@ -199,8 +199,8 @@ declare function local:update-places() as element(placesAdded) {
             <placeName origPlaceName="voors wijk" newPlaceName="Voortwijck bij Breukelen"/>
         </firstPlaces>
     
-    let $docs := teix:collection(utils:saxon-collection-uri($corpusPath))
-    let $conInfoMap := teix:con-info-docs-map($contextualInfoPath)
+    let $docs := teix:collection(sax:collection-uri($corpusPath))
+    let $conInfoMap := teix:con-info-docs-map(sax:collection-uri($contextualInfoPath))
     let $places := $conInfoMap("plc")//tei:place
     return
         element placesAdded {
@@ -242,7 +242,7 @@ declare function local:update-places() as element(placesAdded) {
                     return
                         teix:update-TEI($tei, $header)
             
-            let $newFilePath := utils:write-transformation($corpusPath, $updatedPath, $doc, $updatedTEI)
+            let $newFilePath := sax:write-transformation($corpusPath, $updatedPath, $doc, $updatedTEI)
             order by $newFilePath
             return
                 element file { 
@@ -253,7 +253,7 @@ declare function local:update-places() as element(placesAdded) {
 };
 
 
-tok:tokenize-collection($corpusPath, $tokenizedPath, $userID)
+sax:tokenize-collection($corpusPath, $tokenizedPath, $userID)
 
 (:    doc("/home/mike/Downloads/INL-Tagged_SAA_00231_Marquette_00366_0000000071.xml"):)
 (:    doc("/home/mike/Downloads/INL-Tagged_SAA_00231_Marquette_00366_0000000071.xml")//tei:w[contains(string-join(text(), ""), "vande")]:)

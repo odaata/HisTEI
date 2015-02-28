@@ -6,19 +6,11 @@ xquery version "3.0";
 module namespace sax="http://histei.info/xquery/utils/saxon";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
-import module namespace rpt="http://histei.info/xquery/reports" at "reports.xqm";
-import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
-import module namespace tok="http://histei.info/xquery/tei/tokenizer" at "tokenizer.xqm";
+import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare namespace decoder="java:java.net.URLDecoder";
 declare namespace file="http://expath.org/ns/file";
-declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
-declare namespace tei="http://www.tei-c.org/ns/1.0";
-
-(: Errors :)
-(: Raised by sax:headers-paths() if either the $teiPath or $contextualInfoPath is empty or invalid :)
-declare %private variable $sax:INVALID_PATH_ERROR := QName("http://histei.info/xquery/utils/saxon/error", "InvalidPathError");
 
 declare variable $sax:OUTPUT_NO_INDENT := <output:serialization-parameters><output:indent value="no"/></output:serialization-parameters>;
 declare variable $sax:DEFAULT_OUTPUT := $sax:OUTPUT_NO_INDENT;
@@ -255,104 +247,23 @@ declare function sax:write-file($path as xs:anyAtomicType, $items) {
 };
 
 (:~
- : Parse a tab-delimited file and return its rows as a collection of maps with the keys being
- :  either header names taken from the first row or the ordinal position of each field
- :  - Field names that are not valid QNames are prefixed with f_ (this is always the case if the file has no headers)
+ : Parse a tab-delimited file and convert it's lines to a set of XML row elements.
+ : Elements within each row represent fields in the original tab-delimited row
+ :  - Field names are either header names taken from the first row (when $hasHeaders is true) or 
+ :      an f_ prefix followed by the ordinal position of each field
+ :  - When $hasHeaders is true, field names that are not valid QNames are also prefixed with f_
  : 
  : @param $path Native path to the tab-delimited file
  : @param $hasHeaders Whether the first row in the file contains the names of the fields. Default is true().
- : @return Set of row elements containing the fields using headers in the tab-delimited file or ordinal names
+ : @return Set of row elements containing fields named using headers in the first line or ordinal names
 :)
 declare function sax:parse-tab-file($path as xs:string, $hasHeaders as xs:boolean?) as element(row)* {
-    let $hasHeaders := if (empty($hasHeaders)) then true() else $hasHeaders
-    let $fieldPrefix := "f_"
-    
-    let $lines := file:read-text-lines($path)
-    let $fieldNames := 
-        for $field at $pos in tokenize($lines[1], "\t")
-        return
-            if ($hasHeaders) then
-                let $field := normalize-space($field)
-                return
-                    if ($field castable as xs:QName) then 
-                        $field 
-                    else 
-                        concat($fieldPrefix, $field)
-            else
-                concat($fieldPrefix, $pos)
-           
-    let $body := if ($hasHeaders) then subsequence($lines, 2) else $lines
-    
-    for $line in $body
-    return
-        element row {
-            for $field at $pos in tokenize($line, "\t")
-            let $fieldName := $fieldNames[$pos]
-            let $fieldName := if (empty($fieldName) or $fieldName eq "") then concat($fieldPrefix, $pos) else $fieldName
-            return
-                element { $fieldName } { normalize-space($field) }
-        }
+    utils:parse-tab-lines(file:read-text-lines($path), $hasHeaders)
 };
 
 declare function sax:parse-tab-file($path as xs:string) as element(row)* {
     sax:parse-tab-file($path, ())
 };
-
-(: Specific functions that require reading/writing to the disk (i.e. when using Saxon locally in Oxygen) :)
-
-(:~
- : Generate a tabular report with header values from all TEI documents in a given collection
- : 
- : @param $teiPath The path to the collection. Can be a string or uri. A string is assumed to be a path
- :      and as such is converted to a URI beforehand
- : @param $contextualInfoPath Path to the set of Contextual Info files. Can be a string or uri. A string is assumed to be a path
- :      and as such is converted to a URI beforehand
- : @return Set of teiDoc elements - one for every document in the given TEI collection 
- : @error If either $teiPath or $contextualInfoPath are invalid paths, an InvalidPathError is thrown
-:)
-declare function sax:headers-paths($teiPath as xs:anyAtomicType?, $contextualInfoPath as xs:anyAtomicType?) as element()* {
-    let $uri := sax:collection-uri($teiPath)
-    let $conInfoMap := teix:con-info-docs-map(sax:collection-uri($contextualInfoPath))
-    return
-        if (empty($uri) or empty(map:keys($conInfoMap))) then
-            error($sax:INVALID_PATH_ERROR, concat("Either the TEI Path or the Contextual Info Path is invalid! ",
-                "Given paths: teiPath: ", $teiPath, " contextualInfoPath: ", $contextualInfoPath))
-        else
-            rpt:headers(teix:collection($uri), $conInfoMap)
-};
-
-declare function sax:tokenize-collection($teiURI as xs:anyAtomicType, $tokenizedURI as xs:anyAtomicType, $userID as xs:string?) as element() {
-    let $teiPath := sax:dir-path($teiURI)
-    let $tokenizedPath := sax:dir-path($tokenizedURI)
-    return
-        element tokenizedFiles {
-                attribute userID { $userID },
-                if (exists($teiPath) and exists($tokenizedPath)) then
-                    let $docs := teix:collection(sax:collection-uri($teiPath))
-                    return
-                    (
-                        attribute teiPath { $teiPath },
-                        attribute tokenizedPath { $tokenizedPath },
-                        attribute total { count($docs) },
-                        for $doc in $docs
-                        let $tokenizedTrans := tok:tokenize($doc/tei:TEI[1], $userID)
-                        let $newFilePath := sax:write-transformation($teiPath, $tokenizedPath, $doc, $tokenizedTrans)
-                        order by $newFilePath
-                        return
-                            element file { 
-                                element path {$newFilePath },
-                                element wordCount { data(($tokenizedTrans//tei:fileDesc/tei:extent/tei:measure[@unit eq "words"]/@quantity)[1]) }
-                            }
-                    )
-                else
-                (
-                    element transDir { attribute invalid { empty($teiPath) }, $teiURI },
-                    element tokenizedDir { attribute invalid { empty($tokenizedPath) }, $tokenizedURI },
-                    element error { "The provided directories are invalid!" }
-                )
-        }
-};
-
 
 
 

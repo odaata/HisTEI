@@ -7,12 +7,12 @@ xquery version "3.0";
  : @version 0.1
  :)
 
-import module namespace sax="http://histei.info/xquery/utils/saxon" at "utils-saxon.xqm";
+import module namespace histei="http://histei.info/xquery/utils/histei" at "utils-histei.xqm";
 
 declare variable $userID as xs:string external := "";
 declare variable $teiURI as xs:anyURI external;
 declare variable $tokenizedURI as xs:anyURI external;
 
-sax:tokenize-collection($teiURI, $tokenizedURI, $userID)
+histei:tokenize-collection($teiURI, $tokenizedURI, $userID)
 
 

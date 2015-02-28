@@ -125,7 +125,7 @@ declare function local:update-catRef($tei as element(tei:TEI), $group as xs:stri
 };
 
 declare function local:update-DBNL-catRef() {
-    let $docs := collection(utils:saxon-collection-uri($dbnlPath))[exists(tei:TEI)]
+    let $docs := teix:collection(utils:saxon-collection-uri($dbnlPath))
     return (
         element transcriptions {
             attribute dbnlPath { $dbnlPath },
@@ -147,7 +147,7 @@ declare function local:update-DBNL-catRef() {
 
 declare function local:update-trans() {
     let $transToGet := utils:parse-tab-file($transToGetPath)
-    let $docs := collection(utils:saxon-collection-uri($corpusPath))[exists(tei:TEI)]
+    let $docs := teix:collection(utils:saxon-collection-uri($corpusPath))
     return (
         element transcriptions {
             attribute corpusPath { $corpusPath },
@@ -199,8 +199,8 @@ declare function local:update-places() as element(placesAdded) {
             <placeName origPlaceName="voors wijk" newPlaceName="Voortwijck bij Breukelen"/>
         </firstPlaces>
     
-    let $docs := collection(utils:saxon-collection-uri($corpusPath))[exists(tei:TEI)]
-    let $conInfoMap := teix:get-contextual-info-docs($contextualInfoPath)
+    let $docs := teix:collection(utils:saxon-collection-uri($corpusPath))
+    let $conInfoMap := teix:con-info-docs-map($contextualInfoPath)
     let $places := $conInfoMap("plc")//tei:place
     return
         element placesAdded {

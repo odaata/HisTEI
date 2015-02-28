@@ -34,6 +34,7 @@ declare variable $teix:CON_INFO_TYPES := element contextualTypes {
     element contextualType { attribute key { "ann" }, attribute file { "annotation.xml" } }
 };
 declare variable $teix:CON_INFO_REGEX := concat("(", string-join($teix:CON_INFO_TYPES/*/string(@key), "|"), "):(\S+)");
+declare variable $teix:CON_INFO_REF_ATTR_NAMES := ( "ref", "scribeRef", "target", "who" );
 
 
 declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
@@ -305,7 +306,20 @@ declare function teix:get-contextual-info-docs($contextualInfoPath as xs:anyAtom
         )
 };
 
-declare function teix:get-contextual-info-by-ref($contextualInfoMap as map(xs:string, document-node()), $ref as xs:string?) as element()? {
+(:declare function teix:get-contextual-info-by-ref-element($contextualInfoMap as map(xs:string, document-node()), $ref as element()?) as element()? {
+    let $refAttr := ($ref/@*[local-name() = $teix:CON_INFO_REF_ATTR_NAMES])[1]
+    return
+        teix:get-contextual-info-by-ref($contextualInfoMap, $refAttr)
+};:)
+
+declare function teix:get-contextual-info-by-ref($contextualInfoMap as map(xs:string, document-node()), $ref as item()?) as element()? {
+    let $ref := 
+        if (empty($ref) or $ref instance of xs:string) then 
+            $ref 
+        else if ($ref instance of element()) then 
+            string(($ref/@*[local-name() = $teix:CON_INFO_REF_ATTR_NAMES])[1])
+        else
+            string($ref)
     let $refParts := teix:split-ref($ref)
     return
         if (exists($refParts[1])) then

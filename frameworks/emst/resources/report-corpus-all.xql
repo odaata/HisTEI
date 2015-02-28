@@ -38,11 +38,11 @@ declare variable $contextualInfoURI as xs:anyURI external;
 
 (: Linux/Mac URIs :)
 (:let $teiURI := xs:anyURI("file:/home/mike/Amsterdam/tokenized")
-let $contextualInfoURI := xs:anyURI("file:/home/mike/Amsterdam/contextual_info"):)
+let $contextualInfoURI := xs:anyURI("file:/home/mike/Amsterdam/contextual_info")
 
-element corpusAll {
-    rpt:headers($teiURI, $contextualInfoURI)
-}
+return:)
+element corpusAll { rpt:headers-paths($teiURI, $contextualInfoURI) }
+
 
 
 

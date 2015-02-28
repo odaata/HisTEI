@@ -534,7 +534,7 @@ declare function tok:tokenize-collection($teiURI as xs:anyAtomicType, $tokenized
             (
                 utils:attribute-NS("userID", $userID),
                 if (exists($teiPath) and exists($tokenizedPath)) then
-                    let $docs := collection(utils:saxon-collection-uri($teiPath))[exists(TEI)]
+                    let $docs := teix:collection(utils:saxon-collection-uri($teiPath))
                     return
                     (
                         utils:attribute-NS("teiPath", $teiPath),

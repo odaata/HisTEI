@@ -14,6 +14,7 @@ declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace uuid="java:java.util.UUID";
 
 declare variable $teix:NS_TEI as xs:string := "http://www.tei-c.org/ns/1.0";
+declare variable $teix:DEFAULT_ID_SEPARATOR as xs:string := "_";
 declare variable $teix:PLACE_ELEMENT_NAMES := ("placeName", "district", "settlement", "region", "country", "bloc");
 
 declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map {
@@ -34,6 +35,7 @@ declare variable $teix:CON_INFO_TYPES := element contextualTypes {
     element contextualType { attribute key { "ann" }, attribute file { "annotation.xml" } }
 };
 declare variable $teix:CON_INFO_REGEX := concat("(", string-join($teix:CON_INFO_TYPES/*/string(@key), "|"), "):(\S+)");
+declare variable $teix:CON_INFO_REF_ATTR_NAMES := ( "ref", "scribeRef", "target", "who" );
 
 
 declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
@@ -45,7 +47,32 @@ declare %private variable $teix:DEFAULT_TEXT_CLASS := <textClass><catRef/></text
 declare %private variable $teix:DEFAULT_HAND_NOTES := <handNotes><handNote xml:id="hand_001"/></handNotes>;
 declare %private variable $teix:DEFAULT_PROFILE_DESC := element profileDesc { $teix:DEFAULT_CREATION, $teix:DEFAULT_TEXT_CLASS, $teix:DEFAULT_HAND_NOTES };
 
-(: Generic XML Functions :)
+(: Generic Functions :)
+
+(:~
+ : Return a formatted ID with the given element name and id concatenated with the separator given or the default ($teix:DEFAULT_ID_SEPARATOR)
+ : 
+ : @param $elementName Name of the element to be concatenated with the id (e.g. TEI, person, w, etc.)
+ : @param $id The raw ID of the element, i.e. without any preceding element name, e.g. for a user: MJO but NOT person_MJO 
+ : @param $idSep The separator between the element name and raw ID in a reference. Default is underscore, "_" ($teix:DEFAULT_ID_SEPARATOR).
+ : @return String with the element name and id concatenated with the separator 
+:)
+declare function teix:format-id($elementName as xs:string?, $id as xs:string?, $idSep as xs:string?) as xs:string? {
+    if (empty($id)) then
+        ()
+    else
+        let $idSep := if (empty($idSep)) then $teix:DEFAULT_ID_SEPARATOR else $idSep
+        let $id := replace(normalize-space($id), "\s+", "_")
+        return
+            if (exists($elementName)) then 
+                concat($elementName, $idSep, $id)
+            else
+                $id
+};
+
+declare function teix:format-id($elementName as xs:string?, $id as xs:string?) as xs:string? {
+    teix:format-id($elementName, $id, ())
+};
 
 (:~
  : Generate a new element with the given name within the TEI namespace
@@ -57,6 +84,18 @@ declare %private variable $teix:DEFAULT_PROFILE_DESC := element profileDesc { $t
 :)
 declare function teix:element-tei($name as xs:string, $content) as element() {
     utils:element-NS($name, $content, $teix:NS_TEI)
+};
+
+(:~
+ : Generate a new element with the given name within the TEI namespace
+ : - Convenience function for generating lots of TEI elements
+ : 
+ : @param $name name for the new element, including the optional prefix
+ : @param $content content to go inside the new element
+ : @return New element() node with the given name within the TEI namespace containing the supplied content
+:)
+declare function teix:collection($uri as xs:anyURI) as document-node()* {
+    collection($uri)[exists(TEI)]
 };
 
 (:~
@@ -118,7 +157,7 @@ declare function teix:respStmt($respKey as xs:string?, $userID as xs:string?,
             $respText
         },
         element name {
-            if (exists($userID)) then attribute ref { teix:format-context-info-ref("psn", $userID) } else (),
+            if (exists($userID)) then attribute ref { teix:format-con-info-ref("psn", $userID) } else (),
             $userText
         }
     }
@@ -157,8 +196,8 @@ declare function teix:update-textClass($textClass as element(textClass)?, $newEl
 
 declare function teix:catRef($targetID as xs:string?, $schemeID as xs:string?) as element(catRef) {
     element catRef {
-        if ($schemeID ne "") then attribute scheme { teix:format-context-info-ref("gen", $schemeID) } else (),
-        if ($targetID ne "") then attribute target { teix:format-context-info-ref("gen", $targetID) } else ()
+        if ($schemeID ne "") then attribute scheme { teix:format-con-info-ref("gen", $schemeID) } else (),
+        if ($targetID ne "") then attribute target { teix:format-con-info-ref("gen", $targetID) } else ()
     }
 };
 
@@ -168,7 +207,7 @@ declare function teix:change($status as xs:string, $content, $userID as xs:strin
     element change {
         attribute status { $status },
         attribute { "when" } { if (empty($when)) then current-dateTime() else $when },
-        if ($userID ne "") then attribute who { teix:format-context-info-ref("psn", $userID) } else (),
+        if ($userID ne "") then attribute who { teix:format-con-info-ref("psn", $userID) } else (),
         $content
     }
 };
@@ -259,25 +298,18 @@ declare function teix:word($content) as element(w)? {
  : @return Reference to the Contextual Info record including the private URI schema for the given Contextual Info type (e.g. psn:person_MJO).
  :  This return value can be saved to any TEI ref-like attribute (e.g. ref, scribeRef, who) 
 :)
-declare function teix:format-context-info-ref($type as xs:string, $id as xs:string?, $idSep as xs:string?) as xs:string? {
-    if (empty($id)) then
-        ()
-    else
-        let $id := replace(normalize-space($id), " ", "_")
-        let $idSep := if (empty($idSep)) then "_" else $idSep
-        let $conType := $teix:CON_INFO_TYPES/*[@key eq $type]
-        return
-            if (empty($conType)) then
-                ()
-            else
-                let $idPrefix := $conType/@idPrefix
-                let $refID := if (exists($idPrefix)) then concat($idPrefix, $idSep, $id) else $id
-                return
-                    concat($type, ":", $refID)
+declare function teix:format-con-info-ref($type as xs:string, $id as xs:string?, $idSep as xs:string?) as xs:string? {
+    let $conType := $teix:CON_INFO_TYPES/*[@key eq $type]
+    let $refID := teix:format-id($conType/@idPrefix, $id)
+    return
+        if (empty($conType) or empty($id)) then
+            ()
+        else
+            concat($type, ":", $refID)
 };
 
-declare function teix:format-context-info-ref($type as xs:string, $id as xs:string?) as xs:string? {
-    teix:format-context-info-ref($type, $id, ())
+declare function teix:format-con-info-ref($type as xs:string, $id as xs:string?) as xs:string? {
+    teix:format-con-info-ref($type, $id, ())
 };
 
 declare function teix:split-ref($ref as xs:string?) as xs:string* {
@@ -287,14 +319,14 @@ declare function teix:split-ref($ref as xs:string?) as xs:string* {
         ()
 };
 
-declare function teix:get-contextual-info-docs($contextualInfoPath as xs:anyAtomicType?) as map(xs:string, document-node()) {
+declare function teix:con-info-docs-map($contextualInfoPath as xs:anyAtomicType?) as map(xs:string, document-node()) {
     let $uri := utils:saxon-collection-uri($contextualInfoPath, false())
     return
         map:new(
             if (empty($uri)) then 
                 ()
             else
-                for $doc in collection($uri)[exists(TEI)]
+                for $doc in teix:collection($uri)
                 let $filename := utils:get-filenames($doc)
                 let $conType := $teix:CON_INFO_TYPES/*[@file eq $filename]
                 return
@@ -305,11 +337,19 @@ declare function teix:get-contextual-info-docs($contextualInfoPath as xs:anyAtom
         )
 };
 
-declare function teix:get-contextual-info-by-ref($contextualInfoMap as map(xs:string, document-node()), $ref as xs:string?) as element()? {
+declare function teix:con-info-by-ref($contextualInfoMap as map(xs:string, document-node()), $ref as item()?) as element()? {
+    let $ref := 
+        if (empty($ref) or $ref instance of xs:string) then 
+            $ref 
+        else if ($ref instance of element()) then 
+            string(($ref/@*[local-name() = $teix:CON_INFO_REF_ATTR_NAMES])[1])
+        else
+            string($ref)
+    
     let $refParts := teix:split-ref($ref)
     return
         if (exists($refParts[1])) then
-            $contextualInfoMap($refParts[1])//*[@xml:id eq $refParts[2]][1]
+            ($contextualInfoMap($refParts[1])//*[@xml:id eq $refParts[2]])[1]
         else
             ()
 };

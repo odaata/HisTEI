@@ -11,7 +11,7 @@ import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
-declare variable $txt:contextLength := 128;
+declare variable $txt:contextLength := 164;
 
 declare variable $txt:contentElements := ("p", "opener", "closer", "postscript", "gloss");
 declare variable $txt:milestoneElements := ("pb", "lb", "handShift");
@@ -33,12 +33,8 @@ declare %private variable $txt:CERTAINTY := map {
     "high" := "^"
 };
 
-declare %private variable $txt:CREATION_TYPES := map {
-    "date" := ("sent", "written", "deposed"),
-    "org" := ("sender", "author", "deposition"),
-    "person" := ("sender", "author", "deponent"),
-    "place" := ("sent", "written", "deposed")
-};
+declare %private variable $txt:CREATION_TYPES := 
+    ("author", "deponent", "deposed", "deposition", "sender", "sent", "written");
 
 declare function txt:id-as-label($id as xs:string?) as xs:string? {
    replace($id, "_", " ") 
@@ -72,7 +68,7 @@ declare function txt:person($person as element(tei:person)?) as xs:string? {
             else 
                 ""
         return
-            string-join(($name("forename"), $name("surname"), $dates), " ")
+            normalize-space(string-join(($name("forename"), $name("surname"), $dates), " "))
 };
 
 declare function txt:name-info($persName as element(tei:persName)?) as map(xs:string, xs:string)? {
@@ -208,7 +204,7 @@ declare function txt:creation($tei as element(tei:TEI)) {
             ()
         else
             let $filterFunc := function($elements as element()*, $creationType as xs:string) as element()? {
-                let $createdElements := $elements[@type = $txt:CREATION_TYPES($creationType)]
+                let $createdElements := $elements[@type = $txt:CREATION_TYPES]
                 return
                     if (empty($createdElements)) then $elements[empty(@type)][1] else $createdElements[1]
             }
@@ -243,6 +239,52 @@ declare function txt:status($tei as element(tei:TEI)*) {
                     $change
         else
            $changes[last()]
+};
+
+(:~
+ : Returns all valid text() nodes within a TEI annotation element (e.g. num, pc, w)
+ : - Text within del elements is ignored
+ : - punctuation directly preceding a line or page break is ignored (e.g. tegen<pc>=</pc><lb/>woordigh becomes tegenwoordigh)
+ : 
+ : @param $ann The TEI annotation element (e.g. num, pc, w)
+ : @return The set of all valid text() nodes within the annotation element
+:)
+declare %private function txt:attested-form($ann as element()?) as text()* {
+    for $node in $ann/node()
+    return
+        typeswitch($node)
+        case text() return 
+            $node
+        case element() return
+            switch(local-name($node))
+            case "del" return
+                ()
+            case "pc" return
+                let $followingNode := $node/following::node()[1]
+                return
+                    if ($followingNode instance of element() 
+                        and local-name($followingNode) = ("lb", "pb")) then
+                        ()
+                    else
+                        txt:attested-form($node)
+            default return
+                txt:attested-form($node)
+        default return
+            ()
+};
+
+(:~
+ : Returns a string representation of the attested form from TEI num, pc or w elements
+ : - Text within del elements is ignored
+ : - punctuation directly preceding a line or page break is ignored (e.g. tegen<pc>=</pc><lb/>woordigh becomes tegenwoordigh)
+ : 
+ : @param $anns One or more TEI annotation elements (e.g. num, pc, w)
+ : @return A set of attested forms, one for each TEI annotation element given
+:)
+declare function txt:attested-forms($anns as element()*) as xs:string* {
+    for $ann in $anns
+    return
+        normalize-space(string-join(txt:attested-form($ann), ""))
 };
 
 (: Functions for processing mixed-content text nodes :)

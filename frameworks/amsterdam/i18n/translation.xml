@@ -682,6 +682,13 @@
     <key value="org_description">
         <val lang="en_US">Insert an organization.</val>
     </key>
+    
+    <key value="catRef">
+        <val lang="en_US">Category Ref.</val>
+    </key>
+    <key value="catRef_description">
+        <val lang="en_US">Insert a reference to a genre or other category in contextual info. Insert a catRef element.</val>
+    </key>
 
     <!--  Media Actions  -->
 

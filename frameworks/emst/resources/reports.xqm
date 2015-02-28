@@ -44,25 +44,36 @@ declare namespace tei="http://www.tei-c.org/ns/1.0";
 (: Raised by rpt:header() if either the $teiPath or $contextualInfoPath is empty or invalid :)
 declare %private variable $rpt:INVALID_PATH_ERROR := QName("http://histei.info/xquery/reports/error", "InvalidPathError");
 
+
+(:~
+ : Generate the fields for a set of TEI event elements (i.e. birth, death, event)
+ : 
+ : @param $conInfoMap Map of contextual info document-nodes
+ : @param $events Set of events from a contextual info record to generate headers for
+ : @return Set of elements including a Year, YearCert, and Place for each event in the given set 
+:)
+declare function rpt:events($conInfoMap as map(xs:string, document-node()), $events as element()*) as element()* {
+    for $event in $events
+    let $elementName := local-name($event)
+    let $elementName := if ($elementName eq "event") then string($event/@type) else $elementName
+    let $yearInfo := txt:year-info($event)
+    let $placeRef := if (utils:attr-exists($event/@where)) then string($event/@where) else ($event/*[txt:is-place(.)])[1]
+    return (
+        element { concat($elementName, "Year") } { $yearInfo("year") },
+        element { concat($elementName, "YearCert") } { $yearInfo("cert") }, 
+        element { concat($elementName, "Place") } { txt:place(teix:con-info-by-ref($conInfoMap, $placeRef)) }
+    )
+};
+
 (:~
  : Generate a tabular report with header values from all TEI documents in a given collection
+ : - It's best to do all documents in a collection at once!
  : 
- : @param $teiPath The path to the collection. Can be a string or uri. A string is assumed to be a path
- :      and as such is converted to a URI beforehand
- : @param $contextualInfoPath Path to the set of Contextual Info files. Can be a string or uri. A string is assumed to be a path
- :      and as such is converted to a URI beforehand
- : @return Set of teiDoc elements - one for every document in the given TEI collection 
- : @error If either $teiPath or $contextualInfoPath are invalid paths, an InvalidPathError is thrown
+ : @param $teiDocs Set of TEI documents to return headers for
+ : @param $conInfoMap Map of contextual info document-nodes
+ : @return Set of teiDoc elements - one for every document in the given set of TEI documents 
 :)
-declare function rpt:headers($teiPath as xs:anyAtomicType?, $contextualInfoPath as xs:anyAtomicType?) as element()* {
-    let $uri := utils:saxon-collection-uri($teiPath)
-    let $conInfoMap := teix:get-contextual-info-docs($contextualInfoPath)
-    return
-        if (empty($uri) or empty(map:keys($conInfoMap))) then
-            error($rpt:INVALID_PATH_ERROR, concat("Either the TEI Path or the Contextual Info Path is invalid! ",
-                "Given paths: teiPath: ", $teiPath, " contextualInfoPath: ", $contextualInfoPath))
-        else
-            let $teiDocs := collection($uri)[exists(tei:TEI)]
+declare function rpt:headers($teiDocs as document-node()*, $conInfoMap as map(xs:string, document-node())) as element(teiDoc)* {
             let $genreSchemeRefs := 
                 distinct-values($teiDocs//tei:profileDesc/tei:textClass/tei:catRef[not(txt:is-genre(.))]/@scheme)
             
@@ -78,45 +89,74 @@ declare function rpt:headers($teiPath as xs:anyAtomicType?, $contextualInfoPath 
             let $status := txt:status($tei)
         
             let $genre := txt:genre($tei) 
-            let $genreCat := teix:get-contextual-info-by-ref($conInfoMap, $genre/@target)
+            let $genreCat := teix:con-info-by-ref($conInfoMap, $genre)
             
             let $catRefs := $header/tei:profileDesc/tei:textClass/tei:catRef
             let $otherGenres := 
                 let $otherCatRefs := $catRefs except $genre
                 for $schemeRef in $genreSchemeRefs
                 let $otherGenre := 
-                    teix:get-contextual-info-by-ref($conInfoMap, $otherCatRefs[@scheme eq $schemeRef]/@target[1])
+                    teix:con-info-by-ref($conInfoMap, $otherCatRefs[@scheme eq $schemeRef][1])
                 order by $schemeRef
                 return
                     element { teix:split-ref($schemeRef)[2] } { txt:category($otherGenre)[1] }
                     
             let $creation := txt:creation($tei)
             let $yearInfo := txt:year-info($creation[local-name() eq "date"])
-            let $org := teix:get-contextual-info-by-ref($conInfoMap, $creation[local-name() eq "orgName"]/@ref[1])
-            let $person := teix:get-contextual-info-by-ref($conInfoMap, $creation[local-name() eq "persName"]/@ref[1])
-            let $place := teix:get-contextual-info-by-ref($conInfoMap, $creation[txt:is-place(.)][1]/@ref)
+            
+            let $org := teix:con-info-by-ref($conInfoMap, $creation[local-name() eq "orgName"][1])
+            
+            let $person := teix:con-info-by-ref($conInfoMap, $creation[local-name() eq "persName"][1])
+            let $birth := $person/tei:birth
+            let $birth := if (empty($birth)) then teix:element-tei("birth", ()) else $birth
+            let $death := $person/tei:death
+            let $death := if (empty($death)) then teix:element-tei("death", ()) else $death
+            
+            let $place := teix:con-info-by-ref($conInfoMap, $creation[txt:is-place(.)][1])
             return
                 element teiDoc {
                     element teiID { $teiID },
-                    element idNo { $idNo },
-                    element status { if (empty($status)) then () else string($status/@status) },
-                    element statusDate { if (empty($status)) then () else string($status/@when) },
-                    element statusUserID { if (empty($status)) then () else substring-after($status/@who, "person_") },
+                    element idno { $idNo },
                     element genre { txt:category($genreCat)[1] },
                     $otherGenres,
                     element year { $yearInfo("year") },
                     element certainty { $yearInfo("cert") },
+                    element place { txt:place($place) },
+                    element wordCount { data($header/tei:fileDesc/tei:extent/tei:measure[@unit eq "words"]/@quantity) },
+                    element org { txt:org($org) },
                     element writerID { substring-after($person/@xml:id[1], "person_") }, 
                     element writer { txt:person($person) },
-                    element place { txt:place($place) },
-                    element org { txt:org($org) },
-                    element numHands { count($header/tei:profileDesc/tei:handNotes/tei:handNote) },
-                    element title { normalize-space($header/tei:fileDesc/tei:titleStmt/tei:title[1]) },
-                    element wordCount { data($header/tei:fileDesc/tei:extent/tei:measure[@unit eq "words"]/@quantity) },
+                    rpt:events($conInfoMap, ( $birth, $death )),
+                    element handCount { count($header/tei:profileDesc/tei:handNotes/tei:handNote) },
                     element noteCount { count($header/tei:fileDesc/tei:notesStmt/tei:note) },
+                    element title { normalize-space($header/tei:fileDesc/tei:titleStmt/tei:title[1]) },
                     element fileName { utils:get-filenames($doc) },
-                    element fullURI { document-uri($doc) }
+                    element fullURI { document-uri($doc) },
+                    element status { txt:id-as-label($status/@status) },
+                    element statusDate { data($status/@when) },
+                    element statusEditor { txt:person(teix:con-info-by-ref($conInfoMap, $status)) }
                 }
+};
+
+(:~
+ : Generate a tabular report with header values from all TEI documents in a given collection
+ : 
+ : @param $teiPath The path to the collection. Can be a string or uri. A string is assumed to be a path
+ :      and as such is converted to a URI beforehand
+ : @param $contextualInfoPath Path to the set of Contextual Info files. Can be a string or uri. A string is assumed to be a path
+ :      and as such is converted to a URI beforehand
+ : @return Set of teiDoc elements - one for every document in the given TEI collection 
+ : @error If either $teiPath or $contextualInfoPath are invalid paths, an InvalidPathError is thrown
+:)
+declare function rpt:headers-paths($teiPath as xs:anyAtomicType?, $contextualInfoPath as xs:anyAtomicType?) as element()* {
+    let $uri := utils:saxon-collection-uri($teiPath)
+    let $conInfoMap := teix:con-info-docs-map($contextualInfoPath)
+    return
+        if (empty($uri) or empty(map:keys($conInfoMap))) then
+            error($rpt:INVALID_PATH_ERROR, concat("Either the TEI Path or the Contextual Info Path is invalid! ",
+                "Given paths: teiPath: ", $teiPath, " contextualInfoPath: ", $contextualInfoPath))
+        else
+            rpt:headers(teix:collection($uri), $conInfoMap)
 };
 
 (:~
@@ -134,7 +174,7 @@ declare function rpt:get-creation-types($teiPath as xs:anyURI) as element(typeLa
         if (empty($uri)) then
             error($rpt:INVALID_PATH_ERROR, concat("The TEI Path is invalid! teiPath: ", $teiPath))
         else
-            let $docs := collection(utils:saxon-collection-uri($teiPath))[exists(tei:TEI)]
+            let $docs := teix:collection($uri)
             let $dateTypes := distinct-values($docs/tei:TEI//tei:date/@type)
             let $orgTypes := distinct-values($docs/tei:TEI//(tei:orgName | tei:repository)/@type)
             let $personTypes := distinct-values($docs/tei:TEI//(tei:persName | tei:name)/@type)

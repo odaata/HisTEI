@@ -28,7 +28,8 @@ xquery version "3.0";
  : - Full URI
  :)
 
-import module namespace rpt="http://histei.info/xquery/reports" at "reports.xqm";
+(:import module namespace rpt="http://histei.info/xquery/reports" at "reports.xqm";:)
+import module namespace sax="http://histei.info/xquery/utils/saxon" at "utils-saxon.xqm";
 
 declare variable $teiURI as xs:anyURI external;
 declare variable $contextualInfoURI as xs:anyURI external;
@@ -41,7 +42,7 @@ declare variable $contextualInfoURI as xs:anyURI external;
 let $contextualInfoURI := xs:anyURI("file:/home/mike/Amsterdam/contextual_info")
 
 return:)
-element corpusAll { rpt:headers-paths($teiURI, $contextualInfoURI) }
+element corpusAll { sax:headers-paths($teiURI, $contextualInfoURI) }
 
 
 

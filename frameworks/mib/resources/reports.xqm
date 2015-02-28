@@ -40,11 +40,6 @@ import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei="http://www.tei-c.org/ns/1.0";
 
-(: Errors :)
-(: Raised by rpt:header() if either the $teiPath or $contextualInfoPath is empty or invalid :)
-declare %private variable $rpt:INVALID_PATH_ERROR := QName("http://histei.info/xquery/reports/error", "InvalidPathError");
-
-
 (:~
  : Generate the fields for a set of TEI event elements (i.e. birth, death, event)
  : 
@@ -130,33 +125,12 @@ declare function rpt:headers($teiDocs as document-node()*, $conInfoMap as map(xs
                     element handCount { count($header/tei:profileDesc/tei:handNotes/tei:handNote) },
                     element noteCount { count($header/tei:fileDesc/tei:notesStmt/tei:note) },
                     element title { normalize-space($header/tei:fileDesc/tei:titleStmt/tei:title[1]) },
-                    element fileName { utils:get-filenames($doc) },
+                    element fileName { utils:filenames($doc) },
                     element fullURI { document-uri($doc) },
                     element status { txt:id-as-label($status/@status) },
                     element statusDate { data($status/@when) },
                     element statusEditor { txt:person(teix:con-info-by-ref($conInfoMap, $status)) }
                 }
-};
-
-(:~
- : Generate a tabular report with header values from all TEI documents in a given collection
- : 
- : @param $teiPath The path to the collection. Can be a string or uri. A string is assumed to be a path
- :      and as such is converted to a URI beforehand
- : @param $contextualInfoPath Path to the set of Contextual Info files. Can be a string or uri. A string is assumed to be a path
- :      and as such is converted to a URI beforehand
- : @return Set of teiDoc elements - one for every document in the given TEI collection 
- : @error If either $teiPath or $contextualInfoPath are invalid paths, an InvalidPathError is thrown
-:)
-declare function rpt:headers-paths($teiPath as xs:anyAtomicType?, $contextualInfoPath as xs:anyAtomicType?) as element()* {
-    let $uri := utils:saxon-collection-uri($teiPath)
-    let $conInfoMap := teix:con-info-docs-map($contextualInfoPath)
-    return
-        if (empty($uri) or empty(map:keys($conInfoMap))) then
-            error($rpt:INVALID_PATH_ERROR, concat("Either the TEI Path or the Contextual Info Path is invalid! ",
-                "Given paths: teiPath: ", $teiPath, " contextualInfoPath: ", $contextualInfoPath))
-        else
-            rpt:headers(teix:collection($uri), $conInfoMap)
 };
 
 (:~
@@ -168,24 +142,19 @@ declare function rpt:headers-paths($teiPath as xs:anyAtomicType?, $contextualInf
  :      Each element then contains a list of types in use 
  : @error If $teiPath is invalid, an InvalidPathError is thrown
 :)
-declare function rpt:get-creation-types($teiPath as xs:anyURI) as element(typeLabels) {
-    let $uri := utils:saxon-collection-uri($teiPath)
+declare function rpt:get-creation-types($teiURI as xs:anyURI) as element(typeLabels) {
+    let $docs := teix:collection($teiURI)
+    let $dateTypes := distinct-values($docs/tei:TEI//tei:date/@type)
+    let $orgTypes := distinct-values($docs/tei:TEI//(tei:orgName | tei:repository)/@type)
+    let $personTypes := distinct-values($docs/tei:TEI//(tei:persName | tei:name)/@type)
+    let $placeTypes := distinct-values($docs/tei:TEI//*[txt:is-place(.)]/@type)
     return
-        if (empty($uri)) then
-            error($rpt:INVALID_PATH_ERROR, concat("The TEI Path is invalid! teiPath: ", $teiPath))
-        else
-            let $docs := teix:collection($uri)
-            let $dateTypes := distinct-values($docs/tei:TEI//tei:date/@type)
-            let $orgTypes := distinct-values($docs/tei:TEI//(tei:orgName | tei:repository)/@type)
-            let $personTypes := distinct-values($docs/tei:TEI//(tei:persName | tei:name)/@type)
-            let $placeTypes := distinct-values($docs/tei:TEI//*[txt:is-place(.)]/@type)
-            return
-                element typeLabels {
-                    element dateTypes { for $type in $dateTypes return element dateType { $type } },
-                    element orgTypes { for $type in $orgTypes return element orgType { $type } },
-                    element personTypes { for $type in $personTypes return element personType { $type } },
-                    element placeTypes { for $type in $placeTypes return element placeType { $type } }
-                }
+        element typeLabels {
+            element dateTypes { for $type in $dateTypes return element dateType { $type } },
+            element orgTypes { for $type in $orgTypes return element orgType { $type } },
+            element personTypes { for $type in $personTypes return element personType { $type } },
+            element placeTypes { for $type in $placeTypes return element placeType { $type } }
+        }
 };
 
 

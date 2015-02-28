@@ -262,6 +262,53 @@ declare function utils:update-content-ordered($element as element(), $fieldNames
         }
 };
 
+(: Functions for importing/converting text files into/to XML :)
+
+(:~
+ : Parse a set of tab-delimited lines and convert them to a set of XML row elements.
+ : Elements within each row represent fields in the original tab-delimited row
+ :  - Field names are either header names taken from the first row (when $hasHeaders is true) or 
+ :      an f_ prefix followed by the ordinal position of each field
+ :  - When $hasHeaders is true, field names that are not valid QNames are also prefixed with f_
+ : 
+ : @param $lines Set of strings taken from a tab-delimited text file
+ : @param $hasHeaders Whether the first line contains the names of the fields. Default is true.
+ : @return Set of row elements containing fields named using headers in the first line or ordinal names
+:)
+declare function utils:parse-tab-lines($lines as xs:string*, $hasHeaders as xs:boolean?) as element(row)* {
+    let $fieldPrefix := "f_"
+    let $hasHeaders := if (empty($hasHeaders)) then true() else $hasHeaders
+    
+    let $fieldNames := 
+        for $field at $pos in tokenize($lines[1], "\t")
+        return
+            if ($hasHeaders) then
+                let $field := normalize-space($field)
+                return
+                    if ($field castable as xs:QName) then 
+                        $field 
+                    else 
+                        concat($fieldPrefix, $field)
+            else
+                concat($fieldPrefix, $pos)
+           
+    let $body := if ($hasHeaders) then subsequence($lines, 2) else $lines
+    
+    for $line in $body
+    return
+        element row {
+            for $field at $pos in tokenize($line, "\t")
+            let $fieldName := $fieldNames[$pos]
+            let $fieldName := if (empty($fieldName) or $fieldName eq "") then concat($fieldPrefix, $pos) else $fieldName
+            return
+                element { $fieldName } { normalize-space($field) }
+        }
+};
+
+declare function utils:parse-tab-lines($lines as xs:string*) as element(row)* {
+    utils:parse-tab-lines($lines, ())
+};
+
 
 
 

@@ -12,6 +12,7 @@ xquery version "3.0";
  : @version 0.1
  :)
 
+import module namespace histei="http://histei.info/xquery/utils/histei" at "utils-histei.xqm";
 import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
 import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xqm";
 import module namespace sax="http://histei.info/xquery/utils/saxon" at "utils-saxon.xqm";
@@ -252,8 +253,9 @@ declare function local:update-places() as element(placesAdded) {
     }
 };
 
+(:element textsToGet { sax:parse-tab-file($transToGetPath) }:)
 
-sax:tokenize-collection($corpusPath, $tokenizedPath, $userID)
+histei:tokenize-collection($corpusPath, $tokenizedPath, $userID)
 
 (:    doc("/home/mike/Downloads/INL-Tagged_SAA_00231_Marquette_00366_0000000071.xml"):)
 (:    doc("/home/mike/Downloads/INL-Tagged_SAA_00231_Marquette_00366_0000000071.xml")//tei:w[contains(string-join(text(), ""), "vande")]:)

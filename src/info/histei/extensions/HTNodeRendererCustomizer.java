@@ -79,10 +79,12 @@ public class HTNodeRendererCustomizer extends XMLNodeRendererCustomizer {
         iconNodes.put("ab", new HTIconNode("ab"));
         iconNodes.put("term", new HTIconNode("term"));
 //      Annotations
-        iconNodes.put("s", new HTIconNode("sentence"));
-        iconNodes.put("cl", new HTIconNode("clause"));
-        iconNodes.put("phr", new HTIconNode("phrase"));
-        iconNodes.put("w", new HTIconNode("word"));
+        iconNodes.put("s", new HTIconNode("s", "sentence"));
+        iconNodes.put("cl", new HTIconNode("cl", "clause"));
+        iconNodes.put("phr", new HTIconNode("phr", "phrase"));
+        iconNodes.put("w", new HTIconNode("w", "word"));
+        iconNodes.put("num", new HTIconNode("num", "number"));
+        iconNodes.put("pc", new HTIconNode("pc", "punctuation"));
 //      seg@function
         initMap = new HashMap<>();
         initMap.put("salute", "salute");

@@ -15,6 +15,13 @@ declare namespace uuid="java:java.util.UUID";
 
 declare variable $teix:NS_TEI as xs:string := "http://www.tei-c.org/ns/1.0";
 declare variable $teix:DEFAULT_ID_SEPARATOR as xs:string := "_";
+
+(: TEI-specific element names and their use in our corpus:)
+declare variable $teix:CONTENT_ELEMENT_NAMES := ("p", "head", "dateline", "signed", "salute", "byline", "argument", "epigraph", "trailer", "address");
+declare variable $teix:BREAK_ELEMENT_NAMES := ( "cb", "gb", "lb", "milestone", "pb");
+declare variable $teix:MILESTONE_ELEMENT_NAMES := ($teix:BREAK_ELEMENT_NAMES, "handShift");
+declare variable $teix:ANNOTATION_ELEMENT_NAMES := ("w", "pc", "num");
+declare variable $teix:EDIT_ELEMENT_NAMES := ("add", "del", "hi");
 declare variable $teix:PLACE_ELEMENT_NAMES := ("placeName", "district", "settlement", "region", "country", "bloc");
 
 declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map {
@@ -24,7 +31,8 @@ declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map
     "titleStmt" := ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal"),
     "profileDesc" := ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes"),
     "creation" := ("date", "persName", $teix:PLACE_ELEMENT_NAMES, "orgName"),
-    "textClass" := ("classCode", "catRef", "keywords")
+    "textClass" := ("classCode", "catRef", "keywords"),
+    "text" := ( "front", "body", "group", "back" )
 };
 
 declare variable $teix:CON_INFO_TYPES := element contextualTypes {
@@ -38,14 +46,16 @@ declare variable $teix:CON_INFO_REGEX := concat("(", string-join($teix:CON_INFO_
 declare variable $teix:CON_INFO_REF_ATTR_NAMES := ( "ref", "scribeRef", "target", "who" );
 
 
-declare %private variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
-declare %private variable $teix:DEFAULT_FILE_DESC := <fileDesc>{$teix:DEFAULT_TITLE_STMT}<publicationStmt/><sourceDesc/></fileDesc>;
-declare %private variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
+declare variable $teix:DEFAULT_TITLE_STMT := <titleStmt><title/></titleStmt>;
+declare variable $teix:DEFAULT_PUBLICATION_STMT := <publicationStmt><authority/><idno/></publicationStmt>;
+declare variable $teix:DEFAULT_SOURCE_DESC := <sourceDesc><bibl/></sourceDesc>;
+declare variable $teix:DEFAULT_FILE_DESC := element fileDesc { $teix:DEFAULT_TITLE_STMT, $teix:DEFAULT_PUBLICATION_STMT, $teix:DEFAULT_SOURCE_DESC };
+declare variable $teix:DEFAULT_HEADER := element teiHeader { $teix:DEFAULT_FILE_DESC };
 
-declare %private variable $teix:DEFAULT_CREATION := <creation><date/><persName/><settlement/></creation>;
-declare %private variable $teix:DEFAULT_TEXT_CLASS := <textClass><catRef/></textClass>;
-declare %private variable $teix:DEFAULT_HAND_NOTES := <handNotes><handNote xml:id="hand_001"/></handNotes>;
-declare %private variable $teix:DEFAULT_PROFILE_DESC := element profileDesc { $teix:DEFAULT_CREATION, $teix:DEFAULT_TEXT_CLASS, $teix:DEFAULT_HAND_NOTES };
+declare variable $teix:DEFAULT_CREATION := <creation><date/><persName/><settlement/></creation>;
+declare variable $teix:DEFAULT_TEXT_CLASS := <textClass><catRef/></textClass>;
+declare variable $teix:DEFAULT_HAND_NOTES := <handNotes><handNote xml:id="hand_001"/></handNotes>;
+declare variable $teix:DEFAULT_PROFILE_DESC := element profileDesc { $teix:DEFAULT_CREATION, $teix:DEFAULT_TEXT_CLASS, $teix:DEFAULT_HAND_NOTES };
 
 (: Generic Functions :)
 
@@ -123,6 +133,10 @@ declare function teix:update-tei-content-ordered($element as element(), $newElem
 (: Functions for specific TEI nodes starting with the entire document :)
 
 declare function teix:update-TEI($element as element(TEI), $newElements as element()*) as element(TEI) {
+    teix:update-tei-content-ordered($element, $newElements)
+};
+
+declare function teix:update-text($element as element(text), $newElements as element()*) as element(text) {
     teix:update-tei-content-ordered($element, $newElements)
 };
 

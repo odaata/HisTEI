@@ -6611,7 +6611,7 @@
 						<Boolean>true</Boolean>
 					</field>
 					<field name="imposedInitialPage">
-						<String>Author</String>
+						<String>Text</String>
 					</field>
 					<field name="elementLocatorExtension">
 						<null/>

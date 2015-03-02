@@ -79,7 +79,6 @@ declare function rpt:headers($teiDocs as document-node()*, $conInfoMap as map(xs
             
             let $teiID := substring-after($tei/@xml:id, "TEI_")
             let $idNo := normalize-space($header/tei:fileDesc/tei:publicationStmt/tei:idno[1]/text())
-            order by $idNo, $teiID
             
             let $status := txt:status($tei)
         
@@ -108,6 +107,8 @@ declare function rpt:headers($teiDocs as document-node()*, $conInfoMap as map(xs
             let $death := if (empty($death)) then teix:element-tei("death", ()) else $death
             
             let $place := teix:con-info-by-ref($conInfoMap, $creation[txt:is-place(.)][1])
+            
+            order by $idNo, $teiID
             return
                 element teiDoc {
                     element teiID { $teiID },

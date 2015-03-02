@@ -18,23 +18,17 @@ declare default element namespace "http://www.tei-c.org/ns/1.0";
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 
 (: Tokenization Regex Character Classes - can also be passed in externally :)
-declare variable $tok:numberBreakClass as xs:string external := ":\.\-/'""%";
-declare variable $tok:numberClass as xs:string external := "\p{N}";
-declare variable $tok:nonBreakingPunctClass as xs:string external := "\p{Pd}\p{Pc}'=";
-declare variable $tok:breakingPunctClass as xs:string external := "\p{S}\p{P}";
-declare variable $tok:whitespaceClass as xs:string external := "\s";
-declare variable $tok:wordClass as xs:string external := "\p{L}\p{M}";
+declare %private variable $tok:numberBreakClass as xs:string := ":\.\-/'""%";
+declare %private variable $tok:numberClass as xs:string := "\p{N}";
+declare %private variable $tok:nonBreakingPunctClass as xs:string := "\p{Pd}\p{Pc}'=";
+declare %private variable $tok:breakingPunctClass as xs:string := "\p{S}\p{P}";
+declare %private variable $tok:whitespaceClass as xs:string := "\s";
+declare %private variable $tok:wordClass as xs:string := "\p{L}\p{M}";
 
 (: TEI-specific element names and their use in our corpus:)
-declare %private variable $tok:contentNames := ("p", "head", "dateline", "signed", "salute", 
-                                    "byline", "argument", "epigraph", "trailer", "address");
-declare %private variable $tok:breakNames := ( "cb", "gb", "lb", "milestone", "pb");
-declare %private variable $tok:milestoneNames := ($tok:breakNames, "handShift");
 declare %private variable $tok:subWordToSplitNames := ("expan", "supplied", "unclear");
 declare %private variable $tok:subWordNeverTokenizedNames := ("abbr");
 declare %private variable $tok:subWordNames := ($tok:subWordToSplitNames, $tok:subWordNeverTokenizedNames, "gap");
-declare %private variable $tok:annotationNames := ("w", "pc", "num");
-declare %private variable $tok:editNames := ("add", "del", "hi");
 
 declare %private variable $tok:TYPE_LABEL := "type";
 declare %private variable $tok:REGEX_LABEL := "regex";
@@ -155,10 +149,10 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
             $textNode
         else
             let $preceding := $textNode/preceding::node()[self::* or (self::text() and not(utils:is-empty-oxy-comment(.)))][1]
-            let $isBegin := (local-name($preceding) = $tok:breakNames)
+            let $isBegin := (local-name($preceding) = $teix:BREAK_ELEMENT_NAMES)
                     
             let $following := $textNode/following::node()[self::* or (self::text() and not(utils:is-empty-oxy-comment(.)))][1]
-            let $isEnd := (local-name($following) = $tok:breakNames)
+            let $isEnd := (local-name($following) = $teix:BREAK_ELEMENT_NAMES)
             
             let $text := 
                 if ($isBegin and $isEnd) then
@@ -247,7 +241,7 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
         return
             typeswitch($node)
             case element() return
-                if (local-name($node) = $tok:contentNames) then
+                if (local-name($node) = $teix:CONTENT_ELEMENT_NAMES) then
                     tok:clean-spaces($node)
                 else
                     tok:clean-spaces-doc($node)
@@ -315,7 +309,7 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
                 case element() return
                     let $elementName := local-name($content)
                     return
-                        if ($elementName = ($tok:milestoneNames, "gap")) then
+                        if ($elementName = ($teix:MILESTONE_ELEMENT_NAMES, "gap")) then
                             $content
                         else if (exists($elementName) and not($elementName = $tok:subWordNames)) then
                             utils:replace-content($content, tok:tokenize-nodes($tokenTypes, $content/node()))
@@ -423,13 +417,13 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
     return
         if ($elementName = $tok:subWordNeverTokenizedNames) then
             ( tok:token($tokenTypes, $currentToken), tok:token($tokenTypes, $element), tok:tokenize-nodes($tokenTypes, $nodes, $nextN) )
-        else if ($elementName = ($tok:breakNames, $tok:annotationNames)) then
+        else if ($elementName = ($teix:BREAK_ELEMENT_NAMES, $teix:ANNOTATION_ELEMENT_NAMES)) then
             if ($element/@break eq "no" or $element/@force eq "weak") then
                 tok:tokenize-nodes($tokenTypes, $nodes, $nextN, ($currentToken, $element))
             else
                 ( tok:token($tokenTypes, $currentToken), $element, tok:tokenize-nodes($tokenTypes, $nodes, $nextN) )
         else if (count(tok:split-text($tokenTypes, xs:string($element))) gt 1 
-            or not($elementName = ($tok:subWordNames, $tok:editNames, $tok:milestoneNames))) then
+            or not($elementName = ($tok:subWordNames, $teix:EDIT_ELEMENT_NAMES, $teix:MILESTONE_ELEMENT_NAMES))) then
         ( 
             tok:token($tokenTypes, $currentToken), 
             utils:replace-content($element, tok:tokenize-nodes($tokenTypes, $element/node())), 
@@ -477,7 +471,7 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
         return
             typeswitch($node)
             case element() return
-                if (exists($node/ancestor::body) and local-name($node) = $tok:contentNames) then
+                if (exists($node/ancestor::body) and local-name($node) = $teix:CONTENT_ELEMENT_NAMES) then
                     utils:replace-content($node, tok:tokenize-nodes($tokenTypes, $node/node()))
                 else
                     tok:tokenize-doc($tokenTypes, $node)

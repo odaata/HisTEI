@@ -15,7 +15,31 @@ declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare %private variable $utils:NO_FIELD_NAMES_ERROR := QName("http://histei.info/xquery/utils/error", "NoFieldNamesError");
 
 
-(: Generic functions for processing XML :)
+(: Generic functions for processing URIs :)
+
+(:~
+ : Appends a filename to a base path using the slash separator (/)
+ : 
+ : @param $dir URI to a directory.
+ : @param $file File name to be appended to the directory.
+ : @return Full URI to the file.
+:)
+declare function utils:resolve-uri($dir as xs:string?, $file as xs:string?) as xs:string? {
+    if (empty($dir) or $dir eq "") then
+        ()
+    else
+        let $dir := 
+            if (ends-with($dir, "/")) then
+                $dir
+            else
+                concat($dir, "/")
+        return
+            concat($dir, $file)
+};
+
+declare function utils:resolve-uri($dir as xs:string?) as xs:string? {
+    utils:resolve-uri($dir, ())
+};
 
 (:~
  : Gets the document URI and then returns the filename portion of the path for each input document-node()
@@ -40,6 +64,47 @@ declare function utils:file-basenames($docs as document-node()*) as xs:string* {
     for $filename in $filenames
     return
         functx:substring-before-last($filename, ".")
+};
+
+(: Generic functions for processing XML :)
+
+(:~
+ : Returns set of preceding-siblings by subsequencing from the parent node (instead of using the resource-intensive preceding-sibling XPath axis)
+ : - This is a replacement for any calls to the preceding-sibling axis
+ : 
+ : @param $element Element whose preceding-siblings are to be returned.
+ : @return Set of preceding-sibling nodes relative to the input element.
+:)
+declare function utils:preceding-sibling($element as element()?) as node()* {
+    utils:sibling($element, true())
+};
+
+(:~
+ : Returns set of following-siblings by subsequencing from the parent node (instead of using the resource-intensive following-sibling XPath axis)
+ : - This is a replacement for any calls to the following-sibling axis
+ : 
+ : @param $element Element whose following-siblings are to be returned.
+ : @return Set of following-sibling nodes relative to the input element.
+:)
+declare function utils:following-sibling($element as element()?) as node()* {
+    utils:sibling($element, false())
+};
+
+(:~
+ : Returns set of siblings by subsequencing from the parent node (instead of using the resource-intensive sibling XPath axis)
+ : - This is a replacement for any calls to the sibling axes
+ : 
+ : @param $element Element whose siblings are to be returned.
+ : @param $previous Direction to search for siblings. If true, preceding-siblings are selected, else following-siblings are selected.
+ : @return Set of sibling nodes relative to the input element.
+:)
+declare function utils:sibling($element as element()?, $previous as xs:boolean) as node()* {
+    let $parent := $element/parent::*[1]
+    return
+        if ($previous) then 
+            subsequence($parent/node(), 1, functx:index-of-node($parent/node(), $element) - 1)
+        else 
+            subsequence($parent/node(), functx:index-of-node($parent/node(), $element) + 1)
 };
 
 (:~

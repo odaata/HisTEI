@@ -6,19 +6,17 @@ xquery version "3.0";
 module namespace txt="http://histei.info/xquery/tei2text";
 
 import module namespace functx="http://www.functx.com" at "functx.xql";
+import module namespace teix="http://histei.info/xquery/tei" at "tei.xqm";
+import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
-declare variable $txt:PLACE_ELEMENT_NAMES := ("placeName", "district", "settlement", "region", "country", "bloc");
+declare %private variable $txt:CONTEXT_LENGTH := 164;
 
-declare variable $txt:contextLength := 164;
-
-declare variable $txt:contentElements := ("p", "opener", "closer", "postscript", "gloss");
-declare variable $txt:milestoneElements := ("pb", "lb", "handShift");
-declare variable $txt:removedElements := ("del", "note");
-declare variable $txt:replacedElements := map{ "gap" := "(GAP)" };
-declare variable $txt:wrappedElements := map{
+declare %private variable $txt:REMOVED_ELEMENTS := ("del", "note", "fw");
+declare %private variable $txt:REPLACED_ELEMENTS := map{ "gap" := "(GAP)" };
+declare %private variable $txt:WRAPPED_ELEMENTS := map{
     "abbr" := ("_", "_"),
     "expan" := ("[", "]"),
     "supplied" := ("{", "}"),
@@ -172,9 +170,9 @@ declare function txt:year($date as xs:string?) as xs:integer? {
 };
 
 declare function txt:is-genre($element as element(tei:catRef)) as xs:boolean {
-    let $scheme := data($element/@scheme)
+    let $scheme := string($element/@scheme)
     return
-        (empty($scheme) or $scheme eq "") or contains($scheme, "EMST_GENRES")
+        $scheme eq "" or contains($scheme, "EMST_GENRES")
 };
 
 (:~
@@ -184,11 +182,18 @@ declare function txt:is-genre($element as element(tei:catRef)) as xs:boolean {
  : @return A single catRef element (if it exists), containing a reference to the main text genre
 :)
 declare function txt:genre($tei as element(tei:TEI)) as element(tei:catRef)? {
-    ($tei/tei:teiHeader/tei:profileDesc/tei:textClass/tei:catRef[txt:is-genre(.)])[1]
+    head(
+        for $catRef in $tei/tei:teiHeader/tei:profileDesc/tei:textClass/tei:catRef
+        return
+            if (txt:is-genre($catRef)) then
+                $catRef
+            else
+                ()
+    )
 };
 
 declare function txt:is-place($element as element()?) as xs:boolean {
-    local-name($element) = $txt:PLACE_ELEMENT_NAMES
+    local-name($element) = $teix:PLACE_ELEMENT_NAMES
 };
 
 (:~
@@ -310,7 +315,7 @@ declare function txt:transformNodes($nodes as node()*) as xs:string* {
         case element() return
             let $name := local-name($node)
             return
-                if ($name = $txt:milestoneElements) then
+                if ($name = $teix:MILESTONE_ELEMENT_NAMES) then
                     if ($node/@break eq "no") then "" else " "
                 
                 else if ($name eq "seg" and $node/@function eq "formulaic") then 
@@ -321,12 +326,12 @@ declare function txt:transformNodes($nodes as node()*) as xs:string* {
                         else
                             ""
                 
-                else if ($name = $txt:removedElements) then ""
+                else if ($name = $txt:REMOVED_ELEMENTS) then ""
                 
-                else if (map:contains($txt:replacedElements, $name)) then $txt:replacedElements($name)
+                else if (map:contains($txt:REPLACED_ELEMENTS, $name)) then $txt:REPLACED_ELEMENTS($name)
                 
-                else if (map:contains($txt:wrappedElements, $name)) then
-                    let $wrappers := $txt:wrappedElements($name)
+                else if (map:contains($txt:WRAPPED_ELEMENTS, $name)) then
+                    let $wrappers := $txt:WRAPPED_ELEMENTS($name)
                     let $wrappedNodes := txt:transformNodes($node/node())
                     return
                         if (exists($wrappedNodes)) then
@@ -339,21 +344,57 @@ declare function txt:transformNodes($nodes as node()*) as xs:string* {
             ()
 };
 
-declare function txt:outerNodes($elem as element()?, $previous as xs:boolean, $topElem as element()?) as node()* {
-    if (empty($elem) or (exists($topElem) and ($topElem eq $elem))) then
+declare %private function txt:siblingNodes($nodes as node()*, $previous as xs:boolean, $currTextLength as xs:integer) as xs:string* {
+    if (empty($nodes)) then 
         ()
     else
-        let $parent := $elem/parent::*
+        let $currNode := if ($previous) then $nodes[last()] else $nodes[1] 
+        let $text := replace(string-join(txt:transformNodes($currNode)), "\s+", " ")
+        let $textLength := string-length($text)
+        let $currTextLength := $currTextLength + $textLength
         return
-            if ($previous) then 
-                (txt:outerNodes($parent, $previous, $topElem), $elem/preceding-sibling::node()) 
+            if ($currTextLength ge $txt:CONTEXT_LENGTH) then
+                $text
+            else if ($previous) then 
+                (txt:siblingNodes(subsequence($nodes, 1, count($nodes) - 1), $previous, $currTextLength), $text) 
             else
-                ($elem/following-sibling::node(), txt:outerNodes($parent, $previous, $topElem))
+                ($text, txt:siblingNodes(subsequence($nodes, 2), $previous, $currTextLength)) 
+};
+
+declare %private function txt:outerNodes($element as element()?, $previous as xs:boolean, 
+                                    $topElement as element()?, $currTextLength as xs:integer?) as xs:string* {
+    
+    if (empty($element) or (exists($topElement) and ($topElement is $element))) then
+        ()
+    else
+        let $currTextLength := if (empty($currTextLength)) then 0 else $currTextLength 
+        let $parent := $element/parent::*
+        let $nextNodes := utils:sibling($element, $previous)
+            (:if ($previous) then 
+                subsequence($parent/node(), 1, functx:index-of-node($parent/node(), $element) - 1)
+            else 
+                subsequence($parent/node(), functx:index-of-node($parent/node(), $element) + 1):)
+        
+        (: Originally tried this with preceding-sibling, but that does NOT scale well, but this way is faster by a factor of 10 or so  :)
+        (:let $nextNodes := if ($previous) then $element/preceding-sibling::node() else $element/following-sibling::node():)
+        let $text := replace(string-join(txt:siblingNodes($nextNodes, $previous, $currTextLength)), "\s+", " ")
+        let $textLength := string-length($text)        
+        return
+            if ($currTextLength ge $txt:CONTEXT_LENGTH) then
+                $text
+            else if ($previous) then 
+                (txt:outerNodes($parent, $previous, $topElement, $currTextLength), $text) 
+            else
+                ($text, txt:outerNodes($parent, $previous, $topElement, $currTextLength))
+};
+
+declare %private function txt:outerNodes($element as element()?, $previous as xs:boolean, $topElement as element()?) as xs:string* {
+    txt:outerNodes($element, $previous, $topElement, ())
 };
 
 declare function txt:cutToWord($start as xs:boolean, $input as xs:string?, $outputLength as xs:integer?) as xs:string? {
     let $continuedSymbol := "&#8230;"
-    let $outputLength := if (empty($outputLength) or $outputLength < 1) then $txt:contextLength else $outputLength
+    let $outputLength := if (empty($outputLength) or $outputLength < 1) then $txt:CONTEXT_LENGTH else $outputLength
     let $input := functx:trim($input)
     let $inputLength := string-length($input)
     return
@@ -377,32 +418,22 @@ declare function txt:cutToWord($start as xs:boolean, $input as xs:string?) as xs
     txt:cutToWord($start, $input, ())
 };
 
-declare function txt:get-content-element($element as element()?) as element()? {
-    if (exists($element)) then
-        $element/ancestor::*[local-name() = $txt:contentElements][1]
-    else
-        ()
-};
-
-declare function txt:context($elem as element()) as element(context) {
-    let $contentElement := txt:get-content-element($elem)
+declare function txt:context($element as element()) as element(context) {
+    let $contentElement := teix:content-element($element)
     
-    let $preTextNodes := txt:outerNodes($elem, true(), $contentElement)
-    let $postTextNodes := txt:outerNodes($elem, false(), $contentElement)
-    
-    let $preText := txt:toText($preTextNodes)
-    let $postText := txt:toText($postTextNodes)
+    let $preText := normalize-space(string-join(txt:outerNodes($element, true(), $contentElement)))
+    let $postText := normalize-space(string-join(txt:outerNodes($element, false(), $contentElement)))
     return
         element context {
             element preText { txt:cutToWord(false(), $preText) },
-            element mainText { txt:toText($elem) },
+            element mainText { txt:toText($element) },
             element postText { txt:cutToWord(true(), $postText) }
         }
 };
 
 declare function txt:countWords($teiDoc as element(tei:TEI)) as xs:integer {
     sum(
-        for $contentNode in $teiDoc//tei:text//*[local-name() = $txt:contentElements]
+        for $contentNode in $teiDoc//tei:text//*[local-name() = $teix:CONTENT_ELEMENT_NAMES]
         return
             count(tokenize(txt:toText($contentNode), " "))
     )

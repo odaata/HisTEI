@@ -17,7 +17,7 @@ declare variable $teix:NS_TEI as xs:string := "http://www.tei-c.org/ns/1.0";
 declare variable $teix:DEFAULT_ID_SEPARATOR as xs:string := "_";
 
 (: TEI-specific element names and their use in our corpus:)
-declare variable $teix:CONTENT_ELEMENT_NAMES := ("p", "head", "dateline", "signed", "salute", "byline", "argument", "epigraph", "trailer", "address");
+declare variable $teix:CONTENT_ELEMENT_NAMES := ("p", "dateline", "signed", "salute", "head", "address", "byline", "argument", "epigraph", "trailer");
 declare variable $teix:BREAK_ELEMENT_NAMES := ( "cb", "gb", "lb", "milestone", "pb");
 declare variable $teix:MILESTONE_ELEMENT_NAMES := ($teix:BREAK_ELEMENT_NAMES, "handShift");
 declare variable $teix:ANNOTATION_ELEMENT_NAMES := ("w", "pc", "num");
@@ -106,6 +106,16 @@ declare function teix:element-tei($name as xs:string, $content) as element() {
 :)
 declare function teix:collection($uri as xs:anyURI) as document-node()* {
     collection($uri)[exists(TEI)]
+};
+
+(:~
+ : Return the parent content element from within a TEI document (e.g. p, head, dateline, salute, etc.)
+ : 
+ : @param $element element found within a TEI content element
+ : @return Parent content element, if present (e.g. p, head, dateline, salute, etc.)
+:)
+declare function teix:content-element($element as element()?) as element()? {
+    $element/ancestor::*[local-name() = $teix:CONTENT_ELEMENT_NAMES][1]
 };
 
 (:~

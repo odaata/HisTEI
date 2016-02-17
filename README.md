@@ -21,3 +21,10 @@ java version "1.7.0_55"
 Java(TM) SE Runtime Environment (build 1.7.0_55-b13)
 Java HotSpot(TM) 64-Bit Server VM (build 24.55-b03, mixed mode)
 ```
+
+## Python scripts
+
+In the folder *python* you'll find two Python-scripts: 
+
+- `extractglosses.py` allows you to extract all <gloss> elements from your HisTEI-XML file (requires [lxml](http://lxml.de/)). 
+- `xmltokenize.py` allows you to to train a sentence tokenizer (uses the [NLTK](http://www.nltk.org/) platform).

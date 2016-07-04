@@ -1437,7 +1437,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>oxy:allows-child-element("lb")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -2790,13 +2790,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2833,13 +2833,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;s xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2876,13 +2876,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;cl xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -2919,13 +2919,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;phr xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -4035,13 +4035,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;num xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
@@ -4078,13 +4078,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;measure xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>

@@ -1436,7 +1436,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>oxy:allows-child-element("lb")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

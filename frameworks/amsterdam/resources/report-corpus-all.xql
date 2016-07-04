@@ -37,10 +37,10 @@ declare variable $contextualInfoURI as xs:anyURI external;
 (:let $teiURI := xs:anyURI("file:/Z:/home/Amsterdam/tokenized"):)
 
 (: Linux/Mac URIs :)
-(:let $teiURI := xs:anyURI("file:/home/mike/Amsterdam/tokenized")
+let $teiURI := xs:anyURI("file:/home/mike/Amsterdam/tokenized")
 let $contextualInfoURI := xs:anyURI("file:/home/mike/Amsterdam/contextual_info")
 
-return:)
+return
 element corpusAll { histei:headers-paths($teiURI, $contextualInfoURI) }
 
 

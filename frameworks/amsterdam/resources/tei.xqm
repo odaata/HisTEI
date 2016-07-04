@@ -368,7 +368,7 @@ declare function teix:con-info-by-ref($contextualInfoMap as map(xs:string, docum
     let $refParts := teix:split-ref($ref)
     return
         if (exists($refParts[1])) then
-            ($contextualInfoMap($refParts[1])//*[@xml:id eq $refParts[2]])[1]
+            ($contextualInfoMap($refParts[1])/id($refParts[2]))[1]
         else
             ()
 };

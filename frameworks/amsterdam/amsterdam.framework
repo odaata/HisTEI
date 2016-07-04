@@ -1291,7 +1291,7 @@
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String></String>
+														<String>oxy:allows-child-element("lb")</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -4083,7 +4083,7 @@
 																<String>tokenizer.single</String>
 															</field>
 														</menuItem>
-                                                        <menuItem>
+														<menuItem>
 															<field name="actionID">
 																<String>tokenizer.collection</String>
 															</field>
@@ -4872,7 +4872,7 @@
 							<scenario>
 								<field name="advancedOptionsMap">
 									<null/>
-                                    </field>
+								</field>
 								<field name="name">
 									<String>tokenizer-single</String>
 								</field>

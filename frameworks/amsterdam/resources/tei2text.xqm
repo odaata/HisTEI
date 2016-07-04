@@ -12,7 +12,7 @@ import module namespace utils="http://histei.info/xquery/utils" at "utils.xqm";
 declare namespace map="http://www.w3.org/2005/xpath-functions/map";
 declare namespace tei = "http://www.tei-c.org/ns/1.0";
 
-declare %private variable $txt:CONTEXT_LENGTH := 164;
+declare %private variable $txt:CONTEXT_LENGTH := 255;
 
 declare %private variable $txt:REMOVED_ELEMENTS := ("del", "note", "fw");
 declare %private variable $txt:REPLACED_ELEMENTS := map{ "gap" := "(GAP)" };
@@ -93,7 +93,8 @@ declare function txt:name-info($persName as element(tei:persName)?) as map(xs:st
         ()
 };
 
-declare function txt:format-year($datable as element(), $single-estimates as xs:boolean) as xs:string {
+(: This is not used anymore - year-info is used instead :)
+(:declare function txt:format-year($datable as element(), $single-estimates as xs:boolean) as xs:string {
     let $when := txt:year($datable/@when)
     let $notBefore := txt:year($datable/@notBefore)
     let $notAfter := txt:year($datable/@notAfter)
@@ -122,7 +123,7 @@ declare function txt:format-year($datable as element(), $single-estimates as xs:
 
 declare function txt:format-year($datable as element()) as xs:string {
     txt:format-year($datable, true())
-};
+};:)
 
 declare function txt:year-info($datable as element()?, $single-estimates as xs:boolean) as map(xs:string, item()) {
     if (empty($datable)) then
@@ -152,7 +153,7 @@ declare function txt:year-info($datable as element()?, $single-estimates as xs:b
                 map { "year" := $notAfter, "cert" := "na" }
             
             case exists($from) or exists($to) return
-                map { "year" := concat($from, "-", $to), "cert" := $cert }
+                map { "year" := if ($from eq $to) then $from else concat($from, "-", $to), "cert" := $cert }
                 
             default return 
                 map:new()
@@ -370,11 +371,6 @@ declare %private function txt:outerNodes($element as element()?, $previous as xs
         let $currTextLength := if (empty($currTextLength)) then 0 else $currTextLength 
         let $parent := $element/parent::*
         let $nextNodes := utils:sibling($element, $previous)
-            (:if ($previous) then 
-                subsequence($parent/node(), 1, functx:index-of-node($parent/node(), $element) - 1)
-            else 
-                subsequence($parent/node(), functx:index-of-node($parent/node(), $element) + 1):)
-        
         (: Originally tried this with preceding-sibling, but that does NOT scale well, but this way is faster by a factor of 10 or so  :)
         (:let $nextNodes := if ($previous) then $element/preceding-sibling::node() else $element/following-sibling::node():)
         let $text := replace(string-join(txt:siblingNodes($nextNodes, $previous, $currTextLength)), "\s+", " ")

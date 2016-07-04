@@ -1,6 +1,7 @@
 package info.histei.id;
 
 import info.histei.extensions.HTUniqueAttributesRecognizer;
+import ro.sync.ecss.extensions.api.AuthorAccess;
 import ro.sync.ecss.extensions.commons.id.ConfigureAutoIDElementsOperation;
 import ro.sync.ecss.extensions.commons.id.GenerateIDElementsInfo;
 
@@ -9,7 +10,7 @@ import ro.sync.ecss.extensions.commons.id.GenerateIDElementsInfo;
  */
 public class HTConfigureAutoIDElementsOperation extends ConfigureAutoIDElementsOperation {
     @Override
-    protected GenerateIDElementsInfo getDefaultOptions() {
+    protected GenerateIDElementsInfo getDefaultOptions(AuthorAccess authorAccess) {
         return HTUniqueAttributesRecognizer.GENERATE_ID_DEFAULTS;
     }
 

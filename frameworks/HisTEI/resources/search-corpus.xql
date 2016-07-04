@@ -204,11 +204,12 @@ let $tokenizedDocs := teix:collection(sax:collection-uri($tokenizedPath))
 (:let $rptHeaders := rpt:headers($tokenizedDocs, $conInfoMap):)
 let $taggedDocs := teix:collection(sax:collection-uri($taggedPath))
 
-(:let $wordenHits := local:hits-worden($tokenizedDocs, $amsterdamHeaders, $taggedDocs):)
+let $wordenHits := local:hits-worden($tokenizedDocs, $amsterdamHeaders, $taggedDocs)
 return
-    element inlVerbLemmas {
+    $wordenHits
+    (:element inlVerbLemmas {
         let $words := local:ling-data($taggedDocs)[starts-with(@type, "VRB")]
-(:        let $words := $words[not(ancestor::tei:w)]:)
+(\:        let $words := $words[not(ancestor::tei:w)]:\)
         
         for $word in $words
         group by $inlPOS := string($word/@type), $inlLemma := string($word/@lemma)
@@ -219,7 +220,7 @@ return
                 element lemma { $inlLemma },
                 element total { count($word) }
             }
-    }
+    }:)
     
     
     (:element hits {

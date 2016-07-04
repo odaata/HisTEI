@@ -122,6 +122,7 @@ declare function rpt:headers($teiDocs as document-node()*, $conInfoMap as map(xs
                     element org { txt:org($org) },
                     element writerID { substring-after($person/@xml:id[1], "person_") }, 
                     element writer { txt:person($person) },
+                    element sex { switch($person/tei:sex/@value) case "1" return "m" case "2" return "f" default return () },
                     rpt:events($conInfoMap, ( $birth, $death )),
                     element handCount { count($header/tei:profileDesc/tei:handNotes/tei:handNote) },
                     element noteCount { count($header/tei:fileDesc/tei:notesStmt/tei:note) },

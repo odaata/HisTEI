@@ -1,9 +1,0 @@
-Manifest-Version: 1.0
-Created-By: 1.7.0_51 (Oracle Corporation)
-Specification-Title: Oxygen XML Editor Framework
-Specification-Version: 15.2
-Specification-Vendor: Syncro Soft Ltd.
-Implementation-Title: HisTEI Oxygen Framework
-Implementation-Version: 0.45
-Implementation-Vendor: HisTEI
-

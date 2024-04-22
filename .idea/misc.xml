@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="EntryPointsManager">
-    <entry_points version="2.0" />
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/pom.xml" />
+      </list>
+    </option>
   </component>
   <component name="ProjectResources">
     <resource url="http://www.tei-c.org/ns/1.0" location="$PROJECT_DIR$/frameworks/emst/schema/tei_all.rng" />
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_7" default="false" assert-keyword="true" jdk-15="true" project-jdk-name="1.7" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_17" default="true" project-jdk-name="17" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/out" />
   </component>
   <component name="SvnBranchConfigurationManager">
@@ -17,11 +22,11 @@
             <SvnBranchConfiguration>
               <option name="branchUrls">
                 <list>
-                  <option value="file://$PROJECT_DIR$/../../svn/emst/branches" />
-                  <option value="file://$PROJECT_DIR$/../../svn/emst/tags" />
+                  <option value="file://$USER_HOME$/svn/emst/branches" />
+                  <option value="file://$USER_HOME$/svn/emst/tags" />
                 </list>
               </option>
-              <option name="trunkUrl" value="file://$PROJECT_DIR$/../../svn/emst/trunk" />
+              <option name="trunkUrl" value="file://$USER_HOME$/svn/emst/trunk" />
             </SvnBranchConfiguration>
           </value>
         </entry>

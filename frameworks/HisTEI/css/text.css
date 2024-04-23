@@ -94,7 +94,8 @@ titlePart:before {
         )
         oxy_combobox(
             edit, "@type"
-            editable, true
+            editable, true,
+            width, 7em
         )
     ;
 }
@@ -163,7 +164,8 @@ fw:before {
         )
         oxy_combobox(
             edit, "@type"
-            editable, true
+            editable, true,
+            width, 7em
         )
     ;
 }
@@ -355,7 +357,8 @@ foreign:focus:after {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, "@xml:lang"
+            edit, "@xml:lang",
+            width, 7em
         )
     ;
 }
@@ -416,7 +419,8 @@ unclear:focus:after {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, "@reason"
+            edit, "@reason",
+            width, 7em
         )
     ;
 }
@@ -431,7 +435,8 @@ add:focus:after {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, "@place"
+            edit, "@place",
+            width, 7em
         )
     ;
 }
@@ -471,7 +476,8 @@ pb:before {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, "@break"
+            edit, "@break",
+            width, 7em
         )
     ;
 }
@@ -518,7 +524,8 @@ handShift:hover:after {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, "@new"
+            edit, "@new",
+            width, 7em
         )    
         oxy_label(
             text, "${i18n(script.label)}: "
@@ -526,7 +533,8 @@ handShift:hover:after {
         )
         oxy_combobox(
             edit, "@script"
-            editable, true
+            editable, true,
+            width, 7em
         )  
     ;
 }
@@ -541,7 +549,8 @@ gap:hover:after {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, "@hand"
+            edit, "@hand",
+            width, 7em
         )
 }
 

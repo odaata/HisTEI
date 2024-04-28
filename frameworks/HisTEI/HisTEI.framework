@@ -24,6 +24,7 @@
                     <field name="classpath">
 						<String-array>
 							<String>${framework}/i18n/</String>
+                            <String>${framework}/../../target/classes</String>
                             <String>${framework}/lib/${project.build.finalName}.jar</String>
 						</String-array>
 					</field>

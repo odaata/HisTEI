@@ -6,7 +6,7 @@
 
     <groupId>info.histei</groupId>
     <artifactId>histei</artifactId>
-    <version>1.0.0-beta</version>
+    <version>1.0.0-beta-SNAPSHOT</version>
 
     <name>HisTEI</name>
     <url>http://www.histei.info/p/home.html</url>
@@ -14,6 +14,8 @@
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.oxygenVersion>26.0</project.build.oxygenVersion>
+        <project.build.frameworks>${basedir}/frameworks</project.build.frameworks>
+        <project.build.output>${basedir}/target/dist</project.build.output>
     </properties>
 
     <developers>
@@ -25,6 +27,12 @@
             </roles>
         </developer>
     </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/odaata/HisTEI.git</connection>
+        <developerConnection>scm:git:ssh://github.com/odaata/HisTEI.git</developerConnection>
+        <url>https://github.com/odaata/HisTEI</url>
+    </scm>
 
     <repositories>
         <repository>
@@ -229,10 +237,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/dist/HisTEI</outputDirectory>
+                            <outputDirectory>${project.build.output}/HisTEI</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/frameworks</directory>
+                                    <directory>${project.build.frameworks}</directory>
                                     <includes>
                                         <include>HisTEI.xml</include>
                                     </includes>
@@ -296,6 +304,50 @@
                                     <filtering>true</filtering>
                                 </resource>
                             </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-release-plugin</artifactId>
+                <version>3.0.1</version>
+                <configuration>
+                    <tagNameFormat>v@{project.version}</tagNameFormat>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
+                    <releaseProfiles>release</releaseProfiles>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <goals>deploy</goals>
+                    <projectVersionPolicyId>SemVerVersionPolicy</projectVersionPolicyId>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>com.ragedunicorn.tools.maven</groupId>
+                <artifactId>github-release-maven-plugin</artifactId>
+                <version>1.0.7</version>
+                <executions>
+                    <execution>
+                        <id>push-github-release</id>
+                        <phase>deploy</phase>
+                        <goals>
+                            <goal>github-release</goal>
+                        </goals>
+                        <configuration>
+                            <owner>odaata</owner>
+                            <repository>HisTEI</repository>
+                            <server>github-oauth</server>
+                            <tagName>v${project.version}</tagName>
+<!--                            <name>example-release</name>-->
+                            <targetCommitish>HEAD</targetCommitish>
+<!--                            <body>release description overwritten by release notes</body>-->
+<!--                            <releaseNotes>src/main/resources/release-notes-example.md</releaseNotes>-->
+                            <generateReleaseNotes>true</generateReleaseNotes>
+                            <assets>
+                                <asset>${project.build.output}/HisTEI/HisTEI.xml</asset>
+                                <asset>${project.build.output}/HisTEI/HisTEI-oxygen.zip</asset>
+                            </assets>
+                            <draft>true</draft>
+                            <skip>false</skip>
                         </configuration>
                     </execution>
                 </executions>

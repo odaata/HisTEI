@@ -6,7 +6,7 @@
 
     <groupId>info.histei</groupId>
     <artifactId>histei</artifactId>
-    <version>1.0.0-beta-SNAPSHOT</version>
+    <version>1.0.0-beta</version>
 
     <name>HisTEI</name>
     <url>http://www.histei.info/p/home.html</url>
@@ -256,10 +256,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/dist/emst</outputDirectory>
+                            <outputDirectory>${project.build.output}/emst</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/frameworks</directory>
+                                    <directory>${project.build.frameworks}</directory>
                                     <includes>
                                         <include>emst.xml</include>
                                     </includes>
@@ -275,10 +275,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/dist/mib</outputDirectory>
+                            <outputDirectory>${project.build.output}/mib</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/frameworks</directory>
+                                    <directory>${project.build.frameworks}</directory>
                                     <includes>
                                         <include>mib.xml</include>
                                     </includes>
@@ -294,10 +294,10 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${basedir}/target/dist/amsterdam</outputDirectory>
+                            <outputDirectory>${project.build.output}/amsterdam</outputDirectory>
                             <resources>
                                 <resource>
-                                    <directory>${basedir}/frameworks</directory>
+                                    <directory>${project.build.frameworks}</directory>
                                     <includes>
                                         <include>amsterdam.xml</include>
                                     </includes>
@@ -308,50 +308,56 @@
                     </execution>
                 </executions>
             </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-release-plugin</artifactId>
-                <version>3.0.1</version>
-                <configuration>
-                    <tagNameFormat>v@{project.version}</tagNameFormat>
-                    <autoVersionSubmodules>true</autoVersionSubmodules>
-                    <releaseProfiles>release</releaseProfiles>
-                    <useReleaseProfile>false</useReleaseProfile>
-                    <goals>deploy</goals>
-                    <projectVersionPolicyId>SemVerVersionPolicy</projectVersionPolicyId>
-                </configuration>
-            </plugin>
-            <plugin>
-                <groupId>com.ragedunicorn.tools.maven</groupId>
-                <artifactId>github-release-maven-plugin</artifactId>
-                <version>1.0.7</version>
-                <executions>
-                    <execution>
-                        <id>push-github-release</id>
-                        <phase>deploy</phase>
-                        <goals>
-                            <goal>github-release</goal>
-                        </goals>
-                        <configuration>
-                            <owner>odaata</owner>
-                            <repository>HisTEI</repository>
-                            <server>github-oauth</server>
-                            <tagName>v${project.version}</tagName>
-<!--                            <name>example-release</name>-->
-                            <targetCommitish>HEAD</targetCommitish>
-<!--                            <body>release description overwritten by release notes</body>-->
-<!--                            <releaseNotes>src/main/resources/release-notes-example.md</releaseNotes>-->
-                            <generateReleaseNotes>true</generateReleaseNotes>
-                            <assets>
-                                <asset>${project.build.output}/HisTEI/HisTEI.xml</asset>
-                                <asset>${project.build.output}/HisTEI/HisTEI-oxygen.zip</asset>
-                            </assets>
-                            <draft>true</draft>
-                            <skip>false</skip>
-                        </configuration>
-                    </execution>
-                </executions>
-            </plugin>
+
+            <!--            Unable to get this to connect to GitHub via maven to push tags/commits-->
+            <!--            TODO: Automate maven releases -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-release-plugin</artifactId>-->
+            <!--                <version>3.0.1</version>-->
+            <!--                <configuration>-->
+            <!--                    <tagNameFormat>v@{project.version}</tagNameFormat>-->
+            <!--                    <autoVersionSubmodules>true</autoVersionSubmodules>-->
+            <!--                    <releaseProfiles>release</releaseProfiles>-->
+            <!--                    <useReleaseProfile>false</useReleaseProfile>-->
+            <!--                    <goals>deploy</goals>-->
+            <!--                    <projectVersionPolicyId>SemVerVersionPolicy</projectVersionPolicyId>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
+            <!--            Tried to get this working but always got errors that owner, repo or tagName are incorrect -->
+            <!--            TODO: Automate GitHub releases -->
+            <!--            <plugin>-->
+            <!--                <groupId>com.ragedunicorn.tools.maven</groupId>-->
+            <!--                <artifactId>github-release-maven-plugin</artifactId>-->
+            <!--                <version>1.0.7</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>push-github-release</id>-->
+            <!--                        <phase>deploy</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>github-release</goal>-->
+            <!--                        </goals>-->
+            <!--                        <configuration>-->
+            <!--                            <owner>odaata</owner>-->
+            <!--                            <repository>HisTEI</repository>-->
+            <!--                            <server>github-oauth</server>-->
+            <!--                            <tagName>v1.0.0-beta2</tagName>-->
+            <!--&lt;!&ndash;                            <name>example-release</name>&ndash;&gt;-->
+            <!--                            <targetCommitish>HEAD</targetCommitish>-->
+            <!--&lt;!&ndash;                            <body>release description overwritten by release notes</body>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <releaseNotes>src/main/resources/release-notes-example.md</releaseNotes>&ndash;&gt;-->
+            <!--                            <generateReleaseNotes>true</generateReleaseNotes>-->
+            <!--                            <assets>-->
+            <!--                                <asset>${project.build.output}/HisTEI/HisTEI.xml</asset>-->
+            <!--                                <asset>${project.build.output}/HisTEI/HisTEI-oxygen.zip</asset>-->
+            <!--                            </assets>-->
+            <!--                            <draft>true</draft>-->
+            <!--                            <skip>false</skip>-->
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
         </plugins>
     </build>
 </project>

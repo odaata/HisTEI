@@ -25,6 +25,7 @@
 						<String-array>
 							<String>${framework}/i18n/</String>
                             <String>${framework}/../../target/classes</String>
+                            <String>C:\Users\MikeO\.m2\repository</String>
                             <String>${framework}/lib/${project.build.finalName}.jar</String>
 						</String-array>
 					</field>

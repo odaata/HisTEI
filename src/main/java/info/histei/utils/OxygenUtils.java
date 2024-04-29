@@ -211,7 +211,12 @@ public final class OxygenUtils {
 
     @Nullable
     public static URL getCurrentEditorLocation() {
-        return PluginWorkspaceProvider.getPluginWorkspace().getCurrentEditorAccess(PluginWorkspace.MAIN_EDITING_AREA).getEditorLocation();
+    	URL editorLocation = null;
+        WSEditor currentEditorAccess = PluginWorkspaceProvider.getPluginWorkspace().getCurrentEditorAccess(PluginWorkspace.MAIN_EDITING_AREA);
+        if (currentEditorAccess != null) {
+        	editorLocation = currentEditorAccess.getEditorLocation();
+        }
+		return editorLocation;
     }
 
     @Nullable

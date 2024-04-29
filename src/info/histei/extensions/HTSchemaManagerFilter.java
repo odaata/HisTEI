@@ -8,6 +8,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 import ro.sync.contentcompletion.xml.*;
 
+import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.List;
 
@@ -16,24 +17,20 @@ import java.util.List;
  */
 public class HTSchemaManagerFilter implements SchemaManagerFilter {
 
-    private final URL editorLocation;
     private SchemaListProvider schemaListProvider;
 
-    public HTSchemaManagerFilter() {
-        editorLocation = OxygenUtils.getCurrentEditorLocation();
-    }
-
-    @NotNull
-    public URL getEditorLocation() {
-        return editorLocation;
-    }
-
     @Nullable
-    public SchemaListProvider getSchemaListProvider() {
-        if (schemaListProvider == null) {
-            schemaListProvider = SchemaListProvider.get(getEditorLocation());
+    public SchemaListProvider getSchemaListProvider(String systemID) {
+      if (schemaListProvider == null) {
+        try {
+          URL url = new URL(systemID);
+          schemaListProvider = SchemaListProvider.get(url);
+        } catch (MalformedURLException e) {
+          // Shouldn't happen. The system Id is obtained from Oxygen API.
+          e.printStackTrace();
         }
-        return schemaListProvider;
+      }
+      return schemaListProvider;
     }
 
     @Override
@@ -48,7 +45,7 @@ public class HTSchemaManagerFilter implements SchemaManagerFilter {
 
     @Override
     public List<CIValue> filterAttributeValues(List<CIValue> ciValues, WhatPossibleValuesHasAttributeContext context) {
-        SchemaListProvider provider = getSchemaListProvider();
+        SchemaListProvider provider = getSchemaListProvider(context.getSystemID());
 
         if (provider != null) {
             SchemaList<SchemaListItem> list = provider.getList(context);

@@ -116,20 +116,6 @@ public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
                         }
                 )
         );
-//        @type attribute on <div> elements
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(new SchemaListAttribute(TYPE_ATTRIB_NAME, DIV_ELEMENT_NAME)),
-                        new String[][]{
-                                {"address", "address, e.g. transcribed from a letter"},
-                                {"entry", "entry in a journal, diary, travelogue, etc."},
-                                {"frontispiece", "illustration facing the title page of a book"},
-                                {"letter", "letter or piece of correspondence"},
-                                {"preface", "introduction to a book, typically stating its subject, scope, or aims"},
-                                {"notes", "notes made by the author in a transcribed work"}
-                        }
-                )
-        );
 //        @type attribute on <fw> elements
         LISTS.add(
                 new StaticSchemaList(

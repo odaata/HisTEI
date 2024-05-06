@@ -95,6 +95,8 @@ titlePart:before {
         oxy_combobox(
             edit, "@type"
             editable, true,
+            tooltips, "address${comma} e.g. transcribed from a letter,entry in a journal${comma} diary${comma} travelogue${comma} etc.,illustration facing the title page of a book${comma} letter or piece of correspondence,introduction to a book${comma} typically stating its subject${comma} scope or aims,notes made by the author in a transcribed work"
+            values, "address,entry,frontispiece,letter,preface,notes"
             width, 7em
         )
     ;

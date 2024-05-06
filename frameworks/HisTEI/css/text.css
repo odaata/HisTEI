@@ -185,6 +185,7 @@ del,
 gap,
 unclear,
 supplied,
+subst,
 foreign,
 ab,
 seg,
@@ -339,6 +340,24 @@ supplied:after {
     content: "]";
 }
 
+subst {
+    color:purple;
+    font-weight:bold;
+}
+
+subst:before {
+    font-weight:bold;
+    padding:0px;
+    content: "{";
+}
+
+subst:focus:after,
+subst:after {
+    border:0px;
+    padding:0px;
+    content: "}";
+}
+
 pc {
     color:purple;
 }
@@ -420,6 +439,22 @@ unclear:focus:after {
         )
         oxy_combobox(
             edit, "@reason",
+            width, 7em
+        )
+    ;
+}
+
+/* @type on <del/> element */
+del:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(type.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            tooltips, "text overwrites something that was written earlier, deletion made with a line or set of lines, anything thicker or blottier than a line, original appears faded or smudged",
+            values, "overwritten, crossedOut, inkedOut, rubbedOut"
             width, 7em
         )
     ;
@@ -541,6 +576,7 @@ handShift:hover:after {
 
 add:focus:after,
 del:focus:after,
+signed:focus:after,
 unclear:focus:after,
 gap:hover:after {
     -oxy-append-content: 

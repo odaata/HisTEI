@@ -489,6 +489,13 @@
         <val lang="en_US">Text supplied by the transcriber. Insert the supplied element.</val>
     </key>
 
+    <key value="substitution">
+        <val lang="en_US">Substitution</val>
+    </key>
+    <key value="substitution_description">
+        <val lang="en_US">Groups one or more deletions (or surplus text) with one or more additions when the combination is to be regarded as a single intervention in the text.</val>
+    </key>
+
     <!-- Structure/Layout -->
 
     <key value="div">

@@ -4,3 +4,4 @@ out/
 .idea/libraries
 build.properties
 target/
+/.idea/dictionaries/*.xml

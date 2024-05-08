@@ -116,20 +116,6 @@ public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
                         }
                 )
         );
-//        @type attribute on <fw> elements
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(new SchemaListAttribute(TYPE_ATTRIB_NAME, FW_ELEMENT_NAME)),
-                        new String[][]{
-                                {"header", "a running title at the top of the page"},
-                                {"footer", "a running title at the bottom of the page"},
-                                {"pageNum", "(page number) a page number or foliation symbol"},
-                                {"lineNum", "(line number) a line number, either of prose or poetry"},
-                                {"sig", "(signature) a signature or gathering symbol"},
-                                {"catch", "(catchword) a catch-word"}
-                        }
-                )
-        );
 //        @break attribute on <lb> element
         LISTS.add(
                 new StaticSchemaList(

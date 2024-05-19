@@ -20,6 +20,10 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+                <p class="header">Beta3 Version 1.0.0</p>
+                <ul>
+                    <li>Fixed contextual info issues with the xquery syntax.</li>
+                </ul>
                 <p class="header">Beta Version 1.0.0</p>
                 <ul>
                     <li>After ten long years, HisTEI's back, baby! Here's a beta with all the latest that Java has to offer in 2024</li>

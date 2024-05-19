@@ -44,9 +44,9 @@ public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener
     private static XQueryExecutable xQueryExecutable;
 
     private static final Map<ContextualType, Path> sourcePaths =
-            Collections.synchronizedMap(new EnumMap<ContextualType, Path>(ContextualType.class));
+            Collections.synchronizedMap(new EnumMap<>(ContextualType.class));
     private static final Map<ContextualType, ContextualInfo> infos =
-            Collections.synchronizedMap(new EnumMap<ContextualType, ContextualInfo>(ContextualType.class));
+            Collections.synchronizedMap(new EnumMap<>(ContextualType.class));
 
     /* Monitor-related */
     private static HTFileMonitor xQueryMonitor;
@@ -132,7 +132,7 @@ public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener
         Path xqy = getXQueryPath();
         if (xqy != null && Files.exists(xqy)) {
             Processor proc = new Processor(true);
-            proc.setConfigurationProperty(Feature.XQUERY_VERSION, "3.0");
+            proc.setConfigurationProperty(Feature.XQUERY_VERSION, "3.1");
             try {
                 xQueryExecutable = proc.newXQueryCompiler().compile(xqy.toFile());
             } catch (SaxonApiException | IOException e) {
@@ -151,14 +151,14 @@ public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener
 
     /* Instance members */
 
-    private ContextualType contextualType;
+    private final ContextualType contextualType;
     private boolean initialized;
     private final Map<String, List<ContextualItem>> items =
-            Collections.synchronizedMap(new HashMap<String, List<ContextualItem>>());
+            Collections.synchronizedMap(new HashMap<>());
 
     /* Monitor-related */
     private HTFileMonitor sourceMonitor;
-    private FileListener sourceMonitorListener =
+    private final FileListener sourceMonitorListener =
             new FileListener() {
                 @Override
                 public void fileCreated(FileChangeEvent event) throws Exception {
@@ -222,7 +222,7 @@ public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener
         }
 
         synchronized (items) {
-            return items.containsKey(typeCleaned) ? items.get(typeCleaned) : new ArrayList<ContextualItem>();
+            return items.containsKey(typeCleaned) ? items.get(typeCleaned) : new ArrayList<>();
         }
     }
 
@@ -256,12 +256,8 @@ public class ContextualInfo extends AbstractEventDispatcher<RefreshEventListener
                 if (contextualItem != null) {
 
                     String type = contextualItem.getType();
-                    List<ContextualItem> typedItems = items.get(type);
+                    List<ContextualItem> typedItems = items.computeIfAbsent(type, k -> new ArrayList<>());
 
-                    if (typedItems == null) {
-                        typedItems = new ArrayList<>();
-                        items.put(type, typedItems);
-                    }
                     typedItems.add(contextualItem);
                 }
             }

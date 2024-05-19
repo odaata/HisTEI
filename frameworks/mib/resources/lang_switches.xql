@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 import module namespace txt="http://histei.info/xquery/tei2text" at "tei2text.xqm";
 

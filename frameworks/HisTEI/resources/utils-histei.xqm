@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : A set of functions for running XQuery scripts from within the HisTEI framework

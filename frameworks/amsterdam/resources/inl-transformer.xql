@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : Transform tokenized Amsterdam texts to be submitted to the INL Succeed tagging service for Early Modern Dutch

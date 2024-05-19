@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : A set of generic XML helper functions for use in XQuery scripts in the HisTEI framework
@@ -268,7 +268,7 @@ declare function utils:update-content-ordered($element as element(), $fieldNames
             error($utils:NO_FIELD_NAMES_ERROR, concat("No valid fieldNames were provided! ",
                 "The $fieldNames variable must be either xs:string+ or map(xs:string, xs:string+)."))
     
-    let $fieldsMap := map:new(
+    let $fieldsMap := map:merge(
         for $fieldName in $fieldNames
         return
             map:entry($fieldName, 

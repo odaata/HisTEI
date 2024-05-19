@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : A tokenizer for splitting up words, numbers and punctuation within TEI documents
@@ -59,12 +59,12 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
     let $wordRegex := concat($wordClassRegex, "+")
     return
         map {
-            1 := map { $tok:TYPE_LABEL := "ordinal", $tok:REGEX_LABEL := $ordinalNumberRegex, $tok:ANN_FUNC_LABEL := teix:num(?, "ordinal") },
-            2 := map { $tok:TYPE_LABEL := "number", $tok:REGEX_LABEL := $numberRegex, $tok:ANN_FUNC_LABEL := tok:num#1 },
-            3 := map { $tok:TYPE_LABEL := "compound", $tok:REGEX_LABEL := $compoundRegex, $tok:ANN_FUNC_LABEL := teix:word#1 },
-            4 := map { $tok:TYPE_LABEL := "breakingPunct", $tok:REGEX_LABEL := $breakingPunctRegex, $tok:IS_BREAK_LABEL := true(), $tok:ANN_FUNC_LABEL := teix:pc#1 },
-            5 := map { $tok:TYPE_LABEL := "whitespace", $tok:REGEX_LABEL := $whitespaceRegex, $tok:IS_BREAK_LABEL := true() },
-            6 := map { $tok:TYPE_LABEL := "word", $tok:REGEX_LABEL := $wordRegex, $tok:ANN_FUNC_LABEL := teix:word#1 },
+            1 : map { $tok:TYPE_LABEL : "ordinal", $tok:REGEX_LABEL : $ordinalNumberRegex, $tok:ANN_FUNC_LABEL : teix:num(?, "ordinal") },
+            2 : map { $tok:TYPE_LABEL : "number", $tok:REGEX_LABEL : $numberRegex, $tok:ANN_FUNC_LABEL : tok:num#1 },
+            3 : map { $tok:TYPE_LABEL : "compound", $tok:REGEX_LABEL : $compoundRegex, $tok:ANN_FUNC_LABEL : teix:word#1 },
+            4 : map { $tok:TYPE_LABEL : "breakingPunct", $tok:REGEX_LABEL : $breakingPunctRegex, $tok:IS_BREAK_LABEL : true(), $tok:ANN_FUNC_LABEL : teix:pc#1 },
+            5 : map { $tok:TYPE_LABEL : "whitespace", $tok:REGEX_LABEL : $whitespaceRegex, $tok:IS_BREAK_LABEL : true() },
+            6 : map { $tok:TYPE_LABEL : "word", $tok:REGEX_LABEL : $wordRegex, $tok:ANN_FUNC_LABEL : teix:word#1 }
         }
 };
 
@@ -124,11 +124,11 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
     else
         let $numberClassRegex := concat("[", $tok:numberClass, "]")
         let $numTypes := map { 
-            "ordinal" := $tok:defaultTokenTypes(1)($tok:REGEX_LABEL), 
-            "fraction" := concat($numberClassRegex, "+/", $numberClassRegex, "+"), 
-            "percentage" := concat($numberClassRegex, "+%"),
-            "decimal" := concat($numberClassRegex, "+([,:\.]", $numberClassRegex, "+)+"),
-            "cardinal" := concat("^", $numberClassRegex, "+[\.]*$")
+            "ordinal" : $tok:defaultTokenTypes(1)($tok:REGEX_LABEL), 
+            "fraction" : concat($numberClassRegex, "+/", $numberClassRegex, "+"), 
+            "percentage" : concat($numberClassRegex, "+%"),
+            "decimal" : concat($numberClassRegex, "+([,:\.]", $numberClassRegex, "+)+"),
+            "cardinal" : concat("^", $numberClassRegex, "+[\.]*$")
         }
         let $num := element num { $content }
         let $text := string($num)
@@ -252,7 +252,7 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
 
  declare %private function tok:sub-word-elements-token-types($annFunc as function(item()*) as element()*) 
                                                         as map(xs:integer, map(xs:string, item())) {
-    map:new(
+    map:merge(
         for $key in map:keys($tok:defaultTokenTypes)
         let $typeName := tok:token-type-name($tok:defaultTokenTypes, $key)
         let $tokenMap := $tok:defaultTokenTypes($key)
@@ -260,7 +260,7 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
             map:entry(
                 $key, 
                 if ($typeName = ("ordinal", "number", "compound", "word")) then 
-                    map:new(($tokenMap, map { $tok:ANN_FUNC_LABEL := $annFunc }))
+                    map:merge(($tokenMap, map { $tok:ANN_FUNC_LABEL : $annFunc }))
                 else
                     map:remove($tokenMap, $tok:ANN_FUNC_LABEL)
             )
@@ -360,9 +360,9 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
                 let $typeName := tok:token-type-name($tokenTypes, $key)
                 let $text := if ("compound" eq $typeName) then tok:compound($text) else $text
                 return
-                    map{ $key := $text }
+                    map{ $key : $text }
             case element(fn:non-match) return
-                map{ 0 := xs:string($token/text()) }
+                map{ 0 : xs:string($token/text()) }
             default return
                 ()
     )

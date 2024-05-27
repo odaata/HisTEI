@@ -457,8 +457,8 @@ del:focus:after {
         )
         oxy_combobox(
             edit, "@rend"
-            tooltips, "text overwrites something that was written earlier,deletion made with a line or set of lines,anything thicker or blottier than a line,original appears faded or smudged",
-            values, "overwritten,crossedOut,inkedOut,rubbedOut"
+            tooltips, "deletion made with a line or set of lines,anything thicker or blottier than a line,text overwrites something that was written earlier,original appears faded or smudged",
+            values, "crossedOut,inkedOut,overwritten,rubbedOut"
             width, 7em
         )
     ;
@@ -581,6 +581,7 @@ handShift:hover:after {
 add:focus:after,
 del:focus:after,
 signed:focus:after,
+subst:focus:after,
 unclear:focus:after,
 gap:hover:after {
     -oxy-append-content: 

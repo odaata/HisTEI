@@ -28,7 +28,7 @@
 						<String-array>
 							<String>${framework}/i18n/</String>
 							<String>${framework}/../../target/classes</String>
-							<String>${framework}/../../target/histei-1.0.0-beta2.jar</String>
+							<String>${framework}/../../target/histei-1.0.0-beta3.jar</String>
 							<String>${framework}/lib/${project.build.finalName}.jar</String>
 						</String-array>
 					</field>
@@ -335,7 +335,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt S</String>
+											<String>M1 M3 S</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -474,10 +474,10 @@
 											<String>${framework}/images/abbreviation-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>B</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift B</String>
+											<String>M1 M2 B</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -523,7 +523,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt T</String>
+											<String>M1 M3 T</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -666,10 +666,10 @@
 											<String>${framework}/images/addition-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>A</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift A</String>
+											<String>M1 M2 A</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -715,7 +715,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift D</String>
+											<String>M1 M2 D</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -758,10 +758,10 @@
 											<String>${framework}/images/gap-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift G</String>
+											<String>M1 M2 G</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -816,10 +816,10 @@
 											<String>${framework}/images/unclear-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>N</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift N</String>
+											<String>M1 M2 N</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -865,7 +865,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift P</String>
+											<String>M1 M2 P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -911,7 +911,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift F</String>
+											<String>M1 M2 F</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -957,7 +957,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift O</String>
+											<String>M1 M2 O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1019,7 +1019,7 @@
 											<String>B</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift MINUS</String>
+											<String>M1 M2 MINUS</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1065,7 +1065,7 @@
 											<String>B</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift EQUALS</String>
+											<String>M1 M2 EQUALS</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1181,7 +1181,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt P</String>
+											<String>M1 M3 P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1288,7 +1288,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt C</String>
+											<String>M1 M3 C</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1369,7 +1369,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt O</String>
+											<String>M1 M3 O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1450,7 +1450,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt 1</String>
+											<String>M1 M3 1</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1669,7 +1669,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift L</String>
+											<String>M1 M2 L</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1715,7 +1715,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift SEMICOLON</String>
+											<String>M1 M2 SEMICOLON</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1875,7 +1875,7 @@
 											<String>${framework}/images/address-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>D</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2103,10 +2103,10 @@
 											<String>${framework}/images/link-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>K</String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M1 K</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2152,7 +2152,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt W</String>
+											<String>M1 M3 W</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2252,7 +2252,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt Y</String>
+											<String>M1 M3 Y</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2352,7 +2352,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt A</String>
+											<String>M1 M3 A</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2452,7 +2452,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt D</String>
+											<String>M1 M3 D</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2552,7 +2552,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt 4</String>
+											<String>M1 M3 4</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2941,7 +2941,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift W</String>
+											<String>M1 M2 W</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2987,7 +2987,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift S</String>
+											<String>M1 M2 S</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3033,7 +3033,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift C</String>
+											<String>M1 M2 C</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3079,7 +3079,7 @@
 											<String>a</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift H</String>
+											<String>M1 M2 H</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -4014,7 +4014,7 @@
 											<String>${framework}/images/ab-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>A</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4267,7 +4267,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift M</String>
+											<String>M1 M2 M</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -4313,7 +4313,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift QUOTE</String>
+											<String>M1 M2 QUOTE</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -4992,10 +4992,10 @@
 											<String>${framework}/images/substitution-20.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>I</String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M1 M2 I</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -5006,17 +5006,13 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;subst xmlns="http://www.tei-c.org/ns/1.0"/></String>
-															</entry>
-															<entry>
-																<String>schemaAware</String>
-																<String>true</String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>

@@ -12,6 +12,8 @@
     <url>http://www.histei.info/p/home.html</url>
 
     <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.build.oxygenVersion>26.0</project.build.oxygenVersion>
         <project.build.frameworks>${basedir}/frameworks</project.build.frameworks>
@@ -167,7 +169,7 @@
                         </goals>
                         <configuration>
                             <attach>false</attach>
-                            <outputDirectory>${basedir}/target/dist/HisTEI</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <finalName>HisTEI-oxygen</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
@@ -183,7 +185,7 @@
                         </goals>
                         <configuration>
                             <attach>false</attach>
-                            <outputDirectory>${basedir}/target/dist/emst</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <finalName>emst-oxygen</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
@@ -199,7 +201,7 @@
                         </goals>
                         <configuration>
                             <attach>false</attach>
-                            <outputDirectory>${basedir}/target/dist/mib</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <finalName>mib-oxygen</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
@@ -215,7 +217,7 @@
                         </goals>
                         <configuration>
                             <attach>false</attach>
-                            <outputDirectory>${basedir}/target/dist/amsterdam</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <finalName>amsterdam-oxygen</finalName>
                             <appendAssemblyId>false</appendAssemblyId>
                             <descriptors>
@@ -237,7 +239,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.output}/HisTEI</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.frameworks}</directory>
@@ -256,7 +258,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.output}/emst</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.frameworks}</directory>
@@ -275,7 +277,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.output}/mib</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.frameworks}</directory>
@@ -294,7 +296,7 @@
                             <goal>copy-resources</goal>
                         </goals>
                         <configuration>
-                            <outputDirectory>${project.build.output}/amsterdam</outputDirectory>
+                            <outputDirectory>${project.build.output}</outputDirectory>
                             <resources>
                                 <resource>
                                     <directory>${project.build.frameworks}</directory>

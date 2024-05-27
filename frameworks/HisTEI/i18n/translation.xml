@@ -700,8 +700,7 @@
     <!--  Media Actions  -->
 
     <key value="facsimile.select.dir">
-        <!--<val lang="en_US">Select Base Directory...</val>-->
-        <val lang="en_US">Choose...</val>
+        <val lang="en_US">Set Facsimile Dir</val>
     </key>
     <key value="facsimile.select.dir_description">
         <val lang="en_US">Select the base directory where the images and/or media for this text are
@@ -709,7 +708,6 @@
     </key>
 
     <key value="media.open">
-        <!--<val lang="en_US">Open...</val>-->
         <val lang="en_US">&#xfeff;</val>
     </key>
     <key value="media.open_description">

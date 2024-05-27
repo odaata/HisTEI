@@ -265,10 +265,10 @@
 
     <!--  Header Actions  -->
 
-    <key value="revisonDesc">
-        <val lang="en_US">Revison Desc.</val>
+    <key value="revisionDesc">
+        <val lang="en_US">Revision Desc.</val>
     </key>
-    <key value="revisonDesc_description">
+    <key value="revisionDesc_description">
         <val lang="en_US">Insert the revision description in the TEI header (for transcripts created
             without one). Insert the revisionDesc element.</val>
     </key>
@@ -799,6 +799,10 @@
 
     <key value="reason.label">
         <val lang="en_US">Reason</val>
+    </key>
+
+    <key value="rend.label">
+        <val lang="en_US">Rend</val>
     </key>
 
     <key value="place.label.textual">

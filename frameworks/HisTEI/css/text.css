@@ -452,7 +452,7 @@ unclear:focus:after {
 del:focus:after {
     -oxy-append-content:
         oxy_label(
-            text, "${i18n(type.label)}: "
+            text, "${i18n(rend.label)}: "
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(

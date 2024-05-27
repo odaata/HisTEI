@@ -237,7 +237,7 @@
 											<String>${framework}/images/paragraph-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -291,7 +291,7 @@
 											<String>${framework}/images/image_link-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>M</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -378,7 +378,7 @@
 											<String>${framework}/images/expansion-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>e</String>
+											<String>E</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 E</String>
@@ -428,7 +428,7 @@
 											<String>${framework}/images/head-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>H</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -620,7 +620,7 @@
 											<String>${framework}/images/forme_work-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>W</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -712,7 +712,7 @@
 											<String>${framework}/images/deletion-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>D</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 D</String>
@@ -862,7 +862,7 @@
 											<String>${framework}/images/punctuation-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 P</String>
@@ -908,7 +908,7 @@
 											<String>${framework}/images/foreign-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>F</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 F</String>
@@ -954,7 +954,7 @@
 											<String>${framework}/images/note-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>O</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 O</String>
@@ -1062,7 +1062,7 @@
 											<String>${framework}/images/superscript-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 EQUALS</String>
@@ -1108,7 +1108,7 @@
 											<String>${framework}/images/salute-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>U</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1178,7 +1178,7 @@
 											<String>${framework}/images/person-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M3 P</String>
@@ -1285,7 +1285,7 @@
 											<String>${framework}/images/place-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M3 C</String>
@@ -1366,7 +1366,7 @@
 											<String>${framework}/images/org-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>O</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M3 O</String>
@@ -1447,7 +1447,7 @@
 											<String>${framework}/images/date-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>D</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M3 1</String>
@@ -1509,7 +1509,7 @@
 											<String>${framework}/images/line_break-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
 											<String>ENTER</String>
@@ -1567,7 +1567,7 @@
 											<String>${framework}/images/page_break-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>B</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1625,7 +1625,7 @@
 											<String>${framework}/images/folder_image-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>F</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1666,7 +1666,7 @@
 											<String>${framework}/images/supplied-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 L</String>
@@ -1712,7 +1712,7 @@
 											<String>${framework}/images/punctuation_supplied-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 SEMICOLON</String>
@@ -1758,7 +1758,7 @@
 											<String>${framework}/images/div-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>V</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1812,7 +1812,7 @@
 											<String>${framework}/images/div_entry-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>E</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1875,7 +1875,7 @@
 											<String>${framework}/images/address-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>D</String>
+											<String>A</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1945,7 +1945,7 @@
 											<String>${framework}/images/hand_shift-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>S</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2003,7 +2003,7 @@
 											<String>${framework}/images/hand-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>H</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2057,7 +2057,7 @@
 											<String>${framework}/images/formulaic-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>F</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2599,7 +2599,7 @@
 											<String>${framework}/images/opener-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>O</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2656,7 +2656,7 @@
 											<String>${framework}/images/closer-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2714,7 +2714,7 @@
 											<String>${framework}/images/postscript-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2771,7 +2771,7 @@
 											<String>${framework}/images/resp-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>R</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2830,7 +2830,7 @@
 											<String>${framework}/images/dateline-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>D</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2884,7 +2884,7 @@
 											<String>${framework}/images/signed-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2938,7 +2938,7 @@
 											<String>${framework}/images/word-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>W</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 W</String>
@@ -2984,7 +2984,7 @@
 											<String>${framework}/images/sentence-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>S</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 S</String>
@@ -3030,7 +3030,7 @@
 											<String>${framework}/images/clause-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 C</String>
@@ -3076,7 +3076,7 @@
 											<String>${framework}/images/phrase-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>H</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 H</String>
@@ -4106,7 +4106,7 @@
 											<String>${framework}/images/toggle_text_wrap-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>W</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4156,7 +4156,7 @@
 											<String>${framework}/images/change-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4218,7 +4218,7 @@
 											<String>${framework}/images/title-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>T</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4264,7 +4264,7 @@
 											<String>${framework}/images/number-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>N</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 M</String>
@@ -4310,7 +4310,7 @@
 											<String>${framework}/images/measure-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>M</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 QUOTE</String>
@@ -4341,13 +4341,13 @@
 									</action>
 									<action>
 										<field name="id">
-											<String>revisonDesc</String>
+											<String>revisionDesc</String>
 										</field>
 										<field name="name">
-											<String>${i18n(revisonDesc)}</String>
+											<String>${i18n(revisionDesc)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(revisonDesc_description)}</String>
+											<String>${i18n(revisionDesc_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -4420,7 +4420,7 @@
 											<String>${framework}/images/user_editor-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>E</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4488,7 +4488,7 @@
 											<String>${framework}/images/address_line-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4534,7 +4534,7 @@
 											<String>${framework}/images/street-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>S</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4580,7 +4580,7 @@
 											<String>${framework}/images/postbox-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>B</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4626,7 +4626,7 @@
 											<String>${framework}/images/postcode-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4672,7 +4672,7 @@
 											<String>${framework}/images/stamp-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>M</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4726,7 +4726,7 @@
 											<String>${framework}/images/tokenizer-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>T</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4772,7 +4772,7 @@
 											<String></String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>I</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4813,7 +4813,7 @@
 											<String>${framework}/images/generate_ids-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4854,7 +4854,7 @@
 											<String>${framework}/images/tokenizer_collection-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -4946,7 +4946,7 @@
 											<String>${framework}/images/category-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>R</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -5478,7 +5478,7 @@
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
-																<String>revisonDesc</String>
+																<String>revisionDesc</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
@@ -6248,7 +6248,7 @@
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>revisonDesc</String>
+																	<String>revisionDesc</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>

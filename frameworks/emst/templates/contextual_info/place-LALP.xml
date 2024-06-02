@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="http://emergingstandards.eu/css/contextual_info.css"?>
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>List of Places</title>
+            </titleStmt>
+            <publicationStmt>
+                <authority>HisTEI</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listPlace>
+                <listPlace type="district">
+                    <place xml:id="Pangbourne">
+                        <placeName>Pangbourne</placeName>
+                        <region ref="plc:Surrey"/>
+                        <country ref="plc:place_mn4_1tl_jwb"/>
+                        <bloc ref="plc:place_UK"/>
+                        </place>
+                </listPlace>
+                <listPlace type="settlement">
+                    <place xml:id="Tidmarsh">
+                        <placeName>Tidmarsh</placeName>
+                        <district ref="plc:Pangbourne"/>
+                        <region ref="plc:Surrey"/>
+                        <country ref="plc:place_mn4_1tl_jwb"/>
+                        <bloc ref="plc:place_UK"/>
+                    </place>
+                </listPlace>
+                <listPlace type="region">
+                    <place xml:id="Surrey">
+                        <placeName>Surrey</placeName>
+                        <country ref="plc:place_mn4_1tl_jwb"/>
+                        <bloc ref="plc:place_UK"/>
+                    </place>
+                </listPlace>
+                <listPlace type="country">
+                    <place xml:id="place_mn4_1tl_jwb">
+                        <placeName>England</placeName>
+                        <bloc ref="plc:place_UK"/>
+                    </place>
+                </listPlace>
+                <listPlace type="bloc">
+                    <place xml:id="place_UK">
+                        <placeName>United Kingdom</placeName>
+                    </place>
+                </listPlace>
+                <listPlace>
+                    <place xml:id="place_on4_1tl_jwb">
+                        <placeName/>
+                    </place>
+                </listPlace>
+            </listPlace>
+        </body>
+    </text>
+</TEI>

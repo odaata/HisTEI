@@ -20,6 +20,22 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+
+                <p class="header">Beta5 Version 1.0.0</p>
+                <ul>
+                    <li>Add correspondence section styles for TEI header</li>
+                    <li>Add @role for people in the correspondence action element</li>
+                    <li>Add LALP templates for letter, person and place</li>
+                    <li>Bug fix: Remove @hand from gap and unclear elements</li>
+                    <li>Tech Debt: Move dropdown values for various attributes previously handled by custom Java</li>
+                </ul>
+
+                <p class="header">Beta4 Version 1.0.0</p>
+                <ul>
+                    <li>Add substitution element to EMST framework</li>
+                    <li>Update EMST with latest changes from HisTEI - mostly small bug fixes and QoL improvements</li>
+                </ul>
+
                 <p class="header">Beta3 Version 1.0.0</p>
                 <ul>
                     <li>Fixed contextual info issues with the xquery syntax.</li>

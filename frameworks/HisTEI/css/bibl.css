@@ -248,8 +248,11 @@ resp {
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
-            edit, "@key"
-            columns, 6
+            edit, "@key",
+            columns, 6,
+            editable, false,
+            tooltips, "Annotator, Corrector, Editor, Researcher, Transcriber",
+            values, "ann, crr, edt, res, trc"
         )
         "  "
     ;

@@ -1132,6 +1132,14 @@
         <val lang="en_US">Profile Description</val>
     </key>
 
+    <key value="correspDesc.label">
+        <val lang="en_US">Correspondence Description</val>
+    </key>
+
+    <key value="correspAction.label">
+        <val lang="en_US">Correspondence Action</val>
+    </key>
+
     <key value="creation.label">
         <val lang="en_US">Creation</val>
     </key>

@@ -20,6 +20,8 @@ msDesc,
 msContents,
 profileDesc,
 revisionDesc,
+correspDesc,
+correspAction,
 creation,
 textClass,
 handNotes {
@@ -35,6 +37,7 @@ encodingDesc,
 editorialDecl,
 profileDesc,
 revisionDesc,
+correspDesc,
 creation,
 textClass,
 handNotes {
@@ -53,6 +56,8 @@ msDesc:before,
 msContents:before,
 profileDesc:before,
 revisionDesc:before,
+correspDesc:before,
+correspAction:before,
 creation:before,
 textClass:before,
 handNotes:before {
@@ -140,6 +145,15 @@ collection:before {
     (so that only the combobox will edit the field) */
 repository,
 catRef,
+correspAction > date,
+correspAction > persName,
+correspAction > orgName,
+correspAction > placeName,
+correspAction > district,
+correspAction > settlement,
+correspAction > region,
+correspAction > country,
+correspAction > bloc,
 creation > date,
 creation > persName,
 creation > orgName,
@@ -169,8 +183,9 @@ repository {
     ;
 }
 
+correspAction > persName,
 creation > persName {
-    content: 
+    content:
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
@@ -181,8 +196,9 @@ creation > persName {
     ;
 }
 
+correspAction > orgName,
 creation > orgName {
-    content: 
+    content:
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
@@ -193,8 +209,9 @@ creation > orgName {
     ;
 }
 
+correspAction > placeName,
 creation > placeName {
-    content: 
+    content:
         oxy_editor(
             rendererClassName, "info.histei.contextual_info.ContextualEditor",
             swingEditorClassName, "info.histei.contextual_info.ContextualEditor",
@@ -206,6 +223,11 @@ creation > placeName {
 }
 
 
+correspAction > district,
+correspAction > settlement,
+correspAction > region,
+correspAction > country,
+correspAction > bloc,
 creation > district,
 creation > settlement,
 creation > region,
@@ -317,10 +339,103 @@ collection[type]:before {
     ;
 }
 
+/* correspAction */
+correspAction:before {
+    padding: 0px;
+    vertical-align: middle;
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(type.label)}: ")
+            color, white,
+            width, 75px,
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+        )
+    ;
+}
+
+correspAction > date:before,
+correspAction > orgName:before,
+correspAction > placeName:before,
+correspAction > district:before,
+correspAction > settlement:before,
+correspAction > region:before,
+correspAction > country:before,
+correspAction > bloc:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+    ;
+}
+
+correspAction > persName:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+        oxy_combobox(
+            edit, "@role"
+            editable, true,
+            columns, 10,
+            values, "official,scribe,supplicant,witness"
+        )
+    ;
+}
+
 /* creation */
-creation > date:before,
-creation > persName:before,
-creation > orgName:before,
+creation > date:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            columns, 10
+            editable, true,
+            tooltips, "when the letter or other document arrived at its destination,when the text was copied,when the person involved was deposed,when the letter or other document was sent,when the text was written"
+            values, "arrived,copied,deposed,sent,written"
+        )
+    ;
+}
+
+creation > persName:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            columns, 10
+            editable, true,
+            tooltips, "person who wrote the text or is responsible for its contents,person the letter or other document was addressed to,person who copied the text,person who being interviewed in a deposition,person who sent the letter or other document"
+            values, "author,addressee,copyist,deponent,sender"
+        )
+    ;
+}
+
+creation > orgName:before {
+    -oxy-append-content:
+        oxy_label(
+            text, oxy_concat("${i18n(", oxy_name(), ".label)}: ")
+            styles, "@import 'labels.css';"
+        )
+        oxy_combobox(
+            edit, "@type"
+            columns, 10
+            editable, true,
+            tooltips, "org for which the author wrote the text,org the letter or other document was addressed to,org for which the text was copied,org holding the deposition,org that sent the letter or other document"
+            values, "author,addressee,copyist,deposition,sender"
+        )
+    ;
+}
+
 creation > placeName:before,
 creation > district:before,
 creation > settlement:before,
@@ -335,7 +450,9 @@ creation > bloc:before {
         oxy_combobox(
             edit, "@type"
             columns, 10
-            editable, true
+            editable, true,
+            tooltips, "where the letter or other document arrived,where the text was copied,where the person involved was deposed,where the letter or other document was sent from,where the text was written"
+            values, "arrived,copied,deposed,sent,written"
         )
     ;
 }

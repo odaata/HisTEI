@@ -438,17 +438,41 @@ unclear:focus:after {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(reason.label)}: "
-            width, 70px
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
             edit, "@reason",
-            width, 7em
+            width, 5em,
+            tooltips, "any kind of rubbing/strikethrough/blot,anything illegible because of the handwriting,legibility is hampered by overwriting,illegible/unclear due to damage: smoke${comma} hole${comma} tear${comma} water damage,writing is faded and difficult to read",
+            values, "rubbing,hand,overwriting,damage,faded"
         )
     ;
 }
 
-/* @type on <del/> element */
+/* @unit and @extent on <gap/> element */
+gap:hover:after {
+    -oxy-append-content:
+       oxy_label(
+           text, "${i18n(quantity.label)}: "
+           styles, "@import 'labels_sub.css';"
+       )
+       oxy_textfield(
+           edit, "@quantity",
+           columns, 3
+       )
+       oxy_label(
+           text, "${i18n(unit.label)}: "
+           styles, "@import 'labels_sub.css';"
+       )
+       oxy_combobox(
+           edit, "@unit",
+           columns, 6,
+           values, "char,word,line"
+       )
+    ;
+}
+
+/* @rend on <del/> element */
 del:focus:after {
     -oxy-append-content:
         oxy_label(
@@ -581,9 +605,7 @@ handShift:hover:after {
 add:focus:after,
 del:focus:after,
 signed:focus:after,
-subst:focus:after,
-unclear:focus:after,
-gap:hover:after {
+subst:focus:after {
     -oxy-append-content: 
         oxy_label(
             text, "${i18n(hand.label)}: "
@@ -591,7 +613,7 @@ gap:hover:after {
         )
         oxy_combobox(
             edit, "@hand",
-            width, 7em
+            width, 6em
         )
 }
 

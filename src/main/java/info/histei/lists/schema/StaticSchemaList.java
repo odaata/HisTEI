@@ -14,7 +14,7 @@ import static info.histei.utils.XMLUtils.XML_LANG_ATTRIB_NAME;
  */
 public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
 
-    private static final List<SchemaList<SchemaListItem>> LISTS = new ArrayList<>(12);
+    private static final List<SchemaList<SchemaListItem>> LISTS = new ArrayList<>(6);
 
     static {
 //        @xml:lang attribute
@@ -29,77 +29,6 @@ public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
                                 {"ga", "Gaelic"},
                                 {"ga-la", "Gaelic-Latin"},
                                 {"la", "Latin"}
-                        }
-                )
-        );
-//        @key attribute on <resp> elements
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(new SchemaListAttribute(KEY_ATTRIB_NAME, RESP_ELEMENT_NAME)),
-                        new String[][]{
-                                {"ann", "Annotator"},
-                                {"crr", "Corrector"},
-                                {"edt", "Editor"},
-                                {"res", "Researcher"},
-                                {"trc", "Transcriber"}
-                        }
-                )
-        );
-//        @type attribute on <date> elements within <creation>
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(new SchemaListAttribute(TYPE_ATTRIB_NAME, DATE_ELEMENT_NAME, CREATION_ELEMENT_NAME)),
-                        new String[][]{
-                                {"arrived", "when the letter or other document arrived at its destination"},
-                                {"copied", "when the text was copied"},
-                                {"deposed", "when the person involved was deposed"},
-                                {"sent", "when the letter or other document was sent"},
-                                {"written", "when the text was written"}
-                        }
-                )
-        );
-//        @type attribute on <persName> elements within <creation>
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(new SchemaListAttribute(TYPE_ATTRIB_NAME, PERS_NAME_ELEMENT_NAME, CREATION_ELEMENT_NAME)),
-                        new String[][]{
-                                {"author", "person who wrote the text or is responsible for its contents"},
-                                {"addressee", "person the letter or other document was addressed to"},
-                                {"copyist", "person who copied the text"},
-                                {"deponent", "person who being interviewed in a deposition"},
-                                {"sender", "person who sent the letter or other document"}
-                        }
-                )
-        );
-//        @type attribute on place elements within <creation>
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(
-                                new SchemaListAttribute(TYPE_ATTRIB_NAME, DISTRICT_ELEMENT_NAME, CREATION_ELEMENT_NAME),
-                                new SchemaListAttribute(TYPE_ATTRIB_NAME, SETTLEMENT_ELEMENT_NAME, CREATION_ELEMENT_NAME),
-                                new SchemaListAttribute(TYPE_ATTRIB_NAME, REGION_ELEMENT_NAME, CREATION_ELEMENT_NAME),
-                                new SchemaListAttribute(TYPE_ATTRIB_NAME, COUNTRY_ELEMENT_NAME, CREATION_ELEMENT_NAME),
-                                new SchemaListAttribute(TYPE_ATTRIB_NAME, BLOC_ELEMENT_NAME, CREATION_ELEMENT_NAME)
-                        ),
-                        new String[][]{
-                                {"arrived", "where the letter or other document arrived"},
-                                {"copied", "where the text was copied"},
-                                {"deposed", "where the person involved was deposed"},
-                                {"sent", "where the letter or other document was sent from"},
-                                {"written", "where the text was written"}
-                        }
-                )
-        );
-//        @type attribute on <orgName> elements within <creation>
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(new SchemaListAttribute(TYPE_ATTRIB_NAME, ORG_NAME_ELEMENT_NAME, CREATION_ELEMENT_NAME)),
-                        new String[][]{
-                                {"author", "org for which the author wrote the text"},
-                                {"addressee", "org the letter or other document was addressed to"},
-                                {"copyist", "org for which the text was copied"},
-                                {"deposition", "org holding the deposition"},
-                                {"sender", "org that sent the letter or other document"}
                         }
                 )
         );
@@ -123,19 +52,6 @@ public class StaticSchemaList extends AbstractSchemaList<SchemaListItem> {
                         new String[][]{
                                 {"yes", "break is between words"},
                                 {"no", "break is inside a word"}
-                        }
-                )
-        );
-//        @reason attribute
-        LISTS.add(
-                new StaticSchemaList(
-                        Arrays.asList(new SchemaListAttribute(REASON_ATTRIB_NAME)),
-                        new String[][]{
-                                {"rubbing", "any kind of rubbing/strikethrough/blot"},
-                                {"hand", "anything illegible because of the handwriting"},
-                                {"overwriting", "legibility is hampered by overwriting"},
-                                {"damage", "illegible/unclear due to damage: smoke, hole, tear, water damage"},
-                                {"faded", "writing is faded and difficult to read"}
                         }
                 )
         );

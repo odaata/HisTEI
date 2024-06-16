@@ -1203,7 +1203,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1310,7 +1310,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1391,7 +1391,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1472,7 +1472,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

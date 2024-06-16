@@ -1381,7 +1381,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1397,7 +1397,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>

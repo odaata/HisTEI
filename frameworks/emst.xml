@@ -21,6 +21,15 @@
             <div class="body">
                 <p class="header">What's new?</p>
 
+                <p class="header">Beta6 Version 1.0.0</p>
+                <ul>
+                    <li>Fix inactive buttons in correspondence section</li>
+                    <li>Only insert orgName for organizations - no more option for repository</li>
+                    <li>Add time elements to places in contextual info</li>
+                    <li>Update LALP place template to use location element</li>
+                    <li>Allow inserting multiple dated persName, orgName and place name elements</li>
+                </ul>
+
                 <p class="header">Beta5 Version 1.0.0</p>
                 <ul>
                     <li>Add correspondence section styles for TEI header</li>

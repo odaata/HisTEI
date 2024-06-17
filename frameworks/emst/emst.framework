@@ -1201,7 +1201,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction', 'person')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1308,7 +1308,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction', 'location', 'place')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1332,7 +1332,9 @@
 																<String>fragment</String>
 																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0">
   &lt;placeName>${caret}&lt;/placeName>
-  &lt;country/>
+  &lt;location>
+    &lt;country/>
+  &lt;/location>
 &lt;/place></String>
 															</entry>
 														</serializableOrderedMap>
@@ -1379,7 +1381,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1389,13 +1391,13 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction', 'org')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1414,6 +1416,9 @@
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0">
     &lt;orgName>${caret}&lt;/orgName>
     &lt;desc/>
+    &lt;location>
+      &lt;settlement/>
+    &lt;/location>
 &lt;/org></String>
 															</entry>
 														</serializableOrderedMap>
@@ -1470,7 +1475,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

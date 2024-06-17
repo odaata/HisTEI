@@ -1203,7 +1203,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation', 'correspAction')</String>
+														<String>local-name() = ('creation', 'correspAction', 'person')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1310,7 +1310,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation', 'correspAction')</String>
+														<String>local-name() = ('creation', 'correspAction', 'location', 'place')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1393,7 +1393,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation', 'correspAction')</String>
+														<String>local-name() = ('creation', 'correspAction', 'org')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1418,6 +1418,9 @@
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0">
     &lt;orgName>${caret}&lt;/orgName>
     &lt;desc/>
+    &lt;location>
+      &lt;settlement/>
+    &lt;/location>
 &lt;/org></String>
 															</entry>
 														</serializableOrderedMap>

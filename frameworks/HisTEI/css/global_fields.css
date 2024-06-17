@@ -100,6 +100,14 @@ hi
 
 date:empty:after,
 date:not(:empty):focus:after,
+person > persName:after,
+org > orgName:after,
+place > placeName:after,
+location > district:after,
+location > settlement:after,
+location > region:after,
+location > country:after,
+location > bloc:after,
 birth,
 death,
 event,
@@ -176,6 +184,18 @@ trait:focus:after {
             editable, false
             columns, 8
         );
+}
+
+/* Force the date fields to display on new line in contextual info */
+person > persName:after,
+org > orgName:after,
+place > placeName:after,
+district:after,
+settlement:after,
+region:after,
+country:after,
+bloc:after {
+    display:block;
 }
 
 /* Links */

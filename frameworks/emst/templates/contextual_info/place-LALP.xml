@@ -7,7 +7,7 @@
                 <title>List of Places</title>
             </titleStmt>
             <publicationStmt>
-                <authority>HisTEI</authority>
+                <authority>LALP</authority>
             </publicationStmt>
             <sourceDesc>
                 <p>Born Digital.</p>
@@ -18,42 +18,59 @@
         <body>
             <listPlace>
                 <listPlace type="district">
-                    <place xml:id="Pangbourne">
+                    <place xml:id="dist_Pangbourne">
                         <placeName>Pangbourne</placeName>
-                        <region ref="plc:Surrey"/>
-                        <country ref="plc:place_mn4_1tl_jwb"/>
-                        <bloc ref="plc:place_UK"/>
-                        </place>
+                        <location>
+                            <region ref="plc:reg_Surrey"/>
+                            <country ref="plc:ctry_England"/>
+                            <bloc ref="plc:bloc_UK"/>
+                        </location>
+                    </place>
                 </listPlace>
                 <listPlace type="settlement">
-                    <place xml:id="Tidmarsh">
+                    <place xml:id="settle_Tidmarsh">
                         <placeName>Tidmarsh</placeName>
-                        <district ref="plc:Pangbourne"/>
-                        <region ref="plc:Surrey"/>
-                        <country ref="plc:place_mn4_1tl_jwb"/>
-                        <bloc ref="plc:place_UK"/>
+                        <location>
+                            <district ref="plc:dist_Pangbourne"/>
+                            <region ref="plc:reg_Surrey" notBefore="1894"/>
+                            <region ref="plc:reg_Kent" notAfter="1894"/>
+                            <country ref="plc:ctry_England"/>
+                            <bloc ref="plc:bloc_UK"/>
+                        </location>
                     </place>
                 </listPlace>
                 <listPlace type="region">
-                    <place xml:id="Surrey">
+                    <place xml:id="reg_Kent">
+                        <placeName>Kent</placeName>
+                        <location>
+                            <country ref="plc:ctry_England"/>
+                            <bloc ref="plc:bloc_UK"/>
+                        </location>
+                    </place>
+                    <place xml:id="reg_Surrey">
                         <placeName>Surrey</placeName>
-                        <country ref="plc:place_mn4_1tl_jwb"/>
-                        <bloc ref="plc:place_UK"/>
+                        <location>
+                            <country ref="plc:ctry_England"/>
+                            <bloc ref="plc:bloc_UK"/>
+                        </location>
                     </place>
                 </listPlace>
                 <listPlace type="country">
-                    <place xml:id="place_mn4_1tl_jwb">
+                    <place xml:id="ctry_England">
                         <placeName>England</placeName>
-                        <bloc ref="plc:place_UK"/>
+                        <location>
+                            <bloc ref="plc:bloc_UK"/>
+                        </location>
                     </place>
                 </listPlace>
                 <listPlace type="bloc">
-                    <place xml:id="place_UK">
-                        <placeName>United Kingdom</placeName>
+                    <place xml:id="bloc_UK">
+                        <placeName notBefore="1801">United Kingdom</placeName>
+                        <placeName notBefore="1707-05-01">Great Britain</placeName>
                     </place>
                 </listPlace>
                 <listPlace>
-                    <place xml:id="place_on4_1tl_jwb">
+                    <place xml:id="UNKNOWN_PLACE">
                         <placeName/>
                     </place>
                 </listPlace>

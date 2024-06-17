@@ -47,20 +47,20 @@ declare function txt:category($category as element(tei:category)?) as xs:string*
 };
 
 declare function txt:place($place as element(tei:place)?) as xs:string? {
-    normalize-space($place/tei:placeName/text())
+    normalize-space($place/tei:placeName[1]/text())
 };
 
 declare function txt:org($org as element(tei:org)?) as xs:string? {
-    normalize-space($org/tei:orgName/text())
+    normalize-space($org/tei:orgName[1]/text())
 };
 
 declare function txt:person($person as element(tei:person)?) as xs:string? {
     if (empty($person)) then
         ()
     else
-        let $name := txt:name-info($person/tei:persName)
-        let $birth := txt:year-info($person/tei:birth)
-        let $death := txt:year-info($person/tei:death)
+        let $name := txt:name-info($person/tei:persName[1])
+        let $birth := txt:year-info($person/tei:birth[1])
+        let $death := txt:year-info($person/tei:death[1])
         let $dates := 
             if ($birth("year") or $death("year")) then 
                 concat("(", $birth("year"), "-", $death("year"), ")")
@@ -92,38 +92,6 @@ declare function txt:name-info($persName as element(tei:persName)?) as map(xs:st
     else
         ()
 };
-
-(: This is not used anymore - year-info is used instead :)
-(:declare function txt:format-year($datable as element(), $single-estimates as xs:boolean) as xs:string {
-    let $when := txt:year($datable/@when)
-    let $notBefore := txt:year($datable/@notBefore)
-    let $notAfter := txt:year($datable/@notAfter)
-    let $from := txt:year($datable/@from)
-    let $to := txt:year($datable/@to)
-    let $cert := if ($datable/@cert) then $txt:CERTAINTY($datable/@cert) else ""
-    return
-    switch(true())
-        case exists($when) return concat($when, $cert)
-        
-        case exists($notBefore) and exists($notAfter) return
-            if ($single-estimates) then 
-                concat((($notAfter - $notBefore) idiv 2) + $notBefore, $cert)
-            else
-                concat($notBefore, "-", $notAfter, $cert, " nb-na")
-        
-        case exists($notBefore) return concat($notBefore, $cert, " nb")
-        
-        case exists($notAfter) return concat($notAfter, $cert, " na")
-        
-        case exists($from) or exists($to) return
-            concat($from, "-", $to, $cert, " dur")
-            
-        default return ""
-};
-
-declare function txt:format-year($datable as element()) as xs:string {
-    txt:format-year($datable, true())
-};:)
 
 declare function txt:year-info($datable as element()?, $single-estimates as xs:boolean) as map(xs:string, item()) {
     if (empty($datable)) then

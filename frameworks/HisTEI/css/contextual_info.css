@@ -362,9 +362,9 @@ person:before {
         oxy_label(
             text, oxy_concat(
                 " - ",
-                oxy_xpath("string-join(for $name in ./persName/*[empty(@type) or @type != 'married'] return normalize-space($name), ' ')"),
-                oxy_xpath("if (exists(./persName/*[@type = 'married'])) then ' / ' else ''"),
-                oxy_xpath("string-join(for $name in ./persName/*[@type = 'married'] return normalize-space($name), ' ')")
+                oxy_xpath("string-join(for $name in ./persName[1]/*[empty(@type) or @type != 'married'] return normalize-space($name), ' ')"),
+                oxy_xpath("if (exists(./persName[1]/*[@type = 'married'])) then ' / ' else ''"),
+                oxy_xpath("string-join(for $name in ./persName[1]/*[@type = 'married'] return normalize-space($name), ' ')")
             )
             color, white
             styles, "@import 'labels.css';"
@@ -382,11 +382,20 @@ relation:before {
     ;
 }
 
-place:before,
+place:before  {
+     -oxy-append-content:
+         oxy_label(
+             text, oxy_concat(" - ", oxy_xpath("normalize-space(./placeName[1])"))
+             color, white
+             styles, "@import 'labels.css';"
+         )
+     ;
+ }
+
 org:before {
     -oxy-append-content:
         oxy_label(
-            text, oxy_concat(" - ", oxy_xpath("normalize-space(./placeName | ./orgName)"))
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./orgName[1])"))
             color, white
             styles, "@import 'labels.css';"
         )
@@ -396,7 +405,7 @@ org:before {
 note[type="collection"]:before {
     -oxy-append-content:
         oxy_label(
-            text, oxy_concat(" - ", oxy_xpath("normalize-space(./name[@type = 'short'])"))
+            text, oxy_concat(" - ", oxy_xpath("normalize-space(./name[@type = 'short'][1])"))
             color, white
             styles, "@import 'labels.css';"
         )        

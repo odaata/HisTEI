@@ -1203,7 +1203,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
+														<String>local-name() = ('creation', 'correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1310,7 +1310,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
+														<String>local-name() = ('creation', 'correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1334,7 +1334,9 @@
 																<String>fragment</String>
 																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0">
   &lt;placeName>${caret}&lt;/placeName>
-  &lt;country/>
+  &lt;location>
+    &lt;country/>
+  &lt;/location>
 &lt;/place></String>
 															</entry>
 														</serializableOrderedMap>
@@ -1391,7 +1393,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
+														<String>local-name() = ('creation', 'correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1472,7 +1474,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation') or local-name() = ('correspAction')</String>
+														<String>local-name() = ('creation', 'correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>

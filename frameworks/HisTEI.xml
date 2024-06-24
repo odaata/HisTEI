@@ -21,6 +21,11 @@
             <div class="body">
                 <p class="header">What's new?</p>
 
+                <p class="header">Beta7 Version 1.0.0</p>
+                <ul>
+                    <li>Fix tokenizer issue due to new version of Xquery 'map:merge' fn</li>
+                </ul>
+
                 <p class="header">Beta6 Version 1.0.0</p>
                 <ul>
                     <li>Fix inactive buttons in correspondence section</li>

@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : Generate a tabular report with header values from all TEI documents in a given directory

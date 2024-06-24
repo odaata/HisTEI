@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : Helper utilities for generating HisTEI reports
@@ -96,7 +96,7 @@ declare function rpt:headers($teiDocs as document-node()*, $conInfoMap as map(xs
                     element { teix:split-ref($schemeRef)[2] } { txt:category($otherGenre)[1] }
                     
             let $creation := txt:creation($tei)
-            let $yearInfo := txt:year-info($creation[local-name() eq "date"])
+            let $yearInfo := txt:year-info($creation[local-name() eq "date"][1])
             
             let $org := teix:con-info-by-ref($conInfoMap, $creation[local-name() eq "orgName"][1])
             

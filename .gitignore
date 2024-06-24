@@ -3,4 +3,5 @@ out/
 .idea/tasks.xml
 .idea/libraries
 build.properties
-
+target/
+/.idea/dictionaries/*.xml

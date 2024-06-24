@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : A set of generic XML helper functions for use in XQuery scripts in the HisTEI framework

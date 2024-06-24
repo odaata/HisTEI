@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xml:id="TEI_ujl_fxt_s1c" xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader xml:lang="en">
+        <fileDesc>
+            <titleStmt>
+                <title type="main"/>
+            </titleStmt>
+            <publicationStmt>
+                <authority>LALP</authority>
+                <idno/>
+            </publicationStmt>
+            <notesStmt>
+                <note/>               
+            </notesStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <repository/>
+                        <idno/>
+                        <altIdentifier>
+                            <idno/>
+                        </altIdentifier>
+                    </msIdentifier>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <profileDesc>
+            <correspDesc>
+                <correspAction type="sent">
+                    <persName ref="" role=""/>
+                    <settlement ref=""/>
+                    <date when="" cert="" evidence=""/>
+                </correspAction>
+                <correspAction type="received">
+                   <persName ref=""/>
+                    <settlement ref=""/>
+                </correspAction>
+            </correspDesc>
+            <creation>
+                <persName role="author"/>
+            </creation>
+            <textClass>
+                <catRef scheme="gen:LALP_letter_types"/>
+                <catRef scheme="gen:LALP_letter_types"/>
+                <catRef scheme="gen:LALP_letter_types"/>
+                <catRef scheme="gen:LALP_letter_types"/>
+                <catRef scheme="gen:LALP_letter_types"/>
+                <catRef scheme="gen:LALP_letter_types"/>
+            </textClass>
+            <handNotes>
+                <handNote></handNote>
+            </handNotes>
+        </profileDesc>
+        <revisionDesc>
+            <change></change>
+        </revisionDesc>
+    </teiHeader>
+    <facsimile>
+           <graphic/>
+    </facsimile>
+    <text>
+        <body>
+            <div type="address">
+                <p><lb break="yes"/></p>
+            </div>
+            <div type="letter" facs="#image_001 #image_002">
+                <pb facs="image_001" break="yes"/>
+
+                <opener>
+                    
+                    <dateline/>
+                    <salute></salute>
+                </opener>
+
+                <p><lb break="yes"/>  </p>
+
+                <closer>
+                    <signed> </signed>
+                </closer>
+                <postscript>
+                    <p>
+                        <lb/>
+                    </p>
+                    <signed/>
+                </postscript>
+
+            </div>
+        </body>
+    </text>
+</TEI>

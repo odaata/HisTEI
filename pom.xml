@@ -1,0 +1,365 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>info.histei</groupId>
+    <artifactId>histei</artifactId>
+    <version>1.0.0-beta7</version>
+
+    <name>HisTEI</name>
+    <url>http://www.histei.info/p/home.html</url>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.build.oxygenVersion>26.0</project.build.oxygenVersion>
+        <project.build.frameworks>${basedir}/frameworks</project.build.frameworks>
+        <project.build.output>${basedir}/target/dist</project.build.output>
+    </properties>
+
+    <developers>
+        <developer>
+            <name>Mike Olson</name>
+            <email>dutch.corpus@gmail.com</email>
+            <roles>
+                <role>manager</role>
+            </roles>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git://github.com/odaata/HisTEI.git</connection>
+        <developerConnection>scm:git:ssh://github.com/odaata/HisTEI.git</developerConnection>
+        <url>https://github.com/odaata/HisTEI</url>
+    </scm>
+
+    <repositories>
+        <repository>
+            <id>public</id>
+            <name>oXygen public artifacts</name>
+            <url>https://www.oxygenxml.com/maven</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <version>33.1.0-jre</version>
+        </dependency>
+        <dependency>
+            <groupId>com.oxygenxml</groupId>
+            <artifactId>oxygen-sdk</artifactId>
+            <version>26.0.0.2</version>
+            <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>24.1.0</version>
+        </dependency>
+        <!-- https://mvnrepository.com/artifact/org.apache.commons/commons-text -->
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-text</artifactId>
+            <version>1.11.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-lang3</artifactId>
+            <version>3.14.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.commons</groupId>
+            <artifactId>commons-vfs2</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-api</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.logging.log4j</groupId>
+            <artifactId>log4j-core</artifactId>
+            <version>2.23.1</version>
+        </dependency>
+        <dependency>
+            <groupId>org.apache.tika</groupId>
+            <artifactId>tika-core</artifactId>
+            <version>2.9.0</version>
+        </dependency>
+    </dependencies>
+    <build>
+        <finalName>${project.artifactId}-${project.version}</finalName>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-shade-plugin</artifactId>
+                <version>3.5.2</version>
+                <configuration>
+                    <createDependencyReducedPom>false</createDependencyReducedPom>
+                    <filters>
+                        <filter>
+                            <artifact>*:*</artifact>
+                            <excludes>
+                                <!-- Remove warnings for clashing deps. taken from
+                                https://github.com/Wimmics/corese/issues/60 -->
+                                <exclude>**/module-info.*</exclude>
+                                <exclude>META-INF/*.MF</exclude>
+                            </excludes>
+                        </filter>
+                    </filters>
+                    <transformers>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                            <manifestEntries>
+                                <Specification-Title>Oxygen XML Editor Framework</Specification-Title>
+                                <Specification-Version>${project.build.oxygenVersion}</Specification-Version>
+                                <Specification-Vendor>Syncro Soft Ltd.</Specification-Vendor>
+                                <Implementation-Title>HisTEI Oxygen Framework</Implementation-Title>
+                                <Implementation-Version>${project.version}</Implementation-Version>
+                                <Implementation-Vendor>HisTEI</Implementation-Vendor>
+                            </manifestEntries>
+                        </transformer>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.IncludeResourceTransformer">
+                            <resource>META-INF/LICENSE</resource>
+                            <file>LICENSE</file>
+                        </transformer>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ApacheLicenseResourceTransformer"/>
+                        <transformer
+                                implementation="org.apache.maven.plugins.shade.resource.ApacheNoticeResourceTransformer">
+                            <addHeader>false</addHeader>
+                        </transformer>
+                        <transformer implementation="org.apache.maven.plugins.shade.resource.AppendingTransformer">
+                            <resource>META-INF/DEPENDENCIES</resource>
+                        </transformer>
+                    </transformers>
+                </configuration>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>shade</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <version>3.3.0</version>
+                <executions>
+                    <execution>
+                        <id>histei-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <attach>false</attach>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <finalName>HisTEI-oxygen</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/assembly/HisTEI.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>emst-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <attach>false</attach>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <finalName>emst-oxygen</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/assembly/emst.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>mib-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <attach>false</attach>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <finalName>mib-oxygen</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/assembly/mib.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>amsterdam-assembly</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                        <configuration>
+                            <attach>false</attach>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <finalName>amsterdam-oxygen</finalName>
+                            <appendAssemblyId>false</appendAssemblyId>
+                            <descriptors>
+                                <descriptor>src/assembly/amsterdam.xml</descriptor>
+                            </descriptors>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <artifactId>maven-resources-plugin</artifactId>
+                <version>3.3.1</version>
+                <executions>
+                    <execution>
+                        <id>copy-histei</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.frameworks}</directory>
+                                    <includes>
+                                        <include>HisTEI.xml</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-emst</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.frameworks}</directory>
+                                    <includes>
+                                        <include>emst.xml</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-mib</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.frameworks}</directory>
+                                    <includes>
+                                        <include>mib.xml</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                    <execution>
+                        <id>copy-amsterdam</id>
+                        <phase>validate</phase>
+                        <goals>
+                            <goal>copy-resources</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.output}</outputDirectory>
+                            <resources>
+                                <resource>
+                                    <directory>${project.build.frameworks}</directory>
+                                    <includes>
+                                        <include>amsterdam.xml</include>
+                                    </includes>
+                                    <filtering>true</filtering>
+                                </resource>
+                            </resources>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <!--            Unable to get this to connect to GitHub via maven to push tags/commits-->
+            <!--            TODO: Automate maven releases -->
+            <!--            <plugin>-->
+            <!--                <groupId>org.apache.maven.plugins</groupId>-->
+            <!--                <artifactId>maven-release-plugin</artifactId>-->
+            <!--                <version>3.0.1</version>-->
+            <!--                <configuration>-->
+            <!--                    <tagNameFormat>v@{project.version}</tagNameFormat>-->
+            <!--                    <autoVersionSubmodules>true</autoVersionSubmodules>-->
+            <!--                    <releaseProfiles>release</releaseProfiles>-->
+            <!--                    <useReleaseProfile>false</useReleaseProfile>-->
+            <!--                    <goals>deploy</goals>-->
+            <!--                    <projectVersionPolicyId>SemVerVersionPolicy</projectVersionPolicyId>-->
+            <!--                </configuration>-->
+            <!--            </plugin>-->
+
+            <!--            Tried to get this working but always got errors that owner, repo or tagName are incorrect -->
+            <!--            TODO: Automate GitHub releases -->
+            <!--            <plugin>-->
+            <!--                <groupId>com.ragedunicorn.tools.maven</groupId>-->
+            <!--                <artifactId>github-release-maven-plugin</artifactId>-->
+            <!--                <version>1.0.7</version>-->
+            <!--                <executions>-->
+            <!--                    <execution>-->
+            <!--                        <id>push-github-release</id>-->
+            <!--                        <phase>deploy</phase>-->
+            <!--                        <goals>-->
+            <!--                            <goal>github-release</goal>-->
+            <!--                        </goals>-->
+            <!--                        <configuration>-->
+            <!--                            <owner>odaata</owner>-->
+            <!--                            <repository>HisTEI</repository>-->
+            <!--                            <server>github-oauth</server>-->
+            <!--                            <tagName>v1.0.0-beta2</tagName>-->
+            <!--&lt;!&ndash;                            <name>example-release</name>&ndash;&gt;-->
+            <!--                            <targetCommitish>HEAD</targetCommitish>-->
+            <!--&lt;!&ndash;                            <body>release description overwritten by release notes</body>&ndash;&gt;-->
+            <!--&lt;!&ndash;                            <releaseNotes>src/main/resources/release-notes-example.md</releaseNotes>&ndash;&gt;-->
+            <!--                            <generateReleaseNotes>true</generateReleaseNotes>-->
+            <!--                            <assets>-->
+            <!--                                <asset>${project.build.output}/HisTEI/HisTEI.xml</asset>-->
+            <!--                                <asset>${project.build.output}/HisTEI/HisTEI-oxygen.zip</asset>-->
+            <!--                            </assets>-->
+            <!--                            <draft>true</draft>-->
+            <!--                            <skip>false</skip>-->
+            <!--                        </configuration>-->
+            <!--                    </execution>-->
+            <!--                </executions>-->
+            <!--            </plugin>-->
+        </plugins>
+    </build>
+</project>

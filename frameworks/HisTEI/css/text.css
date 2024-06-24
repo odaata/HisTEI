@@ -95,6 +95,8 @@ titlePart:before {
         oxy_combobox(
             edit, "@type"
             editable, true,
+            tooltips, "address${comma} e.g. transcribed from a letter,entry in a journal${comma} diary${comma} travelogue${comma} etc.,illustration facing the title page of a book${comma} letter or piece of correspondence,introduction to a book${comma} typically stating its subject${comma} scope or aims,notes made by the author in a transcribed work"
+            values, "address,entry,frontispiece,letter,preface,notes"
             width, 7em
         )
     ;
@@ -165,6 +167,8 @@ fw:before {
         oxy_combobox(
             edit, "@type"
             editable, true,
+            tooltips, "a running title at the top of the page,a running title at the bottom of the page,(page number) a page number or foliation symbol,(line number) a line number${comma} either of prose or poetry,(signature) a signature or gathering symbol,(catchword) a catch-word"
+            values, "header,footer,pageNum,lineNum,sig,catch",
             width, 7em
         )
     ;
@@ -185,6 +189,7 @@ del,
 gap,
 unclear,
 supplied,
+subst,
 foreign,
 ab,
 seg,
@@ -339,6 +344,24 @@ supplied:after {
     content: "]";
 }
 
+subst {
+    color:purple;
+    font-weight:bold;
+}
+
+subst:before {
+    font-weight:bold;
+    padding:0px;
+    content: "{";
+}
+
+subst:focus:after,
+subst:after {
+    border:0px;
+    padding:0px;
+    content: "}";
+}
+
 pc {
     color:purple;
 }
@@ -415,11 +438,51 @@ unclear:focus:after {
     -oxy-append-content:
         oxy_label(
             text, "${i18n(reason.label)}: "
-            width, 70px
             styles, "@import 'labels_sub.css';"
         )
         oxy_combobox(
             edit, "@reason",
+            width, 5em,
+            tooltips, "any kind of rubbing/strikethrough/blot,anything illegible because of the handwriting,legibility is hampered by overwriting,illegible/unclear due to damage: smoke${comma} hole${comma} tear${comma} water damage,writing is faded and difficult to read",
+            values, "rubbing,hand,overwriting,damage,faded"
+        )
+    ;
+}
+
+/* @unit and @extent on <gap/> element */
+gap:hover:after {
+    -oxy-append-content:
+       oxy_label(
+           text, "${i18n(quantity.label)}: "
+           styles, "@import 'labels_sub.css';"
+       )
+       oxy_textfield(
+           edit, "@quantity",
+           columns, 3
+       )
+       oxy_label(
+           text, "${i18n(unit.label)}: "
+           styles, "@import 'labels_sub.css';"
+       )
+       oxy_combobox(
+           edit, "@unit",
+           columns, 6,
+           values, "char,word,line"
+       )
+    ;
+}
+
+/* @rend on <del/> element */
+del:focus:after {
+    -oxy-append-content:
+        oxy_label(
+            text, "${i18n(rend.label)}: "
+            styles, "@import 'labels_sub.css';"
+        )
+        oxy_combobox(
+            edit, "@rend"
+            tooltips, "deletion made with a line or set of lines,anything thicker or blottier than a line,text overwrites something that was written earlier,original appears faded or smudged",
+            values, "crossedOut,inkedOut,overwritten,rubbedOut"
             width, 7em
         )
     ;
@@ -541,8 +604,8 @@ handShift:hover:after {
 
 add:focus:after,
 del:focus:after,
-unclear:focus:after,
-gap:hover:after {
+signed:focus:after,
+subst:focus:after {
     -oxy-append-content: 
         oxy_label(
             text, "${i18n(hand.label)}: "
@@ -550,7 +613,7 @@ gap:hover:after {
         )
         oxy_combobox(
             edit, "@hand",
-            width, 7em
+            width, 6em
         )
 }
 

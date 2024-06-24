@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet type="text/css" href="http://emergingstandards.eu/css/contextual_info.css"?>
+<TEI xml:lang="en" xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title>List of People</title>
+            </titleStmt>
+            <publicationStmt>
+                <authority>LALP</authority>
+            </publicationStmt>
+            <sourceDesc>
+                <p>Born Digital.</p>
+            </sourceDesc>
+        </fileDesc>
+    </teiHeader>
+    <text>
+        <body>
+            <listPerson>
+                <listPerson type="editor">
+                    <person xml:id="person_INI">
+                        <persName>
+                            <forename>Moragh</forename><surname>Gordon</surname>
+                        </persName>
+                    </person>
+                </listPerson>
+                <listPerson>
+                    <person xml:id="Pangbourne_overseer">
+                        <persName>
+                            <roleName>overseer</roleName>
+                            <forename></forename>
+                            <nameLink/>
+                            <surname/>
+                            <surname></surname>
+                        </persName>
+                        <sex value="1"/>
+                        <education/>
+                        <occupation></occupation>
+                        <faith/>
+                        <socecStatus/>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                        <residence>
+                            <settlement/>
+                        </residence>
+                        <affiliation>
+                            <orgName ref="org:org_whr_tqz_s1c"/>                            
+                        </affiliation>
+                    </person>
+                    <person xml:id="hand_1">
+                        <persName>
+                            <roleName/>
+                            <forename>x</forename>
+                            <nameLink/>
+                            <surname/>
+                            <surname/>
+                        </persName>
+                        <sex value="0"/>
+                        <education/>
+                        <occupation/>
+                        <faith/>
+                        <socecStatus/>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                        <residence>
+                            <settlement/>
+                        </residence>
+                        <affiliation>
+                            <orgName/>
+                        </affiliation>
+                    </person>
+                    <person xml:id="Mary_Soundy">
+                        <persName>
+                            <roleName/>
+                            <forename>Mary</forename>
+                            <nameLink/>
+                            <surname/>
+                            <surname>Soundy</surname>
+                        </persName>
+                        <sex value="2"/>
+                        <education/>
+                        <occupation/>
+                        <faith/>
+                        <socecStatus/>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                        <residence>
+                            <settlement/>
+                        </residence>
+                        <affiliation><orgName ref="org:org_whr_tqz_s1c"/></affiliation>                  
+                    </person>
+                    <person xml:id="Charles_Soundy">
+                        <persName>
+                            <roleName/>
+                            <forename>Charles</forename>
+                            <nameLink/>
+                            <surname/>
+                            <surname>Soundy</surname>
+                        </persName>
+                        <sex value="1"/>
+                        <education/>
+                        <occupation>unknown,unemployed</occupation>
+                        <faith/>
+                        <socecStatus/>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                        <residence>
+                            <settlement ref="plc:place_zz1_3r3_mbc"/>
+                            </residence>
+                        <affiliation>
+                            <orgName ref="org:org_whr_tqz_s1c"/>
+                        </affiliation>
+                    </person>
+                    <person xml:id="James_Soundy">
+                        <persName>
+                            <roleName/>
+                            <forename>James</forename>
+                            <nameLink/>
+                            <surname/>
+                            <surname>Soundy</surname>
+                        </persName>
+                        <sex value="1"/>
+                        <education></education>
+                        <occupation></occupation>
+                        <faith></faith>
+                        <socecStatus>LC</socecStatus>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                        <residence>
+                            <settlement/>
+                        </residence>
+                        <affiliation>
+                            <orgName/>
+                        </affiliation>
+                    </person>
+                    <person xml:id="Frances_Soundy">
+                        <persName>
+                            <roleName/>
+                            <forename>Frances</forename>
+                            <nameLink/><surname>Soundy</surname>
+                            <surname/>
+                        </persName>
+                        <sex value="2"/>
+                        <education></education>
+                        <occupation></occupation>
+                        <faith></faith>
+                        <socecStatus>LC</socecStatus>
+                        <birth>
+                            <settlement/>
+                        </birth>
+                        <death>
+                            <settlement/>
+                        </death>
+                        <residence>
+                            <settlement ref="plc:Tidmarsh"/>
+                        </residence>
+                        <affiliation>
+                            <orgName ref="org:org_whr_tqz_s1c"/>
+                        </affiliation>
+                    </person>
+                </listPerson>
+                <listRelation type="personal">
+                    <relation name="parent" active="#Frances_Soundy #James_Soundy" passive="#Charles_Soundy"/>
+                    <relation name="spouse" mutual="#Charles_Soundy #Mary_Soundy"/>
+                    <relation name="spouse" mutual="#James_Soundy #Frances_Soundy"/>
+                    <relation name="sibling"/>
+                    <relation name="grandchild"/>
+                </listRelation>
+            </listPerson>
+        </body>
+    </text>
+</TEI>

@@ -265,10 +265,10 @@
 
     <!--  Header Actions  -->
 
-    <key value="revisonDesc">
-        <val lang="en_US">Revison Desc.</val>
+    <key value="revisionDesc">
+        <val lang="en_US">Revision Desc.</val>
     </key>
-    <key value="revisonDesc_description">
+    <key value="revisionDesc_description">
         <val lang="en_US">Insert the revision description in the TEI header (for transcripts created
             without one). Insert the revisionDesc element.</val>
     </key>
@@ -489,6 +489,13 @@
         <val lang="en_US">Text supplied by the transcriber. Insert the supplied element.</val>
     </key>
 
+    <key value="substitution">
+        <val lang="en_US">Substitution</val>
+    </key>
+    <key value="substitution_description">
+        <val lang="en_US">Groups one or more deletions (or surplus text) with one or more additions when the combination is to be regarded as a single intervention in the text.</val>
+    </key>
+
     <!-- Structure/Layout -->
 
     <key value="div">
@@ -693,8 +700,7 @@
     <!--  Media Actions  -->
 
     <key value="facsimile.select.dir">
-        <!--<val lang="en_US">Select Base Directory...</val>-->
-        <val lang="en_US">Choose...</val>
+        <val lang="en_US">Set Facsimile Dir</val>
     </key>
     <key value="facsimile.select.dir_description">
         <val lang="en_US">Select the base directory where the images and/or media for this text are
@@ -702,7 +708,6 @@
     </key>
 
     <key value="media.open">
-        <!--<val lang="en_US">Open...</val>-->
         <val lang="en_US">&#xfeff;</val>
     </key>
     <key value="media.open_description">
@@ -794,6 +799,10 @@
 
     <key value="reason.label">
         <val lang="en_US">Reason</val>
+    </key>
+
+    <key value="rend.label">
+        <val lang="en_US">Rend</val>
     </key>
 
     <key value="place.label.textual">
@@ -1121,6 +1130,14 @@
 
     <key value="profileDesc.label">
         <val lang="en_US">Profile Description</val>
+    </key>
+
+    <key value="correspDesc.label">
+        <val lang="en_US">Correspondence Description</val>
+    </key>
+
+    <key value="correspAction.label">
+        <val lang="en_US">Correspondence Action</val>
     </key>
 
     <key value="creation.label">

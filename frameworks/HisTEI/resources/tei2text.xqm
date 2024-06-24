@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : A set of helper functions to transform TEI data to other formats (only text for now)
@@ -15,21 +15,21 @@ declare namespace tei = "http://www.tei-c.org/ns/1.0";
 declare %private variable $txt:CONTEXT_LENGTH := 255;
 
 declare %private variable $txt:REMOVED_ELEMENTS := ("del", "note", "fw");
-declare %private variable $txt:REPLACED_ELEMENTS := map{ "gap" := "(GAP)" };
+declare %private variable $txt:REPLACED_ELEMENTS := map{ "gap" : "(GAP)" };
 declare %private variable $txt:WRAPPED_ELEMENTS := map{
-    "abbr" := ("_", "_"),
-    "expan" := ("[", "]"),
-    "supplied" := ("{", "}"),
-    "unclear" := ("!", "!")
+    "abbr" : ("_", "_"),
+    "expan" : ("[", "]"),
+    "supplied" : ("{", "}"),
+    "unclear" : ("!", "!")
 };
 
 (: Functions for TEI fields :)
 
 declare %private variable $txt:CERTAINTY := map { 
-    "unknown" := "",
-    "low" := "*",
-    "medium" := "",
-    "high" := "^"
+    "unknown" : "",
+    "low" : "*",
+    "medium" : "",
+    "high" : "^"
 };
 
 declare %private variable $txt:CREATION_TYPES := 
@@ -47,20 +47,20 @@ declare function txt:category($category as element(tei:category)?) as xs:string*
 };
 
 declare function txt:place($place as element(tei:place)?) as xs:string? {
-    normalize-space($place/tei:placeName/text())
+    normalize-space($place/tei:placeName[1]/text())
 };
 
 declare function txt:org($org as element(tei:org)?) as xs:string? {
-    normalize-space($org/tei:orgName/text())
+    normalize-space($org/tei:orgName[1]/text())
 };
 
 declare function txt:person($person as element(tei:person)?) as xs:string? {
     if (empty($person)) then
         ()
     else
-        let $name := txt:name-info($person/tei:persName)
-        let $birth := txt:year-info($person/tei:birth)
-        let $death := txt:year-info($person/tei:death)
+        let $name := txt:name-info($person/tei:persName[1])
+        let $birth := txt:year-info($person/tei:birth[1])
+        let $death := txt:year-info($person/tei:death[1])
         let $dates := 
             if ($birth("year") or $death("year")) then 
                 concat("(", $birth("year"), "-", $death("year"), ")")
@@ -83,7 +83,7 @@ declare function txt:name-info($persName as element(tei:persName)?) as map(xs:st
             return $name/text(), " ")
             
         return
-            map:new((
+            map:merge((
                 if ($role) then map:entry("role", $role) else (),
                 if ($forename) then map:entry("forename", $forename) else (),
                 if ($maiden) then map:entry("maiden", $maiden) else (),
@@ -93,41 +93,9 @@ declare function txt:name-info($persName as element(tei:persName)?) as map(xs:st
         ()
 };
 
-(: This is not used anymore - year-info is used instead :)
-(:declare function txt:format-year($datable as element(), $single-estimates as xs:boolean) as xs:string {
-    let $when := txt:year($datable/@when)
-    let $notBefore := txt:year($datable/@notBefore)
-    let $notAfter := txt:year($datable/@notAfter)
-    let $from := txt:year($datable/@from)
-    let $to := txt:year($datable/@to)
-    let $cert := if ($datable/@cert) then $txt:CERTAINTY($datable/@cert) else ""
-    return
-    switch(true())
-        case exists($when) return concat($when, $cert)
-        
-        case exists($notBefore) and exists($notAfter) return
-            if ($single-estimates) then 
-                concat((($notAfter - $notBefore) idiv 2) + $notBefore, $cert)
-            else
-                concat($notBefore, "-", $notAfter, $cert, " nb-na")
-        
-        case exists($notBefore) return concat($notBefore, $cert, " nb")
-        
-        case exists($notAfter) return concat($notAfter, $cert, " na")
-        
-        case exists($from) or exists($to) return
-            concat($from, "-", $to, $cert, " dur")
-            
-        default return ""
-};
-
-declare function txt:format-year($datable as element()) as xs:string {
-    txt:format-year($datable, true())
-};:)
-
 declare function txt:year-info($datable as element()?, $single-estimates as xs:boolean) as map(xs:string, item()) {
     if (empty($datable)) then
-        map:new()
+        map{}
     else
         let $when := txt:year($datable/@when)
         let $notBefore := txt:year($datable/@notBefore)
@@ -138,25 +106,25 @@ declare function txt:year-info($datable as element()?, $single-estimates as xs:b
         return
             switch(true())
             case exists($when) return 
-                map { "year" := $when, "cert" := $cert }
+                map { "year" : $when, "cert" : $cert }
             
             case exists($notBefore) and exists($notAfter) return
                 if ($single-estimates) then 
-                    map { "year" := (($notAfter - $notBefore) idiv 2) + $notBefore, "cert" := "nb/na" }
+                    map { "year" : (($notAfter - $notBefore) idiv 2) + $notBefore, "cert" : "nb/na" }
                 else
-                    map { "year" := concat($notBefore, "-", $notAfter), "cert" := "nb-na" }
+                    map { "year" : concat($notBefore, "-", $notAfter), "cert" : "nb-na" }
             
             case exists($notBefore) return 
-                map { "year" := $notBefore, "cert" := "nb" }
+                map { "year" : $notBefore, "cert" : "nb" }
             
             case exists($notAfter) return 
-                map { "year" := $notAfter, "cert" := "na" }
+                map { "year" : $notAfter, "cert" : "na" }
             
             case exists($from) or exists($to) return
-                map { "year" := if ($from eq $to) then $from else concat($from, "-", $to), "cert" := $cert }
+                map { "year" : if ($from eq $to) then $from else concat($from, "-", $to), "cert" : $cert }
                 
             default return 
-                map:new()
+                map{}
 };
 
 declare function txt:year-info($datable as element()?) as map(xs:string, item())? {

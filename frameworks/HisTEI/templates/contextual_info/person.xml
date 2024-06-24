@@ -17,6 +17,13 @@
     <text>
         <body>
             <listPerson>
+                <listPerson type="editor">
+                    <person xml:id="person_${id}">
+                        <persName>
+                            <forename/><surname/>
+                        </persName>
+                    </person>
+                </listPerson>
                 <listPerson>
                     <person xml:id="person_${id}">
                         <persName>
@@ -51,12 +58,10 @@
                         </event>
                     </person>
                 </listPerson>
-
                 <listRelation type="personal">
                     <relation name="parent"/>
                     <relation name="spouse"/>
                 </listRelation>
-
             </listPerson>
         </body>
     </text>

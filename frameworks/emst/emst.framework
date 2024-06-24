@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<serialized version="16.1" xml:space="preserve">
+<serialized xml:space="preserve">
 	<serializableOrderedMap>
 		<entry>
 			<String>document.types</String>
 			<documentTypeDescriptor-array>
 				<documentTypeDescriptor>
+					<field name="webResources">
+						<null/>
+					</field>
 					<field name="extensionPatch">
 						<null/>
 					</field>
@@ -24,11 +27,7 @@
 					<field name="classpath">
 						<String-array>
 							<String>${framework}/i18n/</String>
-							<String>${framework}/HisTEI.jar</String>
-							<String>${framework}/lib/commons-lang3-3.1.jar</String>
-							<String>${framework}/lib/commons-vfs2-2.0.jar</String>
-							<String>${framework}/lib/tika-core-1.4.jar</String>
-							<String>${framework}/lib/guava-16.0.1.jar</String>
+							<String>${framework}/lib/${project.build.finalName}.jar</String>
 						</String-array>
 					</field>
 					<field name="parentClassLoaderID">
@@ -76,6 +75,9 @@
 							<field name="mergeCSSsFromDocument">
 								<Boolean>false</Boolean>
 							</field>
+							<field name="multipleAlternateSelectionEnabled">
+								<Boolean>false</Boolean>
+							</field>
 							<field name="actionDescriptors">
 								<action-array>
 									<action>
@@ -120,6 +122,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -162,6 +167,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -206,6 +214,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -224,7 +235,7 @@
 											<String>${framework}/images/paragraph-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -257,6 +268,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -275,7 +289,7 @@
 											<String>${framework}/images/image_link-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>M</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -294,6 +308,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -316,7 +333,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt S</String>
+											<String>M1 M3 S</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -338,6 +355,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -356,7 +376,7 @@
 											<String>${framework}/images/expansion-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>e</String>
+											<String>E</String>
 										</field>
 										<field name="accelerator">
 											<String>M1 M2 E</String>
@@ -385,6 +405,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -403,7 +426,7 @@
 											<String>${framework}/images/head-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>H</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -428,6 +451,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -446,10 +472,10 @@
 											<String>${framework}/images/abbreviation-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>B</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift B</String>
+											<String>M1 M2 B</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -470,6 +496,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -492,7 +521,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt T</String>
+											<String>M1 M3 T</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -517,6 +546,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -565,6 +597,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -583,7 +618,7 @@
 											<String>${framework}/images/forme_work-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>W</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -608,6 +643,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -626,10 +664,10 @@
 											<String>${framework}/images/addition-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>A</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift A</String>
+											<String>M1 M2 A</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -651,6 +689,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -669,10 +710,10 @@
 											<String>${framework}/images/deletion-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>D</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift D</String>
+											<String>M1 M2 D</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -694,6 +735,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -712,10 +756,10 @@
 											<String>${framework}/images/gap-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift G</String>
+											<String>M1 M2 G</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -749,6 +793,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -767,10 +814,10 @@
 											<String>${framework}/images/unclear-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>N</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift N</String>
+											<String>M1 M2 N</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -792,6 +839,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -810,10 +860,10 @@
 											<String>${framework}/images/punctuation-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift P</String>
+											<String>M1 M2 P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -835,6 +885,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -853,10 +906,10 @@
 											<String>${framework}/images/foreign-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>F</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift F</String>
+											<String>M1 M2 F</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -878,6 +931,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -896,10 +952,10 @@
 											<String>${framework}/images/note-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>O</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift O</String>
+											<String>M1 M2 O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -937,6 +993,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -958,7 +1017,7 @@
 											<String>B</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift MINUS</String>
+											<String>M1 M2 MINUS</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -980,6 +1039,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -998,10 +1060,10 @@
 											<String>${framework}/images/superscript-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift EQUALS</String>
+											<String>M1 M2 EQUALS</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1023,6 +1085,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1041,7 +1106,7 @@
 											<String>${framework}/images/salute-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>U</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1090,6 +1155,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1108,10 +1176,10 @@
 											<String>${framework}/images/person-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt P</String>
+											<String>M1 M3 P</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1133,7 +1201,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction', 'person')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1194,6 +1262,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1212,16 +1283,16 @@
 											<String>${framework}/images/place-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt C</String>
+											<String>M1 M3 C</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart</String>
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:desc or ancestor-or-self::*:titlePart or local-name() eq 'place'</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1237,7 +1308,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction', 'location', 'place')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1261,7 +1332,9 @@
 																<String>fragment</String>
 																<String>&lt;place xmlns="http://www.tei-c.org/ns/1.0">
   &lt;placeName>${caret}&lt;/placeName>
-  &lt;country/>
+  &lt;location>
+    &lt;country/>
+  &lt;/location>
 &lt;/place></String>
 															</entry>
 														</serializableOrderedMap>
@@ -1271,6 +1344,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -1290,10 +1366,10 @@
 											<String>${framework}/images/org-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>O</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt O</String>
+											<String>M1 M3 O</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1305,7 +1381,7 @@
 														<serializableOrderedMap>
 															<entry>
 																<String>element</String>
-																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1315,13 +1391,13 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction', 'org')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
 																<String>fragment</String>
-																<String>&lt;${ask('What kind of org would you like to insert?', combobox, ('repository':'repository'; 'orgName':'uncategorized';), 'orgName')} xmlns="http://www.tei-c.org/ns/1.0"/></String>
+																<String>&lt;orgName xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
@@ -1340,6 +1416,9 @@
 																<String>&lt;org xmlns="http://www.tei-c.org/ns/1.0">
     &lt;orgName>${caret}&lt;/orgName>
     &lt;desc/>
+    &lt;location>
+      &lt;settlement/>
+    &lt;/location>
 &lt;/org></String>
 															</entry>
 														</serializableOrderedMap>
@@ -1349,6 +1428,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -1368,10 +1450,10 @@
 											<String>${framework}/images/date-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>D</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt 1</String>
+											<String>M1 M3 1</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1393,7 +1475,7 @@
 												</actionMode>
 												<actionMode>
 													<field name="xpathCondition">
-														<String>local-name() = ('creation')</String>
+														<String>local-name() = ('creation', 'correspAction')</String>
 													</field>
 													<field name="argValues">
 														<serializableOrderedMap>
@@ -1408,6 +1490,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -1427,7 +1512,7 @@
 											<String>${framework}/images/line_break-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
 											<String>ENTER</String>
@@ -1464,6 +1549,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1482,7 +1570,7 @@
 											<String>${framework}/images/page_break-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>B</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1519,6 +1607,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1537,7 +1628,7 @@
 											<String>${framework}/images/folder_image-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>F</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1557,6 +1648,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1575,10 +1669,10 @@
 											<String>${framework}/images/supplied-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift L</String>
+											<String>M1 M2 L</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1600,6 +1694,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1618,10 +1715,10 @@
 											<String>${framework}/images/punctuation_supplied-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift SEMICOLON</String>
+											<String>M1 M2 SEMICOLON</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -1643,6 +1740,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1661,7 +1761,7 @@
 											<String>${framework}/images/div-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>V</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1694,6 +1794,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1712,7 +1815,7 @@
 											<String>${framework}/images/div_entry-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>E</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1754,6 +1857,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1772,7 +1878,7 @@
 											<String>${framework}/images/address-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>A</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1821,6 +1927,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1839,7 +1948,7 @@
 											<String>${framework}/images/hand_shift-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>S</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1876,6 +1985,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1894,7 +2006,7 @@
 											<String>${framework}/images/hand-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>H</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1927,6 +2039,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1945,7 +2060,7 @@
 											<String>${framework}/images/formulaic-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>F</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -1970,6 +2085,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -1988,10 +2106,10 @@
 											<String>${framework}/images/link-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>B</String>
+											<String>K</String>
 										</field>
 										<field name="accelerator">
-											<null/>
+											<String>M1 K</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2012,6 +2130,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2034,7 +2155,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt W</String>
+											<String>M1 M3 W</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2059,6 +2180,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2107,6 +2231,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2128,7 +2255,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt Y</String>
+											<String>M1 M3 Y</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2153,6 +2280,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2201,6 +2331,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2222,7 +2355,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt A</String>
+											<String>M1 M3 A</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2247,6 +2380,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2295,6 +2431,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2316,7 +2455,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt D</String>
+											<String>M1 M3 D</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2341,6 +2480,9 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2389,6 +2531,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2410,7 +2555,7 @@
 											<String></String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl alt 4</String>
+											<String>M1 M3 4</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2436,6 +2581,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2454,7 +2602,7 @@
 											<String>${framework}/images/opener-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>O</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2490,6 +2638,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2508,7 +2659,7 @@
 											<String>${framework}/images/closer-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2545,6 +2696,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2563,7 +2717,7 @@
 											<String>${framework}/images/postscript-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>P</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2599,6 +2753,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2617,7 +2774,7 @@
 											<String>${framework}/images/resp-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>R</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2655,6 +2812,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2673,7 +2833,7 @@
 											<String>${framework}/images/dateline-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>D</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2706,6 +2866,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2724,7 +2887,7 @@
 											<String>${framework}/images/signed-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2757,6 +2920,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2775,10 +2941,10 @@
 											<String>${framework}/images/word-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>W</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift W</String>
+											<String>M1 M2 W</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2789,16 +2955,19 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;w xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2818,10 +2987,10 @@
 											<String>${framework}/images/sentence-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>S</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift S</String>
+											<String>M1 M2 S</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2832,16 +3001,19 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;s xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2861,10 +3033,10 @@
 											<String>${framework}/images/clause-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift C</String>
+											<String>M1 M2 C</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2875,16 +3047,19 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;cl xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2904,10 +3079,10 @@
 											<String>${framework}/images/phrase-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>H</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift H</String>
+											<String>M1 M2 H</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -2918,16 +3093,19 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;phr xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -2947,7 +3125,7 @@
 											<String>${framework}/images/toggle_text_wrap-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>W</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -2976,6 +3154,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -2994,7 +3175,7 @@
 											<String>${framework}/images/change-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3035,6 +3216,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3053,7 +3237,7 @@
 											<String>${framework}/images/title-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String>a</String>
+											<String>T</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3078,6 +3262,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3096,10 +3283,10 @@
 											<String>${framework}/images/number-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>N</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift M</String>
+											<String>M1 M2 M</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3110,16 +3297,19 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;num xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 									<action>
@@ -3139,10 +3329,10 @@
 											<String>${framework}/images/measure-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>M</String>
 										</field>
 										<field name="accelerator">
-											<String>ctrl shift QUOTE</String>
+											<String>M1 M2 QUOTE</String>
 										</field>
 										<field name="actionModes">
 											<actionMode-array>
@@ -3153,27 +3343,30 @@
 													<field name="argValues">
 														<serializableOrderedMap>
 															<entry>
-																<String>element</String>
+																<String>fragment</String>
 																<String>&lt;measure xmlns="http://www.tei-c.org/ns/1.0"/></String>
 															</entry>
 														</serializableOrderedMap>
 													</field>
 													<field name="operationID">
-														<String>ro.sync.ecss.extensions.commons.operations.ToggleSurroundWithElementOperation</String>
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
 													</field>
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
-											<String>revisonDesc</String>
+											<String>revisionDesc</String>
 										</field>
 										<field name="name">
-											<String>${i18n(revisonDesc)}</String>
+											<String>${i18n(revisionDesc)}</String>
 										</field>
 										<field name="description">
-											<String>${i18n(revisonDesc_description)}</String>
+											<String>${i18n(revisionDesc_description)}</String>
 										</field>
 										<field name="largeIconPath">
 											<String></String>
@@ -3225,6 +3418,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3243,7 +3439,7 @@
 											<String>${framework}/images/user_editor-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>E</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3290,6 +3486,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3308,7 +3507,7 @@
 											<String>${framework}/images/address_line-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>L</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3333,6 +3532,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3351,7 +3553,7 @@
 											<String>${framework}/images/street-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>S</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3376,6 +3578,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3394,7 +3599,7 @@
 											<String>${framework}/images/postbox-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>B</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3419,6 +3624,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3437,7 +3645,7 @@
 											<String>${framework}/images/postcode-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3462,6 +3670,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3480,7 +3691,7 @@
 											<String>${framework}/images/stamp-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>M</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3513,6 +3724,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3531,7 +3745,7 @@
 											<String>${framework}/images/tokenizer-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>T</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3556,6 +3770,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3574,7 +3791,7 @@
 											<String></String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>I</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3594,6 +3811,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3612,7 +3832,7 @@
 											<String>${framework}/images/generate_ids-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>G</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3632,6 +3852,9 @@
 												</actionMode>
 											</actionMode-array>
 										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
 									</action>
 									<action>
 										<field name="id">
@@ -3650,7 +3873,7 @@
 											<String>${framework}/images/tokenizer_collection-16.png</String>
 										</field>
 										<field name="accessKey">
-											<String></String>
+											<String>C</String>
 										</field>
 										<field name="accelerator">
 											<null/>
@@ -3674,6 +3897,101 @@
 													</field>
 												</actionMode>
 											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>catRef</String>
+										</field>
+										<field name="name">
+											<String>${i18n(catRef)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(catRef_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/category-20.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/category-16.png</String>
+										</field>
+										<field name="accessKey">
+											<String>R</String>
+										</field>
+										<field name="accelerator">
+											<null/>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>local-name() = ('textClass')</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;catRef xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.InsertFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
+										</field>
+									</action>
+									<action>
+										<field name="id">
+											<String>substitution</String>
+										</field>
+										<field name="name">
+											<String>${i18n(substitution)}</String>
+										</field>
+										<field name="description">
+											<String>${i18n(substitution_description)}</String>
+										</field>
+										<field name="largeIconPath">
+											<String>${framework}/images/substitution-16.png</String>
+										</field>
+										<field name="smallIconPath">
+											<String>${framework}/images/substitution-20.png</String>
+										</field>
+										<field name="accessKey">
+											<String>I</String>
+										</field>
+										<field name="accelerator">
+											<String>M1 M2 I</String>
+										</field>
+										<field name="actionModes">
+											<actionMode-array>
+												<actionMode>
+													<field name="xpathCondition">
+														<String>ancestor-or-self::*:div or ancestor-or-self::*:titlePart</String>
+													</field>
+													<field name="argValues">
+														<serializableOrderedMap>
+															<entry>
+																<String>fragment</String>
+																<String>&lt;subst xmlns="http://www.tei-c.org/ns/1.0"/></String>
+															</entry>
+														</serializableOrderedMap>
+													</field>
+													<field name="operationID">
+														<String>ro.sync.ecss.extensions.commons.operations.SurroundWithFragmentOperation</String>
+													</field>
+												</actionMode>
+											</actionMode-array>
+										</field>
+										<field name="enabledInReadOnlyContext">
+											<Boolean>false</Boolean>
 										</field>
 									</action>
 								</action-array>
@@ -3742,6 +4060,9 @@
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -3830,8 +4151,14 @@
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -3882,6 +4209,11 @@
 																<String>supplied</String>
 															</field>
 														</menuItem>
+														<menuItem>
+															<field name="actionID">
+																<String>substitution</String>
+															</field>
+														</menuItem>
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
@@ -3894,6 +4226,9 @@
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -4018,10 +4353,13 @@
 														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
-																<String>revisonDesc</String>
+																<String>revisionDesc</String>
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -4036,6 +4374,12 @@
 												</field>
 												<field name="menuEntriesDescriptorList">
 													<menuEntry-array>
+														<menuItem>
+															<field name="actionID">
+																<String>catRef</String>
+															</field>
+														</menuItem>
+														<menuSeparator/>
 														<menuItem>
 															<field name="actionID">
 																<String>date</String>
@@ -4106,6 +4450,9 @@
 																	</menuItem>
 																</menuEntry-array>
 															</field>
+															<field name="context">
+																<null/>
+															</field>
 														</menu>
 														<menuSeparator/>
 														<menuItem>
@@ -4120,6 +4467,9 @@
 															</field>
 														</menuItem>
 													</menuEntry-array>
+												</field>
+												<field name="context">
+													<null/>
 												</field>
 											</menu>
 											<menu>
@@ -4189,6 +4539,9 @@
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 											<menu>
 												<field name="label">
@@ -4214,8 +4567,14 @@
 														</menuItem>
 													</menuEntry-array>
 												</field>
+												<field name="context">
+													<null/>
+												</field>
 											</menu>
 										</menuEntry-array>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -4232,6 +4591,9 @@
 									</field>
 									<field name="menuEntriesDescriptorList">
 										<menuEntry-array/>
+									</field>
+									<field name="context">
+										<null/>
 									</field>
 								</menu>
 							</field>
@@ -4443,6 +4805,11 @@
 														<String>supplied</String>
 													</field>
 												</toolbarItem>
+												<toolbarItem>
+													<field name="actionID">
+														<String>substitution</String>
+													</field>
+												</toolbarItem>
 												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
@@ -4597,7 +4964,7 @@
 															<toolbarSeparator/>
 															<toolbarItem>
 																<field name="actionID">
-																	<String>revisonDesc</String>
+																	<String>revisionDesc</String>
 																</field>
 															</toolbarItem>
 														</toolbarEntry-array>
@@ -4621,6 +4988,12 @@
 										</field>
 										<field name="toolbarEntriesDescriptorList">
 											<toolbarEntry-array>
+												<toolbarItem>
+													<field name="actionID">
+														<String>catRef</String>
+													</field>
+												</toolbarItem>
+												<toolbarSeparator/>
 												<toolbarItem>
 													<field name="actionID">
 														<String>date</String>
@@ -4796,16 +5169,28 @@
 							<field name="tableSupportClassName">
 								<null/>
 							</field>
+							<field name="tableCellSeparatorSupportClassName">
+								<null/>
+							</field>
 							<field name="tableColWidthSupportClassName">
 								<null/>
 							</field>
 							<field name="customReferencesResolver">
 								<null/>
 							</field>
+							<field name="editPropertiesHandler">
+								<null/>
+							</field>
 							<field name="authorExtensionStateListener">
 								<null/>
 							</field>
 							<field name="attributesRecognizer">
+								<null/>
+							</field>
+							<field name="authorActionEventHandler">
+								<null/>
+							</field>
+							<field name="authorImageDecorator">
 								<null/>
 							</field>
 						</authorExtension>
@@ -4898,9 +5283,6 @@
 								<field name="openInBrowser">
 									<Boolean>false</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -4948,6 +5330,9 @@
 												<String>${userID}</String>
 											</field>
 											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+											<field name="isStatic">
 												<Boolean>false</Boolean>
 											</field>
 										</transformationParameter>
@@ -5006,9 +5391,6 @@
 								<field name="openInBrowser">
 									<Boolean>false</Boolean>
 								</field>
-								<field name="outputFile">
-									<null/>
-								</field>
 								<field name="outputResource">
 									<null/>
 								</field>
@@ -5058,6 +5440,9 @@
 											<field name="hasXPathValue">
 												<Boolean>false</Boolean>
 											</field>
+											<field name="isStatic">
+												<Boolean>false</Boolean>
+											</field>
 										</transformationParameter>
 										<transformationParameter>
 											<field name="paramDescription">
@@ -5079,6 +5464,9 @@
 											<field name="hasXPathValue">
 												<Boolean>false</Boolean>
 											</field>
+											<field name="isStatic">
+												<Boolean>false</Boolean>
+											</field>
 										</transformationParameter>
 										<transformationParameter>
 											<field name="paramDescription">
@@ -5098,6 +5486,9 @@
 												<String>${userID}</String>
 											</field>
 											<field name="hasXPathValue">
+												<Boolean>false</Boolean>
+											</field>
+											<field name="isStatic">
 												<Boolean>false</Boolean>
 											</field>
 										</transformationParameter>
@@ -5155,7 +5546,7 @@
 						<null/>
 					</field>
 					<field name="priority">
-						<Integer>3</Integer>
+						<Integer>4</Integer>
 					</field>
 					<field name="xmlNodeCustomizerExtension">
 						<null/>
@@ -5164,6 +5555,9 @@
 						<null/>
 					</field>
 					<field name="customAttributeValueEditor">
+						<null/>
+					</field>
+					<field name="textModeExternalObjectInsertionHandler">
 						<null/>
 					</field>
 				</documentTypeDescriptor>

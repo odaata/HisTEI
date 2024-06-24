@@ -4,8 +4,8 @@
                xsi:schemaLocation="http://www.oxygenxml.com/ns/extension http://www.oxygenxml.com/ns/extension/extensions.xsd">
     <xt:extension id="emst">
         <xt:location href="emst-oxygen.zip"/>
-        <xt:version>0.5.0</xt:version>
-        <xt:oxy_version>15.2+</xt:oxy_version>
+        <xt:version>${project.version}</xt:version>
+        <xt:oxy_version>${project.build.oxygenVersion}+</xt:oxy_version>
         <xt:type>framework</xt:type>
         <xt:author>Mike Olson</xt:author>
         <xt:name>EMST</xt:name>
@@ -20,6 +20,44 @@
             <p class="title">Emerging Standards Oxygen Framework</p>
             <div class="body">
                 <p class="header">What's new?</p>
+
+                <p class="header">Beta7 Version 1.0.0</p>
+                <ul>
+                    <li>Fix tokenizer issue due to new version of Xquery 'map:merge' fn</li>
+                </ul>
+
+                <p class="header">Beta6 Version 1.0.0</p>
+                <ul>
+                    <li>Fix inactive buttons in correspondence section</li>
+                    <li>Only insert orgName for organizations - no more option for repository</li>
+                    <li>Add time elements to places in contextual info</li>
+                    <li>Update LALP place template to use location element</li>
+                    <li>Allow inserting multiple dated persName, orgName and place name elements</li>
+                </ul>
+
+                <p class="header">Beta5 Version 1.0.0</p>
+                <ul>
+                    <li>Add correspondence section styles for TEI header</li>
+                    <li>Add @role for people in the correspondence action element</li>
+                    <li>Add LALP templates for letter, person and place</li>
+                    <li>Bug fix: Remove @hand from gap and unclear elements</li>
+                    <li>Tech Debt: Move dropdown values for various attributes previously handled by custom Java</li>
+                </ul>
+
+                <p class="header">Beta4 Version 1.0.0</p>
+                <ul>
+                    <li>Add substitution element to EMST framework</li>
+                    <li>Update EMST with latest changes from HisTEI - mostly small bug fixes and QoL improvements</li>
+                </ul>
+
+                <p class="header">Beta3 Version 1.0.0</p>
+                <ul>
+                    <li>Fixed contextual info issues with the xquery syntax.</li>
+                </ul>
+                <p class="header">Beta Version 1.0.0</p>
+                <ul>
+                    <li>After ten long years, HisTEI's back, baby! Here's a beta with all the latest that Java has to offer in 2024</li>
+                </ul>
                 <p class="header">Version 0.5.0</p>
                 <ul>
                     <li>Added the tokenizer! You can now split your transcriptions into separate words, numbers and punctuation</li>

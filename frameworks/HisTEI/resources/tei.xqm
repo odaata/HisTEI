@@ -1,4 +1,4 @@
-xquery version "3.0";
+xquery version "3.1";
 
 (:~
  : A set of helper functions to generate TEI elements
@@ -25,14 +25,14 @@ declare variable $teix:EDIT_ELEMENT_NAMES := ("add", "del", "hi");
 declare variable $teix:PLACE_ELEMENT_NAMES := ("placeName", "district", "settlement", "region", "country", "bloc");
 
 declare variable $teix:ORDERED_ELEMENTS_MAP as map(xs:string, xs:string+) := map {
-    "TEI" := ("teiHeader", "fsdDecl", "facsimile", "sourceDoc", "text"),
-    "teiHeader" := ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc"),
-    "fileDesc" := ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc"),
-    "titleStmt" := ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal"),
-    "profileDesc" := ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes"),
-    "creation" := ("date", "persName", $teix:PLACE_ELEMENT_NAMES, "orgName"),
-    "textClass" := ("classCode", "catRef", "keywords"),
-    "text" := ( "front", "body", "group", "back" )
+    "TEI" : ("teiHeader", "fsdDecl", "facsimile", "sourceDoc", "text"),
+    "teiHeader" : ("fileDesc", "encodingDesc", "profileDesc", "revisionDesc"),
+    "fileDesc" : ("titleStmt", "editionStmt", "extent", "publicationStmt", "seriesStmt", "notesStmt", "sourceDesc"),
+    "titleStmt" : ("title", "author", "editor", "respStmt", "meeting", "sponsor", "funder", "principal"),
+    "profileDesc" : ("creation", "particDesc", "settingDesc", "textClass", "textDesc", "langUsage", "calendarDesc", "listTranspose", "handNotes"),
+    "creation" : ("date", "persName", $teix:PLACE_ELEMENT_NAMES, "orgName"),
+    "textClass" : ("classCode", "catRef", "keywords"),
+    "text" : ( "front", "body", "group", "back" )
 };
 
 declare variable $teix:CON_INFO_TYPES := element contextualTypes {
@@ -344,7 +344,7 @@ declare function teix:split-ref($ref as xs:string?) as xs:string* {
 };
 
 declare function teix:con-info-docs-map($contextualInfoURI as xs:anyURI) as map(xs:string, document-node()) {
-        map:new(
+        map:merge(
             for $doc in teix:collection($contextualInfoURI)
             let $filename := utils:filenames($doc)
             let $conType := $teix:CON_INFO_TYPES/*[@file eq $filename]

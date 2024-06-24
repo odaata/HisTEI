@@ -260,7 +260,7 @@ declare variable $tok:defaultTokenTypes as map(xs:integer, map(xs:string, item()
             map:entry(
                 $key, 
                 if ($typeName = ("ordinal", "number", "compound", "word")) then 
-                    map:merge(($tokenMap, map { $tok:ANN_FUNC_LABEL : $annFunc }))
+                    map:merge(($tokenMap, map { $tok:ANN_FUNC_LABEL : $annFunc }), map{ "duplicates": "use-last" })
                 else
                     map:remove($tokenMap, $tok:ANN_FUNC_LABEL)
             )
